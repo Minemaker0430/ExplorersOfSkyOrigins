@@ -5,3 +5,18 @@ This project is in no way affiliated with Nintendo, The Pokemon Company, or Spik
 
 # Credits
  Minemaker0430 - Project Creator
+
+# Progress Updates
+ Finished:
+ None
+
+ WIP:
+ Opening Cutscene [Minemaker]
+
+ TODO:
+ Personality Quiz
+ Hub Ground Maps (Guild & TT)
+ Hub NPCs
+ Beach Cave
+ Import Job System
+ Ch 1 Cutscenes
