@@ -1,0 +1,28 @@
+﻿{
+"Version": "0.7.17.0",
+"Object": {
+"$type": "RogueEssence.Data.ZoneData, RogueEssence",
+"Name": {
+"DefaultText": "",
+"LocalTexts": {}
+},
+"Released": true,
+"Comment": "should only be used for purely visual cutscenes with no interaction",
+"NoEXP": false,
+"Level": -1,
+"LevelCap": false,
+"KeepSkills": false,
+"TeamRestrict": false,
+"TeamSize": -1,
+"MoneyRestrict": false,
+"BagRestrict": -1,
+"BagSize": -1,
+"Persistent": false,
+"Rescues": 0,
+"Rogue": 0,
+"Segments": [],
+"GroundMaps": [
+"intro_cutscene"
+]
+}
+}

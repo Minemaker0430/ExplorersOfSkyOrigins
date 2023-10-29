@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.NetStandard.ResXResourceReader, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.NetStandard.ResXResourceWriter, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </resheader>
+  
+  <data name="PersonalityQuizIntro_1" xml:space="preserve"><value>Welcome!</value></data>
+  <data name="PersonalityQuizIntro_2" xml:space="preserve"><value>This is the portal that leads to the\nworld inhabited only by Pokémon.</value></data>
+  <data name="PersonalityQuizIntro_3" xml:space="preserve"><value>Beyond this gateway, many new\nadventures and fresh experiences\nawait your arrival!</value></data>
+  <data name="PersonalityQuizIntro_4" xml:space="preserve"><value>Before you depart for adventure,\nyou must answer some questions.</value></data>
+  <data name="PersonalityQuizIntro_5" xml:space="preserve"><value>Be truthful when you answer them!</value></data>
+  <data name="PersonalityQuizIntro_6" xml:space="preserve"><value>Now, are you ready?</value></data>
+  <data name="PersonalityQuizIntro_7" xml:space="preserve"><value>Then...[pause=5]let the questions begin!</value></data>
+  
+  <data name="ChapterTitle_1" xml:space="preserve"><value>Chapter 1\n\nA Storm at Sea</value></data>
+  <data name="ChapterTitle_2" xml:space="preserve"><value>Chapter 2\n\nThe New Guild Recruits</value></data>
+  <data name="ChapterTitle_3" xml:space="preserve"><value>Chapter 3\n\nThe Scream</value></data>
+  <data name="ChapterTitle_4" xml:space="preserve"><value>Chapter 4\n\nThe Gatekeepers</value></data>
+  <data name="ChapterTitle_5" xml:space="preserve"><value>Chapter 5\n\nThe First Official Exploration</value></data>
+  <data name="ChapterTitle_6" xml:space="preserve"><value>Chapter 6\n\nTeam Skull</value></data>
+  <data name="ChapterTitle_7" xml:space="preserve"><value>Chapter 7\n\nThe Guild's Big Expedition</value></data>
+  <data name="ChapterTitle_8" xml:space="preserve"><value>Chapter 8\n\nGroudon's Heart</value></data>
+  <data name="ChapterTitle_9" xml:space="preserve"><value>Chapter 9\n\nThe Mystery of Fogbound Lake</value></data>
+  <data name="ChapterTitle_10" xml:space="preserve"><value>Chapter 10\n\nDusknoir</value></data>
+  <data name="ChapterTitle_11" xml:space="preserve"><value>Chapter 11\n\nGrovyle the Thief</value></data>
+  <data name="ChapterTitle_12" xml:space="preserve"><value>Chapter 12\n\nThe Only Option</value></data>
+  <data name="ChapterTitle_13" xml:space="preserve"><value>Chapter 13\n\nDusknoir's Secret</value></data>
+  <data name="ChapterTitle_14" xml:space="preserve"><value>Chapter 14\n\nInto the Future</value></data>
+  <data name="ChapterTitle_15" xml:space="preserve"><value>Chapter 15\n\nThe Secret of the Planet's Paralysis</value></data>
+  <data name="ChapterTitle_16" xml:space="preserve"><value>Chapter 16\n\nA New Dawn</value></data>
+  <data name="ChapterTitle_17" xml:space="preserve"><value>Chapter 17\n\nThe Guild's Crew</value></data>
+  <data name="ChapterTitle_18" xml:space="preserve"><value>Chapter 18\n\nLapras</value></data>
+  <data name="ChapterTitle_19" xml:space="preserve"><value>Chapter 19\n\nTo the Hidden Land</value></data>
+  <data name="ChapterTitle_20" xml:space="preserve"><value>Final Chapter\n\nThe Last Adventure</value></data>
+  
+  <data name="SpecialEpisode_1" xml:space="preserve"><value>Bidoof's Wish</value></data>
+  <data name="SpecialEpisode_2" xml:space="preserve"><value>Igglybuff The Prodigy</value></data>
+  <data name="SpecialEpisode_3" xml:space="preserve"><value>Today's "Oh My Gosh!"</value></data>
+  <data name="SpecialEpisode_4" xml:space="preserve"><value>Here Comes Team Charm!</value></data>
+  <data name="SpecialEpisode_5" xml:space="preserve"><value>In The Future of Darkness</value></data>
+  
+  <data name="CH1_S1_Unknown_1" xml:space="preserve"><value>Whoa![pause=0] Wh-[pause=5]wh-[pause=5]whoa...!</value></data>
+  <data name="CH1_S1_Unknown_2" xml:space="preserve"><value>Are...[pause=0] Are you OK?!</value></data>
+  <data name="CH1_S1_Unknown_3" xml:space="preserve"><value>Are...[pause=0] Are you OK?!</value></data>
+  <data name="CH1_S1_Unknown_4" xml:space="preserve"><value>No![pause=0] Don't let go![pause=0] Just a little longer...[pause=0] Come on![pause=0] Hang on!</value></data>
+  <data name="CH1_S1_Unknown_5" xml:space="preserve"><value>No-[pause=5]n-[pause=5]no![pause=0] I can't...[pause=0] hold on...!</value></data>
+  <data name="CH1_S1_Unknown_6" xml:space="preserve"><value>Waaaaaah!</value></data>
+  
+  <data name="CH1_S1_Unknown_7" xml:space="preserve"><value>......</value></data>
+  <data name="CH1_S1_Unknown_8" xml:space="preserve"><value>Urrgh...</value></data>
+  <data name="CH1_S1_Unknown_9" xml:space="preserve"><value>Where...[pause=0] Where am I?</value></data>
+  <data name="CH1_S1_Hero_1" xml:space="preserve"><value>...I can't...[pause=0] Drifting off...</value></data>
+  
+  <data name="CH1_S1_Partner_1" xml:space="preserve"><value>Hmm...</value></data>
+  <data name="CH1_S1_Partner_2" xml:space="preserve"><value>No.[pause=0] I refuse to be paralyzed by this any longer![pause=0] This is it.[pause=0] I have to steel my courage today.</value></data>
+  <data name="CH1_S1_Unknown_10" xml:space="preserve"><value>Pokemon detected! Pokemon detected!</value></data>
+  <data name="CH1_S1_Unknown_11" xml:space="preserve"><value>Whose footprint? Whose footprint?</value></data>
+  <data name="CH1_S1_Unknown_12" xml:space="preserve"><value>The footprint is {0}'s! The footprint is {0}'s!</value></data>
+  <data name="CH1_S1_Partner_3" xml:space="preserve"><value>Waah!</value></data>
+  <data name="CH1_S1_Partner_4" xml:space="preserve"><value>That was too shocking!</value></data>
+  <data name="CH1_S1_Partner_5" xml:space="preserve"><value>Whew...</value></data>
+  <data name="CH1_S1_Partner_6" xml:space="preserve"><value>...I can't...[pause=0] I can't work up the courage to go in,[pause=5] after all...[pause=0] I told myself that this is the day,[pause=5] but...</value></data>
+  <data name="CH1_S1_Partner_7" xml:space="preserve"><value>I thought that holding on to my personal treasure would inspire me...</value></data>
+  <data name="CH1_S1_Partner_8" xml:space="preserve"><value>Sigh...[pause=0]I just can't do it.</value></data>
+  <data name="CH1_S1_Partner_9" xml:space="preserve"><value>I'm such a coward...[pause=0] This is so discouraging...</value></data>
+  
+  <data name="CH1_S1_Koffing_1" xml:space="preserve"><value>Hey,[pause=5] Zubat.[pause=0] Did you get a load of that?!</value></data>
+  <data name="CH1_S1_Zubat_1" xml:space="preserve"><value>You bet I did,[pause=5] Koffing.</value></data>
+  <data name="CH1_S1_Koffing_2" xml:space="preserve"><value>That little wimp that was pacing around...[pause=0] had something good,[pause=5] right?</value></data>
+  <data name="CH1_S1_Zubat_2" xml:space="preserve"><value>That wimp had something,[pause=5] that's for sure.[pause=0] It looked like some kind of treasure.</value></data>
+  <data name="CH1_S1_Koffing_3" xml:space="preserve"><value>Do we go after it?</value></data>
+  <data name="CH1_S1_Zubat_3" xml:space="preserve"><value>We do.</value></data>
+  
+  
+  
+</root>
