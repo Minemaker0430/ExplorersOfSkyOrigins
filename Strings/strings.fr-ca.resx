@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.NetStandard.ResXResourceReader, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.NetStandard.ResXResourceWriter, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </resheader>
+  <data name="_ENUM_BattleSpeed_Fast" xml:space="preserve">
+    <value>Vite</value>
+  </data>
+  <data name="_ENUM_BattleSpeed_VeryFast" xml:space="preserve">
+    <value>Très Vite</value>
+  </data>
+  <data name="_ENUM_DisconnectReason_ConnectionFailed_msg" xml:space="preserve">
+    <value>La connexion ne fonctionne pas.</value>
+  </data>
+  <data name="_ENUM_DisconnectReason_ConnectionRejected_msg" xml:space="preserve">
+    <value>La connexion a été rejetée.</value>
+  </data>
+  <data name="_ENUM_DisconnectReason_InvalidProtocol_msg" xml:space="preserve">
+    <value>Protocole invalide.</value>
+  </data>
+  <data name="_ENUM_DisconnectReason_RemoteConnectionClose_msg" xml:space="preserve">
+    <value>Le serveur a fermé sa connexion.</value>
+  </data>
+  <data name="_ENUM_DisconnectReason_Timeout_msg" xml:space="preserve">
+    <value>La connexion a expiré.</value>
+  </data>
+  <data name="_ENUM_ExchangeState_Exchange_msg" xml:space="preserve">
+    <value>En trains de échanges...</value>
+  </data>
+  <data name="_ENUM_ExchangeState_Ready_msg" xml:space="preserve">
+    <value>Prêt!</value>
+  </data>
+  <data name="_ENUM_ExchangeState_Selecting_msg" xml:space="preserve">
+    <value>En train de sélectionnes...</value>
+  </data>
+  <data name="_ENUM_ExchangeState_Viewing_msg" xml:space="preserve">
+    <value>En trains de regarder...</value>
+    <comment>The status for a player when they're viewing the Pokemon they can trade.</comment>
+  </data>
+  <data name="_ENUM_ExchangeState_Waiting_msg" xml:space="preserve">
+    <value>Entraine de attendre...</value>
+  </data>
+  <data name="_ENUM_InputType_LeaderSwapBack" xml:space="preserve">
+    <value>Échange de chef  à l'arrière</value>
+  </data>
+  <data name="_ENUM_InputType_LeaderSwapForth" xml:space="preserve">
+    <value>Échange de chef vers l'avant</value>
+  </data>
+</root>
