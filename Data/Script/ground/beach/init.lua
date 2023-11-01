@@ -32,8 +32,46 @@ end
 --Engine callback function
 function beach.Enter(map)
 
-  GAME:FadeIn(20)
+  --Normal Entry
+  if not SV.beach.Cutscene then
+	GAME:FadeIn(20)
+	--Handle NPCs based on progression
+  else
+  --Cutscenes
+	--GROUND:AddMapStatus("dusk")
+	
+	if (SV.Chapter = 1 and SV.SectionFlag = 0) then
+		
+		local player = CH('PLAYER')
 
+		GAME:CutsceneMode(true)
+		GROUND:CharSetAnim(player, "Laying", true)
+		
+		GAME:WaitFrames(120)
+		
+        UI:WaitShowDialogue(STRINGS:Format("......"))
+		UI:WaitShowDialogue(STRINGS:Format("............"))
+		UI:WaitShowDialogue(STRINGS:Format(".................."))
+		UI:WaitShowDialogue(STRINGS:Format("Urrgh..."))
+    
+		GAME:WaitFrames(60)
+		
+		UI:WaitShowDialogue(STRINGS:Format("Where..."))
+		UI:WaitShowDialogue(STRINGS:Format("...Where am I?"))
+		
+		GAME:FadeIn(120)
+		
+		UI:SetSpeaker(player)
+		UI:SetSpeakerEmotion("Pain")
+		
+		UI:WaitShowDialogue(STRINGS:Format("...[pause=0]I can\'t...[pause=0] Drifting off..."))
+		
+		GAME:WaitFrames(30)
+		GAME:FadeOut(false, 150)
+		GAME:WaitFrames(60)
+		
+    end
+  end
 end
 
 ---beach.Exit(map)
