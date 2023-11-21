@@ -5,4 +5,5 @@ This project is in no way affiliated with Nintendo, The Pokemon Company, or Spik
 
 # Credits
  Minemaker0430 - Project Creator
- Palika - Dusk/Darkness Shaders
+
+Palika - Dusk/Darkness Shaders
