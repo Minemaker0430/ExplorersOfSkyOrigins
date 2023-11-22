@@ -8,6 +8,8 @@ This project is in no way affiliated with Nintendo, The Pokemon Company, or Spik
 
 Palika - Dusk/Darkness Shaders, Job System (NYI)
 
+Trio - Job System (NYI)
+
 # Major Changes
  - Treasure Town no longer has a Loading Zone between its two areas.
  - Aura is randomized due to the fact this is not a DS (NYI)
