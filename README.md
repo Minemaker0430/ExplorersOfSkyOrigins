@@ -9,7 +9,7 @@ This project is in no way affiliated with Nintendo, The Pokemon Company, or Spik
 Palika - Dusk/Darkness Shaders, Job System (NYI)
 
 # Major Changes
- - Treasure Town no longer has a Loading Zone between its two areas. (NYI)
+ - Treasure Town no longer has a Loading Zone between its two areas.
  - Aura is randomized due to the fact this is not a DS (NYI)
  - IQ is completely irrelevant so Spinda's Juice Bar is now used for Major Stat Buffs (NYI)
  - Recruitment now uses Apricorns spawned in valid dungeons. Some dungeons will still not allow recruitment. (NYI)
