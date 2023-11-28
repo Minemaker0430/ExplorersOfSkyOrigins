@@ -6,5 +6,16 @@
   <UUID>24139FE5-134F-498F-A91C-2D606E2F50F2</UUID>
   <Version>0.0</Version>
   <ModType>Quest</ModType>
-  <Relationships />
+  <Relationships>
+    <RelatedMod>
+      <UUID>4D7F17A7-0864-4F1B-AD4A-F8D2BE6DDD97</UUID>
+      <Namespace>starter_mod</Namespace>
+      <Relationship>Incompatible</Relationship>
+    </RelatedMod>
+    <RelatedMod>
+      <UUID>C8912E1B-EC5F-495C-BADD-165CC08C8E78</UUID>
+      <Namespace>gender_unlock</Namespace>
+      <Relationship>Incompatible</Relationship>
+    </RelatedMod>
+  </Relationships>
 </Header>

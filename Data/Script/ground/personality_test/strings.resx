@@ -1,0 +1,1582 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.NetStandard.ResXResourceReader, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.NetStandard.ResXResourceWriter, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </resheader>
+  <data name="Quiz_Color_A0" xml:space="preserve">
+    <value>What's your favorite color?</value>
+  </data>
+  <data name="Quiz_Color_A1" xml:space="preserve">
+    <value>Black</value>
+  </data>
+  <data name="Quiz_Color_A2" xml:space="preserve">
+    <value>White</value>
+  </data>
+  <data name="Quiz_Color_A3" xml:space="preserve">
+    <value>Red</value>
+  </data>
+  <data name="Quiz_Color_A4" xml:space="preserve">
+    <value>Orange</value>
+  </data>
+  <data name="Quiz_Color_A5" xml:space="preserve">
+    <value>Yellow</value>
+  </data>
+  <data name="Quiz_Color_A6" xml:space="preserve">
+    <value>Green</value>
+  </data>
+  <data name="Quiz_Color_A7" xml:space="preserve">
+    <value>Blue</value>
+  </data>
+  <data name="Quiz_Color_A8" xml:space="preserve">
+    <value>Cyan</value>
+  </data>
+  <data name="Quiz_Color_A9" xml:space="preserve">
+    <value>Purple</value>
+  </data>
+  <data name="Quiz_Color_A10" xml:space="preserve">
+    <value>Magenta</value>
+  </data>
+  <data name="Quiz_Color_A11" xml:space="preserve">
+    <value>Pink</value>
+  </data>
+  <data name="Quiz_Gender_A0" xml:space="preserve">
+    <value>Are you male or female?</value>
+  </data>
+  <data name="Quiz_Gender_A1" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="Quiz_Gender_A2" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="Quiz_Gender_A3" xml:space="preserve">
+    <value>Neither</value>
+  </data>
+  <data name="Quiz_Q1_A0" xml:space="preserve">
+    <value>You're running a marathon, and at the start you fall flat on your face! What will you do?</value>
+  </data>
+  <data name="Quiz_Q1_A1" xml:space="preserve">
+    <value>I'm not giving up yet!</value>
+  </data>
+  <data name="Quiz_Q1_A2" xml:space="preserve">
+    <value>Just give up.</value>
+  </data>
+  <data name="Quiz_Q1_A3" xml:space="preserve">
+    <value>Shout, "START OVER!"</value>
+  </data>
+  <data name="Quiz_Q1_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q2_A0" xml:space="preserve">
+    <value>You're at a movie theater. What are you there to see?</value>
+  </data>
+  <data name="Quiz_Q2_A1" xml:space="preserve">
+    <value>An action movie.</value>
+  </data>
+  <data name="Quiz_Q2_A2" xml:space="preserve">
+    <value>A drama.</value>
+  </data>
+  <data name="Quiz_Q2_A3" xml:space="preserve">
+    <value>A romantic movie.</value>
+  </data>
+  <data name="Quiz_Q2_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q3_A0" xml:space="preserve">
+    <value>What's your studying style?</value>
+  </data>
+  <data name="Quiz_Q3_A1" xml:space="preserve">
+    <value>Working hard, every day.</value>
+  </data>
+  <data name="Quiz_Q3_A2" xml:space="preserve">
+    <value>If I remember to...</value>
+  </data>
+  <data name="Quiz_Q3_A3" xml:space="preserve">
+    <value>I just cover what I need to.</value>
+  </data>
+  <data name="Quiz_Q3_A4" xml:space="preserve">
+    <value>I can't really do it alone...</value>
+  </data>
+  <data name="Quiz_Q4_A0" xml:space="preserve">
+    <value>You've been asked to do a difficult task. What will you do?</value>
+  </data>
+  <data name="Quiz_Q4_A1" xml:space="preserve">
+    <value>Do it myself.</value>
+  </data>
+  <data name="Quiz_Q4_A2" xml:space="preserve">
+    <value>Ask someone to help.</value>
+  </data>
+  <data name="Quiz_Q4_A3" xml:space="preserve">
+    <value>Make someone else do it!</value>
+  </data>
+  <data name="Quiz_Q4_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q5_A0" xml:space="preserve">
+    <value>Are you truly sincere when you apologize?</value>
+  </data>
+  <data name="Quiz_Q5_A1" xml:space="preserve">
+    <value>Of course.</value>
+  </data>
+  <data name="Quiz_Q5_A2" xml:space="preserve">
+    <value>That's not easy to admit!</value>
+  </data>
+  <data name="Quiz_Q5_A3" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q5_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q6_A0" xml:space="preserve">
+    <value>Do you think you have good study habits?</value>
+  </data>
+  <data name="Quiz_Q6_A1" xml:space="preserve">
+    <value>Yes.</value>
+  </data>
+  <data name="Quiz_Q6_A2" xml:space="preserve">
+    <value>No.</value>
+  </data>
+  <data name="Quiz_Q6_A3" xml:space="preserve">
+    <value>Well, I never lose at sports!</value>
+  </data>
+  <data name="Quiz_Q6_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q7_A0" xml:space="preserve">
+    <value>There's a rumor around about a ghost haunting the school bathrooms! What do you do?</value>
+  </data>
+  <data name="Quiz_Q7_A1" xml:space="preserve">
+    <value>Scary...bathrooms!</value>
+  </data>
+  <data name="Quiz_Q7_A2" xml:space="preserve">
+    <value>Go in there anyway.</value>
+  </data>
+  <data name="Quiz_Q7_A3" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q7_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q8_A0" xml:space="preserve">
+    <value>Everyone's sharing a dessert, and there's an extra piece. What do you do?</value>
+  </data>
+  <data name="Quiz_Q8_A1" xml:space="preserve">
+    <value>Don't tell anyone.</value>
+  </data>
+  <data name="Quiz_Q8_A2" xml:space="preserve">
+    <value>Let everyone know.</value>
+  </data>
+  <data name="Quiz_Q8_A3" xml:space="preserve">
+    <value>First come, first served!</value>
+  </data>
+  <data name="Quiz_Q8_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q9_A0" xml:space="preserve">
+    <value>How are your mornings?</value>
+  </data>
+  <data name="Quiz_Q9_A1" xml:space="preserve">
+    <value>Always in a rush!</value>
+  </data>
+  <data name="Quiz_Q9_A2" xml:space="preserve">
+    <value>Always perfect.</value>
+  </data>
+  <data name="Quiz_Q9_A3" xml:space="preserve">
+    <value>They are OK.</value>
+  </data>
+  <data name="Quiz_Q9_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q10_A0" xml:space="preserve">
+    <value>Everyone around you is laughing hard at something you think is pretty boring. What do you do?</value>
+  </data>
+  <data name="Quiz_Q10_A1" xml:space="preserve">
+    <value>Nothing, really.</value>
+  </data>
+  <data name="Quiz_Q10_A2" xml:space="preserve">
+    <value>Laugh along.</value>
+  </data>
+  <data name="Quiz_Q10_A3" xml:space="preserve">
+    <value>It depends on the situation.</value>
+  </data>
+  <data name="Quiz_Q10_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q11_A0" xml:space="preserve">
+    <value>You want to reveal that you like someone a whole bunch! What do you do?</value>
+  </data>
+  <data name="Quiz_Q11_A1" xml:space="preserve">
+    <value>Show it a little by playing together.</value>
+  </data>
+  <data name="Quiz_Q11_A2" xml:space="preserve">
+    <value>Make it obvious by...playing a prank!</value>
+  </data>
+  <data name="Quiz_Q11_A3" xml:space="preserve">
+    <value>State it clearly for all to hear!</value>
+  </data>
+  <data name="Quiz_Q11_A4" xml:space="preserve">
+    <value>Keep it to myself! It's too risky!</value>
+  </data>
+  <data name="Quiz_Q12_A0" xml:space="preserve">
+    <value>You're on a stroll when a TV crew pounces on you for an interview. What do you do?</value>
+  </data>
+  <data name="Quiz_Q12_A1" xml:space="preserve">
+    <value>Run away! How embarrassing!</value>
+  </data>
+  <data name="Quiz_Q12_A2" xml:space="preserve">
+    <value>Answer questions properly.</value>
+  </data>
+  <data name="Quiz_Q12_A3" xml:space="preserve">
+    <value>Yuck it up! Woo-hoo! I'm on TV!</value>
+  </data>
+  <data name="Quiz_Q12_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q13_A0" xml:space="preserve">
+    <value>Do you like lively parties?</value>
+  </data>
+  <data name="Quiz_Q13_A1" xml:space="preserve">
+    <value>Yes.</value>
+  </data>
+  <data name="Quiz_Q13_A2" xml:space="preserve">
+    <value>No.</value>
+  </data>
+  <data name="Quiz_Q13_A3" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q13_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q14_A0" xml:space="preserve">
+    <value>The people at the next table are singing for someone's birthday. What do you do?</value>
+  </data>
+  <data name="Quiz_Q14_A1" xml:space="preserve">
+    <value>Stay on the sidelines.</value>
+  </data>
+  <data name="Quiz_Q14_A2" xml:space="preserve">
+    <value>Sing along!</value>
+  </data>
+  <data name="Quiz_Q14_A3" xml:space="preserve">
+    <value>Walk away.</value>
+  </data>
+  <data name="Quiz_Q14_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q15_A0" xml:space="preserve">
+    <value>You're in a completely silent assembly when you suddenly hear someone pass gas! How do you react?</value>
+  </data>
+  <data name="Quiz_Q15_A1" xml:space="preserve">
+    <value>Roll on the floor laughing!</value>
+  </data>
+  <data name="Quiz_Q15_A2" xml:space="preserve">
+    <value>Just let it go by...</value>
+  </data>
+  <data name="Quiz_Q15_A3" xml:space="preserve">
+    <value>Who was that?!</value>
+  </data>
+  <data name="Quiz_Q15_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q16_A0" xml:space="preserve">
+    <value>Do you like karaoke?</value>
+  </data>
+  <data name="Quiz_Q16_A1" xml:space="preserve">
+    <value>Yes.</value>
+  </data>
+  <data name="Quiz_Q16_A2" xml:space="preserve">
+    <value>No.</value>
+  </data>
+  <data name="Quiz_Q16_A3" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q16_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q17_A0" xml:space="preserve">
+    <value>Do you prefer to play outside rather than inside?</value>
+  </data>
+  <data name="Quiz_Q17_A1" xml:space="preserve">
+    <value>Yes.</value>
+  </data>
+  <data name="Quiz_Q17_A2" xml:space="preserve">
+    <value>No.</value>
+  </data>
+  <data name="Quiz_Q17_A3" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q17_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q18_A0" xml:space="preserve">
+    <value>You see a big and comfortable bed. Your first reaction is to...</value>
+  </data>
+  <data name="Quiz_Q18_A1" xml:space="preserve">
+    <value>Jump on it!</value>
+  </data>
+  <data name="Quiz_Q18_A2" xml:space="preserve">
+    <value>Belly flop!</value>
+  </data>
+  <data name="Quiz_Q18_A3" xml:space="preserve">
+    <value>Curl up.</value>
+  </data>
+  <data name="Quiz_Q18_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q19_A0" xml:space="preserve">
+    <value>You're hiking up a mountain when you reach diverging paths. Which kind do you take?</value>
+  </data>
+  <data name="Quiz_Q19_A1" xml:space="preserve">
+    <value>Narrow.</value>
+  </data>
+  <data name="Quiz_Q19_A2" xml:space="preserve">
+    <value>Wide.</value>
+  </data>
+  <data name="Quiz_Q19_A3" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q19_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q20_A0" xml:space="preserve">
+    <value>You discover a beat-up-looking treasure chest in some ruins. What do you do?</value>
+  </data>
+  <data name="Quiz_Q20_A1" xml:space="preserve">
+    <value>Open it!</value>
+  </data>
+  <data name="Quiz_Q20_A2" xml:space="preserve">
+    <value>Get help opening it.</value>
+  </data>
+  <data name="Quiz_Q20_A3" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q20_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q21_A0" xml:space="preserve">
+    <value>Your friend takes a spectacular fall! What do you do?</value>
+  </data>
+  <data name="Quiz_Q21_A1" xml:space="preserve">
+    <value>Help my friend up!</value>
+  </data>
+  <data name="Quiz_Q21_A2" xml:space="preserve">
+    <value>Laugh! It's too funny!</value>
+  </data>
+  <data name="Quiz_Q21_A3" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q21_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q22_A0" xml:space="preserve">
+    <value>You're daydreaming...when your friend sprays you with water! What do you do?</value>
+  </data>
+  <data name="Quiz_Q22_A1" xml:space="preserve">
+    <value>Get mad!</value>
+  </data>
+  <data name="Quiz_Q22_A2" xml:space="preserve">
+    <value>Get sad.</value>
+  </data>
+  <data name="Quiz_Q22_A3" xml:space="preserve">
+    <value>Woo-hoo! Water fight!</value>
+  </data>
+  <data name="Quiz_Q22_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q23_A0" xml:space="preserve">
+    <value>Have you ever thought that if you dug in your backyard you could find buried treasure?</value>
+  </data>
+  <data name="Quiz_Q23_A1" xml:space="preserve">
+    <value>Yes.</value>
+  </data>
+  <data name="Quiz_Q23_A2" xml:space="preserve">
+    <value>No.</value>
+  </data>
+  <data name="Quiz_Q23_A3" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q23_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q24_A0" xml:space="preserve">
+    <value>Have you ever told a joke that just completely fell flat?</value>
+  </data>
+  <data name="Quiz_Q24_A1" xml:space="preserve">
+    <value>Yes.</value>
+  </data>
+  <data name="Quiz_Q24_A2" xml:space="preserve">
+    <value>No.</value>
+  </data>
+  <data name="Quiz_Q24_A3" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q24_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q25_A0" xml:space="preserve">
+    <value>Hey, what's that? There's someone behind you! So...did you look just now?</value>
+  </data>
+  <data name="Quiz_Q25_A1" xml:space="preserve">
+    <value>Don't do that! It scared me!</value>
+  </data>
+  <data name="Quiz_Q25_A2" xml:space="preserve">
+    <value>OK, I admit it. You tricked me.</value>
+  </data>
+  <data name="Quiz_Q25_A3" xml:space="preserve">
+    <value>No way. I didn't fall for it.</value>
+  </data>
+  <data name="Quiz_Q25_A4" xml:space="preserve">
+    <value>Huh? What?</value>
+  </data>
+  <data name="Quiz_Q26_A0" xml:space="preserve">
+    <value>Your friend has made a meal that tastes terrible. They ask, "How is it?" You say...?</value>
+  </data>
+  <data name="Quiz_Q26_A1" xml:space="preserve">
+    <value>"Terrible!"</value>
+  </data>
+  <data name="Quiz_Q26_A2" xml:space="preserve">
+    <value>Just smile.</value>
+  </data>
+  <data name="Quiz_Q26_A3" xml:space="preserve">
+    <value>"Um, it's...good."</value>
+  </data>
+  <data name="Quiz_Q26_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q27_A0" xml:space="preserve">
+    <value>You run into a new person that you haven't talked to very much before. What do you do?</value>
+  </data>
+  <data name="Quiz_Q27_A1" xml:space="preserve">
+    <value>Make small talk.</value>
+  </data>
+  <data name="Quiz_Q27_A2" xml:space="preserve">
+    <value>Say nothing!</value>
+  </data>
+  <data name="Quiz_Q27_A3" xml:space="preserve">
+    <value>Make an excuse to get away!</value>
+  </data>
+  <data name="Quiz_Q27_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q28_A0" xml:space="preserve">
+    <value>Good news and bad news... Which one do you want to hear first?</value>
+  </data>
+  <data name="Quiz_Q28_A1" xml:space="preserve">
+    <value>The good news.</value>
+  </data>
+  <data name="Quiz_Q28_A2" xml:space="preserve">
+    <value>The bad news.</value>
+  </data>
+  <data name="Quiz_Q28_A3" xml:space="preserve">
+    <value>I don't want either.</value>
+  </data>
+  <data name="Quiz_Q28_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q29_A0" xml:space="preserve">
+    <value>Have you ever realized you were hogging the conversation?</value>
+  </data>
+  <data name="Quiz_Q29_A1" xml:space="preserve">
+    <value>Yes.</value>
+  </data>
+  <data name="Quiz_Q29_A2" xml:space="preserve">
+    <value>No.</value>
+  </data>
+  <data name="Quiz_Q29_A3" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q29_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q30_A0" xml:space="preserve">
+    <value>When you see a switch, do you feel an overwhelming urge to flip it?</value>
+  </data>
+  <data name="Quiz_Q30_A1" xml:space="preserve">
+    <value>Yes.</value>
+  </data>
+  <data name="Quiz_Q30_A2" xml:space="preserve">
+    <value>No.</value>
+  </data>
+  <data name="Quiz_Q30_A3" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q30_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q31_A0" xml:space="preserve">
+    <value>You find something at a great bargain price! What do you do?</value>
+  </data>
+  <data name="Quiz_Q31_A1" xml:space="preserve">
+    <value>Buy it right away!</value>
+  </data>
+  <data name="Quiz_Q31_A2" xml:space="preserve">
+    <value>Think about whether you need it.</value>
+  </data>
+  <data name="Quiz_Q31_A3" xml:space="preserve">
+    <value>Demand an even bigger discount!</value>
+  </data>
+  <data name="Quiz_Q31_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q32_A0" xml:space="preserve">
+    <value>You're packing your classroom's snacks for a picnic when you get hungry. What do you do?</value>
+  </data>
+  <data name="Quiz_Q32_A1" xml:space="preserve">
+    <value>Eat just a tiny bit.</value>
+  </data>
+  <data name="Quiz_Q32_A2" xml:space="preserve">
+    <value>Hold myself back and pack it all up.</value>
+  </data>
+  <data name="Quiz_Q32_A3" xml:space="preserve">
+    <value>What snacks? They're in my belly!</value>
+  </data>
+  <data name="Quiz_Q32_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q33_A0" xml:space="preserve">
+    <value>Do you want to be taller someday?</value>
+  </data>
+  <data name="Quiz_Q33_A1" xml:space="preserve">
+    <value>Totally!</value>
+  </data>
+  <data name="Quiz_Q33_A2" xml:space="preserve">
+    <value>Of course not.</value>
+  </data>
+  <data name="Quiz_Q33_A3" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q33_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q34_A0" xml:space="preserve">
+    <value>Do you think it's important to always aim to be the best?</value>
+  </data>
+  <data name="Quiz_Q34_A1" xml:space="preserve">
+    <value>Of course!</value>
+  </data>
+  <data name="Quiz_Q34_A2" xml:space="preserve">
+    <value>No.</value>
+  </data>
+  <data name="Quiz_Q34_A3" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q34_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q35_A0" xml:space="preserve">
+    <value>Have you ever looked at your reflection in a mirror and thought, "What a cool person"?</value>
+  </data>
+  <data name="Quiz_Q35_A1" xml:space="preserve">
+    <value>Certainly!</value>
+  </data>
+  <data name="Quiz_Q35_A2" xml:space="preserve">
+    <value>Well, not really...</value>
+  </data>
+  <data name="Quiz_Q35_A3" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q35_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q36_A0" xml:space="preserve">
+    <value>If you saw someone doing something bad, could you scold them?</value>
+  </data>
+  <data name="Quiz_Q36_A1" xml:space="preserve">
+    <value>Of course!</value>
+  </data>
+  <data name="Quiz_Q36_A2" xml:space="preserve">
+    <value>Not really.</value>
+  </data>
+  <data name="Quiz_Q36_A3" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q36_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q37_A0" xml:space="preserve">
+    <value>Do you prefer to be busy or to have a lot of free time?</value>
+  </data>
+  <data name="Quiz_Q37_A1" xml:space="preserve">
+    <value>Being busy.</value>
+  </data>
+  <data name="Quiz_Q37_A2" xml:space="preserve">
+    <value>Free time!</value>
+  </data>
+  <data name="Quiz_Q37_A3" xml:space="preserve">
+    <value>In between.</value>
+  </data>
+  <data name="Quiz_Q37_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q38_A0" xml:space="preserve">
+    <value>You're about to buy a popular game when someone else gets the last copy! How do you feel?</value>
+  </data>
+  <data name="Quiz_Q38_A1" xml:space="preserve">
+    <value>Whatever.</value>
+  </data>
+  <data name="Quiz_Q38_A2" xml:space="preserve">
+    <value>Annoyed. I was here first!</value>
+  </data>
+  <data name="Quiz_Q38_A3" xml:space="preserve">
+    <value>I shed a few tears.</value>
+  </data>
+  <data name="Quiz_Q38_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q39_A0" xml:space="preserve">
+    <value>You notice that a toy you bought for full price yesterday is marked down to half price today! How do you feel?</value>
+  </data>
+  <data name="Quiz_Q39_A1" xml:space="preserve">
+    <value>Heartbroken...</value>
+  </data>
+  <data name="Quiz_Q39_A2" xml:space="preserve">
+    <value>Aaaargh!</value>
+  </data>
+  <data name="Quiz_Q39_A3" xml:space="preserve">
+    <value>Bad timing, I guess...</value>
+  </data>
+  <data name="Quiz_Q39_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q40_A0" xml:space="preserve">
+    <value>Your friend is running a little late to meet you. Is that OK?</value>
+  </data>
+  <data name="Quiz_Q40_A1" xml:space="preserve">
+    <value>Yes.</value>
+  </data>
+  <data name="Quiz_Q40_A2" xml:space="preserve">
+    <value>Not at all!</value>
+  </data>
+  <data name="Quiz_Q40_A3" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q40_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q41_A0" xml:space="preserve">
+    <value>You've just stuffed yourself with a good meal when a great dessert arrives. What do you do?</value>
+  </data>
+  <data name="Quiz_Q41_A1" xml:space="preserve">
+    <value>Eat it. Who cares if I'm stuffed?</value>
+  </data>
+  <data name="Quiz_Q41_A2" xml:space="preserve">
+    <value>Turn it down. It's too fattening!</value>
+  </data>
+  <data name="Quiz_Q41_A3" xml:space="preserve">
+    <value>Yum! I love dessert the most!</value>
+  </data>
+  <data name="Quiz_Q41_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q42_A0" xml:space="preserve">
+    <value>You have a really important test tomorrow! What do you do?</value>
+  </data>
+  <data name="Quiz_Q42_A1" xml:space="preserve">
+    <value>Study all night long.</value>
+  </data>
+  <data name="Quiz_Q42_A2" xml:space="preserve">
+    <value>Wing it! I'm sure it will be fine!</value>
+  </data>
+  <data name="Quiz_Q42_A3" xml:space="preserve">
+    <value>Test?! I think I have a fever...</value>
+  </data>
+  <data name="Quiz_Q42_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q43_A0" xml:space="preserve">
+    <value>You've been invited to a wonderful party. It's time for the party to start, but there's nobody there! You think...?</value>
+  </data>
+  <data name="Quiz_Q43_A1" xml:space="preserve">
+    <value>Did something happen?</value>
+  </data>
+  <data name="Quiz_Q43_A2" xml:space="preserve">
+    <value>Maybe I have the day wrong?</value>
+  </data>
+  <data name="Quiz_Q43_A3" xml:space="preserve">
+    <value>Let's get this party started!</value>
+  </data>
+  <data name="Quiz_Q43_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q44_A0" xml:space="preserve">
+    <value>Do you think that, no matter what, life goes on?</value>
+  </data>
+  <data name="Quiz_Q44_A1" xml:space="preserve">
+    <value>All the time!</value>
+  </data>
+  <data name="Quiz_Q44_A2" xml:space="preserve">
+    <value>Never.</value>
+  </data>
+  <data name="Quiz_Q44_A3" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q44_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q45_A0" xml:space="preserve">
+    <value>The phone's ringing! What do you do?</value>
+  </data>
+  <data name="Quiz_Q45_A1" xml:space="preserve">
+    <value>Answer right away!</value>
+  </data>
+  <data name="Quiz_Q45_A2" xml:space="preserve">
+    <value>Wait a bit before answering.</value>
+  </data>
+  <data name="Quiz_Q45_A3" xml:space="preserve">
+    <value>Ignore it and let it ring.</value>
+  </data>
+  <data name="Quiz_Q45_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q46_A0" xml:space="preserve">
+    <value>Your friends seem to be making plans to hang out, just out of earshot. You think...</value>
+  </data>
+  <data name="Quiz_Q46_A1" xml:space="preserve">
+    <value>I want to go too!</value>
+  </data>
+  <data name="Quiz_Q46_A2" xml:space="preserve">
+    <value>No big deal.</value>
+  </data>
+  <data name="Quiz_Q46_A3" xml:space="preserve">
+    <value>Will they invite me?</value>
+  </data>
+  <data name="Quiz_Q46_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q47_A0" xml:space="preserve">
+    <value>Do you want to be famous?</value>
+  </data>
+  <data name="Quiz_Q47_A1" xml:space="preserve">
+    <value>Yes.</value>
+  </data>
+  <data name="Quiz_Q47_A2" xml:space="preserve">
+    <value>No.</value>
+  </data>
+  <data name="Quiz_Q47_A3" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q47_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q48_A0" xml:space="preserve">
+    <value>You've been handed a large bag as a souvenir. What do you do?</value>
+  </data>
+  <data name="Quiz_Q48_A1" xml:space="preserve">
+    <value>Wait until I get home to open it.</value>
+  </data>
+  <data name="Quiz_Q48_A2" xml:space="preserve">
+    <value>Shake it!</value>
+  </data>
+  <data name="Quiz_Q48_A3" xml:space="preserve">
+    <value>Open it!</value>
+  </data>
+  <data name="Quiz_Q48_A4" xml:space="preserve">
+    <value>It's smaller than everyone else's...</value>
+  </data>
+  <data name="Quiz_Q49_A0" xml:space="preserve">
+    <value>Have you ever forgotten you bought something and bought another one?</value>
+  </data>
+  <data name="Quiz_Q49_A1" xml:space="preserve">
+    <value>Yes.</value>
+  </data>
+  <data name="Quiz_Q49_A2" xml:space="preserve">
+    <value>No.</value>
+  </data>
+  <data name="Quiz_Q49_A3" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q49_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q50_A0" xml:space="preserve">
+    <value>Once you've decided something, do you see it through to the end?</value>
+  </data>
+  <data name="Quiz_Q50_A1" xml:space="preserve">
+    <value>Yes.</value>
+  </data>
+  <data name="Quiz_Q50_A2" xml:space="preserve">
+    <value>No.</value>
+  </data>
+  <data name="Quiz_Q50_A3" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q50_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q51_A0" xml:space="preserve">
+    <value>Have you ever said "nice to meet you" to someone you've met previously?</value>
+  </data>
+  <data name="Quiz_Q51_A1" xml:space="preserve">
+    <value>Yes.</value>
+  </data>
+  <data name="Quiz_Q51_A2" xml:space="preserve">
+    <value>No.</value>
+  </data>
+  <data name="Quiz_Q51_A3" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q51_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q52_A0" xml:space="preserve">
+    <value>Did you make any New Year's resolutions?</value>
+  </data>
+  <data name="Quiz_Q52_A1" xml:space="preserve">
+    <value>Of course!</value>
+  </data>
+  <data name="Quiz_Q52_A2" xml:space="preserve">
+    <value>Nope.</value>
+  </data>
+  <data name="Quiz_Q52_A3" xml:space="preserve">
+    <value>What are those?</value>
+  </data>
+  <data name="Quiz_Q52_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q53_A0" xml:space="preserve">
+    <value>Do you think it's important to be fashionably late?</value>
+  </data>
+  <data name="Quiz_Q53_A1" xml:space="preserve">
+    <value>Yes.</value>
+  </data>
+  <data name="Quiz_Q53_A2" xml:space="preserve">
+    <value>No.</value>
+  </data>
+  <data name="Quiz_Q53_A3" xml:space="preserve">
+    <value>I don't know.</value>
+  </data>
+  <data name="Quiz_Q53_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q54_A0" xml:space="preserve">
+    <value>You've won big on a raffle ticket! You say...</value>
+  </data>
+  <data name="Quiz_Q54_A1" xml:space="preserve">
+    <value>Woo-hoo!</value>
+  </data>
+  <data name="Quiz_Q54_A2" xml:space="preserve">
+    <value>I can't believe it...</value>
+  </data>
+  <data name="Quiz_Q54_A3" xml:space="preserve">
+    <value>This is my little secret.</value>
+  </data>
+  <data name="Quiz_Q54_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q55_A0" xml:space="preserve">
+    <value>Do you think blaming something you did on someone else is sometimes necessary?</value>
+  </data>
+  <data name="Quiz_Q55_A1" xml:space="preserve">
+    <value>Of course!</value>
+  </data>
+  <data name="Quiz_Q55_A2" xml:space="preserve">
+    <value>No way!</value>
+  </data>
+  <data name="Quiz_Q55_A3" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q55_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q56_A0" xml:space="preserve">
+    <value>Your friend suddenly won't listen to you, when everything was fine yesterday. What happened?</value>
+  </data>
+  <data name="Quiz_Q56_A1" xml:space="preserve">
+    <value>Maybe they're sick.</value>
+  </data>
+  <data name="Quiz_Q56_A2" xml:space="preserve">
+    <value>They're lost in thought.</value>
+  </data>
+  <data name="Quiz_Q56_A3" xml:space="preserve">
+    <value>What?! Why?!</value>
+  </data>
+  <data name="Quiz_Q56_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q57_A0" xml:space="preserve">
+    <value>You take off your shoes to realize your socks are two different colors! What do you do?</value>
+  </data>
+  <data name="Quiz_Q57_A1" xml:space="preserve">
+    <value>Get embarrassed!</value>
+  </data>
+  <data name="Quiz_Q57_A2" xml:space="preserve">
+    <value>Again?!</value>
+  </data>
+  <data name="Quiz_Q57_A3" xml:space="preserve">
+    <value>I meant to do that!</value>
+  </data>
+  <data name="Quiz_Q57_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q58_A0" xml:space="preserve">
+    <value>You fail miserably! Everyone found out, and they're disappointed in you... What do you do?</value>
+  </data>
+  <data name="Quiz_Q58_A1" xml:space="preserve">
+    <value>Try and hide.</value>
+  </data>
+  <data name="Quiz_Q58_A2" xml:space="preserve">
+    <value>Think of an excuse.</value>
+  </data>
+  <data name="Quiz_Q58_A3" xml:space="preserve">
+    <value>Drop down and play dead!</value>
+  </data>
+  <data name="Quiz_Q58_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q59_A0" xml:space="preserve">
+    <value>Have you ever accidentally called a teacher "Mom" or "Dad"?</value>
+  </data>
+  <data name="Quiz_Q59_A1" xml:space="preserve">
+    <value>Yes.</value>
+  </data>
+  <data name="Quiz_Q59_A2" xml:space="preserve">
+    <value>No.</value>
+  </data>
+  <data name="Quiz_Q59_A3" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q59_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q60_A0" xml:space="preserve">
+    <value>Have you ever blurted something out without thinking about the consequences first?</value>
+  </data>
+  <data name="Quiz_Q60_A1" xml:space="preserve">
+    <value>Yes.</value>
+  </data>
+  <data name="Quiz_Q60_A2" xml:space="preserve">
+    <value>No.</value>
+  </data>
+  <data name="Quiz_Q60_A3" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q60_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q61_A0" xml:space="preserve">
+    <value>You're in class when you realize that you really have to go to the restroom! What do you do?</value>
+  </data>
+  <data name="Quiz_Q61_A1" xml:space="preserve">
+    <value>Ask for permission to leave.</value>
+  </data>
+  <data name="Quiz_Q61_A2" xml:space="preserve">
+    <value>Sneak out.</value>
+  </data>
+  <data name="Quiz_Q61_A3" xml:space="preserve">
+    <value>Hold on until class ends!</value>
+  </data>
+  <data name="Quiz_Q61_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q62_A0" xml:space="preserve">
+    <value>Your friend offers to treat you to dinner. What do you do?</value>
+  </data>
+  <data name="Quiz_Q62_A1" xml:space="preserve">
+    <value>I'm there!</value>
+  </data>
+  <data name="Quiz_Q62_A2" xml:space="preserve">
+    <value>Allow me.</value>
+  </data>
+  <data name="Quiz_Q62_A3" xml:space="preserve">
+    <value>Thanks...</value>
+  </data>
+  <data name="Quiz_Q62_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q63_A0" xml:space="preserve">
+    <value>You see a cake that is past its expiration date, but only by one day. What do you do?</value>
+  </data>
+  <data name="Quiz_Q63_A1" xml:space="preserve">
+    <value>Not a problem! Chow time!</value>
+  </data>
+  <data name="Quiz_Q63_A2" xml:space="preserve">
+    <value>Think about it briefly, then decide.</value>
+  </data>
+  <data name="Quiz_Q63_A3" xml:space="preserve">
+    <value>Get someone to try it first.</value>
+  </data>
+  <data name="Quiz_Q63_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Q64_A0" xml:space="preserve">
+    <value>You're eating at a very fancy restaurant known for its food. Which course do you select?</value>
+  </data>
+  <data name="Quiz_Q64_A1" xml:space="preserve">
+    <value>Seared steak.</value>
+  </data>
+  <data name="Quiz_Q64_A2" xml:space="preserve">
+    <value>Healthy fish.</value>
+  </data>
+  <data name="Quiz_Q64_A3" xml:space="preserve">
+    <value>Anything! It's all good!</value>
+  </data>
+  <data name="Quiz_Q64_A4" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Nature_1_1" xml:space="preserve">
+    <value>You seem to be...[pause=0] the bold type!</value>
+  </data>
+  <data name="Nature_1_2" xml:space="preserve">
+    <value>You're so brave, and you never back down from anything! And you're also gutsy and brash in a way that others aren't!</value>
+  </data>
+  <data name="Nature_1_3" xml:space="preserve">
+    <value>You're not shy about asking to take home all the leftovers at restaurants, right?</value>
+  </data>
+  <data name="Nature_1_4" xml:space="preserve">
+    <value>If someone's treating you to dinner, you have no problem with ordering lots of good stuff!</value>
+  </data>
+  <data name="Nature_1_5" xml:space="preserve">
+    <value>And you aren't fazed by doing things that most others would think twice about doing.</value>
+  </data>
+  <data name="Nature_1_6" xml:space="preserve">
+    <value>Perhaps you don't even notice when others are upset with you!</value>
+  </data>
+  <data name="Nature_1_7" xml:space="preserve">
+    <value>You know, you have the potential to become a truly great person...because you'll be the last one standing!</value>
+  </data>
+  <data name="Nature_1_8" xml:space="preserve">
+    <value>So, a bold type like you...</value>
+  </data>
+  <data name="Nature_2_1" xml:space="preserve">
+    <value>You seem to be...[pause=0] the brave type!</value>
+  </data>
+  <data name="Nature_2_2" xml:space="preserve">
+    <value>You don't know the meaning of fear! You're not afraid to keep moving forward in the face of danger.</value>
+  </data>
+  <data name="Nature_2_3" xml:space="preserve">
+    <value>You also have a strong sense of justice and can't turn a blind eye to someone in trouble.</value>
+  </data>
+  <data name="Nature_2_4" xml:space="preserve">
+    <value>But you sometimes push your own personal sense of justice a little too hard. Be careful that you don't get too pushy!</value>
+  </data>
+  <data name="Nature_2_5" xml:space="preserve">
+    <value>So, a brave type like you...</value>
+  </data>
+  <data name="Nature_2_6" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Nature_2_7" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Nature_2_8" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Nature_3_1" xml:space="preserve">
+    <value>You seem to be...[pause=0] the calm type!</value>
+  </data>
+  <data name="Nature_3_2" xml:space="preserve">
+    <value>You're very compassionate and considerate, and you put friends ahead of yourself.</value>
+  </data>
+  <data name="Nature_3_3" xml:space="preserve">
+    <value>You're so generous and kindhearted that you can laugh, forgive, and forget when your friends make mistakes.</value>
+  </data>
+  <data name="Nature_3_4" xml:space="preserve">
+    <value>But be aware that your compassion can sometimes get the best of you, putting you too far behind everyone else!</value>
+  </data>
+  <data name="Nature_3_5" xml:space="preserve">
+    <value>So, a calm type like you...</value>
+  </data>
+  <data name="Nature_3_6" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Nature_3_7" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Nature_3_8" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Nature_4_1" xml:space="preserve">
+    <value>You seem to be...[pause=0] the docile type! You're quite sensitive to others!</value>
+  </data>
+  <data name="Nature_4_2" xml:space="preserve">
+    <value>You listen attentively and respectfully, and you're quick to pick up on things.</value>
+  </data>
+  <data name="Nature_4_3" xml:space="preserve">
+    <value>Because you're so good at listening, do you find that your friends tell you their problems and concerns often?</value>
+  </data>
+  <data name="Nature_4_4" xml:space="preserve">
+    <value>Perhaps people laugh at you sometimes for being so earnest and not recognizing jokes for what they are.</value>
+  </data>
+  <data name="Nature_4_5" xml:space="preserve">
+    <value>But you're honestly surprised and bashful about this aspect of yourself...And then honestly laugh about it!</value>
+  </data>
+  <data name="Nature_4_6" xml:space="preserve">
+    <value>So, a docile, sensitive type like you...</value>
+  </data>
+  <data name="Nature_4_7" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Nature_4_8" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Nature_5_1" xml:space="preserve">
+    <value>You seem to be...[pause=0] the hardy type! You're so determined!</value>
+  </data>
+  <data name="Nature_5_2" xml:space="preserve">
+    <value>You don't whine or feel sorry for yourself, and you never need help with anything. You also have a strong sense of responsibility. </value>
+  </data>
+  <data name="Nature_5_3" xml:space="preserve">
+    <value>You work toward your goals steadily and never require attention along the way.</value>
+  </data>
+  <data name="Nature_5_4" xml:space="preserve">
+    <value>Your resilient spirit is the only thing you need to guide you toward your goals.</value>
+  </data>
+  <data name="Nature_5_5" xml:space="preserve">
+    <value>But be careful! You risk wearing yourself out if you work too long all on your own!</value>
+  </data>
+  <data name="Nature_5_6" xml:space="preserve">
+    <value>You should recognize that sometimes you need help from friends.</value>
+  </data>
+  <data name="Nature_5_7" xml:space="preserve">
+    <value>So, a hardy, determined type like you...</value>
+  </data>
+  <data name="Nature_5_8" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Nature_6_1" xml:space="preserve">
+    <value>You seem to be...[pause=0] the hasty type!</value>
+  </data>
+  <data name="Nature_6_2" xml:space="preserve">
+    <value>You talk quickly! You eat quickly! You walk quickly!</value>
+  </data>
+  <data name="Nature_6_3" xml:space="preserve">
+    <value>People often see you as a hard worker because you're always moving around so fast!</value>
+  </data>
+  <data name="Nature_6_4" xml:space="preserve">
+    <value>But be careful! If you always rush so fast, you may make mistakes more often than others do. And what a waste that would be!</value>
+  </data>
+  <data name="Nature_6_5" xml:space="preserve">
+    <value>Relax every now and then with a nice, deep breath!</value>
+  </data>
+  <data name="Nature_6_6" xml:space="preserve">
+    <value>So, a hasty type like you...</value>
+  </data>
+  <data name="Nature_6_7" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Nature_6_8" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Nature_7_1" xml:space="preserve">
+    <value>You seem to be...[pause=0] the impish type!</value>
+  </data>
+  <data name="Nature_7_2" xml:space="preserve">
+    <value>You really like to play a lot! And you enjoy eating a lot!</value>
+  </data>
+  <data name="Nature_7_3" xml:space="preserve">
+    <value>You love competition, but you hate losing.</value>
+  </data>
+  <data name="Nature_7_4" xml:space="preserve">
+    <value>Your personality seems crystal clear to others. With you, what you see is what you get! You cheer others with your dazzling smile.</value>
+  </data>
+  <data name="Nature_7_5" xml:space="preserve">
+    <value>But you may be afraid of showing what's in your heart and revealing your true self.</value>
+  </data>
+  <data name="Nature_7_6" xml:space="preserve">
+    <value>You may not want to keep your worries to yourself. You're only human, so ask your friends for advice when you need it.</value>
+  </data>
+  <data name="Nature_7_7" xml:space="preserve">
+    <value>So, an impish type like you...</value>
+  </data>
+  <data name="Nature_7_8" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Nature_8_1" xml:space="preserve">
+    <value>You seem to be...[pause=0] the jolly type!</value>
+  </data>
+  <data name="Nature_8_2" xml:space="preserve">
+    <value>You have a good sense of humor, and you're compassionate. You're always making others around you laugh.</value>
+  </data>
+  <data name="Nature_8_3" xml:space="preserve">
+    <value>You have a sunny, positive outlook, and you have a vitality that raises the lowest spirits to giddy heights!</value>
+  </data>
+  <data name="Nature_8_4" xml:space="preserve">
+    <value>Yet, for all your great cheer, you're also open to tears...</value>
+  </data>
+  <data name="Nature_8_5" xml:space="preserve">
+    <value>But you bounce between laughter and tears so easily! What an adventure life must be like for you, bouncing around like that all day!</value>
+  </data>
+  <data name="Nature_8_6" xml:space="preserve">
+    <value>So, a jolly type like you...</value>
+  </data>
+  <data name="Nature_8_7" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Nature_8_8" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Nature_9_1" xml:space="preserve">
+    <value>You seem to be...[pause=0] the lonely type, at least a little bit!</value>
+  </data>
+  <data name="Nature_9_2" xml:space="preserve">
+    <value>You might find that surprising, but do you think it might be a little true?</value>
+  </data>
+  <data name="Nature_9_3" xml:space="preserve">
+    <value>You know what they say, though...We're all a bit lonely every now and then!</value>
+  </data>
+  <data name="Nature_9_4" xml:space="preserve">
+    <value>You probably keep this fact of life to yourself, though.</value>
+  </data>
+  <data name="Nature_9_5" xml:space="preserve">
+    <value>But if there's one thing that brings us all together...it's our need to go it solo!</value>
+  </data>
+  <data name="Nature_9_6" xml:space="preserve">
+    <value>So, a lonely and solitary type like you...</value>
+  </data>
+  <data name="Nature_9_7" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Nature_9_8" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Nature_10_1" xml:space="preserve">
+    <value>You seem to be...[pause=0] the naive type! You're so open and innocent!</value>
+  </data>
+  <data name="Nature_10_2" xml:space="preserve">
+    <value>What a strong sense of curiosity you have! And you state your opinions purely, sharing exactly what you think.</value>
+  </data>
+  <data name="Nature_10_3" xml:space="preserve">
+    <value>You also have an artistic spirit that isn't restrained by social conventions. You startle people with your spontaneity and vision.</value>
+  </data>
+  <data name="Nature_10_4" xml:space="preserve">
+    <value>But when you overdo it, other people can have a hard time keeping up with you...</value>
+  </data>
+  <data name="Nature_10_5" xml:space="preserve">
+    <value>Have you noticed people looking at you oddly? As if for no apparent reason?</value>
+  </data>
+  <data name="Nature_10_6" xml:space="preserve">
+    <value>So, a naive, innocent type like you...</value>
+  </data>
+  <data name="Nature_10_7" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Nature_10_8" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Nature_11_1" xml:space="preserve">
+    <value>You seem to be...[pause=0] the quiet type! And very calm!</value>
+  </data>
+  <data name="Nature_11_2" xml:space="preserve">
+    <value>You're great with numbers, and you analyze information before making decisions.</value>
+  </data>
+  <data name="Nature_11_3" xml:space="preserve">
+    <value>You rarely make mistakes, because you make decisions so calmly and rationally.</value>
+  </data>
+  <data name="Nature_11_4" xml:space="preserve">
+    <value>You also may find it hard to guess what others are thinking, and they may find you a touch cold at times.</value>
+  </data>
+  <data name="Nature_11_5" xml:space="preserve">
+    <value>You may not want to keep your feelings to yourself so much of the time.</value>
+  </data>
+  <data name="Nature_11_6" xml:space="preserve">
+    <value>So, a quiet and calm type like you...</value>
+  </data>
+  <data name="Nature_11_7" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Nature_11_8" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Nature_12_1" xml:space="preserve">
+    <value>You seem to be...[pause=0] the quirky type!</value>
+  </data>
+  <data name="Nature_12_2" xml:space="preserve">
+    <value>You want to be on the cutting edge of fashion! You want to own all the latest stuff, right?</value>
+  </data>
+  <data name="Nature_12_3" xml:space="preserve">
+    <value>But you grow bored of your old things and only like new things!</value>
+  </data>
+  <data name="Nature_12_4" xml:space="preserve">
+    <value>You're true to your emotions, and you follow your desires.</value>
+  </data>
+  <data name="Nature_12_5" xml:space="preserve">
+    <value>People have a hard time keeping up with you because you change so quickly.</value>
+  </data>
+  <data name="Nature_12_6" xml:space="preserve">
+    <value>You may want to reflect upon how your words and actions affect others.</value>
+  </data>
+  <data name="Nature_12_7" xml:space="preserve">
+    <value>So, a quirky type like you...</value>
+  </data>
+  <data name="Nature_12_8" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Nature_13_1" xml:space="preserve">
+    <value>You seem to be...[pause=0] the rash type, just a little bit hasty at times!</value>
+  </data>
+  <data name="Nature_13_2" xml:space="preserve">
+    <value>You may run out of your house and forget to lock the door once in a while. And you may leave things like umbrellas behind when you leave places.</value>
+  </data>
+  <data name="Nature_13_3" xml:space="preserve">
+    <value>Maybe you even dash outside in your slippers every now and then!</value>
+  </data>
+  <data name="Nature_13_4" xml:space="preserve">
+    <value>Perhaps you even wear your shirts inside out all the time!</value>
+  </data>
+  <data name="Nature_13_5" xml:space="preserve">
+    <value>Oh, is that even rasher than you really are? So sorry! But know that your friends think your funny little flubs are adorable!</value>
+  </data>
+  <data name="Nature_13_6" xml:space="preserve">
+    <value>So, a rash and hasty type like you... Oh, wait! One more thing!</value>
+  </data>
+  <data name="Nature_13_7" xml:space="preserve">
+    <value>You also sometimes reveal your friends' secrets by accidents, don't you! Sorry. Had to be said!</value>
+  </data>
+  <data name="Nature_13_8" xml:space="preserve">
+    <value>So, without further ado...a rash and hasty type like you...</value>
+  </data>
+  <data name="Nature_14_1" xml:space="preserve">
+    <value>You seem to be...[pause=0] the relaxed type!</value>
+  </data>
+  <data name="Nature_14_2" xml:space="preserve">
+    <value>You're so casual, leisurely, and carefree. You don't rush or stress yourself out, and you don't worry about anything.</value>
+  </data>
+  <data name="Nature_14_3" xml:space="preserve">
+    <value>You like to take a seat and kick up your feet! Oh, yes! You definitely have an easygoing personality, and you don't sweat the details.</value>
+  </data>
+  <data name="Nature_14_4" xml:space="preserve">
+    <value>People naturally flock to you because they find you to be a free spirit, which is so refreshing!</value>
+  </data>
+  <data name="Nature_14_5" xml:space="preserve">
+    <value>So, a relaxed type like you...</value>
+  </data>
+  <data name="Nature_14_6" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Nature_14_7" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Nature_14_8" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Nature_15_1" xml:space="preserve">
+    <value>You seem to be...[pause=0] the sassy type! Or at least somewhat sassy!</value>
+  </data>
+  <data name="Nature_15_2" xml:space="preserve">
+    <value>You don't like taking orders. You're a little rebellious and like to disagree.</value>
+  </data>
+  <data name="Nature_15_3" xml:space="preserve">
+    <value>You're a lone wolf! You like to keep your distance from groups and go off to do things on your own.</value>
+  </data>
+  <data name="Nature_15_4" xml:space="preserve">
+    <value>Older folks may be ones who find you the most disagreeable, even selfish.</value>
+  </data>
+  <data name="Nature_15_5" xml:space="preserve">
+    <value>But people younger than you tend to really admire you!</value>
+  </data>
+  <data name="Nature_15_6" xml:space="preserve">
+    <value>So, a sassy type like you...</value>
+  </data>
+  <data name="Nature_15_7" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Nature_15_8" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Nature_16_1" xml:space="preserve">
+    <value>You seem to be...[pause=0] the timid type. You're quite gentle!</value>
+  </data>
+  <data name="Nature_16_2" xml:space="preserve">
+    <value>You're sometimes a little shy about new things, aren't you?</value>
+  </data>
+  <data name="Nature_16_3" xml:space="preserve">
+    <value>Do you miss out on some experiences because you get worried about the newness of the challenge?</value>
+  </data>
+  <data name="Nature_16_4" xml:space="preserve">
+    <value>Of course, there's also a great benefit in being cautious, isn't there?</value>
+  </data>
+  <data name="Nature_16_5" xml:space="preserve">
+    <value>After all, it keeps you nice and safe! You live life at your own speed, with no hurries and no worries!</value>
+  </data>
+  <data name="Nature_16_6" xml:space="preserve">
+    <value>So, a timid and gentle type like you...</value>
+  </data>
+  <data name="Nature_16_7" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Nature_16_8" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="Quiz_Result" xml:space="preserve">
+    <value>Will be a {0}!</value>
+  </data>
+  <data name="Disclaimer" xml:space="preserve">
+    <value>DISCLAIMER\n\nThis port is in beta and is currently still in development.\nGameplay elements may be unfinished.\nIf you want to be notified of updates, check out the mod's github page. Thanks!\n\nhttps://github.com/Minemaker0430/ExplorersOfSkyOrigins</value>
+  </data>
+  <data name="Intro_1" xml:space="preserve">
+    <value>Welcome!</value>
+  </data>
+  <data name="Intro_2" xml:space="preserve">
+    <value>This is the portal that leads to the\nworld inhabited only by Pokémon.</value>
+  </data>
+  <data name="Intro_3" xml:space="preserve">
+    <value>Beyond this gateway, many new\nadventures and fresh experiences\nawait your arrival!</value>
+  </data>
+  <data name="Intro_4" xml:space="preserve">
+    <value>Before you depart for adventure,\nyou must answer some questions.</value>
+  </data>
+  <data name="Intro_5" xml:space="preserve">
+    <value>Be truthful when you answer them!</value>
+  </data>
+  <data name="Intro_6" xml:space="preserve">
+    <value>Now, are you ready?</value>
+  </data>
+  <data name="Intro_7" xml:space="preserve">
+    <value>Then...[pause=0]let the questions begin!</value>
+  </data>
+  <data name="Quiz_Played_Q1" xml:space="preserve">
+    <value>Did you play "Explorers of Time", "Explorers of Darkness", or "Explorers of Sky"?</value>
+  </data>
+  <data name="Quiz_Played_Q2" xml:space="preserve">
+    <value>Would you like to skip the quiz?</value>
+  </data>
+  <data name="Quiz_Aura_1" xml:space="preserve">
+    <value>And now your [color=#00ffff]aura[color] will be analyzed.</value>
+  </data>
+  <data name="Quiz_Aura_2" xml:space="preserve">
+    <value>Your [color=#00ffff]aura[color] is the energy that you radiate!</value>
+  </data>
+  <data name="Quiz_Aura_3" xml:space="preserve">
+    <value>Relax. Calm yourself...[pause=0] And now press your fingertip gently on the Bow.</value>
+  </data>
+  <data name="Quiz_Aura_4" xml:space="preserve">
+    <value>That's right...[pause=10] Stay perfectly still...[pause=10]\nTake a deep breath...[pause=10]and now exhale...</value>
+  </data>
+  <data name="Quiz_Aura_5" xml:space="preserve">
+    <value>Your [color=#00ffff]aura[color] has now been identified.</value>
+  </data>
+  <data name="Quiz_Aura_6" xml:space="preserve">
+    <value>Your [color=#00ffff]aura[color] is...</value>
+  </data>
+  <data name="Quiz_Aura_Result_1" xml:space="preserve">
+    <value>a stately silver!</value>
+  </data>
+  <data name="Quiz_Aura_Result_2" xml:space="preserve">
+    <value>a subdued brown!</value>
+  </data>
+  <data name="Quiz_Aura_Result_3" xml:space="preserve">
+    <value>a fiery red!</value>
+  </data>
+  <data name="Quiz_Aura_Result_4" xml:space="preserve">
+    <value>an uplifing pink!</value>
+  </data>
+  <data name="Quiz_Aura_Result_5" xml:space="preserve">
+    <value>a stunning orange!</value>
+  </data>
+  <data name="Quiz_Aura_Result_6" xml:space="preserve">
+    <value>an energetic yellow!</value>
+  </data>
+  <data name="Quiz_Aura_Result_7" xml:space="preserve">
+    <value>a brilliant green!</value>
+  </data>
+  <data name="Quiz_Aura_Result_8" xml:space="preserve">
+    <value>a refreshing green!</value>
+  </data>
+  <data name="Quiz_Aura_Result_9" xml:space="preserve">
+    <value>a deep green!</value>
+  </data>
+  <data name="Quiz_Aura_Result_10" xml:space="preserve">
+    <value>a gentle mint green!</value>
+  </data>
+  <data name="Quiz_Aura_Result_11" xml:space="preserve">
+    <value>a clear aqua blue!</value>
+  </data>
+  <data name="Quiz_Aura_Result_12" xml:space="preserve">
+    <value>a cool sky blue!</value>
+  </data>
+  <data name="Quiz_Aura_Result_13" xml:space="preserve">
+    <value>a smart marine blue!</value>
+  </data>
+  <data name="Quiz_Aura_Result_14" xml:space="preserve">
+    <value>a mystic purple!</value>
+  </data>
+  <data name="Quiz_Aura_Result_15" xml:space="preserve">
+    <value>an elegant violet!</value>
+  </data>
+  <data name="Quiz_Aura_Result_16" xml:space="preserve">
+    <value>a vivid pink!</value>
+  </data>
+  <data name="Name_Title" xml:space="preserve">
+    <value>What is your partner's nickname?</value>
+  </data>
+  <data name="Name_Confirm" xml:space="preserve">
+    <value>Is the name [color=#FFFF00]{0}[color] OK?</value>
+  </data>
+  <data name="Nature_Intro" xml:space="preserve">
+    <value>Thank you for answering all those questions.</value>
+  </data>
+  <data name="Choice_Prompt" xml:space="preserve">
+    <value>Is {0} who you want?</value>
+  </data>
+  <data name="Starter_Select" xml:space="preserve">
+    <value>Choose the Pokémon you would like to be.</value>
+  </data>
+  <data name="Conclusion_1" xml:space="preserve">
+    <value>OK! That's it! You're all ready to go!</value>
+  </data>
+  <data name="Conclusion_2" xml:space="preserve">
+    <value>You're off to the world of Pokémon!</value>
+  </data>
+  <data name="Conclusion_3" xml:space="preserve">
+    <value>Be strong! Stay smart! And be victorious!</value>
+  </data>
+  <data name="Partner_Intro" xml:space="preserve">
+    <value>And finally...[pause=0]\nWho will be your partner?</value>
+  </data>
+  <data name="Partner_Select" xml:space="preserve">
+    <value>Choose the Pokémon you want for a partner.</value>
+  </data>
+</root>

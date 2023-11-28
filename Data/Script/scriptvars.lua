@@ -38,13 +38,20 @@ SV.General =
 SV.Progression =
 {
 	Chapter = 0,
-	SectionFlag = 0
+	SectionFlag = 0,
+	Epilogue = false
 }
 
 SV.Personality =
 {
 	HeroKind = true,
 	PartnerKind = true
+}
+
+SV.PlayerInputs =
+{
+	FavoriteColor = nil,
+	Personality = nil
 }
 
 -----------------------------------------------
