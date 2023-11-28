@@ -22,3 +22,11 @@ Trio - Job System (NYI)
 # Known Issues
  - Personality Quiz Code is very much Spaghetti Code right now, will fix later :v
  - Personality Quiz doesn't have the Aura Cutscene (Might Not Fix)
+
+# Installation
+ - Get PMDO from https://github.com/audinowho/PMDODump/releases
+ - Run PMDOSetup to Install the game
+ - Unzip the mod folder and move it to PMDOSetup/PMDO/MODS
+ - From the main menu, select Special Episodes
+ - Select Explorers of Sky: Origins
+ - Enjoy!
