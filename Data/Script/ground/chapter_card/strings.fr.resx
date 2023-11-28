@@ -58,19 +58,4 @@
   <resheader name="writer">
     <value>System.Resources.NetStandard.ResXResourceWriter, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </resheader>
-  <data name="Unknown_1" xml:space="preserve">
-    <value>Whoa![pause=0] Wh-[pause=5]wh-[pause=5]whoa...!</value>
-  </data>
-  <data name="Unknown_2" xml:space="preserve">
-    <value>Are...[pause=0] Are you OK?!</value>
-  </data>
-  <data name="Unknown_3" xml:space="preserve">
-    <value>No![pause=0] Don't let go![pause=0] Just a little longer...[pause=0] Come on![pause=0] Hang on!</value>
-  </data>
-  <data name="Unknown_4" xml:space="preserve">
-    <value>No-[pause=5]n-[pause=5]no![pause=0] I can't...[pause=0] hold on...!</value>
-  </data>
-  <data name="Unknown_5" xml:space="preserve">
-    <value>Waaaaaah!</value>
-  </data>
 </root>

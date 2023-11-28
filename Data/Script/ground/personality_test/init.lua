@@ -700,11 +700,11 @@ pkm = -1
 
 while not continue do
 	if gender == 1 then
-		UI:ChooseMonsterMenu(txt, starterListMale)
+		UI:ChooseMonsterMenu("", starterListMale)
 	elseif gender == 2 then
-		UI:ChooseMonsterMenu(txt, starterListFemale)
+		UI:ChooseMonsterMenu("", starterListFemale)
 	else
-		UI:ChooseMonsterMenu(txt, starterList)
+		UI:ChooseMonsterMenu("", starterList)
 	end	
 	UI:WaitForChoice()	
 	local result = UI:ChoiceResult()
@@ -741,11 +741,11 @@ pkm = -1
 
 while not continue do
 	if gender == 1 then
-		UI:ChooseMonsterMenu(txt, starterListMale)
+		UI:ChooseMonsterMenu("", starterListMale)
 	elseif gender == 2 then
-		UI:ChooseMonsterMenu(txt, starterListFemale)
+		UI:ChooseMonsterMenu("", starterListFemale)
 	else
-		UI:ChooseMonsterMenu(txt, starterList)
+		UI:ChooseMonsterMenu("", starterList)
 	end	
 	UI:WaitForChoice()	
 	local result = UI:ChoiceResult()
@@ -773,6 +773,7 @@ end
 
   --Partner Selection
 GROUND:Hide("PLAYER")
+_DATA.Save.ActiveTeam.Players:Add(_DATA.Save.ActiveTeam:CreatePlayer(_DATA.Save.Rand, RogueEssence.Dungeon.MonsterID("missingno", 0, "normal", Gender.Genderless), 5, "", 0))
 UI:WaitShowDialogue(STRINGS:Format(MapStrings['Partner_Intro']))
 
 local continue = false
@@ -780,7 +781,7 @@ local txt = STRINGS:Format(MapStrings['Partner_Select'])
 pkm = -1
 
 while not continue do
-	UI:ChooseMonsterMenu(txt, starterList)
+	UI:ChooseMonsterMenu("", starterList)
 	UI:WaitForChoice()	
 	local result = UI:ChoiceResult()
 	print(result)
@@ -794,9 +795,7 @@ while not continue do
 		end
 	end
 	
-	if not GAME:GetPlayerPartyMember(1) == nil then
-		GAME:RemovePlayerTeam(1)
-	end
+	GAME:RemovePlayerTeam(1)
 	GAME:WaitFrames(1)
 	_DATA.Save.ActiveTeam.Players:Add(_DATA.Save.ActiveTeam:CreatePlayer(_DATA.Save.Rand, pkm, 5, "", 0))
 	GROUND:SetPlayer(GAME:GetPlayerPartyMember(1))
@@ -869,7 +868,10 @@ GAME:FadeOut(false, 120)
 
 GROUND:SetPlayer(GAME:GetPlayerPartyMember(0))
 
---Debug end
+--Dev Build
+--GAME:EnterGroundMap("chapter_card", "Entrance")
+
+--Main Build
 GAME:RestartToTitle()
 
 end

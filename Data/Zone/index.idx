@@ -18,6 +18,7 @@
 "Rogue": 0,
 "Grounds": [
 "personality_test",
+"chapter_card",
 "intro_cutscene"
 ],
 "Maps": [],

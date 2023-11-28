@@ -37,7 +37,7 @@ SV.General =
 
 SV.Progression =
 {
-	Chapter = 0,
+	Chapter = 1,
 	SectionFlag = 0,
 	Epilogue = false
 }

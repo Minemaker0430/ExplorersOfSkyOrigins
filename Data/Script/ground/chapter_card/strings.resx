@@ -58,19 +58,79 @@
   <resheader name="writer">
     <value>System.Resources.NetStandard.ResXResourceWriter, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </resheader>
-  <data name="Unknown_1" xml:space="preserve">
-    <value>Whoa![pause=0] Wh-[pause=5]wh-[pause=5]whoa...!</value>
+  <data name="ChapterTitle_1" xml:space="preserve">
+    <value>Chapter 1\n\nA Storm at Sea</value>
   </data>
-  <data name="Unknown_2" xml:space="preserve">
-    <value>Are...[pause=0] Are you OK?!</value>
+  <data name="ChapterTitle_2" xml:space="preserve">
+    <value>Chapter 2\n\nThe New Guild Recruits</value>
   </data>
-  <data name="Unknown_3" xml:space="preserve">
-    <value>No![pause=0] Don't let go![pause=0] Just a little longer...[pause=0] Come on![pause=0] Hang on!</value>
+  <data name="ChapterTitle_3" xml:space="preserve">
+    <value>Chapter 3\n\nThe Scream</value>
   </data>
-  <data name="Unknown_4" xml:space="preserve">
-    <value>No-[pause=5]n-[pause=5]no![pause=0] I can't...[pause=0] hold on...!</value>
+  <data name="ChapterTitle_4" xml:space="preserve">
+    <value>Chapter 4\n\nThe Gatekeepers</value>
   </data>
-  <data name="Unknown_5" xml:space="preserve">
-    <value>Waaaaaah!</value>
+  <data name="ChapterTitle_5" xml:space="preserve">
+    <value>Chapter 5\n\nThe First Official Exploration</value>
+  </data>
+  <data name="ChapterTitle_6" xml:space="preserve">
+    <value>Chapter 6\n\nTeam Skull</value>
+  </data>
+  <data name="ChapterTitle_7" xml:space="preserve">
+    <value>Chapter 7\n\nThe Guild's Big Expedition</value>
+  </data>
+  <data name="ChapterTitle_8" xml:space="preserve">
+    <value>Chapter 8\n\nGroudon's Heart</value>
+  </data>
+  <data name="ChapterTitle_9" xml:space="preserve">
+    <value>Chapter 9\n\nThe Mystery of Fogbound Lake</value>
+  </data>
+  <data name="ChapterTitle_10" xml:space="preserve">
+    <value>Chapter 10\n\nDusknoir</value>
+  </data>
+  <data name="ChapterTitle_11" xml:space="preserve">
+    <value>Chapter 11\n\nGrovyle the Thief</value>
+  </data>
+  <data name="ChapterTitle_12" xml:space="preserve">
+    <value>Chapter 12\n\nThe Only Option</value>
+  </data>
+  <data name="ChapterTitle_13" xml:space="preserve">
+    <value>Chapter 13\n\nDusknoir's Secret</value>
+  </data>
+  <data name="ChapterTitle_14" xml:space="preserve">
+    <value>Chapter 14\n\nInto the Future</value>
+  </data>
+  <data name="ChapterTitle_15" xml:space="preserve">
+    <value>Chapter 15\n\nThe Secret of the Planet's Paralysis</value>
+  </data>
+  <data name="ChapterTitle_16" xml:space="preserve">
+    <value>Chapter 16\n\nA New Dawn</value>
+  </data>
+  <data name="ChapterTitle_17" xml:space="preserve">
+    <value>Chapter 17\n\nThe Guild's Crew</value>
+  </data>
+  <data name="ChapterTitle_18" xml:space="preserve">
+    <value>Chapter 18\n\nLapras</value>
+  </data>
+  <data name="ChapterTitle_19" xml:space="preserve">
+    <value>Chapter 19\n\nTo the Hidden Land</value>
+  </data>
+  <data name="ChapterTitle_20" xml:space="preserve">
+    <value>Final Chapter\n\nThe Last Adventure</value>
+  </data>
+  <data name="SpecialEpisode_1" xml:space="preserve">
+    <value>Bidoof's Wish</value>
+  </data>
+  <data name="SpecialEpisode_2" xml:space="preserve">
+    <value>Igglybuff The Prodigy</value>
+  </data>
+  <data name="SpecialEpisode_3" xml:space="preserve">
+    <value>Today's "Oh My Gosh!"</value>
+  </data>
+  <data name="SpecialEpisode_4" xml:space="preserve">
+    <value>Here Comes Team Charm!</value>
+  </data>
+  <data name="SpecialEpisode_5" xml:space="preserve">
+    <value>In The Future of Darkness</value>
   </data>
 </root>
