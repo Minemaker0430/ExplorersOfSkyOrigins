@@ -1561,6 +1561,9 @@
   <data name="Choice_Prompt" xml:space="preserve">
     <value>Is {0} who you want?</value>
   </data>
+  <data name="Partner_Warning" xml:space="preserve">
+    <value>It is HIGHLY recommended that you don't choose a partner the same type as you. Do you still wish to proceed?</value>
+  </data>
   <data name="Starter_Select" xml:space="preserve">
     <value>Choose the Pokémon you would like to be.</value>
   </data>
@@ -1575,6 +1578,9 @@
   </data>
   <data name="Partner_Intro" xml:space="preserve">
     <value>And finally...[pause=0]\nWho will be your partner?</value>
+  </data>
+  <data name="Partner_Gender" xml:space="preserve">
+    <value>What is their gender?</value>
   </data>
   <data name="Partner_Select" xml:space="preserve">
     <value>Choose the Pokémon you want for a partner.</value>

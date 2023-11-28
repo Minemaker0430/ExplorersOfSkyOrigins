@@ -780,16 +780,20 @@ local txt = STRINGS:Format(MapStrings['Partner_Select'])
 pkm = -1
 
 while not continue do
-	if gender == 1 then
-		UI:ChooseMonsterMenu(txt, starterListMale)
-	elseif gender == 2 then
-		UI:ChooseMonsterMenu(txt, starterListFemale)
-	else
-		UI:ChooseMonsterMenu(txt, starterList)
-	end	
+	UI:ChooseMonsterMenu(txt, starterList)
 	UI:WaitForChoice()	
 	local result = UI:ChoiceResult()
+	print(result)
 	pkm = result
+	
+	local listNum = 0
+	for i = 1, #starterList do
+		if starterList[i] == pkm then
+			listNum = i
+			break
+		end
+	end
+	
 	if not GAME:GetPlayerPartyMember(1) == nil then
 		GAME:RemovePlayerTeam(1)
 	end
@@ -799,16 +803,43 @@ while not continue do
 	UI:ChoiceMenuYesNo(STRINGS:Format(MapStrings['Choice_Prompt'], _DATA:GetMonster(pkm.Species):GetColoredName()))
 	UI:WaitForChoice()
 	continue = UI:ChoiceResult()
+	if _DATA.Save.ActiveTeam.Players[0].Element1 == _DATA.Save.ActiveTeam.Players[1].Element1 then
+		UI:ChoiceMenuYesNo(STRINGS:Format(MapStrings['Partner_Warning'], _DATA:GetMonster(pkm.Species):GetColoredName()))
+		UI:WaitForChoice()
+		continue = UI:ChoiceResult()
+	end
 	if not continue then
 		GROUND:Hide("PLAYER")
 	end
-	
-	SV.General.Partner = pkm
 
-	_DATA.Save:UpdateTeamProfile(true)
-	_DATA.Save.ActiveTeam.Players[1].IsFounder = true
-	_DATA.Save.ActiveTeam.Players[1].IsPartner = true
 end
+
+--Partner Gender
+choices = {STRINGS:Format(MapStrings['Quiz_Gender_A1']),
+           STRINGS:Format(MapStrings['Quiz_Gender_A2']),
+           STRINGS:Format(MapStrings['Quiz_Gender_A3'])}
+
+UI:BeginChoiceMenu(STRINGS:Format(MapStrings['Partner_Gender']), choices, 1, 3)
+UI:WaitForChoice()
+result = UI:ChoiceResult()
+GAME:RemovePlayerTeam(1)
+
+GAME:WaitFrames(1)
+
+if result == 1 then pkm.Gender = Gender.Male end
+if result == 2 then pkm.Gender = Gender.Female end
+if result == 3 then pkm.Gender = Gender.Genderless end
+
+	GAME:RemovePlayerTeam(1)
+	GAME:WaitFrames(1)
+	_DATA.Save.ActiveTeam.Players:Add(_DATA.Save.ActiveTeam:CreatePlayer(_DATA.Save.Rand, pkm, 5, "", 0))
+	GROUND:SetPlayer(GAME:GetPlayerPartyMember(1))
+
+SV.General.Partner = pkm
+
+_DATA.Save:UpdateTeamProfile(true)
+_DATA.Save.ActiveTeam.Players[1].IsFounder = true
+_DATA.Save.ActiveTeam.Players[1].IsPartner = true
 
   --Partner Name
 local ch = false
@@ -868,7 +899,6 @@ end
 --Engine callback function
 function personality_test.GameLoad(map)
 
-  GAME:FadeIn(20)
 
 end
 
