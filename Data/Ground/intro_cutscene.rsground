@@ -20855,14 +20855,17 @@
 },
 "Status": {},
 "Background": {
-"$type": "RogueEssence.Dungeon.MapBG, RogueEssence",
+"$type": "RogueEssence.Dungeon.LayeredBG, RogueEssence",
+"Layers": [
+{
+"BG": {
 "MapLoc": {
 "X": 0,
 "Y": 0
 },
 "BGAnim": {
-"AnimIndex": "",
-"FrameTime": 1,
+"AnimIndex": "StormFront",
+"FrameTime": 20,
 "StartFrame": -1,
 "EndFrame": -1,
 "AnimDir": -1,
@@ -20870,12 +20873,39 @@
 "AnimFlip": 0
 },
 "BGMovement": {
-"X": 0,
+"X": -15,
 "Y": 0
 },
 "Parallax": "0, 0",
-"RepeatX": false,
+"RepeatX": true,
 "RepeatY": false
+}
+},
+{
+"BG": {
+"MapLoc": {
+"X": 0,
+"Y": 0
+},
+"BGAnim": {
+"AnimIndex": "StormBack",
+"FrameTime": 10,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": 0,
+"Alpha": 255,
+"AnimFlip": 0
+},
+"BGMovement": {
+"X": -20,
+"Y": 0
+},
+"Parallax": "0, 0",
+"RepeatX": true,
+"RepeatY": false
+}
+}
+]
 },
 "BlankBG": {
 "AutoTileset": "",
@@ -22462,7 +22492,7 @@
 ],
 "AssetName": "intro_cutscene",
 "Music": "",
-"EdgeView": 0,
+"EdgeView": 2,
 "NoSwitching": false,
 "ViewCenter": null,
 "ViewOffset": {

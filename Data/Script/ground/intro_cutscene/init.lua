@@ -32,8 +32,113 @@ end
 --Engine callback function
 function intro_cutscene.Enter(map)
 
-  GAME:FadeIn(20)
+  GROUND:Hide("PLAYER")
+  UI:ResetSpeaker()
+  
+  --fade in wind
+  GAME:WaitFrames(120)
+  
+  --lightning sfx
+  SOUND:PlaySE("Battle/EVT_CH01_Thunder")
+  GAME:FadeOut(true, 1)
+  GAME:WaitFrames(5)
+  GAME:FadeOut(false, 1)
+  GAME:WaitFrames(5)
+  SOUND:PlaySE("Battle/EVT_CH01_Thunder")
+  GAME:FadeOut(true, 1)
+  GAME:WaitFrames(5)
+  GAME:FadeOut(false, 1)
+  GAME:WaitFrames(5)
+  
+  GAME:WaitFrames(10)
+  
+  UI:WaitShowDialogue(STRINGS:Format(MapStrings['Unknown_1']))
+  UI:WaitShowDialogue(STRINGS:Format(MapStrings['Unknown_2']))
+  
+  --lightning
+  SOUND:PlaySE("Battle/EVT_CH01_Thunder")
+  GAME:FadeOut(true, 1)
+  GAME:WaitFrames(5)
+  GAME:FadeOut(false, 1)
+  GAME:WaitFrames(5)
+  
+  GAME:WaitFrames(10)
+  
+  UI:WaitShowDialogue(STRINGS:Format(MapStrings['Unknown_3']))
+  UI:WaitShowDialogue(STRINGS:Format(MapStrings['Unknown_4']))
+  
+  --lightning
+  SOUND:PlaySE("Battle/EVT_CH01_Thunder")
+  GAME:FadeOut(true, 1)
+  GAME:WaitFrames(5)
+  GAME:FadeOut(false, 1)
+  GAME:WaitFrames(5)
+  
+  GAME:WaitFrames(10)
+  
+  UI:WaitShowDialogue(STRINGS:Format(MapStrings['Unknown_5']))
 
+  --lightning sfx
+  SOUND:PlaySE("Battle/EVT_CH01_Thunder_2")
+  GAME:FadeOut(true, 1)
+  GAME:WaitFrames(5)
+  GAME:FadeOut(false, 1)
+  GAME:WaitFrames(5)
+  SOUND:PlaySE("Battle/EVT_CH01_Thunder_2")
+  GAME:FadeOut(true, 1)
+  GAME:WaitFrames(5)
+  GAME:FadeOut(false, 1)
+  GAME:WaitFrames(5)
+
+GAME:WaitFrames(10)
+
+--lightning sfx
+SOUND:PlaySE("Battle/EVT_CH01_Thunder_2")
+  GAME:FadeOut(true, 1)
+  GAME:WaitFrames(5)
+  GAME:FadeOut(false, 1)
+  GAME:WaitFrames(5)
+  SOUND:PlaySE("Battle/EVT_CH01_Thunder_2")
+  GAME:FadeOut(true, 1)
+  GAME:WaitFrames(5)
+  GAME:FadeOut(false, 1)
+  GAME:WaitFrames(5)
+  
+  GAME:WaitFrames(10)
+  
+  --fade out
+  --sfx
+  SOUND:PlaySE("Battle/EVT_CH01_Transition")
+  --intro_cutscene.ScreenTransition(1)
+  UI:WaitTimedDialogue(STRINGS:Format(MapStrings['Unknown_6']), 120)
+  GAME:FadeIn(1)
+  GAME:FadeOut(true, 120)
+  --UI:WaitShowBG("Black", 1, 1)
+  
+  GAME:WaitFrames(180)
+  
+  GAME:FadeIn(60)
+  
+  GAME:WaitFrames(60)
+  
+  --show storm
+  --UI:WaitHideBG(60)
+  GAME:FadeIn(60)
+  
+  GAME:WaitFrames(360)
+  
+  GAME:FadeOut(false, 60)
+  
+  --show sharpedo bluff
+  --GAME:WaitShowBG(1)
+  GAME:FadeIn(60)
+  
+  --sharpedo bluff lightning
+  
+  GAME:FadeOut(false, 60)
+  
+  --go to next Scene
+  
 end
 
 ---intro_cutscene.Exit(map)
@@ -68,6 +173,10 @@ end
 -------------------------------
 -- Entities Callbacks
 -------------------------------
+
+function intro_cutscene.ScreenTransition()
+	
+end
 
 
 return intro_cutscene
