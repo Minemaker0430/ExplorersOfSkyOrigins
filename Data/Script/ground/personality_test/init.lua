@@ -869,10 +869,10 @@ GAME:FadeOut(false, 120)
 GROUND:SetPlayer(GAME:GetPlayerPartyMember(0))
 
 --Dev Build
---GAME:EnterGroundMap("chapter_card", "Entrance")
+GAME:EnterGroundMap("chapter_card", "Entrance")
 
 --Main Build
-GAME:RestartToTitle()
+--GAME:RestartToTitle()
 
 end
 

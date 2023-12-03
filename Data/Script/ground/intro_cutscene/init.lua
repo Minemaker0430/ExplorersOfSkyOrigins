@@ -32,6 +32,7 @@ end
 --Engine callback function
 function intro_cutscene.Enter(map)
 
+  GAME:FadeOut(false, 1)
   GROUND:Hide("PLAYER")
   UI:ResetSpeaker()
   
@@ -110,9 +111,10 @@ SOUND:PlaySE("Battle/EVT_CH01_Thunder_2")
   --sfx
   SOUND:PlaySE("Battle/EVT_CH01_Transition")
   --intro_cutscene.ScreenTransition(1)
-  UI:WaitTimedDialogue(STRINGS:Format(MapStrings['Unknown_6']), 120)
-  GAME:FadeIn(1)
-  GAME:FadeOut(true, 120)
+  local coro1 = TASK:BranchCoroutine(function() UI:WaitShowTimedDialogue(STRINGS:Format(MapStrings['Unknown_6']), 120) end)
+  local coro2 = TASK:BranchCoroutine(function() GAME:FadeOut(true, 120) end)
+  TASK:JoinCoroutines({coro1, coro2})
+  
   --UI:WaitShowBG("Black", 1, 1)
   
   GAME:WaitFrames(180)
@@ -137,7 +139,12 @@ SOUND:PlaySE("Battle/EVT_CH01_Thunder_2")
   
   GAME:FadeOut(false, 60)
   
-  --go to next Scene
+  --make sure svs are set properly
+  --SV.Progression.Chapter = 1
+  --SV.Progression.SectionFlag = 0
+  --SV.beach.Cutscene = true
+  
+  GAME:EnterZone('hub', -1, 1, 1)
   
 end
 

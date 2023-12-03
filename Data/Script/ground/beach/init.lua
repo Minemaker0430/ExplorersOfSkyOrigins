@@ -35,13 +35,15 @@ function beach.Enter(map)
   --Normal Entry
   if not SV.beach.Cutscene then
 	GAME:FadeIn(20)
+	SOUND:FadeInSE("Beach_Noise", 20)
 	--Handle NPCs based on progression
   else
   --Cutscenes
 	--GROUND:AddMapStatus("dusk")
 	
-	if (SV.Chapter = 1 and SV.SectionFlag = 0) then
+	if (SV.Progression.Chapter == 1 and SV.Progression.SectionFlag == 0) then
 		
+		GAME:FadeOut(false, 1)
 		local player = CH('PLAYER')
 
 		GAME:CutsceneMode(true)
@@ -49,26 +51,40 @@ function beach.Enter(map)
 		
 		GAME:WaitFrames(120)
 		
-        UI:WaitShowDialogue(STRINGS:Format("......"))
-		UI:WaitShowDialogue(STRINGS:Format("............"))
-		UI:WaitShowDialogue(STRINGS:Format(".................."))
-		UI:WaitShowDialogue(STRINGS:Format("Urrgh..."))
+		SOUND:FadeInSE("Beach_Noise", 20)
+		
+		GAME:WaitFrames(60)
+		
+        UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Hero_1']))
+		UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Hero_2']))
+		UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Hero_3']))
+		UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Hero_4']))
+		
+		GAME:WaitFrames(20)
+		
+		--fade in bg
     
 		GAME:WaitFrames(60)
 		
-		UI:WaitShowDialogue(STRINGS:Format("Where..."))
-		UI:WaitShowDialogue(STRINGS:Format("...Where am I?"))
+		UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Hero_5']))
+		UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Hero_6']))
 		
 		GAME:FadeIn(120)
 		
-		UI:SetSpeaker(player)
+		UI:SetSpeaker('', true, player.CurrentForm.Species, player.CurrentForm.Form, player.CurrentForm.Skin, player.CurrentForm.Gender)
 		UI:SetSpeakerEmotion("Pain")
 		
-		UI:WaitShowDialogue(STRINGS:Format("...[pause=0]I can\'t...[pause=0] Drifting off..."))
+		UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Hero_7']))
 		
 		GAME:WaitFrames(30)
-		GAME:FadeOut(false, 150)
+		
+		local coro1 = TASK:BranchCoroutine(function() GAME:FadeOut(false, 150) end)
+		local coro2 = TASK:BranchCoroutine(function() SOUND:FadeOutSE("Beach_Noise", 150) end)
+		TASK:JoinCoroutines({coro1, coro2})
+		
 		GAME:WaitFrames(60)
+		
+		GAME:RestartToTitle()
 		
     end
   end
@@ -77,7 +93,10 @@ end
 ---beach.Exit(map)
 --Engine callback function
 function beach.Exit(map)
-
+	
+	local coro1 = TASK:BranchCoroutine(function() GAME:FadeOut(false, 20) end)
+	local coro2 = TASK:BranchCoroutine(function() SOUND:FadeOutSE("Beach_Noise", 20) end)
+	TASK:JoinCoroutines({coro1, coro2})
 
 end
 

@@ -1,5 +1,5 @@
 ﻿{
-"Version": "0.7.18.2",
+"Version": "0.7.20.0",
 "Object": {
 "$type": "RogueEssence.Ground.GroundMap, RogueEssence",
 "TexSize": 3,
@@ -2829,7 +2829,7 @@
 "Width": 8,
 "Height": 8
 },
-"Tags": 0
+"Tags": 1
 },
 {
 "Bounds": {
@@ -92457,8 +92457,8 @@
 "Y": 0
 },
 "Collider": {
-"X": 32,
-"Y": 152,
+"X": 8,
+"Y": 144,
 "Width": 64,
 "Height": 64
 }
@@ -92475,6 +92475,19 @@
 "Collider": {
 "X": 748,
 "Y": 208,
+"Width": 16,
+"Height": 16
+}
+},
+{
+"EntName": "CutsceneEntranceA",
+"Direction": 0,
+"EntEnabled": true,
+"EntOrder": 0,
+"triggerType": 0,
+"Collider": {
+"X": 280,
+"Y": 160,
 "Width": 16,
 "Height": 16
 }

@@ -60,7 +60,7 @@ SV.PlayerInputs =
 
 SV.beach =
 {
-	Cutscene = false,
+	Cutscene = true,
 	FailedDungeon = false
 }
 

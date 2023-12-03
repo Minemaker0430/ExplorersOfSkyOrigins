@@ -1,5 +1,5 @@
 ﻿{
-"Version": "0.7.19.0",
+"Version": "0.7.20.0",
 "Object": {
 "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[RogueEssence.Data.EntrySummary, RogueEssence]], System.Private.CoreLib",
 "cutscenes": {
@@ -28,6 +28,61 @@
 },
 "Released": true,
 "Comment": "should only be used for purely visual cutscenes with no interaction",
+"SortOrder": 0
+},
+"hub": {
+"$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+"NoEXP": false,
+"Level": -1,
+"LevelCap": false,
+"KeepSkills": false,
+"TeamRestrict": false,
+"TeamSize": -1,
+"MoneyRestrict": false,
+"BagRestrict": -1,
+"BagSize": -1,
+"Rescues": 0,
+"CountedFloors": 0,
+"Rogue": 0,
+"Grounds": [
+"treasure_town",
+"beach",
+"marowak_dojo",
+"marowak_dojo_final_maze",
+"guild_outside",
+"guild_basement"
+],
+"Maps": [],
+"Name": {
+"DefaultText": "Main Hub",
+"LocalTexts": {}
+},
+"Released": true,
+"Comment": "treasure town, guild, and beach. ground map only",
+"SortOrder": 0
+},
+"beach_cave": {
+"$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+"NoEXP": false,
+"Level": 5,
+"LevelCap": false,
+"KeepSkills": false,
+"TeamRestrict": false,
+"TeamSize": 4,
+"MoneyRestrict": false,
+"BagRestrict": -1,
+"BagSize": -1,
+"Rescues": 0,
+"CountedFloors": 0,
+"Rogue": 1,
+"Grounds": [],
+"Maps": [],
+"Name": {
+"DefaultText": "Beach Cave",
+"LocalTexts": {}
+},
+"Released": true,
+"Comment": "",
 "SortOrder": 0
 }
 }

@@ -35,11 +35,13 @@ function chapter_card.Enter(map)
   GROUND:Hide("PLAYER")
   GAME:FadeIn(60)
   
-  UI:WaitShowBG("ChapterCard_"..tostring(SV.Progression.Chapter), 1, 60)
-  UI:WaitShowTitle(STRINGS:Format(MapStrings['ChapterTitle_'..tostring(SV.Progression.Chapter)]), 60)
-  GAME:WaitFrames(300)
-  UI:WaitHideBG(60)
-  UI:WaitHideTitle(60)
+  local coro1 = TASK:BranchCoroutine(function() UI:WaitShowTitle(STRINGS:Format(MapStrings['ChapterTitle_'..tostring(SV.Progression.Chapter)]), 20)
+												  GAME:WaitFrames(300)
+												  UI:WaitHideTitle(60) end)
+  local coro2 = TASK:BranchCoroutine(function() UI:WaitShowBG("ChapterCard_"..tostring(SV.Progression.Chapter), 180, 20)
+												  GAME:WaitFrames(300)
+												  UI:WaitHideBG(60) end)
+  TASK:JoinCoroutines({coro1, coro2})
   
   if SV.Progression.Chapter == 1 then
 	GAME:EnterGroundMap("intro_cutscene", "Entrance")

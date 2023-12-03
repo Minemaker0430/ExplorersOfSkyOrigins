@@ -6,7 +6,7 @@ This project is in no way affiliated with Nintendo, The Pokemon Company, or Spik
 # Credits
  Minemaker0430 - Project Creator
 
-Palika - Dusk/Darkness Shaders, Job System (NYI)
+Palika - Dusk/Darkness Shaders, Job System (NYI), Coding/Asset Assistance
 
 Trio - Job System (NYI)
 
@@ -22,6 +22,9 @@ Trio - Job System (NYI)
 # Known Issues
  - Personality Quiz Code is very much Spaghetti Code right now, will fix later :v
  - Personality Quiz doesn't have the Aura Cutscene (Might Not Fix)
+ - Intro Cutscene is missing assets and needs to be polished later (Missing BGM & FX)
+ - Many BGs need to be resized
+ - Intro Cutscene is unfinished
 
 # Installation
  - Get PMDO from https://github.com/audinowho/PMDODump/releases
