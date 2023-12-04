@@ -44,7 +44,7 @@ function chapter_card.Enter(map)
   TASK:JoinCoroutines({coro1, coro2})
   
   if SV.Progression.Chapter == 1 then
-	GAME:EnterGroundMap("intro_cutscene", "Entrance")
+	GAME:EnterGroundMap("storm_cutscene_a", "Entrance")
   elseif SV.Progression.Chapter == 2 then
 	--Go to ???
   elseif SV.Progression.Chapter == 3 then
