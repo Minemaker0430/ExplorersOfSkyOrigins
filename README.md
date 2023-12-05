@@ -24,7 +24,7 @@ Trio - Job System (NYI)
  - Personality Quiz doesn't have the Aura Cutscene (Might Not Fix)
  - Intro Cutscene is missing assets and needs to be polished later (Missing BGM & FX)
  - Many BGs need to be resized
- - Intro Cutscene is unfinished
+ - Storm Cutscene is unpolished & contains graphical errors
 
 # Installation
  - Get PMDO from https://github.com/audinowho/PMDODump/releases
