@@ -58,4 +58,97 @@
   <resheader name="writer">
     <value>System.Resources.NetStandard.ResXResourceWriter, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </resheader>
+  <data name="CH1_Partner_1" xml:space="preserve">
+    <value>Hmm...</value>
+  </data>
+  <data name="CH1_Partner_2" xml:space="preserve">
+    <value>No.[pause=0] I refuse to be paralyzed by this any longer!</value>
+  </data>
+  <data name="CH1_Partner_3_0" xml:space="preserve">
+    <value>This is it. I have to steel my courage today.</value>
+  </data>
+  <data name="CH1_Partner_3_1" xml:space="preserve">
+    <value>No more wimping out. I have to be brave today.</value>
+  </data>
+  <data name="CH1_Partner_3_2" xml:space="preserve">
+    <value>This is it. Today I'm going to be brave.</value>
+  </data>
+  <data name="CH1_Unknown_1" xml:space="preserve">
+    <value>Pokémon detected! Pokémon detected!</value>
+  </data>
+  <data name="CH1_Unknown_2" xml:space="preserve">
+    <value>Whose footprint? Whose footprint?</value>
+  </data>
+  <data name="CH1_Unknown_3" xml:space="preserve">
+    <value>The footprint is {0}'s! The footprint is {0}'s!</value>
+  </data>
+  <data name="CH1_Partner_4" xml:space="preserve">
+    <value>Waah!</value>
+  </data>
+  <data name="CH1_Partner_5_0" xml:space="preserve">
+    <value>That was too shocking!</value>
+  </data>
+  <data name="CH1_Partner_5_1" xml:space="preserve">
+    <value>That shocked me!</value>
+  </data>
+  <data name="CH1_Partner_5_2" xml:space="preserve">
+    <value>That shocked me!</value>
+  </data>
+  <data name="CH1_Partner_6" xml:space="preserve">
+    <value>Whew...</value>
+  </data>
+  <data name="CH1_Partner_7_0" xml:space="preserve">
+    <value>...[pause=0]I can't...[pause=0] I can't work up the courage to go in, after all...</value>
+  </data>
+  <data name="CH1_Partner_7_1" xml:space="preserve">
+    <value>...[pause=0]I can't...[pause=0] I can't push myself to go in after all.</value>
+  </data>
+  <data name="CH1_Partner_7_2" xml:space="preserve">
+    <value>...[pause=0]I can't...[pause=0] I can't bring myself to go in.</value>
+  </data>
+  <data name="CH1_Partner_8_0" xml:space="preserve">
+    <value>I told myself that this is the day, but...</value>
+  </data>
+  <data name="CH1_Partner_8_1" xml:space="preserve">
+    <value>I said to myself that this is the day, but...</value>
+  </data>
+  <data name="CH1_Partner_8_2" xml:space="preserve">
+    <value>I vowed that I would do it today, but...</value>
+  </data>
+  <data name="CH1_Partner_9" xml:space="preserve">
+    <value>I thought that holding on to my personal treasure would inspire me...</value>
+  </data>
+  <data name="CH1_Partner_10_0" xml:space="preserve">
+    <value>Sigh...I just can't do it.</value>
+  </data>
+  <data name="CH1_Partner_10_1" xml:space="preserve">
+    <value>But I just can't do it.</value>
+  </data>
+  <data name="CH1_Partner_10_2" xml:space="preserve">
+    <value>Sigh...I just can't do it.</value>
+  </data>
+  <data name="CH1_Partner_11" xml:space="preserve">
+    <value>I'm such a coward...</value>
+  </data>
+  <data name="CH1_Partner_12" xml:space="preserve">
+    <value>This is so discouraging...</value>
+  </data>
+  <data name="CH1_Koffing_1" xml:space="preserve">
+    <value>Hey, {0}.[pause=0] Did you get a load of that?!</value>
+  </data>
+  <data name="CH1_Zubat_1" xml:space="preserve">
+    <value>You bet I did, {0}.</value>
+  </data>
+  <data name="CH1_S1_Koffing_2" xml:space="preserve">
+    <value>That little wimp that was pacing around...[pause=0]had something good, right?</value>
+  </data>
+  <data name="CH1_Zubat_2" xml:space="preserve">
+    <value>That wimp had something, that's for sure.[pause=0] It looked like some kind of treasure.</value>
+  </data>
+  <data name="CH1_Koffing_3" xml:space="preserve">
+    <value>Do we go after it?</value>
+  </data>
+  <data name="CH1_Zubat_3" xml:space="preserve">
+    <value>We do.</value>
+  </data>
 </root>

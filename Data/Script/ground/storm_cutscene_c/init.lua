@@ -32,6 +32,8 @@ end
 --Engine callback function
 function storm_cutscene_c.Enter(map)
 
+  GAME:CutsceneMode(true)
+
   GROUND:Hide("PLAYER")
 
   GAME:FadeIn(120)

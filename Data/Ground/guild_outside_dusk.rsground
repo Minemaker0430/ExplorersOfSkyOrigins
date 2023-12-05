@@ -1,5 +1,5 @@
 ﻿{
-"Version": "0.7.19.0",
+"Version": "0.7.20.0",
 "Object": {
 "$type": "RogueEssence.Ground.GroundMap, RogueEssence",
 "TexSize": 3,
@@ -43852,17 +43852,353 @@
 "Name": "New Deco",
 "Layer": 0,
 "Visible": true,
-"Anims": []
+"Anims": [
+{
+"MapLoc": {
+"X": 130,
+"Y": 117
+},
+"ObjectAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "Totem_1",
+"FrameTime": 1,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": 0,
+"Alpha": 255,
+"AnimFlip": 0
+}
+},
+{
+"MapLoc": {
+"X": 319,
+"Y": 117
+},
+"ObjectAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "Totem_3",
+"FrameTime": 1,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": 0,
+"Alpha": 255,
+"AnimFlip": 0
+}
+}
+]
 }
 ],
 "Entities": [
 {
 "Name": "New EntLayer",
 "Visible": true,
-"MapChars": [],
-"GroundObjects": [],
+"MapChars": [
+{
+"Direction": 0,
+"IsInteracting": false,
+"AIEnabled": false,
+"EntName": "Koffing",
+"EntEnabled": true,
+"EntOrder": 0,
+"serializationLoc": {
+"X": -25,
+"Y": 10
+},
+"serializationHeight": 0,
+"serializationDir": 0,
+"triggerType": 1,
+"<AI>k__BackingField": null,
+"Data": {
+"Nickname": "",
+"OriginalUUID": "",
+"OriginalTeam": "",
+"BaseForm": {
+"Species": "koffing",
+"Form": 0,
+"Skin": "normal",
+"Gender": 1
+},
+"Level": 1,
+"EXP": 0,
+"MaxHPBonus": 0,
+"AtkBonus": 0,
+"DefBonus": 0,
+"MAtkBonus": 0,
+"MDefBonus": 0,
+"SpeedBonus": 0,
+"BaseSkills": [
+{
+"SkillNum": "",
+"Charges": 0
+},
+{
+"SkillNum": "",
+"Charges": 0
+},
+{
+"SkillNum": "",
+"Charges": 0
+},
+{
+"SkillNum": "",
+"Charges": 0
+}
+],
+"BaseIntrinsics": [
+""
+],
+"Relearnables": {},
+"Discriminator": 0,
+"MetAt": "",
+"MetLoc": {
+"ID": "",
+"StructID": {
+"Segment": -1,
+"ID": -1
+},
+"EntryPoint": -1
+},
+"DefeatAt": "",
+"DefeatLoc": {
+"ID": "",
+"StructID": {
+"Segment": -1,
+"ID": -1
+},
+"EntryPoint": -1
+},
+"IsFounder": false,
+"IsPartner": false,
+"NameLocked": false,
+"IsFavorite": false,
+"Unrecruitable": false,
+"ActionEvents": [],
+"ScriptVars": null
+},
+"CollisionDisabled": false,
+"Collider": {
+"X": 0,
+"Y": 0,
+"Width": 16,
+"Height": 16
+}
+},
+{
+"Direction": 0,
+"IsInteracting": false,
+"AIEnabled": false,
+"EntName": "Zubat",
+"EntEnabled": true,
+"EntOrder": 0,
+"serializationLoc": {
+"X": -25,
+"Y": 36
+},
+"serializationHeight": 0,
+"serializationDir": 0,
+"triggerType": 1,
+"<AI>k__BackingField": null,
+"Data": {
+"Nickname": "",
+"OriginalUUID": "",
+"OriginalTeam": "",
+"BaseForm": {
+"Species": "zubat",
+"Form": 0,
+"Skin": "normal",
+"Gender": 1
+},
+"Level": 1,
+"EXP": 0,
+"MaxHPBonus": 0,
+"AtkBonus": 0,
+"DefBonus": 0,
+"MAtkBonus": 0,
+"MDefBonus": 0,
+"SpeedBonus": 0,
+"BaseSkills": [
+{
+"SkillNum": "",
+"Charges": 0
+},
+{
+"SkillNum": "",
+"Charges": 0
+},
+{
+"SkillNum": "",
+"Charges": 0
+},
+{
+"SkillNum": "",
+"Charges": 0
+}
+],
+"BaseIntrinsics": [
+""
+],
+"Relearnables": {},
+"Discriminator": 0,
+"MetAt": "",
+"MetLoc": {
+"ID": "",
+"StructID": {
+"Segment": -1,
+"ID": -1
+},
+"EntryPoint": -1
+},
+"DefeatAt": "",
+"DefeatLoc": {
+"ID": "",
+"StructID": {
+"Segment": -1,
+"ID": -1
+},
+"EntryPoint": -1
+},
+"IsFounder": false,
+"IsPartner": false,
+"NameLocked": false,
+"IsFavorite": false,
+"Unrecruitable": false,
+"ActionEvents": [],
+"ScriptVars": null
+},
+"CollisionDisabled": false,
+"Collider": {
+"X": 0,
+"Y": 0,
+"Width": 16,
+"Height": 16
+}
+}
+],
+"GroundObjects": [
+{
+"EntName": "RelicFragment",
+"Direction": 0,
+"EntEnabled": true,
+"EntOrder": 0,
+"triggerType": 0,
+"ObjectAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "RelicFragment",
+"FrameTime": 1,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": -1,
+"Alpha": 255,
+"AnimFlip": 0
+},
+"Passable": true,
+"CurrentAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "",
+"FrameTime": 1,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": -1,
+"Alpha": 255,
+"AnimFlip": 0
+},
+"AnimTime": {
+"Ticks": 0
+},
+"Cycles": 0,
+"DrawOffset": {
+"X": 0,
+"Y": 0
+},
+"Collider": {
+"X": -25,
+"Y": 60,
+"Width": 16,
+"Height": 16
+}
+}
+],
 "Spawners": [],
-"Markers": []
+"Markers": [
+{
+"EntName": "CH1_PartnerSpawn",
+"Direction": 4,
+"EntEnabled": true,
+"EntOrder": 0,
+"triggerType": 0,
+"Collider": {
+"X": 232,
+"Y": 192,
+"Width": 16,
+"Height": 16
+}
+},
+{
+"EntName": "CH1_ZubatSpawn",
+"Direction": 0,
+"EntEnabled": true,
+"EntOrder": 0,
+"triggerType": 0,
+"Collider": {
+"X": 148,
+"Y": 171,
+"Width": 16,
+"Height": 16
+}
+},
+{
+"EntName": "CH1_KoffingSpawn",
+"Direction": 0,
+"EntEnabled": true,
+"EntOrder": 0,
+"triggerType": 0,
+"Collider": {
+"X": 125,
+"Y": 171,
+"Width": 16,
+"Height": 16
+}
+},
+{
+"EntName": "CamPos_1",
+"Direction": 4,
+"EntEnabled": true,
+"EntOrder": 0,
+"triggerType": 0,
+"Collider": {
+"X": 232,
+"Y": 168,
+"Width": 16,
+"Height": 16
+}
+},
+{
+"EntName": "CH1_KoffingPos",
+"Direction": 0,
+"EntEnabled": true,
+"EntOrder": 0,
+"triggerType": 0,
+"Collider": {
+"X": 215,
+"Y": 192,
+"Width": 16,
+"Height": 16
+}
+},
+{
+"EntName": "CH1_ZubatPos",
+"Direction": 0,
+"EntEnabled": true,
+"EntOrder": 0,
+"triggerType": 0,
+"Collider": {
+"X": 249,
+"Y": 192,
+"Width": 16,
+"Height": 16
+}
+}
+]
 }
 ]
 }

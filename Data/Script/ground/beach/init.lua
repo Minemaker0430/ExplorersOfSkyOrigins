@@ -87,7 +87,9 @@ function beach.Enter(map)
 		
 		GAME:WaitFrames(60)
 		
-		GAME:RestartToTitle()
+		GAME:EnterZone('cutscenes', -1, 5, 1)
+		
+		--GAME:RestartToTitle()
 		
     end
   end

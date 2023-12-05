@@ -517,6 +517,17 @@ local function pokemonSelection(trait, natures, gender)
 
 end
 
+local function roll(randMin, randMax)
+	local cont = 0
+	local rand = 0
+	while cont < 10 do 
+		cont = math.random(1, 10)
+		rand = math.random(randMin, randMax)
+	end
+	
+	return rand
+end
+
 ---personality_test.Enter
 --Engine callback function
 function personality_test.Enter(map)
@@ -871,12 +882,39 @@ while not ch do
 GROUND:Hide("PLAYER")
 
 --Partner Text
+-- 0 = Neutral
+-- 1 = "Cool"
+-- 2 = "Cute"
 if _DATA.Save.ActiveTeam.Players[1].Gender == Gender.Male then
-	SV.Personality.PartnerTalkKind = 1
+	local randResult = roll(1, 100)
+	
+	if randResult <= 10 then -- 10%
+		SV.Personality.PartnerTalkKind = 2
+	elseif randResult > 10 and randResult <= 50 then -- 40%
+		SV.Personality.PartnerTalkKind = 1
+	elseif randResult > 50 then -- 50%
+		SV.Personality.PartnerTalkKind = 0
+	end
 elseif _DATA.Save.ActiveTeam.Players[1].Gender == Gender.Female then
-	SV.Personality.PartnerTalkKind = 2
+	local randResult = roll(1, 100)
+	
+	if randResult <= 10 then -- 10%
+		SV.Personality.PartnerTalkKind = 1
+	elseif randResult > 10 and randResult <= 50 then -- 40%
+		SV.Personality.PartnerTalkKind = 2
+	elseif randResult > 50 then -- 50%
+		SV.Personality.PartnerTalkKind = 0
+	end
 else
-	SV.Personality.PartnerTalkKind = 0
+	local randResult = roll(1, 100)
+	
+	if randResult <= 25 then -- 25%
+		SV.Personality.PartnerTalkKind = 1
+	elseif randResult > 25 and randResult <= 50 then -- 25%
+		SV.Personality.PartnerTalkKind = 2
+	elseif randResult > 50 then -- 50%
+		SV.Personality.PartnerTalkKind = 0
+	end
 end
 
 --Hero Text

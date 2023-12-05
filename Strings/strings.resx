@@ -58,60 +58,6 @@
   <resheader name="writer">
     <value>System.Resources.NetStandard.ResXResourceWriter, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </resheader>
-  <data name="CH1_S1_Partner_1" xml:space="preserve">
-    <value>Hmm...</value>
-  </data>
-  <data name="CH1_S1_Partner_2" xml:space="preserve">
-    <value>No.[pause=0] I refuse to be paralyzed by this any longer![pause=0] This is it.[pause=0] I have to steel my courage today.</value>
-  </data>
-  <data name="CH1_S1_Unknown_10" xml:space="preserve">
-    <value>Pokemon detected! Pokemon detected!</value>
-  </data>
-  <data name="CH1_S1_Unknown_11" xml:space="preserve">
-    <value>Whose footprint? Whose footprint?</value>
-  </data>
-  <data name="CH1_S1_Unknown_12" xml:space="preserve">
-    <value>The footprint is {0}'s! The footprint is {0}'s!</value>
-  </data>
-  <data name="CH1_S1_Partner_3" xml:space="preserve">
-    <value>Waah!</value>
-  </data>
-  <data name="CH1_S1_Partner_4" xml:space="preserve">
-    <value>That was too shocking!</value>
-  </data>
-  <data name="CH1_S1_Partner_5" xml:space="preserve">
-    <value>Whew...</value>
-  </data>
-  <data name="CH1_S1_Partner_6" xml:space="preserve">
-    <value>...I can't...[pause=0] I can't work up the courage to go in,[pause=5] after all...[pause=0] I told myself that this is the day,[pause=5] but...</value>
-  </data>
-  <data name="CH1_S1_Partner_7" xml:space="preserve">
-    <value>I thought that holding on to my personal treasure would inspire me...</value>
-  </data>
-  <data name="CH1_S1_Partner_8" xml:space="preserve">
-    <value>Sigh...[pause=0]I just can't do it.</value>
-  </data>
-  <data name="CH1_S1_Partner_9" xml:space="preserve">
-    <value>I'm such a coward...[pause=0] This is so discouraging...</value>
-  </data>
-  <data name="CH1_S1_Koffing_1" xml:space="preserve">
-    <value>Hey,[pause=5] Zubat.[pause=0] Did you get a load of that?!</value>
-  </data>
-  <data name="CH1_S1_Zubat_1" xml:space="preserve">
-    <value>You bet I did,[pause=5] Koffing.</value>
-  </data>
-  <data name="CH1_S1_Koffing_2" xml:space="preserve">
-    <value>That little wimp that was pacing around...[pause=0] had something good,[pause=5] right?</value>
-  </data>
-  <data name="CH1_S1_Zubat_2" xml:space="preserve">
-    <value>That wimp had something,[pause=5] that's for sure.[pause=0] It looked like some kind of treasure.</value>
-  </data>
-  <data name="CH1_S1_Koffing_3" xml:space="preserve">
-    <value>Do we go after it?</value>
-  </data>
-  <data name="CH1_S1_Zubat_3" xml:space="preserve">
-    <value>We do.</value>
-  </data>
   <data name="GAME_TITLE" xml:space="preserve">
     <value>Pokémon Mystery Dungeon: Explorers of Sky</value>
     <comment>The title of the game.  Based off of "Pokemon Origins" (the anime)</comment>

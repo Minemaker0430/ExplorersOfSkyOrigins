@@ -30,8 +30,8 @@ SV.Services =
 SV.General =
 {
   Rescue = nil,
-  Starter = MonsterID("missingno", 0, "normal", Gender.Genderless),
-  Partner = MonsterID("missingno", 0, "normal", Gender.Genderless)
+  Starter = nil,
+  Partner = nil
   --Anything that applies to more than a single level, and that is too small to make a sub-table for, should be put in here ideally, or a sub-table of this
 }
 

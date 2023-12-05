@@ -32,6 +32,7 @@ end
 --Engine callback function
 function chapter_card.Enter(map)
 
+  GAME:CutsceneMode(true)
   GROUND:Hide("PLAYER")
   GAME:FadeIn(60)
   
