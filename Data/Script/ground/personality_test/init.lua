@@ -739,6 +739,8 @@ local continue = false
 local txt = STRINGS:Format(MapStrings['Starter_Select'])
 pkm = -1
 
+local heroListNum = 0
+
 while not continue do
 	if gender == 1 then
 		UI:ChooseMonsterMenu("", starterListMale)
@@ -750,6 +752,14 @@ while not continue do
 	UI:WaitForChoice()	
 	local result = UI:ChoiceResult()
 	pkm = result
+	
+	for i = 1, #starterList do
+		if starterList[i] == pkm then
+			heroListNum = i
+			break
+		end
+	end
+	
 	GAME:RemovePlayerTeam(0)
 	GAME:WaitFrames(1)
 	_DATA.Save.ActiveTeam.Players:Add(_DATA.Save.ActiveTeam:CreatePlayer(_DATA.Save.Rand, pkm, 5, "", 0))
@@ -780,6 +790,8 @@ local continue = false
 local txt = STRINGS:Format(MapStrings['Partner_Select'])
 pkm = -1
 
+local partnerListNum = 0
+
 while not continue do
 	UI:ChooseMonsterMenu("", starterList)
 	UI:WaitForChoice()	
@@ -787,10 +799,9 @@ while not continue do
 	print(result)
 	pkm = result
 	
-	local listNum = 0
 	for i = 1, #starterList do
 		if starterList[i] == pkm then
-			listNum = i
+			partnerListNum = i
 			break
 		end
 	end
@@ -858,6 +869,22 @@ while not ch do
   end
 
 GROUND:Hide("PLAYER")
+
+--Partner Text
+if _DATA.Save.ActiveTeam.Players[1].Gender == Gender.Male then
+	SV.Personality.PartnerTalkKind = 1
+elseif _DATA.Save.ActiveTeam.Players[1].Gender == Gender.Female then
+	SV.Personality.PartnerTalkKind = 2
+else
+	SV.Personality.PartnerTalkKind = 0
+end
+
+--Hero Text
+if _DATA.Save.ActiveTeam.Players[0].Gender == Gender.Female then
+	SV.Personality.HeroTalkKind = 1
+else
+	SV.Personality.HeroTalkKind = 0
+end
 
 UI:WaitShowDialogue(STRINGS:Format(MapStrings['Conclusion_1']))
 UI:WaitShowDialogue(STRINGS:Format(MapStrings['Conclusion_2']))

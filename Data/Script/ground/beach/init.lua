@@ -60,16 +60,19 @@ function beach.Enter(map)
 		UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Hero_3']))
 		UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Hero_4']))
 		
-		GAME:WaitFrames(20)
+		GAME:WaitFrames(40)
 		
-		--fade in bg
+		UI:WaitShowBG("OceanView", 25, 120)
     
 		GAME:WaitFrames(60)
 		
 		UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Hero_5']))
 		UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Hero_6']))
 		
+		UI:WaitHideBG(120)
 		GAME:FadeIn(120)
+		
+		GAME:WaitFrames(20)
 		
 		UI:SetSpeaker('', true, player.CurrentForm.Species, player.CurrentForm.Form, player.CurrentForm.Skin, player.CurrentForm.Gender)
 		UI:SetSpeakerEmotion("Pain")

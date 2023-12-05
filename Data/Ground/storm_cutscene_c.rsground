@@ -20855,13 +20855,16 @@
 },
 "Status": {},
 "Background": {
-"$type": "RogueEssence.Dungeon.MapBG, RogueEssence",
+"$type": "RogueEssence.Dungeon.LayeredBG, RogueEssence",
+"Layers": [
+{
+"BG": {
 "MapLoc": {
-"X": 0,
+"X": 10,
 "Y": 0
 },
 "BGAnim": {
-"AnimIndex": "",
+"AnimIndex": "ChapterCard_1",
 "FrameTime": 1,
 "StartFrame": -1,
 "EndFrame": -1,
@@ -20876,6 +20879,33 @@
 "Parallax": "0, 0",
 "RepeatX": false,
 "RepeatY": false
+}
+},
+{
+"BG": {
+"MapLoc": {
+"X": 10,
+"Y": 0
+},
+"BGAnim": {
+"AnimIndex": "RainStorm",
+"FrameTime": 3,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": -1,
+"Alpha": 255,
+"AnimFlip": 0
+},
+"BGMovement": {
+"X": 0,
+"Y": 0
+},
+"Parallax": "0, 0",
+"RepeatX": true,
+"RepeatY": false
+}
+}
+]
 },
 "BlankBG": {
 "AutoTileset": "",

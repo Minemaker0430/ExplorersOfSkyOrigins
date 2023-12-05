@@ -34,9 +34,31 @@ function storm_cutscene_c.Enter(map)
 
   GROUND:Hide("PLAYER")
 
-  GAME:FadeIn(60)
+  GAME:FadeIn(120)
   
-  --scene missing currently
+  GAME:WaitFrames(60)
+  
+  SOUND:PlaySE("Battle/EVT_CH01_Thunder")
+  UI:WaitShowBG("BluffLightning", 1, 1)
+  GAME:WaitFrames(5)
+  UI:WaitHideBG(1)
+  GAME:WaitFrames(5)
+  UI:WaitShowBG("BluffLightning", 1, 1)
+  GAME:WaitFrames(40)
+  UI:WaitHideBG(1)
+  
+  GAME:WaitFrames(80)
+  
+  SOUND:PlaySE("Battle/EVT_CH01_Thunder")
+  UI:WaitShowBG("BluffLightning", 1, 1)
+  GAME:WaitFrames(5)
+  UI:WaitHideBG(1)
+  GAME:WaitFrames(5)
+  UI:WaitShowBG("BluffLightning", 1, 1)
+  GAME:WaitFrames(40)
+  UI:WaitHideBG(1)
+  
+  GAME:WaitFrames(60)
   
   --fade out
   GAME:FadeOut(false, 120)

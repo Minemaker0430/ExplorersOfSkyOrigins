@@ -39,13 +39,14 @@ SV.Progression =
 {
 	Chapter = 1,
 	SectionFlag = 0,
-	Epilogue = false
+	Epilogue = false,
+	DemoCompleted = false
 }
 
 SV.Personality =
 {
-	HeroKind = true,
-	PartnerKind = true
+	HeroTalkKind = 0,
+	PartnerTalkKind = 0
 }
 
 SV.PlayerInputs =
