@@ -25,7 +25,7 @@ Trio - Job System (NYI)
  - Intro Cutscene is missing assets and needs to be polished later (Missing BGM & FX)
  - Many BGs need to be resized
  - Storm Cutscene is unpolished & contains graphical errors
- - 1st Guild Cutscene Crashes in Multiple Places
+ - Missing Ambient BGM
 
 # Installation
  - Get PMDO from https://github.com/audinowho/PMDODump/releases

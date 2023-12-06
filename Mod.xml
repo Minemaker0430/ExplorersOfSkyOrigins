@@ -1,7 +1,10 @@
 <Header>
-  <Name>Explorers of Sky: Origins</Name>
-  <Author>Minemaker0430</Author>
-  <Description>Explorers of Sky, rebuilt in the PMDO engine.</Description>
+  <Name>[color=#00FFFF]Explorers of Sky[color]: [color=#00FF00]Origins[color]</Name>
+  <Author>[color=#FFFF00]Minemaker0430[color]</Author>
+  <Description>[color=#00FFFF]Explorers of Sky[color], rebuilt in the [color=#00FF00]PMDO[color] engine.
+  
+Currently features Chapter 1.
+  </Description>
   <Namespace>eos</Namespace>
   <UUID>24139FE5-134F-498F-A91C-2D606E2F50F2</UUID>
   <Version>0.1</Version>

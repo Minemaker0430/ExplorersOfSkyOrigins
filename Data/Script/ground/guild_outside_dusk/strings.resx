@@ -74,13 +74,13 @@
     <value>This is it. Today I'm going to be brave.</value>
   </data>
   <data name="CH1_Unknown_1" xml:space="preserve">
-    <value>Pokémon detected! Pokémon detected!</value>
+    <value>\uE040: Pokémon detected! Pokémon detected!</value>
   </data>
   <data name="CH1_Unknown_2" xml:space="preserve">
-    <value>Whose footprint? Whose footprint?</value>
+    <value>\uE040: Whose footprint? Whose footprint?</value>
   </data>
   <data name="CH1_Unknown_3" xml:space="preserve">
-    <value>The footprint is {0}'s! The footprint is {0}'s!</value>
+    <value>\uE040: The footprint is {0}'s! The footprint is {0}'s!</value>
   </data>
   <data name="CH1_Partner_4" xml:space="preserve">
     <value>Waah!</value>
@@ -134,12 +134,12 @@
     <value>This is so discouraging...</value>
   </data>
   <data name="CH1_Koffing_1" xml:space="preserve">
-    <value>Hey, {0}.[pause=0] Did you get a load of that?!</value>
+    <value>\uE040: Hey, {0}.[pause=0] Did you get a load of that?!</value>
   </data>
   <data name="CH1_Zubat_1" xml:space="preserve">
     <value>You bet I did, {0}.</value>
   </data>
-  <data name="CH1_S1_Koffing_2" xml:space="preserve">
+  <data name="CH1_Koffing_2" xml:space="preserve">
     <value>That little wimp that was pacing around...[pause=0]had something good, right?</value>
   </data>
   <data name="CH1_Zubat_2" xml:space="preserve">
