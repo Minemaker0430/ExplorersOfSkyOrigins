@@ -55,6 +55,7 @@ function beach.Enter(map)
 		
 		GAME:WaitFrames(60)
 		
+		UI:SetSpeaker('', false)
         UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Hero_1']))
 		UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Hero_2']))
 		UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Hero_3']))
@@ -74,7 +75,7 @@ function beach.Enter(map)
 		
 		GAME:WaitFrames(20)
 		
-		UI:SetSpeaker('', true, player.CurrentForm.Species, player.CurrentForm.Form, player.CurrentForm.Skin, player.CurrentForm.Gender)
+		UI:SetSpeaker('', false, player.CurrentForm.Species, player.CurrentForm.Form, player.CurrentForm.Skin, player.CurrentForm.Gender)
 		UI:SetSpeakerEmotion("Pain")
 		
 		UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Hero_7']))

@@ -36,29 +36,29 @@ function CharacterActions.ShakeHead(ent, dir)
 	
 	--r
 	GROUND:EntTurn(ent, directions[dirRight])
-	GAME:WaitFrames(2)
+	GAME:WaitFrames(4)
 	--m
 	GROUND:EntTurn(ent, directions[dirNum])
-	GAME:WaitFrames(1)
+	GAME:WaitFrames(2)
 	--l
 	GROUND:EntTurn(ent, directions[dirLeft])
-	GAME:WaitFrames(2)
+	GAME:WaitFrames(4)
 	--m
 	GROUND:EntTurn(ent, directions[dirNum])
-	GAME:WaitFrames(1)
+	GAME:WaitFrames(2)
 	
 	--r
 	GROUND:EntTurn(ent, directions[dirRight])
-	GAME:WaitFrames(2)
+	GAME:WaitFrames(4)
 	--m
 	GROUND:EntTurn(ent, directions[dirNum])
-	GAME:WaitFrames(1)
+	GAME:WaitFrames(2)
 	--l
 	GROUND:EntTurn(ent, directions[dirLeft])
-	GAME:WaitFrames(2)
+	GAME:WaitFrames(4)
 	--m
 	GROUND:EntTurn(ent, directions[dirNum])
-	GAME:WaitFrames(1)
+	GAME:WaitFrames(2)
 	
 end
 

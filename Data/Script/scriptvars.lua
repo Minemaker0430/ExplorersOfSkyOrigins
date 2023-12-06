@@ -37,19 +37,21 @@ SV.General =
 
 SV.Progression =
 {
-	Chapter = 1,
-	SectionFlag = 0,
-	Epilogue = false,
-	DemoCompleted = false
+	Chapter = 1, --chapter tracking, 1-20 is main game, 21+ is major postgame flags
+	SectionFlag = 0, --section flags keep track of progress within each chapter
+	Epilogue = false, --are you in the postgame?
+	DemoCompleted = false, --have you completed all available chapters?
+	DaysPassed = -1, --day counter, -1 means disabled
+	DaysToProgress = -1 --how many days until next flag, -1 means disabled
 }
 
-SV.Personality =
+SV.Personality = --handles dialogue variations
 {
 	HeroTalkKind = 0,
 	PartnerTalkKind = 0
 }
 
-SV.PlayerInputs =
+SV.PlayerInputs = --favorite color is saved for the bow color, personality i just saved for no particular reason
 {
 	FavoriteColor = nil,
 	Personality = nil
