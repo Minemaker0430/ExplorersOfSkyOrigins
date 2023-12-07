@@ -51,7 +51,7 @@ function beach.Enter(map)
 		
 		GAME:WaitFrames(120)
 		
-		SOUND:FadeInSE("Beach_Noise", 20)
+		SOUND:FadeInSE("Ambient/AMB_Ocean", 20)
 		
 		GAME:WaitFrames(60)
 		
@@ -83,7 +83,7 @@ function beach.Enter(map)
 		GAME:WaitFrames(30)
 		
 		local coro1 = TASK:BranchCoroutine(function() GAME:FadeOut(false, 150) end)
-		local coro2 = TASK:BranchCoroutine(function() SOUND:FadeOutSE("Beach_Noise", 150) end)
+		local coro2 = TASK:BranchCoroutine(function() SOUND:FadeOutSE("Ambient/AMB_Ocean", 150) end)
 		TASK:JoinCoroutines({coro1, coro2})
 		
 		GAME:WaitFrames(60)

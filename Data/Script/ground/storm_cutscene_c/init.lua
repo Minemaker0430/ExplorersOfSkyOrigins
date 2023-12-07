@@ -63,8 +63,9 @@ function storm_cutscene_c.Enter(map)
   GAME:WaitFrames(60)
   
   --fade out
-  GAME:FadeOut(false, 120)
-  --add bgm fadeout later
+  local coro1 = TASK:BranchCoroutine(function() GAME:FadeOut(false, 120) end)
+  local coro2 = TASK:BranchCoroutine(function() SOUND:FadeOutSE("Ambient/AMB_Storm", 120) end)
+  TASK:JoinCoroutines({coro1, coro2})
   
   --next scene
   GAME:EnterZone('hub', -1, 1, 1)

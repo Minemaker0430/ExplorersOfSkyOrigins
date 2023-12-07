@@ -34,8 +34,9 @@ function storm_cutscene_b.Enter(map)
 
   GROUND:Hide("PLAYER")
 
-  --show storm
-  GAME:FadeIn(60)
+  local coro1 = TASK:BranchCoroutine(function() GAME:FadeIn(60) end)
+  local coro2 = TASK:BranchCoroutine(function() SOUND:FadeInSE("Ambient/AMB_Storm", 60) end)
+  TASK:JoinCoroutines({coro1, coro2})
   
   GAME:WaitFrames(360)
   

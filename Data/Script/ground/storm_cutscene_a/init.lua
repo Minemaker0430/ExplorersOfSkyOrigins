@@ -35,8 +35,7 @@ function storm_cutscene_a.Enter(map)
   GROUND:Hide("PLAYER")
   UI:ResetSpeaker()
   
-  --fade in wind
-  GAME:WaitFrames(120)
+  SOUND:FadeInSE("Ambient/AMB_Storm", 120)
   
   --lightning sfx
   SOUND:PlaySE("Battle/EVT_CH01_Thunder")
@@ -110,7 +109,8 @@ SOUND:PlaySE("Battle/EVT_CH01_Thunder_2")
   SOUND:PlaySE("Battle/EVT_CH01_Transition")
   local coro1 = TASK:BranchCoroutine(function() GAME:FadeOut(true, 120) end)
   local coro2 = TASK:BranchCoroutine(function() UI:WaitShowTimedDialogue(STRINGS:Format(MapStrings['Unknown_6']), 120) end)
-  TASK:JoinCoroutines({coro1, coro2})
+  local coro3 = TASK:BranchCoroutine(function() SOUND:FadeOutSE("Ambient/AMB_Storm", 120) end)
+  TASK:JoinCoroutines({coro1, coro2, coro3})
   
   GAME:WaitFrames(180)
   

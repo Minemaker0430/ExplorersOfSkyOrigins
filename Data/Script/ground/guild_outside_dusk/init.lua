@@ -99,8 +99,10 @@ function guild_outside_dusk.PartnerWimpsOut()
 	GROUND:TeleportTo(player, marker.Position.X, marker.Position.Y, Direction.Up)
 	GAME:MoveCamera(cam.Position.X, cam.Position.Y, 1, false)
   
-	--fade in yet another bgm i don't have lol
-	GAME:FadeIn(60)
+    local coro1 = TASK:BranchCoroutine(function() SOUND:FadeInSE("Ambient/AMB_Fire_Loud", 60) end)
+	local coro2 = TASK:BranchCoroutine(function() GAME:FadeIn(60) end)
+	TASK:JoinCoroutines({coro1, coro2})
+	
     GAME:WaitFrames(60)
     UI:SetSpeakerEmotion("Worried")
 	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_Partner_1']))
@@ -252,7 +254,7 @@ function guild_outside_dusk.PartnerWimpsOut()
 	local coro3 = TASK:BranchCoroutine(function() GAME:WaitFrames(300)
 										GAME:FadeOut(false, 60) end)
 	local coro4 = TASK:BranchCoroutine(function() GAME:WaitFrames(300)
-										--fade out bgm
+										SOUND:FadeOutSE("Ambient/AMB_Fire_Loud", 150)
 										end)
 	TASK:JoinCoroutines({coro1, coro2, coro3, coro4})
 end
