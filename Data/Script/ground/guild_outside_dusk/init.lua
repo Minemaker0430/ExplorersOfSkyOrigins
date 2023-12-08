@@ -42,7 +42,8 @@ function guild_outside_dusk.Enter(map)
 	GAME:WaitFrames(60)
 	
 	--next scene
-	GAME:RestartToTitle()
+	GAME:EnterGroundMap("dusk_beach", "C1S1_PlayerSpawn")
+	--GAME:RestartToTitle()
 	
   end
 
@@ -127,9 +128,7 @@ function guild_outside_dusk.PartnerWimpsOut()
 	UI:ResetSpeaker()
 	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_Unknown_1']))
 	
-	GROUND:AnimateToPosition(player, "Cringe", Direction.Up, player.Position.X, player.Position.Y, 1, 2, 10)
-	GROUND:EntTurn(player, Direction.Up)
-	GROUND:AnimateToPosition(player, "Cringe", Direction.Up, player.Position.X, player.Position.Y, 1, 2, 0)
+	CharacterActions.ScaredJump(player, Direction.Up)
 	
 	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_Unknown_2']))
 	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_Unknown_3'], _DATA:GetMonster(GAME:GetPlayerPartyMember(1).CurrentForm.Species):GetColoredName()))

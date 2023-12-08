@@ -5,6 +5,8 @@
 ]]--
 -- Commonly included lua functions and data
 require 'common'
+require 'CharacterActions'
+require 'ExplorerEssentials'
 
 -- Package name
 local dusk_beach = {}
@@ -25,6 +27,9 @@ function dusk_beach.Init(map)
   --This will fill the localized strings table automatically based on the locale the game is 
   -- currently in. You can use the MapStrings table after this line!
   MapStrings = COMMON.AutoLoadLocalizedStrings()
+  
+  GROUND:SpawnerSetSpawn("TEAMMATE_1")
+  GROUND:SpawnerDoSpawn("TEAMMATE_1")
 
 end
 
@@ -32,7 +37,11 @@ end
 --Engine callback function
 function dusk_beach.Enter(map)
 
-  GAME:FadeIn(20)
+  GAME:CutsceneMode(true)
+  
+  if SV.Progression.Chapter == 1 then
+	dusk_beach.CH1_PartnerFindsHero()
+  end
   
 end
 
@@ -69,6 +78,127 @@ end
 -- Entities Callbacks
 -------------------------------
 
+
+
+-------------------------------
+-- Cutscene Functions
+-------------------------------
+
+function dusk_beach.CH1_PartnerFindsHero()
+	
+	local player = CH('PLAYER')
+	local partner = CH('Teammate1')
+	
+	local hTalkKind = SV.Personality.HeroTalkKind
+	local pTalkKind = SV.Personality.PartnerTalkKind
+	
+	local marker = MRKR("Entrance")
+	local cam = MRKR("C1S1_CamPos_1")
+	
+	GROUND:TeleportTo(partner, marker.Position.X, marker.Position.Y, Direction.Left)
+	GAME:MoveCamera(cam.Position.X, cam.Position.Y, 1, false)
+	
+	--fade in to initial shot
+	local coro1 = TASK:BranchCoroutine(function() SOUND:FadeInSE("Ambient/AMB_Ocean", 60) end)
+	local coro2 = TASK:BranchCoroutine(function() GAME:FadeIn(60) end)
+	TASK:JoinCoroutines({coro1, coro2})
+	
+	GAME:WaitFrames(120)
+	
+	GAME:FadeOut(false, 60)
+	
+	--krabby 1
+	UI:WaitShowBG("Krabby", 10, 60)
+	ExplorerEssentials.SpawnBubbles(1)
+	GAME:WaitFrames(120)
+	UI:WaitHideBG(60)
+	
+	--krabby 2 & play bgm
+	SOUND:PlayBGM("004 - On the Beach at Dusk.ogg", true)
+	UI:WaitShowBG("Krabby2", 10, 60)
+	ExplorerEssentials.SpawnBubbles(2)
+	GAME:WaitFrames(120)
+	UI:WaitHideBG(60)
+	
+	--partner walks up
+	ExplorerEssentials.SpawnBubbles(3)
+	GAME:FadeIn(60)
+	
+	GAME:WaitFrames(60)
+	
+	GROUND:MoveToPosition(partner, cam.Position.X, marker.Position.Y, false, 1)
+	
+	GAME:WaitFrames(10)
+	
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Inspired")
+	
+	local coro1 = TASK:BranchCoroutine(function() UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_1_'..tostring(pTalkKind)])) end)
+	local coro2 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(partner, cam.Position.X, cam.Position.Y, false, 1) end)
+	TASK:JoinCoroutines({coro1, coro2})
+	
+	GAME:WaitFrames(60)
+	
+	GAME:FadeOut(false, 60)
+	
+	--sunset view
+	UI:WaitShowBG("OceanSunset", 1, 60)
+	ExplorerEssentials.SpawnBubbles(4)
+	
+	GAME:WaitFrames(240)
+	UI:WaitHideBG(60)
+	
+	--back to partner
+	ExplorerEssentials.SpawnBubbles(3)
+	GAME:FadeIn(60)
+	GAME:WaitFrames(60)
+	
+	UI:SetSpeakerEmotion("Normal")
+	
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_2'], _DATA:GetMonster("krabby"):GetColoredName()))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_3_'..tostring(pTalkKind)]))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_4_'..tostring(pTalkKind)]))
+	
+	GAME:FadeOut(false, 60)
+	
+	--back to view
+	UI:WaitShowBG("OceanSunset", 1, 60)
+	ExplorerEssentials.SpawnBubbles(4)
+	
+	GAME:WaitFrames(240)
+	UI:WaitHideBG(60)
+	
+	--partner exposition
+	ExplorerEssentials.SpawnBubbles(3)
+	GAME:FadeIn(60)
+	GAME:WaitFrames(60)
+	
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_5']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_6_'..tostring(pTalkKind)]))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_7']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_8_'..tostring(pTalkKind)]))
+	
+	--bgm fade out
+	local coro1 = TASK:BranchCoroutine(function() SOUND:FadeOutBGM(120) end)
+	local coro2 = TASK:BranchCoroutine(function() GAME:WaitFrames(60) end)
+	TASK:JoinCoroutines({coro1, coro2})
+	
+	GROUND:CharAnimateTurnTo(partner, Direction.Left, 4)
+	
+	GAME:WaitFrames(30)
+	
+	--sfx
+	--emote
+	
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_9']))
+	
+	--partner notices something
+	
+	--partner wakes up hero
+	
+	GAME:CutsceneMode(false)
+	
+end
 
 return dusk_beach
 

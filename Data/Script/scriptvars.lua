@@ -57,6 +57,66 @@ SV.PlayerInputs = --favorite color is saved for the bow color, personality i jus
 	Personality = nil
 }
 
+SV.SpecialEpisodes = --special savedata storage for special episodes
+{
+	ID = 0, --current special episode being played. 0 means no special episode is being played
+	MainSaveStorage = --store inventory and team from main save so it doesn't get deleted, storage and bank carries over to special episodes
+	{
+		Equips = {},
+		TreasureBag = {},
+		Purse = 0,
+		CurrentTeam = {}
+	},
+	SaveData = --savedata for each individual episode
+	{
+		Bidoof =
+		{
+			ProgressFlag = 0, --progression flags
+			Equips = {},
+			TreasureBag = {},
+			Purse = 0,
+			CurrentTeam = {}, --only used for handling levelups and move changes, teams are hardcoded otherwise
+			Completed = false
+		},
+		Igglybuff =
+		{
+			ProgressFlag = 0, --progression flags
+			Equips = {},
+			TreasureBag = {},
+			Purse = 0,
+			CurrentTeam = {}, --only used for handling levelups and move changes, teams are hardcoded otherwise
+			Completed = false
+		},
+		Sunflora =
+		{
+			ProgressFlag = 0, --progression flags
+			Equips = {},
+			TreasureBag = {},
+			Purse = 0,
+			CurrentTeam = {}, --only used for handling levelups and move changes, teams are hardcoded otherwise
+			Completed = false
+		},
+		TeamCharm =
+		{
+			ProgressFlag = 0, --progression flags
+			Equips = {},
+			TreasureBag = {},
+			Purse = 0,
+			CurrentTeam = {}, --only used for handling levelups and move changes, teams are hardcoded otherwise
+			Completed = false
+		},
+		Future =
+		{
+			ProgressFlag = 0, --progression flags
+			Equips = {},
+			TreasureBag = {},
+			Purse = 0,
+			CurrentTeam = {}, --only used for handling levelups and move changes, teams are hardcoded otherwise
+			Completed = false
+		}
+	}
+}
+
 -----------------------------------------------
 -- Level Specific Defaults
 -----------------------------------------------

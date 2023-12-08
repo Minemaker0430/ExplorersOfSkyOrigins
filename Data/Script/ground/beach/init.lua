@@ -38,60 +38,9 @@ function beach.Enter(map)
 	SOUND:FadeInSE("Beach_Noise", 20)
 	--Handle NPCs based on progression
   else
-  --Cutscenes
-	--GROUND:AddMapStatus("dusk")
-	
-	if (SV.Progression.Chapter == 1 and SV.Progression.SectionFlag == 0) then
-		
-		GAME:FadeOut(false, 1)
-		local player = CH('PLAYER')
-
-		GAME:CutsceneMode(true)
-		GROUND:CharSetAnim(player, "Laying", true)
-		
-		GAME:WaitFrames(120)
-		
-		SOUND:FadeInSE("Ambient/AMB_Ocean", 20)
-		
-		GAME:WaitFrames(60)
-		
-		UI:SetSpeaker('', false)
-        UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Hero_1']))
-		UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Hero_2']))
-		UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Hero_3']))
-		UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Hero_4']))
-		
-		GAME:WaitFrames(40)
-		
-		UI:WaitShowBG("OceanView", 25, 120)
-    
-		GAME:WaitFrames(60)
-		
-		UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Hero_5']))
-		UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Hero_6']))
-		
-		UI:WaitHideBG(120)
-		GAME:FadeIn(120)
-		
-		GAME:WaitFrames(20)
-		
-		UI:SetSpeaker('', false, player.CurrentForm.Species, player.CurrentForm.Form, player.CurrentForm.Skin, player.CurrentForm.Gender)
-		UI:SetSpeakerEmotion("Pain")
-		
-		UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Hero_7']))
-		
-		GAME:WaitFrames(30)
-		
-		local coro1 = TASK:BranchCoroutine(function() GAME:FadeOut(false, 150) end)
-		local coro2 = TASK:BranchCoroutine(function() SOUND:FadeOutSE("Ambient/AMB_Ocean", 150) end)
-		TASK:JoinCoroutines({coro1, coro2})
-		
-		GAME:WaitFrames(60)
-		
-		GAME:EnterZone('cutscenes', -1, 5, 1)
-		
-		--GAME:RestartToTitle()
-		
+	--Cutscenes
+	if SV.Progression.Chapter == 1 then --1 cutscene in ch1
+		beach.HeroPassesOut()
     end
   end
 end
@@ -132,6 +81,61 @@ end
 -- Entities Callbacks
 -------------------------------
 
+
+-------------------------------
+-- Cutscene Functions
+-------------------------------
+
+function beach.HeroPassesOut()
+	GAME:FadeOut(false, 1)
+	local player = CH('PLAYER')
+
+	GAME:CutsceneMode(true)
+	GROUND:CharSetAnim(player, "Laying", true)
+		
+	GAME:WaitFrames(120)
+		
+	SOUND:FadeInSE("Ambient/AMB_Ocean", 20)
+		
+	GAME:WaitFrames(60)
+		
+	UI:SetSpeaker('', false)
+    UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Hero_1']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Hero_2']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Hero_3']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Hero_4']))
+		
+	GAME:WaitFrames(40)
+		
+	UI:WaitShowBG("OceanView", 25, 120)
+    
+	GAME:WaitFrames(60)
+		
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Hero_5']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Hero_6']))
+		
+	UI:WaitHideBG(120)
+	GAME:FadeIn(120)
+		
+	GAME:WaitFrames(20)
+		
+	UI:SetSpeaker('', false, player.CurrentForm.Species, player.CurrentForm.Form, player.CurrentForm.Skin, player.CurrentForm.Gender)
+	UI:SetSpeakerEmotion("Pain")
+		
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Hero_7']))
+		
+	GAME:WaitFrames(30)
+		
+	local coro1 = TASK:BranchCoroutine(function() GAME:FadeOut(false, 150) end)
+	local coro2 = TASK:BranchCoroutine(function() SOUND:FadeOutSE("Ambient/AMB_Ocean", 150) end)
+	TASK:JoinCoroutines({coro1, coro2})
+		
+	GAME:WaitFrames(60)
+		
+	GAME:EnterZone('cutscenes', -1, 5, 1)
+		
+	--GAME:RestartToTitle()
+end
 
 return beach
 

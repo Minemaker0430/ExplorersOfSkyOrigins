@@ -1,6 +1,8 @@
 require 'common'
 CharacterActions = {}
 
+-- mostly just general cutscene actions from explorers that aren't present in base pmdo 
+
 function CharacterActions.ShakeHead(ent, dir)
 	local directions = {Direction.Up, Direction.UpRight, Direction.Right, Direction.DownRight, Direction.Down, Direction.DownLeft, Direction.Left, Direction.UpLeft}
 	local dirNum = 0
@@ -62,14 +64,51 @@ function CharacterActions.ShakeHead(ent, dir)
 	
 end
 
-function CharacterActions.ScaredJump(ent)
-	GROUND:CharSetAnim(ent, "Cringe", true)
-	--GROUND:TeleportTo(ent, ent.Bounds.Center.X, ent.Bounds.Center.Y, Dir8.None, 2)
-	GAME:WaitFrames(1)
-	--GROUND:TeleportTo(ent, ent.Bounds.Center.X, ent.Bounds.Center.Y, Dir8.None, 10)
-	GAME:WaitFrames(2)
-	--GROUND:TeleportTo(ent, ent.Bounds.Center.X, ent.Bounds.Center.Y, Dir8.None, 2)
-	GAME:WaitFrames(1)
-	--GROUND:TeleportTo(ent, ent.Bounds.Center.X, ent.Bounds.Center.Y, Dir8.None, 0)
-	GROUND:CharEndAnim(ent)
+function CharacterActions.ScaredJump(ent, dir)
+	local directions = {Direction.Up, Direction.UpRight, Direction.Right, Direction.DownRight, Direction.Down, Direction.DownLeft, Direction.Left, Direction.UpLeft}
+	local dirNum = 0
+	
+	--find list placement of dir
+	for i = 1, #directions do
+		if directions[i] == dir then
+			dirNum = i
+			break
+		end
+	end
+	
+	--check if dir was a valid direction
+	if dirNum == 0 then
+		return error(tostring(dir).." is not a valid direction!")
+	end
+	
+	--find jump offset
+	local xoff = 0
+	local yoff = 0
+	
+	--up?
+	if dirNum <= 2 or dirNum == 8 then
+		yoff = 2
+	end
+	
+	--down?
+	if dirNum >= 4 and dirNum <= 6 then
+		yoff = -2
+	end
+	
+	--left?
+	if dirNum >= 6 and dirNum <= 8 then
+		xoff = -2
+	end
+	
+	--right?
+	if dirNum >= 2 and dirNum <= 4 then
+		xoff = 2
+	end
+
+	--actual animation
+	local xpos = ent.Position.X
+	local ypos = ent.Position.Y
+	
+	GROUND:AnimateToPosition(ent, "Cringe", dir, (xpos + xoff), (ypos + yoff), 1, 2, 10)
+	GROUND:AnimateToPosition(ent, "Cringe", dir, xpos, ypos, 1, 2, 0)
 end

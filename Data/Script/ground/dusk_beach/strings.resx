@@ -58,4 +58,73 @@
   <resheader name="writer">
     <value>System.Resources.NetStandard.ResXResourceWriter, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </resheader>
+  <data name="CH1_S1_Partner_1_0" xml:space="preserve">
+    <value>Oh, wow! What a pretty sight!</value>
+  </data>
+  <data name="CH1_S1_Partner_1_1" xml:space="preserve">
+    <value>Wow! What an impressive sight!</value>
+  </data>
+  <data name="CH1_S1_Partner_1_2" xml:space="preserve">
+    <value>Wow! What a beautiful sight!</value>
+  </data>
+  <data name="CH1_S1_Partner_2" xml:space="preserve">
+    <value>When the weather's good, the {0} come out at sundown to blow bubbles...</value>
+  </data>
+  <data name="CH1_S1_Partner_3_0" xml:space="preserve">
+    <value>All those bubbles, catching the setting sun's rays off the waves...</value>
+  </data>
+  <data name="CH1_S1_Partner_3_1" xml:space="preserve">
+    <value>All those bubbles, catching the setting sun's rays off the waves...</value>
+  </data>
+  <data name="CH1_S1_Partner_3_2" xml:space="preserve">
+    <value>All those bubbles, reflecting the setting sun off the waves...</value>
+  </data>
+  <data name="CH1_S1_Partner_4_0" xml:space="preserve">
+    <value>It's always beautiful.</value>
+  </data>
+  <data name="CH1_S1_Partner_4_1" xml:space="preserve">
+    <value>It's always impressive.</value>
+  </data>
+  <data name="CH1_S1_Partner_4_2" xml:space="preserve">
+    <value>It's always beautiful.</value>
+  </data>
+  <data name="CH1_S1_Partner_5" xml:space="preserve">
+    <value>............</value>
+  </data>
+  <data name="CH1_S1_Partner_6_0" xml:space="preserve">
+    <value>This is where I always come when I'm feeling sorry for myself.</value>
+  </data>
+  <data name="CH1_S1_Partner_6_1" xml:space="preserve">
+    <value>This is where I always end up when I'm feeling sorry for myself.</value>
+  </data>
+  <data name="CH1_S1_Partner_6_2" xml:space="preserve">
+    <value>This is where I always come when I'm feeling down on myself.</value>
+  </data>
+  <data name="CH1_S1_Partner_7" xml:space="preserve">
+    <value>But it makes me feel good to be here, like always.</value>
+  </data>
+  <data name="CH1_S1_Partner_8_0" xml:space="preserve">
+    <value>Coming here is uplifting. It cheers me up.</value>
+  </data>
+  <data name="CH1_S1_Partner_8_1" xml:space="preserve">
+    <value>Coming here cheers me up.</value>
+  </data>
+  <data name="CH1_S1_Partner_8_2" xml:space="preserve">
+    <value>Coming here heals my spirits.</value>
+  </data>
+  <data name="CH1_S1_Partner_9" xml:space="preserve">
+    <value>Hey...[pause=0]what's that?[pause=0] What's going on over there?</value>
+  </data>
+  <data name="CH1_S1_Partner_10" xml:space="preserve">
+    <value>Waah![pause=0] Someone has collapsed on the sand!</value>
+  </data>
+  <data name="CH1_S1_Partner_11" xml:space="preserve">
+    <value>What happened?![pause=0] Are you OK?</value>
+  </data>
+  <data name="CH1_S1_Hero_1" xml:space="preserve">
+    <value>(..................)</value>
+  </data>
+  <data name="CH1_S1_Hero_2" xml:space="preserve">
+    <value>(...Ugh...)</value>
+  </data>
 </root>
