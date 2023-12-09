@@ -1,15 +1,16 @@
 # ExplorersOfSkyOrigins
 ![Title](https://github.com/Minemaker0430/ExplorersOfSkyOrigins/assets/85040155/bb3e0ad5-e87e-43e0-a6f4-a84e90a08d87)
+
  A remake of EoS in the PMDO Engine.
 
 This project is in no way affiliated with Nintendo, The Pokemon Company, or Spike Chunsoft. I'm just a fan who likes PMD games.
 
 # Credits
- ![Happy](https://github.com/Minemaker0430/ExplorersOfSkyOrigins/assets/85040155/43f9044e-c728-466b-bdf7-7be7d75e0399)Minemaker0430 - Project Creator
+ ![Happy](https://github.com/Minemaker0430/ExplorersOfSkyOrigins/assets/85040155/43f9044e-c728-466b-bdf7-7be7d75e0399) Minemaker0430 - Project Creator
 
-![Inspired](https://github.com/Minemaker0430/ExplorersOfSkyOrigins/assets/85040155/404187c5-1773-4f20-9c7f-714d14a356ad)Palika - Dusk/Darkness Shaders, Job System (NYI), Coding/Asset Assistance
+![Inspired](https://github.com/Minemaker0430/ExplorersOfSkyOrigins/assets/85040155/404187c5-1773-4f20-9c7f-714d14a356ad) Palika - Dusk/Darkness Shaders, Job System (NYI), Coding/Asset Assistance
 
-![Happy](https://github.com/Minemaker0430/ExplorersOfSkyOrigins/assets/85040155/7619157c-c020-4cdf-a873-74592477dc43)Trio - Job System (NYI)
+![Happy](https://github.com/Minemaker0430/ExplorersOfSkyOrigins/assets/85040155/7619157c-c020-4cdf-a873-74592477dc43) Trio - Job System (NYI)
 
 # Major Changes
  - Treasure Town no longer has a Loading Zone between its two areas.
