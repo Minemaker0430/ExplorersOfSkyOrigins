@@ -139,4 +139,64 @@
   <data name="CH1_S1_Hero_3" xml:space="preserve">
     <value>(Where...where am I...?)</value>
   </data>
+  <data name="CH1_S1_Partner_13_0" xml:space="preserve">
+    <value>You weren't moving at all. I was seriously worried!</value>
+  </data>
+  <data name="CH1_S1_Partner_13_1" xml:space="preserve">
+    <value>You weren't moving. You really had me worried there!</value>
+  </data>
+  <data name="CH1_S1_Partner_13_2" xml:space="preserve">
+    <value>You wouldn't move at all. I was really scared for you!</value>
+  </data>
+  <data name="CH1_S1_Partner_14_0" xml:space="preserve">
+    <value>Do you remember how you ended up unconscious out here?</value>
+  </data>
+  <data name="CH1_S1_Partner_14_1" xml:space="preserve">
+    <value>How did you wind up unconscious out here?</value>
+  </data>
+  <data name="CH1_S1_Partner_14_2" xml:space="preserve">
+    <value>Do you have any idea how you ended up unconscious out here?</value>
+  </data>
+  <data name="CH1_S1_Hero_4" xml:space="preserve">
+    <value>(I... I was unconscious?[pause=0] What happened...?)</value>
+  </data>
+  <data name="CH1_S1_Partner_15_0" xml:space="preserve">
+    <value>Well, I'm {0}.[pause=0] Glad to meet you!</value>
+  </data>
+  <data name="CH1_S1_Partner_15_1" xml:space="preserve">
+    <value>Anyway, I'm {0}.[pause=0] Glad to meet you!</value>
+  </data>
+  <data name="CH1_S1_Partner_15_2" xml:space="preserve">
+    <value>Anyway, I'm {0}.[pause=0] Happy to meet you!</value>
+  </data>
+  <data name="CH1_S1_Partner_16_0" xml:space="preserve">
+    <value>And who are you?</value>
+  </data>
+  <data name="CH1_S1_Partner_16_1" xml:space="preserve">
+    <value>So who might you be?</value>
+  </data>
+  <data name="CH1_S1_Partner_16_2" xml:space="preserve">
+    <value>And who are you?</value>
+  </data>
+  <data name="CH1_S1_Partner_17_0" xml:space="preserve">
+    <value>I've never seen you around before.</value>
+  </data>
+  <data name="CH1_S1_Partner_17_1" xml:space="preserve">
+    <value>I don't think I've seen your face around here.</value>
+  </data>
+  <data name="CH1_S1_Partner_17_2" xml:space="preserve">
+    <value>I don't think I've seen you around before.</value>
+  </data>
+  <data name="CH1_S1_Partner_18_0" xml:space="preserve">
+    <value>What?[pause=0] You say you're a human?</value>
+  </data>
+  <data name="CH1_S1_Partner_18_1" xml:space="preserve">
+    <value>Huh?[pause=0] You say you're a human?</value>
+  </data>
+  <data name="CH1_S1_Partner_18_2" xml:space="preserve">
+    <value>What?[pause=0] You say you're a human?</value>
+  </data>
+  <data name="CH1_S1_Partner_19" xml:space="preserve">
+    <value>You look like a totally normal {0} to me!</value>
+  </data>
 </root>

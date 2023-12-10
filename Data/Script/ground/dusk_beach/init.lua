@@ -202,7 +202,10 @@ function dusk_beach.CH1_PartnerFindsHero()
 	local coro2 = TASK:BranchCoroutine(function() GROUND:MoveInDirection(partner, Direction.Left, 60, false, 1) end)
 	TASK:JoinCoroutines({coro1, coro2})
 	
+	SOUND:PlayBattleSE("EVT_Emote_Startled")
+	GROUND:CharSetEmote(partner, "shock", 1)
 	CharacterActions.ScaredJump(partner, Direction.Left)
+	
 	UI:SetSpeakerEmotion("Surprised")
 	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_10']))
 	
@@ -254,10 +257,44 @@ function dusk_beach.CH1_PartnerFindsHero()
 	GAME:WaitFrames(45)
 	
 	UI:SetSpeaker('', false, player.CurrentForm.Species, player.CurrentForm.Form, player.CurrentForm.Skin, player.CurrentForm.Gender)
+	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Hero_3']))
 	
 	GAME:WaitFrames(10)
 	GROUND:CharTurnToCharAnimated(player, partner, 4, true)
+	
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_13_'..tostring(pTalkKind)]))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_14_'..tostring(pTalkKind)]))
+	
+	GAME:WaitFrames(10)
+	UI:SetSpeaker('', false, player.CurrentForm.Species, player.CurrentForm.Form, player.CurrentForm.Skin, player.CurrentForm.Gender)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Hero_4']))
+	
+	GAME:WaitFrames(10)
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Happy")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_15_'..tostring(pTalkKind)], partner:GetDisplayName()))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_16_'..tostring(pTalkKind)]))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_17_'..tostring(pTalkKind)]))
+	
+	GAME:WaitFrames(15)
+	GROUND:CharSetAnim(player, "Walk", true)
+	GAME:WaitFrames(45)
+	GROUND:CharEndAnim(player)
+	GAME:WaitFrames(30)
+	
+	SOUND:PlayBattleSE("EVT_Emote_Startled")
+	CharacterActions.ScaredJump(partner, Direction.Left)
+	
+	GAME:WaitFrames(10)
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Surprised")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_18_'..tostring(pTalkKind)]))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_19'], _DATA:GetMonster(player.CurrentForm.Species):GetColoredName()))
 	
 	GAME:CutsceneMode(false)
 	
