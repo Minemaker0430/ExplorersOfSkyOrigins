@@ -858,7 +858,6 @@ if result == 3 then pkm.Gender = Gender.Genderless end
 
 SV.General.Partner = pkm
 
-_DATA.Save:UpdateTeamProfile(true)
 _DATA.Save.ActiveTeam.Players[1].IsFounder = true
 _DATA.Save.ActiveTeam.Players[1].IsPartner = true
 
@@ -932,6 +931,8 @@ SOUND:FadeOutBGM(120)
 GAME:FadeOut(false, 120)
 
 GROUND:SetPlayer(GAME:GetPlayerPartyMember(0))
+
+_DATA.Save:UpdateTeamProfile(true)
 
 --Dev Build
 GAME:EnterGroundMap("chapter_card", "Entrance")

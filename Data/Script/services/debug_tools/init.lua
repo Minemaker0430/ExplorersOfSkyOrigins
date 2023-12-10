@@ -106,19 +106,25 @@ function DebugTools:OnNewGame()
   else
     PrintInfo("\n<!> ExampleSvc: Preparing debug save file")
     _DATA.Save.ActiveTeam:SetRank("normal")
-    _DATA.Save.ActiveTeam.Name = "Debug"
+    _DATA.Save.ActiveTeam.Name = "Thunder"
     _DATA.Save.ActiveTeam.Money = 1000
     _DATA.Save.ActiveTeam.Bank = 1000000
   
-    local mon_id = RogueEssence.Dungeon.MonsterID("piplup", 0, "normal", Gender.Male)
+    local mon_id = RogueEssence.Dungeon.MonsterID("piplup", 0, "shiny", Gender.Male)
     _DATA.Save.ActiveTeam.Players:Add(_DATA.Save.ActiveTeam:CreatePlayer(_DATA.Save.Rand, mon_id, 50, "", 0))
     mon_id = RogueEssence.Dungeon.MonsterID("riolu", 0, "normal", Gender.Male)
     _DATA.Save.ActiveTeam.Players:Add(_DATA.Save.ActiveTeam:CreatePlayer(_DATA.Save.Rand, mon_id, 50, "", 0))
-    mon_id = RogueEssence.Dungeon.MonsterID("charmander", 0, "normal", Gender.Male)
-    _DATA.Save.ActiveTeam.Players:Add(_DATA.Save.ActiveTeam:CreatePlayer(_DATA.Save.Rand, mon_id, 50, "", 0))
+    --mon_id = RogueEssence.Dungeon.MonsterID("charmander", 0, "normal", Gender.Male)
+    --_DATA.Save.ActiveTeam.Players:Add(_DATA.Save.ActiveTeam:CreatePlayer(_DATA.Save.Rand, mon_id, 50, "", 0))
 	
     _DATA.Save.ActiveTeam.Players[0].IsFounder = true
 	_DATA.Save.ActiveTeam.Players[1].IsFounder = true
+	
+	_DATA.Save.ActiveTeam.Players[0].IsPartner = true
+	_DATA.Save.ActiveTeam.Players[1].IsPartner = true
+	
+	GAME:SetCharacterNickname(GAME:GetPlayerPartyMember(0), "Aquarius")
+	GAME:SetCharacterNickname(GAME:GetPlayerPartyMember(1), "Sammy")
 	
 	_DATA.Save:UpdateTeamProfile(true)
     

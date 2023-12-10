@@ -112,3 +112,10 @@ function CharacterActions.ScaredJump(ent, dir)
 	GROUND:AnimateToPosition(ent, "Cringe", dir, (xpos + xoff), (ypos + yoff), 1, 2, 10)
 	GROUND:AnimateToPosition(ent, "Cringe", dir, xpos, ypos, 1, 2, 0)
 end
+
+function CharacterActions.HopTwice(ent, dir)
+	GROUND:AnimateToPosition(ent, "None", dir, ent.Position.X, ent.Position.Y, 1, 2, 10)
+	GROUND:AnimateToPosition(ent, "None", dir, ent.Position.X, ent.Position.Y, 1, 2, 0)
+	GROUND:AnimateToPosition(ent, "None", dir, ent.Position.X, ent.Position.Y, 1, 2, 10)
+	GROUND:AnimateToPosition(ent, "None", dir, ent.Position.X, ent.Position.Y, 1, 2, 0)
+end

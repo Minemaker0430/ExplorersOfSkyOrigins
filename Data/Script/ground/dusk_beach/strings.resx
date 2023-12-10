@@ -127,4 +127,16 @@
   <data name="CH1_S1_Hero_2" xml:space="preserve">
     <value>(...Ugh...)</value>
   </data>
+  <data name="CH1_S1_Partner_12_0" xml:space="preserve">
+    <value>You're awake![pause=0] That's a relief!</value>
+  </data>
+  <data name="CH1_S1_Partner_12_1" xml:space="preserve">
+    <value>Great![pause=0] You're awake!</value>
+  </data>
+  <data name="CH1_S1_Partner_12_2" xml:space="preserve">
+    <value>You're awake![pause=0] Thank goodness!</value>
+  </data>
+  <data name="CH1_S1_Hero_3" xml:space="preserve">
+    <value>(Where...where am I...?)</value>
+  </data>
 </root>

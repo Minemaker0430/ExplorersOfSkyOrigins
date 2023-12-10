@@ -28,8 +28,7 @@ function dusk_beach.Init(map)
   -- currently in. You can use the MapStrings table after this line!
   MapStrings = COMMON.AutoLoadLocalizedStrings()
   
-  GROUND:SpawnerSetSpawn("TEAMMATE_1")
-  GROUND:SpawnerDoSpawn("TEAMMATE_1")
+  COMMON:RespawnAllies()
 
 end
 
@@ -87,7 +86,9 @@ end
 function dusk_beach.CH1_PartnerFindsHero()
 	
 	local player = CH('PLAYER')
-	local partner = CH('Teammate1')
+	local partner = CH('PARTNER')
+	
+	partner.CollisionDisabled = true
 	
 	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
@@ -95,7 +96,7 @@ function dusk_beach.CH1_PartnerFindsHero()
 	local marker = MRKR("Entrance")
 	local cam = MRKR("C1S1_CamPos_1")
 	
-	GROUND:TeleportTo(partner, marker.Position.X, marker.Position.Y, Direction.Left)
+	GROUND:TeleportTo(partner, marker.Position.X - 120, marker.Position.Y, Direction.Left)
 	GAME:MoveCamera(cam.Position.X, cam.Position.Y, 1, false)
 	
 	--fade in to initial shot
@@ -187,14 +188,76 @@ function dusk_beach.CH1_PartnerFindsHero()
 	
 	GAME:WaitFrames(30)
 	
-	--sfx
-	--emote
+	SOUND:PlayBattleSE("EVT_Emote_Exclaim")
+	GROUND:CharSetEmote(partner, "notice", 1)
 	
 	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_9']))
 	
 	--partner notices something
+	local marker = MRKR("C1S1_PlayerSpawn")
+	GROUND:TeleportTo(player, marker.Position.X, marker.Position.Y, Direction.Right)
+	GROUND:CharSetAnim(player, "Laying", true)
+	
+	local coro1 = TASK:BranchCoroutine(function() GAME:MoveCamera(cam.Position.X - 60, cam.Position.Y, 60, false) end)
+	local coro2 = TASK:BranchCoroutine(function() GROUND:MoveInDirection(partner, Direction.Left, 60, false, 1) end)
+	TASK:JoinCoroutines({coro1, coro2})
+	
+	CharacterActions.ScaredJump(partner, Direction.Left)
+	UI:SetSpeakerEmotion("Surprised")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_10']))
+	
+	local coro1 = TASK:BranchCoroutine(function() GAME:MoveCamera(player.Position.X + 20, cam.Position.Y, 60, false) end)
+	local coro2 = TASK:BranchCoroutine(function() GROUND:MoveInDirection(partner, Direction.Left, 60, false, 2) end)
+	TASK:JoinCoroutines({coro1, coro2})
+	
+	CharacterActions.HopTwice(partner, Direction.Left)
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_11']))
 	
 	--partner wakes up hero
+	GROUND:CharSetDrawEffect(player, DrawEffect.Shaking)
+	GAME:WaitFrames(10)
+	GROUND:CharEndDrawEffect(player, DrawEffect.Shaking)
+	
+	UI:SetSpeaker('', false, player.CurrentForm.Species, player.CurrentForm.Form, player.CurrentForm.Skin, player.CurrentForm.Gender)
+	UI:SetSpeakerEmotion("Pain")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Hero_1']))
+	
+	local coro1 = TASK:BranchCoroutine(function() UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Hero_2'])) end)
+	local coro2 = TASK:BranchCoroutine(function() GAME:WaitFrames(10)
+												GROUND:CharSetDrawEffect(player, DrawEffect.Shaking)
+												GAME:WaitFrames(20)
+												GROUND:CharEndDrawEffect(player, DrawEffect.Shaking) end)
+	TASK:JoinCoroutines({coro1, coro2})
+	
+	GROUND:CharWaitAnim(player, "Wake")
+	GAME:WaitFrames(30)
+	GROUND:CharAnimateTurnTo(player, Direction.Down, 4)
+	
+	SOUND:PlayBattleSE("EVT_Emote_Exclaim")
+	GROUND:CharSetEmote(partner, "exclaim", 1)
+	GAME:WaitFrames(30)
+	
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_12_'..tostring(pTalkKind)]))
+	
+	GAME:WaitFrames(10)
+	
+	local coro1 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(player, Direction.Left, 4) end)
+	local coro2 = TASK:BranchCoroutine(function() GROUND:AnimateInDirection(partner, "Walk", Direction.Left, Direction.Right, 32, 1, 1) end)
+	TASK:JoinCoroutines({coro1, coro2})
+	
+	GAME:WaitFrames(15)
+	GROUND:CharAnimateTurnTo(player, Direction.Right, 4)
+	GAME:WaitFrames(30)
+	GROUND:CharAnimateTurnTo(player, Direction.Down, 4)
+	GAME:WaitFrames(45)
+	
+	UI:SetSpeaker('', false, player.CurrentForm.Species, player.CurrentForm.Form, player.CurrentForm.Skin, player.CurrentForm.Gender)
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Hero_3']))
+	
+	GAME:WaitFrames(10)
+	GROUND:CharTurnToCharAnimated(player, partner, 4, true)
 	
 	GAME:CutsceneMode(false)
 	

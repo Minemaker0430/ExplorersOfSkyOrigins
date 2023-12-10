@@ -60,7 +60,6 @@
   </resheader>
   <data name="GAME_TITLE" xml:space="preserve">
     <value>Pokémon Mystery Dungeon: Explorers of Sky</value>
-    <comment>The title of the game.  Based off of "Pokemon Origins" (the anime)</comment>
   </data>
   <data name="MENU_QUESTS_EXIT" xml:space="preserve">
     <value>Return to PMDO</value>

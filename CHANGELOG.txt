@@ -1,5 +1,5 @@
 -------------------------------
-v0.1 - The First Demo
+v0.1-pre1
 -------------------------------
- - Chapters 1-3 Released
+ - Chapter 1 Released in Beta
  - Improved Personality Quiz with More Starters & Partners to Choose From
