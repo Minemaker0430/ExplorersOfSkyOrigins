@@ -41,7 +41,7 @@ function dusk_beach.Enter(map)
   if SV.Progression.Chapter == 1 then
 	if SV.beach_cave.FailedDungeon then
 		dusk_beach.CH1_FailedBeachCave()
-	elseif SV.Progression.SectionFlag == 1
+	elseif SV.Progression.SectionFlag == 1 then
 		dusk_beach.CH1_ExplorerTeamInvite()
 	else
 		dusk_beach.CH1_PartnerFindsHero()
@@ -301,6 +301,151 @@ function dusk_beach.CH1_PartnerFindsHero()
 	UI:SetSpeakerEmotion("Surprised")
 	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_18_'..tostring(pTalkKind)]))
 	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_19'], _DATA:GetMonster(player.CurrentForm.Species):GetColoredName()))
+	
+	--look around
+	
+	UI:SetSpeaker('', false, player.CurrentForm.Species, player.CurrentForm.Form, player.CurrentForm.Skin, player.CurrentForm.Gender)
+	UI:SetSpeakerEmotion("Surprised")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Hero_5']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Hero_6'], _DATA:GetMonster(player.CurrentForm.Species):GetColoredName()))
+	
+	GAME:WaitFrames(15)
+	UI:SetSpeakerEmotion("Worried")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Hero_7']))
+	
+	GAME:WaitFrames(10)
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Worried")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_20']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_21']))
+	
+	--shake head
+	
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_22']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_23_'..tostring(pTalkKind)]))
+	
+	UI:SetSpeaker('', false, player.CurrentForm.Species, player.CurrentForm.Form, player.CurrentForm.Skin, player.CurrentForm.Gender)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Hero_8']))
+	
+	GAME:WaitFrames(10)
+	
+	--name entry
+	local ch = false
+	local name = ""
+	while not ch do
+		name = ""
+		while name == "" do
+		UI:NameMenu(STRINGS:Format(MapStrings['Name_Prompt']), "")
+		UI:WaitForChoice()
+		name = UI:ChoiceResult()
+		end
+	
+		GAME:SetCharacterNickname(GAME:GetPlayerPartyMember(0), name)
+		UI:ChoiceMenuYesNo(STRINGS:Format(MapStrings['Name_Confirm'], name), true)
+		UI:WaitForChoice()
+		ch = UI:ChoiceResult()
+	end
+	
+	GAME:WaitFrames(10)
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Worried")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_24_'..tostring(pTalkKind), player:GetDisplayName()]))
+	
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_25']))
+	
+	GAME:WaitFrames(15)
+	--sweat
+	
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_26']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_27']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_28_'..tostring(pTalkKind)]))
+	
+	--setup koffing and zubat
+	local koffing = CH('Koffing')
+	local zubat = CH('Zubat')
+	
+	--bonk
+	UI:SetSpeakerEmotion("Shouting")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_29_'..tostring(pTalkKind)])) --put in coro later
+	
+	--move bullies
+	
+	UI:SetSpeaker(koffing)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Koffing_1']))
+	
+	--partner angy
+	
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Angry")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_30']))
+	
+	GAME:WaitFrames(10)
+	UI:SetSpeaker(zubat)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Zubat_1']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Zubat_2']))
+	
+	--partner jumps
+	
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Surprised")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_31']))
+	
+	GAME:WaitFrames(10)
+	UI:SetSpeaker(zubat)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Zubat_3']))
+	
+	GAME:WaitFrames(10)
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Surprised")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_32_'..tostring(pTalkKind)]))
+	
+	GAME:WaitFrames(10)
+	UI:SetSpeaker(zubat)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Zubat_4']))
+	
+	GAME:WaitFrames(10)
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Surprised")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_33']))
+	
+	GAME:WaitFrames(10)
+	UI:SetSpeaker(koffing)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Koffing_2']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Koffing_3']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Koffing_4']))
+	
+	GAME:WaitFrames(10)
+	UI:SetSpeaker(zubat)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Zubat_5']))
+	
+	--leave
+	
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Sad")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_34']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_35']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_36']))
+	
+	UI:SetSpeakerEmotion("Teary-Eyed")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_37']))
+	
+	--shake head
+	
+	UI:SetSpeakerEmotion("Determined")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_38']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_39_'..tostring(pTalkKind)])) --turn into choice menu
+	
+	--A
+	
+	--B
 	
 	--debug end
 	GAME:CutsceneMode(false)

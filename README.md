@@ -24,10 +24,12 @@ This project is in no way affiliated with Nintendo, The Pokemon Company, or Spik
 # Known Issues
  - Personality Quiz Code is very much Spaghetti Code right now, will fix later :v
  - Personality Quiz doesn't have the Aura Cutscene (Might Not Fix)
- - Intro Cutscene is missing assets and needs to be polished later (Missing BGM & FX)
+ - Intro Cutscene is missing assets and needs to be polished later (Missing FX)
  - Many BGs need to be resized
  - Storm Cutscene is unpolished & contains graphical errors
- - Missing Ambient BGM
+ - Missing Some Ambient BGM
+ - A Custom Emote (ScaredJump) Doesn't Function Properly
+ - UI:ResetSpeaker Needed for Name Prompt
 
 # Installation
  - Get PMDO from https://github.com/audinowho/PMDODump/releases
