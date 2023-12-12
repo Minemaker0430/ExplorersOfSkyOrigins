@@ -199,4 +199,688 @@
   <data name="CH1_S1_Partner_19" xml:space="preserve">
     <value>You look like a totally normal {0} to me!</value>
   </data>
+  <data name="CH1_S1_Hero_5" xml:space="preserve">
+    <value>(It's...it's true!)</value>
+  </data>
+  <data name="CH1_S1_Hero_6" xml:space="preserve">
+    <value>(I've turned into a {0}!)</value>
+  </data>
+  <data name="CH1_S1_Hero_7" xml:space="preserve">
+    <value>(...But how did this happen?[pause=0] I don't remember anything...)</value>
+  </data>
+  <data name="CH1_S1_Partner_20" xml:space="preserve">
+    <value>You're...[pause=0]a little odd...</value>
+  </data>
+  <data name="CH1_S1_Partner_21" xml:space="preserve">
+    <value>Are you pulling some kind of trick on me?</value>
+  </data>
+  <data name="CH1_S1_Partner_22" xml:space="preserve">
+    <value>You're telling me the truth?</value>
+  </data>
+  <data name="CH1_S1_Partner_23_0" xml:space="preserve">
+    <value>All right, then. Your name?[pause=0] What's your name?</value>
+  </data>
+  <data name="CH1_S1_Partner_23_1" xml:space="preserve">
+    <value>OK, then what's your name?[pause=0] What do you call yourself?</value>
+  </data>
+  <data name="CH1_S1_Partner_23_2" xml:space="preserve">
+    <value>OK, how about your name?[pause=0] What's your name?</value>
+  </data>
+  <data name="CH1_S1_Hero_8" xml:space="preserve">
+    <value>(My name?[pause=0] That's right, my name is...)</value>
+  </data>
+  <data name="Name_Prompt" xml:space="preserve">
+    <value>What is your name?</value>
+  </data>
+   <data name="Name_Confirm" xml:space="preserve">
+    <value>Is the name {0} OK?</value>
+  </data>
+  <data name="CH1_S1_Partner_24_0" xml:space="preserve">
+    <value>Oh, {0} is your name?</value>
+  </data>
+  <data name="CH1_S1_Partner_24_1" xml:space="preserve">
+    <value>Oh, {0} is your name?</value>
+  </data>
+  <data name="CH1_S1_Partner_24_2" xml:space="preserve">
+    <value>So you're named {0}?</value>
+  </data>
+  <data name="CH1_S1_Partner_25" xml:space="preserve">
+    <value>OK.[pause=0] Well, you don't seem to be a bad Pokémon, at least.</value>
+  </data>
+  <data name="CH1_S1_Partner_26" xml:space="preserve">
+    <value>Sorry that I doubted you.</value>
+  </data>
+  <data name="CH1_S1_Partner_27" xml:space="preserve">
+    <value>More and more bad Pokémon have been turning up lately, you see!</value>
+  </data>
+  <data name="CH1_S1_Partner_28_0" xml:space="preserve">
+    <value>Many Pokémon have gotten aggressive lately.[pause=0] Things have grown somewhat lawless...</value>
+  </data>
+  <data name="CH1_S1_Partner_28_1" xml:space="preserve">
+    <value>A lot of Pokémon have started being aggressive lately.[pause=0] Things have gotten wild for some reason...</value>
+  </data>
+  <data name="CH1_S1_Partner_28_2" xml:space="preserve">
+    <value>A lot of Pokémon have gotten aggressive lately.[pause=0] It's just not safe anymore...</value>
+  </data>
+  <data name="CH1_S1_Partner_29_0" xml:space="preserve">
+    <value>Ouch!</value>
+  </data>
+  <data name="CH1_S1_Partner_29_1" xml:space="preserve">
+    <value>Ow!</value>
+  </data>
+  <data name="CH1_S1_Partner_29_2" xml:space="preserve">
+    <value>Yowch!</value>
+  </data>
+  <data name="CH1_S1_Koffing_1" xml:space="preserve">
+    <value>Well, I do beg your pardon.</value>
+  </data>
+  <data name="CH1_S1_Partner_30" xml:space="preserve">
+    <value>Hey! Why'd you do that?!</value>
+  </data>
+  <data name="CH1_S1_Zubat_1" xml:space="preserve">
+    <value>Heh-heh-heh! Can't figure it out?</value>
+  </data>
+  <data name="CH1_S1_Zubat_2" xml:space="preserve">
+    <value>We wanted to mess with you! Can't face up to us, can you?!</value>
+  </data>
+  <data name="CH1_S1_Partner_31" xml:space="preserve">
+    <value>Wh-what?!</value>
+  </data>
+  <data name="CH1_S1_Zubat_3" xml:space="preserve">
+    <value>That's yours, isn't it?</value>
+  </data>
+  <data name="CH1_S1_Partner_32_0" xml:space="preserve">
+    <value>No! That's...!</value>
+  </data>
+  <data name="CH1_S1_Partner_32_1" xml:space="preserve">
+    <value>Hey! That's...!</value>
+  </data>
+  <data name="CH1_S1_Partner_32_2" xml:space="preserve">
+    <value>Oh! That's...!</value>
+  </data>
+  <data name="CH1_S1_Zubat_4" xml:space="preserve">
+    <value>Sorry, kiddo. We'll take that!</value>
+  </data>
+  <data name="CH1_S1_Partner_33" xml:space="preserve">
+    <value>Aaaah!</value>
+  </data>
+  <data name="CH1_S1_Koffing_2" xml:space="preserve">
+    <value>Whoa-ho-ho![pause=0] Not gonna make a move to get that back?[pause=0] What's the matter?[pause=0] Too scared?</value>
+  </data>
+  <data name="CH1_S1_Koffing_3" xml:space="preserve">
+    <value>I didn't expect that you'd be such a big coward!</value>
+  </data>
+  <data name="CH1_S1_Koffing_4" xml:space="preserve">
+    <value>Come on. Let's get out of here.</value>
+  </data>
+  <data name="CH1_S1_Zubat_5" xml:space="preserve">
+    <value>See you around, chicken.[pause=0] Heh-heh-heh.</value>
+  </data>
+  <data name="CH1_S1_Partner_34" xml:space="preserve">
+    <value>...[pause=0]Ohhh...</value>
+  </data>
+  <data name="CH1_S1_Partner_35" xml:space="preserve">
+    <value>Wh-what should I do?</value>
+  </data>
+  <data name="CH1_S1_Partner_36" xml:space="preserve">
+    <value>That's my personal treasure. It means everything to me.</value>
+  </data>
+  <data name="CH1_S1_Partner_37" xml:space="preserve">
+    <value>If I lose that...</value>
+  </data>
+  <data name="CH1_S1_Partner_38" xml:space="preserve">
+    <value>No! There's no time to waste!</value>
+  </data>
+  <data name="CH1_S1_Partner_39_0" xml:space="preserve">
+    <value>I've got to get it back![pause=0] Hey, can I get you to help me?</value>
+  </data>
+  <data name="CH1_S1_Partner_39_1" xml:space="preserve">
+    <value>I have to get it back![pause=0] Hey, will you help me?</value>
+  </data>
+  <data name="CH1_S1_Partner_39_2" xml:space="preserve">
+    <value>I have to get it back![pause=0] Say, can you please help me?</value>
+  </data>
+  <data name="CH1_S1_Partner_40A" xml:space="preserve">
+    <value>R-really?[pause=0] You'll really help?!</value>
+  </data>
+  <data name="CH1_S1_Partner_41A_0" xml:space="preserve">
+    <value>Th-thank you! Let's go quickly!</value>
+  </data>
+  <data name="CH1_S1_Partner_41A_1" xml:space="preserve">
+    <value>Th-thank you! Let's go quickly!</value>
+  </data>
+  <data name="CH1_S1_Partner_41A_2" xml:space="preserve">
+    <value>Th-thanks! Can we go take care of it right now?</value>
+  </data>
+  <data name="CH1_S1_Partner_40B_0" xml:space="preserve">
+    <value>What?! You won't help me?</value>
+  </data>
+  <data name="CH1_S1_Partner_40B_1" xml:space="preserve">
+    <value>Huh?! You won't help me?</value>
+  </data>
+  <data name="CH1_S1_Partner_40B_2" xml:space="preserve">
+    <value>Awww! You won't help me?</value>
+  </data>
+  <data name="CH1_S1_Partner_41B_0" xml:space="preserve">
+    <value>That thing really means everything to me!</value>
+  </data>
+  <data name="CH1_S1_Partner_41B_1" xml:space="preserve">
+    <value>That thing is really, really important to me!</value>
+  </data>
+  <data name="CH1_S1_Partner_41B_2" xml:space="preserve">
+    <value>That thing is important to me!</value>
+  </data>
+  <data name="CH1_S1_Partner_42B" xml:space="preserve">
+    <value>If I can't get it back...</value>
+  </data>
+  <data name="CH1_S1_Partner_43B_0" xml:space="preserve">
+    <value>I'm serious! Please?[pause=0] Please help me get that treasure of mine back!</value>
+  </data>
+  <data name="CH1_S1_Partner_43B_1" xml:space="preserve">
+    <value>Come on, please?[pause=0] Please help me get that treasure of mine back!</value>
+  </data>
+  <data name="CH1_S1_Partner_43B_2" xml:space="preserve">
+    <value>Oh, please?[pause=0] Please help me get that treasure of mine back from those guys!</value>
+  </data>
+  <data name="CH1_S1_Option_1" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="CH1_S1_Option_2" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="CH1_S1_Option_3" xml:space="preserve">
+    <value>Wh-what should I do?</value>
+  </data>
+  <data name="CH1_S1_Partner_44B_0" xml:space="preserve">
+    <value>We don't have time to waste. Come on!</value>
+  </data>
+  <data name="CH1_S1_Partner_44B_1" xml:space="preserve">
+    <value>We...we don't have time for this! Come on!</value>
+  </data>
+  <data name="CH1_S1_Partner_44B_2" xml:space="preserve">
+    <value>We don't have any time to waste! Let's go!</value>
+  </data>
+  <data name="CH1_S1_Option_4" xml:space="preserve">
+    <value>G-got it!</value>
+  </data>
+  <data name="CH1_S1_Option_5" xml:space="preserve">
+    <value>But you can't just...</value>
+  </data>
+  <data name="CH1_S1_Partner_45B" xml:space="preserve">
+    <value>That's my precious treasure...</value>
+  </data>
+  <data name="CH1_S1_Partner_46B" xml:space="preserve">
+    <value>If that disappeared, then I'd...</value>
+  </data>
+  <data name="CH1_S1_Partner_47B_0" xml:space="preserve">
+    <value>Please![pause=0] Please help!</value>
+  </data>
+  <data name="CH1_S1_Partner_47B_1" xml:space="preserve">
+    <value>Come on, I'm begging![pause=0] Please help!</value>
+  </data>
+  <data name="CH1_S1_Partner_47B_2" xml:space="preserve">
+    <value>Please![pause=0] Please help!</value>
+  </data>
+  <data name="CH1_S1_Option_6" xml:space="preserve">
+    <value>But I have no memory...</value>
+  </data>
+  <data name="CH1_S1_Partner_48B" xml:space="preserve">
+    <value>I know it's difficult...but hurry!</value>
+  </data>
+  <data name="CH1_S1_Partner_49B" xml:space="preserve">
+    <value>It doesn't matter if you have no memory. You can still help! Please!</value>
+  </data>
+  <data name="CH1_S1_Option_7" xml:space="preserve">
+    <value>But I'm sure I was a human...</value>
+  </data>
+  <data name="CH1_S1_Partner_50B" xml:space="preserve">
+    <value>Argh! [pause=0]Human, ghost, it doesn't matter. You can still help! Please!</value>
+  </data>
+  <data name="CH1_S1_Option_8" xml:space="preserve">
+    <value>O-OK!</value>
+  </data>
+  <data name="CH1_S2_Partner_1" xml:space="preserve">
+    <value>...Wh-what?</value>
+  </data>
+  <data name="CH1_S2_Partner_2_0" xml:space="preserve">
+    <value>Owowow... That didn't go well.</value>
+  </data>
+  <data name="CH1_S2_Partner_2_1" xml:space="preserve">
+    <value>Owowow... That wasn't so good.</value>
+  </data>
+  <data name="CH1_S2_Partner_2_2" xml:space="preserve">
+    <value>Ouch! We didn't do too well...</value>
+  </data>
+  <data name="CH1_S2_Partner_3" xml:space="preserve">
+    <value>I guess if either of us faints, the other one can't carry on!</value>
+  </data>
+  <data name="CH1_S2_Partner_4" xml:space="preserve">
+    <value>...Could this be what they're calling a mystery dungeon?</value>
+  </data>
+  <data name="CH1_S2_Partner_5_0" xml:space="preserve">
+    <value>Hey! This isn't the time for this!</value>
+  </data>
+  <data name="CH1_S2_Partner_5_1" xml:space="preserve">
+    <value>Hey! We don't have time for this!</value>
+  </data>
+  <data name="CH1_S2_Partner_5_2" xml:space="preserve">
+    <value>Oh! There's no time to waste!</value>
+  </data>
+  <data name="CH1_S2_Partner_6_0" xml:space="preserve">
+    <value>We've got to find {0} and his sidekick to recover my item!</value>
+  </data>
+  <data name="CH1_S2_Partner_6_1" xml:space="preserve">
+    <value>We have to find {0} and his buddy to get my item back!</value>
+  </data>
+  <data name="CH1_S2_Partner_6_2" xml:space="preserve">
+    <value>We need to catch {0} and his buddy and get my treasure back!</value>
+  </data>
+  <data name="CH1_S2_Partner_7_0" xml:space="preserve">
+    <value>Let's go, {0}!</value>
+  </data>
+  <data name="CH1_S2_Partner_7_1" xml:space="preserve">
+    <value>Let's roll, {0}!</value>
+  </data>
+  <data name="CH1_S2_Partner_7_2" xml:space="preserve">
+    <value>Let's go, {0}!</value>
+  </data>
+  <data name="CH1_S3_Partner_1_0" xml:space="preserve">
+    <value>Thank you! Seriously!</value>
+  </data>
+  <data name="CH1_S3_Partner_1_1" xml:space="preserve">
+    <value>Really, thank you!</value>
+  </data>
+  <data name="CH1_S3_Partner_1_2" xml:space="preserve">
+    <value>Thank you very much!</value>
+  </data>
+  <data name="CH1_S3_Hero_1" xml:space="preserve">
+    <value>(............)</value>
+  </data>
+  <data name="CH1_S3_Hero_2" xml:space="preserve">
+    <value>(I only helped because I happened to be there... Was that the right thing to do?)</value>
+  </data>
+  <data name="CH1_S3_Hero_3" xml:space="preserve">
+    <value>(I guess so.[pause=0] This Pokémon is clearly grateful.)</value>
+  </data>
+  <data name="CH1_S3_Hero_4" xml:space="preserve">
+    <value>(It's nice to be appreciated.)</value>
+  </data>
+  <data name="CH1_S3_Partner_2" xml:space="preserve">
+    <value>Here's what they stole.</value>
+  </data>
+  <data name="CH1_S3_Partner_3" xml:space="preserve">
+    <value>This is a Relic Fragment.[pause=0] ...Well, at least, that's what I started calling it...</value>
+  </data>
+  <data name="CH1_S3_Partner_4" xml:space="preserve">
+    <value>But this Relic Fragment...[pause=0] It's my precious treasure.</value>
+  </data>
+  <data name="CH1_S3_Partner_5" xml:space="preserve">
+    <value>You see, I've always liked legends and lore...</value>
+  </data>
+  <data name="CH1_S3_Partner_6" xml:space="preserve">
+    <value>I always get so excited when I hear tales from the past!</value>
+  </data>
+  <data name="CH1_S3_Partner_7" xml:space="preserve">
+    <value>Don't you feel the same way?</value>
+  </data>
+  <data name="CH1_S3_Partner_8" xml:space="preserve">
+    <value>Hidden troves full of treasure and strange relics...</value>
+  </data>
+  <data name="CH1_S3_Partner_9" xml:space="preserve">
+    <value>...uncharted territories veiled in darkness...</value>
+  </data>
+  <data name="CH1_S3_Partner_10" xml:space="preserve">
+    <value>...and new lands just waiting to be discovered!</value>
+  </data>
+  <data name="CH1_S3_Partner_11_0" xml:space="preserve">
+    <value>Such places must be full of unimaginable gold and treasure!</value>
+  </data>
+  <data name="CH1_S3_Partner_11_1" xml:space="preserve">
+    <value>Such places must be full of gold and treasure!</value>
+  </data>
+  <data name="CH1_S3_Partner_11_2" xml:space="preserve">
+    <value>Such places must be full of gold and treasure!</value>
+  </data>
+  <data name="CH1_S3_Partner_12_0" xml:space="preserve">
+    <value>And history! Wouldn't it be amazing to make historic discoveries?</value>
+  </data>
+  <data name="CH1_S3_Partner_12_1" xml:space="preserve">
+    <value>And history! Wouldn't it be amazing to make historic discoveries?</value>
+  </data>
+  <data name="CH1_S3_Partner_12_2" xml:space="preserve">
+    <value>And history! Wouldn't it be dramatic to make historic discoveries?</value>
+  </data>
+  <data name="CH1_S3_Partner_13_0" xml:space="preserve">
+    <value>That's what I always dream of. It's all exciting to me.</value>
+  </data>
+  <data name="CH1_S3_Partner_13_1" xml:space="preserve">
+    <value>I always dream about that. It's all exciting to me.</value>
+  </data>
+  <data name="CH1_S3_Partner_13_2" xml:space="preserve">
+    <value>That's what I always dream of. It's all so exciting to me.</value>
+  </data>
+  <data name="CH1_S3_Partner_14_0" xml:space="preserve">
+    <value>So one day...[pause=0]I happened to come across my Relic Fragment.</value>
+  </data>
+  <data name="CH1_S3_Partner_14_1" xml:space="preserve">
+    <value>So one day...[pause=0]I happened to find something... My Relic Fragment.</value>
+  </data>
+  <data name="CH1_S3_Partner_14_2" xml:space="preserve">
+    <value>And it just so happened...[pause=0]that I found this Relic Fragment.</value>
+  </data>
+  <data name="CH1_S3_Partner_15_0" xml:space="preserve">
+    <value>I admit that it looks like junk, but take a closer look.</value>
+  </data>
+  <data name="CH1_S3_Partner_15_1" xml:space="preserve">
+    <value>Sure, it looks like junk, but take a closer look...</value>
+  </data>
+  <data name="CH1_S3_Partner_15_2" xml:space="preserve">
+    <value>Sure, it does look like junk, but take a closer look.</value>
+  </data>
+  <data name="CH1_S3_Partner_16_0" xml:space="preserve">
+    <value>See?[pause=0] That inscription forms a strange pattern, doesn't it?</value>
+  </data>
+  <data name="CH1_S3_Partner_16_1" xml:space="preserve">
+    <value>See?[pause=0] See that strange pattern inscribed on it?</value>
+  </data>
+  <data name="CH1_S3_Partner_16_2" xml:space="preserve">
+    <value>Look there.[pause=0] See that strange pattern inscribed on it?</value>
+  </data>
+  <data name="CH1_S3_Hero_5" xml:space="preserve">
+    <value>(It's true. There is a strange inscription.)</value>
+  </data>
+  <data name="CH1_S3_Hero_6" xml:space="preserve">
+    <value>(I've never seen a pattern like this.)</value>
+  </data>
+  <data name="CH1_S3_Partner_17_0" xml:space="preserve">
+    <value>There must be some significance to this pattern.</value>
+  </data>
+  <data name="CH1_S3_Partner_17_1" xml:space="preserve">
+    <value>This pattern must have some meaning to it. I'm sure of it.</value>
+  </data>
+  <data name="CH1_S3_Partner_17_2" xml:space="preserve">
+    <value>There must be some meaning to this pattern.</value>
+  </data>
+  <data name="CH1_S3_Partner_18" xml:space="preserve">
+    <value>This Relic Fragment must be the key to legendary places! To areas where precious treasure lies!</value>
+  </data>
+  <data name="CH1_S3_Partner_19" xml:space="preserve">
+    <value>At least that's the feeling I get.</value>
+  </data>
+  <data name="CH1_S3_Partner_20" xml:space="preserve">
+    <value>That's why I want to join an exploration team.</value>
+  </data>
+  <data name="CH1_S3_Partner_21" xml:space="preserve">
+    <value>This fragment must fit into something...somewhere! I want to discover where that is.</value>
+  </data>
+  <data name="CH1_S3_Partner_22" xml:space="preserve">
+    <value>I want to solve the mystery of my Relic Fragment!</value>
+  </data>
+  <data name="CH1_S3_Partner_23" xml:space="preserve">
+    <value>So earlier, I tried joining an exploration team as an apprentice...</value>
+  </data>
+  <data name="CH1_S3_Partner_24_0" xml:space="preserve">
+    <value>But...[pause=0]I chickened out.</value>
+  </data>
+  <data name="CH1_S3_Partner_24_1" xml:space="preserve">
+    <value>But...[pause=0]I chickened out.</value>
+  </data>
+  <data name="CH1_S3_Partner_24_2" xml:space="preserve">
+    <value>But...[pause=0]I was too cowardly...</value>
+  </data>
+  <data name="CH1_S3_Partner_25" xml:space="preserve">
+    <value>What about you, {0}? What are you going to do now?</value>
+  </data>
+  <data name="CH1_S3_Partner_26" xml:space="preserve">
+    <value>You lost your memory. And you somehow transformed into a Pokémon...</value>
+  </data>
+  <data name="CH1_S3_Partner_27_0" xml:space="preserve">
+    <value>Do you have anywhere to go and stay after this?</value>
+  </data>
+  <data name="CH1_S3_Partner_27_1" xml:space="preserve">
+    <value>Do you have anywhere to go and stay after this?</value>
+  </data>
+  <data name="CH1_S3_Partner_27_2" xml:space="preserve">
+    <value>Do you have anyplace where you can stay?</value>
+  </data>
+  <data name="CH1_S3_Hero_7" xml:space="preserve">
+    <value>(............)</value>
+  </data>
+  <data name="CH1_S3_Partner_28" xml:space="preserve">
+    <value>If not, can I ask a big favor?</value>
+  </data>
+  <data name="CH1_S3_Partner_29_0" xml:space="preserve">
+    <value>Would you be willing to form an exploration team with me?</value>
+  </data>
+  <data name="CH1_S3_Partner_29_1" xml:space="preserve">
+    <value>Would you join me to make an exploration team?</value>
+  </data>
+  <data name="CH1_S3_Partner_29_2" xml:space="preserve">
+    <value>Would you form an exploration team with me?</value>
+  </data>
+  <data name="CH1_S3_Partner_30_0" xml:space="preserve">
+    <value>I'm convinced that I can form an effective exploration team with you, {0}.</value>
+  </data>
+  <data name="CH1_S3_Partner_30_1" xml:space="preserve">
+    <value>I think you and I would make a good exploration team, {0}.</value>
+  </data>
+  <data name="CH1_S3_Partner_30_2" xml:space="preserve">
+    <value>I think we could make a good exploration team together, {0}.</value>
+  </data>
+  <data name="CH1_S3_Partner_31_0" xml:space="preserve">
+    <value>So will you?[pause=0] Please?</value>
+  </data>
+  <data name="CH1_S3_Partner_31_1" xml:space="preserve">
+    <value>So, how about it?[pause=0] Come on, please?</value>
+  </data>
+  <data name="CH1_S3_Partner_31_2" xml:space="preserve">
+    <value>So will you do that with me?[pause=0] Please?</value>
+  </data>
+  <data name="CH1_S3_Hero_8_0" xml:space="preserve">
+    <value>(Whoa! What should I do?[pause=0] I'm getting recruited out of the blue!)</value>
+  </data>
+  <data name="CH1_S3_Hero_8_1" xml:space="preserve">
+    <value>(Wah! What should I do?[pause=0] I'm getting recruited out of the blue!)</value>
+  </data>
+  <data name="CH1_S3_Hero_9" xml:space="preserve">
+    <value>(I don't know what an exploration team is...)</value>
+  </data>
+  <data name="CH1_S3_Hero_10" xml:space="preserve">
+    <value>(What should I do?[pause=0] Should I join this Pokémon and form an exploration team?)</value>
+  </data>
+  <data name="CH1_S3_Option_1" xml:space="preserve">
+    <value>Form a team</value>
+  </data>
+  <data name="CH1_S3_Option_2" xml:space="preserve">
+    <value>Say no</value>
+  </data>
+  <data name="CH1_S3_Hero_11A" xml:space="preserve">
+    <value>(It's true, I do have nowhere to go...)</value>
+  </data>
+  <data name="CH1_S3_Hero_12A" xml:space="preserve">
+    <value>(I don't have any clue what I should do next.)</value>
+  </data>
+  <data name="CH1_S3_Hero_13A" xml:space="preserve">
+    <value>(I guess it wouldn't hurt to team up with {0} for now.)</value>
+  </data>
+  <data name="CH1_S3_Hero_14A" xml:space="preserve">
+    <value>(Maybe I'll eventually discover who or what I am by hanging out with this Pokémon.)</value>
+  </data>
+  <data name="CH1_S3_Hero_15A" xml:space="preserve">
+    <value>(OK! That's settled!)</value>
+  </data>
+  <data name="CH1_S3_Partner_32A_0" xml:space="preserve">
+    <value>Yes?[pause=0] Really?!</value>
+  </data>
+  <data name="CH1_S3_Partner_32A_1" xml:space="preserve">
+    <value>Yeah?[pause=0] Really?!</value>
+  </data>
+  <data name="CH1_S3_Partner_32A_2" xml:space="preserve">
+    <value>Oh?[pause=0] Really?!</value>
+  </data>
+  <data name="CH1_S3_Partner_33A_0" xml:space="preserve">
+    <value>You'll form an exploration team with me?</value>
+  </data>
+  <data name="CH1_S3_Partner_33A_1" xml:space="preserve">
+    <value>You'll form an exploration team with me?</value>
+  </data>
+  <data name="CH1_S3_Partner_33A_2" xml:space="preserve">
+    <value>You'll really form an exploration team with me?</value>
+  </data>
+  <data name="CH1_S3_Partner_34A_0" xml:space="preserve">
+    <value>Yes! Thank you!</value>
+  </data>
+  <data name="CH1_S3_Partner_34A_1" xml:space="preserve">
+    <value>Yahoo! Thanks!</value>
+  </data>
+  <data name="CH1_S3_Partner_34A_2" xml:space="preserve">
+    <value>Yay! Thank you!</value>
+  </data>
+  <data name="CH1_S3_Partner_35A_0" xml:space="preserve">
+    <value>We're going to be a great combination! Let's make this work!</value>
+  </data>
+  <data name="CH1_S3_Partner_35A_1" xml:space="preserve">
+    <value>We're going to make a great combination! Let's make this work!</value>
+  </data>
+  <data name="CH1_S3_Partner_35A_2" xml:space="preserve">
+    <value>We're going to be a great combination! Let's make this work!</value>
+  </data>
+  <data name="CH1_S3_Partner_36A_0" xml:space="preserve">
+    <value>First, we should go to {0}'s place and sign up as apprentices.</value>
+  </data>
+  <data name="CH1_S3_Partner_36A_1" xml:space="preserve">
+    <value>First, let's go to {0}'s place and sign up as apprentices.</value>
+  </data>
+  <data name="CH1_S3_Partner_36A_2" xml:space="preserve">
+    <value>First, we need to go to {0}'s place and sign up as apprentices.</value>
+  </data>
+  <data name="CH1_S3_Partner_37A_0" xml:space="preserve">
+    <value>That's where we need to train to become a first-rate exploration team.</value>
+  </data>
+  <data name="CH1_S3_Partner_37A_1" xml:space="preserve">
+    <value>That's where we can train to become a proper exploration team.</value>
+  </data>
+  <data name="CH1_S3_Partner_37A_2" xml:space="preserve">
+    <value>That's where we can get the training to become a proper exploration team.</value>
+  </data>
+  <data name="CH1_S3_Partner_38A_0" xml:space="preserve">
+    <value>I'm sure the training will be very tough...</value>
+  </data>
+  <data name="CH1_S3_Partner_38A_1" xml:space="preserve">
+    <value>I think the training will be really tough...</value>
+  </data>
+  <data name="CH1_S3_Partner_38A_2" xml:space="preserve">
+    <value>I think the training will be very tough...</value>
+  </data>
+  <data name="CH1_S3_Partner_39A_0" xml:space="preserve">
+    <value>But let's give it our best, {0}!</value>
+  </data>
+  <data name="CH1_S3_Partner_39A_1" xml:space="preserve">
+    <value>But let's give it our best, {0}!</value>
+  </data>
+  <data name="CH1_S3_Partner_39A_2" xml:space="preserve">
+    <value>So let's give it our best, {0}!</value>
+  </data>
+  <data name="CH1_S3_Narration_1" xml:space="preserve">
+    <value>And so...</value>
+  </data>
+  <data name="CH1_S3_Narration_2" xml:space="preserve">
+    <value>{0} and {1}...</value>
+  </data>
+  <data name="CH1_S3_Narration_3" xml:space="preserve">
+    <value>formed an exploration team.</value>
+  </data>
+  <data name="CH1_S3_Narration_4" xml:space="preserve">
+    <value>This turned out to be...</value>
+  </data>
+  <data name="CH1_S3_Narration_5" xml:space="preserve">
+    <value>their very first step into...</value>
+  </data>
+  <data name="CH1_S3_Narration_6" xml:space="preserve">
+    <value>many fantastic realms of adventure that awaited their arrival.</value>
+  </data>
+  <data name="CH1_S3_Partner_32B_0" xml:space="preserve">
+    <value>What?! Oh, but...</value>
+  </data>
+  <data name="CH1_S3_Partner_32B_1" xml:space="preserve">
+    <value>Huh? Oh, come on!</value>
+  </data>
+  <data name="CH1_S3_Partner_32B_2" xml:space="preserve">
+    <value>What?! Oh, please!</value>
+  </data>
+  <data name="CH1_S3_Partner_33B" xml:space="preserve">
+    <value>But I'm braver when I'm with you, {0}...</value>
+  </data>
+  <data name="CH1_S3_Partner_34B_0" xml:space="preserve">
+    <value>You were so fantastic when we confronted {0} and his sidekick.</value>
+  </data>
+  <data name="CH1_S3_Partner_34B_1" xml:space="preserve">
+    <value>And you were awesome when we beat {0} and his buddy.</value>
+  </data>
+  <data name="CH1_S3_Partner_34B_2" xml:space="preserve">
+    <value>And you were fantastic when we faced {0} and his sidekick.</value>
+  </data>
+  <data name="CH1_S3_Partner_35B" xml:space="preserve">
+    <value>When I saw that, I realized you're no ordinary Pokémon, {0}!</value>
+  </data>
+  <data name="CH1_S3_Partner_36B_0" xml:space="preserve">
+    <value>I became convinced that you'd make a first-class explorer, {0}.</value>
+  </data>
+  <data name="CH1_S3_Partner_36B_1" xml:space="preserve">
+    <value>I thought that you'd make a first-class explorer, {0}.</value>
+  </data>
+  <data name="CH1_S3_Partner_36B_2" xml:space="preserve">
+    <value>I thought that you could be a first-class explorer, {0}.</value>
+  </data>
+  <data name="CH1_S3_Partner_37B_0" xml:space="preserve">
+    <value>So come on now.[K] Let\'s form an\nexploration team together.</value>
+  </data>
+  <data name="CH1_S3_Partner_37B_1" xml:space="preserve">
+    <value>So come on, I'm begging you.[pause=0] Let's form an exploration team, you and me.</value>
+  </data>
+  <data name="CH1_S3_Partner_37B_2" xml:space="preserve">
+    <value>So, please?[pause=0] Will you please form an exploration team with me?</value>
+  </data>
+  <data name="CH1_S3_Option_3" xml:space="preserve">
+    <value>Are you...?</value>
+  </data>
+  <data name="CH1_S3_Partner_38B" xml:space="preserve">
+    <value>Huh? [pause=0]Am I what?</value>
+  </data>
+  <data name="CH1_S3_Partner_39B" xml:space="preserve">
+    <value>What do you mean, [pause=0]"Are you...?"</value>
+  </data>
+  <data name="CH1_S3_Option_4" xml:space="preserve">
+    <value>You're trying to talk me into it?</value>
+  </data>
+  <data name="CH1_S3_Partner_40B" xml:space="preserve">
+    <value>What?! [pause=0]Talk you into it?!</value>
+  </data>
+  <data name="CH1_S3_Partner_41B_0" xml:space="preserve">
+    <value>I didn't even think of it!</value>
+  </data>
+  <data name="CH1_S3_Partner_41B_1" xml:space="preserve">
+    <value>I wasn't trying to do anything!</value>
+  </data>
+  <data name="CH1_S3_Partner_41B_2" xml:space="preserve">
+    <value>The thought never crossed my mind!</value>
+  </data>
+  <data name="CH1_S3_Partner_42B" xml:space="preserve">
+    <value>Well, I'm a complete coward...[pause=0] Honestly...</value>
+  </data>
+  <data name="CH1_S3_Partner_43B" xml:space="preserve">
+    <value>I mean, yes, I thought I could depend on you, {0}...</value>
+  </data>
+  <data name="CH1_S3_Partner_44B" xml:space="preserve">
+    <value>But during that fight with {0} earlier...</value>
+  </data>
+  <data name="CH1_S3_Partner_45B" xml:space="preserve">
+    <value>Having you there with me, I felt really brave.</value>
+  </data>
+  <data name="CH1_S3_Partner_46B" xml:space="preserve">
+    <value>I think I could do anything as long as you're helping me, {0}.</value>
+  </data>
+  <data name="CH1_S3_Partner_47B" xml:space="preserve">
+    <value>So come on, I'm begging you.[pause=0] Let's form an exploration team, you and me.</value>
+  </data>
 </root>

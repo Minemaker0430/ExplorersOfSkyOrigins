@@ -80,7 +80,11 @@
 "CountedFloors": 0,
 "Rogue": 1,
 "Grounds": [],
-"Maps": [],
+"Maps": [
+[
+0
+]
+],
 "Name": {
 "DefaultText": "Beach Cave",
 "LocalTexts": {}

@@ -39,7 +39,13 @@ function dusk_beach.Enter(map)
   GAME:CutsceneMode(true)
   
   if SV.Progression.Chapter == 1 then
-	dusk_beach.CH1_PartnerFindsHero()
+	if SV.beach_cave.FailedDungeon then
+		dusk_beach.CH1_FailedBeachCave()
+	elseif SV.Progression.SectionFlag == 1
+		dusk_beach.CH1_ExplorerTeamInvite()
+	else
+		dusk_beach.CH1_PartnerFindsHero()
+	end
   end
   
 end
@@ -296,8 +302,36 @@ function dusk_beach.CH1_PartnerFindsHero()
 	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_18_'..tostring(pTalkKind)]))
 	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_19'], _DATA:GetMonster(player.CurrentForm.Species):GetColoredName()))
 	
+	--debug end
 	GAME:CutsceneMode(false)
 	
+end
+
+function dusk_beach.CH1_ExplorerTeamInvite()
+	--debug end
+	GAME:CutsceneMode(false)
+end
+
+function dusk_beach.CH1_FailedBeachCave()
+
+	local player = CH('PLAYER')
+	local partner = CH('PARTNER')
+	
+	partner.CollisionDisabled = true
+	
+	local hTalkKind = SV.Personality.HeroTalkKind
+	local pTalkKind = SV.Personality.PartnerTalkKind
+
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S2_Partner_1']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S2_Partner_2_'..tostring(pTalkKind)]))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S2_Partner_3']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S2_Partner_4']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S2_Partner_5_'..tostring(pTalkKind)]))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S2_Partner_6_'..tostring(pTalkKind)]))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S2_Partner_7_'..tostring(pTalkKind)]))
+	
+	--debug end
+	GAME:CutsceneMode(false)
 end
 
 return dusk_beach

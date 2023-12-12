@@ -123,7 +123,11 @@ SV.SpecialEpisodes = --special savedata storage for special episodes
 
 SV.beach =
 {
-	Cutscene = true,
+	Cutscene = true
+}
+
+SV.beach_cave =
+{
 	FailedDungeon = false
 }
 
