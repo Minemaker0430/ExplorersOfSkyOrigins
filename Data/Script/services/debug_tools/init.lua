@@ -136,6 +136,9 @@ function DebugTools:OnNewGame()
 	SV.General.Starter = _DATA.Save.ActiveTeam.Players[0].BaseForm
 	SV.General.Partner = _DATA.Save.ActiveTeam.Players[1].BaseForm
   end
+  
+  _DATA.Save.NoSwitching = true
+  
 end
 
 

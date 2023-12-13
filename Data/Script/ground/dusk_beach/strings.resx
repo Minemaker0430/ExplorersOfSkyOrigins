@@ -205,6 +205,9 @@
   <data name="CH1_S1_Hero_6" xml:space="preserve">
     <value>(I've turned into a {0}!)</value>
   </data>
+  <data name="CH1_S1_Hero_6_Alt" xml:space="preserve">
+    <value>(I've turned into an {0}!)</value>
+  </data>
   <data name="CH1_S1_Hero_7" xml:space="preserve">
     <value>(...But how did this happen?[pause=0] I don't remember anything...)</value>
   </data>

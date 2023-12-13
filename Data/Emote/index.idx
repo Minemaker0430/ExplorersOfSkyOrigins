@@ -10,6 +10,15 @@
 "Released": true,
 "Comment": "",
 "SortOrder": 0
+},
+"none": {
+"Name": {
+"DefaultText": "None",
+"LocalTexts": {}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 0
 }
 }
 }

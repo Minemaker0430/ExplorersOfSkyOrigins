@@ -873,7 +873,7 @@ while not ch do
 	end
 	
 	GAME:SetCharacterNickname(GAME:GetPlayerPartyMember(1), name)
-    UI:ChoiceMenuYesNo(STRINGS:Format(MapStrings['Name_Confirm'], name), true)
+    UI:ChoiceMenuYesNo(STRINGS:Format(MapStrings['Name_Confirm'], GAME:GetPlayerPartyMember(1):GetDisplayName()), true)
     UI:WaitForChoice()
     ch = UI:ChoiceResult()
   end
@@ -933,6 +933,7 @@ GAME:FadeOut(false, 120)
 GROUND:SetPlayer(GAME:GetPlayerPartyMember(0))
 
 _DATA.Save:UpdateTeamProfile(true)
+_DATA.Save.NoSwitching = true
 
 --Dev Build
 GAME:EnterGroundMap("chapter_card", "Entrance")

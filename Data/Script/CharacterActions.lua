@@ -97,20 +97,20 @@ function CharacterActions.ScaredJump(ent, dir)
 	
 	--left?
 	if dirNum >= 6 and dirNum <= 8 then
-		xoff = -2
+		xoff = 2
 	end
 	
 	--right?
 	if dirNum >= 2 and dirNum <= 4 then
-		xoff = 2
+		xoff = -2
 	end
 
 	--actual animation
 	local xpos = ent.Position.X
 	local ypos = ent.Position.Y
 	
-	GROUND:AnimateToPosition(ent, "Cringe", dir, (xpos + xoff), (ypos + yoff), 1, 2, 10)
-	GROUND:AnimateToPosition(ent, "Cringe", dir, xpos, ypos, 1, 2, 0)
+	GROUND:AnimateToPosition(ent, "Hurt", dir, (xpos + xoff), (ypos + yoff), 1, 2, 10)
+	GROUND:AnimateToPosition(ent, "Hurt", dir, xpos, ypos, 1, 2, 0)
 end
 
 function CharacterActions.HopTwice(ent, dir)
