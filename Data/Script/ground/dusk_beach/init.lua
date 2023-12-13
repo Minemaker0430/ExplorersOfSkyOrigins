@@ -302,17 +302,19 @@ function dusk_beach.CH1_PartnerFindsHero()
 	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_18_'..tostring(pTalkKind)]))
 	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_19'], _DATA:GetMonster(player.CurrentForm.Species):GetColoredName()))
 	
+	GAME:WaitFrames(10)
 	GROUND:CharAnimateTurnTo(player, Direction.Up, 4)
-	GAME:WaitFrames(15)
+	GAME:WaitFrames(30)
 	GROUND:CharAnimateTurnTo(player, Direction.Down, 4)
-	GAME:WaitFrames(20)
+	GAME:WaitFrames(45)
 	GROUND:CharAnimateTurnTo(player, Direction.Up, 4)
-	GAME:WaitFrames(15)
+	GAME:WaitFrames(30)
 	GROUND:CharAnimateTurnTo(player, Direction.Right, 4)
 	GAME:WaitFrames(45)
 	
 	SOUND:PlayBattleSE("EVT_Emote_Shock")
 	GROUND:CharSetEmote(player, "shock", 1)
+	GAME:WaitFrames(30)
 	
 	UI:SetSpeaker('', false, player.CurrentForm.Species, player.CurrentForm.Form, player.CurrentForm.Skin, player.CurrentForm.Gender)
 	UI:SetSpeakerEmotion("Surprised")
@@ -341,6 +343,7 @@ function dusk_beach.CH1_PartnerFindsHero()
 	GROUND:CharSetEmote(player, "shock", 1)
 	GAME:WaitFrames(30)
 	CharacterActions.ShakeHead(player, Direction.Right)
+	GAME:WaitFrames(30)
 	
 	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_22']))
 	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_23_'..tostring(pTalkKind)]))
@@ -400,7 +403,7 @@ function dusk_beach.CH1_PartnerFindsHero()
 												SOUND:PlayBattleSE("EVT_Tackle") end) 
 	local coro3 = TASK:BranchCoroutine(function() GAME:WaitFrames(30) --player
 												SOUND:PlayBattleSE("EVT_Emote_Exclaim")
-												GROUND:CharSetEmote(player, "notice", 1) end)
+												GROUND:CharSetEmote(player, "exclaim", 1) end)
 	TASK:JoinCoroutines({coro1, coro2, coro3})
 	
 	local coro1 = TASK:BranchCoroutine(function() GROUND:AnimateInDirection(partner, "Hurt", Direction.Left, Direction.Left, 17, 1, 4) --partner
@@ -419,6 +422,7 @@ function dusk_beach.CH1_PartnerFindsHero()
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Koffing_1']))
 	
+	GAME:WaitFrames(10)
 	GROUND:CharAnimateTurnTo(partner, Direction.Right, 1)
 	SOUND:PlayBattleSE("EVT_Emote_Complain_2")
 	GROUND:CharSetEmote(partner, "angry", -1)
@@ -468,7 +472,7 @@ function dusk_beach.CH1_PartnerFindsHero()
 	local origY = zubat.Position.Y
 	
 	GAME:WaitFrames(15)
-	GROUND:MoveToPosition(zubat, relic.Position.X, relic.Position.Y, false, 1)
+	GROUND:MoveToPosition(zubat, relic.Position.X, relic.Position.Y + 1, false, 1)
 	GAME:WaitFrames(15)
 	GROUND:Hide("RelicFragment")
 	
@@ -489,21 +493,52 @@ function dusk_beach.CH1_PartnerFindsHero()
 	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Koffing_2']))
 	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Koffing_3']))
 	
-	--turn to each other
+	local coro1 = TASK:BranchCoroutine(function() GROUND:CharTurnToCharAnimated(zubat, koffing, 8, true) end) 
+	local coro2 = TASK:BranchCoroutine(function() GROUND:CharTurnToCharAnimated(koffing, zubat, 8, true) end) 
+	TASK:JoinCoroutines({coro1, coro2})
 	
 	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Koffing_4']))
+	
+	local coro1 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(zubat, Direction.Left, 4) end) 
+	local coro2 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(koffing, Direction.Left, 4) end) 
+	TASK:JoinCoroutines({coro1, coro2})
 	
 	GAME:WaitFrames(10)
 	UI:SetSpeaker(zubat)
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Zubat_5']))
 	
-	--leave
+	local posx = 0
+	local posy = 0	
+	
+	local coro1 = TASK:BranchCoroutine(function() posx = koffing.Position.X - 16 --koffing
+												posy = koffing.Position.Y + 16
+												GROUND:MoveToPosition(koffing, posx, posy, false, 1) 
+												GROUND:MoveToPosition(koffing, koffing.Position.X - 240, koffing.Position.Y, false, 1)
+												GROUND:Hide("Koffing") end) 
+	local coro2 = TASK:BranchCoroutine(function() GAME:WaitFrames(30)
+												posx = zubat.Position.X - 48 --zubat
+												posy = zubat.Position.Y + 48
+												GROUND:MoveToPosition(zubat, posx, posy, false, 1) 
+												GROUND:MoveToPosition(zubat, zubat.Position.X - 240, zubat.Position.Y, false, 1)
+												GROUND:Hide("Zubat")
+												continue = true end)
+	local coro3 = TASK:BranchCoroutine(function() GAME:WaitFrames(40) --player turn to people leaving
+												GROUND:CharAnimateTurnTo(player, Direction.DownLeft, 60) end) 
+	local coro4 = TASK:BranchCoroutine(function() GAME:WaitFrames(30) --partner turn to people leaving
+												GROUND:CharAnimateTurnTo(partner, Direction.DownLeft, 60) end) 
+	TASK:JoinCoroutines({coro1, coro2, coro3, coro4})
+	
+	GAME:WaitFrames(60)
 	
 	UI:SetSpeaker(partner)
 	UI:SetSpeakerEmotion("Sad")
 	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_34']))
+	
+	GROUND:CharAnimateTurnTo(partner, Direction.Left, 4)
 	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_35']))
+	
+	GROUND:CharAnimateTurnTo(player, Direction.Right, 4)
 	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_36']))
 	
 	UI:SetSpeakerEmotion("Teary-Eyed")
@@ -537,6 +572,18 @@ function dusk_beach.CH1_PartnerFindsHero()
 			UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S1_Partner_41A_'..tostring(pTalkKind)]))
 			
 			--leave for dungeon
+			local coro1 = TASK:BranchCoroutine(function() posx = partner.Position.X - 48 --partner
+												posy = partner.Position.Y + 48
+												GROUND:MoveToPosition(partner, posx, posy, false, 1) 
+												GROUND:MoveToPosition(partner, partner.Position.X - 140, partner.Position.Y, false, 1)
+												GROUND:Hide("PARTNER") end) 
+			local coro2 = TASK:BranchCoroutine(function() GAME:WaitFrames(60)
+												posx = player.Position.X - 48 --player
+												posy = player.Position.Y + 48
+												GROUND:MoveToPosition(player, posx, posy, false, 1) 
+												GROUND:MoveToPosition(player, player.Position.X - 140, player.Position.Y, false, 1)
+												GROUND:Hide("PLAYER") end)
+			TASK:JoinCoroutines({coro1, coro2})
 			
 		--B
 		elseif result == 2 then --no
@@ -631,10 +678,16 @@ function dusk_beach.CH1_PartnerFindsHero()
 		end
 	end
 	
+	local coro1 = TASK:BranchCoroutine(function() GAME:FadeOut(false, 60) end) 
+	local coro2 = TASK:BranchCoroutine(function() SOUND:FadeOutSE("Ambient/AMB_Ocean", 60) end)
+	TASK:JoinCoroutines({coro1, coro2})
+	
 	--enter dungeon
 	
 	--debug end
+	GAME:FadeIn(1)
 	GAME:CutsceneMode(false)
+	GROUND:Unhide("PLAYER")
 	
 end
 
