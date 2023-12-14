@@ -683,11 +683,14 @@ function dusk_beach.CH1_PartnerFindsHero()
 	TASK:JoinCoroutines({coro1, coro2})
 	
 	--enter dungeon
+	GAME:WaitFrames(60)
+	GAME:CutsceneMode(false)
+	GAME:EnterZone('beach_cave', 0, 0, 0)
 	
 	--debug end
-	GAME:FadeIn(1)
-	GAME:CutsceneMode(false)
-	GROUND:Unhide("PLAYER")
+	--GAME:FadeIn(1)
+	--GAME:CutsceneMode(false)
+	--GROUND:Unhide("PLAYER")
 	
 end
 

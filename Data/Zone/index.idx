@@ -2,6 +2,65 @@
 "Version": "0.7.20.0",
 "Object": {
 "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[RogueEssence.Data.EntrySummary, RogueEssence]], System.Private.CoreLib",
+"ambush_forest": {
+"$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+"NoEXP": false,
+"Level": 30,
+"LevelCap": false,
+"KeepSkills": false,
+"TeamRestrict": false,
+"TeamSize": -1,
+"MoneyRestrict": false,
+"BagRestrict": -1,
+"BagSize": -1,
+"Rescues": 2,
+"CountedFloors": 20,
+"Rogue": 1,
+"Grounds": [
+"end_ambush_forest"
+],
+"Maps": [
+[
+0,
+1,
+2,
+3,
+4,
+5,
+6,
+7,
+8,
+9,
+10,
+11,
+12,
+13,
+14,
+15,
+16,
+17,
+18,
+19
+],
+null,
+null,
+[
+0
+]
+],
+"Name": {
+"DefaultText": "Ambush Forest",
+"LocalTexts": {
+"de": "Auflauerwald",
+"es": "Bosque Emboscada",
+"it": "Foresta Agguato",
+"zh-hans": "埋伏森林"
+}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 0
+},
 "cutscenes": {
 "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
 "NoEXP": false,
@@ -77,10 +136,18 @@
 "BagRestrict": -1,
 "BagSize": -1,
 "Rescues": 0,
-"CountedFloors": 0,
+"CountedFloors": 5,
 "Rogue": 1,
-"Grounds": [],
+"Grounds": [
+"beach_cave_pit"
+],
 "Maps": [
+[
+0,
+1,
+2,
+3
+],
 [
 0
 ]

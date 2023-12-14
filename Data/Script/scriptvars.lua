@@ -117,6 +117,12 @@ SV.SpecialEpisodes = --special savedata storage for special episodes
 	}
 }
 
+SV.missions = -- !! TEMPORARY SV SO DUNGEONS DON'T BREAK !!
+{
+  Missions = { },
+  FinishedMissions = { },
+}
+
 -----------------------------------------------
 -- Level Specific Defaults
 -----------------------------------------------
@@ -128,7 +134,8 @@ SV.beach =
 
 SV.beach_cave =
 {
-	FailedDungeon = false
+	FailedDungeon = false,
+	FailedBoss = false
 }
 
 ----------------------------------------------

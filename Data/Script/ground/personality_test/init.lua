@@ -873,7 +873,7 @@ while not ch do
 	end
 	
 	GAME:SetCharacterNickname(GAME:GetPlayerPartyMember(1), name)
-    UI:ChoiceMenuYesNo(STRINGS:Format(MapStrings['Name_Confirm'], GAME:GetPlayerPartyMember(1):GetDisplayName()), true)
+    UI:ChoiceMenuYesNo(STRINGS:Format(MapStrings['Name_Confirm'], CH('PLAYER'):GetDisplayName()), true)
     UI:WaitForChoice()
     ch = UI:ChoiceResult()
   end

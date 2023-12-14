@@ -111,9 +111,9 @@ function DebugTools:OnNewGame()
     _DATA.Save.ActiveTeam.Bank = 1000000
   
     local mon_id = RogueEssence.Dungeon.MonsterID("piplup", 0, "shiny", Gender.Male)
-    _DATA.Save.ActiveTeam.Players:Add(_DATA.Save.ActiveTeam:CreatePlayer(_DATA.Save.Rand, mon_id, 50, "", 0))
+    _DATA.Save.ActiveTeam.Players:Add(_DATA.Save.ActiveTeam:CreatePlayer(_DATA.Save.Rand, mon_id, 10, "", 0))
     mon_id = RogueEssence.Dungeon.MonsterID("riolu", 0, "normal", Gender.Male)
-    _DATA.Save.ActiveTeam.Players:Add(_DATA.Save.ActiveTeam:CreatePlayer(_DATA.Save.Rand, mon_id, 50, "", 0))
+    _DATA.Save.ActiveTeam.Players:Add(_DATA.Save.ActiveTeam:CreatePlayer(_DATA.Save.Rand, mon_id, 10, "", 0))
     --mon_id = RogueEssence.Dungeon.MonsterID("charmander", 0, "normal", Gender.Male)
     --_DATA.Save.ActiveTeam.Players:Add(_DATA.Save.ActiveTeam:CreatePlayer(_DATA.Save.Rand, mon_id, 50, "", 0))
 	
