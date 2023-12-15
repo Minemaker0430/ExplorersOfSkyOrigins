@@ -35,6 +35,15 @@ SV.General =
   --Anything that applies to more than a single level, and that is too small to make a sub-table for, should be put in here ideally, or a sub-table of this
 }
 
+SV.Dungeon =
+{
+	Zone = 'beach_cave',
+	Result = RogueEssence.Data.GameProgress.ResultType.Cleared,
+	Rescue = false,
+	SegmentID = 0,
+	MapID = 0
+}
+
 SV.Progression =
 {
 	Chapter = 1, --chapter tracking, 1-20 is main game, 21+ is major postgame flags
@@ -135,7 +144,8 @@ SV.beach =
 SV.beach_cave =
 {
 	FailedDungeon = false,
-	FailedBoss = false
+	FailedBoss = false,
+	Tutorial = 0
 }
 
 ----------------------------------------------

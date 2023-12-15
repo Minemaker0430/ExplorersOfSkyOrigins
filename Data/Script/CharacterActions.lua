@@ -119,3 +119,12 @@ function CharacterActions.HopTwice(ent, dir)
 	GROUND:AnimateToPosition(ent, "None", dir, ent.Position.X, ent.Position.Y, 1, 2, 10)
 	GROUND:AnimateToPosition(ent, "None", dir, ent.Position.X, ent.Position.Y, 1, 2, 0)
 end
+
+function CharacterActions.LookAround(ent)
+	local directions = {Direction.Up, Direction.UpRight, Direction.Right, Direction.DownRight, Direction.Down, Direction.DownLeft, Direction.Left, Direction.UpLeft}
+	
+	for i = 1, 5 do
+		GROUND:CharAnimateTurnTo(ent, directions[math.random(1, #directions)], 4)
+		GAME:WaitFrames(15)
+	end
+end

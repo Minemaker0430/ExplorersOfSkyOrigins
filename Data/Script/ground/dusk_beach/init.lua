@@ -39,12 +39,19 @@ function dusk_beach.Enter(map)
   GAME:CutsceneMode(true)
   
   if SV.Progression.Chapter == 1 then
-	if SV.beach_cave.FailedDungeon then
-		dusk_beach.CH1_FailedBeachCave()
-	elseif SV.Progression.SectionFlag == 1 then
+  
+	if SV.Progression.SectionFlag == 1 then
+	
 		dusk_beach.CH1_ExplorerTeamInvite()
+		
+	elseif SV.beach_cave.FailedDungeon then
+	
+		dusk_beach.CH1_FailedBeachCave()
+		
 	else
+	
 		dusk_beach.CH1_PartnerFindsHero()
+		
 	end
   end
   
@@ -695,8 +702,13 @@ function dusk_beach.CH1_PartnerFindsHero()
 end
 
 function dusk_beach.CH1_ExplorerTeamInvite()
+
+	UI:WaitShowDialogue(STRINGS:Format("This cutscene isn't made yet. Thanks for playtesting though c:"))
+	UI:WaitShowDialogue(STRINGS:Format("Restarting to Title Screen..."))
+	
 	--debug end
 	GAME:CutsceneMode(false)
+	GAME:RestartToTitle()
 end
 
 function dusk_beach.CH1_FailedBeachCave()
@@ -709,16 +721,89 @@ function dusk_beach.CH1_FailedBeachCave()
 	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
 
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Pain")
 	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S2_Partner_1']))
+	
+	local marker = MRKR("C1S1_PlayerSpawn")
+	
+	GROUND:TeleportTo(player, marker.Position.X + 20, marker.Position.Y + 32, Direction.Down)
+	GROUND:TeleportTo(partner, marker.Position.X - 40, marker.Position.Y + 32, Direction.Down)
+	GAME:MoveCamera(partner.Position.X + 30, partner.Position.Y, 1, false)
+	GAME:WaitFrames(60)
+	
+	GROUND:CharSetAnim(player, "Laying", true)
+	GROUND:CharSetAnim(partner, "Laying", true)
+	
+	local coro1 = TASK:BranchCoroutine(function() SOUND:FadeInSE("Ambient/AMB_Ocean", 60) end)
+	local coro2 = TASK:BranchCoroutine(function() GAME:FadeIn(60) end)
+	TASK:JoinCoroutines({coro1, coro2})
+	
+	GAME:WaitFrames(15)
+	
+	local coro1 = TASK:BranchCoroutine(function() GROUND:CharSetDrawEffect(partner, DrawEffect.Shaking) --partner
+												GAME:WaitFrames(30)
+												GROUND:CharEndDrawEffect(partner, DrawEffect.Shaking)
+												GROUND:CharWaitAnim(partner, "Wake")
+												GAME:WaitFrames(30)
+												GROUND:CharAnimateTurnTo(partner, Direction.Down, 4) 
+												CharacterActions.LookAround(partner) end) 
+	local coro2 = TASK:BranchCoroutine(function() GAME:WaitFrames(15) --player
+												GROUND:CharSetDrawEffect(player, DrawEffect.Shaking) 
+												GAME:WaitFrames(30)
+												GROUND:CharEndDrawEffect(player, DrawEffect.Shaking)
+												GROUND:CharWaitAnim(player, "Wake")
+												GAME:WaitFrames(30)
+												GROUND:CharAnimateTurnTo(player, Direction.Down, 4) 
+												CharacterActions.LookAround(player) end)
+	TASK:JoinCoroutines({coro1, coro2})
+	
+	GAME:WaitFrames(30)
+	
+	SOUND:PlayBattleSE("EVT_Emote_Sweating")
+	GROUND:CharSetEmote(partner, "sweating", 1)
+	
+	GROUND:CharAnimateTurnTo(partner, Direction.Right, 4)
+	GROUND:CharAnimateTurnTo(player, Direction.Left, 4)
+	
+	GAME:WaitFrames(30)
+	
 	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S2_Partner_2_'..tostring(pTalkKind)]))
+	
+	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S2_Partner_3']))
 	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S2_Partner_4']))
-	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S2_Partner_5_'..tostring(pTalkKind)]))
-	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S2_Partner_6_'..tostring(pTalkKind)]))
-	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S2_Partner_7_'..tostring(pTalkKind)]))
 	
-	--debug end
+	SOUND:PlayBattleSE("EVT_Emote_Exclaim")
+	GROUND:CharSetEmote(partner, "exclaim", 1)
+	GAME:WaitFrames(30)
+	
+	UI:SetSpeakerEmotion("Surprised")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S2_Partner_5_'..tostring(pTalkKind)]))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S2_Partner_6_'..tostring(pTalkKind)], CH('Koffing'):GetDisplayName()))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S2_Partner_7_'..tostring(pTalkKind)], player:GetDisplayName()))
+	
+	local coro1 = TASK:BranchCoroutine(function() posx = partner.Position.X - 16 --partner
+												posy = partner.Position.Y + 16
+												GROUND:MoveToPosition(partner, posx, posy, false, 1) 
+												GROUND:MoveToPosition(partner, partner.Position.X - 200, partner.Position.Y, false, 1)
+												GROUND:Hide("PARTNER") end) 
+	local coro2 = TASK:BranchCoroutine(function() GAME:WaitFrames(10)
+												posx = player.Position.X - 16 --player
+												posy = player.Position.Y + 16
+												GROUND:MoveToPosition(player, posx, posy, false, 1) 
+												GROUND:MoveToPosition(player, player.Position.X - 200, player.Position.Y, false, 1)
+												GROUND:Hide("PLAYER") end)
+	TASK:JoinCoroutines({coro1, coro2})
+	
+	local coro1 = TASK:BranchCoroutine(function() GAME:FadeOut(false, 60) end) 
+	local coro2 = TASK:BranchCoroutine(function() SOUND:FadeOutSE("Ambient/AMB_Ocean", 60) end)
+	TASK:JoinCoroutines({coro1, coro2})
+	
+	--enter dungeon
+	GAME:WaitFrames(60)
 	GAME:CutsceneMode(false)
+	GAME:EnterDungeon('beach_cave', 0, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, true)
 end
 
 return dusk_beach

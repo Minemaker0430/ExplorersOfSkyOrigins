@@ -58,13 +58,28 @@
   <resheader name="writer">
     <value>System.Resources.NetStandard.ResXResourceWriter, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </resheader>
-  <data name="S1_Partner_1_0" xml:space="preserve">
-    <value>Uh...[pause=0] Hey!</value>
+  <data name="TUTORIAL_1" xml:space="preserve">
+    <value>Head for the stairway! As you go, you can attack enemies by pressing {0}! Enemies won't move or act until you do.</value>
   </data>
-  <data name="S1_Partner_1_1" xml:space="preserve">
-    <value>Uh...[pause=0] Hey!</value>
+  <data name="TUTORIAL_2" xml:space="preserve">
+    <value>You can carry four items. The items you find on the floor have a variety of useful effects.</value>
   </data>
-  <data name="S1_Partner_1_2" xml:space="preserve">
-    <value>Um...[pause=0] Hey!</value>
+  <data name="TUTORIAL_3" xml:space="preserve">
+    <value>If you find an item, open the menu with {0}, then select the Items option to see what it does.</value>
+  </data>
+  <data name="TUTORIAL_4" xml:space="preserve">
+    <value>You can also open the Items menu directly with {0}.</value>
+  </data>
+  <data name="TUTORIAL_5" xml:space="preserve">
+    <value>In some areas, you will see a tile with a green arrow, called a Wonder Tile. Step on it to heal any stat changes.</value>
+  </data>
+  <data name="TUTORIAL_6" xml:space="preserve">
+    <value>Have questions about anything? You can check the controls by opening the menu with {0}, then selecting Others.</value>
+  </data>
+  <data name="TUTORIAL_7" xml:space="preserve">
+    <value>Team Mode will automatically activate for Boss Battles. While in Team Mode, you can control all team members!</value>
+  </data>
+  <data name="TUTORIAL_8" xml:space="preserve">
+    <value>You can toggle this mode anywhere by pressing {0}.</value>
   </data>
 </root>

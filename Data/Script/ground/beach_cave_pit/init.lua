@@ -34,6 +34,8 @@ end
 --Engine callback function
 function beach_cave_pit.Enter(map)
 
+  GAME:CutsceneMode(true)
+
   if SV.Progression.Chapter == 1 then
 	
 	if SV.Progression.SectionFlag == 1 then
@@ -95,18 +97,96 @@ end
 
 function beach_cave_pit.NothingHere()
 	--DO THIS LATER
+	UI:WaitShowTitle(GAME:GetCurrentGround().Name:ToLocal(), 20)
+	GAME:WaitFrames(30)
+	UI:WaitHideTitle(20)
+  
+	GAME:WaitFrames(30)
+  
+	SOUND:PlayBGM("006 - In the Depths of the Pit.ogg", true)
+	GAME:FadeIn(20)
 end
 
 function beach_cave_pit.EncounterBoss()
-
+	local player = CH('PLAYER')
+	local partner = CH('PARTNER')
+	local koffing = CH('Koffing')
+	local zubat = CH('Zubat')
+	
+	partner.CollisionDisabled = true
+	
+	local hTalkKind = SV.Personality.HeroTalkKind
+	local pTalkKind = SV.Personality.PartnerTalkKind
+	
+	local cam = MRKR('Camera')
+	GAME:MoveCamera(cam.Position.X, cam.Position.Y, 1, false)
+	
+	UI:WaitShowTitle(GAME:GetCurrentGround().Name:ToLocal(), 20)
+	GAME:WaitFrames(30)
+	UI:WaitHideTitle(20)
+  
+	GAME:WaitFrames(30)
+  
+	SOUND:PlayBGM("006 - In the Depths of the Pit.ogg", true)
+	GAME:FadeIn(20)
+	
+	local coro1 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(partner, koffing.Position.X, koffing.Position.Y + 36, false, 1) end) 
+	local coro2 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(player, zubat.Position.X, koffing.Position.Y + 32, false, 1) end)
+	TASK:JoinCoroutines({coro1, coro2})
+	
+	COMMON.BossTransition(false)
+	GAME:CutsceneMode(false)
+	GAME:ContinueDungeon('beach_cave', 1, 0, 0)
+	
 end
 
 function beach_cave_pit.BossReEntry()
-
+	local player = CH('PLAYER')
+	local partner = CH('PARTNER')
+	
+	partner.CollisionDisabled = true
+	
+	local hTalkKind = SV.Personality.HeroTalkKind
+	local pTalkKind = SV.Personality.PartnerTalkKind
+	
+	local cam = MRKR('Camera')
+	GAME:MoveCamera(cam.Position.X, cam.Position.Y, 1, false)
+	
+	UI:WaitShowTitle(GAME:GetCurrentGround().Name:ToLocal(), 20)
+	GAME:WaitFrames(30)
+	UI:WaitHideTitle(20)
+  
+	GAME:WaitFrames(30)
+  
+	SOUND:PlayBGM("006 - In the Depths of the Pit.ogg", true)
+	GAME:FadeIn(20)
+	
+	--cutscene stuff
+	
+	COMMON.BossTransition(false)
+	GAME:CutsceneMode(false)
+	GAME:ContinueDungeon('beach_cave', 1, 0, 0)
 end
 
 function beach_cave_pit.BossDefeated()
-
+	local player = CH('PLAYER')
+	local partner = CH('PARTNER')
+	
+	partner.CollisionDisabled = true
+	
+	local hTalkKind = SV.Personality.HeroTalkKind
+	local pTalkKind = SV.Personality.PartnerTalkKind
+	
+	local cam = MRKR('Camera')
+	GAME:MoveCamera(cam.Position.X, cam.Position.Y, 1, false)
+	
+	GAME:FadeIn(20)
+	
+	--cutscene stuff
+	
+	GAME:CutsceneMode(false)
+	GAME:EndDungeonRun(RogueEssence.Data.GameProgress.ResultType.Cleared, "cutscenes", -1, 6, 0, true, true)	
+	GAME:EnterZone("cutscenes", -1, 6, 0)	
 end
 
 return beach_cave_pit

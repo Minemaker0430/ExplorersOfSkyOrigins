@@ -700,6 +700,18 @@
 ]
 },
 "Value": {
+"$type": "RogueEssence.Dungeon.SingleCharScriptEvent, RogueEssence",
+"Script": "HeroPartnerCheck",
+"ArgTable": "{}"
+}
+},
+{
+"Key": {
+"str": [
+10
+]
+},
+"Value": {
 "$type": "PMDC.Dungeon.HandoutPiecewiseExpEvent, PMDC",
 "ScaleMin": 1,
 "ScaleAdd": -5,

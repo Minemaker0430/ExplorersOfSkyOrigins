@@ -40538,7 +40538,7 @@
 }
 ],
 "AssetName": "beach_cave_pit",
-"Music": "006 - In the Depths of the Pit.ogg",
+"Music": "",
 "EdgeView": 1,
 "NoSwitching": false,
 "ViewCenter": null,
@@ -40561,7 +40561,7 @@
 "Visible": true,
 "MapChars": [
 {
-"Direction": 0,
+"Direction": 4,
 "IsInteracting": false,
 "AIEnabled": true,
 "EntName": "Koffing",
@@ -40572,7 +40572,7 @@
 "Y": 148
 },
 "serializationHeight": 0,
-"serializationDir": 0,
+"serializationDir": 4,
 "triggerType": 1,
 "<AI>k__BackingField": null,
 "Data": {
@@ -40644,14 +40644,14 @@
 },
 "CollisionDisabled": false,
 "Collider": {
-"X": 0,
-"Y": 0,
+"X": 196,
+"Y": 148,
 "Width": 16,
 "Height": 16
 }
 },
 {
-"Direction": 0,
+"Direction": 4,
 "IsInteracting": false,
 "AIEnabled": true,
 "EntName": "Zubat",
@@ -40662,7 +40662,7 @@
 "Y": 148
 },
 "serializationHeight": 0,
-"serializationDir": 0,
+"serializationDir": 4,
 "triggerType": 1,
 "<AI>k__BackingField": null,
 "Data": {
@@ -40734,8 +40734,8 @@
 },
 "CollisionDisabled": false,
 "Collider": {
-"X": 0,
-"Y": 0,
+"X": 244,
+"Y": 148,
 "Width": 16,
 "Height": 16
 }
@@ -41000,6 +41000,19 @@
 "Collider": {
 "X": 244,
 "Y": 364,
+"Width": 16,
+"Height": 16
+}
+},
+{
+"EntName": "Camera",
+"Direction": 0,
+"EntEnabled": true,
+"EntOrder": 0,
+"triggerType": 0,
+"Collider": {
+"X": 220,
+"Y": 172,
 "Width": 16,
 "Height": 16
 }
