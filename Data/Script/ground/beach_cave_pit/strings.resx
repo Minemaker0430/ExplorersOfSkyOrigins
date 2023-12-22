@@ -67,4 +67,133 @@
   <data name="S1_Partner_1_2" xml:space="preserve">
     <value>Um...[pause=0] Hey!</value>
   </data>
+  <data name="S1_Koffing_1" xml:space="preserve">
+    <value>Well, well...</value>
+  </data>
+  <data name="S1_Koffing_2" xml:space="preserve">
+    <value>If it isn't our old friend, the big chicken.</value>
+  </data>
+  <data name="S1_Partner_2" xml:space="preserve">
+    <value>Urk!</value>
+  </data>
+  <data name="S1_Partner_3" xml:space="preserve">
+    <value>Give me...[pause=0] Give me back what you stole from me!</value>
+  </data>
+  <data name="S1_Partner_4" xml:space="preserve">
+    <value>That's my personal treasure! It means everything to me!</value>
+  </data>
+  <data name="S1_Zubat_1" xml:space="preserve">
+    <value>Treasure, you say?[pause=0] So that thing really is valuable, huh?</value>
+  </data>
+  <data name="S1_Koffing_3" xml:space="preserve">
+    <value>It could be worth more than we'd hoped for, I'd say.</value>
+  </data>
+  <data name="S1_Koffing_4" xml:space="preserve">
+    <value>We ought to try selling it. Who knows? It might get a good price.</value>
+  </data>
+  <data name="S1_Koffing_5" xml:space="preserve">
+    <value>Whoa-ho-ho![pause=0] All the more reason not to give it back!</value>
+  </data>
+  <data name="S1_Partner_5_0" xml:space="preserve">
+    <value>Whaaaat?!</value>
+  </data>
+  <data name="S1_Partner_5_1" xml:space="preserve">
+    <value>Whaaaat?!</value>
+  </data>
+  <data name="S1_Partner_5_2" xml:space="preserve">
+    <value>You can't!</value>
+  </data>
+  <data name="S1_Zubat_2" xml:space="preserve">
+    <value>If you want it back that badly...[pause=0] Come and get it! Heh-heh-heh!</value>
+  </data>
+  <data name="S2_Partner_1_0" xml:space="preserve">
+    <value>What?</value>
+  </data>
+  <data name="S2_Partner_1_1" xml:space="preserve">
+    <value>Huh?</value>
+  </data>
+  <data name="S2_Partner_1_2" xml:space="preserve">
+    <value>Oh... What?</value>
+  </data>
+  <data name="S2_Partner_2_0" xml:space="preserve">
+    <value>What are you still doing here?</value>
+  </data>
+  <data name="S2_Partner_2_1" xml:space="preserve">
+    <value>Why are you still here?</value>
+  </data>
+  <data name="S2_Partner_2_2" xml:space="preserve">
+    <value>Why are you still here?</value>
+  </data>
+  <data name="S2_Partner_3_0" xml:space="preserve">
+    <value>I thought you would have gotten far away by now.</value>
+  </data>
+  <data name="S2_Partner_3_1" xml:space="preserve">
+    <value>I figured you would be long gone and far away by now.</value>
+  </data>
+  <data name="S2_Partner_3_2" xml:space="preserve">
+    <value>I expected you to have gotten far away by now.</value>
+  </data>
+  <data name="S2_Koffing_1" xml:space="preserve">
+    <value>Y-you...[pause=0] Shut up!</value>
+  </data>
+  <data name="S2_Zubat_1" xml:space="preserve">
+    <value>We can't find our way out of this place!</value>
+  </data>
+  <data name="S2_Koffing_2" xml:space="preserve">
+    <value>Whoa-ho-ho![pause=0] But there's nothing to fear, is there? It's only you!</value>
+  </data>
+  <data name="S2_Zubat_2" xml:space="preserve">
+    <value>Heh-heh-heh! Once a pushover, always a pushover!</value>
+  </data>
+  <data name="S2_Koffing_3" xml:space="preserve">
+    <value>We'll show you what a wimp you are all over again![pause=0] You ready?</value>
+  </data>
+  <data name="S3_Koffing_1" xml:space="preserve">
+    <value>Owowow...</value>
+  </data>
+  <data name="S3_Zubat_1" xml:space="preserve">
+    <value>Ugh...[pause=0] We got roughed up...</value>
+  </data>
+  <data name="S3_Koffing_2" xml:space="preserve">
+    <value>B-blast it... How'd we get wiped out by wimps like them?</value>
+  </data>
+  <data name="S3_Zubat_2" xml:space="preserve">
+    <value>Bah![pause=0] Here you go. Take it, then!</value>
+  </data>
+  <data name="S3_Koffing_3" xml:space="preserve">
+    <value>Whoa-ho![pause=0] Don't think you're so awesome. Your victory was a fluke!</value>
+  </data>
+  <data name="S3_Zubat_3" xml:space="preserve">
+    <value>Yeah, you just remember that!</value>
+  </data>
+  <data name="S3_Partner_1" xml:space="preserve">
+    <value>Oh! It's my Relic Fragment!</value>
+  </data>
+  <data name="S3_Partner_2_0" xml:space="preserve">
+    <value>Am I ever glad...[pause=0] I actually did manage to get it back.</value>
+  </data>
+  <data name="S3_Partner_2_1" xml:space="preserve">
+    <value>Am I ever glad...[pause=0] I actually managed to get it back.</value>
+  </data>
+  <data name="S3_Partner_2_2" xml:space="preserve">
+    <value>Thank goodness...[pause=0] I actually managed to get it back.</value>
+  </data>
+  <data name="S3_Partner_3_0" xml:space="preserve">
+    <value>It's only because you agreed to help me, {0}.</value>
+  </data>
+  <data name="S3_Partner_3_1" xml:space="preserve">
+    <value>It's because you were there to help me, {0}.</value>
+  </data>
+  <data name="S3_Partner_3_2" xml:space="preserve">
+    <value>This happened only because you helped me, {0}.</value>
+  </data>
+  <data name="S3_Partner_4_0" xml:space="preserve">
+    <value>Thank you, {0}!</value>
+  </data>
+  <data name="S3_Partner_4_1" xml:space="preserve">
+    <value>Thanks, {0}!</value>
+  </data>
+  <data name="S3_Partner_4_2" xml:space="preserve">
+    <value>Thank you, {0}!</value>
+  </data>
 </root>

@@ -836,7 +836,7 @@
     <value>I thought that you could be a first-class explorer, {0}.</value>
   </data>
   <data name="CH1_S3_Partner_37B_0" xml:space="preserve">
-    <value>So come on now.[K] Let\'s form an\nexploration team together.</value>
+    <value>So come on now.[pause=0] Let's form an exploration team together.</value>
   </data>
   <data name="CH1_S3_Partner_37B_1" xml:space="preserve">
     <value>So come on, I'm begging you.[pause=0] Let's form an exploration team, you and me.</value>

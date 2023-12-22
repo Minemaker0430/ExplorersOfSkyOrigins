@@ -86,6 +86,8 @@ local starterListMale = {
 	RogueEssence.Dungeon.MonsterID("tepig", 0, "normal", Gender.Male),
 	
 	RogueEssence.Dungeon.MonsterID("axew", 0, "normal", Gender.Male),
+	RogueEssence.Dungeon.MonsterID("zorua", 0, "normal", Gender.Male),
+	--RogueEssence.Dungeon.MonsterID("zorua", 1, "normal", Gender.Male),
 --Gen 6	
 	RogueEssence.Dungeon.MonsterID("rowlet", 0, "normal", Gender.Male),
 	RogueEssence.Dungeon.MonsterID("popplio", 0, "normal", Gender.Male),
@@ -146,6 +148,8 @@ local starterListFemale = {
 	RogueEssence.Dungeon.MonsterID("tepig", 0, "normal", Gender.Female),
 	
 	RogueEssence.Dungeon.MonsterID("axew", 0, "normal", Gender.Female),
+	RogueEssence.Dungeon.MonsterID("zorua", 0, "normal", Gender.Female),
+	--RogueEssence.Dungeon.MonsterID("zorua", 1, "normal", Gender.Female),
 --Gen 6	
 	RogueEssence.Dungeon.MonsterID("rowlet", 0, "normal", Gender.Female),
 	RogueEssence.Dungeon.MonsterID("popplio", 0, "normal", Gender.Female),
@@ -206,6 +210,8 @@ local starterList = {
 	RogueEssence.Dungeon.MonsterID("tepig", 0, "normal", Gender.Genderless),
 	
 	RogueEssence.Dungeon.MonsterID("axew", 0, "normal", Gender.Genderless),
+	RogueEssence.Dungeon.MonsterID("zorua", 0, "normal", Gender.Genderless),
+	--RogueEssence.Dungeon.MonsterID("zorua", 1, "normal", Gender.Genderless),
 --Gen 6	
 	RogueEssence.Dungeon.MonsterID("rowlet", 0, "normal", Gender.Genderless),
 	RogueEssence.Dungeon.MonsterID("popplio", 0, "normal", Gender.Genderless),
@@ -225,6 +231,24 @@ local starterList = {
 	RogueEssence.Dungeon.MonsterID("quaxly", 0, "normal", Gender.Genderless),		 
 	RogueEssence.Dungeon.MonsterID("fuecoco", 0, "normal", Gender.Genderless)	 
 }
+
+local egg_move_list = {
+		--vanilla egg moves
+		["vulpix"] = "faint_attack", 
+		["meowth"] = "hypnosis",
+		["eevee"] = "flail",
+		["phanpy"] = "ancient_power",
+		["skitty"] = "zen_headbutt",
+		["shinx"] = "quick_attack",
+		["munchlax"] = "zen_headbutt",
+		["riolu"] = "bite",
+		--origins egg moves
+		["machop"] = "close_combat",
+		["cubone"] = "ancient_power",
+		["psyduck"] = "cross_chop",
+		["axew"] = "aqua_tail",
+		["zorua"] = "extrasensory"
+		}
 
 local function addNature(question, answer)
 
@@ -672,7 +696,14 @@ GAME:RemovePlayerTeam(0)
 local pkm = pokemonSelection(mainTrait, natureVars, gender)
 GAME:WaitFrames(1)
 _DATA.Save.ActiveTeam.Players:Add(_DATA.Save.ActiveTeam:CreatePlayer(_DATA.Save.Rand, pkm, 5, "", 0))
---GAME:SetCharacterNickname(GAME:GetPlayerPartyMember(0), name)
+
+--add egg move (thanks again palika)
+if GAME:GetCharacterSkill(GAME:GetPlayerPartyMember(0), 3) ~= "" then 
+	GAME:SetCharacterSkill(GAME:GetPlayerPartyMember(0), egg_move_list[pkm.Species], 3)--override move in slot 4 if 4 moves are known. They can always go see slowpoke to get it back
+else 
+	GAME:LearnSkill(GAME:GetPlayerPartyMember(0), egg_move_list[pkm.Species])
+end
+
 SV.General.Starter = pkm
 SV.PlayerInputs.FavoriteColor = favColor
 SV.PlayerInputs.Personality = mainTrait
@@ -723,6 +754,14 @@ while not continue do
 	GAME:RemovePlayerTeam(0)
 	GAME:WaitFrames(1)
 	_DATA.Save.ActiveTeam.Players:Add(_DATA.Save.ActiveTeam:CreatePlayer(_DATA.Save.Rand, pkm, 5, "", 0))
+	
+	--add egg move (thanks again palika)
+	if GAME:GetCharacterSkill(GAME:GetPlayerPartyMember(0), 3) ~= "" then 
+		GAME:SetCharacterSkill(GAME:GetPlayerPartyMember(0), egg_move_list[pkm.Species], 3)--override move in slot 4 if 4 moves are known. They can always go see slowpoke to get it back
+	else 
+		GAME:LearnSkill(GAME:GetPlayerPartyMember(0), egg_move_list[pkm.Species])
+	end
+	
 	GROUND:SetPlayer(GAME:GetPlayerPartyMember(0))
 	UI:ChoiceMenuYesNo(STRINGS:Format(MapStrings['Choice_Prompt'], _DATA:GetMonster(pkm.Species):GetColoredName()))
 	UI:WaitForChoice()
@@ -774,6 +813,14 @@ while not continue do
 	GAME:RemovePlayerTeam(0)
 	GAME:WaitFrames(1)
 	_DATA.Save.ActiveTeam.Players:Add(_DATA.Save.ActiveTeam:CreatePlayer(_DATA.Save.Rand, pkm, 5, "", 0))
+	
+	--add egg move (thanks again palika)
+	if GAME:GetCharacterSkill(GAME:GetPlayerPartyMember(0), 3) ~= "" then 
+		GAME:SetCharacterSkill(GAME:GetPlayerPartyMember(0), egg_move_list[pkm.Species], 3)--override move in slot 4 if 4 moves are known. They can always go see slowpoke to get it back
+	else 
+		GAME:LearnSkill(GAME:GetPlayerPartyMember(0), egg_move_list[pkm.Species])
+	end
+	
 	GROUND:SetPlayer(GAME:GetPlayerPartyMember(0))
 	UI:ChoiceMenuYesNo(STRINGS:Format(MapStrings['Choice_Prompt'], _DATA:GetMonster(pkm.Species):GetColoredName()))
 	UI:WaitForChoice()
@@ -855,6 +902,13 @@ if result == 3 then pkm.Gender = Gender.Genderless end
 	GAME:WaitFrames(1)
 	_DATA.Save.ActiveTeam.Players:Add(_DATA.Save.ActiveTeam:CreatePlayer(_DATA.Save.Rand, pkm, 5, "", 0))
 	GROUND:SetPlayer(GAME:GetPlayerPartyMember(1))
+
+	--add egg move (thanks again palika)
+	if GAME:GetCharacterSkill(GAME:GetPlayerPartyMember(1), 3) ~= "" then 
+		GAME:SetCharacterSkill(GAME:GetPlayerPartyMember(1), egg_move_list[pkm.Species], 3)--override move in slot 4 if 4 moves are known. They can always go see slowpoke to get it back
+	else 
+		GAME:LearnSkill(GAME:GetPlayerPartyMember(1), egg_move_list[pkm.Species])
+	end
 
 SV.General.Partner = pkm
 

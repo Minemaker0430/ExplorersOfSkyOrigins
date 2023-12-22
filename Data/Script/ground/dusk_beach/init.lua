@@ -702,13 +702,175 @@ function dusk_beach.CH1_PartnerFindsHero()
 end
 
 function dusk_beach.CH1_ExplorerTeamInvite()
-
-	UI:WaitShowDialogue(STRINGS:Format("This cutscene isn't made yet. Thanks for playtesting though c:"))
-	UI:WaitShowDialogue(STRINGS:Format("Restarting to Title Screen..."))
+	
+	local player = CH('PLAYER')
+	local partner = CH('PARTNER')
+	
+	partner.CollisionDisabled = true
+	
+	local hTalkKind = SV.Personality.HeroTalkKind
+	local pTalkKind = SV.Personality.PartnerTalkKind
+	
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Happy")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_1_'..tostring(pTalkKind)]))
+	
+	UI:SetSpeaker('', false, player.CurrentForm.Species, player.CurrentForm.Form, player.CurrentForm.Skin, player.CurrentForm.Gender)
+	UI:SetSpeakerEmotion("Worried")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Hero_1']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Hero_2']))
+	UI:SetSpeakerEmotion("Happy")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Hero_3']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Hero_4']))
+	
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_2']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_3']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_4']))
+	
+	SOUND:PlayBGM("004 - On the Beach at Dusk.ogg", true)
+	
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_5']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_6']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_7']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_8']))
+	UI:SetSpeakerEmotion("Inspired")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_9']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_10']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_11_'..tostring(pTalkKind)]))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_12_'..tostring(pTalkKind)]))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_13_'..tostring(pTalkKind)]))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_14_'..tostring(pTalkKind)]))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_15_'..tostring(pTalkKind)]))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_16_'..tostring(pTalkKind)]))
+	
+	UI:SetSpeaker('', false, player.CurrentForm.Species, player.CurrentForm.Form, player.CurrentForm.Skin, player.CurrentForm.Gender)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Hero_5']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Hero_6']))
+	
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_17_'..tostring(pTalkKind)]))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_18']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_19']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_20']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_21']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_22']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_23']))
+	UI:SetSpeakerEmotion("Sad")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_24_'..tostring(pTalkKind)]))
+	UI:SetSpeakerEmotion("Worried")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_25'], player:GetDisplayName()))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_26']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_27_'..tostring(pTalkKind)]))
+	
+	UI:SetSpeaker('', false, player.CurrentForm.Species, player.CurrentForm.Form, player.CurrentForm.Skin, player.CurrentForm.Gender)
+	UI:SetSpeakerEmotion("Worried")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Hero_7']))
+	
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Sad")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_28']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_29_'..tostring(pTalkKind)]))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_30_'..tostring(pTalkKind)], player:GetDisplayName()))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_31_'..tostring(pTalkKind)]))
+	
+	UI:SetSpeaker('', false, player.CurrentForm.Species, player.CurrentForm.Form, player.CurrentForm.Skin, player.CurrentForm.Gender)
+	UI:SetSpeakerEmotion("Surprised")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Hero_8_'..tostring(hTalkKind)]))
+	UI:SetSpeakerEmotion("Worried")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Hero_9']))
+	
+	--begin dialogue choices
+	local continue = false
+	local choices = {STRINGS:Format(MapStrings['CH1_S3_Option_1']),
+           STRINGS:Format(MapStrings['CH1_S3_Option_2']),
+           STRINGS:Format(MapStrings['CH1_S3_Option_3'])}
+	
+	UI:BeginChoiceMenu(STRINGS:Format(MapStrings['CH1_S3_Hero_10']), choices, 1, 3)
+	UI:WaitForChoice()
+	result = UI:ChoiceResult()
+	
+	while not continue do
+		--A
+		if result == 1 then --yes
+			continue = true
+			
+			UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Hero_11A']))
+			UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Hero_12A']))
+			UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Hero_13A'], partner:GetDisplayName()))
+			UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Hero_14A']))
+			UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Hero_15A']))
+			UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_32A_'..tostring(pTalkKind)]))
+			UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_33A_'..tostring(pTalkKind)]))
+			UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_34A_'..tostring(pTalkKind)]))
+			UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_35A_'..tostring(pTalkKind)]))
+			UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_36A_'..tostring(pTalkKind)], _DATA:GetMonster("wigglytuff"):GetColoredName()))
+			UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_37A_'..tostring(pTalkKind)]))
+			UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_38A_'..tostring(pTalkKind)]))
+			UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_39A_'..tostring(pTalkKind)], player:GetDisplayName()))
+			
+		--B
+		elseif result == 2 then --no
+		
+			UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_32B_'..tostring(pTalkKind)]))
+			UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_33B'], player:GetDisplayName()))
+			UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_34B_'..tostring(pTalkKind)], CH('Koffing'):GetDisplayName()))
+			UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_35B'], player:GetDisplayName()))
+			UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_36B_'..tostring(pTalkKind)], player:GetDisplayName()))
+			
+			--back to choices
+			UI:BeginChoiceMenu(STRINGS:Format(MapStrings['CH1_S3_Partner_37B_'..tostring(pTalkKind)]), choices, 1, 3)
+			UI:WaitForChoice()
+			result = UI:ChoiceResult()
+			
+		else --other
+		
+			UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_38B']))
+		
+			--new choice menu
+			choices = {STRINGS:Format(MapStrings['CH1_S3_Option_4'])}
+			
+			UI:SetSpeakerEmotion("Worried")
+			UI:BeginChoiceMenu(STRINGS:Format(MapStrings['CH1_S3_Partner_39B']), choices, 1, 1)
+			UI:WaitForChoice()
+			--there's only one option here so we don't need to check the result
+			
+			UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_40B']))
+			UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_41B_'..tostring(pTalkKind)]))
+			UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_42B']))
+			UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_43B'], player:GetDisplayName()))
+			UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_44B'], CH('Koffing'):GetDisplayName()))
+			UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_45B']))
+			UI:WaitShowDialogue(STRINGS:Format(MapStrings['CH1_S3_Partner_46B'], player:GetDisplayName()))
+			
+			--new choice menu
+			choices = {STRINGS:Format(MapStrings['CH1_S3_Option_1']),
+            STRINGS:Format(MapStrings['CH1_S3_Option_2'])} --eliminates option 3 since we already went through that dialogue
+			
+			UI:BeginChoiceMenu(STRINGS:Format(MapStrings['CH1_S3_Partner_47B']), choices, 1, 2)
+			UI:WaitForChoice()
+			result = UI:ChoiceResult()
+		
+		end
+	end
+	
+	--narration
+	UI:SetAutoFinish(true)
+	UI:WaitShowVoiceOver(STRINGS:Format(MapStrings['CH1_S3_Narration_1']), -1)
+	UI:WaitShowVoiceOver(STRINGS:Format(MapStrings['CH1_S3_Narration_2'], player:GetDisplayName(), partner:GetDisplayName()), -1)
+	UI:WaitShowVoiceOver(STRINGS:Format(MapStrings['CH1_S3_Narration_3']), -1)
+	UI:WaitShowVoiceOver(STRINGS:Format(MapStrings['CH1_S3_Narration_4']), -1)
+	UI:WaitShowVoiceOver(STRINGS:Format(MapStrings['CH1_S3_Narration_5']), -1)
+	UI:WaitShowVoiceOver(STRINGS:Format(MapStrings['CH1_S3_Narration_6']), -1)
+	UI:SetAutoFinish(false)
 	
 	--debug end
 	GAME:CutsceneMode(false)
-	GAME:RestartToTitle()
+	GAME:EnterGroundMap("title_catch", "Entrance")
 end
 
 function dusk_beach.CH1_FailedBeachCave()

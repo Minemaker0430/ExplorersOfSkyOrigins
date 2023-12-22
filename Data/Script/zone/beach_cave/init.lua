@@ -44,12 +44,14 @@ function beach_cave.ExitSegment(zone, result, rescue, segmentID, mapID)
 		if result == RogueEssence.Data.GameProgress.ResultType.Cleared then --success
 		
 			GAME:EndDungeonRun(result, 'beach_cave', -1, 0, 0, false, false)	
+			GAME:WaitFrames(20)
 			GAME:EnterZone("beach_cave", -1, 0, 0)	
 			
 		else --fail
 		
 			SV.beach_cave.FailedDungeon = true
-			GAME:EndDungeonRun(result, "cutscenes", -1, 6, 0, true, true)	
+			GAME:EndDungeonRun(result, "cutscenes", -1, 6, 0, true, true)
+			GAME:WaitFrames(20)
 			GAME:EnterZone("cutscenes", -1, 6, 0)	
 			
 		end
@@ -60,14 +62,16 @@ function beach_cave.ExitSegment(zone, result, rescue, segmentID, mapID)
 			
 			--do another cutscene and end the dungeon day there
 			SV.Progression.SectionFlag = 1
-			GAME:EndDungeonRun(result, 'beach_cave', -1, 0, 0, false, false)	
+			GAME:EndDungeonRun(result, 'beach_cave', -1, 0, 0, false, false)
+			GAME:WaitFrames(20)
 			GAME:EnterZone("beach_cave", -1, 0, 0)
 			
 		else --fail
 		
 			SV.beach_cave.FailedDungeon = true
 			SV.beach_cave.FailedBoss = true
-			GAME:EndDungeonRun(result, "cutscenes", -1, 6, 0, true, true)	
+			GAME:EndDungeonRun(result, "cutscenes", -1, 6, 0, true, true)
+			GAME:WaitFrames(20)
 			GAME:EnterZone("cutscenes", -1, 6, 0)
 			
 		end

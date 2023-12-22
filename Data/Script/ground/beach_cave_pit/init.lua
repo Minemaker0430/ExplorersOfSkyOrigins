@@ -5,6 +5,7 @@
 ]]--
 -- Commonly included lua functions and data
 require 'common'
+require 'CharacterActions'
 
 -- Package name
 local beach_cave_pit = {}
@@ -130,9 +131,78 @@ function beach_cave_pit.EncounterBoss()
 	SOUND:PlayBGM("006 - In the Depths of the Pit.ogg", true)
 	GAME:FadeIn(20)
 	
-	local coro1 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(partner, koffing.Position.X, koffing.Position.Y + 36, false, 1) end) 
-	local coro2 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(player, zubat.Position.X, koffing.Position.Y + 32, false, 1) end)
+	local coro1 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(partner, koffing.Position.X, koffing.Position.Y + 52, false, 1) end) 
+	local coro2 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(player, zubat.Position.X, koffing.Position.Y + 48, false, 1) end)
 	TASK:JoinCoroutines({coro1, coro2})
+	
+	GAME:WaitFrames(15)
+	
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Determined")
+	
+	local coro1 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(partner, koffing.Position.X, koffing.Position.Y + 44, false, 1)
+												CharacterActions.HopTwice(partner, Direction.Up) end) 
+	local coro2 = TASK:BranchCoroutine(function() UI:WaitShowDialogue(STRINGS:Format(MapStrings['S1_Partner_1_'..tostring(pTalkKind)])) end)
+	TASK:JoinCoroutines({coro1, coro2})
+	
+	SOUND:PlayBattleSE("EVT_Emote_Exclaim")
+	GROUND:CharSetEmote(koffing, "exclaim", 1)
+	GROUND:CharSetEmote(zubat, "exclaim", 1)
+	GAME:WaitFrames(30)
+	
+	local coro1 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(koffing, Direction.Down, 4) end) 
+	local coro2 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(zubat, Direction.Down, 4) end)
+	TASK:JoinCoroutines({coro1, coro2})
+	
+	GAME:WaitFrames(20)
+	
+	UI:SetSpeaker(koffing)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['S1_Koffing_1']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['S1_Koffing_2']))
+	
+	GAME:WaitFrames(10)
+	
+	GROUND:AnimateToPosition(partner, "Walk", Direction.Up, koffing.Position.X, koffing.Position.Y + 52, 1, 1, 0)
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Pain")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['S1_Partner_2']))
+	
+	GAME:WaitFrames(15)
+	
+	GROUND:MoveToPosition(partner, koffing.Position.X, koffing.Position.Y + 44, false, 1)
+	UI:SetSpeakerEmotion("Shouting")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['S1_Partner_3']))
+	CharacterActions.HopTwice(partner, Direction.Up)
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['S1_Partner_4']))
+	
+	GAME:WaitFrames(10)
+	UI:SetSpeaker(zubat)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['S1_Zubat_1']))
+	
+	GAME:WaitFrames(10)
+	UI:SetSpeaker(koffing)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['S1_Koffing_3']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['S1_Koffing_4']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['S1_Koffing_5']))
+	
+	SOUND:PlayBattleSE("EVT_Emote_Shock")
+	GROUND:CharSetEmote(koffing, "glowing", -1)
+	GROUND:CharSetEmote(partner, "shock", 1)
+	
+	GAME:WaitFrames(10)
+	GROUND:AnimateToPosition(partner, "Walk", Direction.Up, koffing.Position.X, koffing.Position.Y + 48, 1, 1, 0)
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Surprised")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['S1_Partner_5_'..tostring(pTalkKind)]))
+	
+	GAME:WaitFrames(10)
+	GROUND:CharSetEmote(koffing, "none", 1)
+	UI:SetSpeaker(zubat)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['S1_Zubat_2']))
 	
 	COMMON.BossTransition(false)
 	GAME:CutsceneMode(false)
@@ -143,6 +213,8 @@ end
 function beach_cave_pit.BossReEntry()
 	local player = CH('PLAYER')
 	local partner = CH('PARTNER')
+	local koffing = CH('Koffing')
+	local zubat = CH('Zubat')
 	
 	partner.CollisionDisabled = true
 	
@@ -161,7 +233,64 @@ function beach_cave_pit.BossReEntry()
 	SOUND:PlayBGM("006 - In the Depths of the Pit.ogg", true)
 	GAME:FadeIn(20)
 	
-	--cutscene stuff
+	local coro1 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(partner, koffing.Position.X, koffing.Position.Y + 48, false, 1) end) 
+	local coro2 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(player, zubat.Position.X, koffing.Position.Y + 48, false, 1) end)
+	TASK:JoinCoroutines({coro1, coro2})
+	
+	GAME:WaitFrames(15)
+	
+	SOUND:PlayBattleSE("EVT_Emote_Confused")
+	GROUND:CharSetEmote(partner, "question", 1)
+	GAME:WaitFrames(30)
+	
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Worried")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['S2_Partner_1_'..tostring(pTalkKind)]))
+	
+	SOUND:PlayBattleSE("EVT_Emote_Exclaim")
+	GROUND:CharSetEmote(koffing, "exclaim", 1)
+	GROUND:CharSetEmote(zubat, "exclaim", 1)
+	GAME:WaitFrames(30)
+	
+	local coro1 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(koffing, Direction.Down, 4) end) 
+	local coro2 = TASK:BranchCoroutine(function() GAME:WaitFrames(5)
+												GROUND:CharAnimateTurnTo(zubat, Direction.Down, 4) end)
+	TASK:JoinCoroutines({coro1, coro2})
+	
+	GAME:WaitFrames(15)
+	
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['S2_Partner_2_'..tostring(pTalkKind)]))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['S2_Partner_3_'..tostring(pTalkKind)]))
+	
+	SOUND:PlayBattleSE("EVT_Emote_Sweating")
+    GROUND:CharSetEmote(koffing, "sweating", 1)
+	UI:SetSpeaker(koffing)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['S2_Koffing_1']))
+	
+	GAME:WaitFrames(10)
+	UI:SetSpeaker(zubat)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['S2_Zubat_1']))
+	
+	SOUND:PlayBattleSE("EVT_Emote_Shock_2")
+	GROUND:CharSetEmote(player, "shock", 1)
+	GROUND:CharSetEmote(partner, "shock", 1)
+	GAME:WaitFrames(30)
+	
+	UI:SetSpeaker(koffing)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['S2_Koffing_2']))
+	
+	GAME:WaitFrames(10)
+	UI:SetSpeaker(zubat)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['S2_Zubat_2']))
+	
+	GAME:WaitFrames(10)
+	UI:SetSpeaker(koffing)
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['S2_Koffing_3']))
 	
 	COMMON.BossTransition(false)
 	GAME:CutsceneMode(false)
@@ -183,6 +312,16 @@ function beach_cave_pit.BossDefeated()
 	GAME:FadeIn(20)
 	
 	--cutscene stuff
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['S3_Koffing_1']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['S3_Zubat_1']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['S3_Koffing_2']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['S3_Zubat_2']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['S3_Koffing_3']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['S3_Zubat_3']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['S3_Partner_1']))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['S3_Partner_2_'..tostring(pTalkKind)]))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['S3_Partner_3_'..tostring(pTalkKind)], player:GetDisplayName()))
+	UI:WaitShowDialogue(STRINGS:Format(MapStrings['S3_Partner_4_'..tostring(pTalkKind)], player:GetDisplayName()))
 	
 	GAME:CutsceneMode(false)
 	GAME:EndDungeonRun(RogueEssence.Data.GameProgress.ResultType.Cleared, "cutscenes", -1, 6, 0, true, true)	
