@@ -300,6 +300,8 @@ end
 function beach_cave_pit.BossDefeated()
 	local player = CH('PLAYER')
 	local partner = CH('PARTNER')
+	local koffing = CH('Koffing')
+	local zubat = CH('Zubat')
 	
 	partner.CollisionDisabled = true
 	
@@ -309,15 +311,38 @@ function beach_cave_pit.BossDefeated()
 	local cam = MRKR('Camera')
 	GAME:MoveCamera(cam.Position.X, cam.Position.Y, 1, false)
 	
+	GROUND:TeleportToPosition(partner, koffing.Position.X, koffing.Position.Y + 48, Direction.Up)
+	GROUND:TeleportToPosition(player, zubat.Position.X, koffing.Position.Y + 48, Direction.Up)
+	
+	SOUND:PlayBGM("006 - In the Depths of the Pit.ogg", true)
 	GAME:FadeIn(20)
 	
-	--cutscene stuff
+	UI:SetSpeaker(koffing)
+	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(MapStrings['S3_Koffing_1']))
+	
+	UI:SetSpeaker(zubat)
+	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(MapStrings['S3_Zubat_1']))
+	
+	UI:SetSpeaker(koffing)
+	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(MapStrings['S3_Koffing_2']))
+	
+	UI:SetSpeaker(zubat)
+	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(MapStrings['S3_Zubat_2']))
+	
+	UI:SetSpeaker(koffing)
+	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(MapStrings['S3_Koffing_3']))
+	
+	UI:SetSpeaker(zubat)
+	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(MapStrings['S3_Zubat_3']))
+	
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(MapStrings['S3_Partner_1']))
 	UI:WaitShowDialogue(STRINGS:Format(MapStrings['S3_Partner_2_'..tostring(pTalkKind)]))
 	UI:WaitShowDialogue(STRINGS:Format(MapStrings['S3_Partner_3_'..tostring(pTalkKind)], player:GetDisplayName()))

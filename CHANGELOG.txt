@@ -1,5 +1,11 @@
 -------------------------------
-v0.1-pre1
+ch1-beta.1
+-------------------------------
+ - Finished Chapter 1 Cutscenes
+ - More Starters + Egg Moves
+
+-------------------------------
+ch1-alpha.1
 -------------------------------
  - Chapter 1 Released in Beta
  - Improved Personality Quiz with More Starters & Partners to Choose From

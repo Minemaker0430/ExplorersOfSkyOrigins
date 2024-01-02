@@ -12,7 +12,7 @@ This project is in no way affiliated with Nintendo, The Pokemon Company, or Spik
 
 ![Happy](https://github.com/Minemaker0430/ExplorersOfSkyOrigins/assets/85040155/7619157c-c020-4cdf-a873-74592477dc43) Trio - Job System (NYI)
 
-Playtesters: Mai Kiên
+Playtesters: Mai Kiên, sleepdragoon
 
 # Major Changes
  - Treasure Town no longer has a Loading Zone between its two areas.
@@ -26,10 +26,10 @@ Playtesters: Mai Kiên
 # Known Issues
  - Personality Quiz Code is very much Spaghetti Code right now, will fix later :v
  - Personality Quiz doesn't have the Aura Cutscene (Might Not Fix)
- - Intro Cutscene is missing assets and needs to be polished later (Missing FX)
  - Many BGs need to be resized
- - Storm Cutscene is unpolished & contains graphical errors
+ - Storm Cutscene is unpolished & contains graphical errors/missing assets
  - Missing Some Ambient BGM
+ - No Bubbles Yet
 
 # Installation
  - Get PMDO from https://github.com/audinowho/PMDODump/releases
