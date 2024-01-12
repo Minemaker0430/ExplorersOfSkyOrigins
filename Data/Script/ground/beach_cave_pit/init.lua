@@ -311,8 +311,8 @@ function beach_cave_pit.BossDefeated()
 	local cam = MRKR('Camera')
 	GAME:MoveCamera(cam.Position.X, cam.Position.Y, 1, false)
 	
-	GROUND:TeleportToPosition(partner, koffing.Position.X, koffing.Position.Y + 48, Direction.Up)
-	GROUND:TeleportToPosition(player, zubat.Position.X, koffing.Position.Y + 48, Direction.Up)
+	GROUND:TeleportTo(partner, koffing.Position.X, koffing.Position.Y + 48, Direction.Up)
+	GROUND:TeleportTo(player, zubat.Position.X, koffing.Position.Y + 48, Direction.Up)
 	
 	SOUND:PlayBGM("006 - In the Depths of the Pit.ogg", true)
 	GAME:FadeIn(20)
