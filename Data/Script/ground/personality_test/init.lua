@@ -234,7 +234,7 @@ local starterList = {
 
 local egg_move_list = {
 		--vanilla egg moves
-		["vulpix"] = "faint_attack", 
+		["vulpix"] = "feint_attack", 
 		["meowth"] = "hypnosis",
 		["eevee"] = "flail",
 		["phanpy"] = "ancient_power",
