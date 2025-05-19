@@ -1,5 +1,5 @@
 ﻿{
-"Version": "0.7.20.0",
+"Version": "0.8.9.0",
 "Object": {
 "$type": "RogueEssence.Data.ZoneData, RogueEssence",
 "Name": {
@@ -9,6 +9,7 @@
 "Released": true,
 "Comment": "",
 "NoEXP": false,
+"ExpPercent": 100,
 "Level": 5,
 "LevelCap": false,
 "KeepSkills": false,
@@ -16,6 +17,7 @@
 "TeamSize": 4,
 "MoneyRestrict": false,
 "BagRestrict": -1,
+"KeepTreasure": false,
 "BagSize": -1,
 "Persistent": false,
 "Rescues": 0,
@@ -306,6 +308,7 @@
 "Max": 9
 },
 "AllowDeadEnd": false,
+"TraverseFloor": false,
 "Halls": {
 "Min": 8,
 "Max": 12
@@ -346,6 +349,7 @@
 },
 "Value": {
 "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
+"MinDistance": 0,
 "Entrances": [
 {
 "Loc": {
@@ -402,13 +406,13 @@
 "Min": 10,
 "Max": 16
 },
-"AreaScale": {
-"Min": 1,
-"Max": 11
-},
 "GenerateScale": {
 "Min": 3,
 "Max": 9
+},
+"AreaScale": {
+"Min": 1,
+"Max": 11
 },
 "BlobStencil": {
 "$type": "RogueElements.DefaultBlobStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements"
@@ -523,6 +527,7 @@
 },
 "Value": {
 "$type": "RogueElements.RandomRoomSpawnStep`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+"SuccessPercent": 100,
 "IncludeHalls": false,
 "Filters": [
 {
@@ -674,7 +679,8 @@
 "$type": "RogueElements.DetectIsolatedStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements"
 }
 }
-]
+],
+"Comment": ""
 },
 {
 "$type": "RogueEssence.LevelGen.GridFloorGen, RogueEssence",
@@ -958,6 +964,7 @@
 "Max": 9
 },
 "AllowDeadEnd": false,
+"TraverseFloor": false,
 "Halls": {
 "Min": 8,
 "Max": 12
@@ -998,6 +1005,7 @@
 },
 "Value": {
 "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
+"MinDistance": 0,
 "Entrances": [
 {
 "Loc": {
@@ -1054,13 +1062,13 @@
 "Min": 10,
 "Max": 16
 },
-"AreaScale": {
-"Min": 1,
-"Max": 11
-},
 "GenerateScale": {
 "Min": 3,
 "Max": 9
+},
+"AreaScale": {
+"Min": 1,
+"Max": 11
 },
 "BlobStencil": {
 "$type": "RogueElements.DefaultBlobStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements"
@@ -1175,6 +1183,7 @@
 },
 "Value": {
 "$type": "RogueElements.RandomRoomSpawnStep`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+"SuccessPercent": 100,
 "IncludeHalls": false,
 "Filters": [
 {
@@ -1326,7 +1335,8 @@
 "$type": "RogueElements.DetectIsolatedStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements"
 }
 }
-]
+],
+"Comment": ""
 },
 {
 "$type": "RogueEssence.LevelGen.GridFloorGen, RogueEssence",
@@ -1610,6 +1620,7 @@
 "Max": 9
 },
 "AllowDeadEnd": false,
+"TraverseFloor": false,
 "Halls": {
 "Min": 8,
 "Max": 12
@@ -1650,6 +1661,7 @@
 },
 "Value": {
 "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
+"MinDistance": 0,
 "Entrances": [
 {
 "Loc": {
@@ -1706,13 +1718,13 @@
 "Min": 10,
 "Max": 16
 },
-"AreaScale": {
-"Min": 1,
-"Max": 11
-},
 "GenerateScale": {
 "Min": 3,
 "Max": 9
+},
+"AreaScale": {
+"Min": 1,
+"Max": 11
 },
 "BlobStencil": {
 "$type": "RogueElements.DefaultBlobStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements"
@@ -1827,6 +1839,7 @@
 },
 "Value": {
 "$type": "RogueElements.RandomRoomSpawnStep`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+"SuccessPercent": 100,
 "IncludeHalls": false,
 "Filters": [
 {
@@ -1978,7 +1991,8 @@
 "$type": "RogueElements.DetectIsolatedStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements"
 }
 }
-]
+],
+"Comment": ""
 },
 {
 "$type": "RogueEssence.LevelGen.GridFloorGen, RogueEssence",
@@ -2262,6 +2276,7 @@
 "Max": 9
 },
 "AllowDeadEnd": false,
+"TraverseFloor": false,
 "Halls": {
 "Min": 8,
 "Max": 12
@@ -2302,6 +2317,7 @@
 },
 "Value": {
 "$type": "RogueElements.FloorStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements",
+"MinDistance": 0,
 "Entrances": [
 {
 "Loc": {
@@ -2358,13 +2374,13 @@
 "Min": 10,
 "Max": 16
 },
-"AreaScale": {
-"Min": 1,
-"Max": 11
-},
 "GenerateScale": {
 "Min": 3,
 "Max": 9
+},
+"AreaScale": {
+"Min": 1,
+"Max": 11
 },
 "BlobStencil": {
 "$type": "RogueElements.DefaultBlobStencil`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], RogueElements"
@@ -2479,6 +2495,7 @@
 },
 "Value": {
 "$type": "RogueElements.RandomRoomSpawnStep`2[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.Dungeon.EffectTile, RogueEssence]], RogueElements",
+"SuccessPercent": 100,
 "IncludeHalls": false,
 "Filters": [
 {
@@ -2630,7 +2647,8 @@
 "$type": "RogueElements.DetectIsolatedStairsStep`3[[RogueEssence.LevelGen.MapGenContext, RogueEssence],[RogueEssence.LevelGen.MapGenEntrance, RogueEssence],[RogueEssence.LevelGen.MapGenExit, RogueEssence]], RogueElements"
 }
 }
-]
+],
+"Comment": ""
 }
 ],
 "ZoneSteps": [
@@ -2979,7 +2997,8 @@
 ]
 }
 ],
-"IsRelevant": true
+"IsRelevant": true,
+"Comment": ""
 },
 {
 "$type": "RogueEssence.LevelGen.SingularSegment, RogueEssence",
@@ -3050,7 +3069,8 @@
 }
 }
 }
-]
+],
+"Comment": ""
 },
 "FloorSpan": 1,
 "ZoneSteps": [
@@ -3072,7 +3092,8 @@
 }
 }
 ],
-"IsRelevant": true
+"IsRelevant": true,
+"Comment": ""
 }
 ],
 "GroundMaps": [

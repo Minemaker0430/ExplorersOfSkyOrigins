@@ -1,5 +1,5 @@
 ﻿{
-"Version": "0.7.7.1",
+"Version": "0.8.9.0",
 "Object": {
 "$type": "RogueEssence.Data.MapStatusData, RogueEssence",
 "Name": {
@@ -31,6 +31,8 @@
 "X": 0,
 "Y": 0
 },
+"FadeIn": 0,
+"FadeOut": 0,
 "Layer": 4,
 "Color": "0, 0, 0, 200"
 },
@@ -55,6 +57,7 @@
 "OnEquips": [],
 "OnPickups": [],
 "BeforeStatusAdds": [],
+"BeforeStatusAddings": [],
 "OnStatusAdds": [],
 "OnStatusRemoves": [],
 "OnMapStatusAdds": [],
@@ -83,6 +86,7 @@
 "OnEquips": [],
 "OnPickups": [],
 "BeforeStatusAdds": [],
+"BeforeStatusAddings": [],
 "OnStatusAdds": [],
 "OnStatusRemoves": [],
 "OnMapStatusAdds": [],

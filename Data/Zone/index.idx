@@ -1,10 +1,10 @@
 ﻿{
-"Version": "0.7.25.0",
+"Version": "0.8.9.0",
 "Object": {
 "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[RogueEssence.Data.EntrySummary, RogueEssence]], System.Private.CoreLib",
 "ambush_forest": {
 "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
-"ExpPercent": 0,
+"ExpPercent": 100,
 "Level": 30,
 "LevelCap": false,
 "KeepSkills": false,
@@ -62,75 +62,9 @@ null,
 "Comment": "",
 "SortOrder": 0
 },
-"cutscenes": {
-"$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
-"ExpPercent": 0,
-"Level": -1,
-"LevelCap": false,
-"KeepSkills": false,
-"TeamRestrict": false,
-"TeamSize": -1,
-"MoneyRestrict": false,
-"BagRestrict": -1,
-"KeepTreasure": false,
-"BagSize": -1,
-"Rescues": 0,
-"CountedFloors": 0,
-"Rogue": 0,
-"Grounds": [
-"personality_test",
-"chapter_card",
-"storm_cutscene_a",
-"storm_cutscene_b",
-"storm_cutscene_c",
-"guild_outside_dusk",
-"dusk_beach",
-"title_catch"
-],
-"Maps": [],
-"Name": {
-"DefaultText": "",
-"LocalTexts": {}
-},
-"Released": true,
-"Comment": "should only be used for purely visual cutscenes with no interaction",
-"SortOrder": 0
-},
-"hub": {
-"$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
-"ExpPercent": 0,
-"Level": -1,
-"LevelCap": false,
-"KeepSkills": false,
-"TeamRestrict": false,
-"TeamSize": -1,
-"MoneyRestrict": false,
-"BagRestrict": -1,
-"KeepTreasure": false,
-"BagSize": -1,
-"Rescues": 0,
-"CountedFloors": 0,
-"Rogue": 0,
-"Grounds": [
-"treasure_town",
-"beach",
-"marowak_dojo",
-"marowak_dojo_final_maze",
-"guild_outside",
-"guild_basement"
-],
-"Maps": [],
-"Name": {
-"DefaultText": "Main Hub",
-"LocalTexts": {}
-},
-"Released": true,
-"Comment": "treasure town, guild, and beach. ground map only",
-"SortOrder": 0
-},
 "beach_cave": {
 "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
-"ExpPercent": 0,
+"ExpPercent": 100,
 "Level": 5,
 "LevelCap": false,
 "KeepSkills": false,
@@ -165,6 +99,40 @@ null,
 "Comment": "",
 "SortOrder": 0
 },
+"cutscenes": {
+"$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+"ExpPercent": 100,
+"Level": -1,
+"LevelCap": false,
+"KeepSkills": false,
+"TeamRestrict": false,
+"TeamSize": -1,
+"MoneyRestrict": false,
+"BagRestrict": -1,
+"KeepTreasure": false,
+"BagSize": -1,
+"Rescues": 0,
+"CountedFloors": 0,
+"Rogue": 0,
+"Grounds": [
+"personality_test",
+"chapter_card",
+"storm_cutscene_a",
+"storm_cutscene_b",
+"storm_cutscene_c",
+"guild_outside_dusk",
+"dusk_beach",
+"title_catch"
+],
+"Maps": [],
+"Name": {
+"DefaultText": "",
+"LocalTexts": {}
+},
+"Released": true,
+"Comment": "should only be used for purely visual cutscenes with no interaction",
+"SortOrder": 0
+},
 "drenched_bluff": {
 "$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
 "ExpPercent": 100,
@@ -195,6 +163,38 @@ null,
 },
 "Released": true,
 "Comment": "",
+"SortOrder": 0
+},
+"hub": {
+"$type": "RogueEssence.Data.ZoneEntrySummary, RogueEssence",
+"ExpPercent": 100,
+"Level": -1,
+"LevelCap": false,
+"KeepSkills": false,
+"TeamRestrict": false,
+"TeamSize": -1,
+"MoneyRestrict": false,
+"BagRestrict": -1,
+"KeepTreasure": false,
+"BagSize": -1,
+"Rescues": 0,
+"CountedFloors": 0,
+"Rogue": 0,
+"Grounds": [
+"treasure_town",
+"beach",
+"marowak_dojo",
+"marowak_dojo_final_maze",
+"guild_outside",
+"guild_basement"
+],
+"Maps": [],
+"Name": {
+"DefaultText": "Main Hub",
+"LocalTexts": {}
+},
+"Released": true,
+"Comment": "treasure town, guild, and beach. ground map only",
 "SortOrder": 0
 }
 }

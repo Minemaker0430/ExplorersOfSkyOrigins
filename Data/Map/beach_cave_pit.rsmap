@@ -1,5 +1,5 @@
 ﻿{
-"Version": "0.7.20.0",
+"Version": "0.8.9.0",
 "Object": {
 "$type": "RogueEssence.Dungeon.Map, RogueEssence",
 "Name": {
@@ -27,14 +27,6 @@
 "Y": 6
 },
 "serializationDir": 0,
-"IsFounder": false,
-"IsPartner": false,
-"BaseForm": {
-"Species": "zubat",
-"Form": 0,
-"Skin": "normal",
-"Gender": 0
-},
 "ProxyName": "",
 "ProxySprite": {
 "Species": "",
@@ -114,7 +106,7 @@
 "FullnessRemainder": 0,
 "MaxFullness": 100,
 "StatusEffects": {},
-"MustHitNext": false,
+"MissChain": 0,
 "EXPMarked": false,
 "Tactic": {
 "Name": {
@@ -131,30 +123,42 @@
 "AttackPattern": 4,
 "PositionPattern": 2,
 "IQ": 253,
+"RestrictedMobilityTypes": 0,
+"RestrictMobilityPassable": false,
 "AttackRange": 0,
 "StatusRange": 0,
-"SelfStatusRange": 4
+"SelfStatusRange": 4,
+"AbandonRangeOnHit": true
 },
 {
 "$type": "PMDC.Dungeon.FollowLeaderPlan, PMDC",
 "IQ": 253,
+"RestrictedMobilityTypes": 0,
+"RestrictMobilityPassable": false,
 "AttackRange": 0,
 "StatusRange": 0,
-"SelfStatusRange": 0
+"SelfStatusRange": 0,
+"AbandonRangeOnHit": true
 },
 {
 "$type": "PMDC.Dungeon.ExplorePlan, PMDC",
 "IQ": 253,
+"RestrictedMobilityTypes": 0,
+"RestrictMobilityPassable": false,
 "AttackRange": 0,
 "StatusRange": 0,
-"SelfStatusRange": 0
+"SelfStatusRange": 0,
+"AbandonRangeOnHit": true
 },
 {
 "$type": "PMDC.Dungeon.WaitPlan, PMDC",
 "IQ": 253,
+"RestrictedMobilityTypes": 0,
+"RestrictMobilityPassable": false,
 "AttackRange": 0,
 "StatusRange": 0,
-"SelfStatusRange": 0
+"SelfStatusRange": 0,
+"AbandonRangeOnHit": true
 }
 ]
 },
@@ -186,6 +190,12 @@
 "Nickname": "",
 "OriginalUUID": "",
 "OriginalTeam": "",
+"BaseForm": {
+"Species": "zubat",
+"Form": 0,
+"Skin": "normal",
+"Gender": 0
+},
 "Level": 4,
 "EXP": 0,
 "MaxHPBonus": 0,
@@ -197,24 +207,29 @@
 "BaseSkills": [
 {
 "SkillNum": "leech_life",
-"Charges": 20
+"Charges": 20,
+"CanForget": true
 },
 {
 "SkillNum": "",
-"Charges": 0
+"Charges": 0,
+"CanForget": true
 },
 {
 "SkillNum": "",
-"Charges": 0
+"Charges": 0,
+"CanForget": true
 },
 {
 "SkillNum": "",
-"Charges": 0
+"Charges": 0,
+"CanForget": true
 }
 ],
 "BaseIntrinsics": [
 "inner_focus"
 ],
+"FormIntrinsicSlot": -1,
 "Relearnables": {},
 "Discriminator": 0,
 "MetAt": "",
@@ -235,6 +250,8 @@
 },
 "EntryPoint": -1
 },
+"IsFounder": false,
+"IsPartner": false,
 "NameLocked": false,
 "IsFavorite": false,
 "Unrecruitable": true,
@@ -264,14 +281,6 @@
 "Y": 6
 },
 "serializationDir": 0,
-"IsFounder": false,
-"IsPartner": false,
-"BaseForm": {
-"Species": "koffing",
-"Form": 0,
-"Skin": "normal",
-"Gender": 0
-},
 "ProxyName": "",
 "ProxySprite": {
 "Species": "",
@@ -351,7 +360,7 @@
 "FullnessRemainder": 0,
 "MaxFullness": 100,
 "StatusEffects": {},
-"MustHitNext": false,
+"MissChain": 0,
 "EXPMarked": false,
 "Tactic": {
 "Name": {
@@ -368,30 +377,42 @@
 "AttackPattern": 4,
 "PositionPattern": 2,
 "IQ": 253,
+"RestrictedMobilityTypes": 0,
+"RestrictMobilityPassable": false,
 "AttackRange": 0,
 "StatusRange": 0,
-"SelfStatusRange": 4
+"SelfStatusRange": 4,
+"AbandonRangeOnHit": true
 },
 {
 "$type": "PMDC.Dungeon.FollowLeaderPlan, PMDC",
 "IQ": 253,
+"RestrictedMobilityTypes": 0,
+"RestrictMobilityPassable": false,
 "AttackRange": 0,
 "StatusRange": 0,
-"SelfStatusRange": 0
+"SelfStatusRange": 0,
+"AbandonRangeOnHit": true
 },
 {
 "$type": "PMDC.Dungeon.ExplorePlan, PMDC",
 "IQ": 253,
+"RestrictedMobilityTypes": 0,
+"RestrictMobilityPassable": false,
 "AttackRange": 0,
 "StatusRange": 0,
-"SelfStatusRange": 0
+"SelfStatusRange": 0,
+"AbandonRangeOnHit": true
 },
 {
 "$type": "PMDC.Dungeon.WaitPlan, PMDC",
 "IQ": 253,
+"RestrictedMobilityTypes": 0,
+"RestrictMobilityPassable": false,
 "AttackRange": 0,
 "StatusRange": 0,
-"SelfStatusRange": 0
+"SelfStatusRange": 0,
+"AbandonRangeOnHit": true
 }
 ]
 },
@@ -423,6 +444,12 @@
 "Nickname": "",
 "OriginalUUID": "",
 "OriginalTeam": "",
+"BaseForm": {
+"Species": "koffing",
+"Form": 0,
+"Skin": "normal",
+"Gender": 0
+},
 "Level": 7,
 "EXP": 0,
 "MaxHPBonus": 0,
@@ -434,24 +461,29 @@
 "BaseSkills": [
 {
 "SkillNum": "poison_gas",
-"Charges": 16
+"Charges": 16,
+"CanForget": true
 },
 {
 "SkillNum": "tackle",
-"Charges": 22
+"Charges": 22,
+"CanForget": true
 },
 {
 "SkillNum": "smog",
-"Charges": 16
+"Charges": 16,
+"CanForget": true
 },
 {
 "SkillNum": "smokescreen",
-"Charges": 16
+"Charges": 16,
+"CanForget": true
 }
 ],
 "BaseIntrinsics": [
 "levitate"
 ],
+"FormIntrinsicSlot": -1,
 "Relearnables": {},
 "Discriminator": 0,
 "MetAt": "",
@@ -472,6 +504,8 @@
 },
 "EntryPoint": -1
 },
+"IsFounder": false,
+"IsPartner": false,
 "NameLocked": false,
 "IsFavorite": false,
 "Unrecruitable": true,

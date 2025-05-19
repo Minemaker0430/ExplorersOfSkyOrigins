@@ -1,5 +1,5 @@
 ﻿{
-"Version": "0.7.20.0",
+"Version": "0.8.9.0",
 "Object": {
 "$type": "RogueEssence.Ground.GroundMap, RogueEssence",
 "TexSize": 3,
@@ -40567,6 +40567,7 @@
 "EntName": "Koffing",
 "EntEnabled": true,
 "EntOrder": 0,
+"InteractOrder": 0,
 "serializationLoc": {
 "X": 196,
 "Y": 148
@@ -40596,24 +40597,29 @@
 "BaseSkills": [
 {
 "SkillNum": "",
-"Charges": 0
+"Charges": 0,
+"CanForget": true
 },
 {
 "SkillNum": "",
-"Charges": 0
+"Charges": 0,
+"CanForget": true
 },
 {
 "SkillNum": "",
-"Charges": 0
+"Charges": 0,
+"CanForget": true
 },
 {
 "SkillNum": "",
-"Charges": 0
+"Charges": 0,
+"CanForget": true
 }
 ],
 "BaseIntrinsics": [
 ""
 ],
+"FormIntrinsicSlot": -1,
 "Relearnables": {},
 "Discriminator": 0,
 "MetAt": "",
@@ -40657,6 +40663,7 @@
 "EntName": "Zubat",
 "EntEnabled": true,
 "EntOrder": 0,
+"InteractOrder": 0,
 "serializationLoc": {
 "X": 244,
 "Y": 148
@@ -40686,24 +40693,29 @@
 "BaseSkills": [
 {
 "SkillNum": "",
-"Charges": 0
+"Charges": 0,
+"CanForget": true
 },
 {
 "SkillNum": "",
-"Charges": 0
+"Charges": 0,
+"CanForget": true
 },
 {
 "SkillNum": "",
-"Charges": 0
+"Charges": 0,
+"CanForget": true
 },
 {
 "SkillNum": "",
-"Charges": 0
+"Charges": 0,
+"CanForget": true
 }
 ],
 "BaseIntrinsics": [
 ""
 ],
+"FormIntrinsicSlot": -1,
 "Relearnables": {},
 "Discriminator": 0,
 "MetAt": "",
@@ -40766,24 +40778,29 @@
 "BaseSkills": [
 {
 "SkillNum": "",
-"Charges": 0
+"Charges": 0,
+"CanForget": true
 },
 {
 "SkillNum": "",
-"Charges": 0
+"Charges": 0,
+"CanForget": true
 },
 {
 "SkillNum": "",
-"Charges": 0
+"Charges": 0,
+"CanForget": true
 },
 {
 "SkillNum": "",
-"Charges": 0
+"Charges": 0,
+"CanForget": true
 }
 ],
 "BaseIntrinsics": [
 ""
 ],
+"FormIntrinsicSlot": -1,
 "Relearnables": {},
 "Discriminator": 0,
 "MetAt": "",
@@ -40816,6 +40833,7 @@
 "Direction": 4,
 "EntEnabled": true,
 "EntOrder": 0,
+"InteractOrder": 0,
 "triggerType": 0,
 "EntityCallbacks": [],
 "Collider": {
@@ -40848,24 +40866,29 @@
 "BaseSkills": [
 {
 "SkillNum": "",
-"Charges": 0
+"Charges": 0,
+"CanForget": true
 },
 {
 "SkillNum": "",
-"Charges": 0
+"Charges": 0,
+"CanForget": true
 },
 {
 "SkillNum": "",
-"Charges": 0
+"Charges": 0,
+"CanForget": true
 },
 {
 "SkillNum": "",
-"Charges": 0
+"Charges": 0,
+"CanForget": true
 }
 ],
 "BaseIntrinsics": [
 ""
 ],
+"FormIntrinsicSlot": -1,
 "Relearnables": {},
 "Discriminator": 0,
 "MetAt": "",
@@ -40898,6 +40921,7 @@
 "Direction": 4,
 "EntEnabled": true,
 "EntOrder": 0,
+"InteractOrder": 0,
 "triggerType": 0,
 "EntityCallbacks": [],
 "Collider": {
@@ -40930,24 +40954,29 @@
 "BaseSkills": [
 {
 "SkillNum": "",
-"Charges": 0
+"Charges": 0,
+"CanForget": true
 },
 {
 "SkillNum": "",
-"Charges": 0
+"Charges": 0,
+"CanForget": true
 },
 {
 "SkillNum": "",
-"Charges": 0
+"Charges": 0,
+"CanForget": true
 },
 {
 "SkillNum": "",
-"Charges": 0
+"Charges": 0,
+"CanForget": true
 }
 ],
 "BaseIntrinsics": [
 ""
 ],
+"FormIntrinsicSlot": -1,
 "Relearnables": {},
 "Discriminator": 0,
 "MetAt": "",
@@ -40980,6 +41009,7 @@
 "Direction": 4,
 "EntEnabled": true,
 "EntOrder": 0,
+"InteractOrder": 0,
 "triggerType": 0,
 "EntityCallbacks": [],
 "Collider": {
@@ -40996,6 +41026,7 @@
 "Direction": 4,
 "EntEnabled": true,
 "EntOrder": 0,
+"InteractOrder": 0,
 "triggerType": 0,
 "Collider": {
 "X": 244,
@@ -41009,6 +41040,7 @@
 "Direction": 0,
 "EntEnabled": true,
 "EntOrder": 0,
+"InteractOrder": 0,
 "triggerType": 0,
 "Collider": {
 "X": 220,
