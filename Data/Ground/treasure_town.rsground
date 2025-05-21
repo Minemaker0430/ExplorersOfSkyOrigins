@@ -122413,7 +122413,7 @@
 }
 ],
 "AssetName": "treasure_town",
-"Music": "",
+"Music": "014 - Treasure Town.ogg",
 "EdgeView": 1,
 "NoSwitching": false,
 "ViewCenter": null,
@@ -122424,7 +122424,7 @@
 "ActiveChar": null,
 "Decorations": [
 {
-"Name": "New Deco",
+"Name": "Deco 1",
 "Layer": 0,
 "Visible": true,
 "Anims": []
@@ -122435,7 +122435,266 @@
 "Name": "New EntLayer",
 "Visible": true,
 "MapChars": [],
-"GroundObjects": [],
+"GroundObjects": [
+{
+"EntName": "Totem2_West",
+"Direction": 6,
+"EntEnabled": true,
+"EntOrder": 0,
+"InteractOrder": 0,
+"triggerType": 0,
+"ObjectAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "Totem_2",
+"FrameTime": 1,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": -1,
+"Alpha": 255,
+"AnimFlip": 0
+},
+"Passable": true,
+"CurrentAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "",
+"FrameTime": 1,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": -1,
+"Alpha": 255,
+"AnimFlip": 0
+},
+"AnimTime": {
+"Ticks": 0
+},
+"Cycles": 0,
+"DrawOffset": {
+"X": 1,
+"Y": 38
+},
+"Collider": {
+"X": 74,
+"Y": 262,
+"Width": 29,
+"Height": 2
+}
+},
+{
+"EntName": "Totem3_West",
+"Direction": 6,
+"EntEnabled": true,
+"EntOrder": 0,
+"InteractOrder": 0,
+"triggerType": 0,
+"ObjectAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "Totem_3",
+"FrameTime": 1,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": -1,
+"Alpha": 255,
+"AnimFlip": 0
+},
+"Passable": true,
+"CurrentAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "",
+"FrameTime": 1,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": -1,
+"Alpha": 255,
+"AnimFlip": 0
+},
+"AnimTime": {
+"Ticks": 0
+},
+"Cycles": 0,
+"DrawOffset": {
+"X": 1,
+"Y": 38
+},
+"Collider": {
+"X": 10,
+"Y": 262,
+"Width": 29,
+"Height": 2
+}
+},
+{
+"EntName": "Totem4_West",
+"Direction": 6,
+"EntEnabled": true,
+"EntOrder": 0,
+"InteractOrder": 0,
+"triggerType": 0,
+"ObjectAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "Totem_4",
+"FrameTime": 1,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": -1,
+"Alpha": 255,
+"AnimFlip": 0
+},
+"Passable": true,
+"CurrentAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "",
+"FrameTime": 1,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": -1,
+"Alpha": 255,
+"AnimFlip": 0
+},
+"AnimTime": {
+"Ticks": 0
+},
+"Cycles": 0,
+"DrawOffset": {
+"X": 8,
+"Y": 38
+},
+"Collider": {
+"X": 41,
+"Y": 262,
+"Width": 29,
+"Height": 2
+}
+},
+{
+"EntName": "Totem2_East",
+"Direction": 6,
+"EntEnabled": true,
+"EntOrder": 0,
+"InteractOrder": 0,
+"triggerType": 0,
+"ObjectAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "Totem_2",
+"FrameTime": 1,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": -1,
+"Alpha": 255,
+"AnimFlip": 0
+},
+"Passable": true,
+"CurrentAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "",
+"FrameTime": 1,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": -1,
+"Alpha": 255,
+"AnimFlip": 0
+},
+"AnimTime": {
+"Ticks": 0
+},
+"Cycles": 0,
+"DrawOffset": {
+"X": 1,
+"Y": 38
+},
+"Collider": {
+"X": 1114,
+"Y": 262,
+"Width": 29,
+"Height": 2
+}
+},
+{
+"EntName": "Totem4_East",
+"Direction": 6,
+"EntEnabled": true,
+"EntOrder": 0,
+"InteractOrder": 0,
+"triggerType": 0,
+"ObjectAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "Totem_4",
+"FrameTime": 1,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": -1,
+"Alpha": 255,
+"AnimFlip": 0
+},
+"Passable": true,
+"CurrentAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "",
+"FrameTime": 1,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": -1,
+"Alpha": 255,
+"AnimFlip": 0
+},
+"AnimTime": {
+"Ticks": 0
+},
+"Cycles": 0,
+"DrawOffset": {
+"X": 8,
+"Y": 38
+},
+"Collider": {
+"X": 1081,
+"Y": 262,
+"Width": 29,
+"Height": 2
+}
+},
+{
+"EntName": "Totem3_East",
+"Direction": 6,
+"EntEnabled": true,
+"EntOrder": 0,
+"InteractOrder": 0,
+"triggerType": 0,
+"ObjectAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "Totem_3",
+"FrameTime": 1,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": -1,
+"Alpha": 255,
+"AnimFlip": 0
+},
+"Passable": true,
+"CurrentAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "",
+"FrameTime": 1,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": -1,
+"Alpha": 255,
+"AnimFlip": 0
+},
+"AnimTime": {
+"Ticks": 0
+},
+"Cycles": 0,
+"DrawOffset": {
+"X": 1,
+"Y": 38
+},
+"Collider": {
+"X": 1050,
+"Y": 262,
+"Width": 29,
+"Height": 2
+}
+}
+],
 "Spawners": [],
 "Markers": []
 }
