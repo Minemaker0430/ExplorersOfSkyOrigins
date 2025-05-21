@@ -1,0 +1,80 @@
+﻿{
+  "Version": [
+    "0.0",
+    "0.8.9.0"
+  ],
+  "Object": {
+    "OnDeaths": {
+      "_t": "a",
+      "3": {
+        "Value": {
+          "$type": [
+            "@@ -1,42 +1,56 @@\n-PMDC.Dungeon.HandoutRelativeExpEvent, PMDC\n+RogueEssence.Dungeon.SingleCharScriptEvent, RogueEssence\n",
+            0,
+            2
+          ],
+          "Numerator": [
+            1,
+            0,
+            0
+          ],
+          "Denominator": [
+            7,
+            0,
+            0
+          ],
+          "LevelBuffer": [
+            5,
+            0,
+            0
+          ],
+          "PowerCurve": [
+            2,
+            0,
+            0
+          ],
+          "IgnoreMark": [
+            false,
+            0,
+            0
+          ],
+          "Script": [
+            "HeroPartnerCheck"
+          ],
+          "ArgTable": [
+            "{}"
+          ]
+        }
+      },
+      "4": [
+        {
+          "Key": {
+            "str": [
+              10
+            ]
+          },
+          "Value": {
+            "$type": "PMDC.Dungeon.HandoutPiecewiseExpEvent, PMDC",
+            "ScaleMin": 1,
+            "ScaleAdd": -5,
+            "UnderleveledHandout": {
+              "$type": "PMDC.Dungeon.HandoutStackExpEvent, PMDC",
+              "Numerator": 1,
+              "Denominator": 10,
+              "LevelBuffer": 7,
+              "IgnoreMark": false
+            },
+            "OverleveledHandout": {
+              "$type": "PMDC.Dungeon.HandoutHarmonicExpEvent, PMDC",
+              "Numerator": 1,
+              "Denominator": 10,
+              "LevelBuffer": 7,
+              "IgnoreMark": false
+            },
+            "IgnoreMark": false
+          }
+        }
+      ]
+    }
+  }
+}
