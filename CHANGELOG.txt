@@ -1,12 +1,12 @@
 -------------------------------
-ch1-beta.2
+ch1-alpha.3
 -------------------------------
  - Bumped to PMDO Version 0.8.9
 
 -------------------------------
-ch1-beta.1
+ch1-alpha.2
 -------------------------------
- - Finished Chapter 1 Cutscenes
+ - Finished Most Chapter 1 Cutscenes
  - More Starters + Egg Moves
 
 -------------------------------
