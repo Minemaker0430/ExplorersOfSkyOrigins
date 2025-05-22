@@ -149789,6 +149789,34 @@
 "Width": 16,
 "Height": 16
 }
+},
+{
+"EntName": "C1S2_CamPos_2",
+"Direction": 2,
+"EntEnabled": true,
+"EntOrder": 0,
+"InteractOrder": 0,
+"triggerType": 0,
+"Collider": {
+"X": 414,
+"Y": 172,
+"Width": 16,
+"Height": 16
+}
+},
+{
+"EntName": "C1S2_CamPos_1",
+"Direction": 6,
+"EntEnabled": true,
+"EntOrder": 0,
+"InteractOrder": 0,
+"triggerType": 0,
+"Collider": {
+"X": 365,
+"Y": 171,
+"Width": 16,
+"Height": 16
+}
 }
 ]
 }

@@ -47,9 +47,10 @@ function chapter_card.Enter(map)
   if SV.Progression.Chapter == 1 then
 	GAME:EnterGroundMap("storm_cutscene_a", "Entrance")
   elseif SV.Progression.Chapter == 2 then
-	--Go to ???
+	GAME:EnterGroundMap("guild_outside_dusk", "Entrance")
   elseif SV.Progression.Chapter == 3 then
-	--Go to ???
+	SV.Progression.SectionFlag = 2
+	GAME:EnterZone("hub", -1, 5, 0)
   else
 	--progression broke you aren't supposed to be here
 	UI:WaitShowDialogue(STRINGS:Format("If you're currently reading this, the game's progression system has broken somehow. You should probably tell Mocha about this. Going to title screen now."))

@@ -55,7 +55,12 @@ function title_catch.Enter(map)
 	GAME:CutsceneMode(false)
 	
 	--debug end
-	GAME:RestartToTitle()
+
+	--if SV.Progression.Chapter == 2 then
+	GAME:EnterGroundMap("chapter_card", "Entrance")
+	--else
+	
+	--GAME:RestartToTitle()
 	
 end
 
