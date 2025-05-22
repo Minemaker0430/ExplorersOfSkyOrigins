@@ -54,6 +54,13 @@ SV.Progression =
 	DaysToProgress = -1 --how many days until next flag, -1 means disabled
 }
 
+
+SV.Chapter2 = --Chapter 2 flags that can't be covered by SectionFlags due to loss states
+{
+        StartedDrenchedBluff = false,--started but died?
+        StartedMtBristle = false,--started MtBristle but died?
+}
+
 SV.Personality = --handles dialogue variations
 {
 	HeroTalkKind = 0,

@@ -5,6 +5,8 @@
 ]]--
 -- Commonly included lua functions and data
 require 'eos.common'
+require 'eos.CharacterActions'
+require 'eos.ExplorerEssentials'
 
 -- Package name
 local guild_basement = {}
@@ -21,18 +23,95 @@ local guild_basement = {}
 ---guild_basement.Init(map)
 --Engine callback function
 function guild_basement.Init(map)
+ --no need to duplicate these
+  SOUND:PlayBGM("008 - Wigglytuff's Guild.ogg", false)  
+	player = CH("PLAYER")
+        partner = CH("TEAMMATE_1") --why does this have to be like this?
+        Chatot = CH("Chatot")
+        Loudred = CH("Loudred")
+        Dugtrio = CH("Dugtrio")
+        Diglett= CH("Diglett")
+        Sunflora = CH("Sunflora")
+        Bidoof = CH("Bidoof")
+        Chimecho = CH("Chimecho")
+        Corphish = CH("Corphish")
+        Croagunk = CH("Croagunk")
+        Wigglytuff = CH("Wigglytuff")
+	GROUND:Hide("Wigglytuff")
+        GROUND:Hide("Sunflora")
+        GROUND:Hide("Bidoof")
+        GROUND:Hide("Corphish")
+        GROUND:Hide("Chimecho")
+        GROUND:Hide("Loudred")
+	GROUND:Hide("Dugtrio")
+	GROUND:Hide("Diglett")
+	GROUND:Hide("TEAMMATE_2")
 
   --This will fill the localized strings table automatically based on the locale the game is 
   -- currently in. You can use the MapStrings table after this line!
-  
-
+COMMON:RespawnAllies()
 end
 
 ---guild_basement.Enter(map)
 --Engine callback function
 function guild_basement.Enter(map)
-
   GAME:FadeIn(20)
+
+   if SV.Progression.Chapter == 2 then
+
+	if SV.Progression.SectionFlag == 5 and not SV.Chapter2.StartedDrenchedBluff then
+	--scene 3 & 4 are for top floor and middle floor
+	guild_basement.Chapter2Scene5()
+	--goto scene 6
+	end
+
+	if SV.Progression.SectionFlag == 8 and not SV.Chapter2.StartedDrenchedBluff then
+	--scene 6 & 7 are reserved for wigglytuff's room, bedtime in hero's room
+	guild_basement.Chapter2Scene8()
+	--goto scene 9 in guild middle floor here
+	end
+
+	if SV.Progression.SectionFlag == 10 and SV.Chapter2.StartedDrenchedBluff == 1 then
+	--player failed drenched bluff
+	guild_basement.NewDay()
+	end
+
+	if SV.Progression.SectionFlag == 11 and not SV.Chapter2.StartedMtBristle then
+	--scene 10 & 11 are reserved for drenched bluff
+	guild_basement.Chapter2Scene12()
+	--goto eating scene 13 here and then night scene 14
+	--else for now goto chapter 3
+	SV.Progression.Chapter = 3
+        SV.Progression.SectionFlag = 1
+	GAME:EnterZone("cutscenes", -1, 1, 0)
+	end
+
+--	if SV.Chapter2.FinishedFirstDay == 1 and SV.Chapter2.StartedDrenchedBluff == 1 and not SV.Chapter2.StartedMtBristle then
+--	guild_basement.NewDay()
+--	end	
+
+--	if SV.Chapter2.FinishedMtBristle == 1 and not SV.Chapter2.FinishedMarketIntro then
+--	guild_basement.CH2BidoofTutorial()
+--	end
+
+  end
+
+   if SV.Progression.Chapter == 3 and not SV.Progression.SectionFlag == 2 then
+
+   guild_basement.NewDay()
+
+   end
+   if SV.Progression.Chapter == 3 and SV.Progression.SectionFlag == 2 then
+
+   guild_basement.NewDay()
+
+   end
+	GROUND:Hide("TEAMMATE_1")
+
+
+--if SV.TemporaryFlags.MissionCompleted then 
+--guild_second_floor.Hand_In_Missions()
+--end
 
 end
 
@@ -69,6 +148,611 @@ end
 -- Entities Callbacks
 -------------------------------
 
+function guild_basement.GuildSecondFloor_Touch(obj, activator)
+
+--GAME:EnterGroundMap("guild_second_floor", "LadderDownMarker")
+GAME:EnterGroundMap("guild_outside", "GuildEntranceMarker")
+
+end
+
+
+function guild_basement.Chatot_Action(obj, activator)
+
+	if SV.Progression.Chapter == 2 and SV.Progression.SectionFlag == 8 and not SV.Chapter2.StartedDrenchedBluff then
+	--UI:SetSpeaker(Chatot)
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_']))
+	GROUND:CharSetEmote(Chatot, "exclaim", 1)
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_']))
+	local coro1 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(Chatot, 83, 204, false, 1) end)
+	local coro2 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(player, Direction.UpLeft, 2) end)
+	local coro3 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(partner, Direction.UpLeft, 2) end)
+	TASK:JoinCoroutines({coro1, coro2, coro3})
+	local coro4 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(player, Direction.Down, 2) end)
+	local coro5 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(partner, Direction.Up, 2) end)
+	TASK:JoinCoroutines({coro4, coro5})
+	--coroutine begin
+	local coro6 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(player, 83, 204, false, 1) end)
+	local coro7 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(partner, 83, 204, false, 1) end)
+	TASK:JoinCoroutines({coro6, coro7})
+	--fade to black
+	--wait
+	--coroutine end
+	if SV.Progression.SectionFlag == 10 then
+	--goto dungeon without prompt
+	end
+	if SV.Progression.SectionFlag == 8 then
+	SV.Progression.SectionFlag = 9
+	--goto guild middle floor scene
+	end
+	end
+
+	if SV.Progression.Chapter == 3 and SV.Progression.SectionFlag == 2 then
+	--UI:SetSpeaker(Chatot)
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_']))
+	GROUND:CharSetEmote(Chatot, "exclaim", 1)
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_']))
+	local coro1 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(Chatot, 83, 204, false, 1) end)
+	local coro2 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(player, Direction.UpLeft, 2) end)
+	local coro3 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(partner, Direction.UpLeft, 2) end)
+	TASK:JoinCoroutines({coro1, coro2, coro3})
+	local coro4 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(player, Direction.Down, 2) end)
+	local coro5 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(partner, Direction.Up, 2) end)
+	TASK:JoinCoroutines({coro4, coro5})
+	--coroutine begin
+	local coro6 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(player, 83, 204, false, 1) end)
+	local coro7 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(partner, 83, 204, false, 1) end)
+	TASK:JoinCoroutines({coro6, coro7})
+	--fade to black
+	--wait
+	--coroutine end
+	if SV.Progression.SectionFlag == 3 then
+	--goto dungeon without prompt
+	end
+	if SV.Progression.SectionFlag == 2 then
+	SV.Progression.SectionFlag = 3
+	--goto guild middle floor scene
+	end
+
+	end
+	
+	UI:SetSpeaker(Chatot)
+	UI:WaitShowDialogue("Get to work")
+
+end
+
+
+
+
+-------------------------------
+-- Cutscene Functions
+-------------------------------
+
+
+function guild_basement.Chapter2Scene5()
+	GAME:CutsceneMode(true)
+        local hTalkKind = SV.Personality.HeroTalkKind
+        local pTalkKind = SV.Personality.PartnerTalkKind
+
+	partner.CollisionDisabled = true
+	player.CollisionDisabled = true
+	Chatot.CollisionDisabled = true
+
+        local cam = MRKR("CamPos_1")
+        GAME:MoveCamera(cam.Position.X, cam.Position.Y, 1, false)
+        local marker = MRKR("Ladder")
+	--Down the ladder we go
+        GROUND:TeleportTo(Chatot, marker.Position.X, marker.Position.Y, Direction.Down)
+	GROUND:MoveToPosition(Chatot, marker.Position.X, marker.Position.Y + 170, false, 1)
+	GROUND:CharAnimateTurnTo(Chatot, Direction.Up, 2)
+	GROUND:TeleportTo(player, marker.Position.X, marker.Position.Y, Direction.Down)
+	GROUND:MoveToPosition(player, marker.Position.X, marker.Position.Y + 130, false, 1)
+	GROUND:MoveToPosition(player, marker.Position.X + 20, marker.Position.Y + 130, false, 1)
+	GROUND:CharAnimateTurnTo(player, Direction.Down, 2)
+        GROUND:TeleportTo(partner, marker.Position.X, marker.Position.Y, Direction.Down)
+        GROUND:MoveToPosition(partner, marker.Position.X, marker.Position.Y + 130, false, 1)
+        GROUND:MoveToPosition(partner, marker.Position.X - 20, marker.Position.Y + 130, false, 1)
+	GROUND:CharAnimateTurnTo(partner, Direction.Down, 2)
+
+	--UI:SetSpeaker(Chatot)
+	--UI:SetSpeakerEmotion("Normal")
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_1']))
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_2']))
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_3']))
+	--To wigglytuff's door
+	local coro13 = TASK:BranchCoroutine(function() GAME:MoveCamera(cam.Position.X + 96, cam.Position.Y, 1, false) end)
+	local coro14 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(Chatot, marker.Position.X + 30, marker.Position.Y + 170, false, 1) end)
+	local coro15 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(player, marker.Position.X + 30, marker.Position.Y + 135, false, 1) end)
+	local coro16 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(player, marker.Position.X + 65, marker.Position.Y + 135, false, 1) end)
+	local coro17 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(partner, marker.Position.X + 65, marker.Position.Y + 155, false, 1) end)
+	local coro18 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(Chatot, marker.Position.X + 96, marker.Position.Y + 170, false, 1) end)
+	local coro19 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(Chatot, marker.Position.X + 96, marker.Position.Y + 135, false, 1) end)
+	TASK:JoinCoroutines({coro13, coro14, coro15, coro16, coro17, coro18, coro19})
+	GROUND:CharAnimateTurnTo(Chatot, Direction.Left, 2)
+	--Look out the window
+	local coro20 = TASK:BranchCoroutine(function() GROUND:CharSetEmote(partner, "exclaim", 1) end)
+	local coro21 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(Chatot, Direction.DownRight, 2) end)
+	local coro22 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(partner, marker.Position.X + 150, marker.Position.Y + 155, false, 1) end)
+	local coro23 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(partner, Direction.UpRight, 2) end)
+	local coro24 = TASK:BranchCoroutine(function() CharacterActions.ScaredJump(partner, Direction.Up) end)
+	TASK:JoinCoroutines({coro20, coro21, coro22, coro23, coro24})
+	--UI:SetSpeaker(partner)
+	--UI:SetSpeakerEmotion("Joyous")
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_']))
+	GROUND:CharSetAnim(p, "Jump", true)
+	CharacterActions.ScaredJump(Chatot, Direction.Up)
+	--UI:SetSpeaker(Chatot)
+	--UI:SetSpeakerEmotion("Angry")
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_3']))
+	GROUND:CharAnimateTurnTo(partner, Direction.UpLeft, 2)
+	--UI:SetSpeakerEmotion("Normal")
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_3']))
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_3']))
+	--UI:SetSpeaker(partner)
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_']))
+	GROUND:CharAnimateTurnTo(Chatot, Direction.Left, 2)
+	GROUND:MoveToPosition(partner, marker.Position.X + 128, marker.Position.Y + 143, false, 1)
+	--UI:SetSpeaker(Chatot)
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_3']))
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_3']))
+	GROUND:CharAnimateTurnTo(Chatot, Direction.Up, 2)
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_3']))
+	--GAME:FadeOut(false, 60)
+	-- goto inside guildmasters room
+	--for now
+	SV.Progression.SectionFlag = 6
+	GROUND:Hide("Loudred")
+	GROUND:Hide("Dugtrio")
+	GROUND:Hide("Diglett")
+	GROUND:Hide("Sunflora")
+	GROUND:Hide("Bidoof")
+	GROUND:Hide("Chimecho")
+	GROUND:Hide("Corphish")
+
+end
+
+function guild_basement.Chapter2Scene8()
+	--Begin first guild meeting
+        GAME:CutsceneMode(true)
+	GROUND:TeleportTo(Wigglytuff, 413, 0, Direction.Down)
+	GROUND:Hide("Wigglytuff")
+	partner.CollisionDisabled = true
+        player.CollisionDisabled = true
+        Chatot.CollisionDisabled = true
+        Loudred.CollisionDisabled = true
+        Dugtrio.CollisionDisabled = true
+        Diglett.CollisionDisabled = true
+        Sunflora.CollisionDisabled = true
+        Bidoof.CollisionDisabled = true
+        Chimecho.CollisionDisabled = true
+        Corphish.CollisionDisabled = true
+        Croagunk.CollisionDisabled = true
+        Wigglytuff.CollisionDisabled = true
+        GROUND:Unhide("Sunflora")
+        GROUND:Unhide("Bidoof")
+        GROUND:Unhide("Corphish")
+        GROUND:Unhide("Chimecho")
+        GROUND:Unhide("Loudred")
+	GROUND:Unhide("Dugtrio")
+	GROUND:Unhide("Diglett")
+
+
+        local hTalkKind = SV.Personality.HeroTalkKind
+        local pTalkKind = SV.Personality.PartnerTalkKind
+        partner.CollisionDisabled = true
+        player.CollisionDisabled = true
+        Chatot.CollisionDisabled = true
+	local cam = MRKR("CamPos_1")
+	GAME:MoveCamera(cam.Position.X + 96, cam.Position.Y, 1, false)
+        local marker = MRKR("Ladder")
+	--Everyone assume the position except player
+	GROUND:TeleportTo(Chatot, 447,  210, Direction.Down)
+	GROUND:TeleportTo(Loudred, 413,  261, Direction.Up)
+	GROUND:TeleportTo(Dugtrio, 347,  261, Direction.UpRight)
+	GROUND:TeleportTo(Diglett, 447,  261, Direction.Up)
+	GROUND:TeleportTo(Sunflora, 447, 239, Direction.Up)
+	GROUND:TeleportTo(Bidoof, 413, 239, Direction.Up)
+	GROUND:TeleportTo(Chimecho, 379, 239, Direction.Up)
+	GROUND:TeleportTo(Corphish, 381, 261, Direction.Up)
+	GROUND:TeleportTo(Croagunk, 347, 239, Direction.UpRight)
+	local coro25 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(player, 481, 239, false, 1) end)
+	local coro26 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(partner, 481, 261, false, 1) end)
+	local coro27 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(Loudred, Direction.Right, 2) end)
+	local coro28 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(Dugtrio, Direction.Right, 2) end)
+	local coro29 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(Diglett, Direction.Right, 2) end)
+	local coro30 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(Sunflora, Direction.Right, 2) end)
+	local coro31 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(Bidoof, Direction.Right, 2) end)
+	local coro32 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(Chimecho, Direction.Right, 2) end)
+	local coro33 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(Corphish, Direction.Right, 2) end)
+	local coro34 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(Croagunk, Direction.Right, 2) end)
+	TASK:JoinCoroutines({coro25, coro26, coro27, coro28, coro29, coro30, coro31, coro32, coro33, coro34})
+	--UI:SetSpeaker(Loudred)
+        --UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Loudred_']))
+	CharacterActions.ScaredJump(Chatot, Direction.Up)
+	CharacterActions.ScaredJump(Chatot, Direction.Up)
+	--Yell at player
+	local coro35 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(Chatot, Direction.DownLeft, 2) end)
+	local coro36 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(Loudred, Direction.Up, 2) end)
+        local coro37 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(Dugtrio, Direction.UpRight, 2) end)
+        local coro38 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(Diglett, Direction.Up, 2) end)
+        local coro39 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(Sunflora, Direction.Up, 2) end)
+        local coro40 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(Bidoof, Direction.UpRight, 2) end)
+        local coro41 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(Chimecho, Direction.UpRight, 2) end)
+        local coro42 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(Corphish, Direction.UpRight, 2) end)
+        local coro43 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(Croagunk, Direction.Right, 2) end)
+        local coro44 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(player, Direction.UpLeft, 2) end)
+	TASK:JoinCoroutines({coro35, coro36, coro37, coro38, coro39, coro40, coro41, coro42, coro43, coro44})
+	--UI:SetSpeaker(Chatot)
+	--UI:SetSpeakerEmotion("Angry")	
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_']))
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_']))
+	GROUND:CharSetEmote(Loudred, "sweatdrop", 1)
+	--UI:SetSpeaker(Loudred)
+	--UI:SetSpeakerEmotion("Normal")
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Loudred_']))
+	GROUND:CharAnimateTurnTo(Chatot, Direction.DownRight, 2)
+	GAME:WaitFrames(45)
+	local coro46 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(Chatot, Direction.DownLeft, 2) end)
+	local coro47 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(partner, Direction.UpLeft, 2) end)
+	TASK:JoinCoroutines({coro46, coro47})
+	--UI:SetSpeaker(Chatot)
+	--UI:SetSpeakerEmotion("Normal")
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_']))
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_']))
+	GROUND:CharAnimateTurnTo(Chatot, Direction.UpLeft, 2)
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_']))
+        local coro48 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(Bidoof, Direction.Up, 2) end)
+        local coro49 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(Chimecho, Direction.Up, 2) end)
+        local coro50 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(Corphish, Direction.Up, 2) end)
+        local coro51 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(Croagunk, Direction.UpRight, 2) end)
+	--52insert guildmaster door opening here
+	local coro53 = TASK:BranchCoroutine(function() GROUND:Unhide("Wigglytuff") end)
+	local coro54 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(Wigglytuff, 413, 185, false, 1) end)
+	TASK:JoinCoroutines({coro48, coro49, coro50, coro51, coro53, coro54})
+	--UI:SetSpeaker(Chatot)
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_']))
+	--UI:SetSpeaker(Wigglytuff)
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Wigglytuff_']))
+	--UI:SetSpeaker()
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Apprentice_']))
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Apprentice_']))
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Apprentice_']))
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Apprentice_']))
+	--insert chatot bow
+	--UI:SetSpeaker(Chatot)
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_']))
+	GROUND:CharAnimateTurnTo(Chatot, Direction.Down, 2)
+	--insert chatot wings out animation
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_']))
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_']))
+
+	--Guild motto
+	--UI:SetSpeaker()
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Guild_Cheer_1_']))
+	local coro55 = TASK:BranchCoroutine(function() GROUND:CharSetEmote(Chimecho, "exclaim", 1) end)
+	local coro56 = TASK:BranchCoroutine(function() GROUND:CharSetEmote(Loudred, "exclaim", 1) end)
+	local coro57 = TASK:BranchCoroutine(function() GROUND:CharSetEmote(Sunflora, "exclaim", 1) end)
+	local coro58 = TASK:BranchCoroutine(function() GROUND:CharSetEmote(Dugtrio, "exclaim", 1) end)
+	TASK:JoinCoroutines({coro55, coro56, coro57, coro58})
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Guild_Cheer_1_']))
+	GROUND:CharSetEmote(Chimecho, "exclaim", 1)
+	GROUND:CharSetEmote(Loudred, "exclaim", 1)
+	GROUND:CharSetEmote(Sunflora, "exclaim", 1)
+	GROUND:CharSetEmote(Dugtrio, "exclaim", 1)
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Guild_Cheer_1_']))
+	GROUND:CharSetEmote(Chimecho, "exclaim", 1)
+	GROUND:CharSetEmote(Loudred, "exclaim", 1)
+	GROUND:CharSetEmote(Sunflora, "exclaim", 1)
+	GROUND:CharSetEmote(Dugtrio, "exclaim", 1)
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Guild_Cheer_1_']))
+	--UI:SetSpeaker(Chatot)
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_']))
+	GAME:WaitFrames(45)
+	local coro58 = TASK:BranchCoroutine(function() GROUND:CharSetEmote(Chimecho, "happy", 1) end)
+	local coro59 = TASK:BranchCoroutine(function() GROUND:CharSetEmote(Loudred, "happy", 1) end)
+	local coro60 = TASK:BranchCoroutine(function() GROUND:CharSetEmote(Sunflora, "happy", 1) end)
+	local coro61 = TASK:BranchCoroutine(function() GROUND:CharSetEmote(Dugtrio, "happy", 1) end)
+	local coro62 = TASK:BranchCoroutine(function() GROUND:CharSetEmote(Croagunk, "happy", 1) end)
+	local coro63 = TASK:BranchCoroutine(function() GROUND:CharSetEmote(Corphish, "happy", 1) end)
+	local coro64 = TASK:BranchCoroutine(function() GROUND:CharSetEmote(Bidoof, "happy", 1) end)
+	TASK:JoinCoroutines({coro58, coro59, coro60, coro61, coro62, coro63, coro64})
+	--UI:SetSpeaker()
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Guild_Cheer_1_']))
+	--dugtrio and diglett animation here
+	--Time for everyone to leave
+	local coro1 = TASK:BranchCoroutine(function() GROUND:Hide("Dugtrio") end)
+	local coro2 = TASK:BranchCoroutine(function() GROUND:Hide("Diglett") end)
+	TASK:JoinCoroutines({coro1, coro2})
+	
+	local coro3 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(Croagunk, 220, 204, false, 1) end)
+	local coro4 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(Chimecho, 226, 240, false, 1) end)
+	local coro5 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(Loudred, 83, 275, false, 1) end)
+	TASK:JoinCoroutines({coro3, coro4, coro5})
+	GROUND:Hide("Chimecho")
+	GROUND:Hide("Loudred")
+	local marker = MRKR("Ladder")
+	local coro6 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(Sunflora, 317, 174, false, 1) end)
+	local coro7 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(Bidoof, 317, 174, false, 1) end)
+	local coro8 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(Corphish, 317, 174, false, 1) end)
+	local coro9 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(Wigglytuff, 413, 0, false, 1) end)
+	TASK:JoinCoroutines({coro6, coro7, coro8, coro9})
+
+	local coro10 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(Sunflora, marker.Position.X, marker.Position.Y, false, 1) end)
+        local coro11 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(Bidoof, marker.Position.X, marker.Position.Y, false, 1) end)
+        local coro12 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(Corphish, marker.Position.X, marker.Position.Y, false, 1) end)
+	TASK:JoinCoroutines({coro10, coro11, coro12})
+	--Cleanup
+	GROUND:TeleportTo(Croagunk, 220, 204, Direction.Down)
+	GROUND:Hide("Wigglytuff")
+	GROUND:Hide("Sunflora")
+	GROUND:Hide("Bidoof")
+	GROUND:Hide("Corphish")
+        Chatot.CollisionDisabled = false
+	player.CollisionDisabled = false
+        partner.CollisionDisabled = false
+	Croagunk.CollisionDisabled = false
+	GAME:MoveCamera(0, 0, 1, true)
+	--return control to player here, stop player from leaving area before talking to chatot here
+	GAME:CutsceneMode(false)
+
+end
+
+function guild_basement.Chapter2Scene12()
+
+	player = CH("PLAYER")
+        partner = CH("TEAMMATE_1") --why does this have to be like this?
+
+	GAME:FadeOut(false, 60)
+	--chimecho text
+	local hTalkKind = SV.Personality.HeroTalkKind
+        local pTalkKind = SV.Personality.PartnerTalkKind
+	GROUND:Unhide("Chimecho")
+        GROUND:Unhide("Loudred")
+        GROUND:Unhide("Diglett")
+	GROUND:TeleportTo(Croagunk, 220, 204, Direction.Down)
+	GROUND:TeleportTo(Chimecho, 40, 274, Direction.Right)
+	GROUND:TeleportTo(Loudred, 234, 274, Direction.Right)
+	GROUND:TeleportTo(Diglett, 266, 274, Direction.Left)
+	GROUND:TeleportTo(player, 274, 212, Direction.DownRight)
+        GROUND:TeleportTo(partner, 298, 234, Direction.UpLeft)
+	GAME:FadeIn(60)
+	GAME:WaitFrames(140)
+
+	local coro221 = TASK:BranchCoroutine(function() GROUND:CharSetEmote(Diglett, "notice", 1) end)
+	local coro222 = TASK:BranchCoroutine(function() GROUND:CharSetEmote(player, "notice", 1) end)
+        local coro223 = TASK:BranchCoroutine(function() GROUND:CharSetEmote(partner, "notice", 1) end)
+        local coro224 = TASK:BranchCoroutine(function() GROUND:CharSetEmote(Loudred, "notice", 1) end)
+	local coro225 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(Croagunk, Direction.DownLeft, 2) end)
+	local coro226 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(player, Direction.DownLeft, 2) end)
+	local coro227 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(Diglett, Direction.Left, 2) end)
+	local coro228 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(partner, Direction.Left, 2) end)
+	local coro229 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(Loudred, Direction.Left, 2) end)
+	local coro2210 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(Chimecho, 166, 274, false, 1) end)
+	TASK:JoinCoroutines({coro221, coro222, coro223, coro224, coro225, coro226, coro227, coro228, coro229, coro2210})
+
+	--chimecho text1
+	--chimecho text2
+
+	local coro2211 = TASK:BranchCoroutine(function() GROUND:CharSetEmote(Croagunk, "happy", 1) end)
+	local coro2212 = TASK:BranchCoroutine(function() GROUND:CharSetEmote(player, "happy", 1) end)
+	local coro2213 = TASK:BranchCoroutine(function() GROUND:CharSetEmote(partner, "happy", 1) end)
+	local coro2214 = TASK:BranchCoroutine(function() GROUND:CharSetEmote(Loudred, "happy", 1) end)
+	local coro2215 = TASK:BranchCoroutine(function() GROUND:CharSetEmote(Diglett, "happy", 1) end)
+	local coro16 = TASK:BranchCoroutine(function() CharacterActions.HopTwice(Croagunk, Direction.DownLeft) end)
+	local coro17 = TASK:BranchCoroutine(function() CharacterActions.HopTwice(player, Direction.DownLeft) end)
+	local coro19 = TASK:BranchCoroutine(function() CharacterActions.HopTwice(partner, Direction.Left) end)
+	local coro2220 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(Loudred, Direction.Up, 32) end)
+	--everyone yeah text
+	TASK:JoinCoroutines({coro16, coro17, coro19, coro2211, coro2212, coro2213, coro2214, coro2215, coro2220})
+	GAME:WaitFrames(30)
+	SV.Progression.Chapter = 3
+	SV.Progression.SectionFlag = 0
+
+	--GAME:FadeOut(false, 60) end)
+
+end
+
+function guild_basement.CH2BidoofTutorial()
+	--everyone jitters in this tutorial lol
+        GAME:CutsceneMode(false)
+	partner.CollisionDisabled = true
+        player.CollisionDisabled = true
+        Chatot.CollisionDisabled = true
+        Loudred.CollisionDisabled = true
+        Dugtrio.CollisionDisabled = true
+        Diglett.CollisionDisabled = true
+        Sunflora.CollisionDisabled = true
+        Bidoof.CollisionDisabled = true
+        Chimecho.CollisionDisabled = true
+        Corphish.CollisionDisabled = true
+        Croagunk.CollisionDisabled = true
+        Wigglytuff.CollisionDisabled = true
+        local hTalkKind = SV.Personality.HeroTalkKind
+        local pTalkKind = SV.Personality.PartnerTalkKind
+        local marker = MRKR("Ladder")
+	GROUND:TeleportTo(Croagunk, 220, 204, Direction.Down)
+	GAME:MoveCamera(0, 0, 1, true)
+
+	GAME:FadeIn(20)
+	GROUND:TeleportTo(Bidoof, marker.Position.X, marker.Position.Y, Direction.Down)
+        GROUND:MoveToPosition(Bidoof, marker.Position.X, marker.Position.Y + 140, false, 1)
+        GROUND:CharAnimateTurnTo(Bidoof, Direction.Down, 2)
+        GROUND:TeleportTo(player, marker.Position.X, marker.Position.Y, Direction.Down)
+        GROUND:MoveToPosition(player, marker.Position.X, marker.Position.Y + 110, false, 1)
+        GROUND:MoveToPosition(player, marker.Position.X + 20, marker.Position.Y + 110, false, 1)
+        GROUND:CharAnimateTurnTo(player, Direction.Down, 2)
+        GROUND:TeleportTo(partner, marker.Position.X, marker.Position.Y, Direction.Down)
+        GROUND:MoveToPosition(partner, marker.Position.X, marker.Position.Y + 110, false, 1)
+        GROUND:MoveToPosition(partner, marker.Position.X - 20, marker.Position.Y + 110, false, 1)
+        GROUND:CharAnimateTurnTo(partner, Direction.Down, 2)
+
+	--coroutine begin when text is added
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Bidoof_tutorial_1']))
+        GROUND:CharAnimateTurnTo(Bidoof, Direction.DownRight, 2)
+        GROUND:CharAnimateTurnTo(Bidoof, Direction.DownLeft, 2)
+	--coroutine end, remember to remove all the pauses that text should have stopped for
+
+	GAME:WaitFrames(120)
+	GAME:MoveCamera(-120, 30, 1, true)
+        GROUND:CharAnimateTurnTo(Bidoof, Direction.Left, 2)
+	GAME:WaitFrames(600)
+
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Bidoof_tutorial_1']))
+	--bidoof tears
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Bidoof_tutorial_1']))
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Bidoof_tutorial_1']))
+
+	GAME:MoveCamera(-270, 110, 1, true)
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Bidoof_tutorial_1']))
+	GAME:WaitFrames(600)
+
+	GAME:MoveCamera(190, 110, 1, true)
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Bidoof_tutorial_1']))
+	GAME:WaitFrames(600)
+
+
+	GAME:MoveCamera(60, 0, 1, true)
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Bidoof_tutorial_1']))
+	GAME:WaitFrames(600)
+
+
+	GAME:MoveCamera(0, 0, 1, true)
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Bidoof_tutorial_1']))
+
+        GROUND:MoveToPosition(Bidoof, marker.Position.X, marker.Position.Y, false, 1)
+        GROUND:MoveToPosition(player, marker.Position.X, marker.Position.Y + 110, false, 1)
+        GROUND:MoveToPosition(player, marker.Position.X, marker.Position.Y, false, 1)
+        GROUND:MoveToPosition(partner, marker.Position.X, marker.Position.Y + 110, false, 1)
+        GROUND:MoveToPosition(partner, marker.Position.X, marker.Position.Y, false, 1)
+	--GAME:FadeOut(false, 60)
+	--transition to treasure town
+
+        Chatot.CollisionDisabled = false
+	player.CollisionDisabled = false
+        partner.CollisionDisabled = false
+	Croagunk.CollisionDisabled = false
+	Bidoof.CollisionDisabled = false
+	GAME:CutsceneMode(false)
+
+end
+
+
+function guild_basement.NewDay()
+	player = CH("PLAYER")
+        partner = CH("TEAMMATE_1") --why does this have to be like this?
+        Chatot = CH("Chatot")
+        Loudred = CH("Loudred")
+        Dugtrio = CH("Dugtrio")
+        Diglett= CH("Diglett")
+        Sunflora = CH("Sunflora")
+        Bidoof = CH("Bidoof")
+        Chimecho = CH("Chimecho")
+        Corphish = CH("Corphish")
+        Croagunk = CH("Croagunk")
+        Wigglytuff = CH("Wigglytuff")
+        GAME:CutsceneMode(true)
+	GROUND:TeleportTo(Wigglytuff, 413, 0, Direction.Down)
+	GROUND:Unhide("Wigglytuff")
+        GROUND:Unhide("Sunflora")
+        GROUND:Unhide("Corphish")
+        GROUND:Unhide("Dugtrio")
+        GROUND:Unhide("Diglett")
+        GROUND:Unhide("Chimecho")
+        GROUND:Unhide("Loudred")
+	GROUND:Unhide("Bidoof")
+	partner.CollisionDisabled = true
+        player.CollisionDisabled = true
+        Chatot.CollisionDisabled = true
+        Loudred.CollisionDisabled = true
+        Dugtrio.CollisionDisabled = true
+        Diglett.CollisionDisabled = true
+        Sunflora.CollisionDisabled = true
+        Bidoof.CollisionDisabled = true
+        Chimecho.CollisionDisabled = true
+        Corphish.CollisionDisabled = true
+        Croagunk.CollisionDisabled = true
+        Wigglytuff.CollisionDisabled = true
+
+
+        local hTalkKind = SV.Personality.HeroTalkKind
+        local pTalkKind = SV.Personality.PartnerTalkKind
+        partner.CollisionDisabled = true
+        player.CollisionDisabled = true
+        Chatot.CollisionDisabled = true
+	local cam = MRKR("CamPos_1")
+	GAME:MoveCamera(cam.Position.X + 96, cam.Position.Y, 1, false)
+        local marker = MRKR("Ladder")
+
+	--Everyone assume the position except player
+	GROUND:TeleportTo(Chatot, 447,  210, Direction.Down)
+	GROUND:TeleportTo(Loudred, 413,  261, Direction.Up)
+	GROUND:TeleportTo(Dugtrio, 347,  261, Direction.UpRight)
+	GROUND:TeleportTo(Diglett, 447,  261, Direction.Up)
+	GROUND:TeleportTo(Sunflora, 447, 239, Direction.Up)
+	GROUND:TeleportTo(Bidoof, 413, 239, Direction.Up)
+	GROUND:TeleportTo(Chimecho, 379, 239, Direction.Up)
+	GROUND:TeleportTo(Corphish, 381, 261, Direction.Up)
+	GROUND:TeleportTo(Croagunk, 347, 239, Direction.UpRight)
+	GROUND:TeleportTo(player, 481, 239, Direction.UpLeft)
+	GROUND:TeleportTo(partner, 481, 261, Direction.UpLeft)
+	--UI:SetSpeaker()
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Guild_Cheer_1_']))
+	--UI:SetSpeaker(Chatot)
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_']))
+	GAME:WaitFrames(45)
+	local coro58 = TASK:BranchCoroutine(function() GROUND:CharSetEmote(Chimecho, "happy", 1) end)
+	local coro59 = TASK:BranchCoroutine(function() GROUND:CharSetEmote(Loudred, "happy", 1) end)
+	local coro60 = TASK:BranchCoroutine(function() GROUND:CharSetEmote(Sunflora, "happy", 1) end)
+	local coro61 = TASK:BranchCoroutine(function() GROUND:CharSetEmote(Dugtrio, "happy", 1) end)
+	local coro62 = TASK:BranchCoroutine(function() GROUND:CharSetEmote(Croagunk, "happy", 1) end)
+	local coro63 = TASK:BranchCoroutine(function() GROUND:CharSetEmote(Corphish, "happy", 1) end)
+	local coro64 = TASK:BranchCoroutine(function() GROUND:CharSetEmote(Bidoof, "happy", 1) end)
+	TASK:JoinCoroutines({coro58, coro59, coro60, coro61, coro62, coro63, coro64})
+	--UI:SetSpeaker()
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Guild_Cheer_1_']))
+	--dugtrio and diglett animation here
+	--Time for everyone to leave
+	local coro99 = TASK:BranchCoroutine(function() GROUND:Hide("Dugtrio") end)
+	local coro98 = TASK:BranchCoroutine(function() GROUND:Hide("Diglett") end)
+	TASK:JoinCoroutines({coro99, coro98})
+	
+	local coro3 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(Croagunk, 220, 204, false, 1) end)
+	local coro4 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(Chimecho, 226, 240, false, 1) end)
+	local coro5 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(Loudred, 83, 275, false, 1) end)
+	TASK:JoinCoroutines({coro3, coro4, coro5})
+	GROUND:Hide("Chimecho")
+	GROUND:Hide("Loudred")
+	local marker = MRKR("Ladder")
+	local coro6 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(Sunflora, 317, 174, false, 1) end)
+	local coro7 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(Bidoof, 317, 174, false, 1) end)
+	local coro8 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(Corphish, 317, 174, false, 1) end)
+	local coro9 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(Wigglytuff, 413, 0, false, 1) end)
+	TASK:JoinCoroutines({coro6, coro7, coro8, coro9})
+	GROUND:Hide("Wigglytuff")
+
+	local coro10 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(Sunflora, marker.Position.X, marker.Position.Y, false, 1) end)
+        local coro11 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(Bidoof, marker.Position.X, marker.Position.Y, false, 1) end)
+        local coro12 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(Corphish, marker.Position.X, marker.Position.Y, false, 1) end)
+	TASK:JoinCoroutines({coro10, coro11, coro12})
+	GROUND:Hide("Sunflora")
+	GROUND:Hide("Bidoof")
+	GROUND:Hide("Corphish")
+
+	--Cleanup
+	GROUND:TeleportTo(Croagunk, 220, 204, Direction.Down)
+        Chatot.CollisionDisabled = false
+	player.CollisionDisabled = false
+        partner.CollisionDisabled = false
+	Croagunk.CollisionDisabled = false
+	GAME:MoveCamera(0, 0, 1, true)
+	--return control to player here
+	GAME:CutsceneMode(false)
+	if SV.Progression.Chapter == 3 and SV.Progression.SectionFlag == 2 then
+	SV.Progression.SectionFlag = 3
+	end
+
+end
+
+
+
 
 return guild_basement
-

@@ -43,6 +43,7 @@ function beach.Enter(map)
 		beach.HeroPassesOut()
     end
   end
+SOUND:LoopSE("Ambient/AMB_Ocean")
 end
 
 ---beach.Exit(map)
@@ -52,7 +53,7 @@ function beach.Exit(map)
 	local coro1 = TASK:BranchCoroutine(function() GAME:FadeOut(false, 20) end)
 	local coro2 = TASK:BranchCoroutine(function() SOUND:FadeOutSE("Beach_Noise", 20) end)
 	TASK:JoinCoroutines({coro1, coro2})
-
+SOUND:StopSE("Ambient/AMB_Ocean")
 end
 
 ---beach.Update(map)
@@ -81,6 +82,17 @@ end
 -- Entities Callbacks
 -------------------------------
 
+function beach.Exit_Touch(obj, activator)
+
+GAME:EnterGroundMap("crossroads_south", "BeachEntranceMarker")
+
+end
+
+function beach.Beach_Cave_Entrance_Touch(obj, activator)
+
+GAME:EnterZone('beach_cave', 0, 0, 0)
+
+end
 
 -------------------------------
 -- Cutscene Functions

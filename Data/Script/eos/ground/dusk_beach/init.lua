@@ -29,7 +29,6 @@ function dusk_beach.Init(map)
   
   
   COMMON:RespawnAllies()
-
 end
 
 ---dusk_beach.Enter(map)
@@ -702,7 +701,6 @@ function dusk_beach.CH1_PartnerFindsHero()
 end
 
 function dusk_beach.CH1_ExplorerTeamInvite()
-	
 	local player = CH('PLAYER')
 	local partner = CH('PARTNER')
 	
@@ -711,10 +709,16 @@ function dusk_beach.CH1_ExplorerTeamInvite()
 	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
 	
+	local marker = MRKR("C1S2_CamPos_1")
+	GROUND:TeleportTo(partner, marker.Position.X, marker.Position.Y, Direction.Right)
+        GAME:MoveCamera(marker.Position.X + 40, marker.Position.Y, 1, false)
+	local marker = MRKR("C1S2_CamPos_2")
+	GROUND:TeleportTo(player, marker.Position.X, marker.Position.Y, Direction.Left)
+	GAME:FadeIn(20)
+	SOUND:LoopSE("Ambient/AMB_Ocean")
 	UI:SetSpeaker(partner)
 	UI:SetSpeakerEmotion("Happy")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_1_'..tostring(pTalkKind)]))
-	
 	UI:SetSpeaker('', false, player.CurrentForm.Species, player.CurrentForm.Form, player.CurrentForm.Skin, player.CurrentForm.Gender)
 	UI:SetSpeakerEmotion("Worried")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Hero_1']))
@@ -722,28 +726,41 @@ function dusk_beach.CH1_ExplorerTeamInvite()
 	UI:SetSpeakerEmotion("Happy")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Hero_3']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Hero_4']))
-	
+
+	GROUND:MoveInDirection(partner, Direction.Right, 16, false, 1)
+        SOUND:PlayBattleSE("EVT_CH02_Item_Place")
+        GROUND:TeleportTo(OBJ("RelicFragment"), partner.Position.X + 1, partner.Position.Y, Direction.Right)
+        GAME:WaitFrames(15)
+	GROUND:MoveInDirection(partner, Direction.Left, 32, false, 1)
+	GROUND:CharAnimateTurn(partner, Direction.Right, 4, true)
+        GAME:WaitFrames(30)	
+
 	UI:SetSpeaker(partner)
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_2']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_3']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_4']))
-	
+
 	SOUND:PlayBGM("004 - On the Beach at Dusk.ogg", true)
-	
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_5']))
+	CharacterActions.ScaredJump(partner, Direction.Right)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_6']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_7']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_8']))
+	GROUND:CharAnimateTurn(partner, Direction.Up, 4, true)
 	UI:SetSpeakerEmotion("Inspired")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_9']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_10']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_11_'..tostring(pTalkKind)]))
+	CharacterActions.ScaredJump(partner, Direction.Up)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_12_'..tostring(pTalkKind)]))
+	GROUND:CharAnimateTurn(partner, Direction.Right, 4, true)
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_13_'..tostring(pTalkKind)]))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_14_'..tostring(pTalkKind)]))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_15_'..tostring(pTalkKind)]))
+	GROUND:MoveInDirection(partner, Direction.Right, 8, false, 1)
+	GROUND:MoveInDirection(player, Direction.Left, 8, false, 1)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_16_'..tostring(pTalkKind)]))
 	
 	UI:SetSpeaker('', false, player.CurrentForm.Species, player.CurrentForm.Form, player.CurrentForm.Skin, player.CurrentForm.Gender)
@@ -756,13 +773,17 @@ function dusk_beach.CH1_ExplorerTeamInvite()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_17_'..tostring(pTalkKind)]))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_18']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_19']))
+	CharacterActions.ScaredJump(partner, Direction.Right)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_20']))
+	CharacterActions.ScaredJump(partner, Direction.Right)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_21']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_22']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_23']))
 	UI:SetSpeakerEmotion("Sad")
+	GROUND:CharAnimateTurn(partner, Direction.Down, 4, true)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_24_'..tostring(pTalkKind)]))
 	UI:SetSpeakerEmotion("Worried")
+	GROUND:CharAnimateTurn(partner, Direction.Right, 4, true)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_25'], player:GetDisplayName()))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_26']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_27_'..tostring(pTalkKind)]))
@@ -776,10 +797,12 @@ function dusk_beach.CH1_ExplorerTeamInvite()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_28']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_29_'..tostring(pTalkKind)]))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_30_'..tostring(pTalkKind)], player:GetDisplayName()))
+	CharacterActions.ScaredJump(partner, Direction.Right)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_31_'..tostring(pTalkKind)]))
 	
 	UI:SetSpeaker('', false, player.CurrentForm.Species, player.CurrentForm.Form, player.CurrentForm.Skin, player.CurrentForm.Gender)
 	UI:SetSpeakerEmotion("Surprised")
+	GROUND:CharSetEmote(player, "sweating", 1)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Hero_8_'..tostring(hTalkKind)]))
 	UI:SetSpeakerEmotion("Worried")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Hero_9']))
@@ -798,21 +821,38 @@ function dusk_beach.CH1_ExplorerTeamInvite()
 		--A
 		if result == 1 then --yes
 			continue = true
-			
+
+			UI:SetSpeakerEmotion("Worried")			
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Hero_11A']))
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Hero_12A']))
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Hero_13A'], partner:GetDisplayName()))
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Hero_14A']))
+			UI:SetSpeakerEmotion("Normal")
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Hero_15A']))
+			UI:SetSpeaker(partner)
+			GROUND:CharSetEmote(player, "exclaim", 1)
+			UI:SetSpeakerEmotion("Happy")
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_32A_'..tostring(pTalkKind)]))
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_33A_'..tostring(pTalkKind)]))
+			UI:SetSpeakerEmotion("Inspired")
+			--CharacterActions.ScaredJump(partner, Direction.Right)
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_34A_'..tostring(pTalkKind)]))
+			UI:SetSpeakerEmotion("Normal")
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_35A_'..tostring(pTalkKind)]))
+			GROUND:CharAnimateTurn(partner, Direction.UpRight, 4, true)
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_36A_'..tostring(pTalkKind)], _DATA:GetMonster("wigglytuff"):GetColoredName()))
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_37A_'..tostring(pTalkKind)]))
+			GROUND:CharAnimateTurn(partner, Direction.Right, 4, true)
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_38A_'..tostring(pTalkKind)]))
+			CharacterActions.HopTwice(partner, Direction.Right)
+			UI:SetSpeakerEmotion("Happy")
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_39A_'..tostring(pTalkKind)], player:GetDisplayName()))
-			
+			GROUND:CharAnimateTurn(partner, Direction.Down, 4, true)
+			GROUND:CharAnimateTurn(player, Direction.Down, 4, true)
+			--future raise your hand emote here
+			GROUND:CharSetEmote(player, "glowing", 1)
+			GROUND:CharSetEmote(partner, "glowing", 1)
+			GAME:WaitFrames(120)
 		--B
 		elseif result == 2 then --no
 		
@@ -860,16 +900,19 @@ function dusk_beach.CH1_ExplorerTeamInvite()
 	
 	--narration
 	UI:SetAutoFinish(true)
+	UI:WaitShowBG("Black", 1, 20);
 	UI:WaitShowVoiceOver(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Narration_1']), -1)
 	UI:WaitShowVoiceOver(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Narration_2'], player:GetDisplayName(), partner:GetDisplayName()), -1)
 	UI:WaitShowVoiceOver(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Narration_3']), -1)
 	UI:WaitShowVoiceOver(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Narration_4']), -1)
 	UI:WaitShowVoiceOver(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Narration_5']), -1)
 	UI:WaitShowVoiceOver(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Narration_6']), -1)
+	--chapter 2 start
+	SV.Progression.Chapter = 2
+	UI:WaitHideBG(120);
 	UI:SetAutoFinish(false)
-	
-	--debug end
-	GAME:CutsceneMode(false)
+	--GAME:CutsceneMode(false)
+	SOUND:StopSE("Ambient/AMB_Ocean")
 	GAME:EnterGroundMap("title_catch", "Entrance")
 end
 

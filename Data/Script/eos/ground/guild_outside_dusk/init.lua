@@ -6,6 +6,7 @@
 -- Commonly included lua functions and data
 require 'eos.common'
 require 'eos.CharacterActions'
+require 'eos.ExplorerEssentials'
 
 -- Package name
 local guild_outside_dusk = {}
@@ -26,26 +27,46 @@ function guild_outside_dusk.Init(map)
   --This will fill the localized strings table automatically based on the locale the game is 
   -- currently in. You can use the MapStrings table after this line!
   
-
+COMMON:RespawnAllies()
 end
 
 ---guild_outside_dusk.Enter(map)
 --Engine callback function
 function guild_outside_dusk.Enter(map)
-
+GROUND:Hide("TEAMMATE_2")
 
   if SV.Progression.Chapter == 1 then
 	GAME:CutsceneMode(true)
   
-    guild_outside_dusk.PartnerWimpsOut()
+        guild_outside_dusk.PartnerWimpsOut()
 	
 	GAME:WaitFrames(60)
 	
 	--next scene
 	GAME:EnterGroundMap("dusk_beach", "C1S1_PlayerSpawn")
-	--GAME:RestartToTitle()
 	
   end
+
+  if SV.Progression.Chapter == 2 then
+	GAME:CutsceneMode(true)
+  
+	if SV.Progression.Chapter == 2 and SV.Progression.SectionFlag == 1 then
+	guild_outside_dusk.Chapter2Scene1()
+	GAME:WaitFrames(60)
+	--next scene
+	--GAME:EnterGroundMap("guild_under_grate", "CH2_SentryView") TODO
+	SV.Progression.SectionFlag = 2 -- remove this
+	end
+
+	if SV.Progression.Chapter == 2 and SV.Progression.SectionFlag == 2 then
+	guild_outside_dusk.Chapter2Scene2()
+	--GAME:EnterGroundMap("guild_topfloor", "Entrance") TODO
+	SV.Progression.SectionFlag = 11 -- remove this
+	GAME:EnterZone('hub', -1, 5, 0) -- remove this
+	end
+	
+  end
+
 
 end
 
@@ -257,6 +278,147 @@ function guild_outside_dusk.PartnerWimpsOut()
 										end)
 	TASK:JoinCoroutines({coro1, coro2, coro3, coro4})
 end
+
+function guild_outside_dusk.Chapter2Scene1()
+
+	local player = CH("PLAYER")
+	local partner = CH("TEAMMATE_1") --why does this have to be like this?
+	
+	local hTalkKind = SV.Personality.HeroTalkKind
+	local pTalkKind = SV.Personality.PartnerTalkKind
+	
+	local cam = MRKR("CamPos_1")
+        GAME:MoveCamera(cam.Position.X, cam.Position.Y, 1, false)
+	local marker = MRKR("CH1_ZubatPos")
+        GROUND:TeleportTo(player, marker.Position.X, marker.Position.Y, Direction.Up)
+	local marker = MRKR("CH1_KoffingPos")
+        GROUND:TeleportTo(partner, marker.Position.X, marker.Position.Y, Direction.Up)
+
+	
+	--UI:SetSpeaker(partner)
+	--UI:SetSpeakerEmotion("Normal")
+        --UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_1']))
+	GROUND:CharAnimateTurnTo(player, Direction.Left, 2)	
+	GROUND:CharAnimateTurnTo(partner, Direction.Right, 2)
+        --UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_2']))
+        --UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_3']))
+	GROUND:CharAnimateTurnTo(player, Direction.Up, 2)	
+	GROUND:CharAnimateTurnTo(partner, Direction.Up, 2)
+	--UI:SetSpeakerEmotion("Worried")
+        --UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_4']))
+	GROUND:CharAnimateTurnTo(player, Direction.Left, 2)	
+	GROUND:CharAnimateTurnTo(partner, Direction.Right, 2)
+        --UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_5']))
+	GROUND:CharAnimateTurnTo(player, Direction.Up, 2)	
+	GROUND:CharAnimateTurnTo(partner, Direction.Up, 2)
+	--UI:SetSpeakerEmotion("Determined")
+        --UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_5']))
+	CharacterActions.ScaredJump(partner, Direction.Up)
+        --UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_6']))
+	GROUND:MoveToPosition(partner, marker.Position.X + 16, marker.Position.Y - 12, false, 1)
+	GROUND:MoveToPosition(partner, marker.Position.X + 16, marker.Position.Y - 24, false, 1)
+
+	UI:ResetSpeaker()
+	GROUND:CharSetEmote(partner, "shock", 1)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_Unknown_1']))		
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_Unknown_2']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_Unknown_3'], _DATA:GetMonster(GAME:GetPlayerPartyMember(1).CurrentForm.Species):GetColoredName()))
+	--UI:SetSpeaker(partner)
+	--UI:SetSpeakerEmotion("Worried")
+        --UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_7']))
+	--UI:SetSpeakerEmotion("Normal")
+        --UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_8']))
+	--UI:ResetSpeaker()
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Unknown_1'])) --you may enter dialoge
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Unknown_2']))
+	GROUND:MoveToPosition(partner, marker.Position.X - 24, marker.Position.Y - 24, false, 1)
+        GROUND:CharAnimateTurnTo(partner, Direction.Right, 2)
+        GROUND:CharAnimateTurnTo(partner, Direction.DownRight, 2)
+	GROUND:CharSetEmote(partner, "sweating", 1)
+	--UI:SetSpeaker(partner)
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_9']))
+        GROUND:CharAnimateTurnTo(partner, Direction.Right, 2)
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_10']))
+        GROUND:CharAnimateTurnTo(partner, Direction.DownRight, 2)
+	--UI:SetSpeaker(player)
+	--UI:SetSpeakerEmotion("Normal")
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Player_1']))
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Player_2']))
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Player_3']))
+	--UI:SetSpeakerEmotion("Worried")
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Player_4']))
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Player_5']))
+	--UI:ResetSpeaker()
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Unknown_3']))
+	GROUND:MoveToPosition(player, marker.Position.X + 16, marker.Position.Y - 12, false, 1)
+        GROUND:MoveToPosition(player, marker.Position.X + 16, marker.Position.Y - 24, false, 1)
+        GROUND:CharAnimateTurnTo(partner, Direction.Right, 2)
+	
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_Unknown_1']))
+        CharacterActions.ScaredJump(player, Direction.Up)
+
+        --UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_Unknown_2']))
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Unknown_4']))
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Unknown_5']))
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Unknown_6']))
+	--UI:ResetSpeaker()
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Diglett_1']))
+	--insert transition to underground of the grate here
+	--for now
+	--SV.Chapter2.SentryGrate = 1
+end
+
+function guild_outside_dusk.Chapter2Scene2()
+
+	local player = CH("PLAYER")
+	local partner = CH("TEAMMATE_1") --why does this have to be like this?
+	
+	local hTalkKind = SV.Personality.HeroTalkKind
+	local pTalkKind = SV.Personality.PartnerTalkKind
+	
+	local cam = MRKR("CamPos_1")
+        GAME:MoveCamera(cam.Position.X, cam.Position.Y, 1, false)
+	local marker = MRKR("CH1_ZubatPos")
+        GROUND:TeleportTo(player, marker.Position.X - 16, marker.Position.Y - 24, Direction.Up)
+	local marker = MRKR("CH1_KoffingPos")
+        GROUND:TeleportTo(partner, marker.Position.X - 24, marker.Position.Y - 24, Direction.Right)
+	GROUND:CharSetEmote(player, "sweatdrop", 1)
+	GROUND:CharSetEmote(partner, "sweatdrop", 1)
+	GROUND:CharAnimateTurnTo(player, Direction.Left, 2)
+	--UI:SetSpeaker(partner)
+	--UI:SetSpeakerEmotion("Worried")
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_11']))
+	--UI:ResetSpeaker()
+        --UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Unknown_7']))
+	GROUND:CharSetEmote(player, "notice", 1)
+	GROUND:CharSetEmote(player, "notice", 1)
+	GROUND:CharAnimateTurnTo(player, Direction.Up, 2)
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Unknown_8']))
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Unknown_9']))
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Unknown_10']))
+	--gate opens here somehow
+	GROUND:CharAnimateTurnTo(partner, Direction.UpRight, 2)
+	CharacterActions.ScaredJump(partner, Direction.Up)
+	GROUND:CharSetEmote(player, "shock", 1)
+	GROUND:CharAnimateTurnTo(partner, Direction.Right, 2)
+	GROUND:CharAnimateTurnTo(player, Direction.Left, 2)
+	--UI:SetSpeaker(partner)
+	--UI:SetSpeakerEmotion("Shock")
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_12']))
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_13']))
+	--UI:SetSpeakerEmotion("Normal")
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_14']))
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_15']))
+	GROUND:MoveToPosition(player, marker.Position.X + 16, marker.Position.Y - 40, false, 1)	
+	GROUND:Hide("PLAYER")
+	GROUND:MoveToPosition(partner, marker.Position.X + 16, marker.Position.Y - 24, false, 1)	
+	GROUND:MoveToPosition(partner, marker.Position.X + 16, marker.Position.Y - 40, false, 1)	
+	GROUND:Hide("TEAMMATE_1")
+	--GAME:FadeOut(false, 60)
+	--jump to scene inside top of guild
+
+end
+
 
 
 return guild_outside_dusk

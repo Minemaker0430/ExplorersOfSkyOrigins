@@ -56,6 +56,11 @@ function beach_cave_pit.Enter(map)
 	beach_cave_pit.NothingHere()
   end
 
+  if not SV.Progression.Chapter == 1 then
+
+	beach_cave_pit.NothingHere()
+  end	
+
 end
 
 ---beach_cave_pit.Exit(map)
@@ -106,6 +111,9 @@ function beach_cave_pit.NothingHere()
   
 	SOUND:PlayBGM("006 - In the Depths of the Pit.ogg", true)
 	GAME:FadeIn(20)
+	GAME:CutsceneMode(false)
+	GAME:EndDungeonRun(RogueEssence.Data.GameProgress.ResultType.Cleared, "hub", -1, 5, 3, true, true)
+	GAME:EnterZone('hub', -1, 5, GuildHallwayEntranceMarker) --Time to do this lol, gameplay loop achieved
 end
 
 function beach_cave_pit.EncounterBoss()
@@ -313,18 +321,28 @@ function beach_cave_pit.BossDefeated()
 	
 	GROUND:TeleportTo(partner, koffing.Position.X, koffing.Position.Y + 48, Direction.Up)
 	GROUND:TeleportTo(player, zubat.Position.X, koffing.Position.Y + 48, Direction.Up)
-	
+	GROUND:CharAnimateTurnTo(koffing, Direction.Down, 4)
+	GROUND:CharAnimateTurnTo(zubat, Direction.Down, 4)
+	--GROUND:CharSetAnim(koffing, "Laying", true)
+	--GROUND:CharSetAnim(zubat, "Laying", true)
 	SOUND:PlayBGM("006 - In the Depths of the Pit.ogg", true)
 	GAME:FadeIn(20)
 	
 	UI:SetSpeaker(koffing)
 	UI:SetSpeakerEmotion("Normal")
+	GROUND:CharSetEmote(koffing, "sweating", 1)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['S3_Koffing_1']))
 	
 	UI:SetSpeaker(zubat)
 	UI:SetSpeakerEmotion("Normal")
+	GROUND:CharSetEmote(zubat, "sweating", 1)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['S3_Zubat_1']))
 	
+	GAME:FadeOut(false, 1)	
+	GAME:FadeIn(10)
+	--GROUND:CharSetAnim(koffing, "Normal", true)
+	--GROUND:CharSetAnim(zubat, "Normal", true)
+
 	UI:SetSpeaker(koffing)
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['S3_Koffing_2']))
@@ -332,22 +350,81 @@ function beach_cave_pit.BossDefeated()
 	UI:SetSpeaker(zubat)
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['S3_Zubat_2']))
+
+	GROUND:CharAnimateTurnTo(zubat, Direction.DownLeft, 4)
+	--animate the relic fragement later
+	local relic = OBJ('RelicFragment')
+	GROUND:TeleportTo(relic, zubat.Position.X + 8, zubat.Position.Y + 12, Direction.Down) --relic fragment
+	GROUND:MoveObjectToPosition(relic, zubat.Position.X - 24, zubat.Position.Y + 16, 4)
+	GAME:WaitFrames(10)
+	GROUND:MoveObjectToPosition(relic, zubat.Position.X - 24, zubat.Position.Y + 24, 4)
+	GAME:WaitFrames(10)
+	GROUND:MoveObjectToPosition(relic, zubat.Position.X - 24, zubat.Position.Y + 28, 4)
+	GAME:WaitFrames(10)
+	GROUND:MoveObjectToPosition(relic, zubat.Position.X - 24, zubat.Position.Y + 32, 4)
 	
+	GROUND:CharAnimateTurnTo(player, Direction.UpLeft, 4)
+	GROUND:CharAnimateTurnTo(partner, Direction.UpRight, 4)
+	GROUND:CharSetEmote(partner, "notice", 1)
+	GROUND:CharAnimateTurnTo(zubat, Direction.Down, 4)
+
 	UI:SetSpeaker(koffing)
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['S3_Koffing_3']))
+
+	GROUND:CharAnimateTurnTo(partner, Direction.Up, 4)
+	GROUND:CharAnimateTurnTo(player, Direction.Up, 4)
 	
 	UI:SetSpeaker(zubat)
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['S3_Zubat_3']))
 	
+	--insert funny sound here
+	GROUND:MoveInDirection(koffing, Direction.DownLeft, 20, false, 2)
+	GROUND:MoveInDirection(zubat, Direction.DownRight, 20, false, 2)
+
+	GROUND:CharAnimateTurnTo(partner, Direction.UpLeft, 4)
+        GROUND:CharAnimateTurnTo(player, Direction.UpRight, 4)
+
+	GROUND:MoveInDirection(koffing, Direction.Down, 32, false, 2)
+	GROUND:MoveInDirection(zubat, Direction.Down, 32, false, 2)
+
+	GROUND:CharAnimateTurnTo(partner, Direction.Left, 4)
+        GROUND:CharAnimateTurnTo(player, Direction.Right, 4)
+
+	GROUND:MoveInDirection(koffing, Direction.Down, 32, false, 2)
+	GROUND:MoveInDirection(zubat, Direction.Down, 32, false, 2)
+
+	GROUND:CharAnimateTurnTo(partner, Direction.DownLeft, 4)
+        GROUND:CharAnimateTurnTo(player, Direction.DownRight, 4)
+
+	GROUND:MoveInDirection(koffing, Direction.Down, 32, false, 2)
+	GROUND:MoveInDirection(zubat, Direction.Down, 32, false, 2)
+
+	GROUND:CharAnimateTurnTo(partner, Direction.Down, 4)
+        GROUND:CharAnimateTurnTo(player, Direction.Down, 4)
+
+	GROUND:CharAnimateTurnTo(partner, Direction.UpRight, 4)
+        GROUND:CharAnimateTurnTo(player, Direction.UpLeft, 4)
+
+	GROUND:MoveInDirection(partner, Direction.UpRight, 5, false, 2)
+
 	UI:SetSpeaker(partner)
-	UI:SetSpeakerEmotion("Normal")
+	UI:SetSpeakerEmotion("Happy")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['S3_Partner_1']))
+
+	GROUND:MoveInDirection(partner, Direction.UpRight, 5, false, 2)
+	GROUND:Hide("RelicFragment")
+	--SOUND:PlayBattleSE("EVT_CH02_Item_PickUp") --correct sound goes here
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['S3_Partner_2_'..tostring(pTalkKind)]))
+	GROUND:CharAnimateTurnTo(partner, Direction.DownRight, 4)
+	UI:SetSpeakerEmotion("Inspired")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['S3_Partner_3_'..tostring(pTalkKind)], player:GetDisplayName()))
+	CharacterActions.ScaredJump(partner, Direction.DownRight)
+	UI:SetSpeakerEmotion("Happy")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['S3_Partner_4_'..tostring(pTalkKind)], player:GetDisplayName()))
-	
+	GAME:FadeOut(false, 1)
+	GAME:WaitFrames(30)
 	GAME:CutsceneMode(false)
 	GAME:EndDungeonRun(RogueEssence.Data.GameProgress.ResultType.Cleared, "cutscenes", -1, 6, 0, true, true)	
 	GAME:EnterZone("cutscenes", -1, 6, 0)	
