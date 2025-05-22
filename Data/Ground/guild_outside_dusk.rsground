@@ -44214,8 +44214,8 @@
 "triggerType": 0,
 "EntityCallbacks": [],
 "Collider": {
-"X": 231,
-"Y": 392,
+"X": 213,
+"Y": 414,
 "Width": 16,
 "Height": 16
 }
@@ -44302,8 +44302,8 @@
 "triggerType": 0,
 "EntityCallbacks": [],
 "Collider": {
-"X": 247,
-"Y": 392,
+"X": 250,
+"Y": 414,
 "Width": 16,
 "Height": 16
 }

@@ -100431,9 +100431,9 @@
 "Y": 0
 },
 "Collider": {
-"X": 206,
+"X": 152,
 "Y": 0,
-"Width": 16,
+"Width": 128,
 "Height": 16
 }
 },
@@ -100475,9 +100475,9 @@
 },
 "Collider": {
 "X": 0,
-"Y": 242,
+"Y": 193,
 "Width": 16,
-"Height": 16
+"Height": 128
 }
 }
 ],
@@ -100491,8 +100491,8 @@
 "InteractOrder": 0,
 "triggerType": 0,
 "Collider": {
-"X": 18,
-"Y": 241,
+"X": 24,
+"Y": 240,
 "Width": 16,
 "Height": 16
 }
@@ -100505,8 +100505,8 @@
 "InteractOrder": 0,
 "triggerType": 0,
 "Collider": {
-"X": 207,
-"Y": 18,
+"X": 208,
+"Y": 24,
 "Width": 16,
 "Height": 16
 }

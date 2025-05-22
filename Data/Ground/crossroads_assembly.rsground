@@ -165777,10 +165777,10 @@
 "Y": 0
 },
 "Collider": {
-"X": 207,
-"Y": 1,
-"Width": 16,
-"Height": 16
+"X": 184,
+"Y": -17,
+"Width": 64,
+"Height": 32
 }
 },
 {
@@ -165820,10 +165820,10 @@
 "Y": 0
 },
 "Collider": {
-"X": 1,
-"Y": 187,
+"X": 0,
+"Y": 156,
 "Width": 16,
-"Height": 16
+"Height": 64
 }
 },
 {
@@ -165863,10 +165863,53 @@
 "Y": 0
 },
 "Collider": {
-"X": 203,
+"X": 152,
 "Y": 440,
-"Width": 16,
+"Width": 128,
 "Height": 16
+}
+},
+{
+"EntName": "DungeonEntrance",
+"Direction": 0,
+"EntEnabled": true,
+"EntOrder": 0,
+"InteractOrder": 0,
+"triggerType": 2,
+"ObjectAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "",
+"FrameTime": 1,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": -1,
+"Alpha": 255,
+"AnimFlip": 0
+},
+"Passable": false,
+"CurrentAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "",
+"FrameTime": 1,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": -1,
+"Alpha": 255,
+"AnimFlip": 0
+},
+"AnimTime": {
+"Ticks": 0
+},
+"Cycles": 0,
+"DrawOffset": {
+"X": 0,
+"Y": 0
+},
+"Collider": {
+"X": 416,
+"Y": 156,
+"Width": 32,
+"Height": 64
 }
 }
 ],
@@ -165880,8 +165923,8 @@
 "InteractOrder": 0,
 "triggerType": 0,
 "Collider": {
-"X": 203,
-"Y": 423,
+"X": 208,
+"Y": 408,
 "Width": 16,
 "Height": 16
 }
@@ -165894,8 +165937,8 @@
 "InteractOrder": 0,
 "triggerType": 0,
 "Collider": {
-"X": 18,
-"Y": 186,
+"X": 24,
+"Y": 184,
 "Width": 16,
 "Height": 16
 }
@@ -165908,8 +165951,8 @@
 "InteractOrder": 0,
 "triggerType": 0,
 "Collider": {
-"X": 206,
-"Y": 18,
+"X": 208,
+"Y": 23,
 "Width": 16,
 "Height": 16
 }
