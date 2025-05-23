@@ -58,4 +58,841 @@
   <resheader name="writer">
     <value>System.Resources.NetStandard.ResXResourceWriter, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </resheader>
+  <data name="Appraisal_Bag_Empty" xml:space="preserve">
+    <value>What?[pause=0] You don't have any items,[pause=10] let alone any boxes. </value>
+  </data>
+  <data name="Appraisal_Choose" xml:space="preserve">
+    <value>Pick the box you want opened. (You can use {0} to choose multiple items.)</value>
+  </data>
+  <data name="Appraisal_Choose_Multi" xml:space="preserve">
+    <value>I can crack them all open for [color=#00FFFF]{0}[color] \uE024.</value>
+  </data>
+  <data name="Appraisal_Choose_One" xml:space="preserve">
+    <value>I can crack open that {1} for [color=#00FFFF]{0}[color] \uE024.</value>
+  </data>
+  <data name="Appraisal_End" xml:space="preserve">
+    <value>There ya go.[pause=0] Check out the loot!</value>
+  </data>
+  <data name="Appraisal_Goodbye" xml:space="preserve">
+    <value>Come back if you got any more locks that need picking!</value>
+  </data>
+  <data name="Appraisal_Info_001" xml:space="preserve">
+    <value>I'm sure you've...[pause=20] "come across" some boxes in your travels, yea?</value>
+  </data>
+  <data name="Appraisal_Info_002" xml:space="preserve">
+    <value>And while your skillset may include fighting,[pause=10] it doesn't include lockpicking,[pause=10] right?</value>
+  </data>
+  <data name="Appraisal_Info_003" xml:space="preserve">
+    <value>That's where me and my claws come in.</value>
+  </data>
+  <data name="Appraisal_Info_004" xml:space="preserve">
+    <value>I'll open any box you bring me and give ya the contents,[pause=10] just [color=#00FFFF]150[color] \uE024 each for my troubles.</value>
+  </data>
+  <data name="Appraisal_Intro" xml:space="preserve">
+    <value>Got any boxes you need opened? Just [color=#00FFFF]150[color] \uE024 each.</value>
+  </data>
+  <data name="Appraisal_No_Money" xml:space="preserve">
+    <value>This ain't a charity service.[pause=0] Either get some \uE024 or don't come back!</value>
+  </data>
+  <data name="Appraisal_Option_Open" xml:space="preserve">
+    <value>Open Boxes</value>
+  </data>
+  <data name="Appraisal_Return" xml:space="preserve">
+    <value>Anything else you need?</value>
+  </data>
+  <data name="Appraisal_Start" xml:space="preserve">
+    <value>This'll only take a moment.</value>
+  </data>
+  <data name="NPC_Aggron_1" xml:space="preserve">
+    <value>Hmm...[pause=0] I could have sworn the dojo was supposed to be around here...</value>
+  </data>
+  <data name="NPC_Aggron_2" xml:space="preserve">
+    <value>Excuse me,[pause=10] do you know where the Ledian Dojo is located?[pause=0] I can't seem to find it.</value>
+  </data>
+  <data name="NPC_Aggron_3" xml:space="preserve">
+    <value>Ah,[pause=10] thank you young ones,[pause=10] that makes more sense.</value>
+  </data>
+  <data name="NPC_Aggron_4" xml:space="preserve">
+    <value>Perhaps I will see you youngsters training there in the future!</value>
+  </data>
+  <data name="NPC_Aggron_Response_1" xml:space="preserve">
+    <value>Ledian Dojo?[pause=0] That's south of here.[pause=0] When you see a Slowpoke hut,[pause=10]</value>
+  </data>
+  <data name="NPC_Aggron_Response_2" xml:space="preserve">
+    <value>go west a bit,[pause=10] and you should see the staircase to the dojo.</value>
+  </data>
+  <data name="NPC_Cacnea_1" xml:space="preserve">
+    <value>poop</value>
+  </data>
+  <data name="NPC_Electrike_1" xml:space="preserve">
+    <value>Hey, you two are leaving for your expedition today,[pause=10] right?</value>
+  </data>
+  <data name="NPC_Electrike_2" xml:space="preserve">
+    <value>Please take me with you,[pause=10] I can't take these two anymore.</value>
+  </data>
+  <data name="NPC_Emote_Test_1" xml:space="preserve">
+    <value>I am now going to do every emotion portrait I possibly can.</value>
+  </data>
+  <data name="NPC_Emote_Test_2" xml:space="preserve">
+    <value>poop</value>
+  </data>
+  <data name="NPC_Furret_1" xml:space="preserve">
+    <value>Ah...[pause=0] This is my favorite place to snooze \u266A</value>
+  </data>
+  <data name="NPC_Glameow_1" xml:space="preserve">
+    <value>diapers</value>
+  </data>
+  <data name="NPC_Luxio_1" xml:space="preserve">
+    <value>[player],[pause=10] [partner].[pause=0] You guys are leaving on the guild expedition today,[pause=10] right?</value>
+  </data>
+  <data name="NPC_Luxio_2" xml:space="preserve">
+    <value>You're lucky to be in the guild.[pause=0] Team Style just works with the guild,[pause=10] so we aren't allowed to go on it.</value>
+  </data>
+  <data name="NPC_Luxio_3" xml:space="preserve">
+    <value>I have to admit,[pause=10] I'm a little jealous.[pause=0] Ah well,[pause=10] good luck to you both.</value>
+  </data>
+  <data name="NPC_Magby_1" xml:space="preserve">
+    <value>Haha,[pause=10] you're gonna be it,[pause=10] [oddish]!</value>
+  </data>
+  <data name="NPC_Magmortar_1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="NPC_Meditite_1" xml:space="preserve">
+    <value>..................................</value>
+  </data>
+  <data name="NPC_Meditite_2" xml:space="preserve">
+    <value>...ZZZzzz...</value>
+  </data>
+  <data name="NPC_Meditite_3" xml:space="preserve">
+    <value>(It looks as though they've fallen asleep while meditating.)</value>
+  </data>
+  <data name="NPC_Oddish_1" xml:space="preserve">
+    <value>Careful [magby]!![pause=0] You're gonna burn my hair again!</value>
+  </data>
+  <data name="NPC_Squirtle_1" xml:space="preserve">
+    <value>Hey, have either of you two seen Ana anywhere?[pause=0] She wasn't around today when I woke up.</value>
+  </data>
+  <data name="NPC_Woopers_Intro_1" xml:space="preserve">
+    <value>What do you want to do today,[pause=10] Dun?</value>
+  </data>
+  <data name="NPC_Woopers_Intro_2" xml:space="preserve">
+    <value>I don't know,[pause=10] what do you want to do today,[pause=10] Dee?</value>
+  </data>
+  <data name="NPC_Woopers_Intro_3" xml:space="preserve">
+    <value>I don't know,[pause=10] what do you want to do today,[pause=10] Dun?</value>
+  </data>
+  <data name="NPC_Woopers_Intro_4" xml:space="preserve">
+    <value>I don't know,[pause=10] what do-</value>
+  </data>
+  <data name="NPC_Woopers_Intro_5" xml:space="preserve">
+    <value>Will you two PLEASE STOP.</value>
+  </data>
+  <data name="NPC_Woopers_Intro_6" xml:space="preserve">
+    <value>We will never figure out what we're doing today if you two keep going back and forth like that!</value>
+  </data>
+  <data name="NPC_Woopers_Intro_7" xml:space="preserve">
+    <value>I just wanna know what Dun wants to do today!</value>
+  </data>
+  <data name="NPC_Woopers_Intro_8" xml:space="preserve">
+    <value>And I just wanna know what Dee wants to today!</value>
+  </data>
+  <data name="NPC_Woopers_Intro_9" xml:space="preserve">
+    <value>Ugh...</value>
+  </data>
+  <data name="Shop_Bag_Empty" xml:space="preserve">
+    <value>Oh?[pause=0] You have no items to sell!</value>
+  </data>
+  <data name="Shop_Bag_Full" xml:space="preserve">
+    <value>Oh![pause=0] You have no space for my wares!</value>
+  </data>
+  <data name="Shop_Buy" xml:space="preserve">
+    <value>Very well! Feel free to examine my merchandise! (You can use {0} to choose multiple items.)</value>
+  </data>
+  <data name="Shop_Buy_Complete" xml:space="preserve">
+    <value>Thank you! It's all yours! \u266a</value>
+  </data>
+  <data name="Shop_Buy_Empty" xml:space="preserve">
+    <value>I'm all sold out![pause=0] Please forgive me.[pause=0] Come see me tomorrow! \u266a</value>
+  </data>
+  <data name="Shop_Buy_Multi" xml:space="preserve">
+    <value>Altogether, that comes to [color=#00FFFF]{0}[color] \uE024. Is that OK?</value>
+  </data>
+  <data name="Shop_Buy_No_Money" xml:space="preserve">
+    <value>What?[pause=0] You don't seem to have the funds.</value>
+  </data>
+  <data name="Shop_Goodbye" xml:space="preserve">
+    <value>Thanks! Please come again! \u266A</value>
+  </data>
+  <data name="Shop_Info_001" xml:space="preserve">
+    <value>This is the Kecleon Shop,[pause=10] ran by my brother and I.</value>
+  </data>
+  <data name="Shop_Info_002" xml:space="preserve">
+    <value>The items I sell are useful for dungeon expeditions![pause=0] You should always be prepared when exploring! \u266a</value>
+  </data>
+  <data name="Shop_Info_003" xml:space="preserve">
+    <value>We restock our wares daily,[pause=10] so come check our wares each and every day!</value>
+  </data>
+  <data name="Shop_Info_004" xml:space="preserve">
+    <value>We even have markets inside of some mystery dungeons,[pause=10] so you can visit us anywhere! \u266a</value>
+  </data>
+  <data name="Shop_Info_005" xml:space="preserve">
+    <value>After all,[pause=10] it is the job of us salesmen to bring the goods you need no matter where you are! \u266a</value>
+  </data>
+  <data name="Shop_Intro" xml:space="preserve">
+    <value>Hello! \u266A \n Welcome to the Kecleon Shop! \u266A</value>
+  </data>
+  <data name="Shop_Intro_Return" xml:space="preserve">
+    <value>May I help you with anything else?</value>
+  </data>
+  <data name="Shop_Option_Buy" xml:space="preserve">
+    <value>Buy</value>
+  </data>
+  <data name="Shop_Option_Sell" xml:space="preserve">
+    <value>Sell</value>
+  </data>
+  <data name="Shop_Sell" xml:space="preserve">
+    <value>Very well! What will you sell? (You can use {0} to choose multiple items.)</value>
+  </data>
+  <data name="Shop_Sell_Multi" xml:space="preserve">
+    <value>I can pay [color=#00FFFF]{0}[color] \uE024 for everything. Is that acceptable?</value>
+  </data>
+  <data name="Shop_Sell_One" xml:space="preserve">
+    <value>I can pay [color=#00FFFF]{0}[color] \uE024 for that {1}. Is that acceptable?</value>
+  </data>
+  <data name="Tutor_Forget_Success" xml:space="preserve">
+    <value>Ok... {0} forgot {1}...</value>
+  </data>
+  <data name="Tutor_Forget_What" xml:space="preserve">
+    <value>Uh... What move is {0} forgetting...?</value>
+  </data>
+  <data name="Tutor_Forget_Who" xml:space="preserve">
+    <value>Uh... Who do I need to help forget a move...?</value>
+  </data>
+  <data name="Tutor_Goodbye" xml:space="preserve">
+    <value>We're done...? Come again if you need help with moves...</value>
+  </data>
+  <data name="Tutor_Info_001" xml:space="preserve">
+    <value>Uh...[pause=0] Forgotten things you need to know...[pause=0] Like I often do...?</value>
+  </data>
+  <data name="Tutor_Info_002" xml:space="preserve">
+    <value>For no cost at all, I can remind you of any level-up move you've forgotten...</value>
+  </data>
+  <data name="Tutor_Info_003" xml:space="preserve">
+    <value>I can also help you forget moves...[pause=0] I'm pretty good at forgetting, after all...</value>
+  </data>
+  <data name="Tutor_Intro" xml:space="preserve">
+    <value>Hey... Need to relearn any moves...? Or maybe you need to forget some...?</value>
+  </data>
+  <data name="Test_Free_Items" xml:space="preserve">
+    <value>Ho ho ho, have some items.[pause=0] Debug, and all that.</value>
+  </data>
+  <data name="Tutor_Cant_Forget" xml:space="preserve">
+    <value>Hey...[pause=0] {0} has no moves to forget...</value>
+  </data>
+  <data name="Tutor_Cant_Remember" xml:space="preserve">
+    <value>Hey...[pause=0] {0} has no moves to remember...</value>
+  </data>
+  <data name="Tutor_Forget_Begin" xml:space="preserve">
+    <value>Ok... Let me see now...</value>
+  </data>
+  <data name="Tutor_Intro_Return" xml:space="preserve">
+    <value>Uh... Was there anything else...?</value>
+  </data>
+  <data name="Tutor_No_Money" xml:space="preserve">
+    <value>Hey...[pause=0] You don't have enough \uE024...</value>
+  </data>
+  <data name="Tutor_Option_Tutor" xml:space="preserve">
+    <value>Tutor</value>
+  </data>
+  <data name="Tutor_Remember_Begin" xml:space="preserve">
+    <value>Ok... What was that move like again...?</value>
+  </data>
+  <data name="Tutor_Remember_Replace" xml:space="preserve">
+    <value>Uh... {0} has too many moves...[pause=0]\nPick one to replace...</value>
+  </data>
+  <data name="Tutor_Remember_Success" xml:space="preserve">
+    <value>Ok... {0} learned how to use {1} again...</value>
+  </data>
+  <data name="Tutor_Remember_What" xml:space="preserve">
+    <value>Uh... What move did {0} want to remember again...?</value>
+  </data>
+  <data name="Tutor_Remember_Who" xml:space="preserve">
+    <value>Uh... Who's remembering a move now...?</value>
+  </data>
+  <data name="Music_Intro" xml:space="preserve">
+    <value>Hello there! \u266A\nFancy a music change? </value>
+  </data>
+  <data name="Music_End" xml:space="preserve">
+    <value>Speak with me anytime you'd like a change in music! \u266A</value>
+  </data>
+  <data name="Sign_Guild_Bridge_1" xml:space="preserve">
+    <value>North: Adventurer's Guild\nEast: Marketplace</value>
+  </data>
+  <data name="Sign_Crossroads_1" xml:space="preserve">
+    <value>Metano Town\nThe ever-evolving village</value>
+  </data>
+  <data name="Sign_Crossroads_2" xml:space="preserve">
+    <value>North: Housing\nEast: Adventurer's Guild, Marketplace</value>
+  </data>
+  <data name="Sign_Crossroads_3" xml:space="preserve">
+    <value>South: Altere Pond</value>
+  </data>
+  <data name="Sign_Dojo_1" xml:space="preserve">
+    <value>Train your body, mind, and soul! Ledian Dojo</value>
+  </data>
+  <data name="Sign_To_Dungeons_1" xml:space="preserve">
+    <value>East: Exploration</value>
+  </data>
+  <data name="Sign_Wishing_Well_1" xml:space="preserve">
+    <value>Metano Town Wishing Well\nToss in a \uE024 and make a wish! </value>
+  </data>
+  <data name="Sign_To_Spring_1" xml:space="preserve">
+    <value>North: Luminous Spring</value>
+  </data>
+  <data name="Swap_Info_001" xml:space="preserve">
+    <value>I'm a treasure collector,[pause=10] and I'm always looking for new treasures,[pause=10] ook.</value>
+  </data>
+  <data name="Test_Intro_Cutscene" xml:space="preserve">
+    <value>Here's what the intro cutscene looks like...</value>
+  </data>
+  <data name="Swap_Choose" xml:space="preserve">
+    <value>Here are today's swap offers,[pause=10] ook.</value>
+  </data>
+  <data name="Swap_Complete_001" xml:space="preserve">
+    <value>I'll take your items into my tails,[pause=10] ook!</value>
+  </data>
+  <data name="Swap_Complete_002" xml:space="preserve">
+    <value>And here's my end of the bargain,[pause=10] ook.</value>
+  </data>
+  <data name="Swap_Confirm_001" xml:space="preserve">
+    <value>That'll be your {0} for my {1},[pause=10] ook.</value>
+  </data>
+  <data name="Swap_Confirm_002" xml:space="preserve">
+    <value>This trade will cost [color=#00FFFF]{0}[color] \uE024. [pause=0] is that okay,[pause=10] ook?</value>
+  </data>
+  <data name="Swap_Give" xml:space="preserve">
+    <value>{0} accepted the {1}!</value>
+  </data>
+  <data name="Swap_Give_Choose" xml:space="preserve">
+    <value>A {0}?[pause=0] What will you swap for me in exchange,[pause=10] ook?</value>
+  </data>
+  <data name="Swap_Goodbye" xml:space="preserve">
+    <value>Come back again whenever you want to swap,[pause=10] ook!</value>
+  </data>
+  <data name="Swap_Info_002" xml:space="preserve">
+    <value>I'm willing to part with some of my collection, in exchange for some of your own treasures,[pause=10] ook.</value>
+  </data>
+  <data name="Swap_Info_003" xml:space="preserve">
+    <value>The treasures I offer change with each day,[pause=10] so come see me often,[pause=10] ook!</value>
+  </data>
+  <data name="Swap_Intro" xml:space="preserve">
+    <value>Welcome to the Swap Shop.[pause=10] Got any treasures to swap,[pause=10] ook?</value>
+  </data>
+  <data name="Swap_Intro_Return" xml:space="preserve">
+    <value>Is there anything else,[pause=10] ook?</value>
+  </data>
+  <data name="Swap_Option_Swap" xml:space="preserve">
+    <value>Swap</value>
+  </data>
+  <data name="NPC_Delcatty_1" xml:space="preserve">
+    <value>Oh,[pause=10] I just love the Metano Market![pause=0] There are so many vendors to see \u266A</value>
+  </data>
+  <data name="NPC_Delcatty_2" xml:space="preserve">
+    <value>My favorite place...[pause=0] Dion's Café has lots of tasty treats and Pokémon to meet!</value>
+  </data>
+  <data name="NPC_Delcatty_3" xml:space="preserve">
+    <value>There's the local Kecleon's shop.[pause=0] Those two buy and sell all sorts of useful items!</value>
+  </data>
+  <data name="NPC_Delcatty_4" xml:space="preserve">
+    <value>Over here is Mama (kanga name)'s storage.[pause=0] She can safeguard your items for you.</value>
+  </data>
+  <data name="NPC_Delcatty_5" xml:space="preserve">
+    <value>Right here is (murkrow name)'s Bank.[pause=0] He will watch over your money and keep it safe.</value>
+  </data>
+  <data name="NPC_Delcatty_6" xml:space="preserve">
+    <value>Over there is (sneasel)'s stand...[pause=0] He's shady if you ask me,[pause=10] but he can open any lock.</value>
+  </data>
+  <data name="NPC_Delcatty_7" xml:space="preserve">
+    <value>That's (slowpoke).[pause=0] He can help you remember or forget moves.</value>
+  </data>
+  <data name="NPC_Delcatty_8" xml:space="preserve">
+    <value>And there's (ambi)'s Swap Shop.[pause=0] He's the Pokémon to talk to for Exclusive items.</value>
+  </data>
+  <data name="NPC_Delcatty_9" xml:space="preserve">
+    <value>There are some other services around town,[pause=10] so be sure to explore!</value>
+  </data>
+  <data name="NPC_Psyduck_1" xml:space="preserve">
+    <value>There are so many choices on this menu...</value>
+  </data>
+  <data name="NPC_Psyduck_2" xml:space="preserve">
+    <value>It's giving me a headache.</value>
+  </data>
+  <data name="NPC_Munchlax_1" xml:space="preserve">
+    <value>Dion's Cafe has a different special everyday.</value>
+  </data>
+  <data name="NPC_Munchlax_2" xml:space="preserve">
+    <value>My favorite is the White Gummi.[pause=0] I wish they were always available.</value>
+  </data>
+  <data name="NPC_Lickitung_1" xml:space="preserve">
+    <value>Me and (munchlax) like to come to Dion's often.[pause=0] He loves the food but...</value>
+  </data>
+  <data name="NPC_Lickitung_2" xml:space="preserve">
+    <value>My tongue's so long that it touches the ground.[pause=0] All I can taste is dirt.</value>
+  </data>
+  <data name="NPC_Shop_Intro_1" xml:space="preserve">
+    <value>Let's see...[pause=0] Apples...[pause=0] Leppas...[pause=0] Orans...</value>
+  </data>
+  <data name="NPC_Shop_Intro_2" xml:space="preserve">
+    <value>I think that's everything I needed![pause=0] Thank you (kecleon).</value>
+  </data>
+  <data name="NPC_Shop_Intro_3" xml:space="preserve">
+    <value>No,[pause=10] thank you for your kind patronage,[pause=10] my dear (manetric) \u266A</value>
+  </data>
+  <data name="NPC_Shop_Intro_4" xml:space="preserve">
+    <value>Until next time,[pause=10] (kecleon).</value>
+  </data>
+  <data name="NPC_Shop_Intro_5" xml:space="preserve">
+    <value>Oh,[pause=10] pardon me.[pause=0] Are you here to shop,[pause=10] too?</value>
+  </data>
+  <data name="NPC_Shop_Intro_6" xml:space="preserve">
+    <value>The Kecleon Brothers are a wonderful bunch.[pause=0] I do all my family's grocery shopping with them.</value>
+  </data>
+  <data name="NPC_Shop_Intro_7" xml:space="preserve">
+    <value>I'll be on my way home now.[pause=0] See you later!</value>
+  </data>
+  <data name="NPC_Shop_Intro_8" xml:space="preserve">
+    <value>Ah,[pause=10] that (manetric) is one of our most valued customers...</value>
+  </data>
+  <data name="NPC_Shop_Intro_9" xml:space="preserve">
+    <value>Anyway...[pause=0] You two are here to shop,[pause=10] yes?</value>
+  </data>
+  <data name="Cutscene_Intro_Partner_1" xml:space="preserve">
+    <value>Welp,[pause=10] tomorrow's the big day.[pause=0] The expedition...</value>
+  </data>
+  <data name="Cutscene_Intro_Partner_2" xml:space="preserve">
+    <value>I'm excited for it and all,[pause=10] but I have butterflies in my stomach too.</value>
+  </data>
+  <data name="Cutscene_Intro_Partner_3" xml:space="preserve">
+    <value>We've only been a team for a few months now,[pause=10] so the guild allowing us to come is surprising.</value>
+  </data>
+  <data name="Cutscene_Intro_Partner_4" xml:space="preserve">
+    <value>They usually don't invite rookies to go on expeditions.[pause=0] I guess I'm worried about living up to expectations.</value>
+  </data>
+  <data name="Cutscene_Intro_Partner_5" xml:space="preserve">
+    <value>Maybe I'm just thinking about it too much though.</value>
+  </data>
+  <data name="Cutscene_Intro_Partner_6" xml:space="preserve">
+    <value>If Trevion has faith in us,[pause=10] then I think we'll do just fine.</value>
+  </data>
+  <data name="Cutscene_Intro_Partner_7" xml:space="preserve">
+    <value>Anyways... Like (noctowl) said,[pause=10] we'll need to be prepared for a long journey.</value>
+  </data>
+  <data name="Cutscene_Intro_Partner_8" xml:space="preserve">
+    <value>Let's go into town and get everything we need.[pause=0] We should see what we have in storage before we shop.</value>
+  </data>
+  <data name="Red_Merchant_Intro" xml:space="preserve">
+    <value>Welcome to {0}'s Wares, what can I do for you?</value>
+  </data>
+  <data name="Red_Merchant_Intro_Return_Happy" xml:space="preserve">
+    <value>Anything else I can do for you two?</value>
+  </data>
+  <data name="Red_Merchant_Intro_Return" xml:space="preserve">
+    <value>Anything else?</value>
+  </data>
+  <data name="Red_Merchant_Intro_Happy" xml:space="preserve">
+    <value>Hey hey! Welcome back to {0}'s Wares!</value>
+  </data>
+  <data name="Red_Merchant_Intro_Angry" xml:space="preserve">
+    <value>What do YOU two want?</value>
+  </data>
+  <data name="Red_Merchant_No_Stock" xml:space="preserve">
+    <value>Sorry,[pause=10] you've cleaned out today's stock.[pause=0] Come again tomorrow.</value>
+  </data>
+  <data name="Red_Merchant_Refuse_Service" xml:space="preserve">
+    <value>You chose {0}'s overpriced junk over my well-priced wares.[pause=0] Get lost.</value>
+  </data>
+  <data name="Red_Merchant_Daily_Item" xml:space="preserve">
+    <value>Today's item is {2} {0} and it'll set you back [color=#00FFFF]{1}[color] \uE024, that alright with you?</value>
+  </data>
+  <data name="Red_Merchant_No_Money" xml:space="preserve">
+    <value>Hey,[pause=10] looks like you don't have the cash to buy my wares.</value>
+  </data>
+  <data name="Red_Merchant_Bag_Full" xml:space="preserve">
+    <value>Hey,[pause=10] looks like your bag is full.[pause=0] Come back after you've made space.</value>
+  </data>
+  <data name="Red_Merchant_Purchase_Made" xml:space="preserve">
+    <value>Thank you for your purchase![pause=0] I know you'd choose my wares!</value>
+  </data>
+  <data name="Red_Merchant_Info_Angry" xml:space="preserve">
+    <value>I'm not telling you anything,[pause=10] I saw you buy {0}'s junk.[pause=0] Get out of my sight.</value>
+  </data>
+  <data name="Red_Merchant_Info_1" xml:space="preserve">
+    <value>Here at {0}'s,[pause=10] I sell useful items for adventurers like you two each day.</value>
+  </data>
+  <data name="Red_Merchant_Info_2" xml:space="preserve">
+    <value>My stocks are more limited that I would like to admit,[pause=10] so I only sell one item per day.</value>
+  </data>
+  <data name="Red_Merchant_Info_3" xml:space="preserve">
+    <value>However,[pause=10] you'll get that item for much cheaper than if you had gone to the Kecleon Shop to buy it.</value>
+  </data>
+  <data name="Red_Merchant_Info_4" xml:space="preserve">
+    <value>Oh,[pause=10] but if I see you buying from that snob {0},[pause=10] you can forget doing business with me.</value>
+  </data>
+  <data name="Red_Merchant_Info_5" xml:space="preserve">
+    <value>I don't wanna see your faces again if I catch you doing that!</value>
+  </data>
+  <data name="Red_Merchant_Info_Happy_1" xml:space="preserve">
+    <value>As you already know,[pause=10] I sell wonderful items here each day.</value>
+  </data>
+  <data name="Red_Merchant_Info_Happy_2" xml:space="preserve">
+    <value>You bought all of my stock today,[pause=10] but I'll have more tomorrow,[pause=10] valued shoppers!</value>
+  </data>
+  <data name="Red_Merchant_Info_Happy_3" xml:space="preserve">
+    <value>If only I could sell more than one item per day to clients like you...</value>
+  </data>
+  <data name="Red_Merchant_Info_Happy_4" xml:space="preserve">
+    <value>You knew a good deal when you saw it,[pause=10] which is why you came to me and not that snoot {0}.</value>
+  </data>
+  <data name="Red_Merchant_Info_Happy_5" xml:space="preserve">
+    <value>If you buy from him,[pause=10] you can forget about buying anything from me.[pause=0] But that won't happen,[pause=10] right?</value>
+  </data>
+  <data name="Red_Merchant_Goodbye_Angry" xml:space="preserve">
+    <value>Yeah,[pause=10] you better leave if you know what's good for you.</value>
+  </data>
+  <data name="Red_Merchant_Goodbye_Happy" xml:space="preserve">
+    <value>Until next time![pause=0] Hope to do business with you again tomorrow!</value>
+  </data>
+  <data name="Red_Merchant_Goodbye" xml:space="preserve">
+    <value>Come back soon!</value>
+  </data>
+  <data name="Merchant_Option_Deal" xml:space="preserve">
+    <value>Deal</value>
+  </data>
+  <data name="Shop_Buy_One" xml:space="preserve">
+    <value>{2} {1}? That will be [color=#00FFFF]{0}[color] \uE024.</value>
+  </data>
+  <data name="Shop_Sell_Complete" xml:space="preserve">
+    <value>A done deal! \u266A\n Thank you \u266A</value>
+  </data>
+  <data name="Green_Merchant_Intro" xml:space="preserve">
+    <value>Welcome to {0}'s Curios, where wonderous equipment is found!</value>
+  </data>
+  <data name="Green_Merchant_Intro_Return_Happy" xml:space="preserve">
+    <value>How else may I be of service, my valued customers?</value>
+  </data>
+  <data name="Green_Merchant_Intro_Return" xml:space="preserve">
+    <value>Is there anything else today, my friends?</value>
+  </data>
+  <data name="Green_Merchant_Intro_Happy" xml:space="preserve">
+    <value>Ah, welcome, my valued customers, to {0}'s Curios! How may I be of service to you?</value>
+  </data>
+  <data name="Green_Merchant_Intro_Angry" xml:space="preserve">
+    <value>You dare show your faces to me!?</value>
+  </data>
+  <data name="Green_Merchant_No_Stock" xml:space="preserve">
+    <value>Apologies,[pause=10] but I have nothing else for purchase today.[pause=0] Visit again tomorrow for more of my fine wares!</value>
+  </data>
+  <data name="Green_Merchant_Refuse_Service" xml:space="preserve">
+    <value>You have the gall to try to purchase my wares after consorting with that fiend over there!?[pause=0] Away with you!</value>
+  </data>
+  <data name="Green_Merchant_Daily_Item" xml:space="preserve">
+    <value>For sale today, I have {2} {0}.\nIt costs [color=#00FFFF]{1}[color] \uE024, is that acceptable?</value>
+  </data>
+  <data name="Green_Merchant_No_Money" xml:space="preserve">
+    <value>Sorry,[pause=10] my friends,[pause=10] but you don't have enough money!</value>
+  </data>
+  <data name="Green_Merchant_Bag_Full" xml:space="preserve">
+    <value>Sorry,[pause=10] my friends,[pause=10] but your bag is full!</value>
+  </data>
+  <data name="Green_Merchant_Purchase_Made" xml:space="preserve">
+    <value>Thank you for your business,[pause=10] my esteemed patrons![pause=0]\nI knew you would make the right choice!</value>
+  </data>
+  <data name="Green_Merchant_Info_Angry" xml:space="preserve">
+    <value>Why not go ask {0} about his "great" deals,[pause=10] hmm!?</value>
+  </data>
+  <data name="Green_Merchant_Info_Happy_1" xml:space="preserve">
+    <value>As you may already know,[pause=10] esteemed patrons,[pause=10] I sell a rare held item here daily.</value>
+  </data>
+  <data name="Green_Merchant_Info_Happy_2" xml:space="preserve">
+    <value>Being so rare,[pause=10] I regret to say I can only sell you one item a day,[pause=10] so visit each day to check my stock.</value>
+  </data>
+  <data name="Green_Merchant_Info_Happy_3" xml:space="preserve">
+    <value>Much of my stock cannot be found elsewhere,[pause=10] and so is worth every \uE024!</value>
+  </data>
+  <data name="Green_Merchant_Info_Happy_4" xml:space="preserve">
+    <value>I am pleased to see that you have the smarts to patronize my business rather than that crook's over there.</value>
+  </data>
+  <data name="Green_Merchant_Info_Happy_5" xml:space="preserve">
+    <value>I would not like to think about the words I would say to those who choose his garbage over my fine goods.</value>
+  </data>
+  <data name="Green_Merchant_Info_1" xml:space="preserve">
+    <value>I,[pause=10] {0},[pause=10] sell a different held item here each day.</value>
+  </data>
+  <data name="Green_Merchant_Info_2" xml:space="preserve">
+    <value>Due to the rare nature of my items,[pause=10] I only have one item in stock per day.[pause=0] Visit often to see what I carry!</value>
+  </data>
+  <data name="Green_Merchant_Info_3" xml:space="preserve">
+    <value>Many of my items cannot be found anywhere else,[pause=10] and are well worth their weight in \uE024!</value>
+  </data>
+  <data name="Green_Merchant_Info_4" xml:space="preserve">
+    <value>I trust that you will buy from me and not that charlatan {0}...</value>
+  </data>
+  <data name="Green_Merchant_Info_5" xml:space="preserve">
+    <value>If you buy anything from him,[pause=10] you can forget getting any of my precious equipment!</value>
+  </data>
+  <data name="Green_Merchant_Goodbye_Angry" xml:space="preserve">
+    <value>Feh! Tasteless heathens...</value>
+  </data>
+  <data name="Green_Merchant_Goodbye_Happy" xml:space="preserve">
+    <value>Until next time, my valued customers!</value>
+  </data>
+  <data name="Green_Merchant_Goodbye" xml:space="preserve">
+    <value>Until next time, my friends!</value>
+  </data>
+  <data name="test" xml:space="preserve">
+    <value>test</value>
+  </data>
+  <data name="Storage_Intro" xml:space="preserve">
+    <value>Hello, dear! Welcome to Kangaskhan Storage.</value>
+  </data>
+  <data name="Storage_Intro_Return" xml:space="preserve">
+    <value>Anything else, sweetie?</value>
+  </data>
+  <data name="Storage_Store" xml:space="preserve">
+    <value>What items would you like to store?\n (You can use {0} to choose multiple items.)</value>
+  </data>
+  <data name="Storage_Stored_Items" xml:space="preserve">
+    <value>Stored away! Your items are safe with me, dearie.</value>
+  </data>
+  <data name="Storage_Withdraw" xml:space="preserve">
+    <value>What items would you like to take out?\n (You can use {0} to choose multiple items.)</value>
+  </data>
+  <data name="Storage_Withdrew_Items" xml:space="preserve">
+    <value>Here you are, dearie!</value>
+  </data>
+  <data name="Storage_Info_1" xml:space="preserve">
+    <value>I can safeguard any items you just can't bear to lose.</value>
+  </data>
+  <data name="Storage_Info_2" xml:space="preserve">
+    <value>When you faint in dungeons,[pause=10] most of your items will be lost...</value>
+  </data>
+  <data name="Storage_Info_3" xml:space="preserve">
+    <value>But items you keep with me will be safe![pause=0] Nothing gets past this momma's watchful eye!</value>
+  </data>
+  <data name="Storage_Info_4" xml:space="preserve">
+    <value>You can come see me anytime you want to take items out of storage.</value>
+  </data>
+  <data name="Storage_Info_5" xml:space="preserve">
+    <value>If you find a Storage Box out in the field,[pause=10] you can access my storage with those as well.</value>
+  </data>
+  <data name="Storage_Goodbye" xml:space="preserve">
+    <value>Thanks, sweetie! Come again!</value>
+  </data>
+  <data name="Bank_Intro" xml:space="preserve">
+    <value>Welcome to Krow Bank...\nYour balance is [color=#00FFFF]{0}[color] \uE024, how can I serve you today?</value>
+  </data>
+  <data name="Bank_Intro_Return" xml:space="preserve">
+    <value>Will there be anything else today?</value>
+  </data>
+  <data name="Bank_Interact" xml:space="preserve">
+    <value>Allow me to open up your account...</value>
+  </data>
+  <data name="Bank_Stored_Money" xml:space="preserve">
+    <value>Yes,[pause=10] [color=#00FFFF]{0}[color] \uE024...[pause=0] Come to me,[pause=10] my shinies!</value>
+  </data>
+  <data name="Bank_Withdrew_Money" xml:space="preserve">
+    <value>[color=#00FFFF]{0}[color] \uE024 for you...[pause=0] Goodbye,[pause=10] my precious shinies...</value>
+  </data>
+  <data name="Bank_Canceled" xml:space="preserve">
+    <value>No transaction then?[pause=0] Very well.</value>
+  </data>
+  <data name="Bank_Info_1" xml:space="preserve">
+    <value>When you fall in dungeons,[pause=10] most of your money will be lost forever...</value>
+  </data>
+  <data name="Bank_Info_2" xml:space="preserve">
+    <value>You can avoid that tragedy by leaving it with me instead.</value>
+  </data>
+  <data name="Bank_Info_3" xml:space="preserve">
+    <value>I'll hold onto your money,[pause=10] so even if you are defeated in a dungeon,[pause=10] it will be safe with me.</value>
+  </data>
+  <data name="Bank_Info_4" xml:space="preserve">
+    <value>You can use Storage Boxes in the field as well to access your bank account.</value>
+  </data>
+  <data name="Bank_Goodbye" xml:space="preserve">
+    <value>Until next time...</value>
+  </data>
+  <data name="Cafe_Intro" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cafe_Intro_Return" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cafe_Option_Drink" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cafe_Option_Special" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cafe_Drink" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cafe_Setting_Up" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cafe_Bought_Special" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cafe_Daily_Special" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cafe_No_Money" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cafe_Bag_Full" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cafe_Special_Complete" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cafe_Info_1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cafe_Info_2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cafe_Info_3" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cafe_Info_4" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cafe_Info_5" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cafe_Goodbye" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TM_Shop_Bag_Empty" xml:space="preserve">
+    <value>Oh?[pause=0] You have nothing to sell me!</value>
+  </data>
+  <data name="TM_Shop_Bag_Full" xml:space="preserve">
+    <value>Oh?[pause=0] You have no room for my wares!</value>
+  </data>
+  <data name="TM_Shop_Buy" xml:space="preserve">
+    <value>Very well! Feel free to examine my merchandise! (You can use {0} to choose multiple items.)</value>
+  </data>
+  <data name="TM_Shop_Buy_Complete" xml:space="preserve">
+    <value>Thank you! It's all yours, my friends! \u266a</value>
+  </data>
+  <data name="TM_Shop_Buy_Empty" xml:space="preserve">
+    <value>I'm all sold out![pause=0] Forgive me my friends.[pause=0] Come back tomorrow! \u266a</value>
+  </data>
+  <data name="TM_Shop_Buy_Multi" xml:space="preserve">
+    <value>Altogether, that will cost you [color=#00FFFF]{0}[color] \uE024. Is that acceptable?</value>
+  </data>
+  <data name="TM_Shop_Buy_No_Money" xml:space="preserve">
+    <value>What?[pause=0] You don't have enough money.</value>
+  </data>
+  <data name="TM_Shop_Goodbye" xml:space="preserve">
+    <value>Thank you friends! Please come again \u266a</value>
+  </data>
+  <data name="TM_Shop_Info_001" xml:space="preserve">
+    <value>Pokémon moves...[pause=0] They are beautiful![pause=0] Powerful![pause=0] Elegant![pause=0] Each so amazing in their own way!</value>
+  </data>
+  <data name="TM_Shop_Info_002" xml:space="preserve">
+    <value>I sell Technical Machines,[pause=10] or TMs for short,[pause=10] that will teach you new moves!</value>
+  </data>
+  <data name="TM_Shop_Info_003" xml:space="preserve">
+    <value>Punch![pause=0] Breathe fire![pause=0] Quake the earth itself![pause=0] Moves allow you to do so much!</value>
+  </data>
+  <data name="TM_Shop_Info_004" xml:space="preserve">
+    <value>I also sell Wands and Orbs that allow you to manipulate your foes and yourselves in many clever ways!</value>
+  </data>
+  <data name="TM_Shop_Info_005" xml:space="preserve">
+    <value>So friends, please![pause=0] Shop with us![pause=0] My brother and I are waiting here for you! \u266a</value>
+  </data>
+  <data name="TM_Shop_Intro" xml:space="preserve">
+    <value>Hello friends, and welcome to Kecleon Wares, where you can find Orbs, Wands, and TMs!</value>
+  </data>
+  <data name="TM_Shop_Intro_Return" xml:space="preserve">
+    <value>Is there anything else I can assist you with?</value>
+  </data>
+  <data name="TM_Shop_Option_Buy" xml:space="preserve">
+    <value>Buy</value>
+  </data>
+  <data name="TM_Shop_Option_Sell" xml:space="preserve">
+    <value>Sell</value>
+  </data>
+  <data name="TM_Shop_Sell" xml:space="preserve">
+    <value>Very well! What will you sell? (You can use {0} to choose multiple items.)</value>
+  </data>
+  <data name="TM_Shop_Sell_Multi" xml:space="preserve">
+    <value>I can pay [color=#00FFFF]{0}[color] \uE024 for all of that. Is that acceptable?</value>
+  </data>
+  <data name="TM_Shop_Sell_One" xml:space="preserve">
+    <value>I can [color=#00FFFF]{0}[color] \uE024 for that {1}. Is that acceptable?</value>
+  </data>
+  <data name="TM_Shop_Buy_One" xml:space="preserve">
+    <value>{2} {1} will cost you [color=#00FFFF]{0}[color] \uE024.</value>
+  </data>
+  <data name="TM_Shop_Sell_Complete" xml:space="preserve">
+    <value>Another closed sale! \u266a Thank you my friends! \u266a</value>
+  </data>
+  <data name="Assembly_Intro" xml:space="preserve">
+    <value>Welcome to the [color=#00FF00]Audino[color] Assembly! </value>
+  </data>
+  <data name="Assembly_Intro_Return" xml:space="preserve">
+    <value>Is there anything e-else I can help with?</value>
+  </data>
+  <data name="Assembly_Goodbye" xml:space="preserve">
+    <value>So long! Good luck w-with your adventures!</value>
+  </data>
+  <data name="Assembly_Option_Members" xml:space="preserve">
+    <value>Members</value>
+  </data>
+  <data name="Assembly_Members_Shuffled" xml:space="preserve">
+    <value>Just shuffling party order around?[pause=0] No problem!</value>
+  </data>
+  <data name="Assembly_Leader_Changed" xml:space="preserve">
+    <value>{0}{1} will become the leader of the party{2}</value>
+  </data>
+  <data name="Assembly_Members_Added" xml:space="preserve">
+    <value>{0}{1} will be added to the party{2}</value>
+  </data>
+  <data name="Assembly_Members_Removed" xml:space="preserve">
+    <value>{0}{1} will be removed from the party{2}</value>
+  </data>
+  <data name="Assembly_Make_Changes" xml:space="preserve">
+    <value>Alright! With a ring of this bell I'll change your party accordingly!</value>
+  </data>
+  <data name="Assembly_Make_Changes_Done" xml:space="preserve">
+    <value>All done!</value>
+  </data>
+  <data name="Assembly_Info_001" xml:space="preserve">
+    <value>I'm s-sure you've wanted to have other Pokémon besides the two of you on adventures,[pause=10] right?</value>
+  </data>
+  <data name="Assembly_Info_002" xml:space="preserve">
+    <value>With my assembly,[pause=10] you can add or remove anyone you have recruited with Apricorns to your team for adventures!</value>
+  </data>
+  <data name="Assembly_Info_003" xml:space="preserve">
+    <value>Any team members you choose for an adventure will wait at the café for you!</value>
+  </data>
+  <data name="Assembly_Info_004" xml:space="preserve">
+    <value>Of course,[pause=10] you two will always be on the active team.[pause=0] You wouldn't want to miss out on any adventures,[pause=10] r-right?</value>
+  </data>
+  <data name="Assembly_Info_005" xml:space="preserve">
+    <value>Just know that sometimes only the two of you will be allowed on an adventure!</value>
+  </data>
+  <data name="Assembly_Info_006" xml:space="preserve">
+    <value>By the way,[pause=10] Pokémon names colored like [color=#00FF00]this[color] instead of [color=#00FFFF]this[color] are species you've already recruited!</value>
+  </data>
+  <data name="Assembly_Info_007" xml:space="preserve">
+    <value>Oh,[pause=10] one more thing![pause=0] You can also ring the signpost by the café to call me to use the assembly!</value>
+  </data>
+  <data name="Assembly_Info_008" xml:space="preserve">
+    <value>My e-ears are really sensitive,[pause=10] so I'll hear the bell and come running!</value>
+  </data>
+  <data name="Storage_Stored_All_Items" xml:space="preserve">
+    <value>All your unequipped items are stored away! They're safe with me, dearie.</value>
+  </data>
 </root>

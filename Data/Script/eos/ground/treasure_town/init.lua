@@ -5,8 +5,11 @@
 ]]--
 -- Commonly included lua functions and data
 require 'eos.common'
-
+require 'eos.CharacterActions'
+require 'eos.ExplorerEssentials'
+require 'eos.GeneralFunctions'
 -- Package name
+
 local treasure_town = {}
 
 -- Local, localized strings table
@@ -21,11 +24,31 @@ local treasure_town = {}
 ---treasure_town.Init(map)
 --Engine callback function
 function treasure_town.Init(map)
+        player = CH("PLAYER")
+        partner = CH("TEAMMATE_1") --why does this have to be like this?
+        Bidoof = CH("Bidoof")
+	Marill = CH("Marill")
+	Azurill = CH("Azurill")
+
+	Murkrow = CH("Murkrow")
+	Shuppet = CH("Shuppet")
+	Vigoroth = CH("Vigoroth")
+	Kangaskhan = CH("Kangaskhan")
+	Xatu = CH("Xatu")
+	Kecleon = CH("Kecleon")
+	KecleonShiny = CH("KecleonShiny")
+	Wurmple = CH("Wurmple")
+	Swellow = CH("Swellow")
+	Electivire = CH("Electivire")
+	Corphish = CH("Corphish")
+	Pidgey = CH("Pidgey")
+	Seedot = CH("Seedot")
+	Duskull = CH("Duskull")	
+
 
   --This will fill the localized strings table automatically based on the locale the game is 
   -- currently in. You can use the MapStrings table after this line!
-  
-
+COMMON:RespawnAllies()  
 end
 
 ---treasure_town.Enter(map)
@@ -33,6 +56,19 @@ end
 function treasure_town.Enter(map)
 
   GAME:FadeIn(20)
+
+
+  if SV.Progression.Chapter == 3 then
+	GROUND:Hide("Electivire")
+	GROUND:Hide("Xatu")
+        if SV.Progression.SectionFlag == 6 then
+        treasure_town.CH2BidoofTutorialScene5()
+        end
+
+  end
+
+  GAME:FadeIn(20)
+
 
 end
 
@@ -69,6 +105,862 @@ end
 -- Entities Callbacks
 -------------------------------
 
+--Begin a gargantuane amount of callbacks and complicated logic, from left to right
+
+--talkable monsters
+
+function treasure_town.Murkrow_Action(obj, activator)
+
+end
+
+function treasure_town.Shuppet_Action(obj, activator)
+
+end
+
+function treasure_town.Vigoroth_Action(obj, activator)
+
+end
+
+function treasure_town.Wurmple_Action(obj, activator)
+
+end
+
+function treasure_town.Swellow_Action(obj, activator)
+
+end
+
+function treasure_town.Corphish_Action(obj, activator)
+
+end
+
+function treasure_town.Pidgey_Action(obj, activator)
+
+end
+
+function treasure_town.Seedot_Action(obj, activator)
+
+end
+
+function treasure_town.Duskull_Action(obj, activator)
+
+end
+
+
+-----------------------
+-- Shop/Useful NPCs
+-----------------------
+
+--Shamelessly borrowed from halycon, THANK YOU SO MUCH
+
+function treasure_town.Shop_Action(obj, activator)
+  DEBUG.EnableDbgCoro() --Enable debugging this coroutine
+
+  local state = 0
+  local repeated = false
+  local cart = {}
+  local catalog = {}
+
+  --generate stock if it hasn't been for the day 
+  if not SV.DailyFlags.GreenKecleonStockedRefreshed then
+        treasure_town.GenerateGreenKecleonStock()
+  end
+
+  --populate the catalog of items to buy using the generated stock. Item and hidden (amount of items in the stack typically) are grabbed from the item's predefined values in the item editor
+  for ii = 1, #SV.DailyFlags.GreenKecleonStock, 1 do
+        local itemEntry = RogueEssence.Data.DataManager.Instance:GetItem(SV.DailyFlags.GreenKecleonStock[ii])
+        local item = RogueEssence.Dungeon.InvItem(SV.DailyFlags.GreenKecleonStock[ii], false, itemEntry.MaxStack)
+
+        --item price is 5 times the sell value. 
+        local item_data = { Item = item, Price = item:GetSellValue() * 5 }
+        table.insert(catalog, item_data)
+  end
+
+
+  local hero = CH('PLAYER')
+  local partner = CH('TEAMMATE_1')
+  local chara = CH('Kecleon')
+  chara.IsInteracting = true
+  partner.IsInteracting = true
+  UI:SetSpeaker(chara)
+
+  GROUND:CharSetAnim(partner, 'None', true)
+  GROUND:CharSetAnim(hero, 'None', true)
+  --put kec in first frame of walk to simulate explorers behavior
+  GROUND:CharSetAction(chara, RogueEssence.Ground.FrameGroundAction(chara.Position, chara.Direction, RogueEssence.Content.GraphicsManager.GetAnimIndex("Walk"), 0))
+
+  GROUND:CharTurnToChar(hero, chara)
+  local coro1 = TASK:BranchCoroutine(function() GROUND:CharTurnToCharAnimated(partner, chara, 4) end)
+  while state > -1 do
+                if state == 0 then
+                        local msg = STRINGS:Format(STRINGS.MapStrings['Shop_Intro'])
+                        if repeated then
+                                msg = STRINGS:Format(STRINGS.MapStrings['Shop_Intro_Return'])
+                        end
+                        local shop_choices = {STRINGS:Format(STRINGS.MapStrings['Shop_Option_Buy']), STRINGS:Format(STRINGS.MapStrings['Shop_Option_Sell']),
+                        STRINGS:FormatKey("MENU_INFO"),
+                        STRINGS:FormatKey("MENU_EXIT")}
+                        UI:BeginChoiceMenu(msg, shop_choices, 1, 4)
+                        UI:WaitForChoice()
+                        local result = UI:ChoiceResult()
+                        repeated = true
+                        if result == 1 then
+                                if #catalog > 0 then
+                                        --TODO: use the enum instead of a hardcoded number
+                                        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Buy'], STRINGS:LocalKeyString(26)))
+                                        state = 1
+                                else
+                                        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Buy_Empty']))
+                                end
+                        elseif result == 2 then
+                                local bag_count = GAME:GetPlayerBagCount()
+                                if bag_count > 0 then
+                                        --TODO: use the enum instead of a hardcoded number
+                                        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Sell'], STRINGS:LocalKeyString(26)))
+                                        state = 3
+                                else
+                                        UI:SetSpeakerEmotion("Angry")
+                                        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Bag_Empty']))
+                                        UI:SetSpeakerEmotion("Normal")
+                                end
+                        elseif result == 3 then
+                                UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Info_001']))
+                                UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Info_002']))
+                                UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Info_003']))
+                                UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Info_004']))
+                                UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Info_005']))
+                        else
+                                UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Goodbye']))
+                                state = -1
+                        end
+                elseif state == 1 then
+                        UI:ShopMenu(catalog)
+                        UI:WaitForChoice()
+                        local result = UI:ChoiceResult()
+			if #result > 0 then
+                                local bag_count = GAME:GetPlayerBagCount() + GAME:GetPlayerEquippedCount()
+                                local bag_cap = GAME:GetPlayerBagLimit()
+                                if bag_count == bag_cap then
+                                        UI:SetSpeakerEmotion("Angry")
+                                        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Bag_Full']))
+                                        UI:SetSpeakerEmotion("Normal")
+                                else
+                                        cart = result
+                                        state = 2
+                                end
+                        else
+                                state = 0
+                        end
+                elseif state == 2 then
+                        local total = 0
+                        for ii = 1, #cart, 1 do
+                                total = total + catalog[cart[ii]].Price
+                        end
+                        local msg
+                        if total > GAME:GetPlayerMoney() then
+                                UI:SetSpeakerEmotion("Angry")
+                                UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Buy_No_Money']))
+                                UI:SetSpeakerEmotion("Normal")
+                                state = 1
+                        else
+                                if #cart == 1 then
+                                        local name = catalog[cart[1]].Item:GetDisplayName()
+                                        msg = STRINGS:Format(STRINGS.MapStrings['Shop_Buy_One'], total, name, GeneralFunctions.GetItemArticle(catalog[cart[1]].Item, true))
+                                else
+                                        msg = STRINGS:Format(STRINGS.MapStrings['Shop_Buy_Multi'], total)
+                                end
+                                UI:ChoiceMenuYesNo(msg, false)
+                                UI:WaitForChoice()
+                                result = UI:ChoiceResult()
+
+                                if result then
+                                        GAME:RemoveFromPlayerMoney(total)
+                                        for ii = 1, #cart, 1 do
+                                                local item = catalog[cart[ii]].Item
+                                                GAME:GivePlayerItem(item.ID, item.Amount)
+						end
+                                        for ii = #cart, 1, -1 do
+                                                table.remove(catalog, cart[ii])
+                                                table.remove(SV.DailyFlags.GreenKecleonStock, cart[ii])
+                                        end
+
+                                        cart = {}
+                                        SOUND:PlayBattleSE("DUN_Money")
+                                        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Buy_Complete']))
+                                        state = 0
+                                else
+                                        state = 1
+                                end
+                        end
+                elseif state == 3 then
+                        UI:SellMenu()
+                        UI:WaitForChoice()
+                        local result = UI:ChoiceResult()
+
+                        if #result > 0 then
+                                cart = result
+                                state = 4
+                        else
+                                state = 0
+                        end
+                elseif state == 4 then
+                        local total = 0
+                        for ii = 1, #cart, 1 do
+                                local item
+                                if cart[ii].IsEquipped then
+                                        item = GAME:GetPlayerEquippedItem(cart[ii].Slot)
+                                else
+                                        item = GAME:GetPlayerBagItem(cart[ii].Slot)
+                                end
+                                total = total + item:GetSellValue()
+                        end
+                        local msg
+                        if #cart == 1 then
+                                local item
+                                if cart[1].IsEquipped then
+                                        item = GAME:GetPlayerEquippedItem(cart[1].Slot)
+                                else
+                                        item = GAME:GetPlayerBagItem(cart[1].Slot)
+                                end
+                                msg = STRINGS:Format(STRINGS.MapStrings['Shop_Sell_One'], total, item:GetDisplayName())
+                        else
+			msg = STRINGS:Format(STRINGS.MapStrings['Shop_Sell_Multi'], total)
+                        end
+                        UI:ChoiceMenuYesNo(msg, false)
+                        UI:WaitForChoice()
+                        result = UI:ChoiceResult()
+
+                        if result then
+                                for ii = #cart, 1, -1 do
+                                        if cart[ii].IsEquipped then
+                                                GAME:TakePlayerEquippedItem(cart[ii].Slot, true)
+                                        else
+                                                GAME:TakePlayerBagItem(cart[ii].Slot, true)
+                                        end
+                                end
+                                SOUND:PlayBattleSE("DUN_Money")
+                                GAME:AddToPlayerMoney(total)
+                                cart = {}
+                                UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Sell_Complete']))
+                                state = 0
+                        else
+                                state = 3
+                        end
+                end
+        end
+        TASK:JoinCoroutines({coro1})
+        partner.IsInteracting = false
+        chara.IsInteracting = false
+
+        GROUND:CharEndAnim(partner)
+        GROUND:CharEndAnim(hero)
+        GROUND:CharEndAnim(chara)
+end -- green kecleon shop action
+
+function treasure_town.GenerateGreenKecleonStock(generate_random_item)
+        --generate random stock of items for green kec. Items generated are based on story progression (better items will crop up later in the story)
+        --Start with predefined list of weighted items, then generate a stock of several items from those lists
+        --Stocks are separated based on category (food, medicine, hold item, etc).
+        --Kec stock isn't totally random, it pulls a gauranteed number from each stock  (i.e. always 1 hold item a day, but which it is is random)
+
+        local stock = {}
+
+        --This parameter determines whether to generate a random item or to actually refresh the stock.
+       	--The parameter should be true if we want to generate and return a single kec item (useful for red merchant)
+        --This is a bit of a lazy/poor way of doing it, but it should work fine for how often it's used.
+        if generate_random_item == nil then generate_random_item = false end
+
+        --TODO: Add more types of stock progressions later on 
+	--Basic Stock, early game
+
+        --total weight = 100
+        local food_stock = {
+                {"food_apple", 182}, --Apple
+                {"gummi_blue", 1}, --Blue Gummi
+                {"gummi_black", 1}, --Black Gummi
+                {"gummi_clear", 1}, --Clear Gummi
+                {"gummi_grass", 1}, --Grass Gummi
+                {"gummi_green", 1}, --Green Gummi
+                {"gummi_brown", 1}, --Brown Gummi
+                {"gummi_orange", 1}, --Orange Gummi
+                {"gummi_gold", 1}, --Gold Gummi
+                {"gummi_pink", 1}, --Pink Gummi
+                {"gummi_purple", 1}, --Purple Gummi
+                {"gummi_red", 1}, --Red Gummi
+                {"gummi_royal", 1}, --Royal Gummi
+                {"gummi_silver", 1}, --Silver Gummi
+                {"gummi_white", 1}, --White Gummi
+                {"gummi_yellow", 1}, --Yellow Gummi
+                {"gummi_sky", 1}, --Sky Gummi
+                {"gummi_gray", 1}, --Gray Gummi
+                {"gummi_magenta", 1}    --Magenta Gummi
+        }
+
+        --total weight = 120
+        local medicine_stock = {
+                {"seed_reviver", 10},--Reviver seed 
+                {"seed_warp", 5}, --Warp Seed 
+                {"seed_sleep", 5}, --Sleep seed 
+                {"seed_vile", 2}, --Vile seed 
+		{"seed_decoy", 6}, --decoy seed 
+                {"seed_blast", 8}, --Blast seed
+
+                {"berry_leppa", 25}, --Leppa berry 
+
+
+                {"berry_oran", 32}, --Oran berry
+                {"berry_lum", 2}, --Lum berry 
+                {"berry_cheri", 6}, -- Cheri berry 
+                {"berry_chesto", 4}, -- Chesto berry 
+                {"berry_pecha", 8}, -- Pecha berry 
+                {"berry_aspear", 3}, -- Aspear berry 
+                {"berry_rawst", 4}, -- Rawst berry 
+                {"berry_persim", 6} -- Persim berry 
+        }
+
+
+	local ammo_stock =
+        {
+                {"ammo_geo_pebble", 50}, --Geo pebble 
+                {"ammo_stick", 50},--stick 
+                {"ammo_iron_thorn", 50}--iron thorn 
+        }
+
+
+        local held_stock = {
+                {"held_power_band", 10}, -- power band 
+                {"held_special_band", 10}, --special band 
+                {"held_defense_scarf", 10}, --defense scarf 
+                {"held_zinc_band", 10}, --Zinc band 
+
+              --  {"held_pecha_scarf", 10}, --Pecha Scarf
+                {"held_cheri_scarf", 10}, --Cheri scarf 
+                {"held_rawst_scarf", 10}, --Rawst scarf 
+                {"held_aspear_scarf", 10}, --Aspear Scarf 
+                {"held_insomniascope", 10}, --Insomnia scope
+		{"held_persim_band", 10}, --Persim Band
+
+                {"held_reunion_cape", 2} --Reunion cape 
+
+        }
+
+        --replaces a medicine roll starting with chapter 4. Before then, isn't used.
+        local apricorn_stock = {
+                {"apricorn_plain", 10},
+                {"apricorn_black", 5},
+                {"apricorn_blue", 5},
+                {"apricorn_brown", 5},
+                {"apricorn_green", 5},
+                {"apricorn_purple", 5},
+                {"apricorn_red", 5},
+                {"apricorn_white", 5},
+                {"apricorn_yellow", 5}
+        }
+
+
+
+        --Apricorns become available once Chapter 4 starts
+        if SV.Progression.Chapter == 4 then
+                table.insert(stock, GeneralFunctions.WeightedRandom(held_stock))
+                table.insert(stock, GeneralFunctions.WeightedRandom(ammo_stock))
+                table.insert(stock, GeneralFunctions.WeightedRandom(apricorn_stock))
+                table.insert(stock, GeneralFunctions.WeightedRandom(food_stock))
+                table.insert(stock, GeneralFunctions.WeightedRandom(food_stock))
+                table.insert(stock, GeneralFunctions.WeightedRandom(medicine_stock))
+                table.insert(stock, GeneralFunctions.WeightedRandom(medicine_stock))
+                table.insert(stock, GeneralFunctions.WeightedRandom(medicine_stock))
+
+        else
+            	table.insert(stock, GeneralFunctions.WeightedRandom(held_stock))
+                table.insert(stock, GeneralFunctions.WeightedRandom(ammo_stock))
+                table.insert(stock, GeneralFunctions.WeightedRandom(food_stock))
+                table.insert(stock, GeneralFunctions.WeightedRandom(food_stock))
+                table.insert(stock, GeneralFunctions.WeightedRandom(medicine_stock))
+                table.insert(stock, GeneralFunctions.WeightedRandom(medicine_stock))
+                table.insert(stock, GeneralFunctions.WeightedRandom(medicine_stock))
+		                table.insert(stock, GeneralFunctions.WeightedRandom(medicine_stock))
+        end
+
+        if not generate_random_item then
+                --set stock to randomized assortment and flag that the stock was refreshed for the day
+                SV.DailyFlags.GreenKecleonStockedRefreshed = true
+                SV.DailyFlags.GreenKecleonStock = stock
+        else
+                return stock[math.random(1, #stock)]
+        end
+
+end -- generate items
+
+function treasure_town.Kecleon_Action(obj, activator)
+
+
+end --kecleon dialouge
+
+function treasure_town.GeneratePurpleKecleonStock(generate_random_item)
+        --generate random stock of items for green kec. Items generated are based on story progression (better items will crop up later in the story)
+        --Start with predefined list of weighted items, then generate a stock of several items from those lists
+        --Stocks are separated based on category (food, medicine, hold item, etc).
+        --Kec stock isn't totally random, it pulls a gauranteed number from each stock  (i.e. always 1 hold item a day, but which it is is random)
+
+        local stock = {}
+
+        --This parameter determines whether to generate a random item or to actually refresh the stock.
+        --The parameter should be true if we want to generate and return a single kec item (useful for red merchant)
+        --This is a bit of a lazy/poor way of doing it, but it should work fine for how often it's used.
+        if generate_random_item == nil then generate_random_item = false end
+
+
+        --TODO: Add more types of stock progressions later on 
+        --Basic Stock, early game
+
+        --total weight = 
+        --mostly meh TMs for early game 
+        local tm_stock = {
+                {"tm_secret_power", 10},--secret power 
+                {"tm_embargo", 10},--embargo 
+                {"tm_echoed_voice", 10},--echoed voice
+                {"tm_protect", 5},--protect 
+                {"tm_roar", 10},--roar 
+                {"tm_swagger", 10},--swagger 
+                {"tm_facade", 10}, --facade 
+                {"tm_payback", 10}, --payback 
+                {"tm_dig", 2}, --dig 
+                {"tm_safeguard", 10},--safeguard 
+                {"tm_venoshock", 5}, --venoshock
+                {"tm_work_up", 5},--workup
+                {"tm_thunder_wave", 5}, --thunder wave 
+                {"tm_return", 5},--return
+                {"tm_pluck", 5},--pluck 
+                {"tm_frustration", 5},--frustration
+                {"tm_thief", 10},--thief 
+                {"tm_water_pulse", 2},--water pulse
+                {"tm_shock_wave", 2},--shock wave 
+                {"tm_incinerate", 2},--incinerate 
+                {"tm_rock_tomb", 4},--rock tomb 
+                {"tm_attract", 10},--attract
+                {"tm_hidden_power", 8},--hidden power 
+                {"tm_taunt", 10},--taunt 
+                {"tm_grass_knot", 4},--grass knot 
+                {"tm_brick_break", 2},--brick break
+		{"tm_rest", 5},--rest 
+        }
+
+        --total weight = 
+        local wand_stock = {
+                {"wand_path", 10},--path wand 
+                {"wand_pounce", 10},--pounce wand 
+                {"wand_whirlwind", 10},--whirlwind wand 
+                {"wand_switcher", 10},--switcher wand 
+                {"wand_lure", 10},--lure wand 
+                {"wand_slow", 10},--slow wand 
+                {"wand_fear", 10},--fear wand 
+                {"wand_topsy_turvy", 5},--topsy turvy wand 
+                {"wand_warp", 5},--warp wand 
+                {"wand_purge", 5},--purge wand 
+                {"wand_lob", 10}, --lob wand 
+                {"wand_totter", 10} --totter wand 
+        }
+
+
+        local orb_stock =
+        {
+                {"orb_escape", 50},--escape orb 
+                {"orb_cleanse", 10},--cleanse orb 
+
+                {"orb_petrify", 10},--petrify orb 
+                {"orb_slumber", 10},--slumber orb 
+                {"orb_totter", 10},--totter orb 
+                {"orb_scanner", 10},--scanner orb
+                {"orb_luminous", 10},--luminous orb
+                {"orb_spurn", 10},--spurn orb 
+                {"orb_foe_hold", 10},--foe hold orb 
+                {"orb_foe_seal", 10},--foe seal orb 
+                {"orb_rollcall", 15},--rollcall orb 
+                {"orb_trawl", 5}, --trawl orb 
+                {"orb_all_aim", 10},--all aim orb
+                {"orb_invert", 5}, --invert orb 
+                {"orb_fill_in", 5} --fill in orb
+        }
+
+
+        table.insert(stock, GeneralFunctions.WeightedRandom(tm_stock))
+        table.insert(stock, GeneralFunctions.WeightedRandom(orb_stock))
+        table.insert(stock, GeneralFunctions.WeightedRandom(orb_stock))
+        table.insert(stock, GeneralFunctions.WeightedRandom(orb_stock))
+        table.insert(stock, GeneralFunctions.WeightedRandom(wand_stock))
+	table.insert(stock, GeneralFunctions.WeightedRandom(wand_stock))
+
+
+
+        if not generate_random_item then
+                --set stock to randomized assortment and flag that the stock was refreshed for the day
+                SV.DailyFlags.PurpleKecleonStockedRefreshed = true
+                SV.DailyFlags.PurpleKecleonStock = stock
+        else
+            	return stock[math.random(1, #stock)]
+        end
+
+end --purple kecleon generate shop
+
+function treasure_town.TM_Action(obj, activator)
+  DEBUG.EnableDbgCoro() --Enable debugging this coroutine
+
+  local state = 0
+  local repeated = false
+  local cart = {}
+  local catalog = { }
+
+  --generate stock if it hasn't been for the day 
+  if not SV.DailyFlags.PurpleKecleonStockedRefreshed then
+        treasure_town.GeneratePurpleKecleonStock()
+  end
+  
+  --populate the catalog of items to buy using the generated stock. Item and hidden (amount of items in the stack typically) are grabbed from the item's predefined values in the item editor
+  for ii = 1, #SV.DailyFlags.PurpleKecleonStock, 1 do
+        local itemEntry = RogueEssence.Data.DataManager.Instance:GetItem(SV.DailyFlags.PurpleKecleonStock[ii])
+        local item = RogueEssence.Dungeon.InvItem(SV.DailyFlags.PurpleKecleonStock[ii], false, math.min(4, itemEntry.MaxStack))--only give 4 wands.
+
+        --item price is 5 times the sell value. 
+        local item_data = { Item = item, Price = item:GetSellValue() * 5 }
+        table.insert(catalog, item_data)
+  end
+
+
+  local hero = CH('PLAYER')
+  local partner = CH('TEAMMATE_1')
+  local chara = CH('KecleonShiny')
+  chara.IsInteracting = true
+  partner.IsInteracting = true
+  UI:SetSpeaker(chara)
+
+  GROUND:CharSetAnim(partner, 'None', true)
+  GROUND:CharSetAnim(hero, 'None', true)
+  --put kec in first frame of walk to simulate explorers behavior
+  GROUND:CharSetAction(chara, RogueEssence.Ground.FrameGroundAction(chara.Position, chara.Direction, RogueEssence.Content.GraphicsManager.GetAnimIndex("Walk"), 0))
+
+  GROUND:CharTurnToChar(hero, chara)
+  local coro1 = TASK:BranchCoroutine(function() GROUND:CharTurnToCharAnimated(partner, chara, 4) end)
+
+
+        while state > -1 do
+                if state == 0 then
+                        local msg = STRINGS:Format(STRINGS.MapStrings['TM_Shop_Intro'])
+			if repeated then
+                                msg = STRINGS:Format(STRINGS.MapStrings['TM_Shop_Intro_Return'])
+                        end
+                        local TM_Shop_choices = {STRINGS:Format(STRINGS.MapStrings['TM_Shop_Option_Buy']), STRINGS:Format(STRINGS.MapStrings['TM_Shop_Option_Sell']),
+                        STRINGS:FormatKey("MENU_INFO"),
+                        STRINGS:FormatKey("MENU_EXIT")}
+                        UI:BeginChoiceMenu(msg, TM_Shop_choices, 1, 4)
+                        UI:WaitForChoice()
+                        local result = UI:ChoiceResult()
+                        repeated = true
+                        if result == 1 then
+                                if #catalog > 0 then
+                                        --TODO: use the enum instead of a hardcoded number
+                                        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['TM_Shop_Buy'], STRINGS:LocalKeyString(26)))
+                                        state = 1
+                                else
+                                        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['TM_Shop_Buy_Empty']))
+                                end
+                        elseif result == 2 then
+                                local bag_count = GAME:GetPlayerBagCount()
+                                if bag_count > 0 then
+                                        --TODO: use the enum instead of a hardcoded number
+                                        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['TM_Shop_Sell'], STRINGS:LocalKeyString(26)))
+                                        state = 3
+                                else
+                                        UI:SetSpeakerEmotion("Angry")
+                                        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['TM_Shop_Bag_Empty']))
+                                        UI:SetSpeakerEmotion("Normal")
+                                end
+                        elseif result == 3 then
+                                UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['TM_Shop_Info_001']))
+                                UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['TM_Shop_Info_002']))
+                                UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['TM_Shop_Info_003']))
+                                UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['TM_Shop_Info_004']))
+                                UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['TM_Shop_Info_005']))
+                        else
+                                UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['TM_Shop_Goodbye']))
+                                state = -1
+                        end
+                elseif state == 1 then
+                        UI:ShopMenu(catalog)
+                        UI:WaitForChoice()
+                        local result = UI:ChoiceResult()
+                        if #result > 0 then
+			local bag_count = GAME:GetPlayerBagCount() + GAME:GetPlayerEquippedCount()
+                                local bag_cap = GAME:GetPlayerBagLimit()
+                                if bag_count == bag_cap then
+                                        UI:SetSpeakerEmotion("Angry")
+                                        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['TM_Shop_Bag_Full']))
+                                        UI:SetSpeakerEmotion("Normal")
+                                else
+                                        cart = result
+                                        state = 2
+                                end
+                        else
+                                state = 0
+                        end
+                elseif state == 2 then
+                        local total = 0
+                        for ii = 1, #cart, 1 do
+                                total = total + catalog[cart[ii]].Price
+                        end
+                        local msg
+                        if total > GAME:GetPlayerMoney() then
+                                UI:SetSpeakerEmotion("Angry")
+                                UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['TM_Shop_Buy_No_Money']))
+                                UI:SetSpeakerEmotion("Normal")
+                                state = 1
+                        else
+                                if #cart == 1 then
+                                        local name = catalog[cart[1]].Item:GetDisplayName()
+                                        msg = STRINGS:Format(STRINGS.MapStrings['TM_Shop_Buy_One'], total, name, GeneralFunctions.GetItemArticle(catalog[cart[1]].Item, true))
+                                else
+                                        msg = STRINGS:Format(STRINGS.MapStrings['TM_Shop_Buy_Multi'], total)
+                                end
+                                UI:ChoiceMenuYesNo(msg, false)
+                                UI:WaitForChoice()
+                                result = UI:ChoiceResult()
+
+                                if result then
+                                        GAME:RemoveFromPlayerMoney(total)
+                                        for ii = 1, #cart, 1 do
+                                                local item = catalog[cart[ii]].Item
+                                                GAME:GivePlayerItem(item.ID, item.Amount)
+                                        end
+                                        for ii = #cart, 1, -1 do
+                                                table.remove(catalog, cart[ii])
+                                                table.remove(SV.DailyFlags.PurpleKecleonStock, cart[ii])
+                                        end
+					cart = {}
+                                        SOUND:PlayBattleSE("DUN_Money")
+                                        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['TM_Shop_Buy_Complete']))
+                                        state = 0
+                                else
+                                    	state = 1
+                                end
+                        end
+                elseif state == 3 then
+                        UI:SellMenu()
+                        UI:WaitForChoice()
+                        local result = UI:ChoiceResult()
+
+                        if #result > 0 then
+                                cart = result
+                                state = 4
+                        else
+                            	state = 0
+                        end
+                elseif state == 4 then
+                        local total = 0
+                        for ii = 1, #cart, 1 do
+                                local item
+                                if cart[ii].IsEquipped then
+                                        item = GAME:GetPlayerEquippedItem(cart[ii].Slot)
+                                else
+                                    	item = GAME:GetPlayerBagItem(cart[ii].Slot)
+                                end
+                                total = total + item:GetSellValue()
+                        end
+                        local msg
+                        if #cart == 1 then
+                                local item
+                                if cart[1].IsEquipped then
+                                        item = GAME:GetPlayerEquippedItem(cart[1].Slot)
+                                else
+                                        item = GAME:GetPlayerBagItem(cart[1].Slot)
+                                end
+                                msg = STRINGS:Format(STRINGS.MapStrings['TM_Shop_Sell_One'], total, item:GetDisplayName())
+                        else
+                            	msg = STRINGS:Format(STRINGS.MapStrings['TM_Shop_Sell_Multi'], total)
+                        end
+UI:ChoiceMenuYesNo(msg, false)
+                        UI:WaitForChoice()
+                        result = UI:ChoiceResult()
+
+                        if result then
+                                for ii = #cart, 1, -1 do
+                                        if cart[ii].IsEquipped then
+                                                GAME:TakePlayerEquippedItem(cart[ii].Slot, true)
+                                        else
+                                                GAME:TakePlayerBagItem(cart[ii].Slot, true)
+                                        end
+                                end
+                                SOUND:PlayBattleSE("DUN_Money")
+                                GAME:AddToPlayerMoney(total)
+                                cart = {}
+                                UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['TM_Shop_Sell_Complete']))
+                                state = 0
+                        else
+                                state = 3
+                        end
+                end
+        end
+
+        --reimplementing parts of endconversation
+        TASK:JoinCoroutines({coro1})
+        partner.IsInteracting = false
+        chara.IsInteracting = false
+
+        GROUND:CharEndAnim(partner)
+        GROUND:CharEndAnim(hero)
+        GROUND:CharEndAnim(chara)
+
+end --purple kecleon shop action
+
+
+function treasure_town.KecleonShiny_Action(obj, activator)
+
+end --end purple kecleon dialouge
+
+function treasure_town.Electivire_Action(obj, activator)
+
+end
+
+function treasure_town.Kangaskhan_Action(obj, activator)
+
+end
+
+function treasure_town.Xatu_Action(obj, activator)
+
+end
+
+
+
+
+--signs
+
+function treasure_town.SignKangaskhan_Action(obj, activator)
+
+end
+
+function treasure_town.SignKecleonShop_Action(obj, activator)
+
+end
+
+function treasure_town.SignElectivire_Action(obj, activator)
+
+end
+
+function treasure_town.SignCrossRoads_Action(obj, activator)
+
+end
+
+
+--Ground map transitions
+
+function treasure_town.HabitatSharpedoBluffDayEntrance_Touch(obj, activator)
+
+GAME:EnterGroundMap("habitat_sharpedo_bluff_day", "TreasureTownEntranceMarker")
+
+end
+
+function treasure_town.MarowakDojoEntrance_Touch(obj, activator)
+
+GAME:EnterGroundMap("marowak_dojo", "MarowakDojoExitMarker")
+
+end
+
+function treasure_town.CrossRoadsAssemblyEntrance_Touch(obj, activator)
+
+GAME:EnterGroundMap("crossroads_assembly", "TreasureTownEntranceMarker")
+
+end
+
+-------------------------------
+-- Cutscene Functions
+-------------------------------
+
+function treasure_town.CH2BidoofTutorialScene5()
+
+	GAME:CutsceneMode(true)
+        player = CH("PLAYER")
+        partner = CH("TEAMMATE_1") --why does this have to be like this?
+        Bidoof = CH("Bidoof")
+        local hTalkKind = SV.Personality.HeroTalkKind
+        local pTalkKind = SV.Personality.PartnerTalkKind
+        Bidoof.CollisionDisabled = true
+        partner.CollisionDisabled = true
+        player.CollisionDisabled = true
+
+	local marker = MRKR("CrossRoadsAssemblyEntranceMarker")
+        GROUND:TeleportTo(Bidoof, 1157, 196, Direction.Left)
+        GROUND:TeleportTo(player, 1157, 193, Direction.Left)
+        GROUND:TeleportTo(partner, 1157, 213, Direction.Left)
+        GAME:FadeIn(20)
+
+        local coro2 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(Bidoof, 794, 208, false, 1) end)
+        local coro3 = TASK:BranchCoroutine(function() GAME:WaitFrames(30) GROUND:MoveToPosition(player, 860, 193, false, 1) end)
+        local coro4 = TASK:BranchCoroutine(function() GAME:WaitFrames(30) GROUND:MoveToPosition(partner, 860, 216, false, 1) end )
+        TASK:JoinCoroutines({coro2, coro3, coro4})
+        GROUND:CharAnimateTurnTo(partner, Direction.Left, 2)
+        GROUND:CharAnimateTurnTo(player, Direction.Left, 2)
+        GROUND:CharAnimateTurnTo(Bidoof, Direction.Right, 2)
+        --bidoof talks 1
+        --bidoof talks 2
+	--partner talks 1
+	GAME:MoveCamera(Duskull.Position.X, Duskull.Position.Y, 1, false)
+	GAME:WaitFrames(120)
+	--partner talks 2
+	--partner talks 3
+	GAME:MoveCamera(Electivire.Position.X, Electivire.Position.Y, 1, false)
+	GAME:WaitFrames(120)
+	--partner talks 4
+	--partner talks 5
+	--partner talks 6
+	GAME:FadeOut(false, 30)
+	GAME:MoveCamera(Kecleon.Position.X, Kecleon.Position.Y, 1, false)
+	GAME:FadeIn(30)
+	GAME:WaitFrames(120)
+	--partner talks 7
+	GAME:MoveCamera(Kangaskhan.Position.X, Kangaskhan.Position.Y, 1, false)
+	GAME:WaitFrames(120)
+	--partner talks 8
+	--partner talks 9
+	--partner talks 10
+	GAME:FadeOut(false, 60)
+	GAME:MoveCamera(0, 0, 1, true)
+	GAME:FadeIn(20)
+	GAME:WaitFrames(120)
+	--partner talks 11
+        --bidoof talks 3
+        --bidoof talks 3
+        --bidoof talks 3
+	--partner talks 12
+
+	--coroutine begin
+        --bidoof talks 3
+	GROUND:CharAnimateTurnTo(Bidoof, Direction.Down, 2)	
+	GROUND:CharSetEmote(Bidoof, "sweating", 1)
+	--happy portrait
+	--coroutine end
+
+	GROUND:CharAnimateTurnTo(Bidoof, Direction.Right, 2)
+        --bidoof talks 3
+	--coroutine begin
+	GROUND:MoveToPosition(Bidoof, 832, 231, false, 1)
+	GROUND:CharAnimateTurnTo(player, Direction.Down, 2)
+	GROUND:CharAnimateTurnTo(partner, Direction.Down, 2)
+	--coroutine end
+	--coroutine begin
+	GROUND:MoveToPosition(Bidoof, marker.Position.X, marker.Position.Y, false, 1)
+	GROUND:CharAnimateTurnTo(player, Direction.Right, 2)
+	GROUND:CharAnimateTurnTo(partner, Direction.Right, 2)
+	--coroutine end
+	--coroutine begin
+	GROUND:CharAnimateTurnTo(player, Direction.Down, 2)
+        GROUND:CharAnimateTurnTo(partner, Direction.Up, 2)
+	--partner talks 13
+	--partner talks 14
+	--partner talks 15
+	--partner talks 16
+	--coroutine end
+
+        SV.Progression.SectionFlag = 7
+	--putup inability to leave town until talking to kecleon here and return control to player
+	GAME:CutsceneMode(false)
+end
 
 return treasure_town
 

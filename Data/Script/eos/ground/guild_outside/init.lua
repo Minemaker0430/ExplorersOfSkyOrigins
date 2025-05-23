@@ -5,6 +5,8 @@
 ]]--
 -- Commonly included lua functions and data
 require 'eos.common'
+require 'eos.CharacterActions'
+require 'eos.ExplorerEssentials'
 
 -- Package name
 local guild_outside = {}
@@ -21,11 +23,15 @@ local guild_outside = {}
 ---guild_outside.Init(map)
 --Engine callback function
 function guild_outside.Init(map)
-SOUND:PlayBGM("008 - Wigglytuff's Guild.ogg", true)
+	SOUND:PlayBGM("008 - Wigglytuff's Guild.ogg", true)
+        player = CH("PLAYER")
+        partner = CH("TEAMMATE_1") --why does this have to be like this?
+        Bidoof = CH("Bidoof")
+
   --This will fill the localized strings table automatically based on the locale the game is 
   -- currently in. You can use the MapStrings table after this line!
   
-
+COMMON:RespawnAllies()
 end
 
 ---guild_outside.Enter(map)
@@ -34,12 +40,18 @@ function guild_outside.Enter(map)
 
   GAME:FadeIn(20)
 
-end
+  if SV.Progression.Chapter == 3 then
+	if SV.Progression.SectionFlag == 4 then
+	guild_outside.CH2BidoofTutorialScene3()
+	end
 
+  end
+
+end
 ---guild_outside.Exit(map)
 --Engine callback function
 function guild_outside.Exit(map)
-
+GAME:FadeOut(false, 20)
 
 end
 
@@ -64,6 +76,41 @@ function guild_outside.GameLoad(map)
   GAME:FadeIn(20)
 
 end
+
+-------------------------------
+-- Cutscene Functions
+-------------------------------
+
+function guild_outside.CH2BidoofTutorialScene3()
+	
+	player = CH("PLAYER")
+        partner = CH("TEAMMATE_1") --why does this have to be like this?
+        Bidoof = CH("Bidoof")
+	GAME:MoveCamera(0, 0, 1, true)
+	local hTalkKind = SV.Personality.HeroTalkKind
+        local pTalkKind = SV.Personality.PartnerTalkKind
+	Bidoof.CollisionDisabled = true
+	partner.CollisionDisabled = true
+        player.CollisionDisabled = true
+	local marker = MRKR("GuildEntranceMarker")
+
+	GAME:FadeIn(20)
+	--coroutine begin
+	GROUND:TeleportTo(Bidoof, marker.Position.X, marker.Position.Y, Direction.Down)
+	GROUND:TeleportTo(player, marker.Position.X, marker.Position.Y, Direction.Down)
+	GROUND:TeleportTo(partner, marker.Position.X, marker.Position.Y, Direction.Down)
+
+        local coro2 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(Bidoof, marker.Position.X, marker.Position.Y + 140, false, 1) end)
+        local coro3 = TASK:BranchCoroutine(function() GAME:WaitFrames(30) GROUND:MoveToPosition(player, marker.Position.X, marker.Position.Y + 140, false, 1) end)
+        local coro4 = TASK:BranchCoroutine(function() GAME:WaitFrames(60) GROUND:MoveToPosition(partner, marker.Position.X, marker.Position.Y + 140, false, 1) end )
+	local coro5 = TASK:BranchCoroutine(function() GAME:WaitFrames(110) GAME:FadeOut(false, 60) end)
+	TASK:JoinCoroutines({coro2, coro3, coro4, coro5})	
+
+	SV.Progression.SectionFlag = 5	
+	GAME:EnterGroundMap("crossroads_assembly", "GuildOutsideEntranceMarker")
+
+end
+
 
 -------------------------------
 -- Entities Callbacks

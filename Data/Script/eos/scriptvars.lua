@@ -61,6 +61,25 @@ SV.Chapter2 = --Chapter 2 flags that can't be covered by SectionFlags due to los
         StartedMtBristle = false,--started MtBristle but died?
 }
 
+--From Halycon
+-------------------------------------------------
+-- Temporary Flags - Flags that reset at the end of the day or on screen transition are saved here
+-------------------------------------------------
+--todo, move existing daily flags here
+--These flags are to be reset to their initial values at the end of the day.
+SV.DailyFlags =
+{
+  GreenMerchantItem = "",
+  GreenMerchantBought = false,
+
+  GreenKecleonRefreshedStock = false,
+  GreenKecleonStock = {},
+  PurpleKecleonRefreshedStock = false,
+  PurpleKecleonStock = {}
+
+}
+
+
 SV.Personality = --handles dialogue variations
 {
 	HeroTalkKind = 0,
