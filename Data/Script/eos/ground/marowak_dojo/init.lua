@@ -33,7 +33,7 @@ end
 function marowak_dojo.Enter(map)
 
   GAME:FadeIn(20)
-
+SOUND:PlayBGM("Marowak Dojo.ogg", true)
 end
 
 ---marowak_dojo.Exit(map)
@@ -68,6 +68,19 @@ end
 -------------------------------
 -- Entities Callbacks
 -------------------------------
+
+function marowak_dojo.MarowakDojoDungeonEntrance_Touch(obj, activator)
+
+--dungeon zone transition here
+
+end
+
+function marowak_dojo.MarowakDojoExit_Touch(obj, activator)
+
+GAME:EnterGroundMap("treasure_town", "MarowakDojoEntranceMarker")
+
+end
+
 
 
 return marowak_dojo

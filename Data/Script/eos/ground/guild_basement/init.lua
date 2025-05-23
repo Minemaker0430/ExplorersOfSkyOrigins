@@ -23,7 +23,7 @@ local guild_basement = {}
 ---guild_basement.Init(map)
 --Engine callback function
 function guild_basement.Init(map)
- --no need to duplicate these
+ --no need to duplicate these except when it glitches out?
   SOUND:PlayBGM("008 - Wigglytuff's Guild.ogg", false)  
 	player = CH("PLAYER")
         partner = CH("TEAMMATE_1") --why does this have to be like this?
@@ -86,27 +86,31 @@ function guild_basement.Enter(map)
 	GAME:EnterZone("cutscenes", -1, 1, 0)
 	end
 
---	if SV.Chapter2.FinishedFirstDay == 1 and SV.Chapter2.StartedDrenchedBluff == 1 and not SV.Chapter2.StartedMtBristle then
---	guild_basement.NewDay()
---	end	
-
---	if SV.Chapter2.FinishedMtBristle == 1 and not SV.Chapter2.FinishedMarketIntro then
---	guild_basement.CH2BidoofTutorial()
---	end
-
   end
 
-   if SV.Progression.Chapter == 3 and not SV.Progression.SectionFlag == 2 then
 
-   guild_basement.NewDay()
+
+   if SV.Progression.Chapter == 3 then
+
+	if SV.Progression.SectionFlag == 1 then
+
+	guild_basement.NewDay()
+
+	end
+
+	if SV.Progression.SectionFlag == 3 then
+
+	guild_basement.CH2BidoofTutorialScene2()
+
+	end	
+
+	if SV.Progression.SectionFlag == 7 then
+	--player failed Mt
+	guild_basement.NewDay()
+	--cutscene to go straight to Mt here
+	end
 
    end
-   if SV.Progression.Chapter == 3 and SV.Progression.SectionFlag == 2 then
-
-   guild_basement.NewDay()
-
-   end
-	GROUND:Hide("TEAMMATE_1")
 
 
 --if SV.TemporaryFlags.MissionCompleted then 
@@ -158,7 +162,7 @@ end
 
 function guild_basement.Chatot_Action(obj, activator)
 
-	if SV.Progression.Chapter == 2 and SV.Progression.SectionFlag == 8 and not SV.Chapter2.StartedDrenchedBluff then
+  if SV.Progression.Chapter == 2 and SV.Progression.SectionFlag == 8 and not SV.Chapter2.StartedDrenchedBluff then
 	--UI:SetSpeaker(Chatot)
 	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_']))
 	GROUND:CharSetEmote(Chatot, "exclaim", 1)
@@ -177,16 +181,18 @@ function guild_basement.Chatot_Action(obj, activator)
 	--fade to black
 	--wait
 	--coroutine end
+	--goto guild middle floor scene
 	if SV.Progression.SectionFlag == 10 then
 	--goto dungeon without prompt
 	end
 	if SV.Progression.SectionFlag == 8 then
 	SV.Progression.SectionFlag = 9
-	--goto guild middle floor scene
 	end
-	end
+  end
 
-	if SV.Progression.Chapter == 3 and SV.Progression.SectionFlag == 2 then
+
+
+  if SV.Progression.Chapter == 3 and SV.Progression.SectionFlag == 1 then
 	--UI:SetSpeaker(Chatot)
 	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_']))
 	GROUND:CharSetEmote(Chatot, "exclaim", 1)
@@ -205,15 +211,10 @@ function guild_basement.Chatot_Action(obj, activator)
 	--fade to black
 	--wait
 	--coroutine end
-	if SV.Progression.SectionFlag == 3 then
-	--goto dungeon without prompt
-	end
-	if SV.Progression.SectionFlag == 2 then
+	--goto guild middle floor scene SV.Progression.SectionFlag = 2
+	-- for now
 	SV.Progression.SectionFlag = 3
-	--goto guild middle floor scene
-	end
-
-	end
+  end
 	
 	UI:SetSpeaker(Chatot)
 	UI:WaitShowDialogue("Get to work")
@@ -551,8 +552,32 @@ function guild_basement.Chapter2Scene12()
 
 end
 
-function guild_basement.CH2BidoofTutorial()
+function guild_basement.CH2BidoofTutorialScene2()
 	--everyone jitters in this tutorial lol
+	player = CH("PLAYER")
+        partner = CH("TEAMMATE_1") --why does this have to be like this?
+        Chatot = CH("Chatot")
+        Loudred = CH("Loudred")
+        Dugtrio = CH("Dugtrio")
+        Diglett= CH("Diglett")
+        Sunflora = CH("Sunflora")
+        Bidoof = CH("Bidoof")
+        Chimecho = CH("Chimecho")
+        Corphish = CH("Corphish")
+        Croagunk = CH("Croagunk")
+        Wigglytuff = CH("Wigglytuff")
+	GROUND:Hide("Wigglytuff")
+        GROUND:Hide("Sunflora")
+        GROUND:Unhide("Bidoof")
+        GROUND:Unhide("PLAYER")
+        GROUND:Unhide("TEAMMATE_1")
+        GROUND:Hide("Corphish")
+        GROUND:Hide("Chimecho")
+        GROUND:Hide("Loudred")
+	GROUND:Hide("Dugtrio")
+	GROUND:Hide("Diglett")
+	GROUND:Hide("TEAMMATE_2")
+
         GAME:CutsceneMode(false)
 	partner.CollisionDisabled = true
         player.CollisionDisabled = true
@@ -574,13 +599,13 @@ function guild_basement.CH2BidoofTutorial()
 
 	GAME:FadeIn(20)
 	GROUND:TeleportTo(Bidoof, marker.Position.X, marker.Position.Y, Direction.Down)
+        GROUND:TeleportTo(partner, marker.Position.X, marker.Position.Y, Direction.Down)
+        GROUND:TeleportTo(player, marker.Position.X, marker.Position.Y, Direction.Down)
         GROUND:MoveToPosition(Bidoof, marker.Position.X, marker.Position.Y + 140, false, 1)
         GROUND:CharAnimateTurnTo(Bidoof, Direction.Down, 2)
-        GROUND:TeleportTo(player, marker.Position.X, marker.Position.Y, Direction.Down)
         GROUND:MoveToPosition(player, marker.Position.X, marker.Position.Y + 110, false, 1)
         GROUND:MoveToPosition(player, marker.Position.X + 20, marker.Position.Y + 110, false, 1)
         GROUND:CharAnimateTurnTo(player, Direction.Down, 2)
-        GROUND:TeleportTo(partner, marker.Position.X, marker.Position.Y, Direction.Down)
         GROUND:MoveToPosition(partner, marker.Position.X, marker.Position.Y + 110, false, 1)
         GROUND:MoveToPosition(partner, marker.Position.X - 20, marker.Position.Y + 110, false, 1)
         GROUND:CharAnimateTurnTo(partner, Direction.Down, 2)
@@ -594,27 +619,31 @@ function guild_basement.CH2BidoofTutorial()
 	GAME:WaitFrames(120)
 	GAME:MoveCamera(-120, 30, 1, true)
         GROUND:CharAnimateTurnTo(Bidoof, Direction.Left, 2)
-	GAME:WaitFrames(600)
+	GAME:WaitFrames(300)
 
 	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Bidoof_tutorial_1']))
 	--bidoof tears
 	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Bidoof_tutorial_1']))
 	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Bidoof_tutorial_1']))
 
+	GROUND:CharAnimateTurnTo(Bidoof, Direction.DownLeft, 2)
 	GAME:MoveCamera(-270, 110, 1, true)
 	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Bidoof_tutorial_1']))
-	GAME:WaitFrames(600)
+	GAME:WaitFrames(300)
 
+	GROUND:CharAnimateTurnTo(Bidoof, Direction.DownRight, 2)
 	GAME:MoveCamera(190, 110, 1, true)
 	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Bidoof_tutorial_1']))
-	GAME:WaitFrames(600)
+	GAME:WaitFrames(300)
 
 
+	GROUND:CharAnimateTurnTo(Bidoof, Direction.UpRight, 2)
 	GAME:MoveCamera(60, 0, 1, true)
 	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Bidoof_tutorial_1']))
-	GAME:WaitFrames(600)
+	GAME:WaitFrames(300)
 
 
+	GROUND:CharAnimateTurnTo(Bidoof, Direction.Up, 2)
 	GAME:MoveCamera(0, 0, 1, true)
 	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Bidoof_tutorial_1']))
 
@@ -623,15 +652,14 @@ function guild_basement.CH2BidoofTutorial()
         GROUND:MoveToPosition(player, marker.Position.X, marker.Position.Y, false, 1)
         GROUND:MoveToPosition(partner, marker.Position.X, marker.Position.Y + 110, false, 1)
         GROUND:MoveToPosition(partner, marker.Position.X, marker.Position.Y, false, 1)
-	--GAME:FadeOut(false, 60)
-	--transition to treasure town
-
+	GAME:FadeOut(false, 60)
+	SV.Progression.SectionFlag = 4
         Chatot.CollisionDisabled = false
 	player.CollisionDisabled = false
         partner.CollisionDisabled = false
 	Croagunk.CollisionDisabled = false
 	Bidoof.CollisionDisabled = false
-	GAME:CutsceneMode(false)
+	GAME:EnterGroundMap("guild_outside", "GuildEntranceMarker")
 
 end
 

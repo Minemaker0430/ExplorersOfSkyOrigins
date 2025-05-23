@@ -5,6 +5,8 @@
 ]]--
 -- Commonly included lua functions and data
 require 'eos.common'
+require 'eos.CharacterActions'
+require 'eos.ExplorerEssentials'
 
 -- Package name
 local crossroads_assembly = {}
@@ -25,7 +27,9 @@ function crossroads_assembly.Init(map)
   --This will fill the localized strings table automatically based on the locale the game is 
   -- currently in. You can use the MapStrings table after this line!
   
+COMMON:RespawnAllies()
 SOUND:PlayBGM("014 - Treasure Town.ogg", true)
+
 end
 
 ---crossroads_assembly.Enter(map)
@@ -33,6 +37,14 @@ end
 function crossroads_assembly.Enter(map)
 
   GAME:FadeIn(20)
+
+  if SV.Progression.Chapter == 3 then
+        if SV.Progression.SectionFlag == 5 then
+        crossroads_assembly.CH2BidoofTutorialScene4()
+        end
+
+  end
+
 
 end
 
@@ -65,6 +77,60 @@ function crossroads_assembly.GameLoad(map)
 
 end
 
+
+-------------------------------
+-- Cutscene Functions
+-------------------------------
+
+function crossroads_assembly.CH2BidoofTutorialScene4()
+
+        player = CH("PLAYER")
+        partner = CH("TEAMMATE_1") --why does this have to be like this?
+        Bidoof = CH("Bidoof")
+        GAME:MoveCamera(0, 0, 1, true)
+        local hTalkKind = SV.Personality.HeroTalkKind
+        local pTalkKind = SV.Personality.PartnerTalkKind
+        Bidoof.CollisionDisabled = true
+        partner.CollisionDisabled = true
+        player.CollisionDisabled = true
+        local marker = MRKR("GuildOutsideEntranceMarker")
+
+        GAME:FadeIn(20)
+        GROUND:TeleportTo(Bidoof, marker.Position.X, marker.Position.Y, Direction.Down)
+        GROUND:TeleportTo(player, marker.Position.X, marker.Position.Y, Direction.Down)
+        GROUND:TeleportTo(partner, marker.Position.X, marker.Position.Y, Direction.Down)
+
+        local coro2 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(Bidoof, 211, 153, false, 1) end)
+        local coro3 = TASK:BranchCoroutine(function() GAME:WaitFrames(30) GROUND:MoveToPosition(player, 211, 132, false, 1) end)
+        local coro4 = TASK:BranchCoroutine(function() GAME:WaitFrames(60) GROUND:MoveToPosition(partner, 211, 107, false, 1) end )
+        TASK:JoinCoroutines({coro2, coro3, coro4})
+	GROUND:CharAnimateTurnTo(partner, Direction.DownRight, 2)
+	GROUND:CharAnimateTurnTo(player, Direction.Right, 2)
+	GROUND:CharAnimateTurnTo(Bidoof, Direction.Right, 2)
+	GAME:MoveCamera(marker.Position.X + 80, marker.Position.Y, 1, true)
+	--bidoof talks 1
+	--bidoof talks 2
+	GROUND:MoveToPosition(partner, 239, 107, false, 1)
+	GROUND:CharAnimateTurnTo(partner, Direction.DownRight, 2)
+	--bidoof talks 3
+	--bidoof talks 4
+	--bidoof talks 5
+	GROUND:CharAnimateTurnTo(partner, Direction.Down, 2)
+	GROUND:CharAnimateTurnTo(player, Direction.Down, 2)
+	GROUND:CharAnimateTurnTo(Bidoof, Direction.Down, 2)
+        local marker1 = MRKR("TreasureTownEntranceMarker")
+        local coro5 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(Bidoof, 215, 194, false, 1) GROUND:MoveToPosition(Bidoof, marker1.Position.X, marker1.Position.Y, false, 1) end)
+        local coro6 = TASK:BranchCoroutine(function() GAME:WaitFrames(30) GROUND:MoveToPosition(player, 215, 194, false, 1) GROUND:MoveToPosition(player, marker1.Position.X, marker1.Position.Y, false, 1)  end)
+        local coro7 = TASK:BranchCoroutine(function() GAME:WaitFrames(60) GROUND:MoveToPosition(partner, 211, 107, false, 1) GROUND:MoveToPosition(partner, 215, 194, false, 1) GROUND:MoveToPosition(partner, marker1.Position.X, marker1.Position.Y, false, 1) end)
+	local coro8 = TASK:BranchCoroutine(function() GAME:WaitFrames(180) GAME:FadeOut(false, 10) end)
+        TASK:JoinCoroutines({coro5, coro6, coro7, coro8})
+
+        SV.Progression.SectionFlag = 6
+        GAME:EnterGroundMap("treasure_town", "CrossRoadsAssemblyEntranceMarker")
+
+end
+
+
 -------------------------------
 -- Entities Callbacks
 -------------------------------
@@ -78,6 +144,12 @@ end
 function crossroads_assembly.CrossRoadsSouthEntrance_Touch(obj, activator)
 
 GAME:EnterGroundMap("crossroads_south", "CrossRoadsAssemblyEntranceMarker")
+
+end
+
+function crossroads_assembly.TreasureTownEntrance_Touch(obj, activator)
+
+GAME:EnterGroundMap("treasure_town", "CrossRoadsAssemblyEntranceMarker")
 
 end
 

@@ -49,7 +49,7 @@ function chapter_card.Enter(map)
   elseif SV.Progression.Chapter == 2 then
 	GAME:EnterGroundMap("guild_outside_dusk", "Entrance")
   elseif SV.Progression.Chapter == 3 then
-	SV.Progression.SectionFlag = 2
+	SV.Progression.SectionFlag = 1
 	GAME:EnterZone("hub", -1, 5, 0)
   else
 	--progression broke you aren't supposed to be here
