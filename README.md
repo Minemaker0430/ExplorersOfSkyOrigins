@@ -6,7 +6,7 @@ A remake of EoS in the PMDO Engine.
 This project is in no way affiliated with Nintendo, The Pokemon Company, or Spike Chunsoft. I'm just a fan who likes PMD games.
 
 # Credits
-![Happy](https://github.com/Minemaker0430/ExplorersOfSkyOrigins/assets/85040155/43f9044e-c728-466b-bdf7-7be7d75e0399) ItsMochaTheOtter (Minemaker0430) - Project Creator, Cutscenes (Chapter 1)
+![Happy](https://github.com/Minemaker0430/ExplorersOfSkyOrigins/assets/85040155/43f9044e-c728-466b-bdf7-7be7d75e0399) ItsMochaTheOtter (Minemaker0430) - Project Creator, Cutscenes (Chapter 1), Dungeons (Beach Cave), Balancing
 
 [Sloth](https://github.com/slothplaysnecro) - Ground Maps and Remaining Music
 
