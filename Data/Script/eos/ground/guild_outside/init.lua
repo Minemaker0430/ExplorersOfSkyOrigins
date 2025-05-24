@@ -7,6 +7,7 @@
 require 'eos.common'
 require 'eos.CharacterActions'
 require 'eos.ExplorerEssentials'
+require 'eos.PartnerEssentials'
 
 -- Package name
 local guild_outside = {}
@@ -32,6 +33,7 @@ function guild_outside.Init(map)
   -- currently in. You can use the MapStrings table after this line!
   
 COMMON:RespawnAllies()
+PartnerEssentials.InitializePartnerSpawn()
 end
 
 ---guild_outside.Enter(map)
@@ -82,10 +84,10 @@ end
 -------------------------------
 
 function guild_outside.CH2BidoofTutorialScene3()
-	
 	player = CH("PLAYER")
         partner = CH("TEAMMATE_1") --why does this have to be like this?
         Bidoof = CH("Bidoof")
+	AI:DisableCharacterAI(partner)	
 	GAME:MoveCamera(0, 0, 1, true)
 	local hTalkKind = SV.Personality.HeroTalkKind
         local pTalkKind = SV.Personality.PartnerTalkKind
@@ -107,6 +109,7 @@ function guild_outside.CH2BidoofTutorialScene3()
 	TASK:JoinCoroutines({coro2, coro3, coro4, coro5})	
 
 	SV.Progression.SectionFlag = 5	
+	SV.partner.Spawn = 'GuildOutsideEntranceMarker'
 	GAME:EnterGroundMap("crossroads_assembly", "GuildOutsideEntranceMarker")
 
 end
@@ -119,12 +122,13 @@ end
 function guild_outside.GuildEntrance_Touch(obj, activator)
 
 --GAME:EnterGroundMap("guild_top_floor", "Entrance")
+SV.partner.Spawn = 'Ladder'
 GAME:EnterGroundMap("guild_basement", "Ladder")
 
 end
 
 function guild_outside.CrossRoadsEntrance_Touch(obj, activator)
-
+SV.partner.Spawn = 'GuildOutsideEntranceMarker'
 GAME:EnterGroundMap("crossroads_assembly", "GuildOutsideEntranceMarker")
 
 end

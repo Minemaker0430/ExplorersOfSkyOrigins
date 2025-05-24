@@ -62,6 +62,7 @@ GROUND:Hide("TEAMMATE_2")
 	guild_outside_dusk.Chapter2Scene2()
 	--GAME:EnterGroundMap("guild_topfloor", "Entrance") TODO
 	SV.Progression.SectionFlag = 11 -- remove this
+	SV.partner.Spawn = 'Ladder' -- remove this
 	GAME:EnterZone('hub', -1, 5, 0) -- remove this
 	end
 	

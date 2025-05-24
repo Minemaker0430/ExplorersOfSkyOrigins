@@ -5,6 +5,10 @@
 ]]--
 -- Commonly included lua functions and data
 require 'eos.common'
+require 'eos.CharacterActions'
+require 'eos.ExplorerEssentials'
+require 'eos.GeneralFunctions'
+require 'eos.PartnerEssentials'
 
 -- Package name
 local habitat_sharpedo_bluff_day = {}
@@ -23,7 +27,8 @@ local habitat_sharpedo_bluff_day = {}
 function habitat_sharpedo_bluff_day.Init(map)
   --This will fill the localized strings table automatically based on the locale the game is 
   -- currently in. You can use the MapStrings table after this line!
-  
+COMMON:RespawnAllies()
+PartnerEssentials.InitializePartnerSpawn()  
 end
 
 ---habitat_sharpedo_bluff_day.Enter(map)
@@ -38,7 +43,7 @@ end
 --Engine callback function
 function habitat_sharpedo_bluff_day.Exit(map)
 SOUND:StopSE("Ambient/AMB_Ocean")
-
+GAME:FadeOut(false, 20)
 end
 
 ---habitat_sharpedo_bluff_day.Update(map)
@@ -68,7 +73,7 @@ end
 -------------------------------
 
 function habitat_sharpedo_bluff_day.TreasureTownEntrance_Touch(obj, activator)
-
+SV.partner.Spawn = 'HabitatSharpedoBluffDayEntranceMarker'
 GAME:EnterGroundMap("treasure_town", "HabitatSharpedoBluffDayEntranceMarker")
 
 end

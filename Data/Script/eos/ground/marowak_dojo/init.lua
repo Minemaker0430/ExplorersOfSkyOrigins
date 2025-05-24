@@ -5,6 +5,9 @@
 ]]--
 -- Commonly included lua functions and data
 require 'eos.common'
+require 'eos.CharacterActions'
+require 'eos.ExplorerEssentials'
+require 'eos.PartnerEssentials'
 
 -- Package name
 local marowak_dojo = {}
@@ -25,7 +28,8 @@ function marowak_dojo.Init(map)
   --This will fill the localized strings table automatically based on the locale the game is 
   -- currently in. You can use the MapStrings table after this line!
   
-
+COMMON:RespawnAllies()
+PartnerEssentials.InitializePartnerSpawn()
 end
 
 ---marowak_dojo.Enter(map)
@@ -39,7 +43,7 @@ end
 ---marowak_dojo.Exit(map)
 --Engine callback function
 function marowak_dojo.Exit(map)
-
+GAME:FadeOut(false, 20)
 
 end
 
@@ -76,7 +80,7 @@ function marowak_dojo.MarowakDojoDungeonEntrance_Touch(obj, activator)
 end
 
 function marowak_dojo.MarowakDojoExit_Touch(obj, activator)
-
+SV.partner.Spawn = 'MarowakDojoEntranceMarker'
 GAME:EnterGroundMap("treasure_town", "MarowakDojoEntranceMarker")
 
 end

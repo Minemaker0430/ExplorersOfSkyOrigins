@@ -7,6 +7,7 @@
 require 'eos.common'
 require 'eos.CharacterActions'
 require 'eos.ExplorerEssentials'
+require 'eos.PartnerEssentials'
 
 -- Package name
 local guild_basement = {}
@@ -50,6 +51,7 @@ function guild_basement.Init(map)
   --This will fill the localized strings table automatically based on the locale the game is 
   -- currently in. You can use the MapStrings table after this line!
 COMMON:RespawnAllies()
+PartnerEssentials.InitializePartnerSpawn()
 end
 
 ---guild_basement.Enter(map)
@@ -123,7 +125,7 @@ end
 --Engine callback function
 function guild_basement.Exit(map)
 
-
+GAME:FadeOut(false, 20)
 end
 
 ---guild_basement.Update(map)
@@ -155,6 +157,7 @@ end
 function guild_basement.GuildSecondFloor_Touch(obj, activator)
 
 --GAME:EnterGroundMap("guild_second_floor", "LadderDownMarker")
+SV.partner.Spawn = 'GuildEntranceMarker'
 GAME:EnterGroundMap("guild_outside", "GuildEntranceMarker")
 
 end
@@ -233,7 +236,7 @@ function guild_basement.Chapter2Scene5()
 	GAME:CutsceneMode(true)
         local hTalkKind = SV.Personality.HeroTalkKind
         local pTalkKind = SV.Personality.PartnerTalkKind
-
+	AI:DisableCharacterAI(partner)
 	partner.CollisionDisabled = true
 	player.CollisionDisabled = true
 	Chatot.CollisionDisabled = true
@@ -298,9 +301,10 @@ function guild_basement.Chapter2Scene5()
 	GROUND:CharAnimateTurnTo(Chatot, Direction.Up, 2)
 	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_3']))
 	--GAME:FadeOut(false, 60)
-	-- goto inside guildmasters room
+	-- TODO goto inside guildmasters room
 	--for now
 	SV.Progression.SectionFlag = 6
+	AI:EnableCharacterAI(partner)
 	GROUND:Hide("Loudred")
 	GROUND:Hide("Dugtrio")
 	GROUND:Hide("Diglett")
@@ -308,12 +312,14 @@ function guild_basement.Chapter2Scene5()
 	GROUND:Hide("Bidoof")
 	GROUND:Hide("Chimecho")
 	GROUND:Hide("Corphish")
+        partner.CollisionDisabled = true
 
 end
 
 function guild_basement.Chapter2Scene8()
 	--Begin first guild meeting
         GAME:CutsceneMode(true)
+	AI:DisableCharacterAI(partner)
 	GROUND:TeleportTo(Wigglytuff, 413, 0, Direction.Down)
 	GROUND:Hide("Wigglytuff")
 	partner.CollisionDisabled = true
@@ -413,7 +419,7 @@ function guild_basement.Chapter2Scene8()
 	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_']))
 	--UI:SetSpeaker(Wigglytuff)
 	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Wigglytuff_']))
-	--UI:SetSpeaker()
+	--UI:SetSpeaker('', false)
 	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Apprentice_']))
 	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Apprentice_']))
 	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Apprentice_']))
@@ -427,7 +433,7 @@ function guild_basement.Chapter2Scene8()
 	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_']))
 
 	--Guild motto
-	--UI:SetSpeaker()
+	--UI:SetSpeaker('', false)
 	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Guild_Cheer_1_']))
 	local coro55 = TASK:BranchCoroutine(function() GROUND:CharSetEmote(Chimecho, "exclaim", 1) end)
 	local coro56 = TASK:BranchCoroutine(function() GROUND:CharSetEmote(Loudred, "exclaim", 1) end)
@@ -456,7 +462,7 @@ function guild_basement.Chapter2Scene8()
 	local coro63 = TASK:BranchCoroutine(function() GROUND:CharSetEmote(Corphish, "happy", 1) end)
 	local coro64 = TASK:BranchCoroutine(function() GROUND:CharSetEmote(Bidoof, "happy", 1) end)
 	TASK:JoinCoroutines({coro58, coro59, coro60, coro61, coro62, coro63, coro64})
-	--UI:SetSpeaker()
+	--UI:SetSpeaker('', false)
 	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Guild_Cheer_1_']))
 	--dugtrio and diglett animation here
 	--Time for everyone to leave
@@ -489,19 +495,18 @@ function guild_basement.Chapter2Scene8()
 	GROUND:Hide("Corphish")
         Chatot.CollisionDisabled = false
 	player.CollisionDisabled = false
-        partner.CollisionDisabled = false
 	Croagunk.CollisionDisabled = false
 	GAME:MoveCamera(0, 0, 1, true)
 	--return control to player here, stop player from leaving area before talking to chatot here
 	GAME:CutsceneMode(false)
-
+	AI:EnableCharacterAI(partner)
 end
 
 function guild_basement.Chapter2Scene12()
 
 	player = CH("PLAYER")
         partner = CH("TEAMMATE_1") --why does this have to be like this?
-
+	AI:DisableCharacterAI(partner)
 	GAME:FadeOut(false, 60)
 	--chimecho text
 	local hTalkKind = SV.Personality.HeroTalkKind
@@ -577,7 +582,7 @@ function guild_basement.CH2BidoofTutorialScene2()
 	GROUND:Hide("Dugtrio")
 	GROUND:Hide("Diglett")
 	GROUND:Hide("TEAMMATE_2")
-
+	AI:DisableCharacterAI(partner)
         GAME:CutsceneMode(false)
 	partner.CollisionDisabled = true
         player.CollisionDisabled = true
@@ -656,9 +661,9 @@ function guild_basement.CH2BidoofTutorialScene2()
 	SV.Progression.SectionFlag = 4
         Chatot.CollisionDisabled = false
 	player.CollisionDisabled = false
-        partner.CollisionDisabled = false
 	Croagunk.CollisionDisabled = false
 	Bidoof.CollisionDisabled = false
+	SV.partner.Spawn = 'GuildEntranceMarker'
 	GAME:EnterGroundMap("guild_outside", "GuildEntranceMarker")
 
 end
@@ -687,6 +692,7 @@ function guild_basement.NewDay()
         GROUND:Unhide("Chimecho")
         GROUND:Unhide("Loudred")
 	GROUND:Unhide("Bidoof")
+	AI:DisableCharacterAI(partner)
 	partner.CollisionDisabled = true
         player.CollisionDisabled = true
         Chatot.CollisionDisabled = true
@@ -722,7 +728,7 @@ function guild_basement.NewDay()
 	GROUND:TeleportTo(Croagunk, 347, 239, Direction.UpRight)
 	GROUND:TeleportTo(player, 481, 239, Direction.UpLeft)
 	GROUND:TeleportTo(partner, 481, 261, Direction.UpLeft)
-	--UI:SetSpeaker()
+	--UI:SetSpeaker('', false)
 	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Guild_Cheer_1_']))
 	--UI:SetSpeaker(Chatot)
 	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_']))
@@ -735,7 +741,7 @@ function guild_basement.NewDay()
 	local coro63 = TASK:BranchCoroutine(function() GROUND:CharSetEmote(Corphish, "happy", 1) end)
 	local coro64 = TASK:BranchCoroutine(function() GROUND:CharSetEmote(Bidoof, "happy", 1) end)
 	TASK:JoinCoroutines({coro58, coro59, coro60, coro61, coro62, coro63, coro64})
-	--UI:SetSpeaker()
+	--UI:SetSpeaker('', false)
 	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Guild_Cheer_1_']))
 	--dugtrio and diglett animation here
 	--Time for everyone to leave
@@ -769,7 +775,6 @@ function guild_basement.NewDay()
 	GROUND:TeleportTo(Croagunk, 220, 204, Direction.Down)
         Chatot.CollisionDisabled = false
 	player.CollisionDisabled = false
-        partner.CollisionDisabled = false
 	Croagunk.CollisionDisabled = false
 	GAME:MoveCamera(0, 0, 1, true)
 	--return control to player here
@@ -778,6 +783,8 @@ function guild_basement.NewDay()
 	SV.Progression.SectionFlag = 3
 	end
 
+
+	AI:EnableCharacterAI(partner)
 end
 
 
