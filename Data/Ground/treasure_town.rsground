@@ -122541,7 +122541,7 @@
 "InteractOrder": 0,
 "serializationLoc": {
 "X": 316,
-"Y": 153
+"Y": 152
 },
 "serializationHeight": 0,
 "serializationDir": 0,
@@ -122636,8 +122636,8 @@
 "EntOrder": 0,
 "InteractOrder": 0,
 "serializationLoc": {
-"X": 339,
-"Y": 153
+"X": 340,
+"Y": 152
 },
 "serializationHeight": 0,
 "serializationDir": 0,
@@ -122717,8 +122717,8 @@
 },
 "CollisionDisabled": false,
 "Collider": {
-"X": 339,
-"Y": 153,
+"X": 340,
+"Y": 152,
 "Width": 16,
 "Height": 16
 }
@@ -122828,7 +122828,7 @@
 "EntOrder": 0,
 "InteractOrder": 0,
 "serializationLoc": {
-"X": 651,
+"X": 652,
 "Y": 151
 },
 "serializationHeight": 0,
@@ -122909,8 +122909,8 @@
 },
 "CollisionDisabled": false,
 "Collider": {
-"X": 0,
-"Y": 0,
+"X": 651,
+"Y": 151,
 "Width": 16,
 "Height": 16
 }
@@ -124461,9 +124461,9 @@
 },
 "Collider": {
 "X": 1136,
-"Y": 168,
+"Y": 156,
 "Width": 16,
-"Height": 64
+"Height": 128
 }
 },
 {
@@ -124547,9 +124547,9 @@
 },
 "Collider": {
 "X": 0,
-"Y": 171,
+"Y": 154,
 "Width": 16,
-"Height": 64
+"Height": 128
 }
 },
 {
@@ -124762,7 +124762,7 @@
 },
 "Collider": {
 "X": 316,
-"Y": 169,
+"Y": 168,
 "Width": 16,
 "Height": 16
 }
@@ -124804,8 +124804,8 @@
 "Y": 0
 },
 "Collider": {
-"X": 339,
-"Y": 169,
+"X": 340,
+"Y": 168,
 "Width": 16,
 "Height": 16
 }

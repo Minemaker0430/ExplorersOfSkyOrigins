@@ -1,0 +1,68 @@
+﻿{
+  "Version": [
+    "0.0",
+    "0.8.9.0"
+  ],
+  "Object": {
+    "Desc": {
+      "DefaultText": [
+        "@@ -0,0 +1,90 @@\n+A food item that heals a Poisoned status condition or a Badly Poisoned status condition.%0d%0a\n",
+        0,
+        2
+      ]
+    },
+    "Released": [
+      false,
+      true
+    ],
+    "Sprite": [
+      "",
+      "Berry_Pecha"
+    ],
+    "Price": [
+      50,
+      12
+    ],
+    "ItemStates": {
+      "_t": "a",
+      "0": [
+        {
+          "$type": "PMDC.Dungeon.CurerState, PMDC"
+        }
+      ]
+    },
+    "UseEvent": {
+      "OnHits": {
+        "_t": "a",
+        "0": [
+          {
+            "Key": {
+              "str": [
+                0
+              ]
+            },
+            "Value": {
+              "$type": "PMDC.Dungeon.RemoveStatusBattleEvent, PMDC",
+              "StatusID": "poison",
+              "AffectTarget": false
+            }
+          }
+        ],
+        "1": [
+          {
+            "Key": {
+              "str": [
+                0
+              ]
+            },
+            "Value": {
+              "$type": "PMDC.Dungeon.RemoveStatusBattleEvent, PMDC",
+              "StatusID": "poison_toxic",
+              "AffectTarget": false
+            }
+          }
+        ]
+      }
+    }
+  }
+}
