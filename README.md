@@ -12,7 +12,7 @@ This project is in no way affiliated with Nintendo, The Pokemon Company, or Spik
 
 [servantofTestator](https://github.com/servantoftestator) - Cutscenes (Chapters 1-3)
 
-![Inspired](https://github.com/Minemaker0430/ExplorersOfSkyOrigins/assets/85040155/404187c5-1773-4f20-9c7f-714d14a356ad) Palika - Dusk/Darkness Shaders, Job System (NYI), Event Scripts, Coding/Asset Assistance, Items (Pecha Berry)
+![Inspired](https://github.com/Minemaker0430/ExplorersOfSkyOrigins/assets/85040155/404187c5-1773-4f20-9c7f-714d14a356ad) Palika - Dusk/Darkness Shaders, Job System (NYI), Event Scripts, Coding/Asset Assistance, Items (Various)
 
 ![Happy](https://github.com/Minemaker0430/ExplorersOfSkyOrigins/assets/85040155/7619157c-c020-4cdf-a873-74592477dc43) Trio - Job System (NYI)
 
