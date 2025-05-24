@@ -79,6 +79,16 @@ SV.DailyFlags =
 
 }
 
+--partner flags for imported follow script
+SV.partner =
+{
+        Spawn = 'Default',
+        Dialogue = 'Default',
+        LoadPositionX = -1,
+        LoadPositionY = -1,
+        LoadDirection = -1
+
+}
 
 SV.Personality = --handles dialogue variations
 {

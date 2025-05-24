@@ -5,6 +5,9 @@
 ]]--
 -- Commonly included lua functions and data
 require 'eos.common'
+require 'eos.CharacterActions'
+require 'eos.ExplorerEssentials'
+require 'eos.PartnerEssentials'
 
 -- Package name
 local beach = {}
@@ -25,7 +28,8 @@ function beach.Init(map)
   --This will fill the localized strings table automatically based on the locale the game is 
   -- currently in. You can use the MapStrings table after this line!
   
-
+COMMON:RespawnAllies()
+PartnerEssentials.InitializePartnerSpawn()
 end
 
 ---beach.Enter(map)
@@ -54,6 +58,7 @@ function beach.Exit(map)
 	local coro2 = TASK:BranchCoroutine(function() SOUND:FadeOutSE("Beach_Noise", 20) end)
 	TASK:JoinCoroutines({coro1, coro2})
 SOUND:StopSE("Ambient/AMB_Ocean")
+GAME:FadeOut(false, 20)
 end
 
 ---beach.Update(map)
@@ -83,7 +88,7 @@ end
 -------------------------------
 
 function beach.Exit_Touch(obj, activator)
-
+SV.partner.Spawn = 'BeachEntranceMarker'
 GAME:EnterGroundMap("crossroads_south", "BeachEntranceMarker")
 
 end

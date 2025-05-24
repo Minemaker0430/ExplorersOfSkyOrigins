@@ -8,6 +8,7 @@ require 'eos.common'
 require 'eos.CharacterActions'
 require 'eos.ExplorerEssentials'
 require 'eos.GeneralFunctions'
+require 'eos.PartnerEssentials'
 -- Package name
 
 local treasure_town = {}
@@ -49,6 +50,7 @@ function treasure_town.Init(map)
   --This will fill the localized strings table automatically based on the locale the game is 
   -- currently in. You can use the MapStrings table after this line!
 COMMON:RespawnAllies()  
+PartnerEssentials.InitializePartnerSpawn()
 end
 
 ---treasure_town.Enter(map)
@@ -76,7 +78,7 @@ end
 --Engine callback function
 function treasure_town.Exit(map)
 
-
+GAME:FadeOut(false, 20)
 end
 
 ---treasure_town.Update(map)
@@ -354,6 +356,14 @@ function treasure_town.Shop_Action(obj, activator)
         GROUND:CharEndAnim(partner)
         GROUND:CharEndAnim(hero)
         GROUND:CharEndAnim(chara)
+
+  if SV.Progression.Chapter == 3 then
+        if SV.Progression.SectionFlag == 7 then
+	treasure_town.CH2AzumarillScene1()
+        end
+  end
+
+
 end -- green kecleon shop action
 
 function treasure_town.GenerateGreenKecleonStock(generate_random_item)
@@ -432,14 +442,9 @@ function treasure_town.GenerateGreenKecleonStock(generate_random_item)
                 {"held_defense_scarf", 10}, --defense scarf 
                 {"held_zinc_band", 10}, --Zinc band 
 
-              --  {"held_pecha_scarf", 10}, --Pecha Scarf
-                {"held_cheri_scarf", 10}, --Cheri scarf 
-                {"held_rawst_scarf", 10}, --Rawst scarf 
-                {"held_aspear_scarf", 10}, --Aspear Scarf 
+                {"held_pecha_scarf", 10}, --Pecha Scarf
                 {"held_insomniascope", 10}, --Insomnia scope
 		{"held_persim_band", 10}, --Persim Band
-
-                {"held_reunion_cape", 2} --Reunion cape 
 
         }
 
@@ -544,23 +549,6 @@ function treasure_town.GeneratePurpleKecleonStock(generate_random_item)
 		{"tm_rest", 5},--rest 
         }
 
-        --total weight = 
-        local wand_stock = {
-                {"wand_path", 10},--path wand 
-                {"wand_pounce", 10},--pounce wand 
-                {"wand_whirlwind", 10},--whirlwind wand 
-                {"wand_switcher", 10},--switcher wand 
-                {"wand_lure", 10},--lure wand 
-                {"wand_slow", 10},--slow wand 
-                {"wand_fear", 10},--fear wand 
-                {"wand_topsy_turvy", 5},--topsy turvy wand 
-                {"wand_warp", 5},--warp wand 
-                {"wand_purge", 5},--purge wand 
-                {"wand_lob", 10}, --lob wand 
-                {"wand_totter", 10} --totter wand 
-        }
-
-
         local orb_stock =
         {
                 {"orb_escape", 50},--escape orb 
@@ -586,8 +574,8 @@ function treasure_town.GeneratePurpleKecleonStock(generate_random_item)
         table.insert(stock, GeneralFunctions.WeightedRandom(orb_stock))
         table.insert(stock, GeneralFunctions.WeightedRandom(orb_stock))
         table.insert(stock, GeneralFunctions.WeightedRandom(orb_stock))
-        table.insert(stock, GeneralFunctions.WeightedRandom(wand_stock))
-	table.insert(stock, GeneralFunctions.WeightedRandom(wand_stock))
+        table.insert(stock, GeneralFunctions.WeightedRandom(orb_stock))
+	table.insert(stock, GeneralFunctions.WeightedRandom(orb_stock))
 
 
 
@@ -617,7 +605,7 @@ function treasure_town.TM_Action(obj, activator)
   --populate the catalog of items to buy using the generated stock. Item and hidden (amount of items in the stack typically) are grabbed from the item's predefined values in the item editor
   for ii = 1, #SV.DailyFlags.PurpleKecleonStock, 1 do
         local itemEntry = RogueEssence.Data.DataManager.Instance:GetItem(SV.DailyFlags.PurpleKecleonStock[ii])
-        local item = RogueEssence.Dungeon.InvItem(SV.DailyFlags.PurpleKecleonStock[ii], false, math.min(4, itemEntry.MaxStack))--only give 4 wands.
+        local item = RogueEssence.Dungeon.InvItem(SV.DailyFlags.PurpleKecleonStock[ii], false, math.min(4, itemEntry.MaxStack))
 
         --item price is 5 times the sell value. 
         local item_data = { Item = item, Price = item:GetSellValue() * 5 }
@@ -851,19 +839,19 @@ end
 --Ground map transitions
 
 function treasure_town.HabitatSharpedoBluffDayEntrance_Touch(obj, activator)
-
+SV.partner.Spawn = 'TreasureTownEntranceMarker'
 GAME:EnterGroundMap("habitat_sharpedo_bluff_day", "TreasureTownEntranceMarker")
 
 end
 
 function treasure_town.MarowakDojoEntrance_Touch(obj, activator)
-
+SV.partner.Spawn = 'MarowakDojoExitMarker'
 GAME:EnterGroundMap("marowak_dojo", "MarowakDojoExitMarker")
 
 end
 
 function treasure_town.CrossRoadsAssemblyEntrance_Touch(obj, activator)
-
+SV.partner.Spawn = 'TreasureTownEntranceMarker'
 GAME:EnterGroundMap("crossroads_assembly", "TreasureTownEntranceMarker")
 
 end
@@ -873,11 +861,11 @@ end
 -------------------------------
 
 function treasure_town.CH2BidoofTutorialScene5()
-
 	GAME:CutsceneMode(true)
         player = CH("PLAYER")
         partner = CH("TEAMMATE_1") --why does this have to be like this?
         Bidoof = CH("Bidoof")
+	AI:DisableCharacterAI(partner)
         local hTalkKind = SV.Personality.HeroTalkKind
         local pTalkKind = SV.Personality.PartnerTalkKind
         Bidoof.CollisionDisabled = true
@@ -897,69 +885,242 @@ function treasure_town.CH2BidoofTutorialScene5()
         GROUND:CharAnimateTurnTo(partner, Direction.Left, 2)
         GROUND:CharAnimateTurnTo(player, Direction.Left, 2)
         GROUND:CharAnimateTurnTo(Bidoof, Direction.Right, 2)
-        --bidoof talks 1
-        --bidoof talks 2
-	--partner talks 1
+	--UI:SetSpeaker(Bidoof)
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Bidoof_']))
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Bidoof_']))
+	--UI:SetSpeaker(partner)
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Partner_']))
 	GAME:MoveCamera(Duskull.Position.X, Duskull.Position.Y, 1, false)
 	GAME:WaitFrames(120)
-	--partner talks 2
-	--partner talks 3
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Partner_']))
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Partner_']))
 	GAME:MoveCamera(Electivire.Position.X, Electivire.Position.Y, 1, false)
 	GAME:WaitFrames(120)
-	--partner talks 4
-	--partner talks 5
-	--partner talks 6
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Partner_']))
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Partner_']))
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Partner_']))
 	GAME:FadeOut(false, 30)
 	GAME:MoveCamera(Kecleon.Position.X, Kecleon.Position.Y, 1, false)
 	GAME:FadeIn(30)
 	GAME:WaitFrames(120)
-	--partner talks 7
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Partner_']))
 	GAME:MoveCamera(Kangaskhan.Position.X, Kangaskhan.Position.Y, 1, false)
 	GAME:WaitFrames(120)
-	--partner talks 8
-	--partner talks 9
-	--partner talks 10
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Partner_']))
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Partner_']))
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Partner_']))
 	GAME:FadeOut(false, 60)
 	GAME:MoveCamera(0, 0, 1, true)
 	GAME:FadeIn(20)
 	GAME:WaitFrames(120)
-	--partner talks 11
-        --bidoof talks 3
-        --bidoof talks 3
-        --bidoof talks 3
-	--partner talks 12
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Partner_']))
+	--UI:SetSpeaker(Bidoof)
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Bidoof_']))
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Bidoof_']))
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Bidoof_']))
+	--UI:SetSpeaker(Partner)
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Partner_']))
+	--UI:SetSpeaker(Bidoof)
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Bidoof_']))
 
 	--coroutine begin
-        --bidoof talks 3
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Bidoof_']))
+	--UI:SetSpeakerEmotion("Happy")
 	GROUND:CharAnimateTurnTo(Bidoof, Direction.Down, 2)	
 	GROUND:CharSetEmote(Bidoof, "sweating", 1)
-	--happy portrait
 	--coroutine end
 
 	GROUND:CharAnimateTurnTo(Bidoof, Direction.Right, 2)
-        --bidoof talks 3
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Bidoof_']))
+
 	--coroutine begin
 	GROUND:MoveToPosition(Bidoof, 832, 231, false, 1)
 	GROUND:CharAnimateTurnTo(player, Direction.Down, 2)
 	GROUND:CharAnimateTurnTo(partner, Direction.Down, 2)
 	--coroutine end
+
 	--coroutine begin
 	GROUND:MoveToPosition(Bidoof, marker.Position.X, marker.Position.Y, false, 1)
 	GROUND:CharAnimateTurnTo(player, Direction.Right, 2)
 	GROUND:CharAnimateTurnTo(partner, Direction.Right, 2)
 	--coroutine end
+
 	--coroutine begin
 	GROUND:CharAnimateTurnTo(player, Direction.Down, 2)
         GROUND:CharAnimateTurnTo(partner, Direction.Up, 2)
-	--partner talks 13
-	--partner talks 14
-	--partner talks 15
-	--partner talks 16
 	--coroutine end
+	--UI:SetSpeaker(partner)
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Partner_']))
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Partner_']))
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Partner_']))
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Partner_']))
 
         SV.Progression.SectionFlag = 7
 	--putup inability to leave town until talking to kecleon here and return control to player
 	GAME:CutsceneMode(false)
+	AI:EnableCharacterAI(partner)
+end
+
+function treasure_town.CH2AzumarillScene1()
+
+	player = CH("PLAYER")
+        partner = CH("TEAMMATE_1") --why does this have to be like this?
+	local hTalkKind = SV.Personality.HeroTalkKind
+        local pTalkKind = SV.Personality.PartnerTalkKind
+        partner.CollisionDisabled = true
+        player.CollisionDisabled = true
+        Azurill.CollisionDisabled = true
+        Marill.CollisionDisabled = true
+
+	AI:DisableCharacterAI(partner)
+	GROUND:TeleportTo(Marill, 555, 213, Direction.Left)
+	GROUND:TeleportTo(Azurill, 555, 193, Direction.Left)
+
+	--coroutine begin
+	--UI:SetSpeaker('', false)
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_PortraitlessMarill_']))
+	GROUND:MoveToPosition(Marill, KecleonShiny.Position.X, KecleonShiny.Position.Y + 40, false, 1)
+	GROUND:MoveToPosition(Azurill, KecleonShiny.Position.X + 10, KecleonShiny.Position.Y + 52, false, 1)
+	GROUND:CharAnimateTurnTo(Marill, Direction.Up, 2)
+	GROUND:CharAnimateTurnTo(Azurill, Direction.Up, 2)
+	--coroutine end
+	--coroutine begin
+	GROUND:MoveToPosition(player, 310, 209, false, 1)
+	GROUND:MoveToPosition(partner, 310, 191, false, 1)
+	GROUND:CharAnimateTurnTo(player, Direction.Right, 2)
+	GROUND:CharAnimateTurnTo(partner, Direction.Right, 2)
+	--coroutine end
+	GROUND:CharSetEmote(Kecleon, "exclaim", 1)
+	GROUND:CharSetEmote(KecleonShiny, "exclaim", 1)
+	GROUND:CharAnimateTurnTo(Kecleon, Direction.DownRight, 2)
+	--UI:SetSpeaker(Kecleon)
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Kecleon_']))
+	--UI:SetSpeaker(Azurill)
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Azurill_']))
+	--UI:SetSpeaker(Kecleon)
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Kecleon_']))
+	--UI:SetSpeaker('', false)
+	--portraitless bought item text
+	--UI:SetSpeaker(Marill)
+	--UI:SetSpeakerEmotion("Happy")
+	GROUND:CharSetEmote(Marill, "exclaim", 1)
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Marill_']))	
+	--UI:SetSpeaker(Kecleon)
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Kecleon_']))
+	--coroutine begin
+	GROUND:MoveToPosition(Marill, 555, 213, false, 1)
+	GROUND:MoveToPosition(Azurill, 555, 193, false, 1)
+	GROUND:CharAnimateTurnTo(Kecleon, Direction.Right, 2)
+	GROUND:CharAnimateTurnTo(KecleonShiny, Direction.Right, 2)
+	--coroutine end
+	--coroutine begin
+	GROUND:CharAnimateTurnTo(Kecleon, Direction.Down, 2)
+	GROUND:CharAnimateTurnTo(KecleonShiny, Direction.DownLeft, 2)
+	--UI:SetSpeaker(Kecleon)
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Kecleon_']))
+	--coroutine end
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Kecleon_']))
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Kecleon_']))
+	--coroutine begin
+	GROUND:CharSetEmote(Kecleon, "exclaim", 1)
+	GROUND:MoveToPosition(Marill, KecleonShiny.Position.X, KecleonShiny.Position.Y + 40, false, 1)
+	GROUND:MoveToPosition(Azurill, KecleonShiny.Position.X - 10, KecleonShiny.Position.Y + 52, false, 1)
+	GROUND:CharAnimateTurnTo(Marill, Direction.Up, 2)
+	GROUND:CharAnimateTurnTo(Azurill, Direction.Up, 2)
+	GROUND:CharAnimateTurnTo(Kecleon, Direction.DownRight, 2)
+	GROUND:CharAnimateTurnTo(KecleonShiny, Direction.Down, 2)
+	--coroutine end
+	GROUND:CharSetEmote(Kecleon, "question", 1)
+	--UI:SetSpeaker('', false)
+	--portraitless marill text
+	--UI:SetSpeaker(Kecleon)
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Kecleon_']))
+	CharacterActions.ScaredJump(Azurill, Direction.Up)
+	--UI:SetSpeaker(Azurill)
+        --UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Azurill_']))
+	--UI:SetSpeaker(Marill)
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Marill_']))
+	--UI:SetSpeaker(Kecleon)
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Kecleon_']))
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Kecleon_']))
+
+	--coroutine begin
+	--UI:SetSpeaker(Marill)
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Marill_']))
+	GROUND:CharSetEmote(Marill, "exclaim", 1)
+	--coroutine end
+
+	--coroutine start
+	--UI:SetSpeaker(Azurill)
+        --UI:SetSpeakerEmotion("Happy")
+        GROUND:CharSetEmote(Azurill, "shock", 1)
+        --UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Azurill_']))
+	--coroutine end
+	--UI:SetSpeaker(Kecleon)
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Kecleon_']))
+
+	--coroutine here but i forgot the ending
+	GROUND:MoveToPosition(Marill, 555, 213, false, 1)
+	GROUND:MoveToPosition(Azurill, 555, 193, false, 1)
+	GROUND:CharAnimateTurnTo(Kecleon, Direction.DownRight, 2)
+	GROUND:CharAnimateTurnTo(KecleonShiny, Direction.DownRight, 2)
+	--UI:SetSpeaker(Azurill)
+	--put delay here UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Azurill_']))
+	--azurill portrait emote
+	--azurill trip emote
+	GROUND:CharSetEmote(player, "shock", 1)
+	GROUND:CharSetEmote(Kecleon, "shock", 1)
+	--appledrop animation ending at middle of shop stand in front
+	--playgrab apple animation
+	GROUND:MoveToPosition(Azurill, KecleonShiny.Position.X - 7, KecleonShiny.Position.Y + 48, false, 1)
+	GROUND:MoveToPosition(player, KecleonShiny.Position.X + 7, KecleonShiny.Position.Y + 48, false, 1)
+	GROUND:CharAnimateTurnTo(partner, Direction.UpRight, 2)
+	--azurill upside down animation
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Azurill_']))
+	GROUND:MoveToPosition(player, KecleonShiny.Position.X + 2, KecleonShiny.Position.Y + 48, false, 1)
+	--UI:SetSpeaker('', false)
+	--portraitless giving apple back text 1
+	--portraitless giving apple back text 2
+	--UI:SetSpeaker(player)
+	--UI:SetSpeakerEmotion("Worried")
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
+	
+	--add flash foward cutscene start
+	--fade to black
+	--UI:SetSpeaker('', false)
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
+	--unfade to black
+	--add flash foward cutscene end
+
+
+	GROUND:CharSetEmote(player, "exclaim", 1)
+	--UI:SetSpeaker(player)
+	--UI:SetSpeakerEmotion("Worried")
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
+	GROUND:CharAnimateTurnTo(player, Direction.Up, 2)
+	GROUND:CharAnimateTurnTo(player, Direction.Down, 2)
+	GROUND:CharAnimateTurnTo(player, Direction.Right, 2)
+	GROUND:CharAnimateTurnTo(player, Direction.Left, 2)
+	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
+
+	GROUND:CharSetEmote(Azurill, "question", 1)
+
+	--UI:SetSpeaker(Azurill)
+        --UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Azurill_']))
+	--UI:SetSpeaker('', false)
+	--portraitless marill text
+	GROUND:CharAnimateTurnTo(azurill, Direction.Right, 2)
+	--UI:SetSpeaker(Azurill)
+        --UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Azurill_']))
+	GROUND:CharAnimateTurnTo(azurill, Direction.Left, 2)
+	--azurill bow animation
+	--too tired resume at 21:18
+	
+	SV.Progression.SectionFlag = 8
+	AI:EnableCharacterAI(partner)	
+        player.CollisionDisabled = false
 end
 
 return treasure_town

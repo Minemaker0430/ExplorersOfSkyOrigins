@@ -7,7 +7,7 @@
 require 'eos.common'
 require 'eos.CharacterActions'
 require 'eos.ExplorerEssentials'
-
+require 'eos.PartnerEssentials'
 -- Package name
 local crossroads_assembly = {}
 
@@ -29,6 +29,7 @@ function crossroads_assembly.Init(map)
   
 COMMON:RespawnAllies()
 SOUND:PlayBGM("014 - Treasure Town.ogg", true)
+PartnerEssentials.InitializePartnerSpawn()
 
 end
 
@@ -52,7 +53,7 @@ end
 --Engine callback function
 function crossroads_assembly.Exit(map)
 
-
+GAME:FadeOut(false, 20)
 end
 
 ---crossroads_assembly.Update(map)
@@ -83,10 +84,10 @@ end
 -------------------------------
 
 function crossroads_assembly.CH2BidoofTutorialScene4()
-
         player = CH("PLAYER")
         partner = CH("TEAMMATE_1") --why does this have to be like this?
         Bidoof = CH("Bidoof")
+	AI:DisableCharacterAI(partner)
         GAME:MoveCamera(0, 0, 1, true)
         local hTalkKind = SV.Personality.HeroTalkKind
         local pTalkKind = SV.Personality.PartnerTalkKind
@@ -136,19 +137,19 @@ end
 -------------------------------
 
 function crossroads_assembly.GuildOutsideEntrance_Touch(obj, activator)
-
+SV.partner.Spawn = 'CrossRoadsEntranceMarker'
 GAME:EnterGroundMap("guild_outside", "CrossRoadsEntranceMarker")
 
 end
 
 function crossroads_assembly.CrossRoadsSouthEntrance_Touch(obj, activator)
-
+SV.partner.Spawn = 'CrossRoadsAssemblyEntranceMarker'
 GAME:EnterGroundMap("crossroads_south", "CrossRoadsAssemblyEntranceMarker")
 
 end
 
 function crossroads_assembly.TreasureTownEntrance_Touch(obj, activator)
-
+SV.partner.Spawn = 'CrossRoadsAssemblyEntranceMarker'
 GAME:EnterGroundMap("treasure_town", "CrossRoadsAssemblyEntranceMarker")
 
 end

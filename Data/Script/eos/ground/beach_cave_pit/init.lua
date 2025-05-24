@@ -113,6 +113,7 @@ function beach_cave_pit.NothingHere()
 	GAME:FadeIn(20)
 	GAME:CutsceneMode(false)
 	GAME:EndDungeonRun(RogueEssence.Data.GameProgress.ResultType.Cleared, "hub", -1, 5, 3, true, true)
+	SV.partner.Spawn = 'Ladder'
 	GAME:EnterZone('hub', -1, 5, GuildHallwayEntranceMarker) --Time to do this lol, gameplay loop achieved
 end
 

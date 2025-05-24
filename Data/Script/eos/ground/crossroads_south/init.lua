@@ -5,6 +5,10 @@
 ]]--
 -- Commonly included lua functions and data
 require 'eos.common'
+require 'eos.PartnerEssentials'
+require 'eos.CharacterActions'
+require 'eos.ExplorerEssentials'
+require 'eos.GeneralFunctions'
 
 -- Package name
 local crossroads_south = {}
@@ -26,6 +30,8 @@ function crossroads_south.Init(map)
   -- currently in. You can use the MapStrings table after this line!
   
 SOUND:PlayBGM("014 - Treasure Town.ogg", true)
+COMMON:RespawnAllies()
+PartnerEssentials.InitializePartnerSpawn()
 end
 
 ---crossroads_south.Enter(map)
@@ -40,7 +46,7 @@ end
 --Engine callback function
 function crossroads_south.Exit(map)
 
-
+GAME:FadeOut(false, 20)
 end
 
 ---crossroads_south.Update(map)
@@ -70,13 +76,13 @@ end
 -------------------------------
 
 function crossroads_south.BeachEntrance_Touch(obj, activator)
-
+SV.partner.Spawn = 'Entrance'
 GAME:EnterGroundMap("beach", "Entrance")
 
 end
 
 function crossroads_south.CrossRoadsAssemblyEntrance_Touch(obj, activator)
-
+SV.partner.Spawn = 'CrossRoadsSouthEntranceMarker'
 GAME:EnterGroundMap("crossroads_assembly", "CrossRoadsSouthEntranceMarker")
 
 end
