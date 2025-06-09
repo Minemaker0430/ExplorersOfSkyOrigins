@@ -44,6 +44,11 @@ SV.Dungeon =
 	MapID = 0
 }
 
+SV.WorldMap = { -- used for the eventual 'world map' cutscene, basically saves strings of entry and destination points
+	Start = 'hub',
+	Dest = 'hub'
+}
+
 SV.Progression =
 {
 	Chapter = 1, --chapter tracking, 1-20 is main game, 21+ is major postgame flags
@@ -67,15 +72,12 @@ SV.Cutscene =
 --These flags are to be reset to their initial values at the end of the day.
 SV.DailyFlags =
 {
-  GreenMerchantItem = "",
-  GreenMerchantBought = false,
-
   GreenKecleonRefreshedStock = false,
   GreenKecleonStock = {},
   PurpleKecleonRefreshedStock = false,
   PurpleKecleonStock = {},
 
-	SereneForestUnlocked = false -- used for the special "Oddity Cave like dungeon"
+	SereneForestUnlocked = false -- used for the special "Oddity Cave" like dungeon
 }
 
 --partner flags for imported follow script

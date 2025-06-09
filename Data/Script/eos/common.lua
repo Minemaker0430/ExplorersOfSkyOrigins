@@ -109,7 +109,7 @@ function COMMON.RespawnAllies()
   local total = 1
   for i,p in ipairs(party) do
     if i ~= (playeridx + 1) then --Indices in lua tables begin at 1
-      if not _DATA.Save.ActiveTeam.Players[total].IsPartner then
+      if not (_DATA.Save.ActiveTeam.Players[total].IsPartner or _DATA.Save.ActiveTeam.Players[total].IsFounder) then
         GROUND:SpawnerSetSpawn("TEAMMATE_" .. tostring(total),p)
         local chara = GROUND:SpawnerDoSpawn("TEAMMATE_" .. tostring(total))
       end

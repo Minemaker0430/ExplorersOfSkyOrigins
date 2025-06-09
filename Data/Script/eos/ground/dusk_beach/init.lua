@@ -29,6 +29,7 @@ function dusk_beach.Init(map)
   
   
   COMMON:RespawnAllies()
+  ExplorerEssentials.SpawnPartner()
 end
 
 ---dusk_beach.Enter(map)

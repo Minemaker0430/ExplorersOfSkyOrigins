@@ -33,7 +33,6 @@ end
 ---guild_outside_dusk.Enter(map)
 --Engine callback function
 function guild_outside_dusk.Enter(map)
-GROUND:Hide("TEAMMATE_2")
 
   if SV.Progression.Chapter == 1 then
 	GAME:CutsceneMode(true)
@@ -111,7 +110,7 @@ end
 -------------------------------
 
 function guild_outside_dusk.CH1_PartnerWimpsOut()
-	GROUND:Hide("TEAMMATE_1")
+	GROUND:Hide("PARTNER")
 	
 	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
@@ -285,7 +284,7 @@ end
 function guild_outside_dusk.Chapter2Scene1()
 
 	local player = CH("PLAYER")
-	local partner = CH("TEAMMATE_1") --why does this have to be like this?
+	local partner = CH("PARTNER") --why does this have to be like this?
 	
 	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
@@ -374,7 +373,7 @@ end
 function guild_outside_dusk.Chapter2Scene2()
 
 	local player = CH("PLAYER")
-	local partner = CH("TEAMMATE_1") --why does this have to be like this?
+	local partner = CH("PARTNER") --why does this have to be like this?
 	
 	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
@@ -416,7 +415,7 @@ function guild_outside_dusk.Chapter2Scene2()
 	GROUND:Hide("PLAYER")
 	GROUND:MoveToPosition(partner, marker.Position.X + 16, marker.Position.Y - 24, false, 1)	
 	GROUND:MoveToPosition(partner, marker.Position.X + 16, marker.Position.Y - 40, false, 1)	
-	GROUND:Hide("TEAMMATE_1")
+	GROUND:Hide("PARTNER")
 	--GAME:FadeOut(false, 60)
 	--jump to scene inside top of guild
 
