@@ -3,7 +3,7 @@
 
 A remake of EoS in the PMDO Engine, featuring more starters, a reworked battle system, revamped dungeons, and more!
 
-This project is in no way affiliated with Nintendo, Creatures Inc, The Pokemon Company, or Spike Chunsoft. I'm just a fan who likes PMD games and wants to preserve them. 
+This project is in no way affiliated with Nintendo, Creatures Inc, The Pokémon Company, or Spike Chunsoft. I'm just a fan who likes PMD games and wants to preserve them. 
 
 # Credits
 ![Happy](https://github.com/Minemaker0430/ExplorersOfSkyOrigins/assets/85040155/43f9044e-c728-466b-bdf7-7be7d75e0399) ItsMochaTheOtter (Minemaker0430) - Project Creator, Cutscenes (Chapter 1), Dungeons, Balancing, Items
@@ -19,21 +19,25 @@ This project is in no way affiliated with Nintendo, Creatures Inc, The Pokemon C
 Playtesters: Mai Kiên, sleepdragoon
 
 # Major Changes
+ - Personality Quiz has more Starters.
  - Treasure Town no longer has a Loading Zone between its two areas.
- - Aura is now based on your favorite color.
- - IQ is completely irrelevant so Spinda's Juice Bar is now used for Major Stat Buffs (NYI)
- - Recruitment now uses Apricorns spawned in valid dungeons. Some dungeons will still not allow recruitment. (NYI)
+ - Aura is determined differently.
+ - A few Dungeon Items have been changed.
+	- Heal Seed -> Lum Berry
+	- Max Elixir -> Leppa Berry (Max Elixir is buffed in Origins, Leppa Berry serves the same purpose as in EoS)
+	- X-Eye Seed -> TBD (Crosseyed isn't an effect in PMDO)
+ - IQ is completely irrelevant so Spinda's Juice Bar is now used for Major Stat Buffs. (NYI)
+ - Recruitment now uses Apricorns spawned in valid dungeons. (NYI)
  - Storage no longer has a limit. (NYI)
- - Electivire's Link Shop now only helps remember moves, due to PMDO not supporting Linked Moves (NYI)
+ - Electivire's Link Shop now only helps remember moves, due to PMDO not supporting Linked Moves. (NYI)
  - Rank Ups now increase the amount of Jobs you can have at once. (NYI)
+ - Game Autosaves after each Chapter & Day (NYI)
 
 # Known Issues
- - Personality Quiz Code is very much Spaghetti Code right now, will fix later :v
- - Personality Quiz doesn't have the Aura Cutscene (Might Not Fix)
- - Many BGs need to be resized
- - Storm Cutscene is unpolished & contains graphical errors/missing assets
- - Missing Some Ambient BGM
- - No Bubbles Yet
+ - Chapter 1 Cutscenes are unfinished
+	- Gameplay is finished
+	- Bubbles are WIP
+ - Gameplay loop is unfininished, game ends without saving after Chapter 1
 
 # Installation
  - Get PMDO from https://github.com/audinowho/PMDODump/releases
