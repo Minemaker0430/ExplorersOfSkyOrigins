@@ -11,6 +11,17 @@ ExplorerEssentials = {}
 --
 -- so yea that's it bye
 
+function ExplorerEssentials.SpawnPartner()
+	local partner = CH('TEAMMATE_1')
+	local player = CH('PLAYER')
+
+	GROUND:TeleportTo(partner, player.Position.X, player.Position.Y, player.Direction)
+
+	AI:SetCharacterAI(partner, "origin.ai.ground_partner", CH('PLAYER'), partner.Position)
+	partner.CollisionDisabled = true
+	partner.InteractOrder = 1
+end
+
 function ExplorerEssentials.SpawnBubbles(animID)
 	if animID == 1 then
 	

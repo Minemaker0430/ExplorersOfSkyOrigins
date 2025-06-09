@@ -7,7 +7,6 @@
 require 'eos.common'
 require 'eos.CharacterActions'
 require 'eos.ExplorerEssentials'
-require 'eos.PartnerEssentials'
 
 -- Package name
 local guild_basement = {}
@@ -25,7 +24,6 @@ local guild_basement = {}
 --Engine callback function
 function guild_basement.Init(map)
  --no need to duplicate these except when it glitches out?
-  SOUND:PlayBGM("008 - Wigglytuff's Guild.ogg", false)  
 	player = CH("PLAYER")
         partner = CH("TEAMMATE_1") --why does this have to be like this?
         Chatot = CH("Chatot")
@@ -51,7 +49,7 @@ function guild_basement.Init(map)
   --This will fill the localized strings table automatically based on the locale the game is 
   -- currently in. You can use the MapStrings table after this line!
 COMMON:RespawnAllies()
-PartnerEssentials.InitializePartnerSpawn()
+ExplorerEssentials.SpawnPartner()
 end
 
 ---guild_basement.Enter(map)
@@ -147,6 +145,7 @@ end
 function guild_basement.GameLoad(map)
 
   GAME:FadeIn(20)
+  ExplorerEssentials.SpawnPartner()
 
 end
 

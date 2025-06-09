@@ -7,8 +7,6 @@
 require 'eos.common'
 require 'eos.CharacterActions'
 require 'eos.ExplorerEssentials'
-require 'eos.GeneralFunctions'
-require 'eos.PartnerEssentials'
 
 -- Package name
 local habitat_sharpedo_bluff_day = {}
@@ -28,7 +26,7 @@ function habitat_sharpedo_bluff_day.Init(map)
   --This will fill the localized strings table automatically based on the locale the game is 
   -- currently in. You can use the MapStrings table after this line!
 COMMON:RespawnAllies()
-PartnerEssentials.InitializePartnerSpawn()  
+ExplorerEssentials.SpawnPartner()
 end
 
 ---habitat_sharpedo_bluff_day.Enter(map)
@@ -65,6 +63,7 @@ end
 function habitat_sharpedo_bluff_day.GameLoad(map)
 
   GAME:FadeIn(20)
+  ExplorerEssentials.SpawnPartner()
 
 end
 

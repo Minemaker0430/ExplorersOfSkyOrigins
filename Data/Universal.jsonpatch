@@ -1,0 +1,25 @@
+﻿{
+  "Version": [
+    "0.0",
+    "0.8.9.0"
+  ],
+  "Object": {
+    "OnTurnEnds": {
+      "_t": "a",
+      "0": [
+        {
+          "Key": {
+            "str": [
+              15
+            ]
+          },
+          "Value": {
+            "$type": "RogueEssence.Dungeon.SingleCharScriptEvent, RogueEssence",
+            "Script": "HeroPartnerCheck",
+            "ArgTable": "{}"
+          }
+        }
+      ]
+    }
+  }
+}

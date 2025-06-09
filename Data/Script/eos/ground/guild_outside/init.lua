@@ -7,7 +7,6 @@
 require 'eos.common'
 require 'eos.CharacterActions'
 require 'eos.ExplorerEssentials'
-require 'eos.PartnerEssentials'
 
 -- Package name
 local guild_outside = {}
@@ -24,7 +23,6 @@ local guild_outside = {}
 ---guild_outside.Init(map)
 --Engine callback function
 function guild_outside.Init(map)
-	SOUND:PlayBGM("008 - Wigglytuff's Guild.ogg", true)
         player = CH("PLAYER")
         partner = CH("TEAMMATE_1") --why does this have to be like this?
         Bidoof = CH("Bidoof")
@@ -33,7 +31,7 @@ function guild_outside.Init(map)
   -- currently in. You can use the MapStrings table after this line!
   
 COMMON:RespawnAllies()
-PartnerEssentials.InitializePartnerSpawn()
+ExplorerEssentials.SpawnPartner()
 end
 
 ---guild_outside.Enter(map)
@@ -76,6 +74,7 @@ end
 function guild_outside.GameLoad(map)
 
   GAME:FadeIn(20)
+  ExplorerEssentials.SpawnPartner()
 
 end
 

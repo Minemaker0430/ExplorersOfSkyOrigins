@@ -7,7 +7,6 @@
 require 'eos.common'
 require 'eos.CharacterActions'
 require 'eos.ExplorerEssentials'
-require 'eos.PartnerEssentials'
 
 -- Package name
 local beach = {}
@@ -24,18 +23,8 @@ local beach = {}
 ---beach.Init(map)
 --Engine callback function
 function beach.Init(map)
-
-  --This will fill the localized strings table automatically based on the locale the game is 
-  -- currently in. You can use the MapStrings table after this line!
-  if SV.Progression.Chapter == 1  then
-
-
-  else
-	SOUND:LoopSE("Ambient/AMB_Ocean")
-	GAME:FadeIn(20)
 	COMMON:RespawnAllies()
-	PartnerEssentials.InitializePartnerSpawn()
-  end
+	ExplorerEssentials.SpawnPartner()
 end
 
 ---beach.Enter(map)
@@ -85,7 +74,8 @@ end
 --Engine callback function
 function beach.GameLoad(map)
 
-  GAME:FadeIn(20)
+	ExplorerEssentials.SpawnPartner()
+  	GAME:FadeIn(20)
 
 end
 
@@ -94,14 +84,13 @@ end
 -------------------------------
 
 function beach.Exit_Touch(obj, activator)
-SV.partner.Spawn = 'BeachEntranceMarker'
-GAME:EnterGroundMap("crossroads_south", "BeachEntranceMarker")
+	GAME:EnterGroundMap("crossroads_south", "BeachEntranceMarker")
 
 end
 
 function beach.Beach_Cave_Entrance_Touch(obj, activator)
 
-GAME:EnterZone('beach_cave', 0, 0, 0)
+	GAME:EnterZone('beach_cave', 0, 0, 0)
 
 end
 

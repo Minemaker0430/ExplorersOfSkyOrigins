@@ -5,10 +5,8 @@
 ]]--
 -- Commonly included lua functions and data
 require 'eos.common'
-require 'eos.PartnerEssentials'
 require 'eos.CharacterActions'
 require 'eos.ExplorerEssentials'
-require 'eos.GeneralFunctions'
 
 -- Package name
 local crossroads_south = {}
@@ -31,7 +29,7 @@ function crossroads_south.Init(map)
   
 SOUND:PlayBGM("014 - Treasure Town.ogg", true)
 COMMON:RespawnAllies()
-PartnerEssentials.InitializePartnerSpawn()
+ExplorerEssentials.SpawnPartner()
 end
 
 ---crossroads_south.Enter(map)
@@ -68,6 +66,7 @@ end
 function crossroads_south.GameLoad(map)
 
   GAME:FadeIn(20)
+  ExplorerEssentials.SpawnPartner()
 
 end
 

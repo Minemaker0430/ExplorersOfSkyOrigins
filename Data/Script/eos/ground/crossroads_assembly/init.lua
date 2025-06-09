@@ -7,7 +7,6 @@
 require 'eos.common'
 require 'eos.CharacterActions'
 require 'eos.ExplorerEssentials'
-require 'eos.PartnerEssentials'
 -- Package name
 local crossroads_assembly = {}
 
@@ -29,7 +28,7 @@ function crossroads_assembly.Init(map)
   
 COMMON:RespawnAllies()
 SOUND:PlayBGM("014 - Treasure Town.ogg", true)
-PartnerEssentials.InitializePartnerSpawn()
+ExplorerEssentials.SpawnPartner()
 
 end
 
@@ -75,6 +74,7 @@ end
 function crossroads_assembly.GameLoad(map)
 
   GAME:FadeIn(20)
+  ExplorerEssentials.SpawnPartner()
 
 end
 

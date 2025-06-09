@@ -95,9 +95,9 @@ SV.Personality = --handles dialogue variations
 	PartnerTalkKind = 0
 }
 
-SV.PlayerInputs = --favorite color is saved for the bow color, personality i just saved for no particular reason
+SV.PlayerInputs = --aura color is saved for the bow color, personality i just saved for no particular reason
 {
-	FavoriteColor = nil,
+	AuraColor = nil,
 	Personality = nil
 }
 

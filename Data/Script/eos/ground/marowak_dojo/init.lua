@@ -7,7 +7,6 @@
 require 'eos.common'
 require 'eos.CharacterActions'
 require 'eos.ExplorerEssentials'
-require 'eos.PartnerEssentials'
 
 -- Package name
 local marowak_dojo = {}
@@ -29,7 +28,7 @@ function marowak_dojo.Init(map)
   -- currently in. You can use the MapStrings table after this line!
   
 COMMON:RespawnAllies()
-PartnerEssentials.InitializePartnerSpawn()
+ExplorerEssentials.SpawnPartner()
 end
 
 ---marowak_dojo.Enter(map)
@@ -37,7 +36,6 @@ end
 function marowak_dojo.Enter(map)
 
   GAME:FadeIn(20)
-SOUND:PlayBGM("Marowak Dojo.ogg", true)
 end
 
 ---marowak_dojo.Exit(map)
@@ -66,6 +64,7 @@ end
 function marowak_dojo.GameLoad(map)
 
   GAME:FadeIn(20)
+  ExplorerEssentials.SpawnPartner()
 
 end
 

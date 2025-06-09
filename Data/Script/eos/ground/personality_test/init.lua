@@ -552,6 +552,78 @@ local function roll(randMin, randMax)
 	return rand
 end
 
+-- 0 = silver (warm, light, soft, space)
+-- 1 = brown (warm, dark, soft, time)
+-- 2 = red (warm, dark, vibrant, time)
+-- 3 = pink (warm, light, vibrant, space)
+-- 4 = orange (warm, dark, soft, space)
+-- 5 = yellow (warm, light, vibrant, time)
+-- 6 = lime (warm, light, soft, time)
+-- 7 = green (cool, light, soft, time)
+-- 8 = viridian (cool, dark, vibrant, space)
+-- 9 = minty (cool, light, vibrant, time)
+-- 10 = sky blue (cool, light, soft, space)
+-- 11 = blue (cool, light, vibrant, space)
+-- 12 = cobalt (cool, dark, vibrant, time)
+-- 13 = purple (cool, dark, soft, time)
+-- 14 = violet (cool, dark, soft, space)
+-- 15 = fuchsia (warm, dark, vibrant, space)
+
+local auraTable = {
+	[1] = { -- warm
+		[1] = { -- light
+			[1] = { -- soft
+			-- time & space
+				6,
+				0
+			},
+			[2] = { -- vibrant
+			-- time & space
+				5,
+				3
+			}
+		},
+		[2] = { -- dark
+			[1] = { -- soft
+			-- time & space
+				1,
+				4
+			},
+			[2] = { -- vibrant
+			-- time & space
+				2,
+				15
+			}
+		}
+	},
+	[2] = { -- cool
+		[1] = { -- light
+			[1] = { -- soft
+			-- time & space
+				7,
+				10
+			},
+			[2] = { -- vibrant
+			-- time & space
+				9,
+				11
+			}
+		},
+		[2] = { -- dark
+			[1] = { -- soft
+			-- time & space
+				13,
+				14
+			},
+			[2] = { -- vibrant
+			-- time & space
+				12,
+				8
+			}
+		}
+	}
+}
+
 ---personality_test.Enter
 --Engine callback function
 function personality_test.Enter(map)
@@ -644,23 +716,68 @@ UI:WaitForChoice()
 result = UI:ChoiceResult()
 gender = result
   
-  --Color Selection (Aura Replacement)
-choices = {STRINGS:Format(STRINGS.MapStrings['Quiz_Color_A1']),
-           STRINGS:Format(STRINGS.MapStrings['Quiz_Color_A2']),
-           STRINGS:Format(STRINGS.MapStrings['Quiz_Color_A3']),
-		   STRINGS:Format(STRINGS.MapStrings['Quiz_Color_A4']),
-           STRINGS:Format(STRINGS.MapStrings['Quiz_Color_A5']),
-		   STRINGS:Format(STRINGS.MapStrings['Quiz_Color_A6']),
-           STRINGS:Format(STRINGS.MapStrings['Quiz_Color_A7']),
-           STRINGS:Format(STRINGS.MapStrings['Quiz_Color_A8']),
-		   STRINGS:Format(STRINGS.MapStrings['Quiz_Color_A9']),
-           STRINGS:Format(STRINGS.MapStrings['Quiz_Color_A10']),
-		   STRINGS:Format(STRINGS.MapStrings['Quiz_Color_A11'])}
 
-UI:BeginChoiceMenu(STRINGS:Format(STRINGS.MapStrings['Quiz_Color_A0']), choices, 1, 3)
-UI:WaitForChoice()
-result = UI:ChoiceResult()
-favColor = result
+-- TODO: Revamp Aura Selection
+-- 0 = silver (warm, light, soft, space)
+-- 1 = brown (warm, dark, soft, time)
+-- 2 = red (warm, dark, vibrant, time)
+-- 3 = pink (warm, light, vibrant, space)
+-- 4 = orange (warm, dark, soft, space)
+-- 5 = yellow (warm, light, vibrant, time)
+-- 6 = lime (warm, light, soft, time)
+-- 7 = green (cool, light, soft, time)
+-- 8 = viridian (cool, dark, vibrant, space)
+-- 9 = minty (cool, light, vibrant, time)
+-- 10 = sky blue (cool, light, soft, space)
+-- 11 = blue (cool, light, vibrant, space)
+-- 12 = cobalt (cool, dark, vibrant, time)
+-- 13 = purple (cool, dark, soft, time)
+-- 14 = violet (cool, dark, soft, space)
+-- 15 = fuchsia (warm, dark, vibrant, space)
+
+	-- Aura
+UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Quiz_Aura_1']))
+UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Quiz_Aura_2']))
+
+local auraResult = {}
+for i = 1, 4, 1 do
+	local choices = {STRINGS:Format(STRINGS.MapStrings['Quiz_Aura_Q'..tostring(i)..'_A1']),
+           			 STRINGS:Format(STRINGS.MapStrings['Quiz_Aura_Q'..tostring(i)..'_A2']),
+           			 STRINGS:Format(STRINGS.MapStrings['Quiz_Aura_Unsure'])}
+	
+	GAME:WaitFrames(1)
+	UI:BeginChoiceMenu(STRINGS:Format(STRINGS.MapStrings['Quiz_Aura_Q'..tostring(i)..'_A0']), choices, 1, 3)
+	UI:WaitForChoice()
+	if UI:ChoiceResult() < 3 then
+		table.insert(auraResult, UI:ChoiceResult())
+	else
+		table.insert(auraResult, (math.random(1, 100) % 2) + 1)
+	end
+  end
+
+  local auraColor = auraTable[auraResult[1]][auraResult[2]][auraResult[3]][auraResult[4]]
+
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Quiz_Aura_5']))
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Quiz_Aura_6']))
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Quiz_Aura_Result_'..tostring(auraColor + 1)]))
+
+  --Color Selection (Aura Replacement)
+--choices = {STRINGS:Format(STRINGS.MapStrings['Quiz_Color_A1']),
+           --STRINGS:Format(STRINGS.MapStrings['Quiz_Color_A2']),
+           --STRINGS:Format(STRINGS.MapStrings['Quiz_Color_A3']),
+		   --STRINGS:Format(STRINGS.MapStrings['Quiz_Color_A4']),
+           --STRINGS:Format(STRINGS.MapStrings['Quiz_Color_A5']),
+		   --STRINGS:Format(STRINGS.MapStrings['Quiz_Color_A6']),
+           --STRINGS:Format(STRINGS.MapStrings['Quiz_Color_A7']),
+           --STRINGS:Format(STRINGS.MapStrings['Quiz_Color_A8']),
+		   --STRINGS:Format(STRINGS.MapStrings['Quiz_Color_A9']),
+           --STRINGS:Format(STRINGS.MapStrings['Quiz_Color_A10']),
+		   --STRINGS:Format(STRINGS.MapStrings['Quiz_Color_A11'])}
+
+--UI:BeginChoiceMenu(STRINGS:Format(STRINGS.MapStrings['Quiz_Color_A0']), choices, 1, 3)
+--UI:WaitForChoice()
+--result = UI:ChoiceResult()
+--favColor = result
 
   --Test Results 
 natureVars = {natureBold, natureBrave, natureCalm, natureDocile, natureHardy, natureHasty, natureImpish, natureJolly, natureLonely, natureNaive, natureQuiet, natureQuirky, natureRash, natureRelaxed, natureSassy, natureTimid}
@@ -705,7 +822,7 @@ else
 end
 
 SV.General.Starter = pkm
-SV.PlayerInputs.FavoriteColor = favColor
+SV.PlayerInputs.AuraColor = auraColor
 SV.PlayerInputs.Personality = mainTrait
 
 _DATA.Save:UpdateTeamProfile(true)
@@ -782,7 +899,7 @@ end
 
 else
 
-SV.PlayerInputs.FavoriteColor = favColor
+SV.PlayerInputs.AuraColor = auraColor
 SV.PlayerInputs.Personality = mainTrait
 
 local continue = false
@@ -816,7 +933,7 @@ while not continue do
 	
 	--add egg move (thanks again palika)
 	if GAME:GetCharacterSkill(GAME:GetPlayerPartyMember(0), 3) ~= "" then 
-		GAME:SetCharacterSkill(GAME:GetPlayerPartyMember(0), egg_move_list[pkm.Species], 3)--override move in slot 4 if 4 moves are known. They can always go see slowpoke to get it back
+		GAME:SetCharacterSkill(GAME:GetPlayerPartyMember(0), egg_move_list[pkm.Species], 3) -- override move in slot 4 if 4 moves are known
 	else 
 		GAME:LearnSkill(GAME:GetPlayerPartyMember(0), egg_move_list[pkm.Species])
 	end
@@ -871,7 +988,7 @@ while not continue do
 	UI:ChoiceMenuYesNo(STRINGS:Format(STRINGS.MapStrings['Choice_Prompt'], _DATA:GetMonster(pkm.Species):GetColoredName()))
 	UI:WaitForChoice()
 	continue = UI:ChoiceResult()
-	if _DATA.Save.ActiveTeam.Players[0].Element1 == _DATA.Save.ActiveTeam.Players[1].Element1 then
+	if _DATA.Save.ActiveTeam.Players[0].Element1 == _DATA.Save.ActiveTeam.Players[1].Element1 and continue then
 		UI:ChoiceMenuYesNo(STRINGS:Format(STRINGS.MapStrings['Partner_Warning'], _DATA:GetMonster(pkm.Species):GetColoredName()))
 		UI:WaitForChoice()
 		continue = UI:ChoiceResult()
@@ -905,7 +1022,7 @@ if result == 3 then pkm.Gender = Gender.Genderless end
 
 	--add egg move (thanks again palika)
 	if GAME:GetCharacterSkill(GAME:GetPlayerPartyMember(1), 3) ~= "" then 
-		GAME:SetCharacterSkill(GAME:GetPlayerPartyMember(1), egg_move_list[pkm.Species], 3)--override move in slot 4 if 4 moves are known. They can always go see slowpoke to get it back
+		GAME:SetCharacterSkill(GAME:GetPlayerPartyMember(1), egg_move_list[pkm.Species], 3) -- override move in slot 4 if 4 moves are known
 	else 
 		GAME:LearnSkill(GAME:GetPlayerPartyMember(1), egg_move_list[pkm.Species])
 	end
@@ -986,8 +1103,10 @@ GAME:FadeOut(false, 120)
 
 GROUND:SetPlayer(GAME:GetPlayerPartyMember(0))
 
-_DATA.Save:UpdateTeamProfile(true)
 _DATA.Save.NoSwitching = true
+_DATA.Save.ActiveTeam.Name = ""
+_DATA.Save.ActiveTeam.Rank = "none"
+_DATA.Save:UpdateTeamProfile(true)
 
 --Dev Build
 GAME:EnterGroundMap("chapter_card", "Entrance")

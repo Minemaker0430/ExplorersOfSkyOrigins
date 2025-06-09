@@ -32,6 +32,8 @@ end
 --Engine callback function
 function chapter_card.Enter(map)
 
+  GAME:GroundSave()
+
   GAME:CutsceneMode(true)
   GROUND:Hide("PLAYER")
   GAME:FadeIn(60)
@@ -47,17 +49,17 @@ function chapter_card.Enter(map)
   GAME:WaitFrames(60)
   
   if SV.Progression.Chapter == 1 then
-	GAME:EnterGroundMap("storm_cutscene_a", "Entrance")
+	  GAME:EnterGroundMap("storm_cutscene_a", "Entrance")
   elseif SV.Progression.Chapter == 2 then
-	GAME:EnterGroundMap("guild_outside_dusk", "Entrance")
+	  GAME:EnterGroundMap("guild_outside_dusk", "Entrance")
   elseif SV.Progression.Chapter == 3 then
-	SV.Progression.SectionFlag = 1
-	SV.partner.Spawn = 'Ladder'
-	GAME:EnterZone("hub", -1, 5, 0)
+	  SV.Progression.SectionFlag = 1
+	  SV.partner.Spawn = 'Ladder'
+	  GAME:EnterZone("hub", -1, 5, 0)
   else
-	--progression broke you aren't supposed to be here
-	UI:WaitShowDialogue(STRINGS:Format("If you're currently reading this, the game's progression system has broken somehow. You should probably tell Mocha about this. Going to title screen now."))
-	GAME:RestartToTitle()
+	  --progression broke you aren't supposed to be here
+	  UI:WaitShowDialogue(STRINGS:Format("If you're currently reading this, the game's progression system has broken somehow. You should probably tell Mocha about this. Going to title screen now."))
+	  GAME:RestartToTitle()
   end
 
 end

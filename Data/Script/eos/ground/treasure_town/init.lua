@@ -7,8 +7,6 @@
 require 'eos.common'
 require 'eos.CharacterActions'
 require 'eos.ExplorerEssentials'
-require 'eos.GeneralFunctions'
-require 'eos.PartnerEssentials'
 -- Package name
 
 local treasure_town = {}
@@ -50,7 +48,7 @@ function treasure_town.Init(map)
   --This will fill the localized strings table automatically based on the locale the game is 
   -- currently in. You can use the MapStrings table after this line!
 COMMON:RespawnAllies()  
-PartnerEssentials.InitializePartnerSpawn()
+ExplorerEssentials.SpawnPartner()
 end
 
 ---treasure_town.Enter(map)
@@ -107,6 +105,7 @@ end
 function treasure_town.GameLoad(map)
 
   GAME:FadeIn(20)
+  ExplorerEssentials.SpawnPartner()
 
 end
 
@@ -273,7 +272,7 @@ function treasure_town.Shop_Action(obj, activator)
                         else
                                 if #cart == 1 then
                                         local name = catalog[cart[1]].Item:GetDisplayName()
-                                        msg = STRINGS:Format(STRINGS.MapStrings['Shop_Buy_One'], total, name, GeneralFunctions.GetItemArticle(catalog[cart[1]].Item, true))
+                                        --msg = STRINGS:Format(STRINGS.MapStrings['Shop_Buy_One'], total, name, GeneralFunctions.GetItemArticle(catalog[cart[1]].Item, true))
                                 else
                                         msg = STRINGS:Format(STRINGS.MapStrings['Shop_Buy_Multi'], total)
                                 end
@@ -472,24 +471,24 @@ function treasure_town.GenerateGreenKecleonStock(generate_random_item)
 
         --Apricorns become available once Chapter 4 starts
         if SV.Progression.Chapter == 4 then
-                table.insert(stock, GeneralFunctions.WeightedRandom(held_stock))
-                table.insert(stock, GeneralFunctions.WeightedRandom(ammo_stock))
-                table.insert(stock, GeneralFunctions.WeightedRandom(apricorn_stock))
-                table.insert(stock, GeneralFunctions.WeightedRandom(food_stock))
-                table.insert(stock, GeneralFunctions.WeightedRandom(food_stock))
-                table.insert(stock, GeneralFunctions.WeightedRandom(medicine_stock))
-                table.insert(stock, GeneralFunctions.WeightedRandom(medicine_stock))
-                table.insert(stock, GeneralFunctions.WeightedRandom(medicine_stock))
+                table.insert(stock, 0)--GeneralFunctions.WeightedRandom(held_stock))
+                table.insert(stock, 0)--GeneralFunctions.WeightedRandom(ammo_stock))
+                table.insert(stock, 0)--GeneralFunctions.WeightedRandom(apricorn_stock))
+                table.insert(stock, 0)--GeneralFunctions.WeightedRandom(food_stock))
+                table.insert(stock, 0)--GeneralFunctions.WeightedRandom(food_stock))
+                table.insert(stock, 0)--GeneralFunctions.WeightedRandom(medicine_stock))
+                table.insert(stock, 0)--GeneralFunctions.WeightedRandom(medicine_stock))
+                table.insert(stock, 0)--GeneralFunctions.WeightedRandom(medicine_stock))
 
         else
-            	table.insert(stock, GeneralFunctions.WeightedRandom(held_stock))
-                table.insert(stock, GeneralFunctions.WeightedRandom(ammo_stock))
-                table.insert(stock, GeneralFunctions.WeightedRandom(food_stock))
-                table.insert(stock, GeneralFunctions.WeightedRandom(food_stock))
-                table.insert(stock, GeneralFunctions.WeightedRandom(medicine_stock))
-                table.insert(stock, GeneralFunctions.WeightedRandom(medicine_stock))
-                table.insert(stock, GeneralFunctions.WeightedRandom(medicine_stock))
-		                table.insert(stock, GeneralFunctions.WeightedRandom(medicine_stock))
+            	table.insert(stock, 0)--GeneralFunctions.WeightedRandom(held_stock))
+                table.insert(stock, 0)--GeneralFunctions.WeightedRandom(ammo_stock))
+                table.insert(stock, 0)--GeneralFunctions.WeightedRandom(food_stock))
+                table.insert(stock, 0)--GeneralFunctions.WeightedRandom(food_stock))
+                table.insert(stock, 0)--GeneralFunctions.WeightedRandom(medicine_stock))
+                table.insert(stock, 0)--GeneralFunctions.WeightedRandom(medicine_stock))
+                table.insert(stock, 0)--GeneralFunctions.WeightedRandom(medicine_stock))
+		table.insert(stock, 0)--GeneralFunctions.WeightedRandom(medicine_stock))
         end
 
         if not generate_random_item then
@@ -577,12 +576,12 @@ function treasure_town.GeneratePurpleKecleonStock(generate_random_item)
         }
 
 
-        table.insert(stock, GeneralFunctions.WeightedRandom(tm_stock))
-        table.insert(stock, GeneralFunctions.WeightedRandom(orb_stock))
-        table.insert(stock, GeneralFunctions.WeightedRandom(orb_stock))
-        table.insert(stock, GeneralFunctions.WeightedRandom(orb_stock))
-        table.insert(stock, GeneralFunctions.WeightedRandom(orb_stock))
-	table.insert(stock, GeneralFunctions.WeightedRandom(orb_stock))
+        table.insert(stock, 0)--GeneralFunctions.WeightedRandom(tm_stock))
+        table.insert(stock, 0)--GeneralFunctions.WeightedRandom(orb_stock))
+        table.insert(stock, 0)--GeneralFunctions.WeightedRandom(orb_stock))
+        table.insert(stock, 0)--GeneralFunctions.WeightedRandom(orb_stock))
+        table.insert(stock, 0)--GeneralFunctions.WeightedRandom(orb_stock))
+	table.insert(stock, 0)--GeneralFunctions.WeightedRandom(orb_stock))
 
 
 
@@ -710,7 +709,7 @@ function treasure_town.TM_Action(obj, activator)
                         else
                                 if #cart == 1 then
                                         local name = catalog[cart[1]].Item:GetDisplayName()
-                                        msg = STRINGS:Format(STRINGS.MapStrings['TM_Shop_Buy_One'], total, name, GeneralFunctions.GetItemArticle(catalog[cart[1]].Item, true))
+                                        --msg = STRINGS:Format(STRINGS.MapStrings['TM_Shop_Buy_One'], total, name, GeneralFunctions.GetItemArticle(catalog[cart[1]].Item, true))
                                 else
                                         msg = STRINGS:Format(STRINGS.MapStrings['TM_Shop_Buy_Multi'], total)
                                 end
