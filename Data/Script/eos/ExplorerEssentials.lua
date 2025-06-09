@@ -12,7 +12,9 @@ ExplorerEssentials = {}
 -- so yea that's it bye
 
 function ExplorerEssentials.SpawnPartner()
-	local partner = CH('TEAMMATE_1')
+	COMMON.RespawnStarterPartner()
+	
+	local partner = CH('PARTNER')
 	local player = CH('PLAYER')
 
 	GROUND:TeleportTo(partner, player.Position.X, player.Position.Y, player.Direction)

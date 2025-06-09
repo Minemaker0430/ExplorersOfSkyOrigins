@@ -44128,14 +44128,14 @@
 "triggerType": 0,
 "EntityCallbacks": [],
 "Collider": {
-"X": -26,
-"Y": 27,
+"X": -73,
+"Y": 65,
 "Width": 16,
 "Height": 16
 }
 },
 {
-"NPCName": "TEAMMATE_1",
+"NPCName": "TEAMMATE_2",
 "NPCChar": {
 "Nickname": "",
 "OriginalUUID": "",
@@ -44216,14 +44216,14 @@
 "triggerType": 0,
 "EntityCallbacks": [],
 "Collider": {
-"X": -26,
-"Y": 27,
+"X": -53,
+"Y": 65,
 "Width": 16,
 "Height": 16
 }
 },
 {
-"NPCName": "TEAMMATE_2",
+"NPCName": "TEAMMATE_3",
 "NPCChar": {
 "Nickname": "",
 "OriginalUUID": "",
@@ -44304,14 +44304,14 @@
 "triggerType": 0,
 "EntityCallbacks": [],
 "Collider": {
-"X": -26,
-"Y": 49,
+"X": -34,
+"Y": 66,
 "Width": 16,
 "Height": 16
 }
 },
 {
-"NPCName": "TEAMMATE_3",
+"NPCName": "PARTNER",
 "NPCChar": {
 "Nickname": "",
 "OriginalUUID": "",
@@ -44384,7 +44384,7 @@
 "ActionEvents": [],
 "ScriptVars": null
 },
-"EntName": "TEAMMATE_4",
+"EntName": "PARTNER_SPAWN",
 "Direction": 0,
 "EntEnabled": true,
 "EntOrder": 0,
@@ -44392,8 +44392,8 @@
 "triggerType": 0,
 "EntityCallbacks": [],
 "Collider": {
-"X": -26,
-"Y": 72,
+"X": -93,
+"Y": 65,
 "Width": 16,
 "Height": 16
 }

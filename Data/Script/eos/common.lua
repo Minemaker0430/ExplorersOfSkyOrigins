@@ -88,7 +88,7 @@ function COMMON.RespawnStarterPartner()
   local character = RogueEssence.Dungeon.CharData()
   character.BaseForm = RogueEssence.Dungeon.MonsterID(SV.General.Starter.Species, SV.General.Starter.Form, SV.General.Starter.Skin, LUA_ENGINE:LuaCast(SV.General.Starter.Gender, Gender))
   GROUND:SetPlayer(character)
-  GROUND:RemoveCharacter("Partner")
+  if CH('PARTNER') then GROUND:RemoveCharacter("PARTNER") end
   local p = RogueEssence.Dungeon.CharData()
   p.BaseForm = RogueEssence.Dungeon.MonsterID(SV.General.Partner.Species, SV.General.Partner.Form, SV.General.Partner.Skin, LUA_ENGINE:LuaCast(SV.General.Partner.Gender, Gender))
   GROUND:SpawnerSetSpawn("PARTNER_SPAWN", p)
@@ -97,7 +97,6 @@ end
 
 function COMMON.RespawnAllies()
   GROUND:RefreshPlayer()
-  
 
   local party = GAME:GetPlayerPartyTable()
   local playeridx = GAME:GetTeamLeaderIndex()
@@ -105,13 +104,15 @@ function COMMON.RespawnAllies()
   --Place player teammates
   for i = 1,3,1
   do
-    GROUND:RemoveCharacter("Teammate" .. tostring(i))
+    if CH('TEAMMATE_' .. tostring(i)) then GROUND:RemoveCharacter("TEAMMATE_" .. tostring(i)) end 
   end
   local total = 1
   for i,p in ipairs(party) do
     if i ~= (playeridx + 1) then --Indices in lua tables begin at 1
-      GROUND:SpawnerSetSpawn("TEAMMATE_" .. tostring(total),p)
-      local chara = GROUND:SpawnerDoSpawn("TEAMMATE_" .. tostring(total))
+      if not _DATA.Save.ActiveTeam.Players[total].IsPartner then
+        GROUND:SpawnerSetSpawn("TEAMMATE_" .. tostring(total),p)
+        local chara = GROUND:SpawnerDoSpawn("TEAMMATE_" .. tostring(total))
+      end
       --GROUND:GiveCharIdleChatter(chara)
       total = total + 1
     end
