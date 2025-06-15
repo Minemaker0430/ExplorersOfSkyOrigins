@@ -1454,7 +1454,7 @@
     <value>Will be a {0}!</value>
   </data>
   <data name="Disclaimer" xml:space="preserve">
-    <value>DISCLAIMER\n\nThis port is in beta and is currently still in development.\nGameplay elements may be unfinished.\nIf you want to be notified of updates, check out the mod's github page. Thanks!\n\nhttps://github.com/Minemaker0430/ExplorersOfSkyOrigins</value>
+    <value>DISCLAIMER[pause=10]\n\nThis 'port' is in no way accociated with The Pokémon Company, Spike Chunsoft, Game Freak, or Nintendo.\nIt is simply a fan project rebuilt from the ground up for preservation purposes.\nPlease go support the original developers of the game.\n\nThanks!</value>
   </data>
   <data name="Intro_1" xml:space="preserve">
     <value>Welcome!</value>

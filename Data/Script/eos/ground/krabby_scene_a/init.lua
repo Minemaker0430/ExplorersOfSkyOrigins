@@ -10,26 +10,52 @@ require 'origin.common'
 local krabby_scene_a = {}
 
 -------------------------------
+-- Map Vars
+-------------------------------
+
+local bubbleSpawnTimer = 0
+local bigBubbleSpawnTimer = 0
+local sinTick = 0
+local bubblesSpawned = 0
+local bigBubblesSpawned = 0
+
+local bubbleSpawnA = MRKR('KrabbyBubbleSpawnerA')
+local bubbleSpawnB = MRKR('KrabbyBubbleSpawnerA')
+local bigBubbleSpawn = MRKR('BigBubbleSpawner')
+
+-------------------------------
 -- Map Callbacks
 -------------------------------
 ---krabby_scene_a.Init(map)
 --Engine callback function
 function krabby_scene_a.Init(map)
 
-
+  
 end
 
 ---krabby_scene_a.Enter(map)
 --Engine callback function
 function krabby_scene_a.Enter(map)
 
+  GAME:MoveCamera(160, 120, 1, false)
   GROUND:Hide("PLAYER")
 
   -- iirc these scenes only show up in chapters 1 and 20 so we're probably fine to just leave it like this
 
   --krabby 1
 		GAME:FadeIn(60)
-		--bubbles
+
+    --test
+    local bubble = OBJ("Bubble")
+    local bigBubble = OBJ("BigBubble")
+
+    local obj = GROUND:CreateObject("object", "BubbleSpwn", bubbleSpawnA.Position.X, bubbleSpawnA.Position.Y, 36, 36, 0)
+    GROUND:ObjectSetDefaultAnim(obj, "BeachBubble_5", 10)
+    local obj = GROUND:CreateObject("object", "BubbleSpwn", bubbleSpawnB.Position.X, bubbleSpawnB.Position.Y, 36, 36, 0)
+    GROUND:ObjectSetDefaultAnim(obj, "BeachBubble_5", 10)
+    local obj = GROUND:CreateObject("object", "BigBubbleSpwn", bigBubbleSpawn.Position.X, bubbleSpawnA.Position.Y, 48, 48, 0)
+    GROUND:ObjectSetDefaultAnim(obj, "BeachBubble_6", 10)
+
 		GAME:WaitFrames(120)
 		GAME:FadeOut(false, 60)
 
@@ -48,6 +74,39 @@ end
 --Engine callback function
 function krabby_scene_a.Update(map)
 
+  sinTick = sinTick + 1
+  bubbleSpawnTimer = bubbleSpawnTimer + 1
+  bigBubbleSpawnTimer = bigBubbleSpawnTimer + 1
+
+  local bubble = OBJ("Bubble")
+  local bigBubble = OBJ("BigBubble")
+
+  -- spawn bubbles 
+  if bubblesSpawned < 15 and bubbleSpawnTimer > 30 then
+    if bubblesSpawned % 2 == 0 then
+      local obj = GROUND:CreateObject('Object', 'BubbleSpwn', bubbleSpawnA.Position.X, bubbleSpawnA.Position.Y, 36, 36, 0)
+      GROUND:ObjectSetDefaultAnim(obj, "BeachBubble_5", 10)
+    else
+      local obj = GROUND:CreateObject("Object", "BubbleSpwn", bubbleSpawnB.Position.X, bubbleSpawnB.Position.Y, 36, 36, 0)
+      GROUND:ObjectSetDefaultAnim(obj, "BeachBubble_5", 10)
+    end
+
+    print("Bubble Spawned")
+
+    bubblesSpawned = bubblesSpawned + 1
+    bubbleSpawnTimer = 0
+
+    GAME:WaitFrames(1)
+  end
+
+  -- spawn big bubbles 
+  if bigBubblesSpawned < 5 and bigBubbleSpawnTimer > 60 then
+    local obj = GROUND:CreateObject("Object", "BigBubbleSpwn", bigBubbleSpawn.Position.X, bubbleSpawnA.Position.Y, 48, 48, 0)
+    GROUND:ObjectSetDefaultAnim(obj, "BeachBubble_6", 10)
+    bigBubblesSpawned = bigBubblesSpawned + 1
+    bigBubbleSpawnTimer = 0
+    print("Big Bubble Spawned")
+  end
 
 end
 
@@ -70,6 +129,33 @@ end
 -- Entities Callbacks
 -------------------------------
 
+function krabby_scene_a.BubbleSpwn_Update(obj, activator)
+
+  -- move bubbles, using sin/cos offsets to make them more fluid
+  GROUND:MoveObjectToPosition(obj, obj.Position.X + (1 + math.cos(sinTick)), obj.Position.Y + (1 + math.sin(sinTick)), 1)
+
+  -- if bubble's position is greater than the camera position, destroy the bubble
+  local camPos = GAME:GetCameraCenter()
+  if (obj.Position.X > camPos.X or obj.Position.Y > camPos.Y) then
+    bubblesSpawned = bubblesSpawned - 1
+    --GROUND:RemoveObject(obj.Name)
+  end
+
+end
+
+function krabby_scene_a.BigBubbleSpwn_Update(obj, activator)
+
+  -- move bubbles, using sin/cos offsets to make them more fluid
+  GROUND:MoveObjectToPosition(obj, obj.Position.X + (1 + math.cos(sinTick)), obj.Position.Y + (1 + math.sin(sinTick)), 1)
+
+  -- if bubble's position is greater than the camera position, destroy the bubble
+  local camPos = GAME:GetCameraCenter()
+  if (obj.Position.X > camPos.X or obj.Position.Y > camPos.Y) then
+    bigBubblesSpawned = bigBubblesSpawned - 1
+    --GROUND:RemoveObject(obj.Name)
+  end
+
+end
 
 return krabby_scene_a
 

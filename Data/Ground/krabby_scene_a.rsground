@@ -22485,7 +22485,7 @@
 "MapChars": [],
 "GroundObjects": [
 {
-"EntName": "BubbleA",
+"EntName": "Bubble",
 "Direction": 0,
 "EntEnabled": true,
 "EntOrder": 0,
@@ -22501,7 +22501,50 @@
 "Alpha": 255,
 "AnimFlip": 0
 },
-"Passable": false,
+"Passable": true,
+"CurrentAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "",
+"FrameTime": 1,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": -1,
+"Alpha": 255,
+"AnimFlip": 0
+},
+"AnimTime": {
+"Ticks": 0
+},
+"Cycles": 0,
+"DrawOffset": {
+"X": 1,
+"Y": 0
+},
+"Collider": {
+"X": 0,
+"Y": 395,
+"Width": 36,
+"Height": 36
+}
+},
+{
+"EntName": "BigBubble",
+"Direction": 0,
+"EntEnabled": true,
+"EntOrder": 0,
+"InteractOrder": 0,
+"triggerType": 0,
+"ObjectAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "BeachBubble_6",
+"FrameTime": 10,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": -1,
+"Alpha": 255,
+"AnimFlip": 0
+},
+"Passable": true,
 "CurrentAnim": {
 "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
 "AnimIndex": "",
@@ -22518,282 +22561,17 @@
 "Cycles": 0,
 "DrawOffset": {
 "X": 0,
-"Y": 0
+"Y": -1
 },
 "Collider": {
-"X": 0,
-"Y": 390,
-"Width": 16,
-"Height": 16
+"X": 43,
+"Y": 396,
+"Width": 48,
+"Height": 48
 }
 }
 ],
-"Spawners": [
-{
-"NPCName": "BigBubble",
-"NPCChar": {
-"Nickname": "",
-"OriginalUUID": "",
-"OriginalTeam": "",
-"BaseForm": {
-"Species": "missingno",
-"Form": 0,
-"Skin": "normal",
-"Gender": 0
-},
-"Level": 0,
-"EXP": 0,
-"MaxHPBonus": 0,
-"AtkBonus": 0,
-"DefBonus": 0,
-"MAtkBonus": 0,
-"MDefBonus": 0,
-"SpeedBonus": 0,
-"BaseSkills": [
-{
-"SkillNum": "",
-"Charges": 0,
-"CanForget": true
-},
-{
-"SkillNum": "",
-"Charges": 0,
-"CanForget": true
-},
-{
-"SkillNum": "",
-"Charges": 0,
-"CanForget": true
-},
-{
-"SkillNum": "",
-"Charges": 0,
-"CanForget": true
-}
-],
-"BaseIntrinsics": [
-""
-],
-"FormIntrinsicSlot": -1,
-"Relearnables": {},
-"Discriminator": 0,
-"MetAt": "",
-"MetLoc": {
-"ID": "",
-"StructID": {
-"Segment": -1,
-"ID": -1
-},
-"EntryPoint": -1
-},
-"DefeatAt": "",
-"DefeatLoc": {
-"ID": "",
-"StructID": {
-"Segment": -1,
-"ID": -1
-},
-"EntryPoint": -1
-},
-"IsFounder": false,
-"IsPartner": false,
-"NameLocked": false,
-"IsFavorite": false,
-"Unrecruitable": false,
-"ActionEvents": [],
-"ScriptVars": null
-},
-"EntName": "BigBubbleSpawner",
-"Direction": 0,
-"EntEnabled": true,
-"EntOrder": 0,
-"InteractOrder": 0,
-"triggerType": 0,
-"EntityCallbacks": [],
-"Collider": {
-"X": -17,
-"Y": -17,
-"Width": 16,
-"Height": 16
-}
-},
-{
-"NPCName": "MediumBubble",
-"NPCChar": {
-"Nickname": "",
-"OriginalUUID": "",
-"OriginalTeam": "",
-"BaseForm": {
-"Species": "missingno",
-"Form": 0,
-"Skin": "normal",
-"Gender": 0
-},
-"Level": 0,
-"EXP": 0,
-"MaxHPBonus": 0,
-"AtkBonus": 0,
-"DefBonus": 0,
-"MAtkBonus": 0,
-"MDefBonus": 0,
-"SpeedBonus": 0,
-"BaseSkills": [
-{
-"SkillNum": "",
-"Charges": 0,
-"CanForget": true
-},
-{
-"SkillNum": "",
-"Charges": 0,
-"CanForget": true
-},
-{
-"SkillNum": "",
-"Charges": 0,
-"CanForget": true
-},
-{
-"SkillNum": "",
-"Charges": 0,
-"CanForget": true
-}
-],
-"BaseIntrinsics": [
-""
-],
-"FormIntrinsicSlot": -1,
-"Relearnables": {},
-"Discriminator": 0,
-"MetAt": "",
-"MetLoc": {
-"ID": "",
-"StructID": {
-"Segment": -1,
-"ID": -1
-},
-"EntryPoint": -1
-},
-"DefeatAt": "",
-"DefeatLoc": {
-"ID": "",
-"StructID": {
-"Segment": -1,
-"ID": -1
-},
-"EntryPoint": -1
-},
-"IsFounder": false,
-"IsPartner": false,
-"NameLocked": false,
-"IsFavorite": false,
-"Unrecruitable": false,
-"ActionEvents": [],
-"ScriptVars": null
-},
-"EntName": "KrabbyBubbleSpawnerA",
-"Direction": 0,
-"EntEnabled": true,
-"EntOrder": 0,
-"InteractOrder": 0,
-"triggerType": 0,
-"EntityCallbacks": [],
-"Collider": {
-"X": 80,
-"Y": 120,
-"Width": 16,
-"Height": 16
-}
-},
-{
-"NPCName": "MediumBubble",
-"NPCChar": {
-"Nickname": "",
-"OriginalUUID": "",
-"OriginalTeam": "",
-"BaseForm": {
-"Species": "missingno",
-"Form": 0,
-"Skin": "normal",
-"Gender": 0
-},
-"Level": 0,
-"EXP": 0,
-"MaxHPBonus": 0,
-"AtkBonus": 0,
-"DefBonus": 0,
-"MAtkBonus": 0,
-"MDefBonus": 0,
-"SpeedBonus": 0,
-"BaseSkills": [
-{
-"SkillNum": "",
-"Charges": 0,
-"CanForget": true
-},
-{
-"SkillNum": "",
-"Charges": 0,
-"CanForget": true
-},
-{
-"SkillNum": "",
-"Charges": 0,
-"CanForget": true
-},
-{
-"SkillNum": "",
-"Charges": 0,
-"CanForget": true
-}
-],
-"BaseIntrinsics": [
-""
-],
-"FormIntrinsicSlot": -1,
-"Relearnables": {},
-"Discriminator": 0,
-"MetAt": "",
-"MetLoc": {
-"ID": "",
-"StructID": {
-"Segment": -1,
-"ID": -1
-},
-"EntryPoint": -1
-},
-"DefeatAt": "",
-"DefeatLoc": {
-"ID": "",
-"StructID": {
-"Segment": -1,
-"ID": -1
-},
-"EntryPoint": -1
-},
-"IsFounder": false,
-"IsPartner": false,
-"NameLocked": false,
-"IsFavorite": false,
-"Unrecruitable": false,
-"ActionEvents": [],
-"ScriptVars": null
-},
-"EntName": "KrabbyBubbleSpawnerB",
-"Direction": 0,
-"EntEnabled": true,
-"EntOrder": 0,
-"InteractOrder": 0,
-"triggerType": 0,
-"EntityCallbacks": [],
-"Collider": {
-"X": 168,
-"Y": 56,
-"Width": 16,
-"Height": 16
-}
-}
-],
+"Spawners": [],
 "Markers": [
 {
 "EntName": "Entrance",
@@ -22805,6 +22583,48 @@
 "Collider": {
 "X": 0,
 "Y": 368,
+"Width": 16,
+"Height": 16
+}
+},
+{
+"EntName": "KrabbyBubbleSpawnerB",
+"Direction": 0,
+"EntEnabled": true,
+"EntOrder": 0,
+"InteractOrder": 0,
+"triggerType": 0,
+"Collider": {
+"X": 168,
+"Y": 56,
+"Width": 16,
+"Height": 16
+}
+},
+{
+"EntName": "KrabbyBubbleSpawnerA",
+"Direction": 0,
+"EntEnabled": true,
+"EntOrder": 0,
+"InteractOrder": 0,
+"triggerType": 0,
+"Collider": {
+"X": 80,
+"Y": 120,
+"Width": 16,
+"Height": 16
+}
+},
+{
+"EntName": "BigBubbleSpawner",
+"Direction": 0,
+"EntEnabled": true,
+"EntOrder": 0,
+"InteractOrder": 0,
+"triggerType": 0,
+"Collider": {
+"X": -16,
+"Y": -16,
 "Width": 16,
 "Height": 16
 }
