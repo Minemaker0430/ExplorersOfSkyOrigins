@@ -3,11 +3,11 @@
   <Author>[color=#FFFF00]ItsMochaTheOtter[color]</Author>
   <Description>[color=#00FFFF]Explorers of Sky[color], rebuilt in the [color=#00FF00]PMDO[color] engine.
   
-Currently features Chapters 1-3.
-  </Description>
+Currently features Chapters 1-3.</Description>
   <Namespace>eos</Namespace>
   <UUID>24139FE5-134F-498F-A91C-2D606E2F50F2</UUID>
   <Version>0.1</Version>
+  <GameVersion>0.8.9</GameVersion>
   <ModType>Quest</ModType>
   <Relationships>
     <RelatedMod>

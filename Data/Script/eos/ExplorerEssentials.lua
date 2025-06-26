@@ -24,6 +24,12 @@ function ExplorerEssentials.SpawnPartner()
 	partner.InteractOrder = 1
 end
 
+function ExplorerEssentials.SetPlayerFromData(data)
+	local character = RogueEssence.Dungeon.CharData()
+  	character.BaseForm = RogueEssence.Dungeon.MonsterID(data.Species, data.Form, data.Skin, LUA_ENGINE:LuaCast(data.Gender, Gender))
+  	GROUND:SetPlayer(character)
+end
+
 function ExplorerEssentials.SpawnBubbles(animID)
 	if animID == 1 then
 	

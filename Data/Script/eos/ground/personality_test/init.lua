@@ -5,7 +5,7 @@
 ]]--
 -- Commonly included lua functions and data
 require 'eos.common'
---require 'eos.PartnerEssentials'
+require 'eos.ExplorerEssentials'
 
 -- Package name
 local personality_test = {}
@@ -636,6 +636,12 @@ function personality_test.Enter(map)
   UI:SetCenter(true)
   GAME:FadeIn(20)
   UI:WaitShowVoiceOver(STRINGS:Format(STRINGS.MapStrings['Disclaimer']), -1)
+
+  -- Hide Aura Objects (Colored bows are fine because they're hidden OOB)
+  GROUND:Hide("AuraBG")
+  GROUND:Hide("AuraPulse")
+  GROUND:Hide("AuraResultBG")
+  GROUND:Hide("BlankBow")
   
   --Intro
   GAME:WaitFrames(120)
@@ -736,8 +742,19 @@ gender = result
 -- 15 = fuchsia (warm, dark, vibrant, space)
 
 	-- Aura
+
+	-- Fade Out and switch to aura BG
+  GAME:FadeOut(false, 60)
+  GROUND:Unhide("AuraBG")
+  GROUND:Unhide("AuraPulse")
+  GROUND:Unhide("BlankBow")
+  GAME:MoveCamera(160, 120, 1, false) -- move camera to map center
+
 UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Quiz_Aura_1']))
 UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Quiz_Aura_2']))
+
+GAME:FadeIn(60)
+GAME:WaitFrames(30)
 
 local auraResult = {}
 for i = 1, 4, 1 do
@@ -755,11 +772,55 @@ for i = 1, 4, 1 do
 	end
   end
 
+  local bowStrings = {
+	"Silver",
+	"Brown",
+	"Red",
+	"Pink",
+	"Orange",
+	"Yellow",
+	"Lime",
+	"Green",
+	"Viridian",
+	"Minty",
+	"SkyBlue",
+	"Blue",
+	"Cobalt",
+	"Purple",
+	"Violet",
+	"Fuchsia"
+  }
+
   local auraColor = auraTable[auraResult[1]][auraResult[2]][auraResult[3]][auraResult[4]]
 
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Quiz_Aura_5']))
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Quiz_Aura_6']))
+
+  -- Fade To White
+
+  -- Switch BGs
+  GROUND:Unhide("AuraResultBG")
+  GROUND:Hide("AuraBG")
+  GROUND:Hide("AuraPulse")
+
+  -- Set Colored Bow
+  local bow = OBJ('Bow_'..bowStrings[auraColor + 1])
+  GROUND:TeleportTo(bow, OBJ('BlankBow').Position.X, OBJ('BlankBow').Position.Y, Direction.Left)
+  GROUND:Hide("BlankBow")
+
+  -- Fade From White
+
+  -- Spawn Particles (?)
+
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Quiz_Aura_Result_'..tostring(auraColor + 1)]))
+
+  -- Fade Out and return to normal quiz
+  GAME:FadeOut(false, 60)
+  GROUND:Hide("AuraResultBG")
+  GROUND:Hide("Bow_"..bowStrings[auraColor + 1])
+  GAME:MoveCamera(0, 0, 1, false) -- move camera back to origin
+  GAME:FadeIn(60)
+  GAME:WaitFrames(30)
 
   --Color Selection (Aura Replacement)
 --choices = {STRINGS:Format(STRINGS.MapStrings['Quiz_Color_A1']),
@@ -830,7 +891,7 @@ _DATA.Save.ActiveTeam.Players[0].IsFounder = true
 _DATA.Save.ActiveTeam.Players[0].IsPartner = true
 
 GAME:WaitFrames(20)
-GROUND:SetPlayer(GAME:GetPlayerPartyMember(0))
+ExplorerEssentials.SetPlayerFromData(pkm)
 
 for i = 1, 10, 1 do
 	GROUND:Unhide("PLAYER")
@@ -879,7 +940,7 @@ while not continue do
 		GAME:LearnSkill(GAME:GetPlayerPartyMember(0), egg_move_list[pkm.Species])
 	end
 	
-	GROUND:SetPlayer(GAME:GetPlayerPartyMember(0))
+	ExplorerEssentials.SetPlayerFromData(pkm)
 	UI:ChoiceMenuYesNo(STRINGS:Format(STRINGS.MapStrings['Choice_Prompt'], _DATA:GetMonster(pkm.Species):GetColoredName()))
 	UI:WaitForChoice()
 	continue = UI:ChoiceResult()
@@ -938,7 +999,7 @@ while not continue do
 		GAME:LearnSkill(GAME:GetPlayerPartyMember(0), egg_move_list[pkm.Species])
 	end
 	
-	GROUND:SetPlayer(GAME:GetPlayerPartyMember(0))
+	ExplorerEssentials.SetPlayerFromData(pkm)
 	UI:ChoiceMenuYesNo(STRINGS:Format(STRINGS.MapStrings['Choice_Prompt'], _DATA:GetMonster(pkm.Species):GetColoredName()))
 	UI:WaitForChoice()
 	continue = UI:ChoiceResult()
@@ -984,7 +1045,7 @@ while not continue do
 	GAME:RemovePlayerTeam(1)
 	GAME:WaitFrames(1)
 	_DATA.Save.ActiveTeam.Players:Add(_DATA.Save.ActiveTeam:CreatePlayer(_DATA.Save.Rand, pkm, 5, "", 0))
-	GROUND:SetPlayer(GAME:GetPlayerPartyMember(1))
+	ExplorerEssentials.SetPlayerFromData(pkm)
 	UI:ChoiceMenuYesNo(STRINGS:Format(STRINGS.MapStrings['Choice_Prompt'], _DATA:GetMonster(pkm.Species):GetColoredName()))
 	UI:WaitForChoice()
 	continue = UI:ChoiceResult()
@@ -1018,7 +1079,7 @@ if result == 3 then pkm.Gender = Gender.Genderless end
 	GAME:RemovePlayerTeam(1)
 	GAME:WaitFrames(1)
 	_DATA.Save.ActiveTeam.Players:Add(_DATA.Save.ActiveTeam:CreatePlayer(_DATA.Save.Rand, pkm, 5, "", 0))
-	GROUND:SetPlayer(GAME:GetPlayerPartyMember(1))
+	ExplorerEssentials.SetPlayerFromData(pkm)
 
 	--add egg move (thanks again palika)
 	if GAME:GetCharacterSkill(GAME:GetPlayerPartyMember(1), 3) ~= "" then 
