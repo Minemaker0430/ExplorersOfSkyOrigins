@@ -1553,7 +1553,7 @@
     <value>What is your partner's nickname?</value>
   </data>
   <data name="Name_Confirm" xml:space="preserve">
-    <value>Is the name [color=#FFFF00]{0}[color] OK?</value>
+    <value>Is the name [color=#00FFFF]{0}[color] OK?</value>
   </data>
   <data name="Nature_Intro" xml:space="preserve">
     <value>Thank you for answering all those questions.</value>

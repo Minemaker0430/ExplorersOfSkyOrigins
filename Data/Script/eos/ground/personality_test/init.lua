@@ -1105,7 +1105,7 @@ while not ch do
 	end
 	
 	GAME:SetCharacterNickname(GAME:GetPlayerPartyMember(1), name)
-    UI:ChoiceMenuYesNo(STRINGS:Format(STRINGS.MapStrings['Name_Confirm'], CH('PLAYER'):GetDisplayName()), true)
+    UI:ChoiceMenuYesNo(STRINGS:Format(STRINGS.MapStrings['Name_Confirm'], name), true)
     UI:WaitForChoice()
     ch = UI:ChoiceResult()
   end

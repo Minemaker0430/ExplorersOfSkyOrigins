@@ -22738,7 +22738,7 @@
 "triggerType": 0,
 "ObjectAnim": {
 "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
-"AnimIndex": "Bow_Blank",
+"AnimIndex": "Bow_Brown",
 "FrameTime": 7,
 "StartFrame": -1,
 "EndFrame": -1,
@@ -23168,7 +23168,7 @@
 "triggerType": 0,
 "ObjectAnim": {
 "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
-"AnimIndex": "Bow_Blank",
+"AnimIndex": "Bow_Cobalt",
 "FrameTime": 7,
 "StartFrame": -1,
 "EndFrame": -1,
@@ -23297,7 +23297,7 @@
 "triggerType": 0,
 "ObjectAnim": {
 "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
-"AnimIndex": "Bow_Blank",
+"AnimIndex": "Bow_Fuschia",
 "FrameTime": 7,
 "StartFrame": -1,
 "EndFrame": -1,
