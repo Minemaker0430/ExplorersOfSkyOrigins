@@ -22483,94 +22483,7 @@
 "Name": "New EntLayer",
 "Visible": true,
 "MapChars": [],
-"GroundObjects": [
-{
-"EntName": "Bubble",
-"Direction": 0,
-"EntEnabled": true,
-"EntOrder": 0,
-"InteractOrder": 0,
-"triggerType": 0,
-"ObjectAnim": {
-"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
-"AnimIndex": "BeachBubble_5",
-"FrameTime": 10,
-"StartFrame": -1,
-"EndFrame": -1,
-"AnimDir": -1,
-"Alpha": 255,
-"AnimFlip": 0
-},
-"Passable": true,
-"CurrentAnim": {
-"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
-"AnimIndex": "",
-"FrameTime": 1,
-"StartFrame": -1,
-"EndFrame": -1,
-"AnimDir": -1,
-"Alpha": 255,
-"AnimFlip": 0
-},
-"AnimTime": {
-"Ticks": 0
-},
-"Cycles": 0,
-"DrawOffset": {
-"X": 1,
-"Y": 0
-},
-"Collider": {
-"X": 0,
-"Y": 395,
-"Width": 36,
-"Height": 36
-}
-},
-{
-"EntName": "BigBubble",
-"Direction": 0,
-"EntEnabled": true,
-"EntOrder": 0,
-"InteractOrder": 0,
-"triggerType": 0,
-"ObjectAnim": {
-"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
-"AnimIndex": "BeachBubble_6",
-"FrameTime": 10,
-"StartFrame": -1,
-"EndFrame": -1,
-"AnimDir": -1,
-"Alpha": 255,
-"AnimFlip": 0
-},
-"Passable": true,
-"CurrentAnim": {
-"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
-"AnimIndex": "",
-"FrameTime": 1,
-"StartFrame": -1,
-"EndFrame": -1,
-"AnimDir": -1,
-"Alpha": 255,
-"AnimFlip": 0
-},
-"AnimTime": {
-"Ticks": 0
-},
-"Cycles": 0,
-"DrawOffset": {
-"X": 0,
-"Y": -1
-},
-"Collider": {
-"X": 43,
-"Y": 396,
-"Width": 48,
-"Height": 48
-}
-}
-],
+"GroundObjects": [],
 "Spawners": [],
 "Markers": [
 {
@@ -22609,7 +22522,7 @@
 "InteractOrder": 0,
 "triggerType": 0,
 "Collider": {
-"X": 80,
+"X": 79,
 "Y": 120,
 "Width": 16,
 "Height": 16

@@ -43,23 +43,32 @@ function krabby_scene_a.Enter(map)
   -- iirc these scenes only show up in chapters 1 and 20 so we're probably fine to just leave it like this
 
   --krabby 1
-		GAME:FadeIn(60)
+	GAME:FadeIn(60)
 
-    --test
-    local bubble = OBJ("Bubble")
-    local bigBubble = OBJ("BigBubble")
+  local bigBubbleSpawn = MRKR('BigBubbleSpawner')
+  local krabbySpawnA = MRKR('KrabbyBubbleSpawnerA')
+  local krabbySpawnB = MRKR('KrabbyBubbleSpawnerB')
 
-    local obj = GROUND:CreateObject("object", "BubbleSpwn", bubbleSpawnA.Position.X, bubbleSpawnA.Position.Y, 36, 36, 0)
-    GROUND:ObjectSetDefaultAnim(obj, "BeachBubble_5", 10)
-    local obj = GROUND:CreateObject("object", "BubbleSpwn", bubbleSpawnB.Position.X, bubbleSpawnB.Position.Y, 36, 36, 0)
-    GROUND:ObjectSetDefaultAnim(obj, "BeachBubble_5", 10)
-    local obj = GROUND:CreateObject("object", "BigBubbleSpwn", bigBubbleSpawn.Position.X, bubbleSpawnA.Position.Y, 48, 48, 0)
-    GROUND:ObjectSetDefaultAnim(obj, "BeachBubble_6", 10)
+  local anim_list = luanet.make_array(RogueEssence.Content.AnimData, {
+		RogueEssence.Content.AnimData("Ice_Shard_Hit_Sparkle", 120, 1, 1, 255, Dir8.None),
+		RogueEssence.Content.AnimData("Ice_Shard_Hit_Sparkle", 120, 2, 2, 255, Dir8.None),
+		RogueEssence.Content.AnimData("Ice_Shard_Hit_Sparkle", 120, 3, 3, 255, Dir8.None)
+	})
+	
+	local emitter = RogueEssence.Content.FiniteSprinkleEmitter(anim_list)
+	emitter.Layer = RogueEssence.Content.DrawLayer.Front
+	emitter.Range = 50
+	emitter.Speed = 80
+	emitter.HeightSpeed = -120
+	emitter.SpeedDiff = 120
+	emitter.TotalParticles = 25
+	
+	GROUND:PlayVFX(emitter, krabbySpawnB.Bounds.Center.X, krabbySpawnB.Bounds.Center.Y)
 
-		GAME:WaitFrames(120)
-		GAME:FadeOut(false, 60)
+	GAME:WaitFrames(120)
+	GAME:FadeOut(false, 60)
 
-    GAME:EnterGroundMap("krabby_scene_b", "Entrance")
+  GAME:EnterGroundMap("krabby_scene_b", "Entrance")
 
 end
 
@@ -73,40 +82,6 @@ end
 ---krabby_scene_a.Update(map)
 --Engine callback function
 function krabby_scene_a.Update(map)
-
-  sinTick = sinTick + 1
-  bubbleSpawnTimer = bubbleSpawnTimer + 1
-  bigBubbleSpawnTimer = bigBubbleSpawnTimer + 1
-
-  local bubble = OBJ("Bubble")
-  local bigBubble = OBJ("BigBubble")
-
-  -- spawn bubbles 
-  if bubblesSpawned < 15 and bubbleSpawnTimer > 30 then
-    if bubblesSpawned % 2 == 0 then
-      local obj = GROUND:CreateObject('Object', 'BubbleSpwn', bubbleSpawnA.Position.X, bubbleSpawnA.Position.Y, 36, 36, 0)
-      GROUND:ObjectSetDefaultAnim(obj, "BeachBubble_5", 10)
-    else
-      local obj = GROUND:CreateObject("Object", "BubbleSpwn", bubbleSpawnB.Position.X, bubbleSpawnB.Position.Y, 36, 36, 0)
-      GROUND:ObjectSetDefaultAnim(obj, "BeachBubble_5", 10)
-    end
-
-    print("Bubble Spawned")
-
-    bubblesSpawned = bubblesSpawned + 1
-    bubbleSpawnTimer = 0
-
-    GAME:WaitFrames(1)
-  end
-
-  -- spawn big bubbles 
-  if bigBubblesSpawned < 5 and bigBubbleSpawnTimer > 60 then
-    local obj = GROUND:CreateObject("Object", "BigBubbleSpwn", bigBubbleSpawn.Position.X, bubbleSpawnA.Position.Y, 48, 48, 0)
-    GROUND:ObjectSetDefaultAnim(obj, "BeachBubble_6", 10)
-    bigBubblesSpawned = bigBubblesSpawned + 1
-    bigBubbleSpawnTimer = 0
-    print("Big Bubble Spawned")
-  end
 
 end
 
@@ -129,33 +104,6 @@ end
 -- Entities Callbacks
 -------------------------------
 
-function krabby_scene_a.BubbleSpwn_Update(obj, activator)
-
-  -- move bubbles, using sin/cos offsets to make them more fluid
-  GROUND:MoveObjectToPosition(obj, obj.Position.X + (1 + math.cos(sinTick)), obj.Position.Y + (1 + math.sin(sinTick)), 1)
-
-  -- if bubble's position is greater than the camera position, destroy the bubble
-  local camPos = GAME:GetCameraCenter()
-  if (obj.Position.X > camPos.X or obj.Position.Y > camPos.Y) then
-    bubblesSpawned = bubblesSpawned - 1
-    --GROUND:RemoveObject(obj.Name)
-  end
-
-end
-
-function krabby_scene_a.BigBubbleSpwn_Update(obj, activator)
-
-  -- move bubbles, using sin/cos offsets to make them more fluid
-  GROUND:MoveObjectToPosition(obj, obj.Position.X + (1 + math.cos(sinTick)), obj.Position.Y + (1 + math.sin(sinTick)), 1)
-
-  -- if bubble's position is greater than the camera position, destroy the bubble
-  local camPos = GAME:GetCameraCenter()
-  if (obj.Position.X > camPos.X or obj.Position.Y > camPos.Y) then
-    bigBubblesSpawned = bigBubblesSpawned - 1
-    --GROUND:RemoveObject(obj.Name)
-  end
-
-end
 
 return krabby_scene_a
 
