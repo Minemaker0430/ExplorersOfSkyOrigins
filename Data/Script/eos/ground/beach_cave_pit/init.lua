@@ -381,6 +381,7 @@ function beach_cave_pit.BossDefeated()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['S3_Zubat_3']))
 	
 	--insert funny sound here
+	-- SFX Name = _UNK_EVT_069
 	GROUND:MoveInDirection(koffing, Direction.DownLeft, 20, false, 2)
 	GROUND:MoveInDirection(zubat, Direction.DownRight, 20, false, 2)
 

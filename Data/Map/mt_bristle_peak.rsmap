@@ -1,5 +1,5 @@
 ﻿{
-"Version": "0.8.9.0",
+"Version": "0.8.11.0",
 "Object": {
 "$type": "RogueEssence.Dungeon.Map, RogueEssence",
 "Name": {
@@ -18,7 +18,6 @@
 "Element1": "psychic",
 "Element2": "none",
 "TurnWait": 0,
-"TiersUsed": 0,
 "TurnUsed": false,
 "movementSpeed": 0,
 "dead": false,
@@ -184,7 +183,6 @@
 "SeeTraps": false,
 "CharStates": [],
 "BackRef": {
-"Assembly": false,
 "Index": -1
 },
 "Nickname": "",

@@ -248,7 +248,7 @@ local egg_move_list = {
 		["psyduck"] = "cross_chop",
 		["axew"] = "aqua_tail",
 		["zorua"] = "extrasensory"
-		}
+	}
 
 local function addNature(question, answer)
 
@@ -743,6 +743,10 @@ gender = result
 
 	-- Aura
 
+	-- SFX:
+	-- Pulse = _UNK_EVT_129
+	-- Result Jingle = _UNK_EVT_078(X) (Can't find correct one)
+
 	-- Fade Out and switch to aura BG
   GAME:FadeOut(false, 60)
   GROUND:Unhide("AuraBG")
@@ -752,6 +756,9 @@ gender = result
 
 UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Quiz_Aura_1']))
 UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Quiz_Aura_2']))
+
+-- Loop Pulse SFX
+SOUND:LoopSE("Battle/_UNK_EVT_129")
 
 GAME:FadeIn(60)
 GAME:WaitFrames(30)
@@ -793,10 +800,20 @@ for i = 1, 4, 1 do
 
   local auraColor = auraTable[auraResult[1]][auraResult[2]][auraResult[3]][auraResult[4]]
 
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Quiz_Aura_5']))
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Quiz_Aura_6']))
-
   -- Fade To White
+  	local coro1 = TASK:BranchCoroutine(function() GAME:FadeOut(true, 60) end)
+	local coro2 = TASK:BranchCoroutine(function() SOUND:FadeOutSE("Battle/_UNK_EVT_129", 60) end)
+	TASK:JoinCoroutines({coro1, coro2})
+
+	GAME:WaitFrames(30)
+	GAME:FadeOutFront(false, 60)
+
+	-- hotswitch to black transition on lower layer so the text is shown
+	GAME:FadeOut(false, 1)
+	GAME:FadeInFront(1)
+
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Quiz_Aura_5']))
+  	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Quiz_Aura_6']))
 
   -- Switch BGs
   GROUND:Unhide("AuraResultBG")
@@ -809,10 +826,21 @@ for i = 1, 4, 1 do
   GROUND:Hide("BlankBow")
 
   -- Fade From White
+  GAME:WaitFrames(20)
+  GAME:FadeOutFront(true, 60)
+  GAME:FadeOut(true, 1)
+  GAME:FadeInFront(1)
+  GAME:WaitFrames(60)
 
-  -- Spawn Particles (?)
-
-  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Quiz_Aura_Result_'..tostring(auraColor + 1)]))
+ 	local coro1 = TASK:BranchCoroutine(function() GAME:FadeIn(60) end) -- fade
+	local coro2 = TASK:BranchCoroutine(function() SOUND:PlaySE("Battle/_UNK_EVT_078") end) -- sfx
+	local coro3 = TASK:BranchCoroutine(function() UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Quiz_Aura_Result_'..tostring(auraColor + 1)])) end) -- text
+	local coro4 = TASK:BranchCoroutine(function() local emitter = RogueEssence.Content.FiniteAreaEmitter(RogueEssence.Content.AnimData("AuraParticle", 3))
+												emitter.Range = 20
+    											emitter.Speed = 72
+    											emitter.TotalParticles = 10
+												GROUND:PlayVFX(emitter, GAME:GetCameraCenter().X, GAME:GetCameraCenter().Y) end) -- particles?
+	TASK:JoinCoroutines({coro1, coro2, coro3, coro4})
 
   -- Fade Out and return to normal quiz
   GAME:FadeOut(false, 60)

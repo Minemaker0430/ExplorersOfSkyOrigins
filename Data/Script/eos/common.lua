@@ -53,7 +53,7 @@ end
 ----------------------------------------
 
 
-require 'origin.common_talk'
+--require 'origin.common_talk'
 require 'origin.common_shop'
 require 'origin.common_vars'
 require 'origin.common_tutor'

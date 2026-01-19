@@ -1,5 +1,5 @@
 ﻿{
-"Version": "0.8.9.0",
+"Version": "0.8.11.0",
 "Object": {
 "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[RogueEssence.Data.EntrySummary, RogueEssence]], System.Private.CoreLib",
 "berry_cheri": {
@@ -8,11 +8,11 @@
 "UsageType": 4,
 "States": [
 {
-"assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null",
+"assembly": "PMDC, Version=0.8.11.0, Culture=neutral, PublicKeyToken=null",
 "type": "PMDC.Dungeon.EdibleState"
 },
 {
-"assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null",
+"assembly": "PMDC, Version=0.8.11.0, Culture=neutral, PublicKeyToken=null",
 "type": "PMDC.Dungeon.BerryState"
 }
 ],
@@ -44,15 +44,15 @@
 "UsageType": 4,
 "States": [
 {
-"assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null",
+"assembly": "PMDC, Version=0.8.11.0, Culture=neutral, PublicKeyToken=null",
 "type": "PMDC.Dungeon.CurerState"
 },
 {
-"assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null",
+"assembly": "PMDC, Version=0.8.11.0, Culture=neutral, PublicKeyToken=null",
 "type": "PMDC.Dungeon.EdibleState"
 },
 {
-"assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null",
+"assembly": "PMDC, Version=0.8.11.0, Culture=neutral, PublicKeyToken=null",
 "type": "PMDC.Dungeon.BerryState"
 }
 ],
@@ -84,11 +84,11 @@
 "UsageType": 4,
 "States": [
 {
-"assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null",
+"assembly": "PMDC, Version=0.8.11.0, Culture=neutral, PublicKeyToken=null",
 "type": "PMDC.Dungeon.EdibleState"
 },
 {
-"assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null",
+"assembly": "PMDC, Version=0.8.11.0, Culture=neutral, PublicKeyToken=null",
 "type": "PMDC.Dungeon.BerryState"
 }
 ],
@@ -114,46 +114,357 @@
 "Comment": "",
 "SortOrder": 6
 },
-"seed_stun": {
+"bow_blue": {
 "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
-"Icon": 4,
-"UsageType": 4,
-"States": [
-{
-"assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null",
-"type": "PMDC.Dungeon.EdibleState"
-},
-{
-"assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null",
-"type": "PMDC.Dungeon.SeedState"
-}
-],
+"Icon": 14,
+"UsageType": 0,
+"States": [],
 "MaxStack": 0,
-"CannotDrop": false,
+"CannotDrop": true,
 "BagEffect": false,
 "Name": {
-"DefaultText": "Stun Seed",
+"DefaultText": "Blue Bow",
 "LocalTexts": {}
 },
-"Released": true,
+"Released": false,
 "Comment": "",
-"SortOrder": 7
+"SortOrder": 0
 },
-"orb_switcher": {
+"bow_brown": {
 "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
-"Icon": -1,
+"Icon": 14,
+"UsageType": 0,
+"States": [],
+"MaxStack": 0,
+"CannotDrop": true,
+"BagEffect": false,
+"Name": {
+"DefaultText": "Brown Bow",
+"LocalTexts": {}
+},
+"Released": false,
+"Comment": "",
+"SortOrder": 0
+},
+"bow_cobalt": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": 14,
+"UsageType": 0,
+"States": [],
+"MaxStack": 0,
+"CannotDrop": true,
+"BagEffect": false,
+"Name": {
+"DefaultText": "Cobalt Bow",
+"LocalTexts": {}
+},
+"Released": false,
+"Comment": "",
+"SortOrder": 0
+},
+"bow_fuchsia": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": 14,
+"UsageType": 0,
+"States": [],
+"MaxStack": 0,
+"CannotDrop": true,
+"BagEffect": false,
+"Name": {
+"DefaultText": "Fuchsia Bow",
+"LocalTexts": {}
+},
+"Released": false,
+"Comment": "",
+"SortOrder": 0
+},
+"bow_green": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": 14,
+"UsageType": 0,
+"States": [],
+"MaxStack": 0,
+"CannotDrop": true,
+"BagEffect": false,
+"Name": {
+"DefaultText": "Green Bow",
+"LocalTexts": {}
+},
+"Released": false,
+"Comment": "",
+"SortOrder": 0
+},
+"bow_lime": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": 14,
+"UsageType": 0,
+"States": [],
+"MaxStack": 0,
+"CannotDrop": true,
+"BagEffect": false,
+"Name": {
+"DefaultText": "Lime Bow",
+"LocalTexts": {}
+},
+"Released": false,
+"Comment": "",
+"SortOrder": 0
+},
+"bow_minty": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": 14,
+"UsageType": 0,
+"States": [],
+"MaxStack": 0,
+"CannotDrop": true,
+"BagEffect": false,
+"Name": {
+"DefaultText": "Minty Bow",
+"LocalTexts": {}
+},
+"Released": false,
+"Comment": "",
+"SortOrder": 0
+},
+"bow_orange": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": 14,
+"UsageType": 0,
+"States": [],
+"MaxStack": 0,
+"CannotDrop": true,
+"BagEffect": false,
+"Name": {
+"DefaultText": "Orange Bow",
+"LocalTexts": {}
+},
+"Released": false,
+"Comment": "",
+"SortOrder": 0
+},
+"bow_pink": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": 14,
 "UsageType": 0,
 "States": [],
 "MaxStack": 0,
 "CannotDrop": false,
 "BagEffect": false,
 "Name": {
-"DefaultText": "Switcher Orb",
+"DefaultText": "Pink Bow",
 "LocalTexts": {}
 },
 "Released": false,
 "Comment": "",
 "SortOrder": 0
+},
+"bow_purple": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": 14,
+"UsageType": 0,
+"States": [],
+"MaxStack": 0,
+"CannotDrop": true,
+"BagEffect": false,
+"Name": {
+"DefaultText": "Purple Bow",
+"LocalTexts": {}
+},
+"Released": false,
+"Comment": "",
+"SortOrder": 0
+},
+"bow_red": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": 14,
+"UsageType": 0,
+"States": [],
+"MaxStack": 0,
+"CannotDrop": false,
+"BagEffect": false,
+"Name": {
+"DefaultText": "Red Bow",
+"LocalTexts": {}
+},
+"Released": false,
+"Comment": "",
+"SortOrder": 0
+},
+"bow_silver": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": 14,
+"UsageType": 0,
+"States": [
+{
+"assembly": "PMDC, Version=0.8.11.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.EquipState"
+},
+{
+"assembly": "PMDC, Version=0.8.11.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.HeldState"
+}
+],
+"MaxStack": 0,
+"CannotDrop": true,
+"BagEffect": false,
+"Name": {
+"DefaultText": "Silver Bow",
+"LocalTexts": {}
+},
+"Released": false,
+"Comment": "",
+"SortOrder": 0
+},
+"bow_sky_blue": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": 14,
+"UsageType": 0,
+"States": [],
+"MaxStack": 0,
+"CannotDrop": true,
+"BagEffect": false,
+"Name": {
+"DefaultText": "Sky Blue Bow",
+"LocalTexts": {}
+},
+"Released": false,
+"Comment": "",
+"SortOrder": 0
+},
+"bow_violet": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": 14,
+"UsageType": 0,
+"States": [],
+"MaxStack": 0,
+"CannotDrop": true,
+"BagEffect": false,
+"Name": {
+"DefaultText": "Violet Bow",
+"LocalTexts": {}
+},
+"Released": false,
+"Comment": "",
+"SortOrder": 0
+},
+"bow_viridian": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": 14,
+"UsageType": 0,
+"States": [],
+"MaxStack": 0,
+"CannotDrop": true,
+"BagEffect": false,
+"Name": {
+"DefaultText": "Viridian Bow",
+"LocalTexts": {}
+},
+"Released": false,
+"Comment": "",
+"SortOrder": 0
+},
+"bow_yellow": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": 14,
+"UsageType": 0,
+"States": [],
+"MaxStack": 0,
+"CannotDrop": true,
+"BagEffect": false,
+"Name": {
+"DefaultText": "Yellow Bow",
+"LocalTexts": {}
+},
+"Released": false,
+"Comment": "",
+"SortOrder": 0
+},
+"held_defense_scarf": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": 14,
+"UsageType": 0,
+"States": [
+{
+"assembly": "PMDC, Version=0.8.11.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.HeldState"
+}
+],
+"MaxStack": 0,
+"CannotDrop": false,
+"BagEffect": false,
+"Name": {
+"DefaultText": "Defense Scarf",
+"LocalTexts": {
+"fr": "Écharpe Déf+",
+"de": "Panzerschal"
+}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 1
+},
+"held_insomniascope": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": 15,
+"UsageType": 0,
+"States": [
+{
+"assembly": "PMDC, Version=0.8.11.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.HeldState"
+}
+],
+"MaxStack": 0,
+"CannotDrop": false,
+"BagEffect": false,
+"Name": {
+"DefaultText": "Insomniascope",
+"LocalTexts": {}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 1
+},
+"held_pecha_scarf": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": 14,
+"UsageType": 0,
+"States": [
+{
+"assembly": "PMDC, Version=0.8.11.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.HeldState"
+}
+],
+"MaxStack": 0,
+"CannotDrop": false,
+"BagEffect": false,
+"Name": {
+"DefaultText": "Pecha Scarf",
+"LocalTexts": {}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 1
+},
+"held_persim_band": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": 14,
+"UsageType": 0,
+"States": [
+{
+"assembly": "PMDC, Version=0.8.11.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.HeldState"
+}
+],
+"MaxStack": 0,
+"CannotDrop": false,
+"BagEffect": false,
+"Name": {
+"DefaultText": "Persim Band",
+"LocalTexts": {}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 1
 },
 "orb_blowback": {
 "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
@@ -165,38 +476,6 @@
 "BagEffect": false,
 "Name": {
 "DefaultText": "Blowback Orb",
-"LocalTexts": {}
-},
-"Released": false,
-"Comment": "",
-"SortOrder": 0
-},
-"orb_warp": {
-"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
-"Icon": -1,
-"UsageType": 0,
-"States": [],
-"MaxStack": 0,
-"CannotDrop": false,
-"BagEffect": false,
-"Name": {
-"DefaultText": "Warp Orb",
-"LocalTexts": {}
-},
-"Released": false,
-"Comment": "",
-"SortOrder": 0
-},
-"orb_transfer": {
-"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
-"Icon": -1,
-"UsageType": 0,
-"States": [],
-"MaxStack": 0,
-"CannotDrop": false,
-"BagEffect": false,
-"Name": {
-"DefaultText": "Orb Transfer",
 "LocalTexts": {}
 },
 "Released": false,
@@ -251,6 +530,79 @@
 "Comment": "",
 "SortOrder": 0
 },
+"orb_switcher": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": -1,
+"UsageType": 0,
+"States": [],
+"MaxStack": 0,
+"CannotDrop": false,
+"BagEffect": false,
+"Name": {
+"DefaultText": "Switcher Orb",
+"LocalTexts": {}
+},
+"Released": false,
+"Comment": "",
+"SortOrder": 0
+},
+"orb_transfer": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": -1,
+"UsageType": 0,
+"States": [],
+"MaxStack": 0,
+"CannotDrop": false,
+"BagEffect": false,
+"Name": {
+"DefaultText": "Orb Transfer",
+"LocalTexts": {}
+},
+"Released": false,
+"Comment": "",
+"SortOrder": 0
+},
+"orb_warp": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": -1,
+"UsageType": 0,
+"States": [],
+"MaxStack": 0,
+"CannotDrop": false,
+"BagEffect": false,
+"Name": {
+"DefaultText": "Warp Orb",
+"LocalTexts": {}
+},
+"Released": false,
+"Comment": "",
+"SortOrder": 0
+},
+"seed_stun": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": 4,
+"UsageType": 4,
+"States": [
+{
+"assembly": "PMDC, Version=0.8.11.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.EdibleState"
+},
+{
+"assembly": "PMDC, Version=0.8.11.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.SeedState"
+}
+],
+"MaxStack": 0,
+"CannotDrop": false,
+"BagEffect": false,
+"Name": {
+"DefaultText": "Stun Seed",
+"LocalTexts": {}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 7
+},
 "seed_x_eye": {
 "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
 "Icon": 4,
@@ -261,271 +613,6 @@
 "BagEffect": false,
 "Name": {
 "DefaultText": "X-Eye Seed",
-"LocalTexts": {}
-},
-"Released": false,
-"Comment": "",
-"SortOrder": 0
-},
-"bow_silver": {
-"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
-"Icon": 14,
-"UsageType": 0,
-"States": [
-{
-"assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null",
-"type": "PMDC.Dungeon.EquipState"
-},
-{
-"assembly": "PMDC, Version=0.8.9.0, Culture=neutral, PublicKeyToken=null",
-"type": "PMDC.Dungeon.HeldState"
-}
-],
-"MaxStack": 0,
-"CannotDrop": true,
-"BagEffect": false,
-"Name": {
-"DefaultText": "Silver Bow",
-"LocalTexts": {}
-},
-"Released": false,
-"Comment": "",
-"SortOrder": 0
-},
-"bow_brown": {
-"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
-"Icon": 14,
-"UsageType": 0,
-"States": [],
-"MaxStack": 0,
-"CannotDrop": true,
-"BagEffect": false,
-"Name": {
-"DefaultText": "Brown Bow",
-"LocalTexts": {}
-},
-"Released": false,
-"Comment": "",
-"SortOrder": 0
-},
-"bow_red": {
-"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
-"Icon": 14,
-"UsageType": 0,
-"States": [],
-"MaxStack": 0,
-"CannotDrop": false,
-"BagEffect": false,
-"Name": {
-"DefaultText": "Red Bow",
-"LocalTexts": {}
-},
-"Released": false,
-"Comment": "",
-"SortOrder": 0
-},
-"bow_pink": {
-"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
-"Icon": 14,
-"UsageType": 0,
-"States": [],
-"MaxStack": 0,
-"CannotDrop": false,
-"BagEffect": false,
-"Name": {
-"DefaultText": "Pink Bow",
-"LocalTexts": {}
-},
-"Released": false,
-"Comment": "",
-"SortOrder": 0
-},
-"bow_orange": {
-"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
-"Icon": 14,
-"UsageType": 0,
-"States": [],
-"MaxStack": 0,
-"CannotDrop": true,
-"BagEffect": false,
-"Name": {
-"DefaultText": "Orange Bow",
-"LocalTexts": {}
-},
-"Released": false,
-"Comment": "",
-"SortOrder": 0
-},
-"bow_yellow": {
-"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
-"Icon": 14,
-"UsageType": 0,
-"States": [],
-"MaxStack": 0,
-"CannotDrop": true,
-"BagEffect": false,
-"Name": {
-"DefaultText": "Yellow Bow",
-"LocalTexts": {}
-},
-"Released": false,
-"Comment": "",
-"SortOrder": 0
-},
-"bow_minty": {
-"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
-"Icon": 14,
-"UsageType": 0,
-"States": [],
-"MaxStack": 0,
-"CannotDrop": true,
-"BagEffect": false,
-"Name": {
-"DefaultText": "Minty Bow",
-"LocalTexts": {}
-},
-"Released": false,
-"Comment": "",
-"SortOrder": 0
-},
-"bow_purple": {
-"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
-"Icon": 14,
-"UsageType": 0,
-"States": [],
-"MaxStack": 0,
-"CannotDrop": true,
-"BagEffect": false,
-"Name": {
-"DefaultText": "Purple Bow",
-"LocalTexts": {}
-},
-"Released": false,
-"Comment": "",
-"SortOrder": 0
-},
-"bow_lime": {
-"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
-"Icon": 14,
-"UsageType": 0,
-"States": [],
-"MaxStack": 0,
-"CannotDrop": true,
-"BagEffect": false,
-"Name": {
-"DefaultText": "Lime Bow",
-"LocalTexts": {}
-},
-"Released": false,
-"Comment": "",
-"SortOrder": 0
-},
-"bow_green": {
-"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
-"Icon": 14,
-"UsageType": 0,
-"States": [],
-"MaxStack": 0,
-"CannotDrop": true,
-"BagEffect": false,
-"Name": {
-"DefaultText": "Green Bow",
-"LocalTexts": {}
-},
-"Released": false,
-"Comment": "",
-"SortOrder": 0
-},
-"bow_viridian": {
-"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
-"Icon": 14,
-"UsageType": 0,
-"States": [],
-"MaxStack": 0,
-"CannotDrop": true,
-"BagEffect": false,
-"Name": {
-"DefaultText": "Viridian Bow",
-"LocalTexts": {}
-},
-"Released": false,
-"Comment": "",
-"SortOrder": 0
-},
-"bow_sky_blue": {
-"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
-"Icon": 14,
-"UsageType": 0,
-"States": [],
-"MaxStack": 0,
-"CannotDrop": true,
-"BagEffect": false,
-"Name": {
-"DefaultText": "Sky Blue Bow",
-"LocalTexts": {}
-},
-"Released": false,
-"Comment": "",
-"SortOrder": 0
-},
-"bow_blue": {
-"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
-"Icon": 14,
-"UsageType": 0,
-"States": [],
-"MaxStack": 0,
-"CannotDrop": true,
-"BagEffect": false,
-"Name": {
-"DefaultText": "Blue Bow",
-"LocalTexts": {}
-},
-"Released": false,
-"Comment": "",
-"SortOrder": 0
-},
-"bow_cobalt": {
-"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
-"Icon": 14,
-"UsageType": 0,
-"States": [],
-"MaxStack": 0,
-"CannotDrop": true,
-"BagEffect": false,
-"Name": {
-"DefaultText": "Cobalt Bow",
-"LocalTexts": {}
-},
-"Released": false,
-"Comment": "",
-"SortOrder": 0
-},
-"bow_violet": {
-"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
-"Icon": 14,
-"UsageType": 0,
-"States": [],
-"MaxStack": 0,
-"CannotDrop": true,
-"BagEffect": false,
-"Name": {
-"DefaultText": "Violet Bow",
-"LocalTexts": {}
-},
-"Released": false,
-"Comment": "",
-"SortOrder": 0
-},
-"bow_fuchsia": {
-"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
-"Icon": 14,
-"UsageType": 0,
-"States": [],
-"MaxStack": 0,
-"CannotDrop": true,
-"BagEffect": false,
-"Name": {
-"DefaultText": "Fuchsia Bow",
 "LocalTexts": {}
 },
 "Released": false,

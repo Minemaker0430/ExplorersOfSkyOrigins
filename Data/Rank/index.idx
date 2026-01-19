@@ -1,5 +1,5 @@
 ﻿{
-"Version": "0.8.9.0",
+"Version": "0.8.11.0",
 "Object": {
 "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[RogueEssence.Data.EntrySummary, RogueEssence]], System.Private.CoreLib",
 "bronze": {
@@ -56,6 +56,15 @@
 "Comment": "",
 "SortOrder": 0
 },
+"guildmaster": {
+"Name": {
+"DefaultText": "Guildmaster",
+"LocalTexts": {}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 0
+},
 "hyper": {
 "Name": {
 "DefaultText": "Hyper",
@@ -87,6 +96,33 @@
 "ko": "마스터",
 "zh-hans": "大师等级"
 }
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 0
+},
+"master_2": {
+"Name": {
+"DefaultText": "Master \\uE10C",
+"LocalTexts": {}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 0
+},
+"master_3": {
+"Name": {
+"DefaultText": "Master \\uE10C\\uE10C",
+"LocalTexts": {}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 0
+},
+"master_4": {
+"Name": {
+"DefaultText": "Master \\uE10C\\uE10C\\uE10C",
+"LocalTexts": {}
 },
 "Released": true,
 "Comment": "",
@@ -176,42 +212,6 @@
 "ko": "울트라",
 "zh-hans": "超级等级"
 }
-},
-"Released": true,
-"Comment": "",
-"SortOrder": 0
-},
-"guildmaster": {
-"Name": {
-"DefaultText": "Guildmaster",
-"LocalTexts": {}
-},
-"Released": true,
-"Comment": "",
-"SortOrder": 0
-},
-"master_2": {
-"Name": {
-"DefaultText": "Master \\uE10C",
-"LocalTexts": {}
-},
-"Released": true,
-"Comment": "",
-"SortOrder": 0
-},
-"master_3": {
-"Name": {
-"DefaultText": "Master \\uE10C\\uE10C",
-"LocalTexts": {}
-},
-"Released": true,
-"Comment": "",
-"SortOrder": 0
-},
-"master_4": {
-"Name": {
-"DefaultText": "Master \\uE10C\\uE10C\\uE10C",
-"LocalTexts": {}
 },
 "Released": true,
 "Comment": "",
