@@ -27,7 +27,7 @@ function guild_outside_dusk.Init(map)
   --This will fill the localized strings table automatically based on the locale the game is 
   -- currently in. You can use the MapStrings table after this line!
   
-COMMON:RespawnAllies()
+--COMMON:RespawnAllies()
 end
 
 ---guild_outside_dusk.Enter(map)
@@ -110,7 +110,7 @@ end
 -------------------------------
 
 function guild_outside_dusk.CH1_PartnerWimpsOut()
-	GROUND:Hide("PARTNER")
+	--GROUND:Hide("PARTNER")
 	
 	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
@@ -118,9 +118,9 @@ function guild_outside_dusk.CH1_PartnerWimpsOut()
 	GROUND:SetPlayer(GAME:GetPlayerPartyMember(1))
 	UI:SetSpeaker(GAME:GetPlayerPartyMember(1))
 	local player = CH("PLAYER")
-	local marker = MRKR("CH1_PartnerSpawn")
+	--local marker = MRKR("CH1_PartnerSpawn")
 	local cam = MRKR("CamPos_1")
-	GROUND:TeleportTo(player, marker.Position.X, marker.Position.Y, Direction.Up)
+	--GROUND:TeleportTo(player, marker.Position.X, marker.Position.Y, Direction.Up)
 	GAME:MoveCamera(cam.Position.X, cam.Position.Y, 1, false)
   
     local coro1 = TASK:BranchCoroutine(function() SOUND:FadeInSE("Ambient/AMB_Fire_Loud", 60) end)

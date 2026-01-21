@@ -102,6 +102,8 @@ function beach.HeroPassesOut()
 	GAME:FadeOut(false, 1)
 	local player = CH('PLAYER')
 
+	GROUND:Hide("PARTNER")
+
 	GAME:CutsceneMode(true)
 	GROUND:CharSetAnim(player, "Laying", true)
 		
