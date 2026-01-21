@@ -835,11 +835,14 @@ for i = 1, 4, 1 do
  	local coro1 = TASK:BranchCoroutine(function() GAME:FadeIn(60) end) -- fade
 	local coro2 = TASK:BranchCoroutine(function() SOUND:PlaySE("Battle/_UNK_EVT_078") end) -- sfx
 	local coro3 = TASK:BranchCoroutine(function() UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Quiz_Aura_Result_'..tostring(auraColor + 1)])) end) -- text
-	local coro4 = TASK:BranchCoroutine(function() local emitter = RogueEssence.Content.FiniteAreaEmitter(RogueEssence.Content.AnimData("AuraParticle", 3))
-												emitter.Range = 20
-    											emitter.Speed = 72
-    											emitter.TotalParticles = 10
-												GROUND:PlayVFX(emitter, GAME:GetCameraCenter().X, GAME:GetCameraCenter().Y) end) -- particles?
+	local coro4 = TASK:BranchCoroutine(function() local emitter = RogueEssence.Content.FiniteReleaseEmitter(RogueEssence.Content.AnimData("AuraParticle", 3))
+												emitter.Bursts = 5
+												emitter.ParticlesPerBurst = 8
+												emitter.BurstTime = 10
+												
+												emitter.StartDistance = 8
+												emitter.Speed = 120
+												GROUND:PlayVFX(emitter, GAME:GetCameraCenter().X, GAME:GetCameraCenter().Y) end)
 	TASK:JoinCoroutines({coro1, coro2, coro3, coro4})
 
   -- Fade Out and return to normal quiz

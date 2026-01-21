@@ -8,11 +8,11 @@ require 'origin.common_gen'
 -- Lib Definitions
 ----------------------------------------
 --Reserve the "class" symbol for instantiating classes
-
+Class    = require 'lib.middleclass'
 --Reserve the "Mediator" symbol for instantiating the message lib class
- 
+Mediator = require 'lib.mediator' 
 --Reserve the "Serpent" symbol for the serializer
-
+Serpent = require 'lib.serpent'
 
 ----------------------------------------------------------
 -- Console Writing
@@ -51,16 +51,15 @@ end
 ----------------------------------------
 -- Common namespace
 ----------------------------------------
+COMMON = {}
 
-
---require 'origin.common_talk'
 require 'origin.common_shop'
 require 'origin.common_vars'
 require 'origin.common_tutor'
 
 --Automatically load the appropriate localization for the specified package, or defaults to english!
 function COMMON.AutoLoadLocalizedStrings()
-  PrintInfo("AutoLoading Strings!..")
+  PrintInfo("WARNING: AutoLoadLocalizedStrings IS DEPRECATED.  PLEASE USE STRINGS.MapStrings INSTEAD.  MORE INFO AT: https://wiki.pmdo.pmdcollab.org/Lua_Script_Migration#Deprecated_MapStrings")
   --Get the package path
   local packagepath = SCRIPT:CurrentScriptDir()
   
@@ -68,12 +67,22 @@ function COMMON.AutoLoadLocalizedStrings()
   return STRINGS:MakePackageStringTable(packagepath)
 end
 
-COMMON.MISSION_TYPE_RESCUE = 0
-COMMON.MISSION_TYPE_ESCORT = 1
-COMMON.MISSION_TYPE_ESCORT_OUT = 2
-COMMON.MISSION_TYPE_OUTLAW = 3
-COMMON.MISSION_TYPE_OUTLAW_HOUSE = 4
-COMMON.MISSION_TYPE_OUTLAW_DISGUISE = 5
+function COMMON.GetSortedKeys(dict)
+  keys = {}
+  for key, _ in pairs(dict) do
+    table.insert(keys, key)
+  end
+  table.sort(keys)
+  return keys
+end
+
+COMMON.SIDEQUEST_TYPE_RESCUE = 0
+COMMON.SIDEQUEST_TYPE_ESCORT = 1
+COMMON.SIDEQUEST_TYPE_ESCORT_OUT = 2
+COMMON.SIDEQUEST_TYPE_LOST_ITEM = 3
+COMMON.SIDEQUEST_TYPE_OUTLAW = 4
+COMMON.SIDEQUEST_TYPE_OUTLAW_HOUSE = 5
+COMMON.SIDEQUEST_TYPE_OUTLAW_DISGUISE = 6
 
 COMMON.MISSION_INCOMPLETE = 0
 COMMON.MISSION_COMPLETE = 1
@@ -84,13 +93,13 @@ COMMON.MISSION_ARCHIVED = 2
 -- Convenience Scription Functions
 ----------------------------------------------------------
 function COMMON.RespawnStarterPartner()
-  -- SV.General.Starter.Gender = LUA_ENGINE:EnumToNumeric(Gender.Female)
+  -- SV.test_grounds.Starter.Gender = LUA_ENGINE:EnumToNumeric(Gender.Female)
   local character = RogueEssence.Dungeon.CharData()
-  character.BaseForm = RogueEssence.Dungeon.MonsterID(SV.General.Starter.Species, SV.General.Starter.Form, SV.General.Starter.Skin, LUA_ENGINE:LuaCast(SV.General.Starter.Gender, Gender))
+  character.BaseForm = RogueEssence.Dungeon.MonsterID(SV.test_grounds.Starter.Species, SV.test_grounds.Starter.Form, SV.test_grounds.Starter.Skin, LUA_ENGINE:LuaCast(SV.test_grounds.Starter.Gender, Gender))
   GROUND:SetPlayer(character)
-  if CH('PARTNER') then GROUND:RemoveCharacter("PARTNER") end
+  GROUND:RemoveCharacter("Partner")
   local p = RogueEssence.Dungeon.CharData()
-  p.BaseForm = RogueEssence.Dungeon.MonsterID(SV.General.Partner.Species, SV.General.Partner.Form, SV.General.Partner.Skin, LUA_ENGINE:LuaCast(SV.General.Partner.Gender, Gender))
+  p.BaseForm = RogueEssence.Dungeon.MonsterID(SV.test_grounds.Partner.Species, SV.test_grounds.Partner.Form, SV.test_grounds.Partner.Skin, LUA_ENGINE:LuaCast(SV.test_grounds.Partner.Gender, Gender))
   GROUND:SpawnerSetSpawn("PARTNER_SPAWN", p)
   local chara = GROUND:SpawnerDoSpawn("PARTNER_SPAWN")
 end
@@ -104,15 +113,13 @@ function COMMON.RespawnAllies()
   --Place player teammates
   for i = 1,3,1
   do
-    if CH('TEAMMATE_' .. tostring(i)) then GROUND:RemoveCharacter("TEAMMATE_" .. tostring(i)) end 
+    GROUND:RemoveCharacter("Teammate" .. tostring(i))
   end
   local total = 1
   for i,p in ipairs(party) do
     if i ~= (playeridx + 1) then --Indices in lua tables begin at 1
-      if not (_DATA.Save.ActiveTeam.Players[total].IsPartner or _DATA.Save.ActiveTeam.Players[total].IsFounder) then
-        GROUND:SpawnerSetSpawn("TEAMMATE_" .. tostring(total),p)
-        local chara = GROUND:SpawnerDoSpawn("TEAMMATE_" .. tostring(total))
-      end
+      GROUND:SpawnerSetSpawn("TEAMMATE_" .. tostring(total),p)
+      local chara = GROUND:SpawnerDoSpawn("TEAMMATE_" .. tostring(total))
       --GROUND:GiveCharIdleChatter(chara)
       total = total + 1
     end
@@ -134,10 +141,21 @@ function COMMON.ShowTeamAssemblyMenu(obj, init_fun)
   end
 end
 
-function COMMON.ShowDestinationMenu(dungeon_entrances, ground_entrances)
+function COMMON.ShowDestinationMenu(dungeon_entrances, ground_entrances, force_list, speaker, confirm_msg)
+  
+  local open_dests = {}
+  --check for unlock of grounds
+  for ii = 1,#ground_entrances,1 do
+    if ground_entrances[ii].Flag then
+	  local ground_id = ground_entrances[ii].Zone
+	  local zone_summary = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get(ground_id)
+	  local ground = _DATA:GetGround(zone_summary.Grounds[ground_entrances[ii].ID])
+	  local ground_name = ground:GetColoredName()
+      table.insert(open_dests, { Name=ground_name, Dest=RogueEssence.Dungeon.ZoneLoc(ground_id, -1, ground_entrances[ii].ID, ground_entrances[ii].Entry) })
+	end
+  end
   
   --check for unlock of dungeons
-  local open_dests = {}
   for ii = 1,#dungeon_entrances,1 do
     if GAME:DungeonUnlocked(dungeon_entrances[ii]) then
 	local zone_summary = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get(dungeon_entrances[ii])
@@ -153,23 +171,51 @@ function COMMON.ShowDestinationMenu(dungeon_entrances, ground_entrances)
 	end
   end
   
-  --check for unlock of grounds
-  for ii = 1,#ground_entrances,1 do
-    if ground_entrances[ii].Flag then
-	  local ground_id = ground_entrances[ii].Zone
-	  local zone_summary = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Zone]:Get(ground_id)
-	  local ground = _DATA:GetGround(zone_summary.Grounds[ground_entrances[ii].ID])
-	  local ground_name = ground:GetColoredName()
-      table.insert(open_dests, { Name=ground_name, Dest=RogueEssence.Dungeon.ZoneLoc(ground_id, -1, ground_entrances[ii].ID, ground_entrances[ii].Entry) })
-	end
-  end
-  
   local dest = RogueEssence.Dungeon.ZoneLoc.Invalid
-  if #open_dests == 1 then
+  if #open_dests > 1 or force_list then
+    if before_list ~= nil then
+	  before_list(dest)
+	end
+	
+    SOUND:PlaySE("Menu/Skip")
+	default_choice = 1
+	while true do
+      UI:ResetSpeaker()
+      UI:DestinationMenu(open_dests, default_choice)
+	  UI:WaitForChoice()
+	  default_choice = UI:ChoiceResult()
+	
+	  if default_choice == nil then
+	    break
+	  end
+	  ask_dest = open_dests[default_choice].Dest
+      if ask_dest.StructID.Segment >= 0 then	  
+	    --chosen dungeon entry
+		if speaker ~= nil then
+		  UI:SetSpeaker(speaker)
+		else
+          UI:ResetSpeaker(false)
+		end
+	    UI:DungeonChoice(open_dests[default_choice].Name, ask_dest)
+        UI:WaitForChoice()
+        if UI:ChoiceResult() then
+	      dest = ask_dest
+	      break
+	    end
+	  else 
+	    dest = ask_dest
+	    break
+	  end
+	end
+  elseif #open_dests == 1 then
     if open_dests[1].Dest.StructID.Segment < 0 then
 	  --single ground entry
-      UI:ResetSpeaker(false)
-      SOUND:PlaySE("Menu/Skip")
+	  if speaker ~= nil then
+	    UI:SetSpeaker(speaker)
+	  else
+        UI:ResetSpeaker(false)
+        SOUND:PlaySE("Menu/Skip")
+	  end
 	  UI:ChoiceMenuYesNo(STRINGS:FormatKey("DLG_ASK_ENTER_GROUND", open_dests[1].Name))
       UI:WaitForChoice()
       if UI:ChoiceResult() then
@@ -177,26 +223,26 @@ function COMMON.ShowDestinationMenu(dungeon_entrances, ground_entrances)
 	  end
 	else
 	  --single dungeon entry
-      UI:ResetSpeaker(false)
-      SOUND:PlaySE("Menu/Skip")
+	  if speaker ~= nil then
+	    UI:SetSpeaker(speaker)
+	  else
+        UI:ResetSpeaker(false)
+        SOUND:PlaySE("Menu/Skip")
+	  end
 	  UI:DungeonChoice(open_dests[1].Name, open_dests[1].Dest)
       UI:WaitForChoice()
       if UI:ChoiceResult() then
 	    dest = open_dests[1].Dest
 	  end
 	end
-  elseif #open_dests > 1 then
-    
-    UI:ResetSpeaker()
-    SOUND:PlaySE("Menu/Skip")
-    UI:DestinationMenu(open_dests)
-	UI:WaitForChoice()
-	dest = UI:ChoiceResult()
   else
     PrintInfo("No valid destinations found!")
   end
   
   if dest:IsValid() then
+    if confirm_msg ~= nil then
+	  UI:WaitShowDialogue(confirm_msg)
+	end
 	if dest.StructID.Segment > -1 then
 	  --pre-loads the zone on a separate thread while we fade out, just for a little optimization
 	  _DATA:PreLoadZone(dest.ID)
@@ -220,7 +266,7 @@ function COMMON.CreateWalkArea(name, x, y, w, h)
   end
   --Set the area to wander in
   AI:SetCharacterAI(chara,                                      --[[Entity that will use the AI]]--
-                    "ai.ground_default",                         --[[Class path to the AI class to use]]--
+                    "origin.ai.ground_default",                         --[[Class path to the AI class to use]]--
                     RogueElements.Loc(x, y), --[[Top left corner pos of the allowed idle wander area]]--
                     RogueElements.Loc(w, h), --[[Width and Height of the allowed idle wander area]]--
                     1,                                         --[[Wandering speed]]--
@@ -307,6 +353,45 @@ function COMMON.GiftItemFull(player, receive_item, fanfare, force_storage)
   UI:ImportSpeakerSettings(orig_settings)
 end
 
+-- useful for counting the number of multiple items carried by the player at the same time
+function COMMON.GetPlayerItemsCount(item_id_list, check_storage)
+    local item_count_list = {}
+    for _, item_id in item_id_list do item_count_list[item_id] = 0 end
+
+    for i=0, GAME:GetPlayerBagCount()-1, 1 do
+        local item = GAME:GetPlayerBagItem(i)
+        if item_count_list[item.ID] then
+            local amount = 1
+            if _DATA:GetItem(item.ID).MaxStack >0 then amount = item.Amount end
+            item_count_list[item.ID] = item_count_list[item.ID] + amount
+        end
+    end
+    if not check_storage then return item_count_list end
+
+    for key in pairs(item_count_list) do
+        item_count_list[key] = item_count_list[key] + GAME:GetPlayerStorageItemCount(key)
+    end
+    return item_count_list
+end
+
+-- counts the number of a specific item carried by the player
+function COMMON.GetPlayerItemCount(item_id, check_storage)
+    local item_count = 0
+
+    for i=0, GAME:GetPlayerBagCount()-1, 1 do
+        local item = GAME:GetPlayerBagItem(i)
+        if item.ID == item_id then
+            local amount = 1
+            if _DATA:GetItem(item.ID).MaxStack >0 then amount = item.Amount end
+            item_count = item_count + amount
+        end
+    end
+    if not check_storage then return item_count end
+
+    item_count = item_count + GAME:GetPlayerStorageItemCount(item_id)
+    return item_count
+end
+
 function COMMON.GiftKeyItem(player, item_name)
   local orig_settings = UI:ExportSpeakerSettings()
   SOUND:PlayFanfare("Fanfare/Treasure")
@@ -315,7 +400,7 @@ function COMMON.GiftKeyItem(player, item_name)
   
   -- item names are expected to be passed in without formatting
   -- the standard color for event items is always green
-  UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("DLG_RECEIVE_ITEM"):ToLocal(), player:GetDisplayName(), string.format("[color=#00FF00]%s[color]", item_name)))
+  UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("DLG_RECEIVE_KEY_ITEM"):ToLocal(), player:GetDisplayName(), string.format("[color=#00FF00]%s[color]", item_name)))
   UI:ImportSpeakerSettings(orig_settings)
 end
 
@@ -335,7 +420,7 @@ function COMMON.JoinTeamWithFanfare(recruit, from_dungeon)
     _DATA.Save.ActiveTeam.Assembly:Add(recruit)
   end
   SOUND:PlayFanfare("Fanfare/JoinTeam")
-  _DATA.Save:RegisterMonster(recruit.BaseForm.Species)
+  _DATA.Save:RegisterMonster(recruit.BaseForm)
   _DATA.Save:RogueUnlockMonster(recruit.BaseForm.Species)
 	
   UI:ResetSpeaker(false)
@@ -352,6 +437,9 @@ end
 
 
 function COMMON.UnlockWithFanfare(dungeon_id, from_dungeon)
+  if GAME:InRogueMode() then
+    return
+  end
   if not GAME:DungeonUnlocked(dungeon_id) then
 	local orig_settings = UI:ExportSpeakerSettings()
 	
@@ -389,11 +477,53 @@ function COMMON.LearnMoveFlow(member, move, replace_msg)
 		UI:WaitForChoice()
 		local result = UI:ChoiceResult()
 		if result > -1 and result < 4 then
-			GAME:SetCharacterSkill(member, move, result)
+			GAME:SetCharacterSkill(member, move, result, _DATA.Save:GetDefaultEnable(move))
 			return true
 		end
 	end
 	return false
+end
+
+function COMMON.GetTutorableMoves(member, tutor_moves)
+	
+	local valid_moves = {}
+	local playerMonId = member.BaseForm
+	
+	while playerMonId ~= nil do
+		local mon = _DATA:GetMonster(playerMonId.Species)
+		local form = mon.Forms[playerMonId.Form]
+	  
+		--for each shared skill
+		for move_idx = 0, form.SharedSkills.Count - 1, 1 do
+			local move = form.SharedSkills[move_idx].Skill
+			local already_learned = member:HasBaseSkill(move)
+			if not already_learned and tutor_moves[move] ~= nil then
+				--check if the move tutor list contains it as nonspecial
+				if not tutor_moves[move].Special then
+					valid_moves[move] = tutor_moves[move]
+				end
+			end
+		end
+		--for each secret skill
+		for move_idx = 0, form.SecretSkills.Count - 1, 1 do
+			local move = form.SecretSkills[move_idx].Skill
+			local already_learned = member:HasBaseSkill(move)
+			if not already_learned and tutor_moves[move] ~= nil then
+				--check if the move tutor list contains it as special
+				if tutor_moves[move].Special then
+					valid_moves[move] = tutor_moves[move]
+				end
+			end
+		end
+		
+		if mon.PromoteFrom ~= "" then
+		  playerMonId = RogueEssence.Dungeon.MonsterID(mon.PromoteFrom, form.PromoteForm, "normal", Gender.Genderless)
+		else
+		  playerMonId = nil
+		end
+	end
+  
+  return valid_moves
 end
 
 function COMMON.ClearPlayerPrices()
@@ -437,6 +567,20 @@ end
 
 function COMMON.PayDungeonCartPrice(price)
   COMMON.ClearPlayerPrices()
+  
+  -- clear map prices if not on mat
+  local item_count = _ZONE.CurrentMap.Items.Count
+  for item_idx = 0, item_count-1, 1 do
+    local map_item = _ZONE.CurrentMap.Items[item_idx]
+	if map_item.Price > 0 then
+	  local tile = _ZONE.CurrentMap.Tiles[map_item.TileLoc.X][map_item.TileLoc.Y]
+	  -- only subtract price if on shop mat
+	  if tile.Effect.ID ~= "area_shop" then
+	    map_item.Price = 0
+	  end
+	end
+  end
+  
   GAME:RemoveFromPlayerMoney(price)
   
   local security_price = COMMON.GetShopPriceState()
@@ -534,6 +678,7 @@ function COMMON.ThiefReturn()
   local check_status = _DUNGEON:GetMapStatus(thief_check_idx)
   
   local index_from = check_status.StatusStates:Get(luanet.ctype(MapIndexType))
+  UI:SetSpeakerEmotion("Angry")
   UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey(string.format("TALK_SHOP_SUSPECT_%04d", index_from.Index)):ToLocal()))
   _DUNGEON:LogMsg(STRINGS:Format(RogueEssence.StringKey(string.format("TALK_SHOP_THIEF_RETURN_%04d", index_from.Index)):ToLocal()))
   
@@ -595,14 +740,46 @@ function COMMON.TriggerAdHocMonsterHouse(owner, ownerChar, target)
   
 end
 
+
+
+function COMMON.ProcessOneTimeTreasure(orig_item, result_chest_item, save_var)
+  local got_treasure = false
+  --bag items
+  local inv_count = _DATA.Save.ActiveTeam:GetInvCount() - 1
+  for i = inv_count, 0, -1 do
+  local item = _DATA.Save.ActiveTeam:GetInv(i)
+    if item.ID == "box_deluxe" and item.HiddenValue == "empty" then
+      item.HiddenValue = result_chest_item
+      got_treasure = true
+    end
+    if item.ID == orig_item and item.HiddenValue == "empty" then
+      save_var.TreasureTaken = true
+      got_treasure = true
+    end
+  end
+
+  --equips
+  local player_count = _DATA.Save.ActiveTeam.Players.Count
+  for i = 0, player_count - 1, 1 do 
+    local player = _DATA.Save.ActiveTeam.Players[i]
+    if player.EquippedItem.ID == "box_deluxe" and player.EquippedItem.HiddenValue == "empty" then 
+      player.EquippedItem.HiddenValue = result_chest_item
+      got_treasure = true
+    end
+    if player.EquippedItem.ID == orig_item and player.EquippedItem.HiddenValue == "empty" then 
+      save_var.TreasureTaken = true
+      got_treasure = true
+    end
+  end
+  
+  return got_treasure
+end
+
 function COMMON.CanTalk(chara)
   if chara:GetStatusEffect("sleep") ~= nil then
     return false
   end
   if chara:GetStatusEffect("freeze") ~= nil then
-    return false
-  end
-  if chara:GetStatusEffect("confuse") ~= nil then
     return false
   end
   return true
@@ -614,45 +791,59 @@ function COMMON.DungeonInteract(chara, target, action_cancel, turn_cancel)
   -- TODO: create a charstate for being unable to talk and have talk-interfering statuses cause it
   if COMMON.CanTalk(target) then
     
-    local ratio = target.HP * 100 // target.MaxHP
-    
+    UI:SetSpeaker(target)
     local mon = _DATA:GetMonster(target.BaseForm.Species)
     local form = mon.Forms[target.BaseForm.Form]
+    local ratio = target.HP * 100 // target.MaxHP
     
-    UI:SetSpeaker(target)
-  
     local personality = form:GetPersonalityType(target.Discriminator)
     
-    local personality_group = COMMON.PERSONALITY[personality]
-    local pool = {}
+    local key_pool = {}
+    
+    
+    
     local key = ""
-    if ratio <= 25 then
+    if target:GetStatusEffect("confuse") ~= nil then
+      UI:SetSpeakerEmotion("Dizzy")
+      key = "TALK_%02d_DIZZY_%03d"
+    elseif ratio <= 25 then
       UI:SetSpeakerEmotion("Pain")
-      pool = personality_group.PINCH
-      key = "TALK_PINCH_%04d"
+      key = "TALK_%02d_PINCH_%03d"
     elseif ratio <= 50 then
       UI:SetSpeakerEmotion("Worried")
-      pool = personality_group.HALF
-      key = "TALK_HALF_%04d"
+      key = "TALK_%02d_HALF_%03d"
     else
-      pool = personality_group.FULL
-      key = "TALK_FULL_%04d"
+      key = "TALK_%02d_FULL_%03d"
     end
     
-    local running_pool = {table.unpack(pool)}
-    local valid_quote = false
-    local chosen_quote = ""
-    
-    while not valid_quote and #running_pool > 0 do
-      valid_quote = true
-      local chosen_idx = math.random(1, #running_pool)
-  	  local chosen_pool_idx = running_pool[chosen_idx]
-      chosen_quote = RogueEssence.StringKey(string.format(key, chosen_pool_idx)):ToLocal()
-  	
-      chosen_quote = string.gsub(chosen_quote, "%[player%]", chara:GetDisplayName(true))
-      chosen_quote = string.gsub(chosen_quote, "%[myname%]", target:GetDisplayName(true))
+    local pool_idx = 0
+    while true do
+	  
+      local formatted_key = string.format(key, personality, pool_idx)
+      if not RogueEssence.StringKey.HasValue(formatted_key) then
+        break
+      end
       
-      if string.find(chosen_quote, "%[move%]") then
+  	  table.insert(key_pool, formatted_key)
+	  
+      pool_idx = pool_idx + 1
+    end
+    
+    
+    
+    local running_pool = {}
+    
+    for ii = 1, #key_pool, 1 do
+	  
+      local formatted_key = key_pool[ii]
+
+      local valid_quote = true
+      local test_quote = RogueEssence.StringKey(formatted_key):ToLocal()
+  	
+      test_quote = string.gsub(test_quote, "%[player%]", chara:GetDisplayName(true))
+      test_quote = string.gsub(test_quote, "%[myname%]", target:GetDisplayName(true))
+      
+      if string.find(test_quote, "%[move%]") then
         local moves = {}
   	    for move_idx = 0, 3 do
   	      if target.BaseSkills[move_idx].SkillNum ~= "" then
@@ -661,20 +852,21 @@ function COMMON.DungeonInteract(chara, target, action_cancel, turn_cancel)
   	    end
   	    if #moves > 0 then
   	      local chosen_move = _DATA:GetSkill(moves[math.random(1, #moves)])
-  	      chosen_quote = string.gsub(chosen_quote, "%[move%]", chosen_move:GetIconName())
+  	      test_quote = string.gsub(test_quote, "%[move%]", chosen_move:GetIconName())
   	    else
   	      valid_quote = false
   	    end
       end
       
-      if string.find(chosen_quote, "%[kind%]") then
+      if string.find(test_quote, "%[kind%]") then
   	    if GAME:GetCurrentFloor().TeamSpawns.CanPick then
           local team_spawn = GAME:GetCurrentFloor().TeamSpawns:Pick(GAME.Rand)
   	      local chosen_list = team_spawn:ChooseSpawns(GAME.Rand)
+          
   	      if chosen_list.Count > 0 then
   	        local chosen_mob = chosen_list[math.random(0, chosen_list.Count-1)]
   	        local mon = _DATA:GetMonster(chosen_mob.BaseForm.Species)
-            chosen_quote = string.gsub(chosen_quote, "%[kind%]", mon:GetColoredName())
+            test_quote = string.gsub(test_quote, "%[kind%]", mon:GetColoredName())
   	      else
   	        valid_quote = false
   	      end
@@ -683,22 +875,24 @@ function COMMON.DungeonInteract(chara, target, action_cancel, turn_cancel)
   	    end
       end
       
-      if string.find(chosen_quote, "%[item%]") then
+      if string.find(test_quote, "%[item%]") then
         if GAME:GetCurrentFloor().ItemSpawns.CanPick then
           local item = GAME:GetCurrentFloor().ItemSpawns:Pick(GAME.Rand)
-          chosen_quote = string.gsub(chosen_quote, "%[item%]", item:GetDisplayName())
+          test_quote = string.gsub(test_quote, "%[item%]", item:GetDisplayName())
   	    else
   	      valid_quote = false
   	    end
       end
   	
-  	  if not valid_quote then
-  	    table.remove(running_pool, chosen_idx)
-  	    chosen_quote = ""
+  	  if valid_quote then
+        table.insert(running_pool, test_quote)
   	  end
     end
 	
-	local oldDir = target.CharDir
+    local chosen_idx = math.random(1, #running_pool)
+    local chosen_quote = running_pool[chosen_idx]
+	
+    local oldDir = target.CharDir
     DUNGEON:CharTurnToChar(target, chara)
   
     UI:WaitShowDialogue(STRINGS:Format(chosen_quote))
@@ -707,10 +901,10 @@ function COMMON.DungeonInteract(chara, target, action_cancel, turn_cancel)
   else
   
     UI:ResetSpeaker()
-	
-	local chosen_quote = RogueEssence.StringKey("TALK_CANT"):ToLocal()
+  
+    local chosen_quote = RogueEssence.StringKey("TALK_CANT"):ToLocal()
     chosen_quote = string.gsub(chosen_quote, "%[myname%]", target:GetDisplayName(true))
-	
+  
     UI:WaitShowDialogue(chosen_quote)
   
   end
@@ -862,29 +1056,32 @@ function COMMON.GroundInteract(chara, target)
   local form = mon.Forms[target.CurrentForm.Form]
   
   local personality = form:GetPersonalityType(target.Data.Discriminator)
+  local key = "TALK_%02d_WAIT_%03d"
   
-  local personality_group = COMMON.PERSONALITY[personality]
-  local pool = personality_group.WAIT
-  local key = "TALK_WAIT_%04d"
+  local running_pool = {}
+  local pool_idx = 0
   
-  local running_pool = {table.unpack(pool)}
-  local valid_quote = false
-  local chosen_quote = ""
-  
-  while not valid_quote and #running_pool > 0 do
-    valid_quote = true
-    local chosen_idx = math.random(1, #running_pool)
-	local chosen_pool_idx = running_pool[chosen_idx]
-    chosen_quote = RogueEssence.StringKey(string.format(key, chosen_pool_idx)):ToLocal()
-	
-    chosen_quote = string.gsub(chosen_quote, "%[hero%]", chara:GetDisplayName())
+  while true do
+	  local formatted_key = string.format(key, personality, pool_idx)
+
+	  if not RogueEssence.StringKey.HasValue(formatted_key) then
+	    break
+    end
+
+    local valid_quote = true
+    local test_quote = RogueEssence.StringKey(formatted_key):ToLocal()
+    test_quote = string.gsub(test_quote, "%[hero%]", chara:GetDisplayName())
     
-	if not valid_quote then
-	  table.remove(running_pool, chosen_idx)
-	  chosen_quote = ""
-	end
+    -- there might be other checks against a quote being invalid in the future...
+    
+    if valid_quote then
+      table.insert(running_pool, test_quote)
+    end
+    pool_idx = pool_idx + 1
   end
   
+  local chosen_idx = math.random(1, #running_pool)
+  local chosen_quote = running_pool[chosen_idx]
   
   UI:WaitShowDialogue(STRINGS:Format(chosen_quote))
 end
@@ -896,7 +1093,7 @@ function COMMON.Rescued(zone, name, mail)
     SOUND:PlayBattleSE("EVT_Title_Intro")
     GAME:FadeOut(true, 0)
     GAME:FadeIn(20)
-    SOUND:PlayBGM("C05. Rescue.ogg", true)
+    SOUND:PlayBGM("Rescue.ogg", true)
 	_DUNGEON:LogMsg(STRINGS:FormatKey("MSG_RESCUED_BY", name))
   else
                 --//spawn the rescuers based on mail
@@ -937,7 +1134,7 @@ function COMMON.Rescued(zone, name, mail)
     GAME:FadeIn(20)
                 --yield return CoroutineManager.Instance.StartCoroutine(GameManager.Instance.FadeIn());
 
-    SOUND:PlayBGM("C05. Rescue.ogg", true)
+    SOUND:PlayBGM("Rescue.ogg", true)
     TASK:WaitTask(_MENU:SetDialogue(STRINGS:FormatKey("MSG_RESCUES_LEFT", _DATA.Save.RescuesLeft)))
     GAME:WaitFrames(10)
   
@@ -979,37 +1176,58 @@ function COMMON.EndRescue(zone, result, rescue, segmentID)
   GAME:EndDungeonRun(result, zoneId, structureId, mapId, entryId, true, true)
   SV.General.Rescue = result
   GAME:EnterZone(zoneId, structureId, mapId, entryId)
+  return true
 end
 
 function COMMON.BeginDungeon(zoneId, segmentID, mapId)
-  COMMON.EnterDungeonMissionCheck(zoneId, segmentID)
+  if _DATA.Save.TotalTurns == 0 then
+    COMMON.EnterDungeonMissionCheck(zoneId, segmentID)
+  end
 end
 
 function COMMON.EnterDungeonMissionCheck(zoneId, segmentID)
-  for name, mission in pairs(SV.missions.Missions) do
-	if mission.Complete == COMMON.MISSION_INCOMPLETE and zoneId == mission.DestZone and segmentID == mission.DestSegment then
-	  if mission.Type == 1 then -- escort
-		
-		-- add escort to team
-		local mon_id = mission.EscortSpecies
+
+  for _, name in ipairs(COMMON.GetSortedKeys(SV.missions.Missions)) do
+    mission = SV.missions.Missions[name]
+    if mission.Complete == COMMON.MISSION_INCOMPLETE and zoneId == mission.DestZone and segmentID == mission.DestSegment then
+      if mission.Type == 1 then -- escort
+      
+        -- add escort to team
+        local mon_id = mission.EscortSpecies
         local new_mob = _DATA.Save.ActiveTeam:CreatePlayer(_DATA.Save.Rand, mon_id, 50, "", -1)
         _DATA.Save.ActiveTeam.Guests:Add(new_mob)
-		
-		local talk_evt = RogueEssence.Dungeon.BattleScriptEvent("EscortInteract")
+        
+        local talk_evt = RogueEssence.Dungeon.BattleScriptEvent("EscortInteract")
         new_mob.ActionEvents:Add(talk_evt)
-		
-		local tbl = LTBL(new_mob)
-		tbl.Escort = name
-	    
+        
+        local tbl = LTBL(new_mob)
+        tbl.Escort = name
+          
         UI:ResetSpeaker()
         UI:WaitShowDialogue("Added ".. new_mob.Name .." to the party as a guest.")
-	  end
-	end
+      end
+    end
   end
 end
 
 
-function COMMON.ExitDungeonMissionCheck(result, zoneId, segmentID)
+function COMMON.ExitDungeonMissionCheck(result, rescue, zoneId, segmentID)
+  
+  COMMON.ClearEscorts(result, zoneId, segmentID)
+  
+  exited = false
+  
+  exited = COMMON.ExitDungeonMissionCheckEx(result, rescue, zoneId, segmentID)
+  
+  if rescue == true then
+    exited = COMMON.EndRescue(zone, result, segmentID)
+  end
+  
+  return exited
+end
+
+function COMMON.ClearEscorts(result, zoneId, segmentID)
+
   -- clear any escorts from party
   local party = GAME:GetPlayerGuestTable()
   for i, p in ipairs(party) do
@@ -1017,9 +1235,9 @@ function COMMON.ExitDungeonMissionCheck(result, zoneId, segmentID)
 	if e_tbl ~= nil then
 	  local mission = SV.missions.Missions[e_tbl.Escort]
 	  if mission ~= nil then
-	    if mission.Type == COMMON.MISSION_TYPE_ESCORT then
+	    if mission.Type == COMMON.SIDEQUEST_TYPE_ESCORT then
 	      _DUNGEON:RemoveChar(p)
-	    elseif mission.Type == COMMON.MISSION_TYPE_ESCORT_OUT then
+	    elseif mission.Type == COMMON.SIDEQUEST_TYPE_ESCORT_OUT then
 		  if p.Dead == false then
 		    if result == RogueEssence.Data.GameProgress.ResultType.Cleared then
 		      mission.Complete = COMMON.MISSION_COMPLETE
@@ -1048,6 +1266,27 @@ function COMMON.FindMissionEscort(missionId)
   return escort
 end
 
+function COMMON.TakeMissionItem(quest)
+
+    local item_slot = GAME:FindPlayerItem(quest.TargetItem.ID, true, true)
+	if not item_slot:IsValid() then
+		--do nothing
+	elseif item_slot.IsEquipped then
+		GAME:TakePlayerEquippedItem(item_slot.Slot)
+		quest.Complete = COMMON.MISSION_COMPLETE
+	else
+		GAME:TakePlayerBagItem(item_slot.Slot)
+		quest.Complete = COMMON.MISSION_COMPLETE
+	end
+end
+
+function COMMON.CompleteMission(questname)
+  local quest = SV.missions.Missions[questname]
+  quest.Complete = COMMON.MISSION_ARCHIVED
+  SV.missions.FinishedMissions[questname] = quest
+  SV.missions.Missions[questname] = nil
+end
+
 function COMMON.EndDungeonDay(result, zoneId, structureId, mapId, entryId)
   COMMON.EndDayCycle()
   GAME:EndDungeonRun(result, zoneId, structureId, mapId, entryId, true, true)
@@ -1060,7 +1299,12 @@ function COMMON.EndDungeonDay(result, zoneId, structureId, mapId, entryId)
       result = UI:ChoiceResult()
       GAME:WaitFrames(50);
       if result then
-        local config = RogueEssence.Data.RogueConfig.RerollFromOther(_DATA.Save.Config)
+	    local curConfig = _DATA.Save.Config
+		-- set current save file to main save file, this is to get the right starterlist
+		-- this is hacky since it sets the current save file in an inconsisten state with the lua, but it's technically the most accurate way in lua
+		-- also this state won't last long- it'll be cleared on our reset
+		_DATA.Save = _DATA:GetProgress()
+		local config = RogueEssence.Data.RogueConfig.RerollFromOther(curConfig)
         GAME:RestartRogue(config)
       else 
         GAME:RestartToTitle()
@@ -1083,6 +1327,7 @@ function COMMON.EndDayCycle()
   --reshuffle items
 
   SV.adventure.Thief = false
+  SV.adventure.Tutors = { }
   SV.base_shop = { }
   
   math.randomseed(GAME:GetDailySeed())
@@ -1116,8 +1361,8 @@ function COMMON.EndDayCycle()
 		table.insert(SV.base_shop, base_data)
 	end
   
-  --1-2 special item, always
-  type_count = math.random(1, 2)
+  --2 special item, always
+  type_count = 2
 	for ii = 1, type_count, 1 do
 		local base_data = COMMON.SPECIAL[math.random(1, #COMMON.SPECIAL)]
 		table.insert(SV.base_shop, base_data)
