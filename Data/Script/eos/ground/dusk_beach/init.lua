@@ -28,14 +28,14 @@ function dusk_beach.Init(map)
   -- currently in. You can use the MapStrings table after this line!
   
   
-  COMMON:RespawnAllies()
+  --COMMON:RespawnAllies()
   ExplorerEssentials.SpawnPartner()
 end
 
 ---dusk_beach.Enter(map)
 --Engine callback function
 function dusk_beach.Enter(map)
-
+	SV.Cutscene.ProgressFlag = 3 --test
   GAME:CutsceneMode(true)
   
   if SV.Progression.Chapter == 1 then
