@@ -38,6 +38,9 @@ function beach_cave.ExitSegment(zone, result, rescue, segmentID, mapID)
 	SV.Dungeon.Rescue = rescue
 	SV.Dungeon.SegmentID = segmentID
 	SV.Dungeon.MapID = mapID
+
+	PrintInfo("Result: "..tostring(result))
+	PrintInfo("SegmentID: "..tostring(segmentID))
 	
 	if segmentID == 0 then -- main beach cave
 	
@@ -61,6 +64,7 @@ function beach_cave.ExitSegment(zone, result, rescue, segmentID, mapID)
 			--do another cutscene and end the dungeon day there
 			if SV.Progression.Chapter == 1 then
 				SV.Progression.SectionFlag = 1
+				print("wow you did it in chapter 1")
 			end
 			GAME:WaitFrames(20)
 			COMMON.EndSession(result, "beach_cave", -1, 0, 0)	

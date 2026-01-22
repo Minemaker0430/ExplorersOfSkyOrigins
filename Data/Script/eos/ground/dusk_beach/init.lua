@@ -379,7 +379,7 @@ function dusk_beach.CH1_PartnerFindsHero()
 			end
 		
 			GAME:SetCharacterNickname(GAME:GetPlayerPartyMember(0), name)
-			SV.General.Starter = GAME:GetPlayerPartyMember(0) -- make sure nickname is saved
+			GAME:SetCharacterNickname(SV.General.Starter, name) -- make sure nickname is saved
 			UI:ChoiceMenuYesNo(STRINGS:Format(STRINGS.MapStrings['Name_Confirm'], player:GetDisplayName()), true)
 			UI:WaitForChoice()
 			ch = UI:ChoiceResult()
