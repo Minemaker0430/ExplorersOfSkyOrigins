@@ -132,6 +132,7 @@ function guild_outside_dusk.CH1_PartnerWimpsOut()
     UI:SetSpeakerEmotion("Worried")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_Partner_1']))
 	
+	GAME:WaitFrames(10)
 	GROUND:MoveInDirection(partner, Direction.Right, 24, false, 1)
 	GROUND:MoveInDirection(partner, Direction.Left, 48, false, 1)
 	GROUND:MoveInDirection(partner, Direction.Right, 48, false, 1)
@@ -150,9 +151,11 @@ function guild_outside_dusk.CH1_PartnerWimpsOut()
 	SOUND:PlayBattleSE("EVT_Emote_Shock")
 	GROUND:CharSetEmote(partner, "shock", 1)
 	UI:ResetSpeaker()
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_Unknown_1']))
-	
-	CharacterActions.ScaredJump(partner, Direction.Up)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_Unknown_1']), {
+		function
+			CharacterActions.ScaredJump(partner, Direction.Up)
+		end
+	})
 	
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_Unknown_2']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_Unknown_3'], _DATA:GetMonster(partner.CurrentForm.Species):GetColoredName()))
@@ -175,6 +178,7 @@ function guild_outside_dusk.CH1_PartnerWimpsOut()
     GAME:WaitFrames(45)
     GROUND:CharSetEmote(partner, "sweating", 1)
 	
+	GAME:WaitFrames(10)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_Partner_5_'..tostring(pTalkKind)]))
 	
 	GAME:WaitFrames(30)

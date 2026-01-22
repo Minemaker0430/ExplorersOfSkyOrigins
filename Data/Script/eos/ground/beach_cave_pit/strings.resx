@@ -59,13 +59,13 @@
     <value>System.Resources.NetStandard.ResXResourceWriter, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </resheader>
   <data name="S1_Partner_1_0" xml:space="preserve">
-    <value>Uh...[pause=0] Hey!</value>
+    <value>Uh...[pause=0][script=0] Hey!</value>
   </data>
   <data name="S1_Partner_1_1" xml:space="preserve">
-    <value>Uh...[pause=0] Hey!</value>
+    <value>Uh...[pause=0][script=0] Hey!</value>
   </data>
   <data name="S1_Partner_1_2" xml:space="preserve">
-    <value>Um...[pause=0] Hey!</value>
+    <value>Um...[pause=0][script=0] Hey!</value>
   </data>
   <data name="S1_Koffing_1" xml:space="preserve">
     <value>Well, well...</value>
@@ -77,7 +77,7 @@
     <value>Urk!</value>
   </data>
   <data name="S1_Partner_3" xml:space="preserve">
-    <value>Give me...[pause=0] Give me back what you stole from me!</value>
+    <value>Give me...[pause=0] Give me back what you stole from me![script=0]</value>
   </data>
   <data name="S1_Partner_4" xml:space="preserve">
     <value>That's my personal treasure! It means everything to me!</value>

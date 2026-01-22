@@ -233,7 +233,7 @@ function dusk_beach.CH1_PartnerFindsHero()
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_10']))
 		
 		local coro1 = TASK:BranchCoroutine(function() GAME:MoveCamera(player.Position.X + 20, cam.Position.Y, 60, false) end)
-		local coro2 = TASK:BranchCoroutine(function() GROUND:MoveInDirection(partner, Direction.Left, 60, false, 2) end)
+		local coro2 = TASK:BranchCoroutine(function() GROUND:MoveInDirection(partner, Direction.Left, 80, false, 2) end)
 		TASK:JoinCoroutines({coro1, coro2})
 		
 		CharacterActions.HopTwice(partner, Direction.Left)
@@ -270,7 +270,7 @@ function dusk_beach.CH1_PartnerFindsHero()
 		GAME:WaitFrames(10)
 		
 		local coro1 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(player, Direction.Left, 4) end)
-		local coro2 = TASK:BranchCoroutine(function() GROUND:AnimateInDirection(partner, "Walk", Direction.Left, Direction.Right, 32, 1, 1) end)
+		local coro2 = TASK:BranchCoroutine(function() GROUND:AnimateInDirection(partner, "Walk", Direction.Left, Direction.Right, 20, 1, 1) end)
 		TASK:JoinCoroutines({coro1, coro2})
 		
 		GAME:WaitFrames(15)

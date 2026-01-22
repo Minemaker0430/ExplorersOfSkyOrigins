@@ -144,9 +144,10 @@ function beach_cave_pit.EncounterBoss()
 	UI:SetSpeaker(partner)
 	UI:SetSpeakerEmotion("Determined")
 	
-	local coro1 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(partner, koffing.Position.X, koffing.Position.Y + 44, false, 1)
-												CharacterActions.HopTwice(partner, Direction.Up) end) 
-	local coro2 = TASK:BranchCoroutine(function() UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['S1_Partner_1_'..tostring(pTalkKind)])) end)
+	local coro1 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(partner, koffing.Position.X, koffing.Position.Y + 44, false, 1) end) 
+	local coro2 = TASK:BranchCoroutine(function() UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['S1_Partner_1_'..tostring(pTalkKind)]), {
+		function CharacterActions.HopOnce(partner, Direction.Up) end
+	}) end)
 	TASK:JoinCoroutines({coro1, coro2})
 	
 	SOUND:PlayBattleSE("EVT_Emote_Exclaim")
@@ -176,8 +177,12 @@ function beach_cave_pit.EncounterBoss()
 	
 	GROUND:MoveToPosition(partner, koffing.Position.X, koffing.Position.Y + 44, false, 1)
 	UI:SetSpeakerEmotion("Shouting")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['S1_Partner_3']))
-	CharacterActions.HopTwice(partner, Direction.Up)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['S1_Partner_3']), {
+		function
+			SOUND:PlayBattleSE("EVT_Emote_Complain_2")
+			CharacterActions.HopTwice(partner, Direction.Up)
+		end
+	})
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['S1_Partner_4']))
 	
 	GAME:WaitFrames(10)
@@ -354,6 +359,8 @@ function beach_cave_pit.BossDefeated()
 
 	GROUND:CharAnimateTurnTo(zubat, Direction.DownLeft, 4)
 	--animate the relic fragement later
+	-- SFX: _UNK_EVT_010 or _UNK_EVT_011 (these are the same? i think?)
+	SOUND:PlayBattleSE("_UNK_EVT_010")
 	local relic = OBJ('RelicFragment')
 	GROUND:TeleportTo(relic, zubat.Position.X + 8, zubat.Position.Y + 12, Direction.Down) --relic fragment
 	GROUND:MoveObjectToPosition(relic, zubat.Position.X - 24, zubat.Position.Y + 16, 4)
@@ -382,6 +389,7 @@ function beach_cave_pit.BossDefeated()
 	
 	--insert funny sound here
 	-- SFX Name = _UNK_EVT_069
+	SOUND:PlayBattleSE("_UNK_EVT_069")
 	GROUND:MoveInDirection(koffing, Direction.DownLeft, 20, false, 2)
 	GROUND:MoveInDirection(zubat, Direction.DownRight, 20, false, 2)
 
@@ -417,18 +425,21 @@ function beach_cave_pit.BossDefeated()
 
 	GROUND:MoveInDirection(partner, Direction.UpRight, 5, false, 2)
 	GROUND:Hide("RelicFragment")
-	--SOUND:PlayBattleSE("EVT_CH02_Item_PickUp") --correct sound goes here
+	SOUND:PlayBattleSE("_UNK_EVT_128") -- pickup sound
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['S3_Partner_2_'..tostring(pTalkKind)]))
 	GROUND:CharAnimateTurnTo(partner, Direction.DownRight, 4)
-	UI:SetSpeakerEmotion("Inspired")
+	UI:SetSpeakerEmotion("Teary-Eyed")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['S3_Partner_3_'..tostring(pTalkKind)], player:GetDisplayName()))
-	CharacterActions.ScaredJump(partner, Direction.DownRight)
+	CharacterActions.HopOnce(partner, Direction.DownRight)
 	UI:SetSpeakerEmotion("Happy")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['S3_Partner_4_'..tostring(pTalkKind)], player:GetDisplayName()))
-	GAME:FadeOut(false, 1)
-	GAME:WaitFrames(30)
-	GAME:CutsceneMode(false)
-	ExplorerEssentials.EndDungeonWithFanfare(RogueEssence.Data.GameProgress.ResultType.Cleared, "cutscenes", -1, 6, 0)
+
+	local coro1 = TASK:BranchCoroutine(function() SOUND:FadeOutBGM(60) end) 
+	local coro2 = TASK:BranchCoroutine(function() GAME:FadeOut(false, 60)
+													GAME:WaitFrames(30)
+													GAME:CutsceneMode(false)
+													ExplorerEssentials.EndDungeonWithFanfare(RogueEssence.Data.GameProgress.ResultType.Cleared, "cutscenes", -1, 6, 0) end)
+	TASK:JoinCoroutines({coro1, coro2})
 end
 
 return beach_cave_pit
