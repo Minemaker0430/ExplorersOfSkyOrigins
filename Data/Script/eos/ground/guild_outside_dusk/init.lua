@@ -28,6 +28,7 @@ function guild_outside_dusk.Init(map)
   -- currently in. You can use the MapStrings table after this line!
   
 --COMMON:RespawnAllies()
+COMMON:RespawnStarterPartner()
 end
 
 ---guild_outside_dusk.Enter(map)
@@ -110,17 +111,17 @@ end
 -------------------------------
 
 function guild_outside_dusk.CH1_PartnerWimpsOut()
-	--GROUND:Hide("PARTNER")
+	GROUND:Hide("PLAYER")
 	
 	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
+
+	local partner = CH("PARTNER")
 	
-	GROUND:SetPlayer(GAME:GetPlayerPartyMember(1))
-	UI:SetSpeaker(GAME:GetPlayerPartyMember(1))
-	local player = CH("PLAYER")
+	UI:SetSpeaker(partner)
 	local marker = MRKR("CH1_PartnerSpawn")
 	local cam = MRKR("CamPos_1")
-	GROUND:TeleportTo(player, marker.Position.X, marker.Position.Y, Direction.Up)
+	GROUND:TeleportTo(partner, marker.Position.X, marker.Position.Y, Direction.Up)
 	GAME:MoveCamera(cam.Position.X, cam.Position.Y, 1, false)
   
     local coro1 = TASK:BranchCoroutine(function() SOUND:FadeInSE("Ambient/AMB_Fire_Loud", 60) end)
@@ -131,54 +132,54 @@ function guild_outside_dusk.CH1_PartnerWimpsOut()
     UI:SetSpeakerEmotion("Worried")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_Partner_1']))
 	
-	GROUND:MoveInDirection(player, Direction.Right, 24, false, 1)
-	GROUND:MoveInDirection(player, Direction.Left, 48, false, 1)
-	GROUND:MoveInDirection(player, Direction.Right, 48, false, 1)
-	GROUND:MoveInDirection(player, Direction.Left, 24, false, 1)
+	GROUND:MoveInDirection(partner, Direction.Right, 24, false, 1)
+	GROUND:MoveInDirection(partner, Direction.Left, 48, false, 1)
+	GROUND:MoveInDirection(partner, Direction.Right, 48, false, 1)
+	GROUND:MoveInDirection(partner, Direction.Left, 24, false, 1)
 	
 	GAME:WaitFrames(45)
 	
-	GROUND:CharAnimateTurnTo(player, Direction.Up, 2)
+	GROUND:CharAnimateTurnTo(partner, Direction.Up, 2)
 	
 	UI:SetSpeakerEmotion("Determined")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_Partner_2']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_Partner_3_'..tostring(pTalkKind)]))
 	
-	GROUND:MoveInDirection(player, Direction.Up, 24, false, 1)
+	GROUND:MoveInDirection(partner, Direction.Up, 24, false, 1)
 	
 	SOUND:PlayBattleSE("EVT_Emote_Shock")
-	GROUND:CharSetEmote(player, "shock", 1)
+	GROUND:CharSetEmote(partner, "shock", 1)
 	UI:ResetSpeaker()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_Unknown_1']))
 	
-	CharacterActions.ScaredJump(player, Direction.Up)
+	CharacterActions.ScaredJump(partner, Direction.Up)
 	
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_Unknown_2']))
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_Unknown_3'], _DATA:GetMonster(GAME:GetPlayerPartyMember(1).CurrentForm.Species):GetColoredName()))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_Unknown_3'], _DATA:GetMonster(partner.CurrentForm.Species):GetColoredName()))
 	
-	GROUND:CharSetEmote(player, "shock", 1)
-	GROUND:AnimateInDirection(player, "Walk", Direction.Up, Direction.Down, 12, 1, 2)
+	GROUND:CharSetEmote(partner, "shock", 1)
+	GROUND:AnimateInDirection(partner, "Walk", Direction.Up, Direction.Down, 12, 1, 2)
 	UI:SetSpeaker(GAME:GetPlayerPartyMember(1))
 	UI:SetSpeakerEmotion("Surprised")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_Partner_4']))
 	
 	SOUND:PlayBattleSE("EVT_Emote_Confused_2")
-    GROUND:CharSetEmote(player, "sweating", 1)
-    GROUND:CharAnimateTurnTo(player, Direction.Right, 1)
+    GROUND:CharSetEmote(partner, "sweating", 1)
+    GROUND:CharAnimateTurnTo(partner, Direction.Right, 1)
     GAME:WaitFrames(5)
-    GROUND:CharAnimateTurnTo(player, Direction.Left, 1)
+    GROUND:CharAnimateTurnTo(partner, Direction.Left, 1)
     GAME:WaitFrames(15)
-    GROUND:CharAnimateTurnTo(player, Direction.Right, 1)
+    GROUND:CharAnimateTurnTo(partner, Direction.Right, 1)
     GAME:WaitFrames(5)
-    GROUND:CharAnimateTurnTo(player, Direction.Up, 1)
+    GROUND:CharAnimateTurnTo(partner, Direction.Up, 1)
     GAME:WaitFrames(45)
-    GROUND:CharSetEmote(player, "sweating", 1)
+    GROUND:CharSetEmote(partner, "sweating", 1)
 	
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_Partner_5_'..tostring(pTalkKind)]))
 	
 	GAME:WaitFrames(30)
 	SOUND:PlayBattleSE("EVT_Emote_Sweatdrop")
-	GROUND:CharSetEmote(player, "sweatdrop", 1)
+	GROUND:CharSetEmote(partner, "sweatdrop", 1)
 	UI:SetSpeakerEmotion("Sigh")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_Partner_6']))
 	
@@ -187,33 +188,33 @@ function guild_outside_dusk.CH1_PartnerWimpsOut()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_Partner_7_'..tostring(pTalkKind)]))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_Partner_8_'..tostring(pTalkKind)]))
 	
-	GROUND:MoveInDirection(player, Direction.Up, 16, false, 1)
+	GROUND:MoveInDirection(partner, Direction.Up, 16, false, 1)
 	SOUND:PlayBattleSE("EVT_CH02_Item_Place")
-	GROUND:TeleportTo(OBJ("RelicFragment"), player.Position.X, player.Position.Y - 1, Direction.Down)
+	GROUND:TeleportTo(OBJ("RelicFragment"), partner.Position.X, partner.Position.Y - 1, Direction.Down)
 	GAME:WaitFrames(15)
-	GROUND:AnimateInDirection(player, "Walk", Direction.Up, Direction.Down, 16, 1, 1)
+	GROUND:AnimateInDirection(partner, "Walk", Direction.Up, Direction.Down, 16, 1, 1)
 	GAME:WaitFrames(30)
 	
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_Partner_9']))
 	
 	GAME:WaitFrames(30)
-	GROUND:MoveInDirection(player, Direction.Up, 16, false, 1)
+	GROUND:MoveInDirection(partner, Direction.Up, 16, false, 1)
 	GROUND:Hide("RelicFragment")
 	GAME:WaitFrames(15)
-	GROUND:AnimateInDirection(player, "Walk", Direction.Up, Direction.Down, 16, 1, 1)
+	GROUND:AnimateInDirection(partner, "Walk", Direction.Up, Direction.Down, 16, 1, 1)
 	
 	GAME:WaitFrames(45)
-	CharacterActions.ShakeHead(player, Direction.Up)
+	CharacterActions.ShakeHead(partner, Direction.Up)
 	GAME:WaitFrames(30)
 	
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_Partner_10_'..tostring(pTalkKind)]))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_Partner_11']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_Partner_12']))
 	
-	GROUND:CharAnimateTurnTo(player, Direction.Down, 5)
+	GROUND:CharAnimateTurnTo(partner, Direction.Down, 5)
 	GAME:WaitFrames(20)
 	
-	local coro1 = TASK:BranchCoroutine(function() GROUND:MoveInDirection(player, Direction.Down, 240, false, 1) end)
+	local coro1 = TASK:BranchCoroutine(function() GROUND:MoveInDirection(partner, Direction.Down, 240, false, 1) end)
 	local coro2 = TASK:BranchCoroutine(function() GAME:MoveCamera(cam.Position.X, (cam.Position.Y + 125), 120, false) end)
 	TASK:JoinCoroutines({coro1, coro2})
 	

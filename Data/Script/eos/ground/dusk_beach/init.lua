@@ -29,13 +29,14 @@ function dusk_beach.Init(map)
   
   
   --COMMON:RespawnAllies()
-  ExplorerEssentials.SpawnPartner()
+  --ExplorerEssentials.SpawnPartner() -- don't call this anymore in cutscene maps, breaks because of the partner ai
+  COMMON:RespawnStarterPartner()
 end
 
 ---dusk_beach.Enter(map)
 --Engine callback function
 function dusk_beach.Enter(map)
-	SV.Cutscene.ProgressFlag = 3 --test
+	--SV.Cutscene.ProgressFlag = 3 --test
   GAME:CutsceneMode(true)
   
   if SV.Progression.Chapter == 1 then
@@ -378,6 +379,7 @@ function dusk_beach.CH1_PartnerFindsHero()
 			end
 		
 			GAME:SetCharacterNickname(GAME:GetPlayerPartyMember(0), name)
+			SV.General.Starter = GAME:GetPlayerPartyMember(0) -- make sure nickname is saved
 			UI:ChoiceMenuYesNo(STRINGS:Format(STRINGS.MapStrings['Name_Confirm'], player:GetDisplayName()), true)
 			UI:WaitForChoice()
 			ch = UI:ChoiceResult()

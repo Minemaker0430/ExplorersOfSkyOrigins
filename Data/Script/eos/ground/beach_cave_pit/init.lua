@@ -107,9 +107,9 @@ function beach_cave_pit.NothingHere()
 	SOUND:PlayBGM("006 - In the Depths of the Pit.ogg", true)
 	GAME:FadeIn(20)
 	GAME:CutsceneMode(false)
-	GAME:EndDungeonRun(RogueEssence.Data.GameProgress.ResultType.Cleared, "hub", -1, 5, 3, true, true)
-	SV.partner.Spawn = 'Ladder'
-	GAME:EnterZone('hub', -1, 5, GuildHallwayEntranceMarker) --Time to do this lol, gameplay loop achieved
+	COMMON.EndSession(RogueEssence.Data.GameProgress.ResultType.Cleared, "hub", -1, 5, 3)
+	--SV.partner.Spawn = 'Ladder'
+	--GAME:EnterZone('hub', -1, 5, GuildHallwayEntranceMarker) --Time to do this lol, gameplay loop achieved
 end
 
 function beach_cave_pit.EncounterBoss()
@@ -428,8 +428,7 @@ function beach_cave_pit.BossDefeated()
 	GAME:FadeOut(false, 1)
 	GAME:WaitFrames(30)
 	GAME:CutsceneMode(false)
-	GAME:EndDungeonRun(RogueEssence.Data.GameProgress.ResultType.Cleared, "cutscenes", -1, 6, 0, true, true)	
-	GAME:EnterZone("cutscenes", -1, 6, 0)	
+	COMMON.EndSession(RogueEssence.Data.GameProgress.ResultType.Cleared, "cutscenes", -1, 6, 0)
 end
 
 return beach_cave_pit

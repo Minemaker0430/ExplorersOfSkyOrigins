@@ -1039,9 +1039,6 @@ while not continue do
 	end
 end
 
---GAME:SetCharacterNickname(GAME:GetPlayerPartyMember(0), name)
-SV.General.Starter = pkm
-
 _DATA.Save:UpdateTeamProfile(true)
 _DATA.Save.ActiveTeam.Players[0].IsFounder = true
 _DATA.Save.ActiveTeam.Players[0].IsPartner = true
@@ -1119,8 +1116,6 @@ if result == 3 then pkm.Gender = Gender.Genderless end
 		GAME:LearnSkill(GAME:GetPlayerPartyMember(1), egg_move_list[pkm.Species])
 	end
 
-SV.General.Partner = pkm
-
 _DATA.Save.ActiveTeam.Players[1].IsFounder = true
 _DATA.Save.ActiveTeam.Players[1].IsPartner = true
 
@@ -1140,6 +1135,9 @@ while not ch do
     UI:WaitForChoice()
     ch = UI:ChoiceResult()
   end
+
+  SV.General.Starter = GAME:GetPlayerPartyMember(0)
+  SV.General.Partner = GAME:GetPlayerPartyMember(1)
 
 GROUND:Hide("PLAYER")
 

@@ -93,14 +93,9 @@ COMMON.MISSION_ARCHIVED = 2
 -- Convenience Scription Functions
 ----------------------------------------------------------
 function COMMON.RespawnStarterPartner()
-  -- SV.test_grounds.Starter.Gender = LUA_ENGINE:EnumToNumeric(Gender.Female)
-  local character = RogueEssence.Dungeon.CharData()
-  character.BaseForm = RogueEssence.Dungeon.MonsterID(SV.General.Starter.Species, SV.General.Starter.Form, SV.General.Starter.Skin, LUA_ENGINE:LuaCast(SV.General.Starter.Gender, Gender))
-  GROUND:SetPlayer(character)
+  GROUND:SetPlayer(SV.General.Starter)
   GROUND:RemoveCharacter("Partner")
-  local p = RogueEssence.Dungeon.CharData()
-  p.BaseForm = RogueEssence.Dungeon.MonsterID(SV.General.Partner.Species, SV.General.Partner.Form, SV.General.Partner.Skin, LUA_ENGINE:LuaCast(SV.General.Partner.Gender, Gender))
-  GROUND:SpawnerSetSpawn("PARTNER_SPAWN", p)
+  GROUND:SpawnerSetSpawn("PARTNER_SPAWN", SV.General.Partner)
   local chara = GROUND:SpawnerDoSpawn("PARTNER_SPAWN")
 end
 

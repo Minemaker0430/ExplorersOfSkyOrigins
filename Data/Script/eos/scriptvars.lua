@@ -187,7 +187,7 @@ SV.beach_cave =
 
 SV.drenched_bluff = 
 {
-	TimesFailed = 0 --triggers a cutscene after 3
+	TimesFailed = 0 -- triggers a cutscene after 3
 }
 
 SV.mt_bristle = 
