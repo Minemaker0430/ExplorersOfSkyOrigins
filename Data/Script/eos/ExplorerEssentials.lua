@@ -35,6 +35,11 @@ function ExplorerEssentials.EndDungeonWithFanfare(result, zoneId, structureId, m
 	GAME:EnterZone(zoneId, structureId, mapId, entryId)
 end
 
+function ExplorerEssentials.SetProgress(chapter, section) -- Utility function for testing stuff
+	SV.Progression.Chapter = chapter
+	SV.Progression.SectionFlag = section
+end
+
 function ExplorerEssentials.SpawnBubbles(animID)
 	if animID == 1 then
 	

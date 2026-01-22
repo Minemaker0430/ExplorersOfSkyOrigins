@@ -40,10 +40,13 @@ function dusk_beach.Enter(map)
   GAME:CutsceneMode(true)
   
   if SV.Progression.Chapter == 1 then
+
+	PrintInfo("SectionFlag: "..tostring(SV.Progression.SectionFlag))
+	PrintInfo("FailedDungeon: "..tostring(SV.beach_cave.FailedDungeon))
   
 	if SV.Progression.SectionFlag == 1 then
 		dusk_beach.CH1_ExplorerTeamInvite()
-	elseif SV.beach_cave.FailedDungeon then
+	elseif SV.beach_cave.FailedDungeon == true then
 		dusk_beach.CH1_FailedBeachCave()
 	else
 		dusk_beach.CH1_PartnerFindsHero()
@@ -692,7 +695,7 @@ function dusk_beach.CH1_PartnerFindsHero()
 		--enter dungeon
 		GAME:WaitFrames(60)
 		GAME:CutsceneMode(false)
-		GAME:EnterZone('beach_cave', 0, 0, 0)
+		GAME:EnterDungeon('beach_cave', 0, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 		
 		--debug end
 		--GAME:FadeIn(1)
@@ -1033,7 +1036,7 @@ function dusk_beach.CH1_FailedBeachCave()
 	--enter dungeon
 	GAME:WaitFrames(60)
 	GAME:CutsceneMode(false)
-	GAME:EnterDungeon('beach_cave', 0, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, true)
+	GAME:EnterDungeon('beach_cave', 0, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 end
 
 return dusk_beach
