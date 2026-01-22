@@ -1,0 +1,14 @@
+0	none
+1	normal
+2	bronze
+3	silver
+4	gold
+5	diamond
+6	super
+7	ultra
+8	hyper
+9	master
+10	master_2
+11	master_3
+12	master_4
+13	guildmaster
