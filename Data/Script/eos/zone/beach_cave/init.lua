@@ -22,7 +22,9 @@ end
 ---beach_cave.EnterSegment(zone, rescuing, segmentID, mapID)
 --Engine callback function
 function beach_cave.EnterSegment(zone, rescuing, segmentID, mapID)
-	COMMON.BeginDungeon(zone.ID, segmentID, mapID)
+	if rescuing ~= true then
+		COMMON.BeginDungeon(zone.ID, segmentID, mapID)
+	end
 end
 
 ---beach_cave.ExitSegment(zone, result, rescue, segmentID, mapID)
@@ -41,51 +43,28 @@ function beach_cave.ExitSegment(zone, result, rescue, segmentID, mapID)
 
 	PrintInfo("Result: "..tostring(result))
 	PrintInfo("SegmentID: "..tostring(segmentID))
-	
-	if segmentID == 0 then -- main beach cave
-	
-		if result == RogueEssence.Data.GameProgress.ResultType.Cleared then --success
-		
-			GAME:WaitFrames(20)
-			GAME:EnterZone("beach_cave", -1, 0, 0)
-			
-		else --fail
-		
-			SV.beach_cave.FailedDungeon = true
-			GAME:WaitFrames(20)
-			COMMON.EndSession(result, "cutscenes", -1, 6, 0)
-			
-		end
-		
-	else --triggered only from the boss map
-	
-		if result == RogueEssence.Data.GameProgress.ResultType.Cleared then --success
-			
-			--do another cutscene and end the dungeon day there
-			if SV.Progression.Chapter == 1 then
-				SV.Progression.SectionFlag = 1
-				print("wow you did it in chapter 1")
-			end
-			GAME:WaitFrames(20)
-			COMMON.EndSession(result, "beach_cave", -1, 0, 0)	
-			
-		else --fail
-		
-			SV.beach_cave.FailedDungeon = true
+
+	if result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
+		SV.beach_cave.FailedDungeon = true
+		if segmentID == 1 then --boss segment
 			SV.beach_cave.FailedBoss = true
-			GAME:WaitFrames(20)
-			COMMON.EndSession(result, "cutscenes", -1, 6, 0)
-			
 		end
-	
+
+		GAME:WaitFrames(20)
+		ExplorerEssentials.EndDungeonWithFanfare(result, "cutscenes", -1, 6, 0)
+	else
+		if SV.Progression.Chapter == 1 and segmentID == 1 then
+			SV.Progression.SectionFlag = 1
+		end
+		GAME:WaitFrames(20)
+		GAME:EnterZone("beach_cave", -1, 0, 0)
 	end
 end
 
 ---beach_cave.Rescued(zone, name, mail)
 --Engine callback function
 function beach_cave.Rescued(zone, name, mail)
-	COMMON.Rescued(zone, mail)
-
+  COMMON.Rescued(zone, name, mail)
 end
 
 return beach_cave

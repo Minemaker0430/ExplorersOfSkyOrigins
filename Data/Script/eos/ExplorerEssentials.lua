@@ -30,6 +30,11 @@ function ExplorerEssentials.SetPlayerFromData(data)
   	GROUND:SetPlayer(character)
 end
 
+function ExplorerEssentials.EndDungeonWithFanfare(result, zoneId, structureId, mapId, entryId)
+	GAME:EndDungeonRun(result, zoneId, structureId, mapId, entryId, true, true)
+	GAME:EnterZone(zoneId, structureId, mapId, entryId)
+end
+
 function ExplorerEssentials.SpawnBubbles(animID)
 	if animID == 1 then
 	

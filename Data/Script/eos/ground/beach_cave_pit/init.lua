@@ -428,7 +428,7 @@ function beach_cave_pit.BossDefeated()
 	GAME:FadeOut(false, 1)
 	GAME:WaitFrames(30)
 	GAME:CutsceneMode(false)
-	COMMON.EndSession(RogueEssence.Data.GameProgress.ResultType.Cleared, "cutscenes", -1, 6, 0)
+	ExplorerEssentials.EndDungeonWithFanfare(RogueEssence.Data.GameProgress.ResultType.Cleared, "cutscenes", -1, 6, 0)
 end
 
 return beach_cave_pit

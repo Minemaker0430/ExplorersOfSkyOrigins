@@ -42,17 +42,11 @@ function dusk_beach.Enter(map)
   if SV.Progression.Chapter == 1 then
   
 	if SV.Progression.SectionFlag == 1 then
-	
 		dusk_beach.CH1_ExplorerTeamInvite()
-		
 	elseif SV.beach_cave.FailedDungeon then
-	
 		dusk_beach.CH1_FailedBeachCave()
-		
 	else
-	
 		dusk_beach.CH1_PartnerFindsHero()
-		
 	end
   end
   
@@ -940,6 +934,7 @@ function dusk_beach.CH1_ExplorerTeamInvite()
 	UI:WaitShowVoiceOver(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Narration_6']), -1)
 	--chapter 2 start
 	SV.Progression.Chapter = 2
+	SV.Progression.SectionFlag = 0 -- reset flags
 	GAME:WaitFrames(120)
 	UI:SetAutoFinish(false)
 	SOUND:StopSE("Ambient/AMB_Ocean")
