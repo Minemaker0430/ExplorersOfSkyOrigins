@@ -55,7 +55,7 @@ function krabby_scene_a.Enter(map)
 	krabbyEmitter.Anim = RogueEssence.Content.AnimData("BeachBubble_3", 15, -1, -1, 255, Dir8.None)
 	krabbyEmitter.ResultLayer = RogueEssence.Content.DrawLayer.Front
 	krabbyEmitter.OffsetStart = RogueElements.Loc(0, 0)
-	krabbyEmitter.OffsetEnd = RogueElements.Loc(450 + math.random(-100, 100), 450)
+	krabbyEmitter.OffsetEnd = RogueElements.Loc(450, 450)
 	krabbyEmitter.HeightStart = 0
 	krabbyEmitter.HeightEnd = 16
 	krabbyEmitter.MoveTime = 240
@@ -67,7 +67,7 @@ function krabby_scene_a.Enter(map)
 	bigBubbleEmitterA.OffsetEnd = RogueElements.Loc(450, 450)
 	bigBubbleEmitterA.HeightStart = 0
 	bigBubbleEmitterA.HeightEnd = 16
-	bigBubbleEmitterA.MoveTime = 230
+	bigBubbleEmitterA.MoveTime = 360
 
 	local bigBubbleEmitterB = RogueEssence.Content.MoveToEmitter()
 	bigBubbleEmitterB.Anim = RogueEssence.Content.AnimData("BeachBubble_6", 15, -1, -1, 255, Dir8.None)
@@ -76,7 +76,7 @@ function krabby_scene_a.Enter(map)
 	bigBubbleEmitterB.OffsetEnd = RogueElements.Loc(450, 450)
 	bigBubbleEmitterB.HeightStart = 0
 	bigBubbleEmitterB.HeightEnd = 16
-	bigBubbleEmitterB.MoveTime = 220
+	bigBubbleEmitterB.MoveTime = 360
 
 	local coro1 = TASK:BranchCoroutine(function() -- krabby A
 		repeat
@@ -95,27 +95,25 @@ function krabby_scene_a.Enter(map)
 		until continue ~= true
 	end)
 	local coro3 = TASK:BranchCoroutine(function() -- big bubble A
-		GAME:WaitFrames(30)
-		
 		repeat
-			GAME:WaitFrames(60)
-			local startOffs = math.random(-50, 50)
-			local endOffs = math.random(-50, 50)
-			--bigBubbleEmitterA.OffsetStart = RogueElements.Loc(startOffs, -startOffs)
+			local startOffs = math.random(-100, 100)
+			local endOffs = math.random(-200, 200)
+			bigBubbleEmitterA.OffsetStart = RogueElements.Loc(startOffs, -startOffs)
 			bigBubbleEmitterA.OffsetEnd = RogueElements.Loc(450 + endOffs, 450 - endOffs)
 			GROUND:PlayVFX(bigBubbleEmitterA, bigBubbleSpawn.Bounds.Center.X, bigBubbleSpawn.Bounds.Center.Y)
+			GAME:WaitFrames(40)
 		until continue ~= true
 	end)
 	local coro4 = TASK:BranchCoroutine(function() -- big bubble B
-		GAME:WaitFrames(90)
+		GAME:WaitFrames(20)
 		
 		repeat
-			GAME:WaitFrames(60)
-			local startOffs = math.random(-50, 50)
-			local endOffs = math.random(-50, 50)
-			--bigBubbleEmitterB.OffsetStart = RogueElements.Loc(startOffs, -startOffs)
+			local startOffs = math.random(-100, 100)
+			local endOffs = math.random(-200, 200)
+			bigBubbleEmitterB.OffsetStart = RogueElements.Loc(startOffs, -startOffs)
 			bigBubbleEmitterB.OffsetEnd = RogueElements.Loc(450 + endOffs, 450 - endOffs)
 			GROUND:PlayVFX(bigBubbleEmitterB, bigBubbleSpawn.Bounds.Center.X, bigBubbleSpawn.Bounds.Center.Y)
+			GAME:WaitFrames(40)
 		until continue ~= true
 	end)
 	local coro5 = TASK:BranchCoroutine(function() -- general map timer

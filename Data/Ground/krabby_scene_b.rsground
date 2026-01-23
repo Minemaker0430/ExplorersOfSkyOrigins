@@ -22499,6 +22499,48 @@
 "Width": 16,
 "Height": 16
 }
+},
+{
+"EntName": "KrabbyBubbleSpawnerA",
+"Direction": 0,
+"EntEnabled": true,
+"EntOrder": 0,
+"InteractOrder": 0,
+"triggerType": 0,
+"Collider": {
+"X": 185,
+"Y": 98,
+"Width": 16,
+"Height": 16
+}
+},
+{
+"EntName": "KrabbyBubbleSpawnerB",
+"Direction": 0,
+"EntEnabled": true,
+"EntOrder": 0,
+"InteractOrder": 0,
+"triggerType": 0,
+"Collider": {
+"X": 94,
+"Y": 140,
+"Width": 16,
+"Height": 16
+}
+},
+{
+"EntName": "BigBubbleSpawner",
+"Direction": 0,
+"EntEnabled": true,
+"EntOrder": 0,
+"InteractOrder": 0,
+"triggerType": 0,
+"Collider": {
+"X": 328,
+"Y": 243,
+"Width": 16,
+"Height": 16
+}
 }
 ]
 }

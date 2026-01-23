@@ -23,6 +23,7 @@ end
 --Engine callback function
 function krabby_scene_b.Enter(map)
 
+  GAME:MoveCamera(160, 120, 1, false)
   GROUND:Hide("PLAYER")
 
   -- iirc these scenes only show up in chapters 1 and 20 so we're probably fine to just leave it like this
@@ -31,11 +32,86 @@ function krabby_scene_b.Enter(map)
 		SOUND:PlayBGM("004 - On the Beach at Dusk.ogg", true)
 		
     GAME:FadeIn(60)
-		--bubbles
-		GAME:WaitFrames(120)
-		GAME:FadeOut(false, 60)
+		
+    --bubbles
+    local bigBubbleSpawn = MRKR('BigBubbleSpawner')
+    local krabbySpawnA = MRKR('KrabbyBubbleSpawnerA')
+    local krabbySpawnB = MRKR('KrabbyBubbleSpawnerB')
 
-    GAME:EnterGroundMap("dusk_beach", "Entrance", true)
+    local continue = true
+    
+    local krabbyEmitter = RogueEssence.Content.MoveToEmitter()
+    krabbyEmitter.Anim = RogueEssence.Content.AnimData("BeachBubble_7", 15, -1, -1, 255, Dir8.None)
+    krabbyEmitter.ResultLayer = RogueEssence.Content.DrawLayer.Front
+    krabbyEmitter.OffsetStart = RogueElements.Loc(0, 0)
+    krabbyEmitter.OffsetEnd = RogueElements.Loc(-450, -450)
+    krabbyEmitter.HeightStart = 0
+    krabbyEmitter.HeightEnd = 16
+    krabbyEmitter.MoveTime = 240
+
+    local bigBubbleEmitterA = RogueEssence.Content.MoveToEmitter()
+    bigBubbleEmitterA.Anim = RogueEssence.Content.AnimData("BeachBubble_5", 15, -1, -1, 255, Dir8.None)
+    bigBubbleEmitterA.ResultLayer = RogueEssence.Content.DrawLayer.Front
+    bigBubbleEmitterA.OffsetStart = RogueElements.Loc(0, 0)
+    bigBubbleEmitterA.OffsetEnd = RogueElements.Loc(-450, -450)
+    bigBubbleEmitterA.HeightStart = 0
+    bigBubbleEmitterA.HeightEnd = 16
+    bigBubbleEmitterA.MoveTime = 360
+
+    local bigBubbleEmitterB = RogueEssence.Content.MoveToEmitter()
+    bigBubbleEmitterB.Anim = RogueEssence.Content.AnimData("BeachBubble_6", 15, -1, -1, 255, Dir8.None)
+    bigBubbleEmitterB.ResultLayer = RogueEssence.Content.DrawLayer.Front
+    bigBubbleEmitterB.OffsetStart = RogueElements.Loc(0, 0)
+    bigBubbleEmitterB.OffsetEnd = RogueElements.Loc(-450, -450)
+    bigBubbleEmitterB.HeightStart = 0
+    bigBubbleEmitterB.HeightEnd = 16
+    bigBubbleEmitterB.MoveTime = 360
+
+    local coro1 = TASK:BranchCoroutine(function() -- krabby A
+      repeat
+        GAME:WaitFrames(20)
+        local endOffs = math.random(-240, 240)
+        krabbyEmitter.OffsetEnd = RogueElements.Loc(-450 + endOffs, -450 - endOffs)
+        GROUND:PlayVFX(krabbyEmitter, krabbySpawnA.Bounds.Center.X, krabbySpawnA.Bounds.Center.Y)
+      until continue ~= true
+    end)
+    local coro2 = TASK:BranchCoroutine(function() -- krabby B
+      repeat
+        GAME:WaitFrames(20)
+        local endOffs = math.random(-240, 240)
+        krabbyEmitter.OffsetEnd = RogueElements.Loc(-450 + endOffs, -450 - endOffs)
+        GROUND:PlayVFX(krabbyEmitter, krabbySpawnB.Bounds.Center.X, krabbySpawnB.Bounds.Center.Y)
+      until continue ~= true
+    end)
+    local coro3 = TASK:BranchCoroutine(function() -- big bubble A
+      GAME:WaitFrames(20)
+      
+      repeat
+        local startOffs = math.random(-100, 100)
+        local endOffs = math.random(-200, 200)
+        bigBubbleEmitterA.OffsetStart = RogueElements.Loc(startOffs, -startOffs)
+        bigBubbleEmitterA.OffsetEnd = RogueElements.Loc(-450 + endOffs, -450 - endOffs)
+        GROUND:PlayVFX(bigBubbleEmitterA, bigBubbleSpawn.Bounds.Center.X, bigBubbleSpawn.Bounds.Center.Y)
+        GAME:WaitFrames(40)
+      until continue ~= true
+    end)
+    local coro4 = TASK:BranchCoroutine(function() -- big bubble B
+      repeat
+        local startOffs = math.random(-100, 100)
+        local endOffs = math.random(-200, 200)
+        bigBubbleEmitterB.OffsetStart = RogueElements.Loc(startOffs, -startOffs)
+        bigBubbleEmitterB.OffsetEnd = RogueElements.Loc(-450 + endOffs, -450 - endOffs)
+        GROUND:PlayVFX(bigBubbleEmitterB, bigBubbleSpawn.Bounds.Center.X, bigBubbleSpawn.Bounds.Center.Y)
+        GAME:WaitFrames(40)
+      until continue ~= true
+    end)
+    local coro5 = TASK:BranchCoroutine(function() -- general map timer
+      GAME:WaitFrames(120) 
+      GAME:FadeOut(false, 60)
+      continue = false
+      GAME:EnterGroundMap("dusk_beach", "Entrance", true)
+    end)
+    TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5})
 
 end
 
