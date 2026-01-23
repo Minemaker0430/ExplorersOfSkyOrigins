@@ -49,26 +49,82 @@ function krabby_scene_a.Enter(map)
   local krabbySpawnA = MRKR('KrabbyBubbleSpawnerA')
   local krabbySpawnB = MRKR('KrabbyBubbleSpawnerB')
 
-  local anim_list = luanet.make_array(RogueEssence.Content.AnimData, {
-		RogueEssence.Content.AnimData("Ice_Shard_Hit_Sparkle", 120, 1, 1, 255, Dir8.None),
-		RogueEssence.Content.AnimData("Ice_Shard_Hit_Sparkle", 120, 2, 2, 255, Dir8.None),
-		RogueEssence.Content.AnimData("Ice_Shard_Hit_Sparkle", 120, 3, 3, 255, Dir8.None)
-	})
+  local continue = true
 	
-	local emitter = RogueEssence.Content.FiniteSprinkleEmitter(anim_list)
-	emitter.Layer = RogueEssence.Content.DrawLayer.Front
-	emitter.Range = 50
-	emitter.Speed = 80
-	emitter.HeightSpeed = -120
-	emitter.SpeedDiff = 120
-	emitter.TotalParticles = 25
-	
-	GROUND:PlayVFX(emitter, krabbySpawnB.Bounds.Center.X, krabbySpawnB.Bounds.Center.Y)
+	local krabbyEmitter = RogueEssence.Content.MoveToEmitter()
+	krabbyEmitter.Anim = RogueEssence.Content.AnimData("BeachBubble_3", 15, -1, -1, 255, Dir8.None)
+	krabbyEmitter.ResultLayer = RogueEssence.Content.DrawLayer.Front
+	krabbyEmitter.OffsetStart = RogueElements.Loc(0, 0)
+	krabbyEmitter.OffsetEnd = RogueElements.Loc(450 + math.random(-100, 100), 450)
+	krabbyEmitter.HeightStart = 0
+	krabbyEmitter.HeightEnd = 16
+	krabbyEmitter.MoveTime = 240
 
-	GAME:WaitFrames(120)
-	GAME:FadeOut(false, 60)
+	local bigBubbleEmitterA = RogueEssence.Content.MoveToEmitter()
+	bigBubbleEmitterA.Anim = RogueEssence.Content.AnimData("BeachBubble_5", 15, -1, -1, 255, Dir8.None)
+	bigBubbleEmitterA.ResultLayer = RogueEssence.Content.DrawLayer.Front
+	bigBubbleEmitterA.OffsetStart = RogueElements.Loc(0, 0)
+	bigBubbleEmitterA.OffsetEnd = RogueElements.Loc(450, 450)
+	bigBubbleEmitterA.HeightStart = 0
+	bigBubbleEmitterA.HeightEnd = 16
+	bigBubbleEmitterA.MoveTime = 230
 
-  GAME:EnterGroundMap("krabby_scene_b", "Entrance")
+	local bigBubbleEmitterB = RogueEssence.Content.MoveToEmitter()
+	bigBubbleEmitterB.Anim = RogueEssence.Content.AnimData("BeachBubble_6", 15, -1, -1, 255, Dir8.None)
+	bigBubbleEmitterB.ResultLayer = RogueEssence.Content.DrawLayer.Front
+	bigBubbleEmitterB.OffsetStart = RogueElements.Loc(0, 0)
+	bigBubbleEmitterB.OffsetEnd = RogueElements.Loc(450, 450)
+	bigBubbleEmitterB.HeightStart = 0
+	bigBubbleEmitterB.HeightEnd = 16
+	bigBubbleEmitterB.MoveTime = 220
+
+	local coro1 = TASK:BranchCoroutine(function() -- krabby A
+		repeat
+			GAME:WaitFrames(15)
+			local endOffs = math.random(-240, 240)
+			krabbyEmitter.OffsetEnd = RogueElements.Loc(450 + endOffs, 450 - endOffs)
+			GROUND:PlayVFX(krabbyEmitter, krabbySpawnA.Bounds.Center.X, krabbySpawnA.Bounds.Center.Y)
+		until continue ~= true
+	end)
+	local coro2 = TASK:BranchCoroutine(function() -- krabby B
+		repeat
+			GAME:WaitFrames(15)
+			local endOffs = math.random(-240, 240)
+			krabbyEmitter.OffsetEnd = RogueElements.Loc(450 + endOffs, 450 - endOffs)
+			GROUND:PlayVFX(krabbyEmitter, krabbySpawnB.Bounds.Center.X, krabbySpawnB.Bounds.Center.Y)
+		until continue ~= true
+	end)
+	local coro3 = TASK:BranchCoroutine(function() -- big bubble A
+		GAME:WaitFrames(30)
+		
+		repeat
+			GAME:WaitFrames(60)
+			local startOffs = math.random(-50, 50)
+			local endOffs = math.random(-50, 50)
+			--bigBubbleEmitterA.OffsetStart = RogueElements.Loc(startOffs, -startOffs)
+			bigBubbleEmitterA.OffsetEnd = RogueElements.Loc(450 + endOffs, 450 - endOffs)
+			GROUND:PlayVFX(bigBubbleEmitterA, bigBubbleSpawn.Bounds.Center.X, bigBubbleSpawn.Bounds.Center.Y)
+		until continue ~= true
+	end)
+	local coro4 = TASK:BranchCoroutine(function() -- big bubble B
+		GAME:WaitFrames(90)
+		
+		repeat
+			GAME:WaitFrames(60)
+			local startOffs = math.random(-50, 50)
+			local endOffs = math.random(-50, 50)
+			--bigBubbleEmitterB.OffsetStart = RogueElements.Loc(startOffs, -startOffs)
+			bigBubbleEmitterB.OffsetEnd = RogueElements.Loc(450 + endOffs, 450 - endOffs)
+			GROUND:PlayVFX(bigBubbleEmitterB, bigBubbleSpawn.Bounds.Center.X, bigBubbleSpawn.Bounds.Center.Y)
+		until continue ~= true
+	end)
+	local coro5 = TASK:BranchCoroutine(function() -- general map timer
+		GAME:WaitFrames(120) 
+		GAME:FadeOut(false, 60)
+		continue = false
+		GAME:EnterGroundMap("krabby_scene_b", "Entrance") 
+	end)
+	TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5})
 
 end
 
