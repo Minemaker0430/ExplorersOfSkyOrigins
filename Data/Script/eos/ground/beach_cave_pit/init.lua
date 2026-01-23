@@ -146,7 +146,7 @@ function beach_cave_pit.EncounterBoss()
 	
 	local coro1 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(partner, koffing.Position.X, koffing.Position.Y + 44, false, 1) end) 
 	local coro2 = TASK:BranchCoroutine(function() UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['S1_Partner_1_'..tostring(pTalkKind)]), {
-		function CharacterActions.HopOnce(partner, Direction.Up) end
+		function() CharacterActions.HopOnce(partner, Direction.Up) end
 	}) end)
 	TASK:JoinCoroutines({coro1, coro2})
 	
@@ -178,7 +178,7 @@ function beach_cave_pit.EncounterBoss()
 	GROUND:MoveToPosition(partner, koffing.Position.X, koffing.Position.Y + 44, false, 1)
 	UI:SetSpeakerEmotion("Shouting")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['S1_Partner_3']), {
-		function
+		function()
 			SOUND:PlayBattleSE("EVT_Emote_Complain_2")
 			CharacterActions.HopTwice(partner, Direction.Up)
 		end

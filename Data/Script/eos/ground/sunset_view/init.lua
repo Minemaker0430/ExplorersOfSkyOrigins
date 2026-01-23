@@ -26,6 +26,32 @@ function sunset_view.Enter(map)
     GROUND:Hide("PLAYER")
 
     if SV.Progression.Chapter == 1 then
+      -- draw initial bubbles
+      for i = 1, 10 do -- spawn 10 random bubbles
+        local anims = {
+          RogueEssence.Content.AnimData("BeachBubble_1", 15, -1, -1, 255, Dir8.None),
+          RogueEssence.Content.AnimData("BeachBubble_2", 15, -1, -1, 255, Dir8.None),
+          RogueEssence.Content.AnimData("BeachBubble_3", 15, -1, -1, 255, Dir8.None),
+          RogueEssence.Content.AnimData("BeachBubble_4", 15, -1, -1, 255, Dir8.None),
+          RogueEssence.Content.AnimData("BeachBubble_5", 15, -1, -1, 255, Dir8.None),
+          RogueEssence.Content.AnimData("BeachBubble_6", 15, -1, -1, 255, Dir8.None)
+        }
+
+        local camPos = GAME:GetCameraCenter() -- we obviously want the bubbles to show up on screen
+        local yOffs = math.random(-128, 128)
+
+		    local bubbleEmitter = RogueEssence.Content.MoveToEmitter()
+    	  bubbleEmitter.Anim = anims[math.random(#anims)]
+        bubbleEmitter.ResultLayer = RogueEssence.Content.DrawLayer.Front
+        bubbleEmitter.OffsetStart = RogueElements.Loc(180, yOffs)
+        bubbleEmitter.OffsetEnd = RogueElements.Loc(-180, yOffs + math.random(-100, 100))
+        bubbleEmitter.HeightStart = 100
+        bubbleEmitter.HeightEnd = 100
+        bubbleEmitter.MoveTime = 900
+
+        GROUND:PlayVFX(bubbleEmitter, camPos.X - math.random(60, 300), camPos.Y)
+      end
+      
       --sunset view
 		  GAME:FadeIn(60)
 
@@ -44,16 +70,16 @@ function sunset_view.Enter(map)
           GAME:WaitFrames(30)
 
           local camPos = GAME:GetCameraCenter() -- we obviously want the bubbles to show up on screen
-          local offs = math.random(-100, 100)
+          local yOffs = math.random(-128, 128)
 
           local bubbleEmitter = RogueEssence.Content.MoveToEmitter()
-          bubbleEmitter.Anim = anims[math.random(#anims)]
+    	    bubbleEmitter.Anim = anims[math.random(#anims)]
           bubbleEmitter.ResultLayer = RogueEssence.Content.DrawLayer.Front
-          bubbleEmitter.OffsetStart = RogueElements.Loc(330 + offs, 330 - offs)
-          bubbleEmitter.OffsetEnd = RogueElements.Loc(-330 + math.random(-100, 100), -330 - math.random(-100, 100))
+          bubbleEmitter.OffsetStart = RogueElements.Loc(180, yOffs)
+          bubbleEmitter.OffsetEnd = RogueElements.Loc(-180, yOffs + math.random(-100, 100))
           bubbleEmitter.HeightStart = 100
           bubbleEmitter.HeightEnd = 100
-          bubbleEmitter.MoveTime = 600
+          bubbleEmitter.MoveTime = 900
 
           GROUND:PlayVFX(bubbleEmitter, camPos.X, camPos.Y)
         end
@@ -66,7 +92,7 @@ function sunset_view.Enter(map)
 	
         while stopBubbles == false do
           GAME:WaitFrames(10)
-	        GROUND:PlayVFX(emitter, camPos.X + math.random(-128, 128), camPos.Y + math.random(0, 128))
+	        GROUND:PlayVFX(emitter, camPos.X + math.random(-128, 128), camPos.Y + math.random(64, 128))
         end
       end)
       local coro3 = TASK:BranchCoroutine(function() -- general timer

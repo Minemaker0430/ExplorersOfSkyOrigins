@@ -140,7 +140,6 @@ function dusk_beach.CH1_PartnerFindsHero()
 		end)
 		local main = TASK:BranchCoroutine(function() -- contains everything else that happens while bubbles run in the bg
 
-		ExplorerEssentials.SpawnBubbles(3)
 		GAME:FadeIn(60)
 	
 		GAME:WaitFrames(60)
@@ -166,6 +165,7 @@ function dusk_beach.CH1_PartnerFindsHero()
 		GAME:FadeOut(false, 60)
 
 		SV.Cutscene.ProgressFlag = 2
+		stopBubbles = true -- ALWAYS NEEDS TO BE CALLED BEFORE GROUND MAP CHANGE OR ELSE YOU'RE SOFTLOCKED
 		GAME:EnterGroundMap("sunset_view", "Entrance", true)
 
 		end)
@@ -196,6 +196,7 @@ function dusk_beach.CH1_PartnerFindsHero()
 		GAME:FadeOut(false, 60)
 
 		SV.Cutscene.ProgressFlag = 3
+		stopBubbles = true -- ALWAYS NEEDS TO BE CALLED BEFORE GROUND MAP CHANGE OR ELSE YOU'RE SOFTLOCKED
 		GAME:EnterGroundMap("sunset_view", "Entrance", true)
 
 		end)
@@ -232,7 +233,7 @@ function dusk_beach.CH1_PartnerFindsHero()
 		local coro2 = TASK:BranchCoroutine(function() GAME:WaitFrames(60) end)
 		TASK:JoinCoroutines({coro1, coro2})
 		
-		GROUND:CharAnimateTurnTo(partner, Direction.Left, 2)
+		GROUND:CharAnimateTurnTo(partner, Direction.Left, 8)
 		
 		GAME:WaitFrames(30)
 		
@@ -721,6 +722,7 @@ function dusk_beach.CH1_PartnerFindsHero()
 		--enter dungeon
 		GAME:WaitFrames(60)
 		GAME:CutsceneMode(false)
+		stopBubbles = true -- ALWAYS NEEDS TO BE CALLED BEFORE GROUND MAP CHANGE OR ELSE YOU'RE SOFTLOCKED
 		GAME:EnterDungeon('beach_cave', 0, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 		
 		--debug end

@@ -31,8 +31,6 @@ function krabby_scene_b.Enter(map)
   --krabby 2 & play bgm
 		SOUND:PlayBGM("004 - On the Beach at Dusk.ogg", true)
 		
-    GAME:FadeIn(60)
-		
     --bubbles
     local bigBubbleSpawn = MRKR('BigBubbleSpawner')
     local krabbySpawnA = MRKR('KrabbyBubbleSpawnerA')
@@ -106,6 +104,7 @@ function krabby_scene_b.Enter(map)
       until continue ~= true
     end)
     local coro5 = TASK:BranchCoroutine(function() -- general map timer
+      GAME:FadeIn(60)
       GAME:WaitFrames(120) 
       GAME:FadeOut(false, 60)
       continue = false

@@ -43,7 +43,6 @@ function krabby_scene_a.Enter(map)
   -- iirc these scenes only show up in chapters 1 and 20 so we're probably fine to just leave it like this
 
   --krabby 1
-	GAME:FadeIn(60)
 
   local bigBubbleSpawn = MRKR('BigBubbleSpawner')
   local krabbySpawnA = MRKR('KrabbyBubbleSpawnerA')
@@ -117,6 +116,7 @@ function krabby_scene_a.Enter(map)
 		until continue ~= true
 	end)
 	local coro5 = TASK:BranchCoroutine(function() -- general map timer
+		GAME:FadeIn(60)
 		GAME:WaitFrames(120) 
 		GAME:FadeOut(false, 60)
 		continue = false

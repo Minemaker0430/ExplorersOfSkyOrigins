@@ -152,7 +152,7 @@ function guild_outside_dusk.CH1_PartnerWimpsOut()
 	GROUND:CharSetEmote(partner, "shock", 1)
 	UI:ResetSpeaker()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_Unknown_1']), {
-		function
+		function()
 			CharacterActions.ScaredJump(partner, Direction.Up)
 		end
 	})
