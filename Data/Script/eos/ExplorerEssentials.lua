@@ -40,16 +40,14 @@ function ExplorerEssentials.SetProgress(chapter, section) -- Utility function fo
 	SV.Progression.SectionFlag = section
 end
 
-function ExplorerEssentials.SpawnBubbles(animID)
-	if animID == 1 then
+function ExplorerEssentials.SetSpeakerHero()
+	if SV.General.Starter == nil then SV.General.Starter = GAME:GetPlayerPartyMember(0) end 
 	
-	elseif animID == 2 then
-	
-	elseif animID == 3 then
-	
-	elseif animID == 4 then
-	
-	else
-		return error(tostring(animID).." is not a valid ID!")
+	UI:SetSpeaker('', false, SV.General.Starter.CurrentForm.Species, SV.General.Starter.CurrentForm.Form, SV.General.Starter.CurrentForm.Skin, SV.General.Starter.CurrentForm.Gender)
+end
+
+function ExplorerEssentials.SetSpeakerUnknown(char)
+	if char ~= nil then
+		UI:SetSpeaker('', false, char.CurrentForm.Species, char.CurrentForm.Form, char.CurrentForm.Skin, char.CurrentForm.Gender)
 	end
 end

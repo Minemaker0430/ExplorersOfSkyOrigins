@@ -16,7 +16,7 @@
 },
 "Comment": "",
 "BagSize": 4,
-"FameToNext": 1,
+"FameToNext": -1,
 "Next": "normal"
 }
 }

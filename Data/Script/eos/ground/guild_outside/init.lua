@@ -24,14 +24,13 @@ local guild_outside = {}
 --Engine callback function
 function guild_outside.Init(map)
         player = CH("PLAYER")
-        partner = CH("TEAMMATE_1") --why does this have to be like this?
+        partner = CH("PARTNER")
         Bidoof = CH("Bidoof")
 
   --This will fill the localized strings table automatically based on the locale the game is 
   -- currently in. You can use the MapStrings table after this line!
   
-COMMON:RespawnAllies()
-ExplorerEssentials.SpawnPartner()
+COMMON:RespawnStarterPartner()
 end
 
 ---guild_outside.Enter(map)

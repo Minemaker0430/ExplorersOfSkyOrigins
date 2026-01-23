@@ -1193,9 +1193,10 @@ GAME:FadeOut(false, 120)
 
 GROUND:SetPlayer(GAME:GetPlayerPartyMember(0))
 
-_DATA.Save.NoSwitching = true
-_DATA.Save.ActiveTeam.Name = ""
-_DATA.Save.ActiveTeam.Rank = "none"
+GAME:SetCanSwitch(false)
+GAME:SetTeamName('')
+_DATA.Save.ActiveTeam:SetRank('none')
+_DATA.Save.ActiveTeam.Fame = 0
 _DATA.Save:UpdateTeamProfile(true)
 
 --Dev Build

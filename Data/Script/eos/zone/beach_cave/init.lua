@@ -52,8 +52,6 @@ function beach_cave.ExitSegment(zone, result, rescue, segmentID, mapID)
 			SV.beach_cave.FailedBoss = true
 		end
 
-		PrintInfo("failure, faileddungeon should be set to true now and if it isn't im gonna lose it")
-
 		GAME:WaitFrames(20)
 		ExplorerEssentials.EndDungeonWithFanfare(result, "cutscenes", -1, 6, 0)
 	else

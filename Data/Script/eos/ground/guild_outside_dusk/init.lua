@@ -38,7 +38,7 @@ function guild_outside_dusk.Enter(map)
   if SV.Progression.Chapter == 1 then
 	GAME:CutsceneMode(true)
   
-        guild_outside_dusk.CH1_PartnerWimpsOut()
+    guild_outside_dusk.CH1_PartnerWimpsOut()
 	
 	GAME:WaitFrames(60)
 	
@@ -245,7 +245,7 @@ function guild_outside_dusk.CH1_PartnerWimpsOut()
 	GAME:WaitFrames(45)
 	
 	--"\uE040"
-	UI:SetSpeaker('', true, koffing.CurrentForm.Species, koffing.CurrentForm.Form, koffing.CurrentForm.Skin, koffing.CurrentForm.Gender)
+	ExplorerEssentials.SetSpeakerUnknown(koffing)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_Koffing_1'], zubat:GetDisplayName()))
 	
 	GAME:WaitFrames(10)

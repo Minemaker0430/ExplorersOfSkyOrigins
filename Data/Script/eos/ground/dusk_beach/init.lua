@@ -271,7 +271,7 @@ function dusk_beach.CH1_PartnerFindsHero()
 		GAME:WaitFrames(10)
 		GROUND:CharEndDrawEffect(player, DrawEffect.Shaking)
 		
-		UI:SetSpeaker('', false, player.CurrentForm.Species, player.CurrentForm.Form, player.CurrentForm.Skin, player.CurrentForm.Gender)
+		ExplorerEssentials.SetSpeakerHero()
 		UI:SetSpeakerEmotion("Pain")
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Hero_1']))
 		
@@ -306,7 +306,7 @@ function dusk_beach.CH1_PartnerFindsHero()
 		GROUND:CharAnimateTurnTo(player, Direction.Down, 4)
 		GAME:WaitFrames(45)
 		
-		UI:SetSpeaker('', false, player.CurrentForm.Species, player.CurrentForm.Form, player.CurrentForm.Skin, player.CurrentForm.Gender)
+		ExplorerEssentials.SetSpeakerHero()
 		UI:SetSpeakerEmotion("Normal")
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Hero_3']))
 		
@@ -319,7 +319,7 @@ function dusk_beach.CH1_PartnerFindsHero()
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_14_'..tostring(pTalkKind)]))
 		
 		GAME:WaitFrames(10)
-		UI:SetSpeaker('', false, player.CurrentForm.Species, player.CurrentForm.Form, player.CurrentForm.Skin, player.CurrentForm.Gender)
+		ExplorerEssentials.SetSpeakerHero()
 		UI:SetSpeakerEmotion("Normal")
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Hero_4']))
 		
@@ -360,7 +360,7 @@ function dusk_beach.CH1_PartnerFindsHero()
 		GROUND:CharSetEmote(player, "shock", 1)
 		GAME:WaitFrames(30)
 		
-		UI:SetSpeaker('', false, player.CurrentForm.Species, player.CurrentForm.Form, player.CurrentForm.Skin, player.CurrentForm.Gender)
+		ExplorerEssentials.SetSpeakerHero()
 		UI:SetSpeakerEmotion("Surprised")
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Hero_5']))
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Hero_6'], _DATA:GetMonster(player.CurrentForm.Species):GetColoredName()))
@@ -384,7 +384,7 @@ function dusk_beach.CH1_PartnerFindsHero()
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_22']))
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_23_'..tostring(pTalkKind)]))
 		
-		UI:SetSpeaker('', false, player.CurrentForm.Species, player.CurrentForm.Form, player.CurrentForm.Skin, player.CurrentForm.Gender)
+		ExplorerEssentials.SetSpeakerHero()
 		UI:SetSpeakerEmotion("Normal")
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Hero_8']))
 		
@@ -756,7 +756,7 @@ function dusk_beach.CH1_ExplorerTeamInvite()
 	UI:SetSpeaker(partner)
 	UI:SetSpeakerEmotion("Happy")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_1_'..tostring(pTalkKind)]))
-	UI:SetSpeaker('', false, player.CurrentForm.Species, player.CurrentForm.Form, player.CurrentForm.Skin, player.CurrentForm.Gender)
+	ExplorerEssentials.SetSpeakerHero()
 	UI:SetSpeakerEmotion("Worried")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Hero_1']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Hero_2']))
@@ -800,7 +800,7 @@ function dusk_beach.CH1_ExplorerTeamInvite()
 	GROUND:MoveInDirection(player, Direction.Left, 8, false, 1)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_16_'..tostring(pTalkKind)]))
 	
-	UI:SetSpeaker('', false, player.CurrentForm.Species, player.CurrentForm.Form, player.CurrentForm.Skin, player.CurrentForm.Gender)
+	ExplorerEssentials.SetSpeakerHero()
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Hero_5']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Hero_6']))
@@ -825,7 +825,7 @@ function dusk_beach.CH1_ExplorerTeamInvite()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_26']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_27_'..tostring(pTalkKind)]))
 	
-	UI:SetSpeaker('', false, player.CurrentForm.Species, player.CurrentForm.Form, player.CurrentForm.Skin, player.CurrentForm.Gender)
+	ExplorerEssentials.SetSpeakerHero()
 	UI:SetSpeakerEmotion("Worried")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Hero_7']))
 	
@@ -837,7 +837,7 @@ function dusk_beach.CH1_ExplorerTeamInvite()
 	CharacterActions.HopTwice(partner, Direction.Right)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_31_'..tostring(pTalkKind)]))
 	
-	UI:SetSpeaker('', false, player.CurrentForm.Species, player.CurrentForm.Form, player.CurrentForm.Skin, player.CurrentForm.Gender)
+	ExplorerEssentials.SetSpeakerHero()
 	UI:SetSpeakerEmotion("Surprised")
 	GROUND:CharSetEmote(player, "sweating", 1)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Hero_8_'..tostring(hTalkKind)]))
@@ -859,7 +859,7 @@ function dusk_beach.CH1_ExplorerTeamInvite()
 		if result == 1 then --yes
 			continue = true
 
-			UI:SetSpeaker('', false, player.CurrentForm.Species, player.CurrentForm.Form, player.CurrentForm.Skin, player.CurrentForm.Gender)
+			ExplorerEssentials.SetSpeakerHero()
 			UI:SetSpeakerEmotion("Worried")			
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Hero_11A']))
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Hero_12A']))
@@ -984,9 +984,17 @@ function dusk_beach.CH1_FailedBeachCave()
 	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
 
+	-- hotswap the fade effect for a background so we can fade out front
+	local coro1 = TASK:BranchCoroutine(function() UI:WaitShowBG("Black", 1, 1) end)
+	local coro2 = TASK:BranchCoroutine(function() GAME:FadeIn(1) end)
+
 	UI:SetSpeaker(partner)
 	UI:SetSpeakerEmotion("Pain")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S2_Partner_1']))
+
+	-- switch it back
+	GAME:FadeOutFront(false, 120)
+	UI:WaitHideBG(1)
 	
 	local marker = MRKR("C1S1_PlayerSpawn")
 	
@@ -999,7 +1007,7 @@ function dusk_beach.CH1_FailedBeachCave()
 	GROUND:CharSetAnim(partner, "Laying", true)
 	
 	local coro1 = TASK:BranchCoroutine(function() SOUND:FadeInSE("Ambient/AMB_Ocean", 60) end)
-	local coro2 = TASK:BranchCoroutine(function() GAME:FadeIn(60) end)
+	local coro2 = TASK:BranchCoroutine(function() GAME:FadeInFront(60) end)
 	TASK:JoinCoroutines({coro1, coro2})
 	
 	GAME:WaitFrames(15)

@@ -38,7 +38,7 @@ function sunset_view.Enter(map)
         }
 
         local camPos = GAME:GetCameraCenter() -- we obviously want the bubbles to show up on screen
-        local yOffs = math.random(-128, 128)
+        local yOffs = math.random(0, 300)
 
 		    local bubbleEmitter = RogueEssence.Content.MoveToEmitter()
     	  bubbleEmitter.Anim = anims[math.random(#anims)]
@@ -70,7 +70,7 @@ function sunset_view.Enter(map)
           GAME:WaitFrames(30)
 
           local camPos = GAME:GetCameraCenter() -- we obviously want the bubbles to show up on screen
-          local yOffs = math.random(-128, 128)
+          local yOffs = math.random(0, 300)
 
           local bubbleEmitter = RogueEssence.Content.MoveToEmitter()
     	    bubbleEmitter.Anim = anims[math.random(#anims)]
