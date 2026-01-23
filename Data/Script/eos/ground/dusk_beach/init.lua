@@ -31,12 +31,13 @@ function dusk_beach.Init(map)
   --COMMON:RespawnAllies()
   --ExplorerEssentials.SpawnPartner() -- don't call this anymore in cutscene maps, breaks because of the partner ai
   COMMON:RespawnStarterPartner()
+
+  stopBubbles = false
 end
 
 ---dusk_beach.Enter(map)
 --Engine callback function
 function dusk_beach.Enter(map)
-	--SV.Cutscene.ProgressFlag = 3 --test
   GAME:CutsceneMode(true)
   
   if SV.Progression.Chapter == 1 then
@@ -231,7 +232,7 @@ function dusk_beach.CH1_PartnerFindsHero()
 		local coro2 = TASK:BranchCoroutine(function() GAME:WaitFrames(60) end)
 		TASK:JoinCoroutines({coro1, coro2})
 		
-		GROUND:CharAnimateTurnTo(partner, Direction.Left, 4)
+		GROUND:CharAnimateTurnTo(partner, Direction.Left, 2)
 		
 		GAME:WaitFrames(30)
 		
@@ -258,7 +259,7 @@ function dusk_beach.CH1_PartnerFindsHero()
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_10']))
 		
 		local coro1 = TASK:BranchCoroutine(function() GAME:MoveCamera(player.Position.X + 20, cam.Position.Y, 60, false) end)
-		local coro2 = TASK:BranchCoroutine(function() GROUND:MoveInDirection(partner, Direction.Left, 80, false, 2) end)
+		local coro2 = TASK:BranchCoroutine(function() GROUND:MoveInDirection(partner, Direction.Left, 60, false, 2) end)
 		TASK:JoinCoroutines({coro1, coro2})
 		
 		CharacterActions.HopTwice(partner, Direction.Left)
@@ -1079,19 +1080,21 @@ function dusk_beach.UTIL_PopulateBubbles()
 		RogueEssence.Content.AnimData("BeachSmallBubble_4", 15, -1, -1, 255, Dir8.None)
 	}
 
-	local pos = GAME:GetCameraCenter() -- we obviously want the bubbles to show up on screen
+	local camPos = GAME:GetCameraCenter() -- we obviously want the bubbles to show up on screen
 
 	for i = 1, 10 do -- spawn 10 random bubbles
-		local yOffs = math.random(0, 256)
+		local yOffs = math.random(-128, 128)
 
 		local bubbleEmitter = RogueEssence.Content.MoveToEmitter()
     	bubbleEmitter.Anim = anims[math.random(#anims)]
     	bubbleEmitter.ResultLayer = RogueEssence.Content.DrawLayer.Front
     	bubbleEmitter.OffsetStart = RogueElements.Loc(330, yOffs)
-    	bubbleEmitter.OffsetEnd = RogueElements.Loc(-9900, yOffs + math.random(-50, 50))
-    	bubbleEmitter.MoveTime = 2400 + math.random(-240, 240)
+    	bubbleEmitter.OffsetEnd = RogueElements.Loc(-900, yOffs + math.random(-100, 100))
+		bubbleEmitter.HeightStart = 100
+		bubbleEmitter.HeightEnd = 100
+    	bubbleEmitter.MoveTime = 2400 + math.random(-600, 600)
 
-		GROUND:PlayVFX(bubbleEmitter, pos.Bounds.Center.X - math.random(60, 300), pos.Bounds.Center.Y)
+		GROUND:PlayVFX(bubbleEmitter, camPos.X - math.random(60, 300), camPos.Y)
 	end
 end
 
@@ -1108,19 +1111,22 @@ function dusk_beach.UTIL_BubbleSpawnerLoop()
 		RogueEssence.Content.AnimData("BeachSmallBubble_4", 15, -1, -1, 255, Dir8.None)
 	}
 	
-	while true do
+	while stopBubbles == false do
 		GAME:WaitFrames(30)
 
-		local yOffs = math.random(0, 256)
+		local camPos = GAME:GetCameraCenter() -- we obviously want the bubbles to show up on screen
+		local yOffs = math.random(-100, 100)
 
 		local bubbleEmitter = RogueEssence.Content.MoveToEmitter()
     	bubbleEmitter.Anim = anims[math.random(#anims)]
     	bubbleEmitter.ResultLayer = RogueEssence.Content.DrawLayer.Front
     	bubbleEmitter.OffsetStart = RogueElements.Loc(330, yOffs)
-    	bubbleEmitter.OffsetEnd = RogueElements.Loc(-9900, yOffs + math.random(-50, 50))
-    	bubbleEmitter.MoveTime = 2400 + math.random(-240, 240)
+    	bubbleEmitter.OffsetEnd = RogueElements.Loc(-900, yOffs + math.random(-100, 100))
+		bubbleEmitter.HeightStart = 100
+		bubbleEmitter.HeightEnd = 100
+    	bubbleEmitter.MoveTime = 2400 + math.random(-600, 600)
 
-		GROUND:PlayVFX(bubbleEmitter, pos.Bounds.Center.X, pos.Bounds.Center.Y)
+		GROUND:PlayVFX(bubbleEmitter, camPos.X, camPos.Y)
 	end
 end
 

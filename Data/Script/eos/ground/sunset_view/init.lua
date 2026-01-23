@@ -15,7 +15,7 @@ local sunset_view = {}
 ---sunset_view.Init(map)
 --Engine callback function
 function sunset_view.Init(map)
-
+  stopBubbles = false
 
 end
 
@@ -30,11 +30,53 @@ function sunset_view.Enter(map)
 		  GAME:FadeIn(60)
 
 		  --bubbles
-		
-		  GAME:WaitFrames(240)
-		  GAME:FadeOut(false, 60)
+      local coro1 = TASK:BranchCoroutine(function() -- bubbles and stuff
+        local anims = {
+          RogueEssence.Content.AnimData("BeachBubble_1", 15, -1, -1, 255, Dir8.None),
+          RogueEssence.Content.AnimData("BeachBubble_2", 15, -1, -1, 255, Dir8.None),
+          RogueEssence.Content.AnimData("BeachBubble_3", 15, -1, -1, 255, Dir8.None),
+          RogueEssence.Content.AnimData("BeachBubble_4", 15, -1, -1, 255, Dir8.None),
+          RogueEssence.Content.AnimData("BeachBubble_5", 15, -1, -1, 255, Dir8.None),
+          RogueEssence.Content.AnimData("BeachBubble_6", 15, -1, -1, 255, Dir8.None)
+        }
+        
+        while stopBubbles == false do
+          GAME:WaitFrames(30)
 
-      GAME:EnterGroundMap("dusk_beach", "Entrance", true)
+          local camPos = GAME:GetCameraCenter() -- we obviously want the bubbles to show up on screen
+          local offs = math.random(-100, 100)
+
+          local bubbleEmitter = RogueEssence.Content.MoveToEmitter()
+          bubbleEmitter.Anim = anims[math.random(#anims)]
+          bubbleEmitter.ResultLayer = RogueEssence.Content.DrawLayer.Front
+          bubbleEmitter.OffsetStart = RogueElements.Loc(330 + offs, 330 - offs)
+          bubbleEmitter.OffsetEnd = RogueElements.Loc(-330 + math.random(-100, 100), -330 - math.random(-100, 100))
+          bubbleEmitter.HeightStart = 100
+          bubbleEmitter.HeightEnd = 100
+          bubbleEmitter.MoveTime = 600
+
+          GROUND:PlayVFX(bubbleEmitter, camPos.X, camPos.Y)
+        end
+      end)
+      local coro2 = TASK:BranchCoroutine(function() -- ooooo shiny waves
+        local camPos = GAME:GetCameraCenter()
+        
+        local emitter = RogueEssence.Content.SingleEmitter(RogueEssence.Content.AnimData("BeachSparkle", 2, -1, -1, 255, Dir8.None))
+	      emitter.Layer = RogueEssence.Content.DrawLayer.Front
+	
+        while stopBubbles == false do
+          GAME:WaitFrames(10)
+	        GROUND:PlayVFX(emitter, camPos.X + math.random(-128, 128), camPos.Y + math.random(0, 128))
+        end
+      end)
+      local coro3 = TASK:BranchCoroutine(function() -- general timer
+        GAME:WaitFrames(240)
+		    GAME:FadeOut(false, 60)
+        stopBubbles = true
+        GAME:EnterGroundMap("dusk_beach", "Entrance", true)
+      end)
+
+      TASK:JoinCoroutines({coro1, coro2, coro3})
     end
 
 
