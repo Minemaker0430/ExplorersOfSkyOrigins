@@ -44,7 +44,7 @@ function sunset_view.Enter(map)
         bubbleEmitter.OffsetEnd = RogueElements.Loc(-180, math.random(-100, 100))
         bubbleEmitter.MoveTime = 900
 
-        GROUND:PlayVFX(bubbleEmitter, GAME:GetCameraCenter().X - math.random(60, 300), GAME:GetCameraCenter().Y + math.random(0, 180))
+        GROUND:PlayVFX(bubbleEmitter, GAME:GetCameraCenter().X - (180 + math.random(-140, 140)), GAME:GetCameraCenter().Y + math.random(-100, 100))
       end
       
       --sunset view

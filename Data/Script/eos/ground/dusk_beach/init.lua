@@ -39,9 +39,6 @@ end
 --Engine callback function
 function dusk_beach.Enter(map)
   GAME:CutsceneMode(true)
-
-  SV.Progression.SectionFlag = 0
-  SV.beach_cave.FailedDungeon = false
   
   if SV.Progression.Chapter == 1 then
 
@@ -260,7 +257,7 @@ function dusk_beach.CH1_PartnerFindsHero()
 		UI:SetSpeakerEmotion("Surprised")
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_10']))
 		
-		local coro1 = TASK:BranchCoroutine(function() GAME:MoveCamera(player.Position.X + 20, cam.Position.Y, 60, false) end)
+		local coro1 = TASK:BranchCoroutine(function() GAME:MoveCamera(player.Position.X + 40, cam.Position.Y, 60, false) end)
 		local coro2 = TASK:BranchCoroutine(function() GROUND:MoveInDirection(partner, Direction.Left, 60, false, 2) end)
 		TASK:JoinCoroutines({coro1, coro2})
 		
@@ -988,6 +985,7 @@ function dusk_beach.CH1_FailedBeachCave()
 	-- hotswap the fade effect for a background so we can fade out front
 	local coro1 = TASK:BranchCoroutine(function() UI:WaitShowBG("Black", 1, 1) end)
 	local coro2 = TASK:BranchCoroutine(function() GAME:FadeIn(1) end)
+	TASK:JoinCoroutines({coro1, coro2})
 
 	UI:SetSpeaker(partner)
 	UI:SetSpeakerEmotion("Pain")
@@ -997,6 +995,7 @@ function dusk_beach.CH1_FailedBeachCave()
 	UI:SetAutoFinish(true)
 	local coro1 = TASK:BranchCoroutine(function() UI:WaitShowTimedDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S2_Partner_1']), 120) end)
 	local coro2 = TASK:BranchCoroutine(function() GAME:FadeOutFront(false, 120) end)
+	TASK:JoinCoroutines({coro1, coro2})
 	
 	-- switch it back
 	UI:SetAutoFinish(false)
@@ -1101,11 +1100,13 @@ function dusk_beach.UTIL_PopulateBubbles()
 		local bubbleEmitter = RogueEssence.Content.MoveToEmitter()
     	bubbleEmitter.Anim = anims[math.random(#anims)]
     	bubbleEmitter.ResultLayer = RogueEssence.Content.DrawLayer.Front
-    	bubbleEmitter.OffsetStart = RogueElements.Loc(330, 0)
-    	bubbleEmitter.OffsetEnd = RogueElements.Loc(-900, math.random(-100, 100))
+    	bubbleEmitter.OffsetStart = RogueElements.Loc(180, -10)
+    	bubbleEmitter.OffsetEnd = RogueElements.Loc(-900, math.random(-100, 100) - 10)
+		bubbleEmitter.HeightStart = 10
+        bubbleEmitter.HeightEnd = 10
     	bubbleEmitter.MoveTime = 2400 + math.random(-600, 600)
 
-		GROUND:PlayVFX(bubbleEmitter, GAME:GetCameraCenter().X - math.random(60, 300), GAME:GetCameraCenter().Y + math.random(-100, 100))
+		GROUND:PlayVFX(bubbleEmitter, GAME:GetCameraCenter().X - (330 + math.random(-120, 120)), GAME:GetCameraCenter().Y + math.random(-100, 100))
 	end
 end
 
@@ -1128,8 +1129,10 @@ function dusk_beach.UTIL_BubbleSpawnerLoop()
 		local bubbleEmitter = RogueEssence.Content.MoveToEmitter()
     	bubbleEmitter.Anim = anims[math.random(#anims)]
     	bubbleEmitter.ResultLayer = RogueEssence.Content.DrawLayer.Front
-    	bubbleEmitter.OffsetStart = RogueElements.Loc(330, 0)
-    	bubbleEmitter.OffsetEnd = RogueElements.Loc(-900, math.random(-100, 100))
+    	bubbleEmitter.OffsetStart = RogueElements.Loc(180, -10)
+    	bubbleEmitter.OffsetEnd = RogueElements.Loc(-900, math.random(-100, 100) - 10)
+		bubbleEmitter.HeightStart = 10
+        bubbleEmitter.HeightEnd = 10
     	bubbleEmitter.MoveTime = 2400 + math.random(-600, 600)
 
 		GROUND:PlayVFX(bubbleEmitter, GAME:GetCameraCenter().X, GAME:GetCameraCenter().Y + math.random(-100, 100))
