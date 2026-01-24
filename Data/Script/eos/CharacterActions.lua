@@ -135,13 +135,21 @@ function CharacterActions.LookAround(ent)
 end
 
 function CharacterActions.DizzyFade()
-	local coro1 = TASK:BranchCoroutine(function() -- start fading out
-		GAME:FadeOut(false, 30) 
-	end) 
-	local coro2 = TASK:BranchCoroutine(function() -- fade back in mid-fade out
-		GAME:WaitFrames(15)
-		GAME:FadeIn(15) 
-	end)
+	local bg_anim = RogueEssence.Content.BGAnimData("Black", 1, -1, -1, 128, Dir8.None)
 	
-	TASK:JoinCoroutines({coro1, coro2})
+	local emitter = RogueEssence.Content.FiniteOverlayEmitter()
+	emitter.Anim = bg_anim
+	emitter.Layer = DrawLayer.Top
+	
+    emitter.TotalTime = 10
+	emitter.FadeIn = 10
+    emitter.FadeOut = 10
+	
+	emitter.RepeatX = true
+	emitter.RepeatY = true
+	
+	emitter.Color = Color.White
+	
+	GROUND:PlayVFX(emitter, GAME:GetCameraCenter().X, GAME:GetCameraCenter().Y)
+	GAME:WaitFrames(30) -- wait for as long as the effect lasts
 end
