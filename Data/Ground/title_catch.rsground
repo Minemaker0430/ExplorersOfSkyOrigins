@@ -20857,7 +20857,7 @@
 "Background": {
 "$type": "RogueEssence.Dungeon.MapBG, RogueEssence",
 "MapLoc": {
-"X": -4,
+"X": 0,
 "Y": 0
 },
 "BGAnim": {

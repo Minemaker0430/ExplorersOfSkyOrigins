@@ -364,27 +364,20 @@ function beach_cave_pit.BossDefeated()
 	-- SFX: _UNK_EVT_010 or _UNK_EVT_011 (these are the same? i think?)
 	SOUND:PlayBattleSE("_UNK_EVT_010")
 	local relic = OBJ('RelicFragment')
-	GROUND:TeleportTo(relic, zubat.Position.X + 8, zubat.Position.Y + 12, Direction.Down) --relic fragment
+	GROUND:TeleportTo(relic, zubat.Position.X, zubat.Position.Y, Direction.Down) --relic fragment
 	GROUND:MoveObjectToPosition(relic, zubat.Position.X - 24, zubat.Position.Y + 16, 2)
-	GAME:WaitFrames(10)
 	GROUND:MoveObjectToPosition(relic, zubat.Position.X - 24, zubat.Position.Y + 24, 2)
-	GAME:WaitFrames(10)
 	GROUND:MoveObjectToPosition(relic, zubat.Position.X - 24, zubat.Position.Y + 28, 2)
-	GAME:WaitFrames(10)
 	GROUND:MoveObjectToPosition(relic, zubat.Position.X - 24, zubat.Position.Y + 32, 2)
-	GAME:WaitFrames(10)
 	GROUND:MoveObjectToPosition(relic, zubat.Position.X - 24, zubat.Position.Y + 28, 2)
-	GAME:WaitFrames(10)
 	GROUND:MoveObjectToPosition(relic, zubat.Position.X - 24, zubat.Position.Y + 24, 2)
-	GAME:WaitFrames(10)
 	GROUND:MoveObjectToPosition(relic, zubat.Position.X - 24, zubat.Position.Y + 28, 2)
-	GAME:WaitFrames(10)
 	GROUND:MoveObjectToPosition(relic, zubat.Position.X - 24, zubat.Position.Y + 32, 2)
 	
 	local coro1 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(player, Direction.UpLeft, 4) end)
 	local coro2 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(partner, Direction.UpRight, 4) end)
 	TASK:JoinCoroutines({coro1, coro2})
-	GROUND:CharSetEmote(partner, "notice", 1)
+	GROUND:CharSetEmote(partner, "exclaim", 1)
 
 	GAME:WaitFrames(30)
 
@@ -405,33 +398,35 @@ function beach_cave_pit.BossDefeated()
 	-- SFX Name = _UNK_EVT_069
 	SOUND:PlayBattleSE("_UNK_EVT_069")
 	local coro1 = TASK:BranchCoroutine(function() --koffing
-		GROUND:MoveInDirection(koffing, Direction.DownLeft, 10, true, 4)
-		GROUND:MoveInDirection(koffing, Direction.Down, 60, true, 4)
+		GROUND:MoveInDirection(koffing, Direction.DownLeft, 20, true, 2)
+		GROUND:MoveInDirection(koffing, Direction.Down, 120, true, 2)
 	end)
 	local coro2 = TASK:BranchCoroutine(function() --zubat
-		GROUND:MoveInDirection(zubat, Direction.DownRight, 10, true, 4)
-		GROUND:MoveInDirection(zubat, Direction.Down, 60, true, 4)
+		GAME:WaitFrames(20)
+		GROUND:MoveInDirection(zubat, Direction.DownRight, 20, true, 2)
+		GROUND:MoveInDirection(zubat, Direction.Down, 120, true, 2)
 	end)
 	local coro3 = TASK:BranchCoroutine(function() --player
 		GAME:WaitFrames(30)
-        GROUND:CharAnimateTurnTo(player, Direction.Down, 2)
+        GROUND:CharAnimateTurnTo(player, Direction.Down, 3)
 	end)
 	local coro4 = TASK:BranchCoroutine(function() --partner
 		GAME:WaitFrames(30)
-		GROUND:CharAnimateTurnTo(partner, Direction.Down, 2)
+		GROUND:CharAnimateTurnTo(partner, Direction.Down, 3)
+		GAME:WaitFrames(90)
 	end)
 	TASK:JoinCoroutines({coro1, coro2, coro3, coro4})	
 
 	GROUND:CharAnimateTurnTo(partner, Direction.UpRight, 4)
     GROUND:CharAnimateTurnTo(player, Direction.UpLeft, 4)
 
-	GROUND:MoveInDirection(partner, Direction.UpRight, 5, false, 2)
+	GROUND:MoveInDirection(partner, Direction.UpRight, 10, false, 1)
 
 	UI:SetSpeaker(partner)
 	UI:SetSpeakerEmotion("Happy")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['S3_Partner_1']))
 
-	GROUND:MoveInDirection(partner, Direction.UpRight, 5, false, 2)
+	GROUND:MoveInDirection(partner, Direction.UpRight, 10, false, 1)
 	GROUND:Hide("RelicFragment")
 	SOUND:PlayBattleSE("_UNK_EVT_128") -- pickup sound
 	GAME:WaitFrames(10)
