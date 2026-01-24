@@ -119,99 +119,99 @@
   </resheader>
   <data name="TUTORIAL_1" xml:space="preserve">
     <value>Head for the stairway! As you go, you can attack enemies by pressing {0}! Enemies won't move or act until you do.</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="TUTORIAL_2" xml:space="preserve">
     <value>You can carry four items. The items you find on the floor have a variety of useful effects.</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="TUTORIAL_3" xml:space="preserve">
     <value>If you find an item, open the menu with {0}, then select the Items option to see what it does.</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="TUTORIAL_4" xml:space="preserve">
     <value>You can also open the Items menu directly with {0}.</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="TUTORIAL_5" xml:space="preserve">
     <value>In some areas, you will see a tile with a green arrow, called a Wonder Tile. Step on it to heal any stat changes.</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="TUTORIAL_6" xml:space="preserve">
     <value>Have questions about anything? You can check the controls by opening the menu with {0}, then selecting Others.</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="TUTORIAL_7" xml:space="preserve">
     <value>Team Mode will automatically activate for Boss Battles. While in Team Mode, you can control all team members!</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="TUTORIAL_8" xml:space="preserve">
     <value>You can toggle this mode anywhere by pressing {0}.</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_INTRO_A" xml:space="preserve">
     <value>Welcome to the {0} Shop! ♪</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_CONTINUE_A" xml:space="preserve">
     <value>May I help you with anything else?</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_EXIT_A" xml:space="preserve">
     <value>Thanks! Please come again! ♪</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_BUY_A" xml:space="preserve">
     <value>Very well! Feel free to examine my merchandise! ♪ (You can use {0} to choose more than one item.)</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_BUY_MORE_A" xml:space="preserve">
     <value>Do you wish to buy anything else today?</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_BUY_ONE_A" xml:space="preserve">
     <value>That {0}? That will be \uE024{1}\uE023. Is that to your liking?</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_BUY_MANY_A" xml:space="preserve">
     <value>Altogether, that comes to \uE024{0}\uE023. Is that OK?</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_BUY_CONFIRM_A" xml:space="preserve">
     <value>Thank you! All yours! ♪</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_SELL_A" xml:space="preserve">
     <value>Very well! What will you sell? (You can use {0} to choose multiple items.)</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_SELL_MORE_A" xml:space="preserve">
     <value>Do you wish to sell anything else? (You can use {0} to choose multiple items.)</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_SELL_ONE_A" xml:space="preserve">
     <value>Your {0}? I can pay you \uE024{1}\uE023 for that. Will you sell it for that price?</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_SELL_MANY_A" xml:space="preserve">
     <value>I can pay \uE024{0}\uE023 for everything. Is that acceptable?</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_SELL_CONFIRM_A" xml:space="preserve">
     <value>Done deal! Thank you! ♪</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_EMPTY_A_0" xml:space="preserve">
     <value>You know...[pause=0]I'm sold out. Please forgive me.</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_EMPTY_A_1" xml:space="preserve">
     <value>I will have new merchandise for you tomorrow, I swear!</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_NO_MONEY_A" xml:space="preserve">
     <value>What? [pause=0]You don't seem to have the money.</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_MAX_MONEY_A_0" xml:space="preserve">
     <value>Goodness! You're overflowing with money!</value>
@@ -219,19 +219,19 @@
   </data>
   <data name="SHOP_MAX_MONEY_A_1" xml:space="preserve">
     <value>You couldn't possibly carry any more money!</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_SELL_CANCEL_A" xml:space="preserve">
     <value>Oh? [pause=0]Nothing to sell?</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_SELL_NOTHING_A" xml:space="preserve">
     <value>Oh?[pause=0] You don't seem to have anything!</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_BUY_NO_SPACE_A" xml:space="preserve">
     <value>Oh! [pause=0]You have no more space for items!</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_EMPTY_A_0_ALT" xml:space="preserve">
     <value>Uh-oh![pause=0] No more merchandise!</value>
@@ -239,11 +239,11 @@
   </data>
   <data name="SHOP_EMPTY_A_1_ALT" xml:space="preserve">
     <value>I'm completely sold out!</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_NO_MONEY_A_ALT" xml:space="preserve">
     <value>Oh![pause=0] Sorry, you don't seem to have enough money!</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_UNSELLABLE_A" xml:space="preserve">
     <value>Oh my![pause=0] I couldn't possibly take that from you!</value>
@@ -251,102 +251,102 @@
   </data>
   <data name="SHOP_MAX_MONEY_A_ALT" xml:space="preserve">
     <value>Oh my![pause=0] You can't carry any more money! Sorry, I can't complete the deal.</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_INFO_A_0" xml:space="preserve">
     <value>We, the {0} Brothers, have a passion for selling items! ♪</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_INFO_A_1" xml:space="preserve">
     <value>Items are useful for your dungeon adventures!</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_INFO_A_2" xml:space="preserve">
     <value>Use items with imagination! And invent new uses for them!</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_INFO_A_3" xml:space="preserve">
     <value>Ah, yes! If the shop sells out...</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_INFO_A_4" xml:space="preserve">
     <value>We'll always have new things to sell on the next day!</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_INFO_A_5" xml:space="preserve">
     <value>So spend time in dungeons until we restock! Visit us when you return! ♪</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_INFO_A_6" xml:space="preserve">
     <value>Ah, yes! You can find our {0} Markets far and wide...</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_INFO_A_7" xml:space="preserve">
     <value>Even in dungeons! Visit us everywhere!</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_INTRO_B" xml:space="preserve">
     <value>Welcome to {0} Wares, where you can find Orbs and TMs! ♪</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_CONTINUE_B" xml:space="preserve">
     <value>May I assist you in any other way?</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_EXIT_B" xml:space="preserve">
     <value>Thanks! Please come again! ♪</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_BUY_B" xml:space="preserve">
     <value>Ah, very well! Take a look at my merchandise. All chosen with pride! ♪ (You can use {0} to choose multiple items.)</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_BUY_MORE_B" xml:space="preserve">
     <value>Do you wish to purchase anything else?</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_BUY_ONE_B" xml:space="preserve">
     <value>That {0}? That will be \uE024{1}\uE023. Is that acceptable?</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_BUY_MANY_B" xml:space="preserve">
     <value>Altogether, that comes to \uE024{0}\uE023. Is that OK?</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_BUY_CONFIRM_B" xml:space="preserve">
     <value>Thank you! Well chosen! ♪</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_SELL_B" xml:space="preserve">
     <value>Ah, very well! What do you wish to sell? (You can use {0} to choose multiple items.)</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_SELL_MORE_B" xml:space="preserve">
     <value>Is there anything else that you wish to sell? (You can use {0} to choose multiple items.)</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_SELL_ONE_B" xml:space="preserve">
     <value>Your {0}? I can offer \uE024{1}\uE023. Will you sell it for that price?</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_SELL_MANY_B" xml:space="preserve">
     <value>I will pay \uE024{0}\uE023 for everything you're offering. Is that acceptable?</value>
   </data>
   <data name="SHOP_SELL_CONFIRM_B" xml:space="preserve">
     <value>We have a deal! Thank you! ♪</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_EMPTY_B_0" xml:space="preserve">
     <value>You know...[pause=0]I'm sold out. So sorry, my friend.</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_EMPTY_B_1" xml:space="preserve">
     <value>Tomorrow! Tomorrow I shall have more wares!</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_NO_MONEY_B" xml:space="preserve">
     <value>Oh?[pause=0] You seem short on money, my friend.</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_MAX_MONEY_B_0" xml:space="preserve">
     <value>Oh! You're carrying too much money, my friend!</value>
@@ -354,119 +354,119 @@
   </data>
   <data name="SHOP_MAX_MONEY_B_1" xml:space="preserve">
     <value>You can't hold any more!</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_SELL_CANCEL_B" xml:space="preserve">
     <value>Oh? [pause=0]You don't seem to have anything that you can sell.</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_SELL_NOTHING_B" xml:space="preserve">
     <value>Oh? [pause=0]You seem to have nothing, my friend.</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_BUY_NO_SPACE_B" xml:space="preserve">
     <value>Oh![pause=0] You've run out of space for any more of my wares, my friend!</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_EMPTY_B_0_ALT" xml:space="preserve">
     <value>Oh?[pause=0] My shelves are bare of wares!</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_EMPTY_B_1_ALT" xml:space="preserve">
     <value>I am completely sold out, friend!</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_NO_MONEY_B_ALT" xml:space="preserve">
     <value>Oh! [pause=0]You're short on money, my friend!</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_UNSELLABLE_B" xml:space="preserve">
     <value>Whoa![pause=0] I... I can't accept anything like that!</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_MAX_MONEY_B_ALT" xml:space="preserve">
     <value>Oh no![pause=0] My friend, you cannot add to your money! I cannot do this.</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_INFO_B_0" xml:space="preserve">
     <value>Pokémon moves...[pause=0]are the path to ultimate power!</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_INFO_B_1" xml:space="preserve">
     <value>Smash walls![pause=0] Fly![pause=0] So many moves. All dynamic, each elegant in its way!</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_INFO_B_2" xml:space="preserve">
     <value>And some moves, obscure and rare, are...[pause=0]simply beautiful!</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_INFO_B_3" xml:space="preserve">
     <value>We sell many moves daily![pause=0] They can be learned using our Technical Machines, or TMs for short!</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_INFO_B_4" xml:space="preserve">
     <value>You see? Isn't it exciting? It's the stuff of dreams!</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_INFO_B_5" xml:space="preserve">
     <value>Why, it gets me so excited that I've taken on a rosy hue!</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="SHOP_INFO_B_6" xml:space="preserve">
     <value>I do hope you will shop at our market. Visit my elder brother and me!</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="STORAGE_INTRO" xml:space="preserve">
     <value>Hello, there! Welcome to {0} Storage.</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="STORAGE_CONTINUE" xml:space="preserve">
     <value>Anything else, dear?</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="STORAGE_EXIT" xml:space="preserve">
     <value>Thanks, sweetie! Come again!</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="STORAGE_STORE" xml:space="preserve">
     <value>What would you like to store? (You can use {0} to choose more than one item, or {1} and {2} to select everything.)</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="STORAGE_STORE_MORE" xml:space="preserve">
     <value>Care to store anything else?</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="STORAGE_STORE_ONE" xml:space="preserve">
     <value>I'll put your {0} in storage, OK?</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="STORAGE_STORE_MANY" xml:space="preserve">
     <value>I'll put the items you chose in storage, OK?</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="STORAGE_STORE_CONFIRM" xml:space="preserve">
     <value>OK, stored away! You can count on me, honey.</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="STORAGE_TAKE" xml:space="preserve">
     <value>What will you take out? (You can use {0} to choose more than one item.)</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="STORAGE_TAKE_MORE" xml:space="preserve">
     <value>Care to take out anything else?</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="STORAGE_TAKE_ONE" xml:space="preserve">
     <value>I'll take your {0} out of storage, OK?</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="STORAGE_TAKE_MANY" xml:space="preserve">
     <value>I'll take the items you chose out of storage, OK?</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="STORAGE_TAKE_CONFIRM" xml:space="preserve">
     <value>There you go, sweetie!</value>
-    <comment></comment>
+    <comment/>
   </data>
   <data name="STORAGE_NO_ITEMS" xml:space="preserve">
     <value>Oh? You don't seem to have anything.</value>

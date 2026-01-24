@@ -518,7 +518,7 @@
     <value>You see, I've always liked legends and lore...</value>
   </data>
   <data name="CH1_S3_Partner_6" xml:space="preserve">
-    <value>I always get so excited when I hear tales from the past!</value>
+    <value>I always get so excited when I hear tales from the past![script=0]</value>
   </data>
   <data name="CH1_S3_Partner_7" xml:space="preserve">
     <value>Don't you feel the same way?</value>
@@ -542,13 +542,13 @@
     <value>Such places must be full of gold and treasure!</value>
   </data>
   <data name="CH1_S3_Partner_12_0" xml:space="preserve">
-    <value>And history! Wouldn't it be amazing to make historic discoveries?</value>
+    <value>And history! Wouldn't it be amazing to make historic discoveries?[script=0]</value>
   </data>
   <data name="CH1_S3_Partner_12_1" xml:space="preserve">
-    <value>And history! Wouldn't it be amazing to make historic discoveries?</value>
+    <value>And history! Wouldn't it be amazing to make historic discoveries?[script=0]</value>
   </data>
   <data name="CH1_S3_Partner_12_2" xml:space="preserve">
-    <value>And history! Wouldn't it be dramatic to make historic discoveries?</value>
+    <value>And history! Wouldn't it be dramatic to make historic discoveries?[script=0]</value>
   </data>
   <data name="CH1_S3_Partner_13_0" xml:space="preserve">
     <value>That's what I always dream of. It's all exciting to me.</value>
@@ -611,10 +611,10 @@
     <value>That's why I want to join an exploration team.</value>
   </data>
   <data name="CH1_S3_Partner_21" xml:space="preserve">
-    <value>This fragment must fit into something...somewhere! I want to discover where that is.</value>
+    <value>This fragment must fit into something...somewhere! I want to discover where that is.[script=0]</value>
   </data>
   <data name="CH1_S3_Partner_22" xml:space="preserve">
-    <value>I want to solve the mystery of my Relic Fragment!</value>
+    <value>I want to solve the mystery of my Relic Fragment![script=0]</value>
   </data>
   <data name="CH1_S3_Partner_23" xml:space="preserve">
     <value>So earlier, I tried joining an exploration team as an apprentice...</value>
@@ -668,13 +668,13 @@
     <value>I think we could make a good exploration team together, {0}.</value>
   </data>
   <data name="CH1_S3_Partner_31_0" xml:space="preserve">
-    <value>So will you?[pause=0] Please?</value>
+    <value>So will you?[pause=0] Please?[script=0]</value>
   </data>
   <data name="CH1_S3_Partner_31_1" xml:space="preserve">
-    <value>So, how about it?[pause=0] Come on, please?</value>
+    <value>So, how about it?[pause=0] Come on, please?[script=0]</value>
   </data>
   <data name="CH1_S3_Partner_31_2" xml:space="preserve">
-    <value>So will you do that with me?[pause=0] Please?</value>
+    <value>So will you do that with me?[pause=0] Please?[script=0]</value>
   </data>
   <data name="CH1_S3_Hero_8_0" xml:space="preserve">
     <value>(Whoa! What should I do?[pause=0] I'm getting recruited out of the blue!)</value>

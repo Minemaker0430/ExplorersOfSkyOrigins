@@ -330,12 +330,14 @@ function beach_cave_pit.BossDefeated()
 	GAME:FadeIn(20)
 	
 	UI:SetSpeaker(koffing)
-	UI:SetSpeakerEmotion("Normal")
+	UI:SetSpeakerEmotion("Pain")
+	SOUND:PlayBattleSE("EVT_Emote_Sweating")
 	GROUND:CharSetEmote(koffing, "sweating", 1)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['S3_Koffing_1']))
 	
 	UI:SetSpeaker(zubat)
-	UI:SetSpeakerEmotion("Normal")
+	UI:SetSpeakerEmotion("Pain")
+	SOUND:PlayBattleSE("EVT_Emote_Sweating")
 	GROUND:CharSetEmote(zubat, "sweating", 1)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['S3_Zubat_1']))
 	
@@ -363,17 +365,29 @@ function beach_cave_pit.BossDefeated()
 	SOUND:PlayBattleSE("_UNK_EVT_010")
 	local relic = OBJ('RelicFragment')
 	GROUND:TeleportTo(relic, zubat.Position.X + 8, zubat.Position.Y + 12, Direction.Down) --relic fragment
-	GROUND:MoveObjectToPosition(relic, zubat.Position.X - 24, zubat.Position.Y + 16, 4)
+	GROUND:MoveObjectToPosition(relic, zubat.Position.X - 24, zubat.Position.Y + 16, 2)
 	GAME:WaitFrames(10)
-	GROUND:MoveObjectToPosition(relic, zubat.Position.X - 24, zubat.Position.Y + 24, 4)
+	GROUND:MoveObjectToPosition(relic, zubat.Position.X - 24, zubat.Position.Y + 24, 2)
 	GAME:WaitFrames(10)
-	GROUND:MoveObjectToPosition(relic, zubat.Position.X - 24, zubat.Position.Y + 28, 4)
+	GROUND:MoveObjectToPosition(relic, zubat.Position.X - 24, zubat.Position.Y + 28, 2)
 	GAME:WaitFrames(10)
-	GROUND:MoveObjectToPosition(relic, zubat.Position.X - 24, zubat.Position.Y + 32, 4)
+	GROUND:MoveObjectToPosition(relic, zubat.Position.X - 24, zubat.Position.Y + 32, 2)
+	GAME:WaitFrames(10)
+	GROUND:MoveObjectToPosition(relic, zubat.Position.X - 24, zubat.Position.Y + 28, 2)
+	GAME:WaitFrames(10)
+	GROUND:MoveObjectToPosition(relic, zubat.Position.X - 24, zubat.Position.Y + 24, 2)
+	GAME:WaitFrames(10)
+	GROUND:MoveObjectToPosition(relic, zubat.Position.X - 24, zubat.Position.Y + 28, 2)
+	GAME:WaitFrames(10)
+	GROUND:MoveObjectToPosition(relic, zubat.Position.X - 24, zubat.Position.Y + 32, 2)
 	
-	GROUND:CharAnimateTurnTo(player, Direction.UpLeft, 4)
-	GROUND:CharAnimateTurnTo(partner, Direction.UpRight, 4)
+	local coro1 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(player, Direction.UpLeft, 4) end)
+	local coro2 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(partner, Direction.UpRight, 4) end)
+	TASK:JoinCoroutines({coro1, coro2})
 	GROUND:CharSetEmote(partner, "notice", 1)
+
+	GAME:WaitFrames(30)
+
 	GROUND:CharAnimateTurnTo(zubat, Direction.Down, 4)
 
 	UI:SetSpeaker(koffing)
@@ -390,32 +404,26 @@ function beach_cave_pit.BossDefeated()
 	--insert funny sound here
 	-- SFX Name = _UNK_EVT_069
 	SOUND:PlayBattleSE("_UNK_EVT_069")
-	GROUND:MoveInDirection(koffing, Direction.DownLeft, 20, false, 2)
-	GROUND:MoveInDirection(zubat, Direction.DownRight, 20, false, 2)
-
-	GROUND:CharAnimateTurnTo(partner, Direction.UpLeft, 4)
-        GROUND:CharAnimateTurnTo(player, Direction.UpRight, 4)
-
-	GROUND:MoveInDirection(koffing, Direction.Down, 32, false, 2)
-	GROUND:MoveInDirection(zubat, Direction.Down, 32, false, 2)
-
-	GROUND:CharAnimateTurnTo(partner, Direction.Left, 4)
-        GROUND:CharAnimateTurnTo(player, Direction.Right, 4)
-
-	GROUND:MoveInDirection(koffing, Direction.Down, 32, false, 2)
-	GROUND:MoveInDirection(zubat, Direction.Down, 32, false, 2)
-
-	GROUND:CharAnimateTurnTo(partner, Direction.DownLeft, 4)
-        GROUND:CharAnimateTurnTo(player, Direction.DownRight, 4)
-
-	GROUND:MoveInDirection(koffing, Direction.Down, 32, false, 2)
-	GROUND:MoveInDirection(zubat, Direction.Down, 32, false, 2)
-
-	GROUND:CharAnimateTurnTo(partner, Direction.Down, 4)
-        GROUND:CharAnimateTurnTo(player, Direction.Down, 4)
+	local coro1 = TASK:BranchCoroutine(function() --koffing
+		GROUND:MoveInDirection(koffing, Direction.DownLeft, 10, true, 4)
+		GROUND:MoveInDirection(koffing, Direction.Down, 60, true, 4)
+	end)
+	local coro2 = TASK:BranchCoroutine(function() --zubat
+		GROUND:MoveInDirection(zubat, Direction.DownRight, 10, true, 4)
+		GROUND:MoveInDirection(zubat, Direction.Down, 60, true, 4)
+	end)
+	local coro3 = TASK:BranchCoroutine(function() --player
+		GAME:WaitFrames(30)
+        GROUND:CharAnimateTurnTo(player, Direction.Down, 2)
+	end)
+	local coro4 = TASK:BranchCoroutine(function() --partner
+		GAME:WaitFrames(30)
+		GROUND:CharAnimateTurnTo(partner, Direction.Down, 2)
+	end)
+	TASK:JoinCoroutines({coro1, coro2, coro3, coro4})	
 
 	GROUND:CharAnimateTurnTo(partner, Direction.UpRight, 4)
-        GROUND:CharAnimateTurnTo(player, Direction.UpLeft, 4)
+    GROUND:CharAnimateTurnTo(player, Direction.UpLeft, 4)
 
 	GROUND:MoveInDirection(partner, Direction.UpRight, 5, false, 2)
 
@@ -426,8 +434,10 @@ function beach_cave_pit.BossDefeated()
 	GROUND:MoveInDirection(partner, Direction.UpRight, 5, false, 2)
 	GROUND:Hide("RelicFragment")
 	SOUND:PlayBattleSE("_UNK_EVT_128") -- pickup sound
+	GAME:WaitFrames(10)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['S3_Partner_2_'..tostring(pTalkKind)]))
 	GROUND:CharAnimateTurnTo(partner, Direction.DownRight, 4)
+
 	UI:SetSpeakerEmotion("Teary-Eyed")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['S3_Partner_3_'..tostring(pTalkKind)], player:GetDisplayName()))
 	CharacterActions.HopOnce(partner, Direction.DownRight)
