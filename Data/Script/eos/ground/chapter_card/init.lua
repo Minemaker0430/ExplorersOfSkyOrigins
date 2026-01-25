@@ -36,6 +36,20 @@ function chapter_card.Enter(map)
 
   GAME:CutsceneMode(true)
   GROUND:Hide("PLAYER")
+
+  -- demo end check
+  if SV.Progression.Chapter == 2 then
+    SV.Progression.DemoCompleted = true
+    GAME:WaitFrames(30)
+    UI:ResetSpeaker()
+    UI:SetCenter(true)
+    UI:WaitShowDialogue("Thanks for completing the Demo![br]You will now be sent to the demo room.")
+    UI:SetCenter(false)
+    -- send to demo room
+  else
+    SV.Progression.DemoCompleted = false
+  end
+
   GAME:FadeIn(60)
   
   local coro1 = TASK:BranchCoroutine(function() UI:WaitShowTitle(STRINGS:Format(STRINGS.MapStrings['ChapterTitle_'..tostring(SV.Progression.Chapter)]), 60)

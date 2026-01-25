@@ -1095,7 +1095,7 @@ function COMMON.Rescued(zone, name, mail)
 	_DUNGEON:LogMsg(STRINGS:FormatKey("MSG_RESCUED_BY", name))
   else
                 --//spawn the rescuers based on mail
-    local leaderLoc = null;
+    --local leaderLoc = null;
 
     local team = RogueEssence.Dungeon.ExplorerTeam()
     team.Name = mail.RescuedBy
@@ -1218,7 +1218,7 @@ function COMMON.ExitDungeonMissionCheck(result, rescue, zoneId, segmentID)
   exited = COMMON.ExitDungeonMissionCheckEx(result, rescue, zoneId, segmentID)
   
   if rescue == true then
-    exited = COMMON.EndRescue(zone, result, segmentID)
+    exited = COMMON.EndRescue(zoneId, result, segmentID)
   end
   
   return exited

@@ -53,10 +53,8 @@ function title_catch.Enter(map)
 	TASK:JoinCoroutines({coro1, coro2})
 	
 	GAME:CutsceneMode(false)
-	
-	--debug end
-	--GAME:EnterGroundMap("chapter_card", "Entrance")
-	GAME:RestartToTitle()
+
+	GAME:EnterGroundMap("chapter_card", "Entrance")
 	
 end
 

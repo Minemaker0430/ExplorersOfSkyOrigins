@@ -11,7 +11,7 @@ ExplorerEssentials = {}
 --
 -- so yea that's it bye
 
-function ExplorerEssentials.SpawnPartner()
+function ExplorerEssentials.SpawnPartner() -- SHOULD ONLY BE USED ON GROUND MAPS WHEN THE PLAYER IS ACTIONABLE OTHERWISE CUTSCENES WILL BREAK!!
 	COMMON.RespawnStarterPartner()
 	
 	local partner = CH('PARTNER')
@@ -48,6 +48,8 @@ end
 
 function ExplorerEssentials.SetSpeakerUnknown(char)
 	if char ~= nil then
-		UI:SetSpeaker('', false, char.CurrentForm.Species, char.CurrentForm.Form, char.CurrentForm.Skin, char.CurrentForm.Gender)
+		UI:SetSpeaker('\uE040', true, char.CurrentForm.Species, char.CurrentForm.Form, char.CurrentForm.Skin, char.CurrentForm.Gender)
+	else
+		UI:SetSpeaker('\uE040', true, nil, nil, nil, nil)
 	end
 end

@@ -13,15 +13,7 @@ local krabby_scene_a = {}
 -- Map Vars
 -------------------------------
 
-local bubbleSpawnTimer = 0
-local bigBubbleSpawnTimer = 0
-local sinTick = 0
-local bubblesSpawned = 0
-local bigBubblesSpawned = 0
 
-local bubbleSpawnA = MRKR('KrabbyBubbleSpawnerA')
-local bubbleSpawnB = MRKR('KrabbyBubbleSpawnerA')
-local bigBubbleSpawn = MRKR('BigBubbleSpawner')
 
 -------------------------------
 -- Map Callbacks
