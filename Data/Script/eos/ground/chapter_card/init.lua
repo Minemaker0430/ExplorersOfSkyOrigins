@@ -43,12 +43,14 @@ function chapter_card.Enter(map)
     GAME:WaitFrames(30)
     UI:ResetSpeaker()
     UI:SetCenter(true)
-    UI:WaitShowDialogue("Thanks for completing the Demo![br]You will now be sent to the demo room.")
+    UI:WaitShowDialogue("Thanks for completing the Demo!\nYou will now be sent to the demo room.")
     UI:SetCenter(false)
-    -- send to demo room
+    GAME:EnterGroundMap("demo_room", "Entrance")
   else
-    SV.Progression.DemoCompleted = false
-  end
+
+    --everything else goes here
+
+  SV.Progression.DemoCompleted = false
 
   GAME:FadeIn(60)
   
@@ -76,6 +78,8 @@ function chapter_card.Enter(map)
 	  GAME:RestartToTitle()
   end
 
+
+  end
 end
 
 ---chapter_card.Exit(map)

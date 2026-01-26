@@ -22515,7 +22515,22 @@
 "MapChars": [],
 "GroundObjects": [],
 "Spawners": [],
-"Markers": []
+"Markers": [
+{
+"EntName": "Entrance",
+"Direction": 0,
+"EntEnabled": true,
+"EntOrder": 0,
+"InteractOrder": 0,
+"triggerType": 0,
+"Collider": {
+"X": 0,
+"Y": 0,
+"Width": 16,
+"Height": 16
+}
+}
+]
 }
 ]
 }

@@ -30,7 +30,7 @@ end
 --Engine callback function
 function demo_room.Enter(map)
 
-  GAME:FadeIn(60)
+    GAME:FadeIn(60)
 
 end
 ---demo_room.Exit(map)
