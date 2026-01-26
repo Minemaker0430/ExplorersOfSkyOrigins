@@ -48,8 +48,8 @@ end
 
 function ExplorerEssentials.SetSpeakerUnknown(char)
 	if char ~= nil then
-		UI:SetSpeaker('\uE040', true, char.CurrentForm.Species, char.CurrentForm.Form, char.CurrentForm.Skin, char.CurrentForm.Gender)
+		UI:SetSpeaker('\u{E040}', true, char.CurrentForm.Species, char.CurrentForm.Form, char.CurrentForm.Skin, char.CurrentForm.Gender)
 	else
-		UI:SetSpeaker('\uE040', true, nil, nil, nil, nil)
+		UI:SetSpeaker('\u{E040}', true, nil, nil, nil, nil)
 	end
 end

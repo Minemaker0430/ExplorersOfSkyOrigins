@@ -38,6 +38,9 @@
         "SINGLE_CHAR_SCRIPT",
         "OBJ",
         "DrawEffect",
-        "LUA_ENGINE"
+        "LUA_ENGINE",
+        "RecruitmentListMenu",
+        "System",
+        "MonsterID"
     ]
 }

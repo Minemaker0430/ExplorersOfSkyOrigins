@@ -1,0 +1,122 @@
+﻿{
+  "Version": [
+    "0.0",
+    "0.8.11.0"
+  ],
+  "Object": {
+    "Name": {
+      "LocalTexts": {
+        "es": [
+          "Pañuelo Defensa",
+          0,
+          0
+        ],
+        "it": [
+          "Velodifesa",
+          0,
+          0
+        ],
+        "ko": [
+          "방어스카프",
+          0,
+          0
+        ],
+        "ja": [
+          "ぼうぎょスカーフ",
+          0,
+          0
+        ],
+        "ja-jp": [
+          "ぼうぎょスカーフ",
+          0,
+          0
+        ],
+        "zh-hans": [
+          "防御围巾",
+          0,
+          0
+        ]
+      }
+    },
+    "Desc": {
+      "LocalTexts": {
+        "es": [
+          "Un objeto a equipar que aumenta ligeramente la Defensa de un Pokémon.",
+          0,
+          0
+        ],
+        "it": [
+          "Uno strumento da dare a un Pokémon. Aumenta leggermente la Difesa.",
+          0,
+          0
+        ],
+        "ja": [
+          "ぼうぎょがあがる（仮テキスト）",
+          0,
+          0
+        ],
+        "ja-jp": [
+          "ぼうぎょがあがる（仮テキスト）",
+          0,
+          0
+        ],
+        "zh-hans": [
+          "能够吸收伤害的围巾。可以轻微提高携带者的防御。",
+          0,
+          0
+        ]
+      }
+    },
+    "Icon": [
+      -1,
+      14
+    ],
+    "Price": [
+      1000,
+      360
+    ],
+    "ItemStates": {
+      "_t": "a",
+      "_0": [
+        {
+          "$type": "PMDC.Dungeon.EquipState, PMDC"
+        },
+        0,
+        0
+      ]
+    },
+    "UseAction": {
+      "CharAnimData": {
+        "$type": [
+          "@@ -26,15 +26,17 @@\n Anim\n-Process\n+FrameType\n , Ro\n",
+          0,
+          2
+        ],
+        "Process": [
+          0,
+          0,
+          0
+        ],
+        "AnimOverride": [
+          0,
+          0,
+          0
+        ],
+        "ActionType": [
+          0
+        ]
+      }
+    },
+    "BeforeBeingHits": {
+      "_t": "a",
+      "0": {
+        "Value": {
+          "Numerator": [
+            9,
+            12
+          ]
+        }
+      }
+    }
+  }
+}

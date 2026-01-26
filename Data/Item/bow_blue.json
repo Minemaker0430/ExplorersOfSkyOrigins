@@ -20,7 +20,11 @@
 "MaxStack": 0,
 "CannotDrop": true,
 "BagEffect": false,
-"ItemStates": [],
+"ItemStates": [
+{
+"$type": "PMDC.Dungeon.HeldState, PMDC"
+}
+],
 "GroundUseActions": [],
 "UseAction": {
 "$type": "RogueEssence.Dungeon.AttackAction, RogueEssence",
@@ -185,8 +189,51 @@
 "BeforeTryActions": [],
 "BeforeActions": [],
 "OnActions": [],
-"BeforeHittings": [],
-"BeforeBeingHits": [],
+"BeforeHittings": [
+{
+"Key": {
+"str": [
+0
+]
+},
+"Value": {
+"$type": "PMDC.Dungeon.MultiplyDamageEvent, PMDC",
+"Numerator": 12,
+"Denominator": 10,
+"Anims": []
+}
+}
+],
+"BeforeBeingHits": [
+{
+"Key": {
+"str": [
+0
+]
+},
+"Value": {
+"$type": "PMDC.Dungeon.MultiplyCategoryEvent, PMDC",
+"Category": 1,
+"Numerator": 12,
+"Denominator": 10,
+"Anims": []
+}
+},
+{
+"Key": {
+"str": [
+0
+]
+},
+"Value": {
+"$type": "PMDC.Dungeon.MultiplyCategoryEvent, PMDC",
+"Category": 2,
+"Numerator": 12,
+"Denominator": 10,
+"Anims": []
+}
+}
+],
 "AfterHittings": [],
 "AfterBeingHits": [],
 "OnHitTiles": [],
