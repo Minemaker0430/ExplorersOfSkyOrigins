@@ -701,7 +701,7 @@ function dusk_beach.CH1_PartnerFindsHero()
 							UI:BeginChoiceMenu(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_50B']), choices, 1, 2)
 							UI:WaitForChoice()
 							
-							result = 1 --getting result doesn't matter here as both options force you into yes
+							--getting result doesn't matter here as both options force you into yes
 							GROUND:CharSetEmote(partner, "none", 1)
 							
 						end
@@ -722,11 +722,6 @@ function dusk_beach.CH1_PartnerFindsHero()
 		GAME:CutsceneMode(false)
 		stopBubbles = true -- ALWAYS NEEDS TO BE CALLED BEFORE GROUND MAP CHANGE OR ELSE YOU'RE SOFTLOCKED
 		GAME:EnterDungeon('beach_cave', 0, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
-		
-		--debug end
-		--GAME:FadeIn(1)
-		--GAME:CutsceneMode(false)
-		--GROUND:Unhide("PLAYER")
 
 		end)
 		TASK:JoinCoroutines({main, bubbles})

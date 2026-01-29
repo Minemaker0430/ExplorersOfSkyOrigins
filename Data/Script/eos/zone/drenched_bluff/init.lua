@@ -22,14 +22,34 @@ end
 ---drenched_bluff.EnterSegment(zone, rescuing, segmentID, mapID)
 --Engine callback function
 function drenched_bluff.EnterSegment(zone, rescuing, segmentID, mapID)
-
-
+    if rescuing ~= true then
+		COMMON.BeginDungeon(zone.ID, segmentID, mapID)
+	end
 end
 
 ---drenched_bluff.ExitSegment(zone, result, rescue, segmentID, mapID)
 --Engine callback function
 function drenched_bluff.ExitSegment(zone, result, rescue, segmentID, mapID)
+    DEBUG.EnableDbgCoro() --Enable debugging this coroutine
+    PrintInfo("=>> ExitSegment_drenched_bluff (Drenched Bluff) result "..tostring(result).." segment "..tostring(segmentID))
 
+	GAME:SetRescueAllowed(false)
+	
+	SV.Dungeon.Zone = zone
+	SV.Dungeon.Result = result
+	SV.Dungeon.Rescue = rescue
+	SV.Dungeon.SegmentID = segmentID
+	SV.Dungeon.MapID = mapID
+
+	if result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
+		SV.drenched_bluff.TimesFailed = SV.drenched_bluff.TimesFailed + 1
+
+		GAME:WaitFrames(20)
+		ExplorerEssentials.EndDungeonWithFanfare(result, "hub", -1, 0, 0) --temporary
+	else
+		GAME:WaitFrames(20)
+		GAME:EnterZone("drenched_bluff", -1, 1, 0)
+	end
 
 end
 

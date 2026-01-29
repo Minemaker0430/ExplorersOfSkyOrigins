@@ -43,9 +43,6 @@ function beach_cave.ExitSegment(zone, result, rescue, segmentID, mapID)
 	SV.Dungeon.SegmentID = segmentID
 	SV.Dungeon.MapID = mapID
 
-	PrintInfo("Result: "..tostring(result))
-	PrintInfo("SegmentID: "..tostring(segmentID))
-
 	if result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
 		SV.beach_cave.FailedDungeon = true
 		if segmentID == 1 then --boss segment

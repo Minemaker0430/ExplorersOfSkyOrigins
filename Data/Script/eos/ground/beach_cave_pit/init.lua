@@ -107,7 +107,7 @@ function beach_cave_pit.NothingHere()
 	SOUND:PlayBGM("006 - In the Depths of the Pit.ogg", true)
 	GAME:FadeIn(20)
 	GAME:CutsceneMode(false)
-	COMMON.EndSession(RogueEssence.Data.GameProgress.ResultType.Cleared, "hub", -1, 5, 3)
+	ExplorerEssentials.EndDungeonWithFanfare(RogueEssence.Data.GameProgress.ResultType.Cleared, "hub", -1, 5, 3)
 	--SV.partner.Spawn = 'Ladder'
 	--GAME:EnterZone('hub', -1, 5, GuildHallwayEntranceMarker) --Time to do this lol, gameplay loop achieved
 end
@@ -443,7 +443,7 @@ function beach_cave_pit.BossDefeated()
 	local coro2 = TASK:BranchCoroutine(function() GAME:FadeOut(false, 60)
 													GAME:WaitFrames(30)
 													GAME:CutsceneMode(false)
-													ExplorerEssentials.EndDungeonWithFanfare(RogueEssence.Data.GameProgress.ResultType.Cleared, "cutscenes", -1, 6, 0) end)
+													ExplorerEssentials.EndStoryDungeon(RogueEssence.Data.GameProgress.ResultType.Cleared, "cutscenes", -1, 6, 0) end)
 	TASK:JoinCoroutines({coro1, coro2})
 end
 

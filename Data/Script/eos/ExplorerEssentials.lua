@@ -30,8 +30,13 @@ function ExplorerEssentials.SetPlayerFromData(data)
   	GROUND:SetPlayer(character)
 end
 
-function ExplorerEssentials.EndDungeonWithFanfare(result, zoneId, structureId, mapId, entryId)
+function ExplorerEssentials.EndDungeonWithFanfare(result, zoneId, structureId, mapId, entryId) -- End a dungeon with fanfare, usually for job/general completions
 	GAME:EndDungeonRun(result, zoneId, structureId, mapId, entryId, true, true)
+	GAME:EnterZone(zoneId, structureId, mapId, entryId)
+end
+
+function ExplorerEssentials.EndStoryDungeon(result, zoneId, structureId, mapId, entryId) -- End a dungeon without fanfare, usually used for story events
+	GAME:EndDungeonRun(result, zoneId, structureId, mapId, entryId, false, true)
 	GAME:EnterZone(zoneId, structureId, mapId, entryId)
 end
 

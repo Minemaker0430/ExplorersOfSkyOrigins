@@ -30,7 +30,11 @@ end
 --Engine callback function
 function demo_room.Enter(map)
 
+    GAME:CutsceneMode(true)
+    GROUND:Hide("PLAYER")
     GAME:FadeIn(60)
+
+    
 
 end
 ---demo_room.Exit(map)

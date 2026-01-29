@@ -22,15 +22,37 @@ end
 ---mt_bristle.EnterSegment(zone, rescuing, segmentID, mapID)
 --Engine callback function
 function mt_bristle.EnterSegment(zone, rescuing, segmentID, mapID)
-
-
+    if rescuing ~= true then
+		COMMON.BeginDungeon(zone.ID, segmentID, mapID)
+	end
 end
 
 ---mt_bristle.ExitSegment(zone, result, rescue, segmentID, mapID)
 --Engine callback function
 function mt_bristle.ExitSegment(zone, result, rescue, segmentID, mapID)
+    DEBUG.EnableDbgCoro() --Enable debugging this coroutine
+    PrintInfo("=>> ExitSegment_mt_bristle (Mt Bristle) result "..tostring(result).." segment "..tostring(segmentID))
 
+	GAME:SetRescueAllowed(false)
+	
+	SV.Dungeon.Zone = zone
+	SV.Dungeon.Result = result
+	SV.Dungeon.Rescue = rescue
+	SV.Dungeon.SegmentID = segmentID
+	SV.Dungeon.MapID = mapID
 
+	if result ~= RogueEssence.Data.GameProgress.ResultType.Cleared then
+		SV.mt_bristle.FailedDungeon = true
+        if segmentID == 1 then -- boss segment
+            SV.mt_bristle.FailedBoss = true
+        end
+
+		GAME:WaitFrames(20)
+		ExplorerEssentials.EndDungeonWithFanfare(result, "hub", -1, 0, 0) --temporary
+	else
+		GAME:WaitFrames(20)
+		GAME:EnterZone("mt_bristle", -1, 1, 0)
+	end
 end
 
 ---mt_bristle.Rescued(zone, name, mail)

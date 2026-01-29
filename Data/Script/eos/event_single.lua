@@ -256,33 +256,37 @@ end
 -- Custom Functions
 -----------------------------------
 
-function SINGLE_CHAR_SCRIPT.HeroPartnerCheck(owner, ownerChar, context, args) --Palika's Script
+function SINGLE_CHAR_SCRIPT.HeroPartnerCheck(owner, ownerChar, context, args) -- Palika's Script, with some tweaks by MistressNebula
 	local player_count = GAME:GetPlayerPartyCount()
 	local guest_count = GAME:GetPlayerGuestCount()
-	if player_count < 1 then return end--If there's no party members then we dont need to do anything
+	if player_count < 1 then return end -- If there's no party members then we dont need to do anything
 	for i = 0, player_count - 1, 1 do 
 		local player = GAME:GetPlayerPartyMember(i)
 		if player.Dead and player.IsPartner then --someone died 
 			for i = 0, player_count - 1, 1 do --beam everyone else out
 				player = GAME:GetPlayerPartyMember(i)
 				if not player.Dead then--dont beam out whoever died
-					--delay between beam outs
-					GAME:WaitFrames(60)
-					TASK:WaitTask(_DUNGEON:ProcessBattleFX(player, player, _DATA.SendHomeFX))
-					player.Dead = true
+					GAME:WaitFrames(30)
+            		local anim = RogueEssence.Dungeon.CharAbsentAnim(player.CharLoc, player.CharDir)
+            		RemoveCharEffects(player)
+            		TASK:WaitTask(_DUNGEON:ProcessBattleFX(player, player, _DATA.SendHomeFX))
+            		TASK:WaitTask(player:StartAnim(anim))
 				end
 			end
 			--beam out guests
 			for i = 0, guest_count - 1, 1 do --beam everyone else out
-				guest = GAME:GetPlayerGuestMember(i)
+				local guest = GAME:GetPlayerGuestMember(i)
 				if not guest.Dead then--dont beam out whoever died
-					--delay between beam outs
-					GAME:WaitFrames(60)
+					GAME:WaitFrames(30)
+					local anim = RogueEssence.Dungeon.CharAbsentAnim(guest.CharLoc, guest.CharDir)
+					RemoveCharEffects(guest)
 					TASK:WaitTask(_DUNGEON:ProcessBattleFX(guest, guest, _DATA.SendHomeFX))
-					guest.Dead = true
+					TASK:WaitTask(guest:StartAnim(anim))
 				end
 			end
-			--TASK:WaitTask(_GAME:EndSegment(RogueEssence.Data.GameProgress.ResultType.Failed))
+
+			GAME:WaitFrames(80)
+			TASK:WaitTask(_GAME:EndSegment(RogueEssence.Data.GameProgress.ResultType.Failed))
 			return--cut the script short here if someone died, no need to check guests
 		end
 	end
@@ -291,25 +295,32 @@ function SINGLE_CHAR_SCRIPT.HeroPartnerCheck(owner, ownerChar, context, args) --
 	if guest_count < 1 then return end--If there's no guest members then we dont need to do anything
 	for i = 0, guest_count - 1, 1 do 
 		local guest = GAME:GetPlayerGuestMember(i)
-		if guest.Dead and guest.IsPartner then --someone died 
+		if guest.Dead then --someone died 
 			--beam player's team out first
 			for i = 0, player_count - 1, 1 do --beam everyone else out
 				player = GAME:GetPlayerPartyMember(i)
 				if not player.Dead then--dont beam out whoever died
-					TASK:WaitTask(_DUNGEON:ProcessBattleFX(player, player, _DATA.SendHomeFX))
-					player.Dead = true
-					GAME:WaitFrames(60)
+					GAME:WaitFrames(30)
+            		local anim = RogueEssence.Dungeon.CharAbsentAnim(player.CharLoc, player.CharDir)
+            		RemoveCharEffects(player)
+            		TASK:WaitTask(_DUNGEON:ProcessBattleFX(player, player, _DATA.SendHomeFX))
+            		TASK:WaitTask(player:StartAnim(anim))
 				end
 			end
+			--beam out guests
 			for i = 0, guest_count - 1, 1 do --beam everyone else out
-				guest = GAME:GetPlayerGuestMember(i)
+				local guest = GAME:GetPlayerGuestMember(i)
 				if not guest.Dead then--dont beam out whoever died
+					GAME:WaitFrames(30)
+					local anim = RogueEssence.Dungeon.CharAbsentAnim(guest.CharLoc, guest.CharDir)
+					RemoveCharEffects(guest)
 					TASK:WaitTask(_DUNGEON:ProcessBattleFX(guest, guest, _DATA.SendHomeFX))
-					guest.Dead = true
-					GAME:WaitFrames(60)
+					TASK:WaitTask(guest:StartAnim(anim))
 				end
 			end
-			--TASK:WaitTask(_GAME:EndSegment(RogueEssence.Data.GameProgress.ResultType.Failed))
+
+			GAME:WaitFrames(80)
+			TASK:WaitTask(_GAME:EndSegment(RogueEssence.Data.GameProgress.ResultType.Failed))
 		end
 	end
 			

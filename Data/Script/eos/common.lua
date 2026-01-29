@@ -13,6 +13,8 @@ Class    = require 'lib.middleclass'
 Mediator = require 'lib.mediator' 
 --Reserve the "Serpent" symbol for the serializer
 Serpent = require 'lib.serpent'
+-- Mission Gen
+MissionGen = require("missiongen_lib.missiongen_lib")
 
 ----------------------------------------------------------
 -- Console Writing
