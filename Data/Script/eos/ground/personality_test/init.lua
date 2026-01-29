@@ -1199,11 +1199,7 @@ _DATA.Save.ActiveTeam:SetRank('none')
 _DATA.Save.ActiveTeam.Fame = 0
 _DATA.Save:UpdateTeamProfile(true)
 
---Dev Build
 GAME:EnterGroundMap("chapter_card", "Entrance")
-
---Main Build
---GAME:RestartToTitle()
 
 end
 
