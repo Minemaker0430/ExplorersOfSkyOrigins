@@ -37,6 +37,7 @@ Special Thanks: Trio-
 
 # Known Issues
  - Gameplay loop is unfininished, game ends after Chapter 1
+ - Chapter 1 inventory still says Treasure Bag
 
 # Installation
  - Get PMDO from https://github.com/audinowho/PMDODump/releases
