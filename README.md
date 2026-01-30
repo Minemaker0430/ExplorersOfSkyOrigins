@@ -36,8 +36,9 @@ Special Thanks: Trio-
  - Game Autosaves after each Chapter & Day (NYI)
 
 # Known Issues
- - Gameplay loop is unfininished, game ends after Chapter 1
+ - Gameplay loop is unfinished, game ends after Chapter 1
  - Chapter 1 inventory still says Treasure Bag
+ - Mocha cannot spell, apparently
 
 # Installation
  - Get PMDO from https://github.com/audinowho/PMDODump/releases
