@@ -150,7 +150,7 @@ function guild_outside_dusk.CH1_PartnerWimpsOut()
 	
 	SOUND:PlayBattleSE("EVT_Emote_Shock")
 	GROUND:CharSetEmote(partner, "shock", 1)
-	UI:ResetSpeaker()
+	ExplorerEssentials.SetSpeakerUnknown(nil)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_Unknown_1']), {
 		function()
 			CharacterActions.ScaredJump(partner, Direction.Up)

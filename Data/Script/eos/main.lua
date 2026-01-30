@@ -11,6 +11,6 @@
 --------------------------------------------------------------------------------------------------------------
 -- Service Packages
 --------------------------------------------------------------------------------------------------------------
-require 'missiongen_lib.missiongen_service'
+--require 'missiongen_lib.missiongen_service' [TEMPORARILY DISABLED]
 
 math.randomseed(os.time())

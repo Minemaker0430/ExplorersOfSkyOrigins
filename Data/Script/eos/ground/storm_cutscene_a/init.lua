@@ -5,6 +5,7 @@
 ]]--
 -- Commonly included lua functions and data
 require 'eos.common'
+require 'eos.ExplorerEssentials'
 
 -- Package name
 local storm_cutscene_a = {}
@@ -33,7 +34,7 @@ end
 function storm_cutscene_a.Enter(map)
 
   GROUND:Hide("PLAYER")
-  UI:ResetSpeaker()
+  ExplorerEssentials.SetSpeakerUnknown(nil)
 
   GAME:WaitFrames(60)
   

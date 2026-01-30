@@ -133,4 +133,7 @@
   <data name="SpecialEpisode_5" xml:space="preserve">
     <value>In The Future of Darkness</value>
   </data>
+  <data name="DemoNotification" xml:space="preserve">
+    <value>Thanks for completing the Demo!\nYou will now be sent to the chapter select.</value>
+  </data>
 </root>

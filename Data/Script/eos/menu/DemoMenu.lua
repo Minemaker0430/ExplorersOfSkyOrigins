@@ -60,7 +60,7 @@ function DemoMenu.run(start_choice)
         ret = choice
         _MENU:RemoveMenu()
     end
-    local menu = DemoMenu:new(cb, start_choice-1)
+    local menu = DemoMenu:new(cb, start_choice - 1)
     UI:SetCustomMenu(menu.menu)
     UI:WaitForChoice()
     return ret

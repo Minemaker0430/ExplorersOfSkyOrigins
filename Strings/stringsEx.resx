@@ -1064,48 +1064,4 @@ a {1)...</value>
   <data name="SWAP_INFO_PROMPT" xml:space="preserve">
     <value>What information would you like to get?</value>
   </data>
-  <data name="DEMO_MENU_TITLE" xml:space="preserve">
-    <value>Chapter Select</value>
-    <comment>USED ONLY FOR THE DEMO ROOM</comment>
-  </data>
-  <data name="DEMO_CH1" xml:space="preserve">
-    <value>Chapter 1</value>
-    <comment>USED ONLY FOR THE DEMO ROOM</comment>
-  </data>
-  <data name="DEMO_CH2" xml:space="preserve">
-    <value>Chapter 2</value>
-    <comment>USED ONLY FOR THE DEMO ROOM</comment>
-  </data>
-  <data name="DEMO_CH3" xml:space="preserve">
-    <value>Chapter 3</value>
-    <comment>USED ONLY FOR THE DEMO ROOM</comment>
-  </data>
-  <data name="DEMO_CH4" xml:space="preserve">
-    <value>Chapter 4</value>
-    <comment>USED ONLY FOR THE DEMO ROOM</comment>
-  </data>
-  <data name="DEMO_CH5" xml:space="preserve">
-    <value>Chapter 5</value>
-    <comment>USED ONLY FOR THE DEMO ROOM</comment>
-  </data>
-  <data name="DEMO_CH6" xml:space="preserve">
-    <value>Chapter 6</value>
-    <comment>USED ONLY FOR THE DEMO ROOM</comment>
-  </data>
-  <data name="DEMO_CH7" xml:space="preserve">
-    <value>Chapter 7</value>
-    <comment>USED ONLY FOR THE DEMO ROOM</comment>
-  </data>
-  <data name="DEMO_CH8" xml:space="preserve">
-    <value>Chapter 8</value>
-    <comment>USED ONLY FOR THE DEMO ROOM</comment>
-  </data>
-  <data name="DEMO_CH9" xml:space="preserve">
-    <value>Chapter 9</value>
-    <comment>USED ONLY FOR THE DEMO ROOM</comment>
-  </data>
-  <data name="DEMO_CH10" xml:space="preserve">
-    <value>Chapter 10</value>
-    <comment>USED ONLY FOR THE DEMO ROOM</comment>
-  </data>
 </root>

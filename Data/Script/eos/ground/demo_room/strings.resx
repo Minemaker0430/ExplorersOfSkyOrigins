@@ -58,22 +58,10 @@
   <resheader name="writer">
     <value>System.Resources.NetStandard.ResXResourceWriter, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </resheader>
-  <data name="Unknown_1" xml:space="preserve">
-    <value>Whoa! Wh-wh-whoa...!</value>
+  <data name="Chapter_Select_Confirm" xml:space="preserve">
+    <value>Do you want to start the game at {0}?</value>
   </data>
-  <data name="Unknown_2" xml:space="preserve">
-    <value>Are...[pause=0] Are you OK?!</value>
-  </data>
-  <data name="Unknown_3" xml:space="preserve">
-    <value>No![pause=0] Don't let go!</value>
-  </data>
-  <data name="Unknown_4" xml:space="preserve">
-    <value>Just a little longer...[pause=0] Come on! Hang on!</value>
-  </data>
-  <data name="Unknown_5" xml:space="preserve">
-    <value>N-n-no![pause=0] I can't...[pause=0] hold on...!</value>
-  </data>
-  <data name="Unknown_6" xml:space="preserve">
-    <value>[speed=1]Waaaaaah!</value>
+  <data name="Game_Saved" xml:space="preserve">
+    <value>Game Saved!\nReturning to Title Screen.</value>
   </data>
 </root>

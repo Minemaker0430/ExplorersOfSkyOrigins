@@ -43,7 +43,7 @@ function chapter_card.Enter(map)
     GAME:WaitFrames(30)
     UI:ResetSpeaker()
     UI:SetCenter(true)
-    UI:WaitShowDialogue("Thanks for completing the Demo!\nYou will now be sent to the demo room.")
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['DemoNotification']))
     UI:SetCenter(false)
     GAME:EnterGroundMap("demo_room", "Entrance")
   else
@@ -106,8 +106,23 @@ end
 ---chapter_card.GameLoad(map)
 --Engine callback function
 function chapter_card.GameLoad(map)
-
-  GAME:FadeIn(20)
+  GROUND:Hide("PLAYER")
+  
+  if SV.Progression.Chapter == 1 then
+	  GAME:EnterGroundMap("storm_cutscene_a", "Entrance")
+  elseif SV.Progression.Chapter == 2 then
+	  SV.Progression.DemoCompleted = true
+    GAME:WaitFrames(30)
+    UI:ResetSpeaker()
+    UI:SetCenter(true)
+    UI:WaitShowDialogue("Thanks for completing the Demo!\nYou will now be sent to the chapter select.")
+    UI:SetCenter(false)
+    GAME:EnterGroundMap("demo_room", "Entrance")
+  else
+	  --progression broke you aren't supposed to be here
+	  UI:WaitShowDialogue(STRINGS:Format("If you're currently reading this, the game's progression system has broken somehow. You should probably tell Mocha about this. Going to title screen now."))
+	  GAME:RestartToTitle()
+  end
 
 end
 

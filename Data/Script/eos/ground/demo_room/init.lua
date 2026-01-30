@@ -42,7 +42,7 @@ end
 --Engine callback function
 function demo_room.Exit(map)
     
-    GAME:FadeOut(false, 60)
+    --GAME:FadeOut(false, 60)
 
 end
 
@@ -81,25 +81,33 @@ function demo_room.MenuLoop()
     local start_choice = 1
 
     while continue do
-        local result = DemoMenu:run(start_choice)
+        local result = DemoMenu.run(start_choice)
 
         if result == 0 then
             continue = false
             GAME:GroundSave()
-            UI:WaitShowDialogue()
+            UI:SetCenter(true)
+            UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Game_Saved']))
+            UI:SetCenter(false)
             GAME:FadeOut(false, 60)
+            GAME:CutsceneMode(false)
             GAME:RestartToTitle()
         elseif result > 0 then
             start_choice = result
 
-            UI:ChoiceMenuYesNo(STRINGS:Format(STRINGS.MapStrings['Chapter_Select_Confirm'], name), true)
+            local chapter_key = "DEMO_CH" .. tostring(result)
+
+            UI:SetCenter(true)
+            UI:ChoiceMenuYesNo(STRINGS:Format(STRINGS.MapStrings['Chapter_Select_Confirm'], STRINGS:FormatKey(chapter_key)), true)
             UI:WaitForChoice()
+            UI:SetCenter(false)
             local confirm = UI:ChoiceResult()
 
             if confirm then
                 continue = false
                 ExplorerEssentials.SetProgress(result, 0)
                 GAME:FadeOut(false, 60)
+                GAME:CutsceneMode(false)
                 GAME:EnterGroundMap("chapter_card", "Entrance")
             end
 
