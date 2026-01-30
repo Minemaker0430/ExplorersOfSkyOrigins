@@ -1,16 +1,4 @@
 -------------------------------
-ch1-alpha.3
+Chapter 1 Demo - v0.1.0
 -------------------------------
- - Bumped to PMDO Version 0.8.9
-
--------------------------------
-ch1-alpha.2
--------------------------------
- - Finished Most Chapter 1 Cutscenes
- - More Starters + Egg Moves
-
--------------------------------
-ch1-alpha.1
--------------------------------
- - Chapter 1 Released in Beta
- - Improved Personality Quiz with More Starters & Partners to Choose From
+ - Initial Release
