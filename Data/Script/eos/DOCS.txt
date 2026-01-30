@@ -1,0 +1,101 @@
+
+This file is to document correlating Scripts/Functions/Maps with SkyTemple/ExplorerScript things.
+
+--------------------
+Maps
+--------------------
+
+Key:
+D - Dungeon
+H - Habitat
+G - Guild
+S - System
+T - Town
+P - Place
+V - Visual
+
+D01P11A - beach
+D01P11B - dusk_beach
+D01P41A - beach_cave_pit
+D02P11A - drenched_bluff_entrance
+D02P31A - drenched_bluff_end
+D03P11A - mt_bristle_entrance
+D03P41A - mt_bristle_end
+H01P99A - habitat_shapedo_bluff_day
+G01P01A - guild_outside
+G01P01B - guild_outside_dusk
+G01P01C - guild_outside_night
+G01P02A - guild_inside (NYI)
+G01P03A - guild_missions
+G01P04A - guild_basement
+G01P04C - guild_basement_night
+G01P05A - guild_wigglytuff (NYI)
+G01P05C - guild_wigglytuff_night (NYI)
+G01P06A - guild_dining_hall (NYI)
+G01P06B - guild_dining_hall_night (NYI)
+G01P07A - guild_bedroom (NYI)
+G01P07C - guild_bedroom_night (NYI)
+G01P08A - guild_hallway (NYI)
+G01P09A - guild_upper_bedroom (NYI)
+G01P09C - guild_upper_bedroom_night (NYI)
+G01P10A - guild_lower_bedroom (NYI)
+G01P10C - guild_lower_bedroom_night (NYI)
+S02P01A - personality_test + Dream Sequences (NYI)
+S11P02C - title_catch
+T00P02 + T00P03 - treasure_town
+T01P03A - marowak_dojo
+T01P04A - marowak_dojo_final_maze
+P01P01A - crossroads_assembly
+P01P02A - crossroads_south
+P01P04A - spinda_cafe (NYI)
+V00P02 - storm_cutscene_c
+V00P03 - ?
+V01P04B - krabby_scene_a
+V01P05B - krabby_scene_b
+V01P07B - storm_cutscene_b
+V02P03A - sentry_hole (NYI)
+
+--------------------
+Sound Effects
+--------------------
+
+Usage: SOUND:PlayBattleSE(ID)
+
+8974 -> EVT_Emote_Startled
+8972 -> EVT_Emote_Sweating
+8971 -> EVT_Emote_Complain_2
+8968 -> EVT_Emote_Shock
+8967 -> EVT_Emote_Exclaim_Surprised
+8964 -> EVT_Emote_Exclaim
+8963 -> EVT_Emote_Confused_2
+8962 -> EVT_Emote_Confused
+8961 -> EVT_Emote_Sweatdrop
+6410 -> EVT_CH02_Item_Place
+
+--------------------
+Effects/Emotes
+--------------------
+
+Usage: GROUND:CharSetEmote(ent, ID, cycles)
+
+EFFECT_SHOCKED -> shock
+EFFECT_SWEAT_DROPS_FROM_BOTH_SIDES_MEDIUM -> sweating
+EFFECT_SWEAT_DROP -> sweatdrop
+EFFECT_TWO_ARROWS_AT_SIDE_LEFT -> notice
+EFFECT_EXCLAMATION_MARK -> exclaim
+EFFECT_ANGRY -> angry
+EFFECT_QUESTION_MARK -> question
+
+--------------------
+Character Actions
+--------------------
+
+CORO_JUMP_SURPRISE_FUNC_SERIES -> CharacterActions.ScaredJump(ent, dir)
+screen_FadeChange(1, 20, 256, 128); screen_FadeChange(1, 20, 128, 256); -> CharacterActions.DizzyFade()
+message_SetFaceOnly -> ExplorerEssentials.SetSpeakerUnknown(ent)
+Switching Speaker to Player -> ExplorerEssentials.SetSpeakerHero()
+Unknown Character is Talking Offscreen -> ExplorerEssentials.SetSpeakerUnknown(nil)
+CORO_JUMP_ANGRY_FUNC_SERIES -> CharacterActions.HopTwice(ent, dir)
+CORO_EXPLANATION_FUNC_SERIES -> CharacterActions.Explain(ent)
+CORO_HEAD_SHAKE_FUNC_SERIES -> CharacterActions.ShakeHead(ent, dir)
+CORO_JUMP_HAPPY_FUNC_SERIES -> CharacterActions.HopOnce(ent, dir)

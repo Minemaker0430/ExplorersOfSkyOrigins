@@ -153,3 +153,9 @@ function CharacterActions.DizzyFade()
 	GROUND:PlayVFX(emitter, GAME:GetCameraCenter().X, GAME:GetCameraCenter().Y)
 	GAME:WaitFrames(30) -- wait for as long as the effect lasts
 end
+
+function CharacterActions.Explain(ent)
+	GROUND:CharSetAnim(ent, "Walk", true)
+	GAME:WaitFrames(45)
+	GROUND:CharEndAnim(ent)
+end

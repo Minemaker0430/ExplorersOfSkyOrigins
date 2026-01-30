@@ -162,7 +162,7 @@ function guild_outside_dusk.CH1_PartnerWimpsOut()
 	
 	GROUND:CharSetEmote(partner, "shock", 1)
 	GROUND:AnimateInDirection(partner, "Walk", Direction.Up, Direction.Down, 12, 1, 2)
-	UI:SetSpeaker(GAME:GetPlayerPartyMember(1))
+	UI:SetSpeaker(partner)
 	UI:SetSpeakerEmotion("Surprised")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_Partner_4']))
 	

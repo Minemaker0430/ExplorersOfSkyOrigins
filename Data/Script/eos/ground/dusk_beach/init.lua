@@ -42,8 +42,8 @@ function dusk_beach.Enter(map)
   
   if SV.Progression.Chapter == 1 then
 
-	PrintInfo("SectionFlag: "..tostring(SV.Progression.SectionFlag))
-	PrintInfo("FailedDungeon: "..tostring(SV.beach_cave.FailedDungeon))
+	--PrintInfo("SectionFlag: "..tostring(SV.Progression.SectionFlag))
+	--PrintInfo("FailedDungeon: "..tostring(SV.beach_cave.FailedDungeon))
   
 	if SV.Progression.SectionFlag == 1 then
 		dusk_beach.CH1_ExplorerTeamInvite()
@@ -330,9 +330,7 @@ function dusk_beach.CH1_PartnerFindsHero()
 		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_17_'..tostring(pTalkKind)]))
 		
 		GAME:WaitFrames(15)
-		GROUND:CharSetAnim(player, "Walk", true)
-		GAME:WaitFrames(45)
-		GROUND:CharEndAnim(player)
+		CharacterActions.Explain(player)
 		GAME:WaitFrames(30)
 		
 		SOUND:PlayBattleSE("EVT_Emote_Startled")
@@ -593,7 +591,7 @@ function dusk_beach.CH1_PartnerFindsHero()
 		
 		UI:BeginChoiceMenu(STRINGS:Format(STRINGS.MapStrings['CH1_S1_Partner_39_'..tostring(pTalkKind)]), choices, 1, 3)
 		UI:WaitForChoice()
-		result = UI:ChoiceResult()
+		local result = UI:ChoiceResult()
 		
 		while not continue do
 			--A
@@ -748,6 +746,7 @@ function dusk_beach.CH1_ExplorerTeamInvite()
 	SOUND:LoopSE("Ambient/AMB_Ocean")
 	UI:SetSpeaker(partner)
 	UI:SetSpeakerEmotion("Happy")
+	CharacterActions.HopTwice(partner, Direction.Right)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_1_'..tostring(pTalkKind)]))
 	ExplorerEssentials.SetSpeakerHero()
 	UI:SetSpeakerEmotion("Worried")
@@ -868,9 +867,7 @@ function dusk_beach.CH1_ExplorerTeamInvite()
 			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Hero_15A']))
 
 			GAME:WaitFrames(10)
-			GROUND:CharSetAnim(player, "Walk", true)
-			GAME:WaitFrames(45)
-			GROUND:CharEndAnim(player)
+			CharacterActions.Explain(player)
 			GAME:WaitFrames(20)
 			
 			UI:SetSpeaker(partner)
