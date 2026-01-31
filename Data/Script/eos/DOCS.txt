@@ -99,3 +99,11 @@ CORO_JUMP_ANGRY_FUNC_SERIES -> CharacterActions.HopTwice(ent, dir)
 CORO_EXPLANATION_FUNC_SERIES -> CharacterActions.Explain(ent)
 CORO_HEAD_SHAKE_FUNC_SERIES -> CharacterActions.ShakeHead(ent, dir)
 CORO_JUMP_HAPPY_FUNC_SERIES -> CharacterActions.HopOnce(ent, dir)
+
+--------------------
+Animations
+--------------------
+2 -> None/Reset(?)
+5 -> Walk
+9 -> Charge
+22 -> Nod

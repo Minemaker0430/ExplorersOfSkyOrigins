@@ -111,12 +111,6 @@ function chapter_card.GameLoad(map)
   if SV.Progression.Chapter == 1 then
 	  GAME:EnterGroundMap("storm_cutscene_a", "Entrance")
   elseif SV.Progression.Chapter == 2 then
-	  SV.Progression.DemoCompleted = true
-    GAME:WaitFrames(30)
-    UI:ResetSpeaker()
-    UI:SetCenter(true)
-    UI:WaitShowDialogue("Thanks for completing the Demo!\nYou will now be sent to the chapter select.")
-    UI:SetCenter(false)
     GAME:EnterGroundMap("demo_room", "Entrance")
   else
 	  --progression broke you aren't supposed to be here

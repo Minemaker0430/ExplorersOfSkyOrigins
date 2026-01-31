@@ -167,7 +167,7 @@
     <value>Then you have to train until you become a first-rate exploration team.</value>
   </data>
   <data name="CH2_Partner_4" xml:space="preserve">
-    <value>Y-y-yikes!</value>
+    <value>Y-y-yikes![script=0]</value>
   </data>
   <data name="CH2_Partner_5_0" xml:space="preserve">
     <value>I still think this place is a bit weird. It just is!</value>
@@ -184,6 +184,12 @@
   <data name="CH2_Partner_7" xml:space="preserve">
     <value>I have to be brave.</value>
   </data>
+  <data name="CH2_Unknown_1" xml:space="preserve">
+    <value>Pokémon detected![pause=0] Pokémon detected!</value>
+  </data>
+  <data name="CH2_Unknown_2" xml:space="preserve">
+    <value>Whose footprint?[pause=0] Whose footprint?</value>
+  </data>
   <data name="CH2_Partner_8" xml:space="preserve">
     <value>Waah!</value>
   </data>
@@ -196,10 +202,10 @@
   <data name="CH2_Partner_9_2" xml:space="preserve">
     <value>N-no. I can't lose it now...</value>
   </data>
-  <data name="CH2_Unknown_1" xml:space="preserve">
+  <data name="CH2_Unknown_3" xml:space="preserve">
     <value>...[pause=0]You may ENTER!</value>
   </data>
-  <data name="CH2_Unknown_2" xml:space="preserve">
+  <data name="CH2_Unknown_4" xml:space="preserve">
     <value>Someone's with you![pause=0] So get that stranger to stand up THERE!</value>
   </data>
   <data name="CH2_Partner_10_0" xml:space="preserve">
@@ -229,16 +235,16 @@
   <data name="CH2_Hero_5" xml:space="preserve">
     <value>(It looks like it will tickle my feet or...)</value>
   </data>
-  <data name="CH2_Unknown_3" xml:space="preserve">
+  <data name="CH2_Unknown_5" xml:space="preserve">
     <value>Hey, you! Stranger![pause=0] Get on the GRATE!</value>
   </data>
-  <data name="CH2_Unknown_4" xml:space="preserve">
+  <data name="CH2_Unknown_6" xml:space="preserve">
     <value>The footprint is...[pause=0] The footprint is... Um...</value>
   </data>
-  <data name="CH2_Unknown_5" xml:space="preserve">
+  <data name="CH2_Unknown_7" xml:space="preserve">
     <value>What's the matter?![pause=0] Sentry![pause=0] Sentry?!</value>
   </data>
-  <data name="CH2_Unknown_6" xml:space="preserve">
+  <data name="CH2_Unknown_8" xml:space="preserve">
     <value>What's wrong, sentry {0}?</value>
   </data>
   <data name="CH2_Diglett_1" xml:space="preserve">
@@ -253,16 +259,16 @@
   <data name="CH2_Partner_12_2" xml:space="preserve">
     <value>What?[pause=0] Are they arguing?</value>
   </data>
-  <data name="CH2_Unknown_7" xml:space="preserve">
+  <data name="CH2_Unknown_9" xml:space="preserve">
     <value>...Sorry to make you WAIT.</value>
   </data>
-  <data name="CH2_Unknown_8" xml:space="preserve">
+  <data name="CH2_Unknown_10" xml:space="preserve">
     <value>Well, it's TRUE that you don't see any {0} in these parts...</value>
   </data>
-  <data name="CH2_Unknown_9" xml:space="preserve">
+  <data name="CH2_Unknown_11" xml:space="preserve">
     <value>But you don't SEEM to be bad...</value>
   </data>
-  <data name="CH2_Unknown_10" xml:space="preserve">
+  <data name="CH2_Unknown_12" xml:space="preserve">
     <value>OK, good enough![pause=0] ENTER!</value>
   </data>
   <data name="CH2_Partner_13_0" xml:space="preserve">
