@@ -296,14 +296,14 @@ function guild_outside_dusk.CH2_GuildScene()
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_1_'..tostring(pTalkKind)], CH('Wigglytuff'):GetDisplayName())) --TODO: Add Wigglytuff Dummy
 
-	GROUND:CharAnimateTurnTo(player, Direction.Left, 2)	
-	GROUND:CharAnimateTurnTo(partner, Direction.Right, 2)
+	GROUND:CharAnimateTurnTo(player, Direction.Left, 4)	
+	GROUND:CharAnimateTurnTo(partner, Direction.Right, 4)
 
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_2']))
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_3']))
 
-	GROUND:CharAnimateTurnTo(player, Direction.Up, 2)	
-	GROUND:CharAnimateTurnTo(partner, Direction.Up, 2)
+	GROUND:CharAnimateTurnTo(player, Direction.Up, 4)	
+	GROUND:CharAnimateTurnTo(partner, Direction.Up, 4)
 
 	GAME:WaitFrames(40)
 
@@ -318,24 +318,31 @@ function guild_outside_dusk.CH2_GuildScene()
 
 	GROUND:CharEndAnim(partner) -- juuuuust in case the text script fails
 
-	GROUND:CharAnimateTurnTo(partner, Direction.Right, 2)
-	GROUND:CharAnimateTurnTo(player, Direction.Left, 2)	
+	GROUND:CharAnimateTurnTo(partner, Direction.Right, 4)
+	GROUND:CharAnimateTurnTo(player, Direction.Left, 4)	
 
 	UI:SetSpeakerEmotion("Sad")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_5_'..tostring(pTalkKind)]))
 
-	GROUND:CharAnimateTurnTo(partner, Direction.Right, 2)
-	GROUND:CharAnimateTurnTo(player, Direction.Left, 2)	
+	GROUND:CharAnimateTurnTo(partner, Direction.Right, 4)
+	GROUND:CharAnimateTurnTo(player, Direction.Left, 4)	
 
 	UI:SetSpeakerEmotion("Determined")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_6'], player:GetDisplayName()))
 
+	GROUND:CharAnimateTurnTo(partner, Direction.Up, 2)
 	CharacterActions.HopOnce(partner, Direction.Up)
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_7']))
 
-	GROUND:MoveToPosition(partner, cam.Position.X, cam.Position.Y - 12, false, 1)
-	GROUND:CharAnimateTurnTo(partner, Direction.Up, 2)
-
+	local coro1 = TASK:BranchCoroutine(function() 
+		GROUND:MoveToPosition(partner, cam.Position.X, cam.Position.Y - 4, false, 1)
+		GROUND:CharAnimateTurnTo(partner, Direction.Up, 4) 
+	end)
+	local coro2 = TASK:BranchCoroutine(function()
+		GROUND:CharAnimateTurnTo(player, Direction.Up, 10)
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
+	
 	GAME:WaitFrames(40)
 
 	ExplorerEssentials.SetSpeakerUnknown(nil)
@@ -366,41 +373,41 @@ function guild_outside_dusk.CH2_GuildScene()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Unknown_4']))
 
 	GAME:WaitFrames(40)
-	GROUND:MoveToPosition(partner, MRKR("CH1_KoffingPos").Position.X, cam.Position.Y - 12, false, 1)
-    GROUND:CharAnimateTurnTo(partner, Direction.Right, 2)
+	GROUND:MoveToPosition(partner, MRKR("CH1_KoffingPos").Position.X - 8, cam.Position.Y - 4, false, 1)
+    GROUND:CharAnimateTurnTo(partner, Direction.Right, 4)
 
 	GAME:WaitFrames(180)
-    GROUND:CharAnimateTurnTo(partner, Direction.DownRight, 2)
+    GROUND:CharAnimateTurnTo(partner, Direction.DownRight, 4)
 
 	GAME:WaitFrames(40)
 	SOUND:PlayBattleSE("EVT_Emote_Sweating")
 	GROUND:CharSetEmote(partner, "sweating", 1)
 	
 	GAME:WaitFrames(40)
-	GROUND:CharAnimateTurnTo(player, Direction.UpLeft, 2)
+	GROUND:CharAnimateTurnTo(player, Direction.UpLeft, 4)
 
 	UI:SetSpeaker(partner)
 	UI:SetSpeakerEmotion("Worried")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_10_'..tostring(pTalkKind)]))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_10_'..tostring(pTalkKind)], player:GetDisplayName()))
 
-    GROUND:CharAnimateTurnTo(partner, Direction.Right, 2)
+    GROUND:CharAnimateTurnTo(partner, Direction.Right, 4)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_11']))
 
-    GROUND:CharAnimateTurnTo(partner, Direction.DownRight, 2)
+    GROUND:CharAnimateTurnTo(partner, Direction.DownRight, 4)
 	GAME:WaitFrames(20)
-	GROUND:CharAnimateTurnTo(player, Direction.Up, 2)
+	GROUND:CharAnimateTurnTo(player, Direction.Up, 4)
 
 	-- show the grate closeup? might not be worth it since you can just see it anyways
 
 	GAME:WaitFrames(30)
 	ExplorerEssentials.SetSpeakerHero()
 	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Player_1']))
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Player_2']))
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Player_3']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Hero_1']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Hero_2']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Hero_3']))
 	UI:SetSpeakerEmotion("Worried")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Player_4']))
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Player_5']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Hero_4']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Hero_5']))
 
 	SOUND:PlayBattleSE("EVT_Emote_Exclaim")
 	GROUND:CharSetEmote(player, "exclaim", 1)
@@ -410,7 +417,7 @@ function guild_outside_dusk.CH2_GuildScene()
 
 	GAME:WaitFrames(30)
 	GROUND:CharAnimateTurnTo(partner, Direction.Right, 2)
-	GROUND:MoveToPosition(player, cam.Position.X, cam.Position.Y - 12, false, 1)
+	GROUND:MoveToPosition(player, cam.Position.X, cam.Position.Y - 4, false, 1)
     GROUND:CharAnimateTurnTo(player, Direction.Up, 2)
 
 	GAME:WaitFrames(40)
@@ -420,7 +427,7 @@ function guild_outside_dusk.CH2_GuildScene()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Unknown_6']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Unknown_7']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Unknown_8'], CH('Diglett'):GetDisplayName()))
-	UI:SetSpeaker(CH('Diglett'):GetDisplayName(), true) -- TODO: Add Diglett
+	UI:SetSpeaker(CH('Diglett'):GetDisplayName(), true)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Diglett_1']))
 
 	-- transition
@@ -437,7 +444,7 @@ end
 function guild_outside_dusk.CH2_GuildSceneB()
 
 	local player = CH("PLAYER")
-	local partner = CH("PARTNER") --why does this have to be like this?
+	local partner = CH("PARTNER")
 	
 	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind

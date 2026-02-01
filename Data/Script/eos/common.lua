@@ -95,25 +95,24 @@ COMMON.MISSION_ARCHIVED = 2
 -- Convenience Scription Functions
 ----------------------------------------------------------
 function COMMON.RespawnStarterPartner()
-  local player = _DATA.Save.ActiveTeam.Players[0]
-  local partner = _DATA.Save.ActiveTeam.Players[1]
   
   if SV.General.Starter ~= nil then 
-    player = SV.General.Starter 
+    GROUND:SetPlayer(SV.General.Starter)
   else
-    SV.General.Starter = player
+    GROUND:SetPlayer(_DATA.Save.ActiveTeam.Players[0])
+    SV.General.Starter = _DATA.Save.ActiveTeam.Players[0]
   end
 
   if SV.General.Partner ~= nil then 
-    player = SV.General.Partner 
+    GROUND:RemoveCharacter("Partner")
+    GROUND:SpawnerSetSpawn("PARTNER_SPAWN", SV.General.Partner)
+    GROUND:SpawnerDoSpawn("PARTNER_SPAWN")
   else
-    SV.General.Partner = partner
+    GROUND:RemoveCharacter("Partner")
+    GROUND:SpawnerSetSpawn("PARTNER_SPAWN", _DATA.Save.ActiveTeam.Players[1])
+    GROUND:SpawnerDoSpawn("PARTNER_SPAWN")
+    SV.General.Partner = _DATA.Save.ActiveTeam.Players[1]
   end
-  
-  GROUND:SetPlayer(player)
-  GROUND:RemoveCharacter("Partner")
-  GROUND:SpawnerSetSpawn("PARTNER_SPAWN", partner)
-  local chara = GROUND:SpawnerDoSpawn("PARTNER_SPAWN")
 end
 
 function COMMON.RespawnAllies()

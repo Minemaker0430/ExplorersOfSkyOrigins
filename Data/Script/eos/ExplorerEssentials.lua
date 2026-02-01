@@ -46,7 +46,10 @@ function ExplorerEssentials.SetProgress(chapter, section) -- Utility function fo
 end
 
 function ExplorerEssentials.SetSpeakerHero()
-	if SV.General.Starter == nil then SV.General.Starter = GAME:GetPlayerPartyMember(0) end 
+	if SV.General.Starter == nil then
+		SV.General.Starter = GAME:GetPlayerPartyMember(0)
+		GAME:WaitFrames(1)
+	end 
 	
 	UI:SetSpeaker('', false, SV.General.Starter.CurrentForm.Species, SV.General.Starter.CurrentForm.Form, SV.General.Starter.CurrentForm.Skin, SV.General.Starter.CurrentForm.Gender)
 end
