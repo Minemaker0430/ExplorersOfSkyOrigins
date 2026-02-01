@@ -53,7 +53,7 @@ V00P03 - ?
 V01P04B - krabby_scene_a
 V01P05B - krabby_scene_b
 V01P07B - storm_cutscene_b
-V02P03A - sentry_hole (NYI)
+V02P03A - sentry_hole
 
 --------------------
 Sound Effects

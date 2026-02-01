@@ -34,31 +34,28 @@ end
 ---guild_outside_dusk.Enter(map)
 --Engine callback function
 function guild_outside_dusk.Enter(map)
+	ExplorerEssentials.SetProgress(2, 0) -- TEMP
+	
+	if SV.Progression.Chapter == 1 then
+		GAME:CutsceneMode(true)
 
-  if SV.Progression.Chapter == 1 then
-	GAME:CutsceneMode(true)
-  
-    guild_outside_dusk.CH1_PartnerWimpsOut()
-	
-	GAME:WaitFrames(60)
-	
-	--next scene
-	GAME:EnterGroundMap("dusk_beach", "C1S1_PlayerSpawn")
-	
-  end
+		guild_outside_dusk.CH1_PartnerWimpsOut()
 
-  if SV.Progression.Chapter == 2 then
-	GAME:CutsceneMode(true)
-  
-	if SV.Cutscene.ProgressFlag == 1 then
-		guild_outside_dusk.CH2_GuildSceneB()
-	else
-		guild_outside_dusk.CH2_GuildScene()
+		GAME:WaitFrames(60)
+
+		--next scene
+		GAME:EnterGroundMap("dusk_beach", "C1S1_PlayerSpawn")
 	end
-	
-  end
 
+	if SV.Progression.Chapter == 2 then
+		GAME:CutsceneMode(true)
 
+		if SV.Cutscene.ProgressFlag == 1 then
+			guild_outside_dusk.CH2_GuildSceneB()
+		else
+			guild_outside_dusk.CH2_GuildScene()
+		end
+	end
 end
 
 ---guild_outside_dusk.Exit(map)
@@ -433,6 +430,8 @@ function guild_outside_dusk.CH2_GuildScene()
 	
 	SV.Cutscene.ProgressFlag = 1
 	-- go to grate scene
+
+	GAME:RestartToTitle() -- TEMP
 end
 
 function guild_outside_dusk.CH2_GuildSceneB()
