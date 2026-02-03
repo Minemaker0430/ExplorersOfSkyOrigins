@@ -25,7 +25,7 @@ H01P99A - habitat_shapedo_bluff_day
 G01P01A - guild_outside
 G01P01B - guild_outside_dusk
 G01P01C - guild_outside_night
-G01P02A - guild_inside (NYI)
+G01P02A - guild_entrance
 G01P03A - guild_missions
 G01P04A - guild_basement
 G01P04C - guild_basement_night
