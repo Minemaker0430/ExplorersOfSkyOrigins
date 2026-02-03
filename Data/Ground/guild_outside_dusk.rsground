@@ -41362,7 +41362,7 @@
 {
 "Name": "Gate Closed",
 "Layer": 0,
-"Visible": true,
+"Visible": false,
 "Tiles": [
 [
 {
@@ -44318,6 +44318,49 @@
 "Collider": {
 "X": -25,
 "Y": 60,
+"Width": 16,
+"Height": 16
+}
+},
+{
+"EntName": "GuildGate",
+"Direction": 0,
+"EntEnabled": true,
+"EntOrder": 0,
+"InteractOrder": 0,
+"triggerType": 0,
+"ObjectAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "GuildGate",
+"FrameTime": 5,
+"StartFrame": 0,
+"EndFrame": 0,
+"AnimDir": -1,
+"Alpha": 255,
+"AnimFlip": 0
+},
+"Passable": true,
+"CurrentAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "",
+"FrameTime": 1,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": -1,
+"Alpha": 255,
+"AnimFlip": 0
+},
+"AnimTime": {
+"Ticks": 0
+},
+"Cycles": 0,
+"DrawOffset": {
+"X": 0,
+"Y": -26
+},
+"Collider": {
+"X": 224,
+"Y": 102,
 "Width": 16,
 "Height": 16
 }

@@ -296,7 +296,7 @@ function guild_outside_dusk.CH2_GuildScene()
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_1_'..tostring(pTalkKind)], CH('Wigglytuff'):GetDisplayName()))
 
-	GROUND:CharAnimateTurnTo(player, Direction.Left, 4)	
+	GROUND:CharAnimateTurnTo(player, Direction.Left, 4)
 	GROUND:CharAnimateTurnTo(partner, Direction.Right, 4)
 
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_2']))
