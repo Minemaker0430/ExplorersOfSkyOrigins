@@ -71,6 +71,7 @@ Usage: SOUND:PlayBattleSE(ID)
 8962 -> EVT_Emote_Confused
 8961 -> EVT_Emote_Sweatdrop
 6410 -> EVT_CH02_Item_Place
+6408 -> EVT_CH02_Guild_Gate_Open
 
 --------------------
 Effects/Emotes
@@ -80,8 +81,8 @@ Usage: GROUND:CharSetEmote(ent, ID, cycles)
 
 EFFECT_SHOCKED -> shock
 EFFECT_SWEAT_DROPS_FROM_BOTH_SIDES_MEDIUM -> sweating
-EFFECT_SWEAT_DROP -> sweatdrop
-EFFECT_TWO_ARROWS_AT_SIDE_LEFT -> notice
+EFFECT_SWEAT_DROP + EFFECT_SWEAT_DROP_SLOW -> sweatdrop
+EFFECT_TWO_ARROWS_AT_SIDE_LEFT + EFFECT_TWO_ARROWS_AT_SIDE_RIGHT -> notice
 EFFECT_EXCLAMATION_MARK -> exclaim
 EFFECT_ANGRY -> angry
 EFFECT_QUESTION_MARK -> question

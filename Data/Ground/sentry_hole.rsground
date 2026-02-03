@@ -48190,7 +48190,7 @@
 ],
 "AssetName": "sentry_hole",
 "Music": "",
-"EdgeView": 0,
+"EdgeView": 1,
 "NoSwitching": false,
 "ViewCenter": null,
 "ViewOffset": {
@@ -48212,7 +48212,7 @@
 "Visible": true,
 "MapChars": [
 {
-"Direction": 0,
+"Direction": 6,
 "IsInteracting": false,
 "AIEnabled": true,
 "EntName": "Diglett",
@@ -48224,7 +48224,7 @@
 "Y": 533
 },
 "serializationHeight": 0,
-"serializationDir": 0,
+"serializationDir": 6,
 "triggerType": 1,
 "<AI>k__BackingField": null,
 "Data": {
@@ -48310,7 +48310,22 @@
 ],
 "GroundObjects": [],
 "Spawners": [],
-"Markers": []
+"Markers": [
+{
+"EntName": "Entrance",
+"Direction": 0,
+"EntEnabled": true,
+"EntOrder": 0,
+"InteractOrder": 0,
+"triggerType": 0,
+"Collider": {
+"X": -19,
+"Y": -17,
+"Width": 16,
+"Height": 16
+}
+}
+]
 }
 ]
 }

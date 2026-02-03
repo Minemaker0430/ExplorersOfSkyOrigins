@@ -5,6 +5,7 @@
 ]]--
 -- Commonly included lua functions and data
 require 'origin.common'
+require 'eos.ExplorerEssentials'
 
 -- Package name
 local sentry_hole = {}
@@ -23,7 +24,57 @@ end
 --Engine callback function
 function sentry_hole.Enter(map)
 
-  GAME:FadeIn(20)
+  local diglett = CH("Diglett")
+  local player = CH("PLAYER")
+
+  GROUND:Hide("PLAYER")
+  GAME:CutsceneMode(true)
+
+  GAME:FadeIn(60)
+
+  GAME:WaitFrames(120)
+
+  GAME:MoveCamera(diglett.Position.X, diglett.Position.Y, 300, false)
+
+  GAME:WaitFrames(30)
+
+  SOUND:PlayBattleSE("EVT_Emote_Sweatdrop")
+  GROUND:CharSetEmote(diglett, "sweatdrop", 1)
+  GAME:WaitFrames(60)
+
+  UI:SetSpeaker(diglett)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Diglett_1']))
+
+  GROUND:CharAnimateTurnTo(diglett, Direction.Left, 8)
+
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Diglett_2'], _DATA:GetMonster(player.CurrentForm.Species):GetColoredName()))
+
+  ExplorerEssentials.SetSpeakerUnknown(nil)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Unknown_1']))
+
+  SOUND:PlayBattleSE("EVT_Emote_Sweating")
+  GROUND:CharSetEmote(diglett, "sweating", 1)
+  GAME:WaitFrames(45)
+
+  UI:SetSpeaker(diglett)
+  UI:SetSpeakerEmotion("Pain")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Diglett_3']))
+
+  ExplorerEssentials.SetSpeakerUnknown(nil)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Unknown_2']))
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Unknown_3']))
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Unknown_4'], diglett:GetDisplayName()))
+
+  SOUND:PlayBattleSE("EVT_Emote_Sweating")
+  GROUND:CharSetEmote(diglett, "sweating", 1)
+  GAME:WaitFrames(45)
+
+  UI:SetSpeaker(diglett)
+  UI:SetSpeakerEmotion("Pain")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Diglett_4']))
+
+  GAME:FadeOut(false, 60)
+  GAME:EnterGroundMap('guild_outside_dusk', 0, false)
 
 end
 

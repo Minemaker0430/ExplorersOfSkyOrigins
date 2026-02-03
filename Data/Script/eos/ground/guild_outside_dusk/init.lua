@@ -294,7 +294,7 @@ function guild_outside_dusk.CH2_GuildScene()
 	
 	UI:SetSpeaker(partner)
 	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_1_'..tostring(pTalkKind)], CH('Wigglytuff'):GetDisplayName())) --TODO: Add Wigglytuff Dummy
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_1_'..tostring(pTalkKind)], CH('Wigglytuff'):GetDisplayName()))
 
 	GROUND:CharAnimateTurnTo(player, Direction.Left, 4)	
 	GROUND:CharAnimateTurnTo(partner, Direction.Right, 4)
@@ -436,12 +436,183 @@ function guild_outside_dusk.CH2_GuildScene()
 	TASK:JoinCoroutines({coro1, coro2})
 	
 	SV.Cutscene.ProgressFlag = 1
-	-- go to grate scene
-
-	GAME:RestartToTitle() -- TEMP
+	GAME:EnterGroundMap('sentry_hole', 'Entrance', false)
 end
 
 function guild_outside_dusk.CH2_GuildSceneB()
+
+	--[[
+	Original Script:
+	
+def 0 {
+    sound_Stop();
+    back2_SetMode(4);
+    back2_SetGround(LEVEL_V02P01A);
+    back_SetGround(LEVEL_G01P01B);
+    supervision_StationCommon(0);
+    supervision_Acting(0);
+    supervision_Acting(1);
+    supervision_Acting(2);
+    camera_SetPositionMark(Position<'m0', 30, 24.5>);
+    SetAnimation<object OBJECT_G01P01A3_95>(9);
+    bgm_PlayFadeIn(BGM_FIRE_CRACKLING_LOUDER, 120, 256);
+    screen2_FadeIn(0, 30);
+    screen_FadeIn(1, 30);
+    Wait(60);
+    se_Play(8961);
+    SetEffect<actor ACTOR_PLAYER>(EFFECT_SWEAT_DROP, 3);
+    SetEffect<actor ACTOR_ATTENDANT1>(EFFECT_SWEAT_DROP_SLOW, 3);
+    WaitEffect<actor ACTOR_ATTENDANT1>();
+    Wait(60);
+    Turn2DirectionLives<actor ACTOR_ATTENDANT1>(4, 10, ACTOR_PLAYER);
+    WaitExecuteLives(ACTOR_ATTENDANT1);
+    Turn2DirectionLives<actor ACTOR_PLAYER>(4, 10, ACTOR_ATTENDANT1);
+    message_SetFace(ACTOR_ATTENDANT1, FACE_WORRIED, FACE_POS_STANDARD);
+    message_SwitchTalk ($PARTNER_TALK_KIND) {
+        case 1:
+            {
+                english=" Huh?[K] Are they arguing?",
+            }
+        case 2:
+            {
+                english=" What?[K] Are they arguing?",
+            }
+        default:
+            {
+                english=" What?[K] Are they arguing?",
+            }
+    }
+    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
+    Wait(30);
+    message_ResetActor();
+    message_Talk({
+        english=" ...Sorry to make you WAIT.",
+    });
+    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
+    se_Play(8978);
+    SetEffect<actor ACTOR_PLAYER>(EFFECT_TWO_ARROWS_AT_SIDE_LEFT, 3);
+    SetEffect<actor ACTOR_ATTENDANT1>(EFFECT_TWO_ARROWS_AT_SIDE_RIGHT, 3);
+    WaitEffect<actor ACTOR_ATTENDANT1>();
+    WaitExecuteLives(ACTOR_ATTENDANT1);
+    Turn2Direction<actor ACTOR_ATTENDANT1>(4, 10, DIR_RIGHT);
+    WaitExecuteLives(ACTOR_ATTENDANT1);
+    Turn2Direction<actor ACTOR_PLAYER>(4, 10, DIR_UP);
+    message_Talk({
+        english="""
+             Well, it's TRUE that you don't see any
+            [c_kind:PLAYER] in these parts...
+        """,
+    });
+    message_Talk({
+        english=" But you don't SEEM to be bad...",
+    });
+    message_Talk({
+        english=" OK, good enough![K] ENTER!",
+    });
+    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
+    se_Play(6408);
+    camera_SetEffect(2, 1, 1.0);
+    Turn2Direction<actor ACTOR_ATTENDANT1>(4, 10, DIR_UPRIGHT);
+    SetAnimation<object OBJECT_G01P01A3_95>(17);
+    WaitAnimation<object OBJECT_G01P01A3_95>();
+    WaitExecuteObject(OBJECT_G01P01A3_95);
+    camera_SetEffect(0, 0, 0);
+    Wait(20);
+    se_Play(8974);
+    Turn2Direction<actor ACTOR_ATTENDANT1>(1, 10, DIR_UPRIGHT);
+    ExecuteCommon<actor ACTOR_ATTENDANT1>(CORO_JUMP_SURPRISE_FUNC_SERIES, 0);
+    SetEffect<actor ACTOR_PLAYER>(EFFECT_SHOCKED, 3);
+    message_SetFace(ACTOR_ATTENDANT1, FACE_SURPRISED, FACE_POS_STANDARD);
+    message_SwitchTalk ($PARTNER_TALK_KIND) {
+        case 1:
+            {
+                english=" Yikes!",
+            }
+        case 2:
+            {
+                english=" Yikes!",
+            }
+        default:
+            {
+                english=" Yipes!",
+            }
+    }
+    WaitExecuteLives(ACTOR_ATTENDANT1);
+    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
+    Turn2DirectionLives<actor ACTOR_ATTENDANT1>(4, 10, ACTOR_PLAYER);
+    WaitExecuteLives(ACTOR_ATTENDANT1);
+    Turn2DirectionLives<actor ACTOR_PLAYER>(4, 10, ACTOR_ATTENDANT1);
+    message_SwitchTalk ($PARTNER_TALK_KIND) {
+        case 1:
+            {
+                english=" I'm so nervous! So jittery!",
+            }
+        case 2:
+            {
+                english=" I'm so nervous! So jittery!",
+            }
+        default:
+            {
+                english=" I'm so nervous! So jittery!",
+            }
+    }
+    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
+    message_SetFace(ACTOR_ATTENDANT1, FACE_NORMAL, FACE_POS_STANDARD);
+    message_SwitchTalk ($PARTNER_TALK_KIND) {
+        case 1:
+            {
+                english="""
+                     But I'm glad we're finally
+                    allowed in.[K] My heart's pounding, though...
+                """,
+            }
+        case 2:
+            {
+                english="""
+                     But I'm glad we're finally
+                    allowed in.[K] My heart's pounding, though...
+                """,
+            }
+        default:
+            {
+                english="""
+                     But I'm glad we're finally
+                    allowed in.[K] My heart's pounding, though...
+                """,
+            }
+    }
+    message_SwitchTalk ($PARTNER_TALK_KIND) {
+        case 1:
+            {
+                english=" Anyway, let's go.",
+            }
+        case 2:
+            {
+                english=" OK, let's go in.",
+            }
+        default:
+            {
+                english=" Anyway, let's go.",
+            }
+    }
+    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
+    MovePositionMark<actor ACTOR_PLAYER>(1, Position<'m1', 30, 18.5>);
+    Wait(5);
+    MovePositionMark<actor ACTOR_ATTENDANT1>(1, Position<'m2', 30, 21.5>);
+    WaitExecuteLives(ACTOR_PLAYER);
+    Destroy<actor ACTOR_PLAYER>();
+    WaitExecuteLives(ACTOR_ATTENDANT1);
+    MovePositionMark<actor ACTOR_ATTENDANT1>(1, Position<'m3', 30, 18.5>);
+    WaitExecuteLives(ACTOR_ATTENDANT1);
+    Destroy<actor ACTOR_ATTENDANT1>();
+    bgm_FadeOut(120);
+    screen2_FadeOut(0, 30);
+    screen_FadeOut(1, 30);
+    back2_SetMode(0);
+    end;
+}
+
+	]]--
 
 	local player = CH("PLAYER")
 	local partner = CH("PARTNER")
@@ -451,46 +622,89 @@ function guild_outside_dusk.CH2_GuildSceneB()
 	
 	local cam = MRKR("CamPos_1")
     GAME:MoveCamera(cam.Position.X, cam.Position.Y, 1, false)
-	local marker = MRKR("CH1_ZubatPos")
-    GROUND:TeleportTo(player, marker.Position.X - 16, marker.Position.Y - 24, Direction.Up)
-	local marker = MRKR("CH1_KoffingPos")
-    GROUND:TeleportTo(partner, marker.Position.X - 24, marker.Position.Y - 24, Direction.Right)
+    GROUND:TeleportTo(player, cam.Position.X, cam.Position.Y - 4, Direction.Up)
+    GROUND:TeleportTo(partner, MRKR("CH1_KoffingPos").Position.X - 8, cam.Position.Y - 4, Direction.Right)
+
+	local coro1 = TASK:BranchCoroutine(function() SOUND:FadeInSE("Ambient/AMB_Fire_Loud", 60) end)
+	local coro2 = TASK:BranchCoroutine(function() GAME:FadeIn(60) end)
+	TASK:JoinCoroutines({coro1, coro2})
+
+	GAME:WaitFrames(60)
+
+	SOUND:PlayBattleSE("EVT_Emote_Sweatdrop")
 	GROUND:CharSetEmote(player, "sweatdrop", 1)
 	GROUND:CharSetEmote(partner, "sweatdrop", 1)
-	GROUND:CharAnimateTurnTo(player, Direction.Left, 2)
-	--UI:SetSpeaker(partner)
-	--UI:SetSpeakerEmotion("Worried")
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_11']))
-	--UI:ResetSpeaker()
-        --UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Unknown_7']))
+	GAME:WaitFrames(45)
+
+	GROUND:CharAnimateTurnTo(partner, Direction.Right, 4)
+	GROUND:CharAnimateTurnTo(player, Direction.Left, 4)
+	
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Worried")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_12_'..tostring(pTalkKind)]))
+
+	GAME:WaitFrames(30)
+	
+	ExplorerEssentials.SetSpeakerUnknown(nil)
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Unknown_9']))
+
+	SOUND:PlayBattleSE("EVT_Emote_Startled")
 	GROUND:CharSetEmote(player, "notice", 1)
-	GROUND:CharSetEmote(player, "notice", 1)
-	GROUND:CharAnimateTurnTo(player, Direction.Up, 2)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Unknown_8']))
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Unknown_9']))
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Unknown_10']))
+	GROUND:CharSetEmote(partner, "notice", 1)
+	GROUND:CharAnimateTurnTo(partner, Direction.Right, 4)
+	GROUND:CharAnimateTurnTo(player, Direction.Up, 4)
+	GAME:WaitFrames(30)
+
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Unknown_10'], _DATA:GetMonster(player.CurrentForm.Species):GetColoredName()))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Unknown_11']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Unknown_12']))
 
 	-- ANIMATE GATE OPENING
 
-	GROUND:CharAnimateTurnTo(partner, Direction.UpRight, 2)
-	CharacterActions.ScaredJump(partner, Direction.Up)
+	--[[
+	TODO:
+	- Replace Closed Gate Sprites with Objects (Bottom Layer -> Gate -> Entrance Mask)
+	- Add Built-In Camera Shake Effect
+	]]--
+
+	SOUND:PlayBattleSE("EVT_CH02_Guild_Gate_Open")
+	GAME:WaitFrames(90) --TEMP
+	GAME:WaitFrames(40)
+
+	SOUND:PlayBattleSE("EVT_Emote_Startled")
+	GROUND:CharAnimateTurnTo(partner, Direction.UpRight, 4)
+	CharacterActions.ScaredJump(partner, Direction.UpRight)
 	GROUND:CharSetEmote(player, "shock", 1)
-	GROUND:CharAnimateTurnTo(partner, Direction.Right, 2)
-	GROUND:CharAnimateTurnTo(player, Direction.Left, 2)
-	--UI:SetSpeaker(partner)
-	--UI:SetSpeakerEmotion("Shock")
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_12']))
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_13']))
-	--UI:SetSpeakerEmotion("Normal")
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_14']))
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_15']))
-	GROUND:MoveToPosition(player, marker.Position.X + 16, marker.Position.Y - 40, false, 1)	
+
+	UI:SetSpeaker(partner)
+	UI:SetSpeakerEmotion("Surprised")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_13_'..tostring(pTalkKind)]))
+
+	GROUND:CharAnimateTurnTo(partner, Direction.Right, 4)
+	GROUND:CharAnimateTurnTo(player, Direction.Left, 4)
+
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_14']))
+
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_15']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_16_'..tostring(pTalkKind)]))
+
+	local entry = MRKR("CH2_GuildEntrance")
+
+	GROUND:MoveToPosition(player, entry.Position.X, entry.Position.Y, false, 1)	
 	GROUND:Hide("PLAYER")
-	GROUND:MoveToPosition(partner, marker.Position.X + 16, marker.Position.Y - 24, false, 1)	
-	GROUND:MoveToPosition(partner, marker.Position.X + 16, marker.Position.Y - 40, false, 1)	
+
+	GROUND:MoveToPosition(partner, entry.Position.X, entry.Position.Y, false, 1)	
 	GROUND:Hide("PARTNER")
-	--GAME:FadeOut(false, 60)
+
+	local coro1 = TASK:BranchCoroutine(function() GAME:FadeOut(false, 60) end)
+	local coro2 = TASK:BranchCoroutine(function() SOUND:FadeOutSE("Ambient/AMB_Fire_Loud", 120) end)
+	TASK:JoinCoroutines({coro1, coro2})
+
 	--jump to scene inside top of guild
+
+	SV.Cutscene.ProgressFlag = 0
+	GAME:RestartToTitle() -- TEMP
 
 end
 
