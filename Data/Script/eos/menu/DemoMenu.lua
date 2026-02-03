@@ -1,7 +1,7 @@
 --[[
     Demo Menu
 
-    For the EoSO End of Demo, includes replayable dungeons, refights, and a jukebox.
+    For the EoSO End of Demo
 ]]
 
 
@@ -30,7 +30,7 @@ function DemoMenu:initialize(callback, start_choice)
 
     local choices = {
         {STRINGS:FormatKey("DEMO_CH1"), true, function() self:choose(1) end},
-        {STRINGS:FormatKey("DEMO_CH2"), false, function() self:choose(2) end},
+        {STRINGS:FormatKey("DEMO_CH2"), true, function() self:choose(2) end},
         {STRINGS:FormatKey("DEMO_CH3"), false, function() self:choose(3) end},
         {STRINGS:FormatKey("DEMO_CH4"), false, function() self:choose(4) end},
         {STRINGS:FormatKey("DEMO_CH5"), false, function() self:choose(5) end},

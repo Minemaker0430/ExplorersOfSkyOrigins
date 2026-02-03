@@ -34,7 +34,6 @@ end
 ---guild_outside_dusk.Enter(map)
 --Engine callback function
 function guild_outside_dusk.Enter(map)
-	ExplorerEssentials.SetProgress(2, 0) -- TEMP
 	
 	if SV.Progression.Chapter == 1 then
 		GAME:CutsceneMode(true)
@@ -659,16 +658,13 @@ def 0 {
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Unknown_11']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Unknown_12']))
 
-	-- ANIMATE GATE OPENING
-
-	--[[
-	TODO:
-	- Replace Closed Gate Sprites with Objects (Bottom Layer -> Gate -> Entrance Mask)
-	- Add Built-In Camera Shake Effect
-	]]--
-
 	SOUND:PlayBattleSE("EVT_CH02_Guild_Gate_Open")
-	GAME:WaitFrames(90) --TEMP
+	local gate = OBJ("GuildGate")
+	GROUND:ObjectSetAnim(gate, 4, -1, -1, Direction.Down, 1)
+	GROUND:MoveScreen(RogueEssence.Content.ScreenMover(2, 2, 80))
+	GAME:WaitFrames(79) -- 4 frames per sprite frame * 20 sprite frames = 80 total frames - 1 frame to let the gate not loop
+	GROUND:Hide("GuildGate")
+
 	GAME:WaitFrames(40)
 
 	SOUND:PlayBattleSE("EVT_Emote_Startled")
