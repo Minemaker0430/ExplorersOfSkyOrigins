@@ -16,6 +16,7 @@ local guild_entrance = {}
 --Engine callback function
 function guild_entrance.Init(map)
 
+  COMMON.RespawnStarterPartner()
 
 end
 
@@ -23,7 +24,17 @@ end
 --Engine callback function
 function guild_entrance.Enter(map)
 
-  GAME:FadeIn(20)
+  if SV.Progression.Chapter == 2 then
+    guild_entrance.CH2_Entrance() -- afaik this is the only ch2 cutscene in this room
+  else
+    -- No Cutscenes are occurring
+    ExplorerEssentials.SpawnPartner()
+
+    GAME:FadeIn(20)
+
+  end
+
+  --GAME:EnterGroundMap("guild_outside", "GuildEntranceMarker") --TEMP
 
 end
 
@@ -60,6 +71,34 @@ end
 -- Entities Callbacks
 -------------------------------
 
+function guild_entrance.Exit_Touch(obj, activator)
+
+  GAME:FadeOut(false, 20)
+  GAME:EnterGroundMap("guild_outside", "GuildEntranceMarker")
+
+end
+
+function guild_entrance.F2_Touch(obj, activator)
+
+  --GAME:EnterGroundMap("crossroads_south", "CrossRoadsAssemblyEntranceMarker")
+
+end
+
+function guild_entrance.LeftSign_Action(obj, activator)
+
+end
+
+function guild_entrance.RightSign_Action(obj, activator)
+
+end
+
+-------------------------------
+-- Cutscene Functions
+-------------------------------
+
+function guild_entrance.CH2_Entrance()
+
+end
 
 return guild_entrance
 
