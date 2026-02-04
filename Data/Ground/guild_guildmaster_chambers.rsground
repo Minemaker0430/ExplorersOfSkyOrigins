@@ -27665,10 +27665,10 @@
 "triggerType": 0,
 "ObjectAnim": {
 "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
-"AnimIndex": "RelicFragment",
-"FrameTime": 1,
-"StartFrame": -1,
-"EndFrame": -1,
+"AnimIndex": "ExplorationKit",
+"FrameTime": 4,
+"StartFrame": 0,
+"EndFrame": 0,
 "AnimDir": -1,
 "Alpha": 255,
 "AnimFlip": 0
@@ -27690,11 +27690,11 @@
 "Cycles": 0,
 "DrawOffset": {
 "X": 0,
-"Y": 0
+"Y": 8
 },
 "Collider": {
 "X": 196,
-"Y": 213,
+"Y": 210,
 "Width": 16,
 "Height": 16
 }
@@ -27801,6 +27801,34 @@
 "Collider": {
 "X": 196,
 "Y": 288,
+"Width": 16,
+"Height": 16
+}
+},
+{
+"EntName": "CH2_PartnerPos",
+"Direction": 0,
+"EntEnabled": true,
+"EntOrder": 0,
+"InteractOrder": 0,
+"triggerType": 0,
+"Collider": {
+"X": 176,
+"Y": 232,
+"Width": 16,
+"Height": 16
+}
+},
+{
+"EntName": "CH2_PlayerPos",
+"Direction": 0,
+"EntEnabled": true,
+"EntOrder": 0,
+"InteractOrder": 0,
+"triggerType": 0,
+"Collider": {
+"X": 216,
+"Y": 232,
 "Width": 16,
 "Height": 16
 }
