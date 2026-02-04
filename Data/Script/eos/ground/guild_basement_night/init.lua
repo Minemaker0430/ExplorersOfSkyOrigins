@@ -69,6 +69,60 @@ end
 -- Entities Callbacks
 -------------------------------
 
+-------------------------------
+-- Cutscene Functions
+-------------------------------
+
+function guild_basement_night.CH2_OutsideChambers()
+  --[[
+  
+def 0 {
+    sound_Stop();
+    back_SetGround(LEVEL_G01P04C);
+    supervision_Acting(0);
+    camera_SetMyself<performer 0>();
+    screen_FadeIn(1, 30);
+    Wait(30);
+    message_SetFace(ACTOR_NPC_PERAPPU, FACE_NORMAL, FACE_POS_TOP_R_CENTER);
+    message_Talk({
+        english="""
+             Now, this could just be a wild
+            guess on my part, but...
+        """,
+    });
+    message_Talk({
+        english="""
+             I would guess that it's because
+            you fail so often. Our Guildmaster must be
+            seething with anger over you.
+        """,
+    });
+    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
+    SetAnimation<actor ACTOR_NPC_PERAPPU>(9);
+    Wait(30);
+    SetAnimation<actor ACTOR_NPC_PERAPPU>(2);
+    message_SetFace(ACTOR_NPC_PERAPPU, FACE_PAIN, FACE_POS_TOP_R_CENTER);
+    message_Talk({
+        english="""
+             Our Guildmaster is truly a
+            terror when enraged...
+        """,
+    });
+    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
+    message_SetFace(ACTOR_NPC_PERAPPU, FACE_NORMAL, FACE_POS_TOP_R_CENTER);
+    message_Talk({
+        english="""
+             So watch yourself and do your
+            best to avoid displeasing our Guildmaster.
+        """,
+    });
+    message_Close();
+    screen_FadeOut(1, 30);
+    end;
+}
+
+  ]]--
+end
 
 return guild_basement_night
 

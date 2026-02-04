@@ -29,8 +29,8 @@ G01P02A - guild_entrance
 G01P03A - guild_missions
 G01P04A - guild_basement
 G01P04C - guild_basement_night
-G01P05A - guild_wigglytuff (NYI)
-G01P05C - guild_wigglytuff_night (NYI)
+G01P05A - guild_guildmaster_chambers
+G01P05C - guild_guildmaster_chambers_night (NYI)
 G01P06A - guild_dining_hall (NYI)
 G01P06B - guild_dining_hall_night (NYI)
 G01P07A - guild_bedroom (NYI)
@@ -40,7 +40,7 @@ G01P09A - guild_upper_bedroom (NYI)
 G01P09C - guild_upper_bedroom_night (NYI)
 G01P10A - guild_lower_bedroom (NYI)
 G01P10C - guild_lower_bedroom_night (NYI)
-S02P01A - personality_test + Dream Sequences (NYI)
+S02P01A - personality_test + Dream Sequences(?) (NYI)
 S11P02C - title_catch
 T00P02 + T00P03 - treasure_town
 T01P03A - marowak_dojo
@@ -104,14 +104,17 @@ CORO_JUMP_HAPPY_FUNC_SERIES -> CharacterActions.HopOnce(ent, dir)
 --------------------
 Animations
 --------------------
+
 2 -> None/Reset(?)
 5 -> Walk
 9 -> Charge
 22 -> Nod
+66 -> Pose
 
 --------------------
 Dialogue Import Tips
 --------------------
+
 For Partner:
     Middle = Neutral (PartnerTalkKind 0)
     Top = "Cool" (PartnerTalkKind 1)

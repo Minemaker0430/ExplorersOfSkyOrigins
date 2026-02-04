@@ -223,13 +223,9 @@ function guild_basement.Chatot_Action(obj, activator)
 
 end
 
-
-
-
 -------------------------------
 -- Cutscene Functions
 -------------------------------
-
 
 function guild_basement.CH2_BasementTour()
 	--[[
