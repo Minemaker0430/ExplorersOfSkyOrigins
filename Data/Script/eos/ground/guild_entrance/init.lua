@@ -97,7 +97,58 @@ end
 -------------------------------
 
 function guild_entrance.CH2_Entrance()
+  --[[
+  
+def 0 {
+    sound_Stop();
+    back_SetGround(LEVEL_G01P02A);
+    camera_SetPositionMark(Position<'m0', 26, 24.5>);
+    supervision_Acting(0);
+    screen_FadeIn(1, 30);
+    Wait(30);
+    se_Play(8967);
+    SetEffect<actor ACTOR_ATTENDANT1>(EFFECT_EXCLAMATION_MARK, 3);
+    WaitEffect<actor ACTOR_ATTENDANT1>();
+    WaitExecuteLives(ACTOR_ATTENDANT1);
+    message_SetFace(ACTOR_ATTENDANT1, FACE_SURPRISED, FACE_POS_STANDARD);
+    message_SwitchTalk ($PARTNER_TALK_KIND) {
+        case 1:
+            {
+                english="""
+                     Th-there's a hatch that leads
+                    underground here!
+                """,
+            }
+        case 2:
+            {
+                english="""
+                     Th-there's a hatch that leads
+                    underground here!
+                """,
+            }
+        default:
+            {
+                english="""
+                     Th-there's a hatch that leads
+                    underground here!
+                """,
+            }
+    }
+    message_Close();
+    MovePositionMark<actor ACTOR_PLAYER>(1, Position<'m1', 25.5, 20.5>);
+    Wait(20);
+    MovePositionMark<actor ACTOR_ATTENDANT1>(1, Position<'m2', 25.5, 20.5>);
+    WaitExecuteLives(ACTOR_PLAYER);
+    Destroy<actor ACTOR_PLAYER>();
+    WaitExecuteLives(ACTOR_ATTENDANT1);
+    Destroy<actor ACTOR_ATTENDANT1>();
+    screen_FadeOut(1, 30);
+    end;
+}
 
+  ]]--
+
+  
 end
 
 return guild_entrance
