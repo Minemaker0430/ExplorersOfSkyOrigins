@@ -152,10 +152,10 @@
     <value>We do.</value>
   </data>
   <data name="CH2_Partner_1_0" xml:space="preserve">
-    <value>This place is {0}'s Guild.</value>
+    <value>This is {0}'s Guild.</value>
   </data>
   <data name="CH2_Partner_1_1" xml:space="preserve">
-    <value>This is {0}'s Guild.</value>
+    <value>This place is {0}'s Guild.</value>
   </data>
   <data name="CH2_Partner_1_2" xml:space="preserve">
     <value>This is {0}'s Guild.</value>
@@ -170,10 +170,10 @@
     <value>Y-y-yikes![script=0]</value>
   </data>
   <data name="CH2_Partner_5_0" xml:space="preserve">
-    <value>I still think this place is a bit weird. It just is!</value>
+    <value>Isn't there something just a little odd about this place?</value>
   </data>
   <data name="CH2_Partner_5_1" xml:space="preserve">
-    <value>Isn't there something just a little odd about this place?</value>
+    <value>I still think this place is a bit weird. It just is!</value>
   </data>
   <data name="CH2_Partner_5_2" xml:space="preserve">
     <value>Isn't this place just a little bit odd? It just is!</value>
@@ -194,10 +194,10 @@
     <value>Waah!</value>
   </data>
   <data name="CH2_Partner_9_0" xml:space="preserve">
-    <value>N-no. I have to tough it out...</value>
+    <value>N-no. I have to be strong...</value>
   </data>
   <data name="CH2_Partner_9_1" xml:space="preserve">
-    <value>N-no. I have to be strong...</value>
+    <value>N-no. I have to tough it out...</value>
   </data>
   <data name="CH2_Partner_9_2" xml:space="preserve">
     <value>N-no. I can't lose it now...</value>

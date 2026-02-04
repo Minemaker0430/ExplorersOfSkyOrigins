@@ -108,3 +108,11 @@ Animations
 5 -> Walk
 9 -> Charge
 22 -> Nod
+
+--------------------
+Dialogue Import Tips
+--------------------
+For Partner:
+    Middle = Neutral (PartnerTalkKind 0)
+    Top = "Cool" (PartnerTalkKind 1)
+    Bottom = "Cute" (PartnerTalkKind 2)

@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.NetStandard.ResXResourceReader, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.NetStandard.ResXResourceWriter, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </resheader>
+  <data name="CH2_Chatot_1" xml:space="preserve">
+    <value>This is the guild's second underground floor.</value>
+  </data>
+  <data name="CH2_Chatot_2" xml:space="preserve">
+    <value>This is mainly where the apprentices work.</value>
+  </data>
+  <data name="CH2_Chatot_3" xml:space="preserve">
+    <value>Team registration is this way. Come along, please.</value>
+  </data>
+  <data name="CH2_Partner_1" xml:space="preserve">
+    <value>Wow! We're two floors under the ground, but you can see outside!</value>
+  </data>
+  <data name="CH2_Chatot_4" xml:space="preserve">
+    <value>Oh, please! Hush now!</value>
+  </data>
+  <data name="CH2_Chatot_5" xml:space="preserve">
+    <value>The guild is built into the side of a cliff.</value>
+  </data>
+  <data name="CH2_Chatot_6" xml:space="preserve">
+    <value>It's only natural that you would be able to see outside.</value>
+  </data>
+  <data name="CH2_Partner_2" xml:space="preserve">
+    <value>Oh.</value>
+  </data>
+  <data name="CH2_Chatot_7" xml:space="preserve">
+    <value>Now, here we are at Guildmaster {0}'s chamber.</value>
+  </data>
+  <data name="CH2_Chatot_8" xml:space="preserve">
+    <value>On no account...[pause=0] I repeat, on no account should you be discourteous to our Guildmaster.</value>
+  </data>
+  <data name="CH2_Chatot_9" xml:space="preserve">
+    <value>Guildmaster![pause=0] It's {0}! ♪ I'm coming in!</value>
+  </data>
+</root>

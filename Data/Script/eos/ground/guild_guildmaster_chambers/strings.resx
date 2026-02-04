@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.NetStandard.ResXResourceReader, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.NetStandard.ResXResourceWriter, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </resheader>
+  <data name="CH2_Chatot_1" xml:space="preserve">
+    <value>Guildmaster![pause=0] I present to you two Pokémon who wish to join our guild as apprentices.</value>
+  </data>
+  <data name="CH2_Chatot_2" xml:space="preserve">
+    <value>Guildmaster...[pause=0]um...[pause=0]Guildmaster?</value>
+  </data>
+  <data name="CH2_Wigglytuff_1" xml:space="preserve">
+    <value>Hiya!</value>
+  </data>
+  <data name="CH2_Wigglytuff_2" xml:space="preserve">
+    <value>I'm {0}![pause=0] I'm the guild's Guildmaster!</value>
+  </data>
+  <data name="CH2_Wigglytuff_3" xml:space="preserve">
+    <value>You want to form an exploration team?[pause=0] Then, let's go for it!</value>
+  </data>
+  <data name="CH2_Wigglytuff_4" xml:space="preserve">
+    <value>First we must register your exploration team's name!</value>
+  </data>
+  <data name="CH2_Wigglytuff_5" xml:space="preserve">
+    <value>So tell me your team's name?</value>
+  </data>
+  <data name="CH2_Partner_1_0" xml:space="preserve">
+    <value>Oh? Our team's name?</value>
+  </data>
+  <data name="CH2_Partner_1_1" xml:space="preserve">
+    <value>Huh? The team's name?</value>
+  </data>
+  <data name="CH2_Partner_1_2" xml:space="preserve">
+    <value>Oh? Our team's name?</value>
+  </data>
+  <data name="CH2_Partner_2_0" xml:space="preserve">
+    <value>We didn't think of that.</value>
+  </data>
+  <data name="CH2_Partner_2_1" xml:space="preserve">
+    <value>I never thought of that.</value>
+  </data>
+  <data name="CH2_Partner_2_2" xml:space="preserve">
+    <value>I didn't think about a team name.</value>
+  </data>
+  <data name="CH2_Partner_3_0" xml:space="preserve">
+    <value>So what do you think would be a good name for us, {0}?</value>
+  </data>
+  <data name="CH2_Partner_3_1" xml:space="preserve">
+    <value>Hey, do you have any ideas for a cool name, {0}?</value>
+  </data>
+  <data name="CH2_Partner_3_2" xml:space="preserve">
+    <value>So what do you think would be a good name for us, {0}?</value>
+  </data>
+  <data name="CH2_Partner_4" xml:space="preserve">
+    <value>...{0}?![pause=0] Team {0}!</value>
+  </data>
+  <data name="CH2_Partner_5_0" xml:space="preserve">
+    <value>Yeah... That's a good name![pause=0] It suits us!</value>
+  </data>
+  <data name="CH2_Partner_5_1" xml:space="preserve">
+    <value>Yeah... That's a good name![pause=0] I like it!</value>
+  </data>
+  <data name="CH2_Partner_5_2" xml:space="preserve">
+    <value>I like it! It's a good name![pause=0] It's perfect for us!</value>
+  </data>
+  <data name="CH2_Wigglytuff_6" xml:space="preserve">
+    <value>All settled, then![pause=0] I'll register your team as {0}.</value>
+  </data>
+  <data name="CH2_Wigglytuff_7" xml:space="preserve">
+    <value>Registering! ♪ Registering! ♪</value>
+  </data>
+  <data name="CH2_Wigglytuff_8" xml:space="preserve">
+    <value>All registered...</value>
+  </data>
+  <data name="CH2_Wigglytuff_9" xml:space="preserve">
+    <value>YOOM...TAH!</value>
+  </data>
+  <data name="CH2_Wigglytuff_10" xml:space="preserve">
+    <value>Congratulations![pause=0] From now on, you're an official exploration team!</value>
+  </data>
+  <data name="CH2_Wigglytuff_11" xml:space="preserve">
+    <value>I present you with this in commemoration.</value>
+  </data>
+  <data name="CH2_Narration_1" xml:space="preserve">
+    <value>{0} set down\na Pokémon Exploration Team Kit!</value>
+  </data>
+  <data name="CH2_Partner_6" xml:space="preserve">
+    <value>A Pokémon Exploration Team Kit?</value>
+  </data>
+  <data name="CH2_Wigglytuff_12" xml:space="preserve">
+    <value>Yup. It's what every exploration team needs.</value>
+  </data>
+  <data name="CH2_Wigglytuff_13" xml:space="preserve">
+    <value>Quick, open it up.</value>
+  </data>
+  <data name="CH2_Narration_2" xml:space="preserve">
+    <value>{0} opened the\nPokémon Exploration Team Kit.</value>
+  </data>
+  <data name="CH2_Narration_3" xml:space="preserve">
+    <value>There was an\nExplorer Badge inside...</value>
+  </data>
+  <data name="CH2_Narration_4" xml:space="preserve">
+    <value>And a Wonder Map...</value>
+  </data>
+  <data name="CH2_Narration_5" xml:space="preserve">
+    <value>And a Treasure Bag!</value>
+  </data>
+  <data name="CH2_Partner_7_0" xml:space="preserve">
+    <value>Yeah! There are all sorts of great items in here!</value>
+  </data>
+  <data name="CH2_Partner_7_1" xml:space="preserve">
+    <value>Yeah! There's all sorts of good stuff in here!</value>
+  </data>
+  <data name="CH2_Partner_7_2" xml:space="preserve">
+    <value>Yeah! There are all sorts of great items in here!</value>
+  </data>
+  <data name="CH2_Wigglytuff_14" xml:space="preserve">
+    <value>That's your Explorer Badge! It's your official team identification!</value>
+  </data>
+  <data name="CH2_Wigglytuff_15" xml:space="preserve">
+    <value>And there's the Wonder Map, which is a wonder of convenience!</value>
+  </data>
+  <data name="CH2_Wigglytuff_16" xml:space="preserve">
+    <value>Finally, there's a Treasure Bag.[pause=0] It lets you carry items you find in dungeons.</value>
+  </data>
+  <data name="CH2_Wigglytuff_17" xml:space="preserve">
+    <value>Your successes as an exploration team can lead to bigger and bigger space for your Treasure Bag.</value>
+  </data>
+  <data name="CH2_Wigglytuff_18" xml:space="preserve">
+    <value>It's a very wonderful bag! ♪</value>
+  </data>
+  <data name="CH2_Wigglytuff_19" xml:space="preserve">
+    <value>Have a peek inside your Treasure Bag.</value>
+  </data>
+  <data name="CH2_Narration_6" xml:space="preserve">
+    <value>{0} peered into\nthe Treasure Bag.</value>
+  </data>
+  <data name="CH2_Narration_7" xml:space="preserve">
+    <value>The {0}\nwas inside!</value>
+  </data>
+  <data name="CH2_Narration_8" xml:space="preserve">
+    <value>[A/An] {0} was also inside!</value>
+  </data>
+  <data name="CH2_Wigglytuff_20" xml:space="preserve">
+    <value>Those two items are special.</value>
+  </data>
+  <data name="CH2_Wigglytuff_21" xml:space="preserve">
+    <value>I'm sure they will help you on your adventures! ♪</value>
+  </data>
+  <data name="CH2_Partner_8" xml:space="preserve">
+    <value>Th-thank you![pause=0] We'll do our best!</value>
+  </data>
+  <data name="CH2_Wigglytuff_22" xml:space="preserve">
+    <value>Yup.[pause=0] But you're only apprenticing right now. So do your best...to train!</value>
+  </data>
+  <data name="CH2_Partner_9" xml:space="preserve">
+    <value>We will!</value>
+  </data>
+  <data name="CH2_Partner_10_0" xml:space="preserve">
+    <value>Let's always do our best, {0}!</value>
+  </data>
+  <data name="CH2_Partner_10_1" xml:space="preserve">
+    <value>Let's do this right, {0}!</value>
+  </data>
+  <data name="CH2_Partner_10_2" xml:space="preserve">
+    <value>Let's always do our best, {0}!</value>
+  </data>
+</root>

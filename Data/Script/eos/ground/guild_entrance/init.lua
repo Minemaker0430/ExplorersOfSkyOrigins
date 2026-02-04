@@ -41,8 +41,7 @@ end
 ---guild_entrance.Exit(map)
 --Engine callback function
 function guild_entrance.Exit(map)
-
-
+  GAME:FadeOut(false, 20)
 end
 
 ---guild_entrance.Update(map)
@@ -73,7 +72,6 @@ end
 
 function guild_entrance.Exit_Touch(obj, activator)
 
-  GAME:FadeOut(false, 20)
   GAME:EnterGroundMap("guild_outside", "GuildEntranceMarker")
 
 end
@@ -85,11 +83,13 @@ function guild_entrance.F2_Touch(obj, activator)
 end
 
 function guild_entrance.LeftSign_Action(obj, activator)
-
+  UI:ResetSpeaker()
+  UI:WaitShowDialogue("man i hate living in detroit") -- PLACEHOLDER (if it wasn't obvious)
 end
 
 function guild_entrance.RightSign_Action(obj, activator)
-
+  UI:ResetSpeaker()
+  UI:WaitShowDialogue("man i hate living in detroit") -- PLACEHOLDER (if it wasn't obvious)
 end
 
 -------------------------------
@@ -148,7 +148,7 @@ def 0 {
 
   ]]--
 
-  
+
 end
 
 return guild_entrance

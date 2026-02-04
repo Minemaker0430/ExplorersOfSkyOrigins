@@ -58,7 +58,109 @@
   <resheader name="writer">
     <value>System.Resources.NetStandard.ResXResourceWriter, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </resheader>
-  <data name="String_0" xml:space="preserve">
-    <value />
+  <data name="CH2_Partner_1" xml:space="preserve">
+    <value>Wow!</value>
+  </data>
+  <data name="CH2_Partner_2" xml:space="preserve">
+    <value>So this is {0}'s Guild!</value>
+  </data>
+  <data name="CH2_Partner_3_0" xml:space="preserve">
+    <value>So many Pokémon! I wonder if they're all on exploration teams?</value>
+  </data>
+  <data name="CH2_Partner_3_1" xml:space="preserve">
+    <value>There sure are a lot of Pokémon here. Are they all exploration teams?</value>
+  </data>
+  <data name="CH2_Partner_3_2" xml:space="preserve">
+    <value>There are sure a lot of Pokémon here. Do they all belong to exploration teams?</value>
+  </data>
+  <data name="CH2_Unknown_1" xml:space="preserve">
+    <value>Excuse me!</value>
+  </data>
+  <data name="CH2_Unknown_2" xml:space="preserve">
+    <value>It was you two that just came in, right?</value>
+  </data>
+  <data name="CH2_Partner_4" xml:space="preserve">
+    <value>Y-yes!</value>
+  </data>
+  <data name="CH2_Unknown_3" xml:space="preserve">
+    <value>I'm {0}! ♪[pause=0] I'm the Pokémon in the know around these parts!</value>
+  </data>
+  <data name="CH2_Chatot_1" xml:space="preserve">
+    <value>I am Guildmaster {0}'s right-hand Pokémon! ♪</value>
+  </data>
+  <data name="CH2_Chatot_2" xml:space="preserve">
+    <value>Now, shoo! Leave the premises! We have no time for salespeople or silly surveys.[pause=0] Off you go, if you please!</value>
+  </data>
+  <data name="CH2_Partner_5" xml:space="preserve">
+    <value>N-no! That's not why we're here!</value>
+  </data>
+  <data name="CH2_Partner_6" xml:space="preserve">
+    <value>We want to form an exploration team...</value>
+  </data>
+  <data name="CH2_Partner_7_0" xml:space="preserve">
+    <value>That's why we came. We want to be trained as an exploration team.</value>
+  </data>
+  <data name="CH2_Partner_7_1" xml:space="preserve">
+    <value>So we came here. We want to get proper training as an exploration team.</value>
+  </data>
+  <data name="CH2_Partner_7_2" xml:space="preserve">
+    <value>So we came here. We want to get proper training as an exploration team.</value>
+  </data>
+  <data name="CH2_Chatot_3" xml:space="preserve">
+    <value>Wh-what?! Exploration team?</value>
+  </data>
+  <data name="CH2_Chatot_4" xml:space="preserve">
+    <value>It's rare to see a kid like this want to apprentice at the guild.</value>
+  </data>
+  <data name="CH2_Chatot_5" xml:space="preserve">
+    <value>Especially given how hard our training is!</value>
+  </data>
+  <data name="CH2_Chatot_6" xml:space="preserve">
+    <value>Surely the steady stream of Pokémon that run away from our rigorous training proves how true that is!</value>
+  </data>
+  <data name="CH2_Partner_8_0" xml:space="preserve">
+    <value>Excuse me.</value>
+  </data>
+  <data name="CH2_Partner_8_1" xml:space="preserve">
+    <value>Hey.</value>
+  </data>
+  <data name="CH2_Partner_8_2" xml:space="preserve">
+    <value>Excuse me.</value>
+  </data>
+  <data name="CH2_Partner_9_0" xml:space="preserve">
+    <value>Is the exploration team training that severe?</value>
+  </data>
+  <data name="CH2_Partner_9_1" xml:space="preserve">
+    <value>Is the exploration team training really that strict?</value>
+  </data>
+  <data name="CH2_Partner_9_2" xml:space="preserve">
+    <value>Is the exploration team training that harsh?</value>
+  </data>
+  <data name="CH2_Chatot_7" xml:space="preserve">
+    <value>What?!</value>
+  </data>
+  <data name="CH2_Chatot_8" xml:space="preserve">
+    <value>Well...no! No, no, no!</value>
+  </data>
+  <data name="CH2_Chatot_9" xml:space="preserve">
+    <value>It's not true in the slightest![pause=0] Our training program for exploration teams is as easy as can be!</value>
+  </data>
+  <data name="CH2_Chatot_10" xml:space="preserve">
+    <value>Well, well, well! ♪[pause=0] I wish you had told me up front that you wanted to be an exploration team! ♪ Hee-heeee! ♪</value>
+  </data>
+  <data name="CH2_Partner_10_0" xml:space="preserve">
+    <value>His attitude suddenly changed, didn't it...?</value>
+  </data>
+  <data name="CH2_Partner_10_1" xml:space="preserve">
+    <value>His attitude did an about-face...</value>
+  </data>
+  <data name="CH2_Partner_10_2" xml:space="preserve">
+    <value>What a shift in attitude!</value>
+  </data>
+  <data name="CH2_Chatot_11" xml:space="preserve">
+    <value>OK! Let's get your team signed up right away. Follow me! ♪</value>
+  </data>
+  <data name="CH2_Chatot_12" xml:space="preserve">
+    <value>Oh, anything wrong? Come on! Over here! ♪[pause=0] Quickly, please! ♪</value>
   </data>
 </root>

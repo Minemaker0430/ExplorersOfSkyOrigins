@@ -231,7 +231,169 @@ end
 -------------------------------
 
 
-function guild_basement.Chapter2Scene5()
+function guild_basement.CH2_BasementTour()
+	--[[
+	
+def 0 {
+    bgm_PlayFadeIn(BGM_WIGGLYTUFFS_GUILD, 0, 256);
+    back_SetGround(LEVEL_G01P04A2);
+    supervision_LoadStation(LEVEL_G01P04A, 'UM02');
+    supervision_StationCommon(0);
+    supervision_StationCommon(99);
+    supervision_Acting(0);
+    SetPositionInitial<actor ACTOR_NPC_GUREGGURU>();
+    SetAnimation<actor ACTOR_NPC_GUREGGURU>(2);
+    camera_SetMyself<performer 0>();
+    screen_FadeIn(1, 30);
+    Wait(30);
+    message_SetFace(ACTOR_NPC_PERAPPU, FACE_NORMAL, FACE_POS_STANDARD);
+    message_Talk({
+        english="""
+             This is the guild's second
+            underground floor.
+        """,
+    });
+    message_Talk({
+        english="""
+             This is mainly where the
+            apprentices work.
+        """,
+    });
+    message_Talk({
+        english="""
+             Team registration is this way.
+            Come along, please.
+        """,
+    });
+    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
+    MovePositionMark<performer 0>(1, Position<'m0', 52, 27.5>);
+    MovePositionMark<actor ACTOR_NPC_PERAPPU>(1, Position<'m1', 52, 27.5>);
+    Wait(30);
+    MovePositionMark<actor ACTOR_PLAYER>(1, Position<'m2', 48, 25>);
+    MovePositionMark<actor ACTOR_ATTENDANT1>(1, Position<'m3', 48, 28>);
+    WaitExecuteLives(ACTOR_NPC_PERAPPU);
+    MovePositionMark<actor ACTOR_NPC_PERAPPU>(1, Position<'m4', 52.5, 25>);
+    WaitExecuteLives(ACTOR_NPC_PERAPPU);
+    Turn2Direction<actor ACTOR_NPC_PERAPPU>(4, 2, DIR_LEFT);
+    WaitExecuteLives(ACTOR_NPC_PERAPPU);
+    WaitExecuteLives(ACTOR_PLAYER);
+    WaitExecuteLives(ACTOR_ATTENDANT1);
+    Turn2Direction<actor ACTOR_ATTENDANT1>(4, 10, DIR_RIGHT);
+    WaitExecuteLives(ACTOR_ATTENDANT1);
+    Wait(15);
+    se_Play(8967);
+    SetEffect<actor ACTOR_ATTENDANT1>(EFFECT_EXCLAMATION_MARK, 3);
+    WaitEffect<actor ACTOR_ATTENDANT1>();
+    WaitExecuteLives(ACTOR_ATTENDANT1);
+    MovePositionMark<actor ACTOR_ATTENDANT1>(1.7969, Position<'m5', 58.5, 28>);
+    Turn2Direction<actor ACTOR_NPC_PERAPPU>(8, 10, DIR_DOWNRIGHT);
+    WaitExecuteLives(ACTOR_ATTENDANT1);
+    Turn2Direction<actor ACTOR_ATTENDANT1>(4, 10, DIR_UPRIGHT);
+    WaitExecuteLives(ACTOR_ATTENDANT1);
+    Wait(10);
+    ExecuteCommon<actor ACTOR_ATTENDANT1>(CORO_JUMP_ANGRY_FUNC_SERIES, 0);
+    WaitExecuteLives(ACTOR_ATTENDANT1);
+    message_SetFace(ACTOR_ATTENDANT1, FACE_INSPIRED, FACE_POS_TOP_RC_FACEOUTW);
+    message_SwitchTalk ($PARTNER_TALK_KIND) {
+        case 1:
+            {
+                english="""
+                     Wow! We're two floors under
+                    the ground, but you can see outside!
+                """,
+            }
+        case 2:
+            {
+                english="""
+                     Wow! We're two floors under
+                    the ground, but you can see outside!
+                """,
+            }
+        default:
+            {
+                english="""
+                     Wow! We're two floors under
+                    the ground, but you can see outside!
+                """,
+            }
+    }
+    message_Close();
+    se_Play(8971);
+    ExecuteCommon<actor ACTOR_NPC_PERAPPU>(CORO_JUMP_ANGRY_FUNC_SERIES, 0);
+    WaitExecuteLives(ACTOR_NPC_PERAPPU);
+    message_SetFace(ACTOR_NPC_PERAPPU, FACE_ANGRY, FACE_POS_TOP_C_FACER);
+    message_Talk({
+        english=" Oh, please! Hush now!",
+    });
+    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
+    Turn2Direction<actor ACTOR_ATTENDANT1>(4, 10, DIR_UPLEFT);
+    WaitExecuteLives(ACTOR_ATTENDANT1);
+    message_SetFace(ACTOR_NPC_PERAPPU, FACE_NORMAL, FACE_POS_TOP_C_FACER);
+    message_Talk({
+        english="""
+             The guild is built into the side
+            of a cliff.
+        """,
+    });
+    message_Talk({
+        english="""
+             It's only natural that you would
+            be able to see outside.
+        """,
+    });
+    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
+    message_SetFace(ACTOR_ATTENDANT1, FACE_NORMAL, FACE_POS_BOTTOM_R_FACEINW);
+    message_SwitchTalk ($PARTNER_TALK_KIND) {
+        case 1:
+            {
+                english=" Oh.",
+            }
+        case 2:
+            {
+                english=" Oh.",
+            }
+        default:
+            {
+                english=" Oh.",
+            }
+    }
+    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
+    Turn2DirectionLives<actor ACTOR_NPC_PERAPPU>(4, 1, ACTOR_PLAYER);
+    Wait(20);
+    Move2PositionOffset<actor ACTOR_ATTENDANT1>(1, -16, -16);
+    message_SetFace(ACTOR_NPC_PERAPPU, FACE_NORMAL, FACE_POS_TOP_R_CENTER);
+    message_Talk({
+        english="""
+             Now, here we are at Guildmaster
+            [CS:N]Wigglytuff[CR]'s chamber.
+        """,
+    });
+    message_Talk({
+        english="""
+             On no account...[K] I repeat, on no
+            account should you be discourteous to our
+            Guildmaster.
+        """,
+    });
+    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
+    Turn2Direction<actor ACTOR_NPC_PERAPPU>(4, 10, DIR_UP);
+    WaitExecuteLives(ACTOR_NPC_PERAPPU);
+    Wait(30);
+    message_Talk({
+        english="""
+             Guildmaster![K] It's [CS:N]Chatot[CR]! ♪
+            I'm coming in!
+        """,
+    });
+    message_Close();
+    bgm_FadeOut(120);
+    screen_FadeOut(1, 60);
+    WaitBgm(BGM_WIGGLYTUFFS_GUILD);
+    end;
+}
+
+	]]--
+	
 	GAME:CutsceneMode(true)
         local hTalkKind = SV.Personality.HeroTalkKind
         local pTalkKind = SV.Personality.PartnerTalkKind
