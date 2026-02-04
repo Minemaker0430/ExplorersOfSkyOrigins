@@ -52272,8 +52272,8 @@
 "EntOrder": 0,
 "InteractOrder": 0,
 "serializationLoc": {
-"X": 532,
-"Y": 11
+"X": 485,
+"Y": -21
 },
 "serializationHeight": 0,
 "serializationDir": 4,
@@ -52353,8 +52353,8 @@
 },
 "CollisionDisabled": false,
 "Collider": {
-"X": 0,
-"Y": 0,
+"X": 532,
+"Y": 11,
 "Width": 16,
 "Height": 16
 }
@@ -52368,8 +52368,8 @@
 "EntOrder": 0,
 "InteractOrder": 0,
 "serializationLoc": {
-"X": 509,
-"Y": 15
+"X": 463,
+"Y": -19
 },
 "serializationHeight": 0,
 "serializationDir": 4,
@@ -52449,8 +52449,8 @@
 },
 "CollisionDisabled": false,
 "Collider": {
-"X": 0,
-"Y": 0,
+"X": 509,
+"Y": 15,
 "Width": 16,
 "Height": 16
 }
@@ -52464,8 +52464,8 @@
 "EntOrder": 0,
 "InteractOrder": 0,
 "serializationLoc": {
-"X": 478,
-"Y": 10
+"X": 442,
+"Y": -21
 },
 "serializationHeight": 0,
 "serializationDir": 4,
@@ -52545,8 +52545,8 @@
 },
 "CollisionDisabled": false,
 "Collider": {
-"X": 0,
-"Y": 0,
+"X": 478,
+"Y": 10,
 "Width": 16,
 "Height": 16
 }
@@ -52560,8 +52560,8 @@
 "EntOrder": 0,
 "InteractOrder": 0,
 "serializationLoc": {
-"X": 561,
-"Y": 10
+"X": 508,
+"Y": -22
 },
 "serializationHeight": 0,
 "serializationDir": 4,
@@ -52641,8 +52641,8 @@
 },
 "CollisionDisabled": false,
 "Collider": {
-"X": 0,
-"Y": 0,
+"X": 561,
+"Y": 10,
 "Width": 16,
 "Height": 16
 }
@@ -52656,8 +52656,8 @@
 "EntOrder": 0,
 "InteractOrder": 0,
 "serializationLoc": {
-"X": 587,
-"Y": 13
+"X": 531,
+"Y": -21
 },
 "serializationHeight": 0,
 "serializationDir": 4,
@@ -52737,8 +52737,8 @@
 },
 "CollisionDisabled": false,
 "Collider": {
-"X": 0,
-"Y": 0,
+"X": 587,
+"Y": 13,
 "Width": 16,
 "Height": 16
 }
@@ -52752,8 +52752,8 @@
 "EntOrder": 0,
 "InteractOrder": 0,
 "serializationLoc": {
-"X": 615,
-"Y": 10
+"X": 554,
+"Y": -21
 },
 "serializationHeight": 0,
 "serializationDir": 4,
@@ -52833,8 +52833,8 @@
 },
 "CollisionDisabled": false,
 "Collider": {
-"X": 0,
-"Y": 0,
+"X": 615,
+"Y": 10,
 "Width": 16,
 "Height": 16
 }
@@ -52848,8 +52848,8 @@
 "EntOrder": 0,
 "InteractOrder": 0,
 "serializationLoc": {
-"X": 614,
-"Y": 35
+"X": 578,
+"Y": -21
 },
 "serializationHeight": 0,
 "serializationDir": 0,
@@ -52929,8 +52929,8 @@
 },
 "CollisionDisabled": false,
 "Collider": {
-"X": 0,
-"Y": 0,
+"X": 614,
+"Y": 35,
 "Width": 16,
 "Height": 16
 }
@@ -52944,8 +52944,8 @@
 "EntOrder": 0,
 "InteractOrder": 0,
 "serializationLoc": {
-"X": 410,
-"Y": 21
+"X": 417,
+"Y": -20
 },
 "serializationHeight": 0,
 "serializationDir": 0,
@@ -53025,8 +53025,8 @@
 },
 "CollisionDisabled": false,
 "Collider": {
-"X": 0,
-"Y": 0,
+"X": 415,
+"Y": -16,
 "Width": 16,
 "Height": 16
 }
@@ -53070,8 +53070,8 @@
 "Y": 0
 },
 "Collider": {
-"X": 75,
-"Y": 48,
+"X": -23,
+"Y": 11,
 "Width": 16,
 "Height": 16
 }
@@ -53339,7 +53339,7 @@
 }
 },
 {
-"NPCName": "TEAMMATE_2",
+"NPCName": "PARTNER",
 "NPCChar": {
 "Nickname": "",
 "OriginalUUID": "",
@@ -53412,7 +53412,7 @@
 "ActionEvents": [],
 "ScriptVars": null
 },
-"EntName": "TEAMMATE_2",
+"EntName": "PARTNER_SPAWN",
 "Direction": 0,
 "EntEnabled": true,
 "EntOrder": 0,
@@ -53420,8 +53420,8 @@
 "triggerType": 0,
 "EntityCallbacks": [],
 "Collider": {
-"X": 36,
-"Y": 14,
+"X": -22,
+"Y": -19,
 "Width": 16,
 "Height": 16
 }

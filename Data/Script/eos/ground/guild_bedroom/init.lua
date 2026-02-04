@@ -298,7 +298,341 @@ def 0 {
 end
 
 function guild_bedroom.CH2_WakeUp()
-  
+  --[[
+def 0 {
+    sound_Stop();
+    message_Narration(30, {
+        english="[CN]The next morning...",
+    });
+    message_Close();
+    Wait(30);
+    se_Play(8971);
+    message_ResetActor();
+    message_Talk({
+        english=" HEY![K] HEY THERE!",
+    });
+    message_KeyWait();
+    se_Play(8970);
+    message_Talk({
+        english=" RISE AND SHINE!",
+    });
+    WaitSe(8970);
+    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
+    message_SetFace(ACTOR_PLAYER, FACE_DIZZY, FACE_POS_BOTTOM_R_FACEINW);
+    message_SwitchMonologue ($HERO_TALK_KIND) {
+        case 4:
+            {
+                english="(Ugh!)",
+            }
+        default:
+            {
+                english="(Ugh!)",
+            }
+    }
+    message_SwitchMonologue ($HERO_TALK_KIND) {
+        case 4:
+            {
+                english="(M-my head is pounding!)",
+            }
+        default:
+            {
+                english="(M-my head is pounding!)",
+            }
+    }
+    message_SwitchMonologue ($HERO_TALK_KIND) {
+        case 4:
+            {
+                english="""
+                    (Wh-what a ridiculously loud voice! It almost
+                    blasted my eardrums!)
+                """,
+            }
+        default:
+            {
+                english="""
+                    (Wh-what a ridiculously loud voice! It almost
+                    blasted my eardrums!)
+                """,
+            }
+    }
+    message_Close();
+    back_SetGround(LEVEL_G01P07A);
+    supervision_Acting(0);
+    camera_SetMyself<performer 0>();
+    SetAnimation<actor ACTOR_PLAYER>(68);
+    SetAnimation<actor ACTOR_ATTENDANT1>(68);
+    WaitAnimation<actor ACTOR_ATTENDANT1>();
+    WaitExecuteLives(ACTOR_ATTENDANT1);
+    screen_FadeIn(1, 30);
+    Wait(30);
+    se_Play(8971);
+    camera_SetEffect(2, 2, 3.0);
+    SetAnimation<actor ACTOR_NPC_DOGOOMU>(19);
+    WaitAnimation<actor ACTOR_NPC_DOGOOMU>();
+    SetAnimation<actor ACTOR_NPC_DOGOOMU>(2);
+    camera_SetEffect(0, 0, 0);
+    SetEffect<actor ACTOR_NPC_DOGOOMU>(EFFECT_ANGRY, 3);
+    message_SetFaceOnly(ACTOR_NPC_DOGOOMU, FACE_ANGRY, FACE_POS_TOP_L_FACEINW);
+    message_Talk({
+        english=" Why are you still ASLEEP?![K] WAKE UP!",
+    });
+    message_Close();
+    SetEffect<actor ACTOR_NPC_DOGOOMU>(EFFECT_NONE, 3);
+    message_SetFace(ACTOR_PLAYER, FACE_DIZZY, FACE_POS_BOTTOM_R_FACEINW);
+    message_SwitchMonologue ($HERO_TALK_KIND) {
+        case 4:
+            {
+                english="(Ugh!)",
+            }
+        default:
+            {
+                english="(Ugh!)",
+            }
+    }
+    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
+    message_SetFace(ACTOR_ATTENDANT1, FACE_DIZZY, FACE_POS_BOTTOM_C_FACEL);
+    message_FacePositionOffset(-3, 0);
+    message_SwitchTalk ($PARTNER_TALK_KIND) {
+        case 1:
+            {
+                english=" M-my ears...",
+            }
+        case 2:
+            {
+                english=" M-my poor ears...",
+            }
+        default:
+            {
+                english=" M-my poor ears...",
+            }
+    }
+    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
+    se_Play(8971);
+    camera_SetEffect(2, 2, 3.0);
+    SetAnimation<actor ACTOR_NPC_DOGOOMU>(18);
+    WaitAnimation<actor ACTOR_NPC_DOGOOMU>();
+    SetAnimation<actor ACTOR_NPC_DOGOOMU>(2);
+    camera_SetEffect(0, 0, 0);
+    message_SetFaceOnly(ACTOR_NPC_DOGOOMU, FACE_NORMAL, FACE_POS_TOP_L_FACEINW);
+    message_Talk({
+        english=" C'mon! Snap OUT of it!",
+    });
+    message_Talk({
+        english=" I'm [CS:N]Loudred[CR]![K] And I'm a fellow apprentice!",
+    });
+    message_SetFace(ACTOR_NPC_DOGOOMU, FACE_NORMAL, FACE_POS_TOP_L_FACEINW);
+    message_Talk({
+        english="""
+             If you're late for our morning
+            briefing, you'll be SORRY! So MOVE it!
+        """,
+    });
+    message_Talk({
+        english="""
+             Guildmaster [CS:N]Wigglytuff[CR] has got
+            a BIG temper. If you make him lose it...
+        """,
+    });
+    message_Close();
+    Turn2DirectionTurn<actor ACTOR_NPC_DOGOOMU>(4, 10, 5);
+    WaitExecuteLives(ACTOR_NPC_DOGOOMU);
+    message_SetFace(ACTOR_NPC_DOGOOMU, FACE_NORMAL, FACE_POS_TOP_L_FACEOUTW);
+    message_Talk({
+        english="""
+             YOWEEE! That would be one very
+            scary scene!
+        """,
+    });
+    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
+    se_Play(5143);
+    screen_WhiteOut(1, 2);
+    Wait(2);
+    screen_FadeIn(1, 2);
+    Wait(5);
+    se_Play(5143);
+    screen_WhiteOut(1, 2);
+    Wait(2);
+    screen_FadeIn(1, 2);
+    Wait(30);
+    SetAnimation<actor ACTOR_NPC_DOGOOMU>(9);
+    message_Talk({
+        english="""
+             I've got goose bumps just
+            thinking about it! YEESH!
+        """,
+    });
+    message_Close();
+    SetAnimation<actor ACTOR_NPC_DOGOOMU>(2);
+    Wait(45);
+    Turn2DirectionTurn<actor ACTOR_NPC_DOGOOMU>(1, 10, 5);
+    WaitExecuteLives(ACTOR_NPC_DOGOOMU);
+    se_Play(8971);
+    camera_SetEffect(2, 2, 3.0);
+    SetAnimation<actor ACTOR_NPC_DOGOOMU>(18);
+    WaitAnimation<actor ACTOR_NPC_DOGOOMU>();
+    WaitExecuteLives(ACTOR_NPC_DOGOOMU);
+    SetAnimation<actor ACTOR_NPC_DOGOOMU>(2);
+    camera_SetEffect(0, 0, 0);
+    message_SetFace(ACTOR_NPC_DOGOOMU, FACE_NORMAL, FACE_POS_TOP_L_FACEINW);
+    message_Talk({
+        english=" So ANYWAY...",
+    });
+    message_Talk({
+        english="""
+             I'm not about to get in trouble
+            because you rookies got up LATE!
+        """,
+    });
+    message_Talk({
+        english=" SO GET IT IN GEAR!",
+    });
+    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
+    MovePositionOffset<actor ACTOR_NPC_DOGOOMU>(1.5, -96, 0);
+    WaitExecuteLives(ACTOR_NPC_DOGOOMU);
+    Destroy<actor ACTOR_NPC_DOGOOMU>();
+    Wait(60);
+    message_SetFace(ACTOR_ATTENDANT1, FACE_DIZZY, FACE_POS_STANDARD);
+    message_SwitchTalk ($PARTNER_TALK_KIND) {
+        case 1:
+            {
+                english=" Urk! My ears are still ringing...",
+            }
+        case 2:
+            {
+                english=" Urk! My ears are still ringing...",
+            }
+        default:
+            {
+                english=" Urk! My ears are still ringing...",
+            }
+    }
+    message_SwitchTalk ($PARTNER_TALK_KIND) {
+        case 1:
+            {
+                english="""
+                     What did he say? Something
+                    about getting ready?
+                """,
+            }
+        case 2:
+            {
+                english="""
+                     What did he say? Something
+                    about getting ready?
+                """,
+            }
+        default:
+            {
+                english="""
+                     What did he say? Something
+                    about getting ready?
+                """,
+            }
+    }
+    message_Close();
+    Wait(20);
+    SetAnimation<actor ACTOR_PLAYER>(2);
+    SetAnimation<actor ACTOR_ATTENDANT1>(2);
+    se_Play(8967);
+    SetEffect<actor ACTOR_PLAYER>(EFFECT_EXCLAMATION_MARK, 3);
+    SetEffect<actor ACTOR_ATTENDANT1>(EFFECT_EXCLAMATION_MARK, 3);
+    WaitEffect<actor ACTOR_ATTENDANT1>();
+    WaitExecuteLives(ACTOR_ATTENDANT1);
+    message_SetFace(ACTOR_ATTENDANT1, FACE_SURPRISED, FACE_POS_STANDARD);
+    message_SwitchTalk ($PARTNER_TALK_KIND) {
+        case 1:
+            {
+                english=" Er...[K] Oh yeah!",
+            }
+        case 2:
+            {
+                english=" Er...[K] Oh yeah!",
+            }
+        default:
+            {
+                english=" Er...[K] Oh yeah!",
+            }
+    }
+    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
+    Turn2DirectionLives<actor ACTOR_PLAYER>(4, 10, ACTOR_ATTENDANT1);
+    Turn2DirectionLives<actor ACTOR_ATTENDANT1>(4, 10, ACTOR_PLAYER);
+    WaitExecuteLives(ACTOR_ATTENDANT1);
+    message_SetFace(ACTOR_ATTENDANT1, FACE_NORMAL, FACE_POS_STANDARD);
+    message_SwitchTalk ($PARTNER_TALK_KIND) {
+        case 1:
+            {
+                english="""
+                     We signed up as apprentices at
+                    [CS:N]Wigglytuff[CR]'s guild, that's right!
+                """,
+            }
+        case 2:
+            {
+                english="""
+                     We signed up as apprentices at
+                    [CS:N]Wigglytuff[CR]'s guild, that's right!
+                """,
+            }
+        default:
+            {
+                english="""
+                     We signed up as apprentices at
+                    [CS:N]Wigglytuff[CR]'s guild, that's right!
+                """,
+            }
+    }
+    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
+    message_SetFace(ACTOR_ATTENDANT1, FACE_WORRIED, FACE_POS_STANDARD);
+    message_SwitchTalk ($PARTNER_TALK_KIND) {
+        case 1:
+            {
+                english=" But that means...",
+            }
+        case 2:
+            {
+                english=" But that means...",
+            }
+        default:
+            {
+                english=" But that means...",
+            }
+    }
+    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
+    se_Play(8974);
+    ExecuteCommon<actor ACTOR_ATTENDANT1>(CORO_JUMP_SURPRISE_FUNC_SERIES, 0);
+    WaitExecuteLives(ACTOR_ATTENDANT1);
+    message_SetFace(ACTOR_ATTENDANT1, FACE_SURPRISED, FACE_POS_STANDARD);
+    message_SwitchTalk ($PARTNER_TALK_KIND) {
+        case 1:
+            {
+                english="""
+                     Oh no! We totally overslept!
+                    Hurry up, [hero]!
+                """,
+            }
+        case 2:
+            {
+                english="""
+                     Waaaah! We totally overslept!
+                    We've got to hurry, [hero]!
+                """,
+            }
+        default:
+            {
+                english="""
+                     Waaaah! We overslept!
+                    Come on, [hero]!
+                """,
+            }
+    }
+    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
+    MovePositionOffset<actor ACTOR_PLAYER>(3, -180, 0);
+    MovePositionOffset<actor ACTOR_ATTENDANT1>(3, -160, 0);
+    Wait(45);
+    screen_FadeOut(1, 30);
+    end;
+}
+]]--
 end
 
 return guild_bedroom

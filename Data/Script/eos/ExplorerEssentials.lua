@@ -61,3 +61,8 @@ function ExplorerEssentials.SetSpeakerUnknown(char)
 		UI:SetSpeaker('\u{E040}', true)
 	end
 end
+
+function ExplorerEssentials.AutosaveWithNotification()
+	GAME:GroundSave()
+	UI:TextPopUp(STRINGS:FormatKey("GAME_AUTOSAVE"), 120, 248, 220, 100, 24, false, true)
+end

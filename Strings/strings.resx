@@ -61,6 +61,9 @@
   <data name="GAME_TITLE" xml:space="preserve">
     <value>Pokémon Mystery Dungeon: Explorers of Sky</value>
   </data>
+  <data name="GAME_AUTOSAVE" xml:space="preserve">
+    <value>Game Saved! ♪</value>
+  </data>
   <data name="MENU_QUESTS_EXIT" xml:space="preserve">
     <value>Return to PMDO</value>
   </data>
@@ -92,10 +95,6 @@
   </data>
   <data name="DEMO_CH4" xml:space="preserve">
     <value>Chapter 4</value>
-    <comment>USED ONLY FOR THE DEMO ROOM</comment>
-  </data>
-  <data name="DEMO_CH5" xml:space="preserve">
-    <value>Chapter 5</value>
     <comment>USED ONLY FOR THE DEMO ROOM</comment>
   </data>
   <data name="DEMO_CH6" xml:space="preserve">
@@ -613,9 +612,9 @@
     <value>I'm at my limit...</value>
     <comment>Mission Body Text Top- Target is Client</comment>
   </data>
-  <data name="MISSION_BODY_TOP_RESCUE_SELF_006" xml:space="preserve">
-    <value>Coming here was a mistake...</value>
-    <comment>Mission Body Text Top- Target is Client</comment>
+  <data name="DEMO_CH5" xml:space="preserve">
+    <value>Chapter 5</value>
+    <comment>USED ONLY FOR THE DEMO ROOM</comment>
   </data>
   <data name="MISSION_BODY_TOP_RESCUE_SELF_007" xml:space="preserve">
     <value>I'm about to faint...</value>
@@ -629,13 +628,13 @@
     <value>That enemy was too tough for me...</value>
     <comment>Mission Body Text Top- Target is Client</comment>
   </data>
+  <data name="MISSION_BODY_TOP_RESCUE_SELF_006" xml:space="preserve">
+    <value>Coming here was a mistake...</value>
+    <comment>Mission Body Text Top- Target is Client</comment>
+  </data>
   <data name="MISSION_BODY_TOP_RESCUE_SELF_010" xml:space="preserve">
     <value>Aargh, my head...</value>
     <comment>Mission Body Text Top- Target is Client</comment>
-  </data>
-  <data name="MISSION_BODY_BOTTOM_RESCUE_SELF_001" xml:space="preserve">
-    <value>Please, help me!</value>
-    <comment>Mission Body Text Bottom- Target is Client</comment>
   </data>
   <data name="MISSION_BODY_BOTTOM_RESCUE_SELF_002" xml:space="preserve">
     <value>I'm fading... Help...</value>
@@ -645,16 +644,16 @@
     <value>I can't take any more... Help...</value>
     <comment>Mission Body Text Bottom- Target is Client</comment>
   </data>
-  <data name="MISSION_BODY_BOTTOM_RESCUE_SELF_004" xml:space="preserve">
-    <value>Send help, please!</value>
+  <data name="MISSION_BODY_BOTTOM_RESCUE_SELF_001" xml:space="preserve">
+    <value>Please, help me!</value>
     <comment>Mission Body Text Bottom- Target is Client</comment>
   </data>
   <data name="MISSION_BODY_BOTTOM_RESCUE_SELF_005" xml:space="preserve">
     <value>Help! Help!</value>
     <comment>Mission Body Text Bottom- Target is Client</comment>
   </data>
-  <data name="MISSION_BODY_BOTTOM_RESCUE_SELF_006" xml:space="preserve">
-    <value>Anyone, please, help!</value>
+  <data name="MISSION_BODY_BOTTOM_RESCUE_SELF_004" xml:space="preserve">
+    <value>Send help, please!</value>
     <comment>Mission Body Text Bottom- Target is Client</comment>
   </data>
   <data name="MISSION_BODY_BOTTOM_RESCUE_SELF_007" xml:space="preserve">
@@ -1361,9 +1360,9 @@
     <value>My best friend's gone missing! We identify\nwith each other because we love garbage!</value>
     <comment>Mission Body - Friends - Trubbish and Grimer</comment>
   </data>
-  <data name="MISSION_BODY_SPECIAL_FRIEND_008" xml:space="preserve">
-    <value>Who else will I spread spores around with?\nHe's my best friend, please rescue him!</value>
-    <comment>Mission Body - Friends - Shroomish and Paras</comment>
+  <data name="MISSION_BODY_BOTTOM_RESCUE_SELF_006" xml:space="preserve">
+    <value>Anyone, please, help!</value>
+    <comment>Mission Body Text Bottom- Target is Client</comment>
   </data>
   <data name="MISSION_BODY_SPECIAL_FRIEND_009" xml:space="preserve">
     <value>[color=#00FF00]Togepi[color] is in danger! We share\na love of eggs, please, someone, help!</value>
@@ -1389,9 +1388,9 @@
     <value>[color=#00FF00]Pelipper[color] and I both enjoy carrying things in our\nmouth. We're best friends! Please rescue her!</value>
     <comment>Mission Body - Friends - Cramorant and Pelipper</comment>
   </data>
-  <data name="MISSION_BODY_SPECIAL_FRIEND_015" xml:space="preserve">
-    <value>Our sensitivity to magnetism made us\ngood buddies! Please help him out!</value>
-    <comment>Mission Body - Friends - Magnemite and Nosepass</comment>
+  <data name="MISSION_BODY_SPECIAL_FRIEND_008" xml:space="preserve">
+    <value>Who else will I spread spores around with?\nHe's my best friend, please rescue him!</value>
+    <comment>Mission Body - Friends - Shroomish and Paras</comment>
   </data>
   <data name="MISSION_BODY_SPECIAL_FRIEND_016" xml:space="preserve">
     <value>I have a strong connection with my friend\nbecause of her bright personality! Please help! </value>
@@ -1405,17 +1404,21 @@
     <value>My friend and I love to make loud, silly noises\ntogether! I'm lonely without him! Please, help!</value>
     <comment>Mission Body - Friends - Wigglytuff and Exploud</comment>
   </data>
+  <data name="MISSION_BODY_SPECIAL_FRIEND_015" xml:space="preserve">
+    <value>Our sensitivity to magnetism made us\ngood buddies! Please help him out!</value>
+    <comment>Mission Body - Friends - Magnemite and Nosepass</comment>
+  </data>
   <data name="MISSION_BODY_SPECIAL_FRIEND_019" xml:space="preserve">
     <value>Without my friend, I have no meaning!\nPlease, rescue her from that awful dungeon!</value>
     <comment>Mission Body - Friends - Beedrill and Florges</comment>
   </data>
-  <data name="MISSION_BODY_SPECIAL_FRIEND_020" xml:space="preserve">
-    <value>We became pals over our love of digging. He must\nhave gotten lost in a tunnel! Please rescue him!</value>
-    <comment>Mission Body - Friends - Dunsparce and Dugtrio</comment>
-  </data>
   <data name="MISSION_BODY_SPECIAL_FRIEND_021" xml:space="preserve">
     <value>My best friend and I love to ride the wind\ntogether. It's not the same without her... Sob...</value>
     <comment>Mission Body - Friends - Whimsicott and Jumpluff </comment>
+  </data>
+  <data name="MISSION_BODY_SPECIAL_FRIEND_020" xml:space="preserve">
+    <value>We became pals over our love of digging. He must\nhave gotten lost in a tunnel! Please rescue him!</value>
+    <comment>Mission Body - Friends - Dunsparce and Dugtrio</comment>
   </data>
   <data name="MISSION_BODY_SPECIAL_RIVAL_001" xml:space="preserve">
     <value>Please save my rival! We haven't settled\nwho can make the strongest odor yet!</value>
@@ -1429,21 +1432,21 @@
     <value>We like to see who can pull the best pranks!\nPlease rescue him so we can compete again!</value>
     <comment>Mission Body - Rivals - Shuppet and Duskull</comment>
   </data>
-  <data name="MISSION_BODY_SPECIAL_RIVAL_004" xml:space="preserve">
-    <value>Please rescue [color=#00FF00]Spearow[color]! We still need to\nfigure out whose better at flying!</value>
-    <comment>Mission Body - Rivals - Pidgey and Spearow</comment>
-  </data>
   <data name="MISSION_BODY_SPECIAL_RIVAL_005" xml:space="preserve">
     <value>We've been rivals for a very long time!\nIt can't just end like this! Please, help!</value>
     <comment>Mission Body - Rivals - Kabuto and Omanyte</comment>
   </data>
-  <data name="MISSION_BODY_SPECIAL_RIVAL_006" xml:space="preserve">
-    <value>[color=#00FF00]Spinarak[color] and I compete to see who can spin the\nbest webs! Please, help! I need my rival back!</value>
-    <comment>Mission Body - Rivals - Joltik and Spinarak</comment>
+  <data name="MISSION_BODY_SPECIAL_RIVAL_004" xml:space="preserve">
+    <value>Please rescue [color=#00FF00]Spearow[color]! We still need to\nfigure out whose better at flying!</value>
+    <comment>Mission Body - Rivals - Pidgey and Spearow</comment>
   </data>
   <data name="MISSION_BODY_SPECIAL_RIVAL_007" xml:space="preserve">
     <value>[color=#00FF00]Makuhita[color] makes an excellent training partner!\nSomebody, anybody, please!</value>
     <comment>Mission Body - Rivals - Tyrogue and Makuhita</comment>
+  </data>
+  <data name="MISSION_BODY_SPECIAL_RIVAL_006" xml:space="preserve">
+    <value>[color=#00FF00]Spinarak[color] and I compete to see who can spin the\nbest webs! Please, help! I need my rival back!</value>
+    <comment>Mission Body - Rivals - Joltik and Spinarak</comment>
   </data>
   <data name="MISSION_BODY_SPECIAL_RIVAL_008" xml:space="preserve">
     <value>He got lost somewhere! Who will I play with\nnow? Please save him!</value>
