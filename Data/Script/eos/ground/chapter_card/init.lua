@@ -5,6 +5,7 @@
 ]]--
 -- Commonly included lua functions and data
 require 'eos.common'
+require 'eos.ExplorerEssentials'
 
 -- Package name
 local chapter_card = {}
@@ -32,7 +33,7 @@ end
 --Engine callback function
 function chapter_card.Enter(map)
 
-  GAME:GroundSave()
+  ExplorerEssentials.AutosaveWithNotification()
 
   GAME:CutsceneMode(true)
   GROUND:Hide("PLAYER")

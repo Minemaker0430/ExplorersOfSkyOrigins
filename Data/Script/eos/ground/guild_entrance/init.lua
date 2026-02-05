@@ -5,6 +5,7 @@
 ]]--
 -- Commonly included lua functions and data
 require 'origin.common'
+require 'eos.ExplorerEssentials'
 
 -- Package name
 local guild_entrance = {}
@@ -25,7 +26,7 @@ end
 function guild_entrance.Enter(map)
 
   if SV.Progression.Chapter == 2 then
-    guild_entrance.CH2_Entrance() -- afaik this is the only ch2 cutscene in this room
+    guild_entrance.CH2_Entrance() -- this is the only cutscene in the game that occurs here
   else
     -- No Cutscenes are occurring
     ExplorerEssentials.SpawnPartner()
@@ -33,8 +34,6 @@ function guild_entrance.Enter(map)
     GAME:FadeIn(20)
 
   end
-
-  --GAME:EnterGroundMap("guild_outside", "GuildEntranceMarker") --TEMP
 
 end
 
@@ -72,24 +71,50 @@ end
 
 function guild_entrance.Exit_Touch(obj, activator)
 
-  GAME:EnterGroundMap("guild_outside", "GuildEntranceMarker")
+  GAME:EnterGroundMap("guild_outside", "GuildEntranceMarker", true)
 
 end
 
-function guild_entrance.F2_Touch(obj, activator)
+function guild_entrance.SecondFloor_Touch(obj, activator)
 
-  --GAME:EnterGroundMap("crossroads_south", "CrossRoadsAssemblyEntranceMarker")
+  GAME:EnterGroundMap("guild_second_floor", "EntranceOutside", true)
 
 end
 
 function guild_entrance.LeftSign_Action(obj, activator)
+
+  GAME:CutsceneMode(true)
+
   UI:ResetSpeaker()
-  UI:WaitShowDialogue("man i hate living in detroit") -- PLACEHOLDER (if it wasn't obvious)
+  UI:SetCenter(true)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['M1_Narration_1'], CH("Wigglytuff"):GetDisplayName()))
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['M1_Narration_2']))
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['M1_Narration_3']))
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['M1_Narration_4']))
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['M1_Narration_5']))
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['M1_Narration_6']))
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['M1_Narration_7']))
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['M1_Narration_8']))
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['M1_Narration_9']))
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['M1_Narration_10']))
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['M1_Narration_11']))
+  
+  UI:SetCenter(false)
+  GAME:CutsceneMode(false)
 end
 
 function guild_entrance.RightSign_Action(obj, activator)
+
+  GAME:CutsceneMode(true)
+
   UI:ResetSpeaker()
-  UI:WaitShowDialogue("man i hate living in detroit") -- PLACEHOLDER (if it wasn't obvious)
+  UI:SetCenter(true)
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['M2_Narration_1'], CH("Wigglytuff"):GetDisplayName()))
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['M2_Narration_2']))
+  
+  UI:SetCenter(false)
+  GAME:CutsceneMode(false)
+
 end
 
 -------------------------------
@@ -97,57 +122,46 @@ end
 -------------------------------
 
 function guild_entrance.CH2_Entrance()
-  --[[
-  
-def 0 {
-    sound_Stop();
-    back_SetGround(LEVEL_G01P02A);
-    camera_SetPositionMark(Position<'m0', 26, 24.5>);
-    supervision_Acting(0);
-    screen_FadeIn(1, 30);
-    Wait(30);
-    se_Play(8967);
-    SetEffect<actor ACTOR_ATTENDANT1>(EFFECT_EXCLAMATION_MARK, 3);
-    WaitEffect<actor ACTOR_ATTENDANT1>();
-    WaitExecuteLives(ACTOR_ATTENDANT1);
-    message_SetFace(ACTOR_ATTENDANT1, FACE_SURPRISED, FACE_POS_STANDARD);
-    message_SwitchTalk ($PARTNER_TALK_KIND) {
-        case 1:
-            {
-                english="""
-                     Th-there's a hatch that leads
-                    underground here!
-                """,
-            }
-        case 2:
-            {
-                english="""
-                     Th-there's a hatch that leads
-                    underground here!
-                """,
-            }
-        default:
-            {
-                english="""
-                     Th-there's a hatch that leads
-                    underground here!
-                """,
-            }
-    }
-    message_Close();
-    MovePositionMark<actor ACTOR_PLAYER>(1, Position<'m1', 25.5, 20.5>);
-    Wait(20);
-    MovePositionMark<actor ACTOR_ATTENDANT1>(1, Position<'m2', 25.5, 20.5>);
-    WaitExecuteLives(ACTOR_PLAYER);
-    Destroy<actor ACTOR_PLAYER>();
-    WaitExecuteLives(ACTOR_ATTENDANT1);
-    Destroy<actor ACTOR_ATTENDANT1>();
-    screen_FadeOut(1, 30);
-    end;
-}
 
-  ]]--
+  GAME:CutsceneMode(true)
 
+  local player = CH("PLAYER")
+  local partner = CH("PARTNER")
+
+  local hTalkKind = SV.Personality.HeroTalkKind
+  local pTalkKind = SV.Personality.PartnerTalkKind
+
+  local marker = MRKR("Entrance")
+  GROUND:TeleportTo(player, marker.Position.X + 16, marker.Position.Y, Direction.Up)
+  GROUND:TeleportTo(partner, marker.Position.X - 16, marker.Position.Y, Direction.Up)
+
+  GAME:MoveCamera(marker.Position.X, marker.Position.Y - 32, 1, false)
+
+  GAME:FadeIn(30)
+  GAME:WaitFrames(30)
+
+  SOUND:PlayBattleSE("EVT_Emote_Exclaim_Surprised")
+  GROUND:CharSetEmote(partner, "exclaim", 1)
+  GAME:WaitFrames(45)
+
+  UI:SetSpeaker(partner)
+  UI:SetSpeakerEmotion("Surprised")
+  UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_1']))
+
+  local coro1 = TASK:BranchCoroutine(function ()
+    GROUND:MoveToPosition(player, marker.Position.X, marker.Position.Y - 32, false, 1)
+    GROUND:Hide("PLAYER")
+  end)
+  local coro2 = TASK:BranchCoroutine(function ()
+    GAME:WaitFrames(20)
+    GROUND:MoveToPosition(partner, marker.Position.X, marker.Position.Y - 32, false, 1)
+    GROUND:Hide("PARTNER")
+  end)
+  TASK:JoinCoroutines({coro1, coro2})
+
+  GAME:FadeOut(false, 30)
+  GAME:EnterGroundMap("guild_second_floor", "EntranceOutside", false)
+  GAME:CutsceneMode(false)
 
 end
 

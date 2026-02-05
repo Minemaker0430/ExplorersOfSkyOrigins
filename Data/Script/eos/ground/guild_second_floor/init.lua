@@ -5,6 +5,7 @@
 ]]--
 -- Commonly included lua functions and data
 require 'origin.common'
+require 'eos.ExplorerEssentials'
 
 -- Package name
 local guild_second_floor = {}
@@ -16,14 +17,38 @@ local guild_second_floor = {}
 --Engine callback function
 function guild_second_floor.Init(map)
 
+    -- HIDE ALL CUTSCENE ACTORS
+    GROUND:Hide("CH2_Bidoof")
+    GROUND:Hide("CH2_Sunflora")
+    GROUND:Hide("CH2_Pidgey")
+    GROUND:Hide("CH2_Seedot")
+    GROUND:Hide("CH2_Wurmple")
+    GROUND:Hide("CH2_Swellow")
+    GROUND:Hide("CH2_Ledyba")
 
+    COMMON.RespawnStarterPartner()
 end
 
 ---guild_second_floor.Enter(map)
 --Engine callback function
 function guild_second_floor.Enter(map)
 
-  GAME:FadeIn(20)
+  if SV.Progression.Chapter == 2 then
+    if SV.Progression.SectionFlag == 2 then
+        guild_second_floor.CH2_FirstJobComplete()
+    elseif SV.drenched_bluff.TimesFailed > 0 then
+        guild_second_floor.CH2_FailedDrenchedBluff()
+    elseif SV.Progression.SectionFlag == 1 then
+        guild_second_floor.CH2_JobIntro()
+    else -- Only activates on first entry
+        guild_second_floor.CH2_MeetingChatot()
+    end
+  else
+    -- No Cutscenes are occurring
+    ExplorerEssentials.SpawnPartner()
+
+    GAME:FadeIn(20)
+  end
 
 end
 
@@ -59,6 +84,311 @@ end
 -------------------------------
 -- Entities Callbacks
 -------------------------------
+
+function guild_second_floor.LeftSign_Action(obj, activator)
+    --[[
+def 0 {
+    SetAnimation<actor ACTOR_PLAYER>(2);
+    SetAnimation<actor ACTOR_ATTENDANT1>(2);
+    message_Notice({
+        english="""
+            
+            [CN]All sorts of information is written here...
+        """,
+    });
+    message_Close();
+    message_ResetActor();
+    $EVENT_LOCAL = 8;
+    switch ( message_Menu(MENU_GUILD_F_A_Q_BOARD) ) {
+        case 1:
+            @label_0;
+            message_Mail({
+                english="Q1: What's the Exploration Team Federation?",
+            });
+            message_Mail({
+                english="""
+                    A1: The Pokémon Exploration Team Federation
+                    is a mysterious organization to which all
+                    excellent explorers belong.
+                """,
+            });
+            message_Mail({
+                english="""
+                    The Federation collects dues from guilds
+                    nationwide for producing items and badges
+                    used by exploration teams.
+                """,
+            });
+            message_Mail({
+                english="""
+                    The Federation also operates a number of
+                    services for explorers. It's an indispensable
+                    organization for explorers!
+                """,
+            });
+            message_Mail({
+                english="""
+                    To put it simply, it's an incredibly great
+                    organization!
+                """,
+            });
+            message_Mail({
+                english="...That is all.",
+            });
+            JumpCommon(CORO_END_TALK);
+        case 2:
+            message_Mail({
+                english="Q2: What's written here?",
+            });
+            message_Mail({
+                english="""
+                    A2: This spot is reserved for useful notices,
+                    hints, tips, advice, and so on.
+                """,
+            });
+            message_Mail({
+                english="...That is all.",
+            });
+            JumpCommon(CORO_END_TALK);
+        case 3:
+            message_Mail({
+                english="Q3: How do I know what to do?",
+            });
+            message_Mail({
+                english="""
+                    A3: If you're not sure what to do, try looking
+                    up some hints!
+                """,
+            });
+            message_Mail({
+                english="""
+                    To get some hints, press [M:B4] to access the
+                    menu, then find them under Others.
+                """,
+            });
+            message_Mail({
+                english="""
+                    The hints will give you all sorts of useful
+                    information for your explorations.
+                """,
+            });
+            message_Mail({
+                english="So if you're stuck, look up some hints!",
+            });
+            message_Mail({
+                english="...That is all.",
+            });
+            JumpCommon(CORO_END_TALK);
+        case 4:
+            message_Mail({
+                english="Q4: How do I start a job?",
+            });
+            message_Mail({
+                english="""
+                    A4: If you've already put the job on your Job
+                    List, you must then use the Take Job option.
+                """,
+            });
+            message_Mail({
+                english="""
+                    If you see a job on the Job Bulletin Board or
+                    the Outlaw Notice Board that you want to do,
+                    you have to do two things...
+                """,
+            });
+            message_Mail({
+                english="""
+                    First, choose the job from a board to add it to
+                    your Job List. Second, select it from your Job
+                    List, then use the Take Job option.
+                """,
+            });
+            message_Mail({
+                english="""
+                    Exploration teams should take care of jobs
+                    they've added to their list as soon as possible!
+                """,
+            });
+            message_Mail({
+                english="Now, go! Quit reading this and explore!",
+            });
+            message_Mail({
+                english="...That is all.",
+            });
+            JumpCommon(CORO_END_TALK);
+        case 5:
+            message_Mail({
+                english="Q5: What's the Explorer Rank?",
+            });
+            message_Mail({
+                english="""
+                    A5: The Explorer Rank indicates your
+                    standing within the Pokémon Exploration Team
+                    Federation.
+                """,
+            });
+            message_Mail({
+                english="""
+                    An exploration team gains Rank Points for
+                    completing jobs. Upon earning set amounts
+                    of points, the team goes up in rank.
+                """,
+            });
+            message_Mail({
+                english="""
+                    A team gets a new Explorer Badge when it
+                    goes up in rank. But that's not all. You'll
+                    discover more benefits as you rank up!
+                """,
+            });
+            message_Mail({
+                english="""
+                    Finally, you'll notice that there is a footprint
+                    imprinted on the back of the badge.
+                """,
+            });
+            message_Mail({
+                english="""
+                    That doubles as a security pass for the guild.
+                    It lets you enter and exit the guild whenever
+                    you want. Did you know that?
+                """,
+            });
+            message_Mail({
+                english="""
+                    Those who are first starting out should work
+                    toward the Bronze Rank!
+                """,
+            });
+            message_Mail({
+                english="...That is all.",
+            });
+            JumpCommon(CORO_END_TALK);
+        case 6:
+            message_Mail({
+                english="Q6: Is eating Gummis a good thing to do?",
+            });
+            message_Mail({
+                english="""
+                    A6: Yes! Of course you should eat Gummis!
+                    It boosts your IQ!
+                """,
+            });
+            message_Mail({
+                english="""
+                    When your IQ goes up, you'll gain IQ Skills
+                    that help you while exploring.
+                """,
+            });
+            message_Mail({
+                english="""
+                    That's why you shouldn't hesitate to eat
+                    Gummis. Eat as much as you want!
+                """,
+            });
+            message_Mail({
+                english="""
+                    Specific types of Pokémon have a different
+                    favorite Gummi. If a Pokémon eats its
+                    favorite, its IQ goes up much faster!
+                """,
+            });
+            message_Mail({
+                english="""
+                    It's great to eat lots of Gummis! And it's best
+                    to eat lots of your favorite kind of Gummis!
+                """,
+            });
+            message_Mail({
+                english="...That is all.",
+            });
+            JumpCommon(CORO_END_TALK);
+        case 7:
+            message_Mail({
+                english="Q7: How do I talk to my partner?",
+            });
+            message_Mail({
+                english="""
+                    A7: What?[K] Your partner is right next to you,
+                    but you can't chat?
+                """,
+            });
+            message_Mail({
+                english="""
+                    Just be brave and talk to your partner. Your
+                    friend will understand what's on your mind.
+                """,
+            });
+            message_Mail({
+                english="""
+                    Press [M:B7] to talk to your partner. Your partner
+                    will never ignore you!
+                """,
+            });
+            message_Mail({
+                english="""
+                    Talk to your partner especially if you're not
+                    sure what to do next. Press [M:B7] and strike up
+                    a conversation!
+                """,
+            });
+            message_Mail({
+                english="""
+                    Your partner is sure to have useful advice
+                    for you!
+                """,
+            });
+            message_Mail({
+                english="...That is all.",
+            });
+            JumpCommon(CORO_END_TALK);
+        case 8:
+            message_Mail({
+                english="Q8: What are types?",
+            });
+            message_Mail({
+                english="""
+                    A8: Pokémon are categorized by types such as
+                    Fire, Water, and Grass. Many Pokémon even
+                    have two types.
+                """,
+            });
+            message_Mail({
+                english="""
+                    The amount of damage that an attacking
+                    Pokémon does with its move is related to the
+                    move's type and the defending Pokémon's type.
+                """,
+            });
+            message_Mail({
+                english="""
+                    For example, a Fire-type Pokémon is weak
+                    against Water-type moves.
+                """,
+            });
+            message_Mail({
+                english="""
+                    And a Water-type Pokémon will be weak to
+                    Electric-type moves.
+                """,
+            });
+            message_Mail({
+                english="""
+                    Learn how all types of Pokémon and moves
+                    match up, so you can battle effectively.[K]
+                    That's you, the exploration team reading this!
+                """,
+            });
+            message_Mail({
+                english="...That is all.",
+            });
+            JumpCommon(CORO_END_TALK);
+        default:
+            JumpCommon(CORO_END_TALK);
+    }
+}
+]]--
+end
 
 -------------------------------
 -- Cutscene Functions
@@ -649,6 +979,70 @@ def 3 for actor ACTOR_NPC_KIMAWARI {
 }
 
   ]]--
+
+  -- SHOW ACTORS FOR THIS SCENE
+    GROUND:Unhide("CH2_Bidoof")
+    GROUND:Unhide("CH2_Sunflora")
+    GROUND:Unhide("CH2_Pidgey")
+    GROUND:Unhide("CH2_Seedot")
+    GROUND:Unhide("CH2_Wurmple")
+    GROUND:Unhide("CH2_Swellow")
+    GROUND:Unhide("CH2_Ledyba")
+
+    local player = CH("PLAYER")
+    local partner = CH("PARTNER")
+
+    local hTalkKind = SV.Personality.HeroTalkKind
+    local pTalkKind = SV.Personality.PartnerTalkKind
+
+    local continue = true
+
+    local coro1 = TASK:BranchCoroutine(function ()
+        GAME:FadeIn(30)
+        SOUND:PlayBGM("008 - Wigglytuff's Guild.ogg")
+
+        GAME:WaitFrames(30)
+
+        GROUND:CharSetEmote(partner, "exclaim", 1)
+        GAME:WaitFrames(30)
+
+        UI:SetSpeaker(partner)
+        UI:SetSpeakerEmotion("Inspired")
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_1']))
+
+        continue = false -- END OF SCENE
+    end)
+    local coro2 = TASK:BranchCoroutine(function () -- Seedot
+        GAME:WaitFrames(30)
+        while continue do
+            GROUND:CharSetEmote(CH("CH2_Seedot"), "glowing", -1)
+            GAME:WaitFrames(math.random(90, 180))
+            GROUND:CharSetEmote(CH("CH2_Seedot"), "none", -1)
+            GAME:WaitFrames(math.random(60, 180))
+        end
+    end)
+    local coro3 = TASK:BranchCoroutine(function () -- Swellow
+        GAME:WaitFrames(30)
+        while continue do
+            GROUND:CharSetEmote(CH("CH2_Swellow"), "glowing", -1)
+            GAME:WaitFrames(math.random(90, 180))
+            GROUND:CharSetEmote(CH("CH2_Swellow"), "none", -1)
+            GAME:WaitFrames(math.random(60, 180))
+        end
+    end)
+    local coro4 = TASK:BranchCoroutine(function () -- Sunflora
+        GAME:WaitFrames(30)
+        while continue do
+            GROUND:CharAnimateTurnTo(CH("CH2_Sunflora"), Direction.Left, 4)
+            GROUND:CharSetEmote(CH("CH2_Sunflora"), "glowing", -1)
+            GAME:WaitFrames(math.random(90, 180))
+            GROUND:CharSetEmote(CH("CH2_Sunflora"), "none", -1)
+            GROUND:CharAnimateTurnTo(CH("CH2_Sunflora"), Direction.Up, 4)
+            GAME:WaitFrames(math.random(120, 180))
+        end
+    end)
+    TASK:JoinCoroutines({coro1, coro2, coro3, coro4})
+
 end
 
 function guild_second_floor.CH2_JobIntro()

@@ -86,6 +86,8 @@ EFFECT_TWO_ARROWS_AT_SIDE_LEFT + EFFECT_TWO_ARROWS_AT_SIDE_RIGHT -> notice
 EFFECT_EXCLAMATION_MARK -> exclaim
 EFFECT_ANGRY -> angry
 EFFECT_QUESTION_MARK -> question
+EFFECT_JOYOUS -> glowing
+EFFECT_NONE -> none
 
 --------------------
 Character Actions

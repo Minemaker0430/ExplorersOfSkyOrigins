@@ -61,4 +61,45 @@
   <data name="CH2_Partner_1" xml:space="preserve">
     <value>Th-there's a hatch that leads underground here!</value>
   </data>
+  <data name="M1_Narration_1" xml:space="preserve">
+    <value>{0}'s Guild\nTen Rules for Exploration Teams</value>
+  </data>
+  <data name="M1_Narration_2" xml:space="preserve">
+    <value>One![pause=0] Don't shirk work!</value>
+  </data>
+  <data name="M1_Narration_3" xml:space="preserve">
+    <value>Two![pause=0] Run away and pay!</value>
+  </data>
+  <data name="M1_Narration_4" xml:space="preserve">
+    <value>Three![pause=0] Smiles go for miles!</value>
+  </data>
+  <data name="M1_Narration_5" xml:space="preserve">
+    <value>Four![pause=0] Once you put a job on your team's list,\nthen use Take Job! That step can't be missed!</value>
+    <comment>TODO: Replace this, since jobs are automatically accepted</comment>
+  </data>
+  <data name="M1_Narration_6" xml:space="preserve">
+    <value>Five![pause=0] Restock your supplies and rations\nbefore heading out on explorations!</value>
+  </data>
+  <data name="M1_Narration_7" xml:space="preserve">
+    <value>Six![pause=0] Before you explore, try to think\nabout the moves you should link!</value>
+    <comment>TODO: Replace this, since you can't link moves</comment>
+  </data>
+  <data name="M1_Narration_8" xml:space="preserve">
+    <value>Seven![pause=0] While exploring, don't you panic!\nStay cool and calm, never manic!</value>
+  </data>
+  <data name="M1_Narration_9" xml:space="preserve">
+    <value>Eight![pause=0] Helping all Pokémon in need\nis an explorer's duty, indeed!</value>
+  </data>
+  <data name="M1_Narration_10" xml:space="preserve">
+    <value>Nine![pause=0] Do lots of jobs! That's truly the key!\nYou'll reach Gold Rank. Just wait and see!</value>
+  </data>
+  <data name="M1_Narration_11" xml:space="preserve">
+    <value>Ten![pause=0] The money you earn is shared with the guild![pause=0]\nThat's the way our friendship will build!</value>
+  </data>
+  <data name="M2_Narration_1" xml:space="preserve">
+    <value>Welcome!\n{0}'s Guild!</value>
+  </data>
+  <data name="M2_Narration_2" xml:space="preserve">
+    <value>No salespeople! No agents!\nNo survey takers!</value>
+  </data>
 </root>
