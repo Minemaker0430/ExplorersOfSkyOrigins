@@ -61,9 +61,12 @@ Sound Effects
 
 Usage: SOUND:PlayBattleSE(ID)
 
+8978 -> EVT_Emote_Exclaim_2
 8974 -> EVT_Emote_Startled
+8973 -> EVT_Emote_Shocked_2
 8972 -> EVT_Emote_Sweating
 8971 -> EVT_Emote_Complain_2
+8969 -> EVT_Emote_Shock_Bad
 8968 -> EVT_Emote_Shock
 8967 -> EVT_Emote_Exclaim_Surprised
 8964 -> EVT_Emote_Exclaim

@@ -23,7 +23,6 @@ local beach = {}
 ---beach.Init(map)
 --Engine callback function
 function beach.Init(map)
-	COMMON:RespawnAllies()
 	ExplorerEssentials.SpawnPartner()
 end
 
@@ -52,8 +51,7 @@ function beach.Exit(map)
 	local coro1 = TASK:BranchCoroutine(function() GAME:FadeOut(false, 20) end)
 	local coro2 = TASK:BranchCoroutine(function() SOUND:FadeOutSE("Ambient/AMB_Ocean", 20) end)
 	TASK:JoinCoroutines({coro1, coro2})
-SOUND:StopSE("Ambient/AMB_Ocean")
-GAME:FadeOut(false, 20)
+
 end
 
 ---beach.Update(map)
@@ -73,8 +71,6 @@ end
 ---beach.GameLoad(map)
 --Engine callback function
 function beach.GameLoad(map)
-
-	ExplorerEssentials.SpawnPartner()
   	GAME:FadeIn(20)
 
 end

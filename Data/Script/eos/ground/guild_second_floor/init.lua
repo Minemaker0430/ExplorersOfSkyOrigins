@@ -26,29 +26,30 @@ function guild_second_floor.Init(map)
     GROUND:Hide("CH2_Swellow")
     GROUND:Hide("CH2_Ledyba")
 
-    COMMON.RespawnStarterPartner()
+    ExplorerEssentials.SpawnPartner()
 end
 
 ---guild_second_floor.Enter(map)
 --Engine callback function
 function guild_second_floor.Enter(map)
 
-  if SV.Progression.Chapter == 2 then
-    if SV.Progression.SectionFlag == 2 then
-        guild_second_floor.CH2_FirstJobComplete()
-    elseif SV.drenched_bluff.TimesFailed > 0 then
-        guild_second_floor.CH2_FailedDrenchedBluff()
-    elseif SV.Progression.SectionFlag == 1 then
-        guild_second_floor.CH2_JobIntro()
-    else -- Only activates on first entry
-        guild_second_floor.CH2_MeetingChatot()
-    end
-  else
-    -- No Cutscenes are occurring
-    ExplorerEssentials.SpawnPartner()
+    ExplorerEssentials.SetProgress(2, 0) --TESTING
 
-    GAME:FadeIn(20)
-  end
+    if SV.Progression.Chapter == 2 then
+        if SV.Progression.SectionFlag == 2 then
+            guild_second_floor.CH2_FirstJobComplete()
+        elseif SV.drenched_bluff.TimesFailed > 0 then
+            guild_second_floor.CH2_FailedDrenchedBluff()
+        elseif SV.Progression.SectionFlag == 1 then
+            guild_second_floor.CH2_JobIntro()
+        else -- Only activates on first entry
+            guild_second_floor.CH2_MeetingChatot()
+        end
+    else
+        -- No Cutscenes are occurring
+
+        GAME:FadeIn(20)
+    end
 
 end
 
@@ -544,441 +545,6 @@ def 0 {
 end
 
 function guild_second_floor.CH2_MeetingChatot()
-  --[[
-  
-def 0 {
-    sound_Stop();
-    back_SetGround(LEVEL_G01P03A);
-    supervision_Acting(0);
-    camera_SetMyself<performer 0>();
-    SetAnimation<actor ACTOR_NPC_POPPO>(4);
-    SetAnimation<actor ACTOR_NPC_BIPPA>(4);
-    screen_FadeIn(1, 30);
-    bgm_PlayFadeIn(BGM_WIGGLYTUFFS_GUILD, 0, 256);
-    Wait(30);
-    SetEffect<actor ACTOR_ATTENDANT1>(EFFECT_EXCLAMATION_MARK, 3);
-    WaitEffect<actor ACTOR_ATTENDANT1>();
-    message_SetFace(ACTOR_ATTENDANT1, FACE_INSPIRED, FACE_POS_TOP_L_CENTER);
-    message_SwitchTalk ($PARTNER_TALK_KIND) {
-        case 1:
-            {
-                english=" Wow!",
-            }
-        case 2:
-            {
-                english=" Wow!",
-            }
-        default:
-            {
-                english=" Wow!",
-            }
-    }
-    message_Close();
-    MovePositionMark<performer 0>(0.5, Position<'m0', 43.5, 36>);
-    MovePositionMark<actor ACTOR_PLAYER>(0.5, Position<'m1', 45.5, 35.5>);
-    Wait(10);
-    MovePositionMark<actor ACTOR_ATTENDANT1>(0.5, Position<'m2', 41.5, 35.5>);
-    WaitExecuteLives(ACTOR_PLAYER);
-    WaitExecutePerformer(0);
-    Wait(30);
-    Turn2DirectionLives<actor ACTOR_ATTENDANT1>(4, 10, ACTOR_PLAYER);
-    WaitExecuteLives(ACTOR_ATTENDANT1);
-    Turn2DirectionLives<actor ACTOR_PLAYER>(4, 10, ACTOR_ATTENDANT1);
-    message_SetFace(ACTOR_ATTENDANT1, FACE_INSPIRED, FACE_POS_STANDARD);
-    message_SwitchTalk ($PARTNER_TALK_KIND) {
-        case 1:
-            {
-                english=" So this is [CS:N]Wigglytuff[CR]'s Guild!",
-            }
-        case 2:
-            {
-                english=" So this is [CS:N]Wigglytuff[CR]'s Guild!",
-            }
-        default:
-            {
-                english=" So this is [CS:N]Wigglytuff[CR]'s Guild!",
-            }
-    }
-    message_SwitchTalk ($PARTNER_TALK_KIND) {
-        case 1:
-            {
-                english="""
-                     There sure are a lot of Pokémon
-                    here. Are they all exploration teams?
-                """,
-            }
-        case 2:
-            {
-                english="""
-                     So many Pokémon! I wonder if
-                    they're all on exploration teams?
-                """,
-            }
-        default:
-            {
-                english="""
-                     There are sure a lot of Pokémon
-                    here. Do they all belong to exploration teams?
-                """,
-            }
-    }
-    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-    message_ResetActor();
-    message_Talk({
-        english=" Excuse me!",
-    });
-    message_Close();
-    se_Play(8978);
-    SetEffect<actor ACTOR_PLAYER>(EFFECT_EXCLAMATION_MARK, 3);
-    SetEffect<actor ACTOR_ATTENDANT1>(EFFECT_EXCLAMATION_MARK, 3);
-    WaitEffect<actor ACTOR_ATTENDANT1>();
-    Turn2Direction<actor ACTOR_ATTENDANT1>(4, 2, DIR_UP);
-    WaitExecuteLives(ACTOR_ATTENDANT1);
-    Turn2Direction<actor ACTOR_PLAYER>(4, 1, DIR_UP);
-    Wait(30);
-    supervision_Acting(1);
-    Wait(1);
-    MovePositionMark<performer 0>(1, Position<'m3', 43.5, 28.5>);
-    MovePositionOffset<actor ACTOR_NPC_PERAPPU>(0.7969, 0, 8);
-    WaitExecutePerformer(0);
-    Wait(45);
-    MovePositionMark<performer 0>(1, Position<'m4', 43.5, 36>);
-    MovePositionMark<actor ACTOR_NPC_PERAPPU>(0.7969, Position<'m5', 43.5, 31.5>);
-    WaitExecuteLives(ACTOR_NPC_PERAPPU);
-    WaitExecutePerformer(0);
-    Wait(15);
-    message_SetFaceOnly(ACTOR_NPC_PERAPPU, FACE_NORMAL, FACE_POS_TOP_R_CENTER);
-    message_Talk({
-        english=" It was you two that just came in, right?",
-    });
-    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-    ExecuteCommon<actor ACTOR_ATTENDANT1>(CORO_JUMP_HAPPY_FUNC_SERIES, 0);
-    WaitExecuteLives(ACTOR_ATTENDANT1);
-    message_SetFace(ACTOR_ATTENDANT1, FACE_NORMAL, FACE_POS_STANDARD);
-    message_SwitchTalk ($PARTNER_TALK_KIND) {
-        case 1:
-            {
-                english=" Y-yes!",
-            }
-        case 2:
-            {
-                english=" Y-yes!",
-            }
-        default:
-            {
-                english=" Y-yes!",
-            }
-    }
-    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-    message_SetFaceOnly(ACTOR_NPC_PERAPPU, FACE_NORMAL, FACE_POS_TOP_R_CENTER);
-    message_Talk({
-        english="""
-             I'm [CS:N]Chatot[CR]! ♪[K] I'm the Pokémon in the
-            know around these parts!
-        """,
-    });
-    message_SetFace(ACTOR_NPC_PERAPPU, FACE_NORMAL, FACE_POS_TOP_R_CENTER);
-    message_Talk({
-        english="""
-             I am Guildmaster [CS:N]Wigglytuff[CR]'s
-            right-hand Pokémon! ♪
-        """,
-    });
-    message_Talk({
-        english="""
-             Now, shoo! Leave the premises!
-            We have no time for salespeople or silly
-            surveys.[K] Off you go, if you please!
-        """,
-    });
-    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-    se_Play(8972);
-    SetEffect<actor ACTOR_ATTENDANT1>(EFFECT_SWEAT_DROPS_FROM_BOTH_SIDES_MEDIUM, 3);
-    message_SetFace(ACTOR_ATTENDANT1, FACE_SURPRISED, FACE_POS_STANDARD);
-    message_SwitchTalk ($PARTNER_TALK_KIND) {
-        case 1:
-            {
-                english=" N-no! That's not why we're here!",
-            }
-        case 2:
-            {
-                english=" N-no! That's not why we're here!",
-            }
-        default:
-            {
-                english=" N-no! That's not why we're here!",
-            }
-    }
-    message_SetFace(ACTOR_ATTENDANT1, FACE_NORMAL, FACE_POS_STANDARD);
-    message_SwitchTalk ($PARTNER_TALK_KIND) {
-        case 1:
-            {
-                english="""
-                     We want to form an
-                    exploration team...
-                """,
-            }
-        case 2:
-            {
-                english="""
-                     We want to form an
-                    exploration team...
-                """,
-            }
-        default:
-            {
-                english="""
-                     We want to form an
-                    exploration team...
-                """,
-            }
-    }
-    message_SwitchTalk ($PARTNER_TALK_KIND) {
-        case 1:
-            {
-                english="""
-                     So we came here. We want to
-                    get proper training as an exploration team.
-                """,
-            }
-        case 2:
-            {
-                english="""
-                     That's why we came. We want
-                    to be trained as an exploration team.
-                """,
-            }
-        default:
-            {
-                english="""
-                     So we came here. We want to
-                    get proper training as an exploration team.
-                """,
-            }
-    }
-    message_Close();
-    se_Play(8969);
-    SetEffect<actor ACTOR_NPC_PERAPPU>(EFFECT_SHOCKED, 3);
-    WaitEffect<actor ACTOR_NPC_PERAPPU>();
-    WaitExecuteLives(ACTOR_NPC_PERAPPU);
-    message_SetFace(ACTOR_NPC_PERAPPU, FACE_SURPRISED, FACE_POS_TOP_R_CENTER);
-    message_Talk({
-        english=" Wh-what?! Exploration team?",
-    });
-    message_Close();
-    Turn2DirectionTurn<actor ACTOR_NPC_PERAPPU>(4, 1, 5);
-    WaitExecuteLives(ACTOR_NPC_PERAPPU);
-    message_SetFace(ACTOR_NPC_PERAPPU, FACE_WORRIED, FACE_POS_TOP_R_CENTER);
-    message_Talk({
-        english="""
-             It's rare to see a kid like this
-            want to apprentice at the guild.
-        """,
-    });
-    message_Talk({
-        english="""
-             Especially given how hard our
-            training is!
-        """,
-    });
-    message_Talk({
-        english="""
-             Surely the steady stream of
-            Pokémon that run away from our rigorous
-            training proves how true that is!
-        """,
-    });
-    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-    se_Play(8962);
-    SetEffect<actor ACTOR_ATTENDANT1>(EFFECT_QUESTION_MARK, 3);
-    WaitEffect<actor ACTOR_ATTENDANT1>();
-    WaitExecuteLives(ACTOR_ATTENDANT1);
-    message_SetFace(ACTOR_ATTENDANT1, FACE_WORRIED, FACE_POS_STANDARD);
-    message_SwitchTalk ($PARTNER_TALK_KIND) {
-        case 1:
-            {
-                english=" Hey.",
-            }
-        case 2:
-            {
-                english=" Excuse me.",
-            }
-        default:
-            {
-                english=" Excuse me.",
-            }
-    }
-    message_SwitchTalk ($PARTNER_TALK_KIND) {
-        case 1:
-            {
-                english="""
-                     Is the exploration team training
-                    really that strict?
-                """,
-            }
-        case 2:
-            {
-                english="""
-                     Is the exploration team training
-                    that severe?
-                """,
-            }
-        default:
-            {
-                english="""
-                     Is the exploration team training
-                    that harsh?
-                """,
-            }
-    }
-    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-    se_Play(8973);
-    SetEffect<actor ACTOR_NPC_PERAPPU>(EFFECT_SHOCKED, 3);
-    WaitEffect<actor ACTOR_NPC_PERAPPU>();
-    WaitExecuteLives(ACTOR_NPC_PERAPPU);
-    message_SetFace(ACTOR_NPC_PERAPPU, FACE_SURPRISED, FACE_POS_TOP_R_CENTER);
-    message_Talk({
-        english=" What?!",
-    });
-    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-    se_Play(8972);
-    Turn2Direction<actor ACTOR_NPC_PERAPPU>(1, 2, DIR_DOWN);
-    SetEffect<actor ACTOR_NPC_PERAPPU>(EFFECT_SWEAT_DROPS_FROM_BOTH_SIDES_MEDIUM, 3);
-    WaitExecuteLives(ACTOR_NPC_PERAPPU);
-    SetAnimation<actor ACTOR_NPC_PERAPPU>(42);
-    message_Talk({
-        english=" Well...no! No, no, no!",
-    });
-    message_Talk({
-        english="""
-             It's not true in the slightest![K]
-            Our training program for exploration teams is
-            as easy as can be!
-        """,
-    });
-    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-    SetAnimation<actor ACTOR_NPC_PERAPPU>(2);
-    SetAnimation<actor ACTOR_NPC_PERAPPU>(44);
-    message_SetFace(ACTOR_NPC_PERAPPU, FACE_JOYOUS, FACE_POS_TOP_R_CENTER);
-    message_Talk({
-        english="""
-             Well, well, well! ♪[K] I wish you
-            had told me up front that you wanted to be
-            an exploration team! ♪ Hee-heeee! ♪
-        """,
-    });
-    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-    SetAnimation<actor ACTOR_NPC_PERAPPU>(2);
-    se_Play(8961);
-    SetEffect<actor ACTOR_PLAYER>(EFFECT_SWEAT_DROP, 3);
-    SetEffect<actor ACTOR_ATTENDANT1>(EFFECT_SWEAT_DROP, 3);
-    WaitEffect<actor ACTOR_ATTENDANT1>();
-    Wait(60);
-    Turn2DirectionLives<actor ACTOR_ATTENDANT1>(4, 10, ACTOR_PLAYER);
-    WaitExecuteLives(ACTOR_ATTENDANT1);
-    Turn2DirectionLives<actor ACTOR_PLAYER>(4, 10, ACTOR_ATTENDANT1);
-    message_SetFace(ACTOR_ATTENDANT1, FACE_SAD, FACE_POS_STANDARD);
-    message_SwitchTalk ($PARTNER_TALK_KIND) {
-        case 1:
-            {
-                english=" His attitude did an about-face...",
-            }
-        case 2:
-            {
-                english="""
-                     His attitude suddenly changed,
-                    didn't it...?
-                """,
-            }
-        default:
-            {
-                english=" What a shift in attitude!",
-            }
-    }
-    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-    message_SetFace(ACTOR_NPC_PERAPPU, FACE_NORMAL, FACE_POS_TOP_R_CENTER);
-    message_Talk({
-        english="""
-             OK! Let's get your team signed
-            up right away. Follow me! ♪
-        """,
-    });
-    message_Close();
-    Turn2Direction<actor ACTOR_PLAYER>(4, 10, DIR_UP);
-    Turn2Direction<actor ACTOR_ATTENDANT1>(4, 10, DIR_UP);
-    MovePositionOffset<actor ACTOR_NPC_PERAPPU>(0.5, 0, -40);
-    WaitExecuteLives(ACTOR_NPC_PERAPPU);
-    Wait(20);
-    se_Play(8978);
-    SetEffect<actor ACTOR_NPC_PERAPPU>(EFFECT_TWO_ARROWS_AT_SIDE_LEFT, 3);
-    WaitEffect<actor ACTOR_NPC_PERAPPU>();
-    WaitExecuteLives(ACTOR_NPC_PERAPPU);
-    Wait(10);
-    Turn2Direction<actor ACTOR_NPC_PERAPPU>(1, 2, DIR_DOWN);
-    WaitExecuteLives(ACTOR_NPC_PERAPPU);
-    Wait(10);
-    ExecuteCommon<actor ACTOR_NPC_PERAPPU>(CORO_JUMP_ANGRY_FUNC_SERIES, 0);
-    WaitExecuteLives(ACTOR_NPC_PERAPPU);
-    message_SetFace(ACTOR_NPC_PERAPPU, FACE_HAPPY, FACE_POS_TOP_R_CENTER);
-    message_Talk({
-        english="""
-             Oh, anything wrong? Come on!
-            Over here! ♪[K] Quickly, please! ♪
-        """,
-    });
-    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-    MovePositionMark<actor ACTOR_NPC_PERAPPU>(0.7969, Position<'m6', 45.5, 22.5>);
-    MovePositionOffset<actor ACTOR_PLAYER>(1, 0, -88);
-    Wait(25);
-    MovePositionMark<actor ACTOR_ATTENDANT1>(1, Position<'m7', 45.5, 22.5>);
-    Destroy<actor ACTOR_NPC_PERAPPU>();
-    Wait(20);
-    screen_FadeOut(1, 30);
-    end;
-}
-
-def 1 for actor ACTOR_NPC_TANEBOO {
-    SetAnimation(2);
-    Wait(30);
-    @label_0;
-    forever {
-        SetEffect(EFFECT_JOYOUS, 3);
-        WaitRandom(90, 180);
-        SetEffect(EFFECT_NONE, 3);
-        WaitRandom(60, 180);
-        continue;  // may be redundant
-    }
-}
-
-def 2 for actor ACTOR_NPC_OOSUBAME {
-    SetAnimation(2);
-    Wait(30);
-    @label_1;
-    forever {
-        SetEffect(EFFECT_JOYOUS, 3);
-        WaitRandom(90, 180);
-        SetEffect(EFFECT_NONE, 3);
-        WaitRandom(60, 180);
-        continue;  // may be redundant
-    }
-}
-
-def 3 for actor ACTOR_NPC_KIMAWARI {
-    SetAnimation(2);
-    Wait(30);
-    @label_2;
-    forever {
-        Turn2Direction(4, 10, DIR_LEFT);
-        SetEffect(EFFECT_JOYOUS, 3);
-        WaitRandom(90, 180);
-        SetEffect(EFFECT_NONE, 3);
-        Turn2Direction(4, 10, DIR_UP);
-        WaitRandom(120, 180);
-        continue;  // may be redundant
-    }
-}
-
-  ]]--
 
   -- SHOW ACTORS FOR THIS SCENE
     GROUND:Unhide("CH2_Bidoof")
@@ -992,14 +558,23 @@ def 3 for actor ACTOR_NPC_KIMAWARI {
     local player = CH("PLAYER")
     local partner = CH("PARTNER")
 
+    GAME:CutsceneMode(true)
+    AI:DisableCharacterAI(partner)
+
     local hTalkKind = SV.Personality.HeroTalkKind
     local pTalkKind = SV.Personality.PartnerTalkKind
 
     local continue = true
 
+    GROUND:TeleportTo(player, MRKR("EntranceBasement").Position.X, MRKR("EntranceBasement").Position.Y, Direction.Down)
+    GROUND:TeleportTo(partner, MRKR("EntranceOutside").Position.X, MRKR("EntranceOutside").Position.Y, Direction.Down)
+    GAME:MoveCameraToChara(-8, 0, 1, partner)
+
+    local wigglytuff = CH("Wigglytuff")
+
     local coro1 = TASK:BranchCoroutine(function ()
         GAME:FadeIn(30)
-        SOUND:PlayBGM("008 - Wigglytuff's Guild.ogg")
+        SOUND:PlayBGM("008 - Wigglytuff's Guild.ogg", true)
 
         GAME:WaitFrames(30)
 
@@ -1010,14 +585,188 @@ def 3 for actor ACTOR_NPC_KIMAWARI {
         UI:SetSpeakerEmotion("Inspired")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_1']))
 
+        local coro1 = TASK:BranchCoroutine(function ()
+            GROUND:MoveToPosition(player, player.Position.X, CH("CH2_Wurmple").Position.Y, false, 1)
+        end)
+        local coro2 = TASK:BranchCoroutine(function ()
+            GAME:WaitFrames(10)
+            GROUND:MoveToPosition(partner, partner.Position.X, CH("CH2_Wurmple").Position.Y, false, 1)
+        end)
+        local coro3 = TASK:BranchCoroutine(function ()
+            GAME:WaitFrames(10)
+            GAME:MoveCamera(GAME:GetCameraCenter().X, CH("CH2_Wurmple").Position.Y, 90) -- may be adjusted based on how fast the characters move
+        end)
+        TASK:JoinCoroutines({coro1, coro2, coro3})
+
+        GAME:WaitFrames(30)
+        GROUND:CharTurnToCharAnimated(partner, player, 4)
+        GROUND:CharTurnToCharAnimated(player, partner, 4)
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_2'], wigglytuff:GetDisplayName()))
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_3_'..pTalkKind]))
+
+        ExplorerEssentials.SetSpeakerUnknown(nil)
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Unknown_1']))
+
+        SOUND:PlayBattleSE("EVT_Emote_Exclaim_2")
+        GROUND:CharSetEmote(player, "exclaim", 1)
+        GROUND:CharSetEmote(partner, "exclaim", 1)
+        GAME:WaitFrames(30)
+
+        GROUND:CharAnimateTurnTo(partner, Direction.Up, 2)
+        GROUND:CharAnimateTurnTo(player, Direction.Up, 4)
+
+        local chatot = CH("Chatot")
+
+        GAME:WaitFrames(30)
+        local coro1 = TASK:BranchCoroutine(function () -- Chatot
+            GROUND:TeleportTo(chatot, MRKR("EntranceBasement").Position.X, MRKR("EntranceBasement").Position.Y - 8, Direction.Down)
+            GROUND:MoveToPosition(chatot, chatot.Position.X, MRKR("EntranceBasement").Position.Y, false, 1)
+        end)
+        local coro2 = TASK:BranchCoroutine(function () -- Camera
+            GAME:MoveCamera(GAME:GetCameraCenter().X, MRKR("EntranceOutside").Position.Y, 90)
+        end)
+        TASK:JoinCoroutines({coro1, coro2})
+
+        GAME:WaitFrames(45)
+        local coro1 = TASK:BranchCoroutine(function () -- Chatot
+            GROUND:TeleportTo(chatot, MRKR("EntranceBasement").Position.X, MRKR("EntranceBasement").Position.Y - 8, Direction.Down)
+            GROUND:MoveToPosition(chatot, GAME:GetCameraCenter().Position.X, partner.Position.Y - 24, false, 1)
+        end)
+        local coro2 = TASK:BranchCoroutine(function () -- Camera
+            GAME:MoveCamera(GAME:GetCameraCenter().X, partner.Position.Y - 8, 90)
+        end)
+        TASK:JoinCoroutines({coro1, coro2})
+
+        GAME:WaitFrames(15)
+        ExplorerEssentials.SetSpeakerUnknown(chatot)
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Unknown_2']))
+
+        CharacterActions.HopOnce(partner, Direction.Up)
+        UI:SetSpeaker(partner)
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_4']))
+
+        ExplorerEssentials.SetSpeakerUnknown(chatot)
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Unknown_3'], chatot:GetDisplayName()))
+        
+        UI:SetSpeaker(chatot)
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_1'], wigglytuff:GetDisplayName()))
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_2']))
+
+        SOUND:PlayBattleSE("EVT_Emote_Sweating")
+        GROUND:CharSetEmote(partner, "sweating", 1)
+
+        UI:SetSpeaker(partner)
+        UI:SetSpeakerEmotion("Surprised")
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_5']))
+
+        UI:SetSpeakerEmotion("Normal")
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_6']))
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_7_'..pTalkKind]))
+
+        SOUND:PlayBattleSE("EVT_Emote_Shock_Bad")
+        GROUND:CharSetEmote(chatot, "shock", 1)
+        GAME:WaitFrames(30)
+
+        UI:SetSpeaker(chatot)
+        UI:SetSpeakerEmotion("Surprised")
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_3']))
+
+        GROUND:CharAnimateTurnTo(chatot, Direction.Up, 4)
+
+        UI:SetSpeakerEmotion("Worried")
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_4']))
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_5']))
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_6']))
+
+        SOUND:PlayBattleSE("EVT_Emote_Confused")
+        GROUND:CharSetEmote(partner, "question", 1)
+        GAME:WaitFrames(30)
+
+        UI:SetSpeaker(partner)
+        UI:SetSpeakerEmotion("Worried")
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_8_'..pTalkKind]))
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_9_'..pTalkKind]))
+
+        SOUND:PlayBattleSE("EVT_Emote_Shocked_2")
+        GROUND:CharSetEmote(chatot, "shock", 1)
+        GAME:WaitFrames(30)
+
+        UI:SetSpeaker(chatot)
+        UI:SetSpeakerEmotion("Surprised")
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_7']))
+
+        SOUND:PlayBattleSE("EVT_Emote_Sweating")
+        GROUND:CharAnimateTurnTo(chatot, Direction.Down, 1)
+        GROUND:CharSetEmote(chatot, "sweating", 1)
+        GROUND:CharSetAnim(chatot, "Shoot", true)
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_8']))
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_9']))
+
+        GROUND:CharSetEmote(chatot, "Wiggle", true)
+
+        UI:SetSpeakerEmotion("Joyous")
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_10']))
+
+        GROUND:CharEndAnim(chatot)
+        SOUND:PlayBattleSE("EVT_Emote_Sweatdrop")
+        GROUND:CharSetEmote(player, "sweating", 1)
+        GROUND:CharSetEmote(partner, "sweating", 1)
+        GAME:WaitFrames(90) -- 30 for emote + 60
+
+        GAME:CharTurnToCharAnimated(partner, player, 4)
+        GAME:CharTurnToCharAnimated(player, partner, 4)
+
+        UI:SetSpeaker(partner)
+        UI:SetSpeakerEmotion("Sad")
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_10_'..pTalkKind]))
+
+        UI:SetSpeaker(chatot)
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_11']))
+
+        local coro1 = TASK:BranchCoroutine(function () GROUND:CharAnimateTurnTo(player, Direction.Up, 4) end)
+        local coro2 = TASK:BranchCoroutine(function () GROUND:CharAnimateTurnTo(partner, Direction.Up, 4) end)
+        local coro3 = TASK:BranchCoroutine(function () 
+            GROUND:MoveToPosition(chatot, chatot.Position.X, MRKR("EntranceBasement").Position.Y + 8, false, 1)
+        end)
+        TASK:JoinCoroutines({coro1, coro2, coro3})
+
+        GAME:WaitFrames(20)
+        SOUND:PlayBattleSE("EVT_Emote_Exclaim_2")
+        GROUND:CharSetEmote(chatot, "notice", 1)
+        GAME:WaitFrames(40) -- 30 for emote + 10
+
+        GROUND:CharAnimateTurnTo(chatot, Direction.Down, 1)
+        GAME:WaitFrames(10)
+        CharacterActions.HopTwice(chatot, Direction.Down)
+
+        UI:SetSpeakerEmotion("Happy")
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_12']))
+
+        local coro1 = TASK:BranchCoroutine(function () -- Chatot
+            GROUND:MoveToPosition(chatot, chatot.Position.X, MRKR("EntranceBasement").Position.Y - 8, false, 1)
+            GAME:WaitFrames(25)
+            GROUND:Hide("Chatot")
+            GAME:WaitFrames(20)
+            GAME:FadeOut(true, 30)
+        end)
+        local coro2 = TASK:BranchCoroutine(function () -- Player
+            GROUND:MoveToPosition(player, player.Position.X, MRKR("EntranceBasement").Position.Y - 8, false, 1)
+        end)
+        local coro3 = TASK:BranchCoroutine(function () -- Partner
+            GAME:WaitFrames(25)
+            GROUND:MoveToPosition(partner, player.Position.X, MRKR("EntranceBasement").Position.Y - 8, false, 1)
+        end)
+        TASK:JoinCoroutines({coro1, coro2, coro3})
+
         continue = false -- END OF SCENE
+        GAME:EnterGroundMap("guild_basement", "Entrance", true)
     end)
     local coro2 = TASK:BranchCoroutine(function () -- Seedot
         GAME:WaitFrames(30)
         while continue do
             GROUND:CharSetEmote(CH("CH2_Seedot"), "glowing", -1)
             GAME:WaitFrames(math.random(90, 180))
-            GROUND:CharSetEmote(CH("CH2_Seedot"), "none", -1)
+            GROUND:CharSetEmote(CH("CH2_Seedot"), "glowing", 0)
             GAME:WaitFrames(math.random(60, 180))
         end
     end)
@@ -1026,7 +775,7 @@ def 3 for actor ACTOR_NPC_KIMAWARI {
         while continue do
             GROUND:CharSetEmote(CH("CH2_Swellow"), "glowing", -1)
             GAME:WaitFrames(math.random(90, 180))
-            GROUND:CharSetEmote(CH("CH2_Swellow"), "none", -1)
+            GROUND:CharSetEmote(CH("CH2_Swellow"), "glowing", 0)
             GAME:WaitFrames(math.random(60, 180))
         end
     end)
@@ -1036,7 +785,7 @@ def 3 for actor ACTOR_NPC_KIMAWARI {
             GROUND:CharAnimateTurnTo(CH("CH2_Sunflora"), Direction.Left, 4)
             GROUND:CharSetEmote(CH("CH2_Sunflora"), "glowing", -1)
             GAME:WaitFrames(math.random(90, 180))
-            GROUND:CharSetEmote(CH("CH2_Sunflora"), "none", -1)
+            GROUND:CharSetEmote(CH("CH2_Sunflora"), "glowing", 0)
             GROUND:CharAnimateTurnTo(CH("CH2_Sunflora"), Direction.Up, 4)
             GAME:WaitFrames(math.random(120, 180))
         end

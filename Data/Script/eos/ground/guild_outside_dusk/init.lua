@@ -27,8 +27,7 @@ function guild_outside_dusk.Init(map)
   --This will fill the localized strings table automatically based on the locale the game is 
   -- currently in. You can use the MapStrings table after this line!
   
---COMMON:RespawnAllies()
-COMMON:RespawnStarterPartner()
+	ExplorerEssentials.SpawnPartner()
 end
 
 ---guild_outside_dusk.Enter(map)
@@ -103,6 +102,7 @@ function guild_outside_dusk.CH1_PartnerWimpsOut()
 	local pTalkKind = SV.Personality.PartnerTalkKind
 
 	local partner = CH("PARTNER")
+	AI:DisableCharacterAI(partner)
 	
 	UI:SetSpeaker(partner)
 	local marker = MRKR("CH1_PartnerSpawn")
@@ -274,11 +274,17 @@ end
 
 function guild_outside_dusk.CH2_GuildScene()
 
+	--[[
+	Should we add the initial camera pan in front of the guild? 
+	]]--
+
 	local player = CH("PLAYER")
 	local partner = CH("PARTNER")
 	
 	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
+
+	AI:DisableCharacterAI(partner)
 	
 	local cam = MRKR("CamPos_1")
     GAME:MoveCamera(cam.Position.X, cam.Position.Y, 1, false)
@@ -445,6 +451,8 @@ function guild_outside_dusk.CH2_GuildSceneB()
 	
 	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
+
+	AI:DisableCharacterAI(partner)
 	
 	local cam = MRKR("CamPos_1")
     GAME:MoveCamera(cam.Position.X, cam.Position.Y, 1, false)
@@ -474,7 +482,7 @@ function guild_outside_dusk.CH2_GuildSceneB()
 	ExplorerEssentials.SetSpeakerUnknown(nil)
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Unknown_9']))
 
-	SOUND:PlayBattleSE("EVT_Emote_Startled")
+	SOUND:PlayBattleSE("EVT_Emote_Exclaim_2")
 	GROUND:CharSetEmote(player, "notice", 1)
 	GROUND:CharSetEmote(partner, "notice", 1)
 	GROUND:CharAnimateTurnTo(partner, Direction.Right, 4)

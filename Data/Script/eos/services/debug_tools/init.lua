@@ -66,11 +66,17 @@ function DebugTools:OnNewGame()
     _DATA.Save.ActiveTeam.Players[0].ActionEvents:Add(talk_evt)
     _DATA.Save:RegisterMonster(_DATA.Save.ActiveTeam.Players[0].BaseForm)
     
-    _DATA.Save.ActiveTeam:SetRank("normal")
     if not GAME:InRogueMode() then
         _DATA.Save.ActiveTeam.Bank = 1000
     end
-    SV.General.Starter = _DATA.Save.ActiveTeam.Players[0].BaseForm
+    SV.General.Starter = _DATA.Save.ActiveTeam.Players[0]
+    SV.General.Partner = _DATA.Save.ActiveTeam.Players[1]
+
+    _DATA.Save.ActiveTeam.Players[0].IsFounder = true
+	  _DATA.Save.ActiveTeam.Players[1].IsFounder = true
+	
+	  _DATA.Save.ActiveTeam.Players[0].IsPartner = true
+	  _DATA.Save.ActiveTeam.Players[1].IsPartner = true
   else
     PrintInfo("\n<!> ExampleSvc: Preparing debug save file")
     _DATA.Save.ActiveTeam:SetRank("normal")
@@ -89,10 +95,10 @@ function DebugTools:OnNewGame()
     _DATA.Save.ActiveTeam.Players[1].ActionEvents:Add(talk_evt)
 	
     _DATA.Save.ActiveTeam.Players[0].IsFounder = true
-	_DATA.Save.ActiveTeam.Players[1].IsFounder = true
+	  _DATA.Save.ActiveTeam.Players[1].IsFounder = true
 	
-	_DATA.Save.ActiveTeam.Players[0].IsPartner = true
-	_DATA.Save.ActiveTeam.Players[1].IsPartner = true
+	  _DATA.Save.ActiveTeam.Players[0].IsPartner = true
+	  _DATA.Save.ActiveTeam.Players[1].IsPartner = true
 	
     _DATA.Save:UpdateTeamProfile(true)
       

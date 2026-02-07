@@ -27,7 +27,7 @@ function beach_cave_pit.Init(map)
   -- currently in. You can use the MapStrings table after this line!
   
   
-  COMMON:RespawnAllies()
+  ExplorerEssentials.SpawnPartner()
 
 end
 
@@ -119,6 +119,7 @@ function beach_cave_pit.EncounterBoss()
 	local zubat = CH('Zubat')
 	
 	partner.CollisionDisabled = true
+	AI:DisableCharacterAI(partner)
 	
 	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
@@ -225,6 +226,7 @@ function beach_cave_pit.BossReEntry()
 	local koffing = CH('Koffing')
 	local zubat = CH('Zubat')
 	
+  	AI:DisableCharacterAI(partner)
 	partner.CollisionDisabled = true
 	
 	local hTalkKind = SV.Personality.HeroTalkKind
@@ -312,6 +314,8 @@ function beach_cave_pit.BossDefeated()
 	local koffing = CH('Koffing')
 	local zubat = CH('Zubat')
 	
+	
+  	AI:DisableCharacterAI(partner)
 	partner.CollisionDisabled = true
 	
 	local hTalkKind = SV.Personality.HeroTalkKind

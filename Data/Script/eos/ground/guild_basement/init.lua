@@ -23,107 +23,35 @@ local guild_basement = {}
 ---guild_basement.Init(map)
 --Engine callback function
 function guild_basement.Init(map)
- --no need to duplicate these except when it glitches out?
-	player = CH("PLAYER")
-        partner = CH("TEAMMATE_1") --why does this have to be like this?
-        Chatot = CH("Chatot")
-        Loudred = CH("Loudred")
-        Dugtrio = CH("Dugtrio")
-        Diglett= CH("Diglett")
-        Sunflora = CH("Sunflora")
-        Bidoof = CH("Bidoof")
-        Chimecho = CH("Chimecho")
-        Corphish = CH("Corphish")
-        Croagunk = CH("Croagunk")
-        Wigglytuff = CH("Wigglytuff")
-	GROUND:Hide("Wigglytuff")
-        GROUND:Hide("Sunflora")
-        GROUND:Hide("Bidoof")
-        GROUND:Hide("Corphish")
-        GROUND:Hide("Chimecho")
-        GROUND:Hide("Loudred")
-	GROUND:Hide("Dugtrio")
-	GROUND:Hide("Diglett")
-	GROUND:Hide("TEAMMATE_2")
 
   --This will fill the localized strings table automatically based on the locale the game is 
   -- currently in. You can use the MapStrings table after this line!
-COMMON:RespawnAllies()
-ExplorerEssentials.SpawnPartner()
+
+  COMMON.RespawnStarterPartner()
 end
 
 ---guild_basement.Enter(map)
 --Engine callback function
 function guild_basement.Enter(map)
-  GAME:FadeIn(20)
-
-   if SV.Progression.Chapter == 2 then
-
-	if SV.Progression.SectionFlag == 5 and not SV.Chapter2.StartedDrenchedBluff then
-	--scene 3 & 4 are for top floor and middle floor
-	guild_basement.Chapter2Scene5()
-	--goto scene 6
-	end
-
-	if SV.Progression.SectionFlag == 8 and not SV.Chapter2.StartedDrenchedBluff then
-	--scene 6 & 7 are reserved for wigglytuff's room, bedtime in hero's room
-	guild_basement.Chapter2Scene8()
-	--goto scene 9 in guild middle floor here
-	end
-
-	if SV.Progression.SectionFlag == 10 and SV.Chapter2.StartedDrenchedBluff == 1 then
-	--player failed drenched bluff
-	guild_basement.NewDay()
-	end
-
-	if SV.Progression.SectionFlag == 11 and not SV.Chapter2.StartedMtBristle then
-	--scene 10 & 11 are reserved for drenched bluff
-	guild_basement.Chapter2Scene12()
-	--goto eating scene 13 here and then night scene 14
-	--else for now goto chapter 3
-	SV.Progression.Chapter = 3
-        SV.Progression.SectionFlag = 1
-	GAME:EnterZone("cutscenes", -1, 1, 0)
-	end
-
+  if SV.Progression.Chapter == 2 then
+    if SV.Progression.SectionFlag == 1 then
+        guild_basement.CH2_FirstMorning()
+        guild_basement.CH2_ChatotBeckons()
+    else
+        guild_basement.CH2_BasementTour()
+    end
+  else -- No Cutscenes
+    ExplorerEssentials.SpawnPartner()
+    
+    GAME:FadeIn(20)
   end
-
-
-
-   if SV.Progression.Chapter == 3 then
-
-	if SV.Progression.SectionFlag == 1 then
-
-	guild_basement.NewDay()
-
-	end
-
-	if SV.Progression.SectionFlag == 3 then
-
-	guild_basement.CH2BidoofTutorialScene2()
-
-	end	
-
-	if SV.Progression.SectionFlag == 7 then
-	--player failed Mt
-	guild_basement.NewDay()
-	--cutscene to go straight to Mt here
-	end
-
-   end
-
-
---if SV.TemporaryFlags.MissionCompleted then 
---guild_second_floor.Hand_In_Missions()
---end
 
 end
 
 ---guild_basement.Exit(map)
 --Engine callback function
 function guild_basement.Exit(map)
-
-GAME:FadeOut(false, 20)
+    GAME:FadeOut(false, 20)
 end
 
 ---guild_basement.Update(map)
@@ -154,11 +82,7 @@ end
 -------------------------------
 
 function guild_basement.GuildSecondFloor_Touch(obj, activator)
-
---GAME:EnterGroundMap("guild_second_floor", "LadderDownMarker")
-SV.partner.Spawn = 'GuildEntranceMarker'
-GAME:EnterGroundMap("guild_outside", "GuildEntranceMarker")
-
+    GAME:EnterGroundMap("guild_second_floor", "EntranceBasement")
 end
 
 
@@ -2166,12 +2090,18 @@ def 0 {
 	]]--
 	
 	GAME:CutsceneMode(true)
-        local hTalkKind = SV.Personality.HeroTalkKind
-        local pTalkKind = SV.Personality.PartnerTalkKind
+
+    local player = CH("PLAYER")
+    local partner = CH("PARTNER")
+    local chatot = CH("Chatot")
+    
+    local hTalkKind = SV.Personality.HeroTalkKind
+    local pTalkKind = SV.Personality.PartnerTalkKind
+
 	AI:DisableCharacterAI(partner)
 	partner.CollisionDisabled = true
 	player.CollisionDisabled = true
-	Chatot.CollisionDisabled = true
+	chatot.CollisionDisabled = true
 
         local cam = MRKR("CamPos_1")
         GAME:MoveCamera(cam.Position.X, cam.Position.Y, 1, false)

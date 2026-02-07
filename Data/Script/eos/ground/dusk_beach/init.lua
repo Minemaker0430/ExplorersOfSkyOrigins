@@ -27,10 +27,7 @@ function dusk_beach.Init(map)
   --This will fill the localized strings table automatically based on the locale the game is 
   -- currently in. You can use the MapStrings table after this line!
   
-  
-  --COMMON:RespawnAllies()
-  --ExplorerEssentials.SpawnPartner() -- don't call this anymore in cutscene maps, breaks because of the partner ai
-  COMMON:RespawnStarterPartner()
+  ExplorerEssentials.SpawnPartner()
 
   stopBubbles = false
 end
@@ -104,6 +101,8 @@ function dusk_beach.CH1_PartnerFindsHero()
 	
 	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
+
+	AI:DisableCharacterAI(partner)
 	
 	local marker = MRKR("Entrance")
 	local cam = MRKR("C1S1_CamPos_1")
@@ -732,6 +731,7 @@ function dusk_beach.CH1_ExplorerTeamInvite()
 	local player = CH('PLAYER')
 	local partner = CH('PARTNER')
 	
+  	AI:DisableCharacterAI(partner)
 	partner.CollisionDisabled = true
 	
 	local hTalkKind = SV.Personality.HeroTalkKind
@@ -998,6 +998,7 @@ function dusk_beach.CH1_FailedBeachCave()
 	local player = CH('PLAYER')
 	local partner = CH('PARTNER')
 	
+  	AI:DisableCharacterAI(partner)
 	partner.CollisionDisabled = true
 	
 	local hTalkKind = SV.Personality.HeroTalkKind
