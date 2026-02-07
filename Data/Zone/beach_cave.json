@@ -2948,7 +2948,11 @@
 "Intrinsic": "",
 "Tactic": "wander_normal",
 "SpawnConditions": [],
-"SpawnFeatures": []
+"SpawnFeatures": [
+{
+"$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
+}
+]
 },
 "Role": 0
 },

@@ -4406,11 +4406,7 @@
 "Intrinsic": "",
 "Tactic": "wander_normal",
 "SpawnConditions": [],
-"SpawnFeatures": [
-{
-"$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
-}
-]
+"SpawnFeatures": []
 },
 "Role": 0
 },
@@ -4437,11 +4433,7 @@
 "Intrinsic": "",
 "Tactic": "wander_normal",
 "SpawnConditions": [],
-"SpawnFeatures": [
-{
-"$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
-}
-]
+"SpawnFeatures": []
 },
 "Role": 0
 },
@@ -4468,11 +4460,7 @@
 "Intrinsic": "",
 "Tactic": "wander_normal",
 "SpawnConditions": [],
-"SpawnFeatures": [
-{
-"$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
-}
-]
+"SpawnFeatures": []
 },
 "Role": 0
 },
@@ -4499,11 +4487,7 @@
 "Intrinsic": "",
 "Tactic": "wander_normal",
 "SpawnConditions": [],
-"SpawnFeatures": [
-{
-"$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
-}
-]
+"SpawnFeatures": []
 },
 "Role": 0
 },
@@ -4530,11 +4514,7 @@
 "Intrinsic": "",
 "Tactic": "wander_normal",
 "SpawnConditions": [],
-"SpawnFeatures": [
-{
-"$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
-}
-]
+"SpawnFeatures": []
 },
 "Role": 0
 },
@@ -4561,11 +4541,7 @@
 "Intrinsic": "",
 "Tactic": "wander_normal",
 "SpawnConditions": [],
-"SpawnFeatures": [
-{
-"$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
-}
-]
+"SpawnFeatures": []
 },
 "Role": 0
 },
@@ -4592,11 +4568,7 @@
 "Intrinsic": "",
 "Tactic": "wander_normal",
 "SpawnConditions": [],
-"SpawnFeatures": [
-{
-"$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
-}
-]
+"SpawnFeatures": []
 },
 "Role": 0
 },
@@ -4623,11 +4595,7 @@
 "Intrinsic": "",
 "Tactic": "wander_normal",
 "SpawnConditions": [],
-"SpawnFeatures": [
-{
-"$type": "PMDC.LevelGen.MobSpawnUnrecruitable, PMDC"
-}
-]
+"SpawnFeatures": []
 },
 "Role": 0
 },
