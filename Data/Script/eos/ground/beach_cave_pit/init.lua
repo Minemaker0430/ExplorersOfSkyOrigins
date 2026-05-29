@@ -27,7 +27,7 @@ function beach_cave_pit.Init(map)
   -- currently in. You can use the MapStrings table after this line!
   
   
-  ExplorerEssentials.SpawnPartner()
+  COMMON.RespawnStarterPartner()
 
 end
 
