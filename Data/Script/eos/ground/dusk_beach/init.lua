@@ -51,6 +51,10 @@ function dusk_beach.Enter(map)
 	end
   end
   
+  if SV.Progression.Chapter == 16 then
+	dusk_beach.CH16_BackInThePast()
+  end
+  
 end
 
 ---dusk_beach.Exit(map)
@@ -1102,6 +1106,304 @@ function dusk_beach.CH1_FailedBeachCave()
 	GAME:WaitFrames(60)
 	GAME:CutsceneMode(false)
 	GAME:EnterDungeon('beach_cave', 0, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+end
+
+function dusk_beach.CH16_BackInThePast()
+	local hTalkKind = SV.Personality.HeroTalkKind
+	local pTalkKind = SV.Personality.PartnerTalkKind
+	SOUND:StopBGM()
+	-- TODO: back_SetBanner2(407, 0, 152, 120, 16, { english="A New Dawn",     })
+	GAME:FadeIn(45)
+	GAME:WaitFrames(160)
+	GAME:FadeOut(false, 45)
+	GAME:WaitFrames(15)
+	-- TODO: $SCENARIO_MAIN = scn[21, 1]
+	-- ### back2_SetMode(4) [IRRELEVANT]
+	-- ### back2_SetGround(LEVEL_V01P03A) [IRRELEVANT]
+	-- back_SetGround(LEVEL_D01P11A) (ground mapping may be converted manually)
+	-- ### supervision_Acting(0) [IRRELEVANT]
+	-- ### camera2_SetPositionMark(Position<'m0', 33, 9.5>) [IRRELEVANT]
+	GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
+	--GROUND:CharSetAnim(CH('PLAYER'), "UNK_76", false)
+	--GROUND:CharSetAnim(CH('PARTNER'), "UNK_76", false)
+	--GROUND:CharSetAnim(CH('Grovyle'), "UNK_29", false)
+	SOUND:FadeInSE("Ambient/AMB_Ocean.ogg", 90)
+	-- ### screen2_FadeIn(0, 60) [IRRELEVANT]
+	GAME:FadeIn(60)
+	GAME:WaitFrames(120)
+	GROUND:AnimateToPosition(CH('PLAYER'), "None", CH('PLAYER').Direction, CH('PLAYER').Position.X + 1, CH('PLAYER').Position.Y + 0, 1, 1, 0) -- Replace with GROUND:CharSetDrawEffect(ch, DrawEffect.Shaking) if this is a shaking animation
+	GAME:WaitFrames(2)
+	GROUND:AnimateToPosition(CH('PLAYER'), "None", CH('PLAYER').Direction, CH('PLAYER').Position.X + -1, CH('PLAYER').Position.Y + 0, 1, 1, 0) -- Replace with GROUND:CharSetDrawEffect(ch, DrawEffect.Shaking) if this is a shaking animation
+	GAME:WaitFrames(30)
+	GROUND:AnimateToPosition(CH('PLAYER'), "None", CH('PLAYER').Direction, CH('PLAYER').Position.X + 1, CH('PLAYER').Position.Y + 0, 1, 1, 0) -- Replace with GROUND:CharSetDrawEffect(ch, DrawEffect.Shaking) if this is a shaking animation
+	GAME:WaitFrames(2)
+	GROUND:AnimateToPosition(CH('PLAYER'), "None", CH('PLAYER').Direction, CH('PLAYER').Position.X + -1, CH('PLAYER').Position.Y + 0, 1, 1, 0) -- Replace with GROUND:CharSetDrawEffect(ch, DrawEffect.Shaking) if this is a shaking animation
+	GAME:WaitFrames(2)
+	GROUND:AnimateToPosition(CH('PLAYER'), "None", CH('PLAYER').Direction, CH('PLAYER').Position.X + 1, CH('PLAYER').Position.Y + 0, 1, 1, 0) -- Replace with GROUND:CharSetDrawEffect(ch, DrawEffect.Shaking) if this is a shaking animation
+	GAME:WaitFrames(2)
+	GROUND:AnimateToPosition(CH('PLAYER'), "None", CH('PLAYER').Direction, CH('PLAYER').Position.X + -1, CH('PLAYER').Position.Y + 0, 1, 1, 0) -- Replace with GROUND:CharSetDrawEffect(ch, DrawEffect.Shaking) if this is a shaking animation
+	GAME:WaitFrames(30)
+	--GROUND:CharWaitAnim(CH('PLAYER'), "UNK_63")
+	GAME:WaitFrames(60)
+	GROUND:CharSetAnim(CH('PLAYER'), "None", false)
+	GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.Down, 8)
+	ExplorerEssentials.SetSpeakerHero()
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_PLAYER_1']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_PLAYER_2']))
+	CharacterActions.LookAround(CH('PLAYER'))
+	GAME:WaitFrames(30)
+	GROUND:AnimateToPosition(CH('PARTNER'), "None", CH('PARTNER').Direction, CH('PARTNER').Position.X + 1, CH('PARTNER').Position.Y + 0, 1, 1, 0) -- Replace with GROUND:CharSetDrawEffect(ch, DrawEffect.Shaking) if this is a shaking animation
+	GAME:WaitFrames(2)
+	GROUND:AnimateToPosition(CH('PARTNER'), "None", CH('PARTNER').Direction, CH('PARTNER').Position.X + -1, CH('PARTNER').Position.Y + 0, 1, 1, 0) -- Replace with GROUND:CharSetDrawEffect(ch, DrawEffect.Shaking) if this is a shaking animation
+	GAME:WaitFrames(2)
+	GROUND:AnimateToPosition(CH('PARTNER'), "None", CH('PARTNER').Direction, CH('PARTNER').Position.X + 1, CH('PARTNER').Position.Y + 0, 1, 1, 0) -- Replace with GROUND:CharSetDrawEffect(ch, DrawEffect.Shaking) if this is a shaking animation
+	GAME:WaitFrames(2)
+	GROUND:AnimateToPosition(CH('PARTNER'), "None", CH('PARTNER').Direction, CH('PARTNER').Position.X + -1, CH('PARTNER').Position.Y + 0, 1, 1, 0) -- Replace with GROUND:CharSetDrawEffect(ch, DrawEffect.Shaking) if this is a shaking animation
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Pain")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_PARTNER_1']))
+	GROUND:CharTurnToCharAnimated(CH('PLAYER'), CH('PARTNER'), 4)
+	--GROUND:CharWaitAnim(CH('PARTNER'), "UNK_63")
+	GAME:WaitFrames(60)
+	GROUND:CharSetAnim(CH('PARTNER'), "None", false)
+	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Down, 4)
+	GAME:WaitFrames(15)
+	CharacterActions.LookAround(CH('PARTNER'))
+	GAME:WaitFrames(30)
+	GROUND:CharTurnToCharAnimated(CH('PARTNER'), CH('PLAYER'), 4)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_PARTNER_2_'..tostring(pTalkKind)]))
+		-- TODO: ExecuteCommon: ExecuteCommon(CORO_LOOK_AROUND_LEFT_FUNC_SERIES, 0)
+	GAME:WaitFrames(20)
+	GROUND:CharTurnToCharAnimated(CH('PARTNER'), CH('PLAYER'), 4)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_PARTNER_3']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_PARTNER_4']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_PARTNER_5']))
+	SOUND:PlayBattleSE("EVT_Emote_Complain_2")
+	CharacterActions.HopTwice(CH('PARTNER'), CH('PARTNER').Direction)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Surprised")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_PARTNER_6']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_PARTNER_7']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_PARTNER_8_'..tostring(pTalkKind)]))
+	CharacterActions.HopOnce(CH('PARTNER'), CH('PARTNER').Direction)
+	--GROUND:CharSetEmote(CH('PLAYER'), "UNK_EFFECT_LAUGHING", 1)
+	--GROUND:CharSetEmote(CH('PARTNER'), "UNK_EFFECT_LAUGHING", 1)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Joyous")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_PARTNER_9_'..tostring(pTalkKind)]))
+	GAME:WaitFrames(45)
+	GROUND:CharSetEmote(CH('PLAYER'), "none", 1)
+	GROUND:CharSetEmote(CH('PARTNER'), "none", 1)
+	GROUND:AnimateToPosition(CH('Grovyle'), "None", CH('Grovyle').Direction, CH('Grovyle').Position.X + 1, CH('Grovyle').Position.Y + 0, 1, 1, 0) -- Replace with GROUND:CharSetDrawEffect(ch, DrawEffect.Shaking) if this is a shaking animation
+	GAME:WaitFrames(2)
+	GROUND:AnimateToPosition(CH('Grovyle'), "None", CH('Grovyle').Direction, CH('Grovyle').Position.X + -1, CH('Grovyle').Position.Y + 0, 1, 1, 0) -- Replace with GROUND:CharSetDrawEffect(ch, DrawEffect.Shaking) if this is a shaking animation
+	GAME:WaitFrames(2)
+	GROUND:AnimateToPosition(CH('Grovyle'), "None", CH('Grovyle').Direction, CH('Grovyle').Position.X + 1, CH('Grovyle').Position.Y + 0, 1, 1, 0) -- Replace with GROUND:CharSetDrawEffect(ch, DrawEffect.Shaking) if this is a shaking animation
+	GAME:WaitFrames(2)
+	GROUND:AnimateToPosition(CH('Grovyle'), "None", CH('Grovyle').Direction, CH('Grovyle').Position.X + -1, CH('Grovyle').Position.Y + 0, 1, 1, 0) -- Replace with GROUND:CharSetDrawEffect(ch, DrawEffect.Shaking) if this is a shaking animation
+	UI:SetSpeaker(CH('Grovyle'))
+	UI:SetSpeakerEmotion("Pain")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_Grovyle_1']))
+	GROUND:CharTurnToCharAnimated(CH('PARTNER'), CH('Grovyle'), 4)
+	SOUND:PlayBattleSE("EVT_Emote_Exclaim_2")
+	GROUND:CharSetEmote(CH('PARTNER'), "exclaim", 1)
+	GAME:WaitFrames(30)
+	GROUND:CharTurnToCharAnimated(CH('PLAYER'), CH('Grovyle'), 4)
+	--GROUND:CharWaitAnim(CH('Grovyle'), "UNK_31")
+	GROUND:CharSetAnim(CH('Grovyle'), "None", false)
+	GAME:WaitFrames(30)
+	GROUND:CharAnimateTurnTo(CH('Grovyle'), Dir8.UpLeft, 4)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_PARTNER_10']))
+	GROUND:CharTurnToCharAnimated(CH('Grovyle'), CH('PARTNER'), 4)
+	-- Moving Camera to (392, 180) with speed 2 and performer 0 | The reason the duration is so complicated is because Vanilla EoS camera movement measures in *speed*, not total duration
+	GAME:MoveCamera(392, 180, math.floor(math.sqrt((MRKR('PERF_0').Position.X - 392) * (MRKR('PERF_0').Position.X - 392) + (MRKR('PERF_0').Position.Y - 180) * (MRKR('PERF_0').Position.Y - 180)) / 2), false)
+	GROUND:TeleportTo(MRKR('PERF_0'), 392, 180)
+	GROUND:MoveToPosition(CH('PARTNER'), 376, 164, false, 1)
+	GAME:WaitFrames(10)
+	GROUND:MoveToPosition(CH('PLAYER'), 376, 188, false, 1)
+	GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.UpRight, 4)
+	GAME:WaitFrames(30)
+	CharacterActions.HopOnce(CH('PARTNER'), CH('PARTNER').Direction)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Happy")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_PARTNER_11_'..tostring(pTalkKind)]))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_PARTNER_12']))
+	UI:SetSpeaker(CH('Grovyle'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_Grovyle_2']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_Grovyle_3']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_Grovyle_4']))
+	CharacterActions.HopOnce(CH('PARTNER'), CH('PARTNER').Direction)
+	GROUND:CharTurnToCharAnimated(CH('PLAYER'), CH('PARTNER'), 4)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Happy")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_PARTNER_13_'..tostring(pTalkKind)]))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_PARTNER_14']))
+	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.DownLeft, 4)
+	GAME:WaitFrames(30)
+	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.DownRight, 4)
+	GAME:WaitFrames(30)
+	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Left, 4)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_PARTNER_15_'..tostring(pTalkKind)]))
+	-- Moving Camera to (360, 180) with speed 2 and performer 0 | The reason the duration is so complicated is because Vanilla EoS camera movement measures in *speed*, not total duration
+	GAME:MoveCamera(360, 180, math.floor(math.sqrt((MRKR('PERF_0').Position.X - 360) * (MRKR('PERF_0').Position.X - 360) + (MRKR('PERF_0').Position.Y - 180) * (MRKR('PERF_0').Position.Y - 180)) / 2), false)
+	GROUND:TeleportTo(MRKR('PERF_0'), 360, 180)
+	GROUND:MoveToPosition(CH('PARTNER'), 296, 164, false, 2)
+	GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.Left, 8)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_PARTNER_16_'..tostring(pTalkKind)]))
+	GROUND:CharTurnToCharAnimated(CH('PARTNER'), CH('Grovyle'), 4)
+	CharacterActions.HopOnce(CH('PARTNER'), CH('PARTNER').Direction)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_PARTNER_17_'..tostring(pTalkKind)]))
+	UI:SetSpeaker(CH('Grovyle'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_Grovyle_5']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_Grovyle_6']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_Grovyle_7']))
+	SOUND:PlayBattleSE("EVT_Emote_Exclaim")
+	GROUND:CharSetEmote(CH('PARTNER'), "exclaim", 1)
+	GAME:WaitFrames(30)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_PARTNER_18']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_PARTNER_19_'..tostring(pTalkKind)]))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_PARTNER_20_'..tostring(pTalkKind)]))
+	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.DownLeft, 4)
+	GAME:WaitFrames(30)
+	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.DownRight, 4)
+	GAME:WaitFrames(30)
+	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Down, 4)
+	GAME:WaitFrames(30)
+	GROUND:CharTurnToCharAnimated(CH('PARTNER'), CH('Grovyle'), 4)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_PARTNER_21']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_PARTNER_22']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_PARTNER_23_'..tostring(pTalkKind)]))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_PARTNER_24_'..tostring(pTalkKind)]))
+	GROUND:MoveToPosition(CH('PARTNER'), CH('PARTNER').Position.X + 32, CH('PARTNER').Position.Y + 32, false, 2)
+	GROUND:MoveToPosition(CH('PARTNER'), 400, 196, false, 2)
+	GAME:WaitFrames(30)
+	-- Moving Camera to (392, 180) with speed 2 and performer 0 | The reason the duration is so complicated is because Vanilla EoS camera movement measures in *speed*, not total duration
+	GAME:MoveCamera(392, 180, math.floor(math.sqrt((MRKR('PERF_0').Position.X - 392) * (MRKR('PERF_0').Position.X - 392) + (MRKR('PERF_0').Position.Y - 180) * (MRKR('PERF_0').Position.Y - 180)) / 2), false)
+	GROUND:TeleportTo(MRKR('PERF_0'), 392, 180)
+	GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.DownRight, 16)
+	GROUND:CharAnimateTurnTo(CH('Grovyle'), Dir8.DownLeft, 16)
+	UI:SetSpeaker(CH('Grovyle'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_Grovyle_8']))
+	SOUND:PlayBattleSE("EVT_Emote_Exclaim")
+	GROUND:CharSetEmote(CH('PARTNER'), "notice", 1)
+	GAME:WaitFrames(30)
+	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.UpRight, 4)
+	GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.UpRight, 4)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_Grovyle_9']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_Grovyle_10']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_Grovyle_11']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_Grovyle_12']))
+	SOUND:PlayBattleSE("EVT_Emote_Sweating")
+	GROUND:CharSetEmote(CH('PARTNER'), "sweating", 1)
+	GAME:WaitFrames(30)
+	GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.DownRight, 4)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Sad")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_PARTNER_25_'..tostring(pTalkKind)]))
+	GAME:WaitFrames(20)
+	SOUND:PlayBattleSE("EVT_Emote_Exclaim")
+	GROUND:CharSetEmote(CH('PARTNER'), "exclaim", 1)
+	GAME:WaitFrames(30)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_PARTNER_26']))
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Sad")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_PARTNER_27_'..tostring(pTalkKind)]))
+
+
+
+
+
+
+
+	UI:SetSpeaker(CH('Grovyle'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_Grovyle_13']))
+
+
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_Grovyle_14']))
+
+
+
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_PARTNER_28_'..tostring(pTalkKind)]))
+
+
+
+
+
+
+
+
+	GROUND:MoveToPosition(CH('PARTNER'), CH('PARTNER').Position.X + 160, CH('PARTNER').Position.Y + 0, false, 2)
+	GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.Right, 8)
+	GROUND:CharAnimateTurnTo(CH('Grovyle'), Dir8.Right, 8)
+	GAME:WaitFrames(60)
+	GROUND:MoveToPosition(CH('PLAYER'), CH('PLAYER').Position.X + 160, CH('PLAYER').Position.Y + 0, false, 2)
+	GAME:WaitFrames(30)
+	GROUND:MoveToPosition(CH('Grovyle'), CH('Grovyle').Position.X + 160, CH('Grovyle').Position.Y + 0, false, 2)
+	GAME:WaitFrames(30)
+	-- ### screen2_FadeOut(0, 60) [IRRELEVANT]
+	SOUND:FadeOutSE("Ambient/AMB_Ocean.ogg", 120)
+	GAME:FadeOut(false, 60)
+	-- ### back2_SetMode(0) [IRRELEVANT]
+	GAME:WaitFrames(60)
+	-- TODO: WaitBgm(BGM_OCEAN1)
+	-- TODO: $SPECIAL_EPISODE_OPEN[3] = 1
+	SOUND:PlayFanfare("Fanfare/Note.ogg")
+	UI:ResetSpeaker()
+	UI:SetCenter(true)
+	UI:WaitShowVoiceOver(STRINGS:Format(STRINGS.MapStrings['CH16_NARRATION_1']), -1)
+	UI:SetCenter(false)
+
+
+
+	-- back_SetGround(LEVEL_P26P01A) (ground mapping may be converted manually)
+	-- ### supervision_Acting(10) [IRRELEVANT]
+	GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
+	GAME:FadeIn(15)
+	GAME:WaitFrames(30)
+	SOUND:PlayFanfare("UNK_5.ogg")
+	UI:SetCenter(true)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_NARRATION_2']))
+	UI:SetCenter(false)
+
+
+	UI:SetCenter(true)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_NARRATION_3']))
+	UI:SetCenter(false)
+
+
+	UI:SetCenter(true)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH16_NARRATION_4']))
+	UI:SetCenter(false)
+
+
+
+	GAME:FadeOut(false, 30)
+	GAME:WaitFrames(60)
+	-- TODO: $SCENARIO_MAIN_BIT_FLAG[8] = 1
+	-- TODO: $COMPULSORY_SAVE_POINT = 16
+	ExplorerEssentials.AutosaveWithNotification()
+
 end
 
 function dusk_beach.UTIL_PopulateBubbles()

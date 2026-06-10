@@ -105,6 +105,7 @@ CORO_JUMP_ANGRY_FUNC_SERIES -> CharacterActions.HopTwice(ent, dir)
 CORO_EXPLANATION_FUNC_SERIES -> CharacterActions.Explain(ent)
 CORO_HEAD_SHAKE_FUNC_SERIES -> CharacterActions.ShakeHead(ent, dir)
 CORO_JUMP_HAPPY_FUNC_SERIES -> CharacterActions.HopOnce(ent, dir)
+CORO_LOOK_AROUND_FUNC_SERIES -> CharacterActions.LookAround(ent)
 
 --------------------
 Animations

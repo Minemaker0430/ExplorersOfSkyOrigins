@@ -425,55 +425,6 @@ local natureMap = {
 		[2] = { { nature = "hardy", points = 2 } },
 		[3] = { { nature = "bold", points = 4 } },
 	},
-	[65] = {
-		[1] = { { nature = "jolly", points = 2 }, { nature = "relaxed", points = 4 } },
-		[2] = { { nature = "docile", points = 2 } },
-		[3] = { { nature = "quirky", points = 2 }, { nature = "calm", points = 4 } },
-		[4] = { { nature = "rash", points = 2 }, { nature = "impish", points = 4 } },
-	},
-	[66] = {
-		[1] = { { nature = "sassy", points = 2 }, { nature = "bold", points = 4 } },
-		[2] = { { nature = "quiet", points = 2 }, { nature = "hardy", points = 4 } },
-		[3] = { { nature = "hasty", points = 4 } },
-	},
-	[67] = {
-		[1] = { { nature = "timid", points = 4 } },
-		[2] = { { nature = "hardy", points = 2 }, { nature = "brave", points = 4 } },
-		[3] = { { nature = "naive", points = 2 }, { nature = "jolly", points = 4 } },
-		[4] = { { nature = "lonely", points = 2 } },
-	},
-	[68] = {
-		[1] = { { nature = "docile", points = 4 } },
-		[2] = { { nature = "rash", points = 4 } },
-		[3] = { { nature = "bold", points = 2 }, { nature = "impish", points = 4 } },
-	},
-	[69] = {
-		[1] = { { nature = "sassy", points = 2 }, { nature = "quirky", points = 4 } },
-		[2] = { { nature = "brave", points = 2 } },
-		[3] = { { nature = "calm", points = 2 } },
-	},
-	[70] = {
-		[1] = { { nature = "calm", points = 2 } },
-		[2] = { { nature = "lonely", points = 4 } },
-		[3] = { { nature = "naive", points = 2 }, { nature = "quirky", points = 4 } },
-		[4] = { { nature = "timid", points = 4 } },
-	},
-	[71] = {
-		[1] = { { nature = "brave", points = 2 }, { nature = "bold", points = 4 } },
-		[2] = { { nature = "timid", points = 4 } },
-		[3] = { { nature = "hasty", points = 2 } },
-	},
-	[72] = {
-		[1] = { { nature = "quirky", points = 2 }, { nature = "rash", points = 4 } },
-		[2] = { { nature = "jolly", points = 4 } },
-		[3] = { { nature = "relaxed", points = 2 }, { nature = "quiet", points = 4 } },
-	},
-	[73] = {
-		[1] = { { nature = "hasty", points = 2 }, { nature = "brave", points = 4 } },
-		[2] = { { nature = "quirky", points = 2 }, { nature = "relaxed", points = 2 } },
-		[3] = { { nature = "calm", points = 2 } },
-		[4] = { { nature = "timid", points = 4 } },
-	},
 }
 
 local function addNature(question, answer)

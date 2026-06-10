@@ -883,4 +883,238 @@
   <data name="CH1_S3_Partner_47B" xml:space="preserve">
     <value>So come on, I'm begging you.[pause=0] Let's form an exploration team, you and me.</value>
   </data>
+  <data name="CH16_PLAYER_1" xml:space="preserve">
+    <value>(...............)</value>
+  </data>
+  <data name="CH16_PLAYER_2" xml:space="preserve">
+    <value>(This...[pause=0] This is...)</value>
+  </data>
+  <data name="CH16_PARTNER_1" xml:space="preserve">
+    <value>...Urk...</value>
+  </data>
+  <data name="CH16_PARTNER_2_1" xml:space="preserve">
+    <value>Huh...[pause=0] {0}, where...?</value>
+  </data>
+  <data name="CH16_PARTNER_2_0" xml:space="preserve">
+    <value>What...[pause=0] {0}, where...?</value>
+  </data>
+  <data name="CH16_PARTNER_2_2" xml:space="preserve">
+    <value>What...[pause=0] {0}, where...?</value>
+  </data>
+  <data name="CH16_PARTNER_3" xml:space="preserve">
+    <value>Isn't this...[pause=0]where I met you, {0}...?</value>
+  </data>
+  <data name="CH16_PARTNER_4" xml:space="preserve">
+    <value>It's like...that beach...</value>
+  </data>
+  <data name="CH16_PARTNER_5" xml:space="preserve">
+    <value>So that means...[pause=0] Could it be?</value>
+  </data>
+  <data name="CH16_PARTNER_6" xml:space="preserve">
+    <value>No, it is!</value>
+  </data>
+  <data name="CH16_PARTNER_7" xml:space="preserve">
+    <value>We're...[pause=0]in the past!</value>
+  </data>
+  <data name="CH16_PARTNER_8_1" xml:space="preserve">
+    <value>We're back in our world!</value>
+  </data>
+  <data name="CH16_PARTNER_8_0" xml:space="preserve">
+    <value>We made it back to our world!</value>
+  </data>
+  <data name="CH16_PARTNER_8_2" xml:space="preserve">
+    <value>We're back in our world!</value>
+  </data>
+  <data name="CH16_PARTNER_9_1" xml:space="preserve">
+    <value>Yes![pause=0] We did it, {0}!</value>
+  </data>
+  <data name="CH16_PARTNER_9_0" xml:space="preserve">
+    <value>Yes![pause=0] We made it, {0}!</value>
+  </data>
+  <data name="CH16_PARTNER_9_2" xml:space="preserve">
+    <value>Yes![pause=0] We made it, {0}!</value>
+  </data>
+  <data name="CH16_Grovyle_1" xml:space="preserve">
+    <value>Ugh...</value>
+  </data>
+  <data name="CH16_PARTNER_10" xml:space="preserve">
+    <value>Hey! {0}!</value>
+  </data>
+  <data name="CH16_PARTNER_11_1" xml:space="preserve">
+    <value>Look around![pause=0] We made it home!</value>
+  </data>
+  <data name="CH16_PARTNER_11_0" xml:space="preserve">
+    <value>Look![pause=0] We made it home!</value>
+  </data>
+  <data name="CH16_PARTNER_11_2" xml:space="preserve">
+    <value>Look around![pause=0] We made it home!</value>
+  </data>
+  <data name="CH16_PARTNER_12" xml:space="preserve">
+    <value>Back to our world!</value>
+  </data>
+  <data name="CH16_Grovyle_2" xml:space="preserve">
+    <value>So we did it...?</value>
+  </data>
+  <data name="CH16_Grovyle_3" xml:space="preserve">
+    <value>We made it through...</value>
+  </data>
+  <data name="CH16_Grovyle_4" xml:space="preserve">
+    <value>back to this world?</value>
+  </data>
+  <data name="CH16_PARTNER_13_1" xml:space="preserve">
+    <value>Yup!</value>
+  </data>
+  <data name="CH16_PARTNER_13_0" xml:space="preserve">
+    <value>Yes!</value>
+  </data>
+  <data name="CH16_PARTNER_13_2" xml:space="preserve">
+    <value>Yep!</value>
+  </data>
+  <data name="CH16_PARTNER_14" xml:space="preserve">
+    <value>This is where I met {0}.</value>
+  </data>
+  <data name="CH16_PARTNER_15_1" xml:space="preserve">
+    <value>Let's see...</value>
+  </data>
+  <data name="CH16_PARTNER_15_0" xml:space="preserve">
+    <value>Let's see...</value>
+  </data>
+  <data name="CH16_PARTNER_15_2" xml:space="preserve">
+    <value>Let me see...</value>
+  </data>
+  <data name="CH16_PARTNER_16_1" xml:space="preserve">
+    <value>It was around here.</value>
+  </data>
+  <data name="CH16_PARTNER_16_0" xml:space="preserve">
+    <value>I think it was right here.</value>
+  </data>
+  <data name="CH16_PARTNER_16_2" xml:space="preserve">
+    <value>It would be around here.</value>
+  </data>
+  <data name="CH16_PARTNER_17_1" xml:space="preserve">
+    <value>This was where I found {0} out cold.</value>
+  </data>
+  <data name="CH16_PARTNER_17_0" xml:space="preserve">
+    <value>This was where I found {0} out cold.</value>
+  </data>
+  <data name="CH16_PARTNER_17_2" xml:space="preserve">
+    <value>{0} was out cold right here.</value>
+  </data>
+  <data name="CH16_Grovyle_5" xml:space="preserve">
+    <value>So that's what happened.</value>
+  </data>
+  <data name="CH16_Grovyle_6" xml:space="preserve">
+    <value>That trip through time sent me into the Eastern Forest.</value>
+  </data>
+  <data name="CH16_Grovyle_7" xml:space="preserve">
+    <value>And {0} and I both reached your world far away from each other.</value>
+  </data>
+  <data name="CH16_PARTNER_18" xml:space="preserve">
+    <value>Oh, that's right!</value>
+  </data>
+  <data name="CH16_PARTNER_19_1" xml:space="preserve">
+    <value>There's a lot I don't understand! Like the whole time-travel thing!</value>
+  </data>
+  <data name="CH16_PARTNER_19_0" xml:space="preserve">
+    <value>There's a lot I don't understand! Like the whole concept of time travel!</value>
+  </data>
+  <data name="CH16_PARTNER_19_2" xml:space="preserve">
+    <value>I'm really confused by a lot of things! Like this whole concept of time travel!</value>
+  </data>
+  <data name="CH16_PARTNER_20_1" xml:space="preserve">
+    <value>Can you explain it to us, please?</value>
+  </data>
+  <data name="CH16_PARTNER_20_0" xml:space="preserve">
+    <value>Will you please explain it to us?</value>
+  </data>
+  <data name="CH16_PARTNER_20_2" xml:space="preserve">
+    <value>Will you please explain it to us?</value>
+  </data>
+  <data name="CH16_PARTNER_21" xml:space="preserve">
+    <value>But this isn't really the place to talk, so...</value>
+  </data>
+  <data name="CH16_PARTNER_22" xml:space="preserve">
+    <value>Let's go to {0}'s Guild and talk there.</value>
+  </data>
+  <data name="CH16_PARTNER_23_1" xml:space="preserve">
+    <value>Before we went to the future, we trained there and lived there. It's the perfect place.</value>
+  </data>
+  <data name="CH16_PARTNER_23_0" xml:space="preserve">
+    <value>Before we went to the future, we trained there and roomed there. It will be the perfect place!</value>
+  </data>
+  <data name="CH16_PARTNER_23_2" xml:space="preserve">
+    <value>Before we went to the future, we trained there and roomed there. It will be the perfect place!</value>
+  </data>
+  <data name="CH16_PARTNER_24_1" xml:space="preserve">
+    <value>All right. Let's go to {0}'s Guild.</value>
+  </data>
+  <data name="CH16_PARTNER_24_0" xml:space="preserve">
+    <value>OK. Let's go to {0}'s Guild.</value>
+  </data>
+  <data name="CH16_PARTNER_24_2" xml:space="preserve">
+    <value>OK. Let's go to {0}'s Guild.</value>
+  </data>
+  <data name="CH16_Grovyle_8" xml:space="preserve">
+    <value>Hold on.</value>
+  </data>
+  <data name="CH16_Grovyle_9" xml:space="preserve">
+    <value>Will I be well received if I go to the guild?</value>
+  </data>
+  <data name="CH16_Grovyle_10" xml:space="preserve">
+    <value>After all, I'm a wanted outlaw in this world.</value>
+  </data>
+  <data name="CH16_Grovyle_11" xml:space="preserve">
+    <value>If I went to your guild...[pause=0]won't everyone be shocked?</value>
+  </data>
+  <data name="CH16_Grovyle_12" xml:space="preserve">
+    <value>Don't you think they'd try to capture me?</value>
+  </data>
+  <data name="CH16_PARTNER_25_1" xml:space="preserve">
+    <value>Urk! Come to think of it, you're right...[pause=0] What to do...?</value>
+  </data>
+  <data name="CH16_PARTNER_25_0" xml:space="preserve">
+    <value>Urk! Come to think of it, you're right...[pause=0] What to do...?</value>
+  </data>
+  <data name="CH16_PARTNER_25_2" xml:space="preserve">
+    <value>Urk! Come to think of it, you're right...[pause=0] What should we do?</value>
+  </data>
+  <data name="CH16_PARTNER_26" xml:space="preserve">
+    <value>Oh, I know![pause=0] There's a good place.</value>
+  </data>
+  <data name="CH16_PARTNER_27_1" xml:space="preserve">
+    <value>But it will mean cutting through Treasure Town...</value>
+  </data>
+  <data name="CH16_PARTNER_27_0" xml:space="preserve">
+    <value>But it will involve going through Treasure Town...</value>
+  </data>
+  <data name="CH16_PARTNER_27_2" xml:space="preserve">
+    <value>But we'll need to go through Treasure Town...</value>
+  </data>
+  <data name="CH16_Grovyle_13" xml:space="preserve">
+    <value>It shouldn't be a problem if we lie low and sneak through.</value>
+  </data>
+  <data name="CH16_Grovyle_14" xml:space="preserve">
+    <value>Lead the way.</value>
+  </data>
+  <data name="CH16_PARTNER_28_1" xml:space="preserve">
+    <value>All right. It's this way.</value>
+  </data>
+  <data name="CH16_PARTNER_28_0" xml:space="preserve">
+    <value>OK. It's this way.</value>
+  </data>
+  <data name="CH16_PARTNER_28_2" xml:space="preserve">
+    <value>OK. It's this way.</value>
+  </data>
+  <data name="CH16_NARRATION_1" xml:space="preserve">
+    <value>There's a message from the Exploration Team Federation.[pause=30]</value>
+  </data>
+  <data name="CH16_NARRATION_2" xml:space="preserve">
+    <value>Special Episode "Here Comes Team Charm!" has been unlocked![pause=90]</value>
+  </data>
+  <data name="CH16_NARRATION_3" xml:space="preserve">
+    <value>To play a Special Episode, select it from the Episode List on the Top Menu.</value>
+  </data>
+  <data name="CH16_NARRATION_4" xml:space="preserve">
+    <value>If you would like to play the Special Episode, save your adventure progress, and return to the Top Menu.</value>
+  </data>
 </root>
