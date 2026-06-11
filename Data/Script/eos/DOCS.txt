@@ -62,19 +62,26 @@ Sound Effects
 Usage: SOUND:PlayBattleSE(ID)
 
 8978 -> EVT_Emote_Exclaim_2
+8977 -> EVT_Minigame_Wrong
+8976 -> EVT_Minigame_Correct
 8974 -> EVT_Emote_Startled
-8973 -> EVT_Emote_Shocked_2
+8973 -> EVT_Emote_Shock_2
 8972 -> EVT_Emote_Sweating
 8971 -> EVT_Emote_Complain_2
+8970 -> EVT_Emote_Complain
 8969 -> EVT_Emote_Shock_Bad
 8968 -> EVT_Emote_Shock
 8967 -> EVT_Emote_Exclaim_Surprised
+8966 -> EVT_Emote_Exclaim_Realized
+8965 -> EVT_Emote_Exclaim_Idea
 8964 -> EVT_Emote_Exclaim
 8963 -> EVT_Emote_Confused_2
 8962 -> EVT_Emote_Confused
 8961 -> EVT_Emote_Sweatdrop
+6411 -> EVT_CH02_Box_Open
 6410 -> EVT_CH02_Item_Place
 6408 -> EVT_CH02_Guild_Gate_Open
+5143 -> EVT_Battle_Flash
 
 --------------------
 Effects/Emotes
