@@ -295,6 +295,81 @@ def 0 {
 }
 
   ]]--
+
+	local hTalkKind = SV.Personality.HeroTalkKind
+	local pTalkKind = SV.Personality.PartnerTalkKind
+	-- back_SetGround(LEVEL_G01P07A) (Should be the map you're currently on, or the map it sends you to next)
+	-- ### supervision_Acting(0) [IRRELEVANT]
+	GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
+	GAME:FadeIn(30)
+	SOUND:PlayBGM("011 - Wigglytuff's Guild Remix.ogg")
+	GAME:WaitFrames(30)
+
+	UI:SetSpeaker(CH('Chatot'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_1']))
+
+    local coro1 = TASK:BranchCoroutine(function ()
+        GROUND:MoveToPosition(CH('PLAYER'), 204, 184, false, 2)
+        GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.Left, 4)
+    end)
+    local coro2 = TASK:BranchCoroutine(function ()
+        GAME:WaitFrames(10)
+	    GROUND:MoveToPosition(CH('PARTNER'), 156, 184, false, 2)
+        GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Down, 4)
+    end)
+    TASK:JoinCoroutines({coro1, coro2})
+	
+	GAME:WaitFrames(20)
+
+    -- i'm guessing this is supoosed to be a hopping animation?
+	--[[GROUND:CharSetAnim(CH('PARTNER'), "UNK_3", false)
+	-- TODO: MoveHeight<actor ACTOR_ATTENDANT1>(2, 10)
+	GAME:WaitFrames(1)
+	-- TODO: MoveHeight<actor ACTOR_ATTENDANT1>(2, 0)
+	GAME:WaitFrames(2)
+	-- TODO: MoveHeight<actor ACTOR_ATTENDANT1>(2, 10)
+	GAME:WaitFrames(1)
+	-- TODO: MoveHeight<actor ACTOR_ATTENDANT1>(2, 0)
+	GROUND:CharSetAnim(CH('PARTNER'), "None", false)]]--
+	GROUND:CharSetEmote(CH('PARTNER'), "happy", 1)
+    CharacterActions.HopTwice(CH('PARTNER'), CH('PARTNER').Direction)
+	
+    UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Joyous")
+	-- TODO: message_FacePositionOffset(-2, -1)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_PARTNER_1_'..tostring(pTalkKind)]))
+
+	--GROUND:CharSetEmote(CH('PARTNER'), "none", -1)
+	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.UpLeft, 4)
+	GROUND:CharTurnToCharAnimated(CH('PLAYER'), CH('Chatot'), 4)
+	
+    UI:SetSpeaker(CH('Chatot'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_2']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_3']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_4']))
+
+	GROUND:MoveToPosition(CH('Chatot'), CH('Chatot').Position.X + -8, CH('Chatot').Position.Y + 8, false, 2)
+	
+	local coro1 = TASK:BranchCoroutine(function ()
+        GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Left, 4)
+    end)
+    local coro2 = TASK:BranchCoroutine(function ()
+        GROUND:MoveToPosition(CH('Chatot'), CH('Chatot').Position.X + -88, CH('Chatot').Position.Y + 0, false, 2)
+    end)
+	TASK:JoinCoroutines({coro1, coro2})
+
+	GROUND:Hide("Chatot")
+
+    local coro1 = TASK:BranchCoroutine(function ()
+        GAME:WaitFrames(30)
+        GAME:FadeOut(false, 90)
+    end)
+    local coro2 = TASK:BranchCoroutine(function ()
+        SOUND:FadeOutBGM(120)
+    end)
+    TASK:JoinCoroutines({coro1, coro2})
 end
 
 function guild_bedroom.CH2_WakeUp()
@@ -633,6 +708,165 @@ def 0 {
     end;
 }
 ]]--
+
+	local hTalkKind = SV.Personality.HeroTalkKind
+	local pTalkKind = SV.Personality.PartnerTalkKind
+	SOUND:StopBGM()
+    
+    UI:SetAutoFinish(true)
+    UI:WaitShowVoiceOver(STRINGS:Format(STRINGS.MapStrings['CH2_S2_NARRATION_1']), -1)
+	UI:SetAutoFinish(false)
+
+    GAME:WaitFrames(30)
+
+	SOUND:PlayBattleSE("EVT_Emote_Complain_2")
+    ExplorerEssentials.SetSpeakerUnknown(nil)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_Unknown_1']))
+	
+	SOUND:PlayBattleSE("EVT_Emote_Complain")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_Unknown_2']))
+
+    GROUND:CharSetAction(CH('PLAYER'), RogueEssence.Ground.PoseGroundAction(CH('PLAYER').Position, CH('PLAYER').Direction, RogueEssence.Content.GraphicsManager.GetAnimIndex("Pain")))
+    GROUND:CharSetAction(CH('PARTNER'), RogueEssence.Ground.PoseGroundAction(CH('PARTNER').Position, CH('PARTNER').Direction, RogueEssence.Content.GraphicsManager.GetAnimIndex("Pain")))
+
+	ExplorerEssentials.SetSpeakerHero()
+	UI:SetSpeakerEmotion("Dizzy")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_PLAYER_1']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_PLAYER_2']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_PLAYER_3']))
+
+	-- back_SetGround(LEVEL_G01P07A) (Should be the map you're currently on, or the map it sends you to next)
+	-- ### supervision_Acting(0) [IRRELEVANT]
+	--GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
+	--GROUND:CharSetAnim(CH('PLAYER'), "UNK_68", false)
+	--GROUND:CharSetAnim(CH('PARTNER'), "UNK_68", false)
+	-- TODO WaitAnimation: WaitAnimation<actor ACTOR_ATTENDANT1>()
+
+	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+	
+    GAME:FadeIn(30)
+	GAME:WaitFrames(30)
+
+	SOUND:PlayBattleSE("EVT_Emote_Complain_2")
+	-- TODO: camera_SetEffect(2, 2, 3.0) // camera shake i think
+	GROUND:CharWaitAnim(CH('Loudred'), "Hop", false)
+	-- TODO: camera_SetEffect(0, 0, 0)
+
+	GROUND:CharSetEmote(CH('Loudred'), "angry", -1)
+
+	ExplorerEssentials.SetSpeakerUnknown(CH('Loudred'))
+	UI:SetSpeakerEmotion("Angry")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_Loudred_1']))
+	GROUND:CharSetEmote(CH('Loudred'), "none", 1)
+	
+    ExplorerEssentials.SetSpeakerHero()
+	UI:SetSpeakerEmotion("Dizzy")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_PLAYER_4']))
+	
+    UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Dizzy")
+	-- TODO: message_FacePositionOffset(-3, 0)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_PARTNER_1_'..tostring(pTalkKind)]))
+	
+    SOUND:PlayBattleSE("EVT_Emote_Complain_2")
+	-- TODO: camera_SetEffect(2, 2, 3.0) // camera shake i think
+	GROUND:CharWaitAnim(CH('Loudred'), "Hop", false)
+	-- TODO: camera_SetEffect(0, 0, 0)
+	
+    ExplorerEssentials.SetSpeakerUnknown(CH('Loudred'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_Loudred_2']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_Loudred_3'], CH('Loudred'):GetDisplayName()))
+	
+    UI:SetSpeaker(CH('Loudred'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_Loudred_4']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_Loudred_5'], CH('Wigglytuff'):GetDisplayName()))
+	
+    GROUND:CharAnimateTurnTo(CH('Loudred'), Dir8.Left, 5)
+	
+    UI:SetSpeaker(CH('Loudred'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_Loudred_6']))
+	
+    SOUND:PlayBattleSE("EVT_Battle_Flash")
+	GAME:FadeOut(true, 2)
+	GAME:WaitFrames(2)
+	GAME:FadeIn(2)
+	GAME:WaitFrames(5)
+	SOUND:PlayBattleSE("EVT_Battle_Flash")
+	GAME:FadeOut(true, 2)
+	GAME:WaitFrames(2)
+	GAME:FadeIn(2)
+	GAME:WaitFrames(30)
+	
+    GROUND:CharSetAnim(CH('Loudred'), "Charge", true)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_Loudred_7']))
+	
+    GROUND:CharSetAnim(CH('Loudred'), "None", false)
+	GAME:WaitFrames(45)
+	GROUND:CharAnimateTurnTo(CH('Loudred'), Dir8.Right, 5)
+
+	SOUND:PlayBattleSE("EVT_Emote_Complain_2")
+	-- TODO: camera_SetEffect(2, 2, 3.0) // camera shake i think
+	GROUND:CharWaitAnim(CH('Loudred'), "Hop")
+	-- TODO: camera_SetEffect(0, 0, 0)
+	
+    UI:SetSpeaker(CH('Loudred'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_Loudred_8']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_Loudred_9']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_Loudred_10']))
+	
+    GROUND:MoveToPosition(CH('Loudred'), CH('Loudred').Position.X + -96, CH('Loudred').Position.Y + 0, false, 2)
+	GROUND:Hide("Loudred")
+	GAME:WaitFrames(60)
+	
+    UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Dizzy")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_PARTNER_2']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_PARTNER_3']))
+	GAME:WaitFrames(20)
+	
+    GROUND:CharSetAnim(CH('PLAYER'), "None", false)
+	GROUND:CharSetAnim(CH('PARTNER'), "None", false)
+	
+    SOUND:PlayBattleSE("EVT_Emote_Exclaim_Surprised")
+	GROUND:CharSetEmote(CH('PLAYER'), "exclaim", 1)
+	GROUND:CharSetEmote(CH('PARTNER'), "exclaim", 1)
+	GAME:WaitFrames(30)
+	
+    UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Surprised")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_PARTNER_4']))
+	
+    local coro1 = TASK:BranchCoroutine(function () GROUND:CharTurnToCharAnimated(CH('PLAYER'), CH('PARTNER'), 4) end)
+	local coro2 = TASK:BranchCoroutine(function () GROUND:CharTurnToCharAnimated(CH('PARTNER'), CH('PLAYER'), 4) end)
+	TASK:JoinCoroutines({coro1, coro2})
+	
+    UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_PARTNER_5'], CH('Wigglytuff'):GetDisplayName()))
+	
+    UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Worried")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_PARTNER_6']))
+
+	SOUND:PlayBattleSE("EVT_Emote_Startled")
+	CharacterActions.ScaredJump(CH('PARTNER'), CH('PARTNER').Direction)
+	
+    UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Surprised")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_PARTNER_7_'..tostring(pTalkKind)], CH('PLAYER'):GetDisplayName()))
+
+	local coro1 = TASK:BranchCoroutine(function () GROUND:MoveToPosition(CH('PLAYER'), CH('PLAYER').Position.X + -180, CH('PLAYER').Position.Y + 0, true, 6) end)
+	local coro2 = TASK:BranchCoroutine(function () GROUND:MoveToPosition(CH('PARTNER'), CH('PARTNER').Position.X + -160, CH('PARTNER').Position.Y + 0, true, 6) end)
+    local coro3 = TASK:BranchCoroutine(function ()
+        GAME:WaitFrames(45)
+	    GAME:FadeOut(false, 30)
+    end)
+	TASK:JoinCoroutines({coro1, coro2, coro3})
+
 end
 
 return guild_bedroom

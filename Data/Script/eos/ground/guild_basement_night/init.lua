@@ -122,6 +122,30 @@ def 0 {
 }
 
   ]]--
+
+	local hTalkKind = SV.Personality.HeroTalkKind
+	local pTalkKind = SV.Personality.PartnerTalkKind
+	SOUND:StopBGM()
+	-- back_SetGround(LEVEL_G01P04C) (Should be the map you're currently on, or the map it sends you to next)
+	-- ### supervision_Acting(0) [IRRELEVANT]
+	GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
+	GAME:FadeIn(30)
+	GAME:WaitFrames(30)
+	UI:SetSpeaker(CH('Chatot'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_1']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_2']))
+	GROUND:CharSetAnim(CH('Chatot'), "Charge", false)
+	GAME:WaitFrames(30)
+	GROUND:CharSetAnim(CH('Chatot'), "None", false)
+	UI:SetSpeaker(CH('Chatot'))
+	UI:SetSpeakerEmotion("Pain")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_3']))
+	UI:SetSpeaker(CH('Chatot'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_4']))
+	GAME:FadeOut(false, 30)
+
 end
 
 return guild_basement_night

@@ -24,6 +24,25 @@ function ExplorerEssentials.SpawnPartner() -- SHOULD ONLY BE USED ON GROUND MAPS
 	partner.InteractOrder = 1
 end
 
+function ExplorerEssentials.GetFormattedMoney(value)
+	local e = math.log(value, 10) -- get exponent
+	if e < 3 then
+		return "[color=#00FF00]\u{E024}" .. value .. "[/color]\u{E023}"
+	end
+
+	local ret
+	while e >= 0 do
+		ret = ret .. tostring(value)[e]
+		if e % 3 == 0 then
+			ret = ret .. ','
+		end
+
+		e = e - 1
+	end
+
+	return "[color=#00FF00]\u{E024}" .. ret .. "[/color]\u{E023}"
+end
+
 function ExplorerEssentials.SetPlayerFromData(data)
 	local character = RogueEssence.Dungeon.CharData()
   	character.BaseForm = RogueEssence.Dungeon.MonsterID(data.Species, data.Form, data.Skin, LUA_ENGINE:LuaCast(data.Gender, Gender))

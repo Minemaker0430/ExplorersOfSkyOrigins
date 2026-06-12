@@ -91,4 +91,76 @@
 	<data name="CH2_Chatot_9" xml:space="preserve">
 		<value>Guildmaster![pause=0] It's {0}! ♪ I'm coming in!</value>
 	</data>
+	<data name="CH2_S2_Loudred_1" xml:space="preserve">
+		<value>You're LATE, rookies!</value>
+	</data>
+	<data name="CH2_S2_Chatot_1" xml:space="preserve">
+		<value>Hush!</value>
+	</data>
+	<data name="CH2_S2_Chatot_2" xml:space="preserve">
+		<value>Your voice is ridiculously loud!</value>
+	</data>
+	<data name="CH2_S2_Loudred_2" xml:space="preserve">
+		<value>Humph...</value>
+	</data>
+	<data name="CH2_S2_Chatot_3" xml:space="preserve">
+		<value>Everyone seems to be present.</value>
+	</data>
+	<data name="CH2_S2_Chatot_4" xml:space="preserve">
+		<value>Very well. ♪ Let us conduct our morning address.</value>
+	</data>
+	<data name="CH2_S2_Chatot_5" xml:space="preserve">
+		<value>Guildmaster! ♪ The guild is in full attendance! ♪</value>
+	</data>
+	<data name="CH2_S2_Chatot_6" xml:space="preserve">
+		<value>Thank you, Guildmaster! ♪ Please address the crew.</value>
+	</data>
+	<data name="CH2_S2_Wigglytuff_1" xml:space="preserve">
+		<value>Zzzz... Zzzz... Snorfle... Zzz...</value>
+	</data>
+	<data name="CH2_S2_Unknown_1" xml:space="preserve">
+		<value>{0}: (Psst...! Guildmaster {1} never ceases to amaze me!)</value>
+	</data>
+	<data name="CH2_S2_Unknown_2" xml:space="preserve">
+		<value>{0}: (Yeah, you got that right!)</value>
+	</data>
+	<data name="CH2_S2_Unknown_3" xml:space="preserve">
+		<value>{0}: (Yup, looks like he's wide awake.)</value>
+	</data>
+	<data name="CH2_S2_Unknown_4" xml:space="preserve">
+		<value>{0}: (Eek! His eyes are wide open! But he's fast asleep!)</value>
+	</data>
+	<data name="CH2_S2_Chatot_7" xml:space="preserve">
+		<value>Thank you, sir! We all value your...[pause=0]words of wisdom! ♪</value>
+	</data>
+	<data name="CH2_S2_Chatot_8" xml:space="preserve">
+		<value>OK, Pokémon! ♪ Take our Guildmaster's words of wisdom to heart! ♪</value>
+	</data>
+	<data name="CH2_S2_Chatot_9" xml:space="preserve">
+		<value>Finally, let's not forget our morning cheers! All together now! ♪</value>
+	</data>
+	<data name="CH2_S2_ALL_1" xml:space="preserve">
+		<value>{0}: A ONE, A TWO...A ONE-TWO-THREE!</value>
+	</data>
+	<data name="CH2_S2_ALL_2" xml:space="preserve">
+		<value>{0}: ONE![pause=0] DON'T SHIRK WORK!</value>
+	</data>
+	<data name="CH2_S2_ALL_3" xml:space="preserve">
+		<value>{0}: TWO![pause=0] RUN AWAY AND PAY!</value>
+	</data>
+	<data name="CH2_S2_ALL_4" xml:space="preserve">
+		<value>{0}: THREE![pause=0] SMILES GO FOR MILES!</value>
+	</data>
+	<data name="CH2_S2_Chatot_10" xml:space="preserve">
+		<value>OK, Pokémon! Get to work! ♪</value>
+	</data>
+	<data name="CH2_S2_ALL_5" xml:space="preserve">
+		<value>{0}: HOORAY!</value>
+	</data>
+	<data name="CH2_S3_Chatot_1" xml:space="preserve">
+		<value>Hey, you shouldn't just be wandering around there.</value>
+	</data>
+	<data name="CH2_S3_Chatot_2" xml:space="preserve">
+		<value>You two come here. ♪</value>
+	</data>
 </root>

@@ -177,6 +177,74 @@ def 0 {
 }
 
   ]]--
+
+	local hTalkKind = SV.Personality.HeroTalkKind
+	local pTalkKind = SV.Personality.PartnerTalkKind
+	SOUND:StopBGM()
+	-- back_SetGround(LEVEL_G01P05C) (Should be the map you're currently on, or the map it sends you to next)
+	-- ### supervision_Acting(0) [IRRELEVANT]
+	GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
+	GAME:FadeIn(30)
+	GAME:WaitFrames(30)
+	UI:SetSpeaker(CH('Chatot'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_1']))
+	GAME:WaitFrames(60)
+	SOUND:PlayBattleSE("EVT_Emote_Exclaim")
+	GROUND:CharSetEmote(CH('Chatot'), "notice", 1)
+	GAME:WaitFrames(30)
+	-- !! WaitExecuteLives(ACTOR_NPC_PERAPPU)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_2'], GAME:GetTeamName()))
+	GAME:WaitFrames(60)
+	GROUND:CharAnimateTurnTo(CH('Wigglytuff'), Dir8.Down, 0)
+	-- !! WaitExecuteLives(ACTOR_NPC_PUKURIN)
+	SOUND:PlayBattleSE("EVT_Emote_Startled")
+	GROUND:CharSetEmote(CH('Chatot'), "shock", 1)
+	GROUND:CharSetEmote(CH('PLAYER'), "exclaim", 1)
+	CharacterActions.ScaredJump(CH('PARTNER'), CH('PARTNER').Direction)
+	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+	SOUND:PlayBGM("009 - Guildmaster Wigglytuff.ogg")
+	UI:SetSpeaker(CH('Wigglytuff'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Wigglytuff_1']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Wigglytuff_2']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Wigglytuff_3']))
+	GROUND:MoveToPosition(CH('Wigglytuff'), 220, 228, false, 2)
+	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.UpRight, 16)
+	GROUND:CharAnimateTurnTo(CH('Chatot'), Dir8.Left, 16)
+	-- !! WaitExecuteLives(ACTOR_NPC_PUKURIN)
+	GROUND:CharSetAnim(CH('Chatot'), "Walk", false)
+	-- TODO SlidePositionOffset: SlidePositionOffset<actor ACTOR_NPC_PERAPPU>(1, 8, 0)
+	GROUND:CharTurnToCharAnimated(CH('Wigglytuff'), CH('PLAYER'), 4)
+	-- !! WaitExecuteLives(ACTOR_NPC_PUKURIN)
+	GROUND:CharSetAnim(CH('Chatot'), "None", false)
+	
+    GAME:WaitFrames(20)
+
+	SOUND:PlayFanfare("Fanfare/Item.ogg")
+	UI:SetCenter(true)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_NARRATION_1'], CH('Wigglytuff'):GetDisplayName(), RogueEssence.Dungeon.InvItem("seed_reviver"):GetDisplayName()))
+	SOUND:PlayFanfare("Fanfare/Item.ogg")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_NARRATION_2'], RogueEssence.Dungeon.InvItem("berry_oran"):GetDisplayName()))
+	SOUND:PlayFanfare("Fanfare/Item.ogg")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_NARRATION_3'], RogueEssence.Dungeon.InvItem("medicine_max_elixir"):GetDisplayName()))
+	UI:SetCenter(false)
+	
+    GAME:WaitFrames(20)
+	
+    UI:SetSpeaker(CH('Wigglytuff'))
+	UI:SetSpeakerEmotion("Normal")
+	-- TODO: message_FacePositionOffset(2, -1)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Wigglytuff_4']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Wigglytuff_5']))
+	SOUND:FadeOutBGM(120)
+	GAME:FadeOut(false, 60)
+	-- TODO: WaitBgm(BGM_GUILDMASTER_WIGGLYTUFF)
+
+    GAME:GivePlayerItem("seed_reviver")
+    GAME:GivePlayerItem("berry_oran")
+    GAME:GivePlayerItem("medicine_max_elixir")
+
 end
 
 return guild_guildmaster_chambers_night

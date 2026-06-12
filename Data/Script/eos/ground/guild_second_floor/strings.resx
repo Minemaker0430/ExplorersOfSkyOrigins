@@ -163,4 +163,304 @@
   <data name="CH2_Chatot_12" xml:space="preserve">
     <value>Oh, anything wrong? Come on! Over here! ♪[pause=0] Quickly, please! ♪</value>
   </data>
+  	<data name="CH2_S2_Chatot_1" xml:space="preserve">
+		<value>You're just beginners.</value>
+	</data>
+	<data name="CH2_S2_Chatot_2" xml:space="preserve">
+		<value>We'll have you start off with this assignment. ♪</value>
+	</data>
+	<data name="CH2_S2_Chatot_3" xml:space="preserve">
+		<value>This is the Job Bulletin Board. Pokémon from various regions post job requests here.</value>
+	</data>
+	<data name="CH2_S2_Chatot_4" xml:space="preserve">
+		<value>You're aware that bad Pokémon are cropping up in greater numbers, right?</value>
+	</data>
+	<data name="CH2_S2_PARTNER_1" xml:space="preserve">
+		<value>Yup.[pause=0] Because the flow of time is getting messed up. It's wreaking havoc, right?</value>
+	</data>
+	<data name="CH2_S2_PARTNER_2" xml:space="preserve">
+		<value>Which is why lots of bad Pokémon are appearing!</value>
+	</data>
+	<data name="CH2_S2_PLAYER_1" xml:space="preserve">
+		<value>(The flow of time is getting messed up?)</value>
+	</data>
+	<data name="CH2_S2_PLAYER_2" xml:space="preserve">
+		<value>(Time? As in hours and minutes?[pause=0] Do they mean something has gone wrong with time here?)</value>
+	</data>
+	<data name="CH2_S2_PLAYER_3" xml:space="preserve">
+		<value>(And, because of that, more and more bad Pokémon are popping up?)</value>
+	</data>
+	<data name="CH2_S2_PLAYER_4" xml:space="preserve">
+		<value>(What's going on here?!)</value>
+	</data>
+	<data name="CH2_S2_Chatot_5" xml:space="preserve">
+		<value>Precisely.[pause=0] Time getting out of whack has caused an outbreak of bad Pokémon. Perhaps because of all that...</value>
+	</data>
+	<data name="CH2_S2_Chatot_6" xml:space="preserve">
+		<value>We have noticed an increase in the number of jobs.</value>
+	</data>
+	<data name="CH2_S2_Chatot_7" xml:space="preserve">
+		<value>In addition...and it's unknown if this is because of time's influence...</value>
+	</data>
+	<data name="CH2_S2_Chatot_8" xml:space="preserve">
+		<value>There has also been a mass outbreak of...[pause=0]mystery dungeons.</value>
+	</data>
+	<data name="CH2_S2_PLAYER_5" xml:space="preserve">
+		<value>(Mystery dungeons?!)</value>
+	</data>
+	<data name="CH2_S2_PARTNER_3" xml:space="preserve">
+		<value>So, {0}!</value>
+	</data>
+	<data name="CH2_S2_PARTNER_4" xml:space="preserve">
+		<value>You know how we got my Relic Fragment back yesterday?</value>
+	</data>
+	<data name="CH2_S2_PARTNER_5" xml:space="preserve">
+		<value>The place where we found it was a mystery dungeon.</value>
+	</data>
+	<data name="CH2_S2_PARTNER_6" xml:space="preserve">
+		<value>A mystery dungeon changes each time you go into it. There's a different layout and different items every time you enter!</value>
+	</data>
+	<data name="CH2_S2_PARTNER_7" xml:space="preserve">
+		<value>If you faint in the middle of a dungeon, you lose half of your money...</value>
+	</data>
+	<data name="CH2_S2_PARTNER_8" xml:space="preserve">
+		<value>You can even lose half your items or more...</value>
+	</data>
+	<data name="CH2_S2_PARTNER_9" xml:space="preserve">
+		<value>Finally, you get kicked right out. They're very strange places.</value>
+	</data>
+	<data name="CH2_S2_PARTNER_10" xml:space="preserve">
+		<value>But every time you go inside one, there are always new things to discover!</value>
+	</data>
+	<data name="CH2_S2_PARTNER_11_1" xml:space="preserve">
+		<value>They're really awesome places to explore!</value>
+	</data>
+	<data name="CH2_S2_PARTNER_11_0" xml:space="preserve">
+		<value>They really are fantastic places to go exploring!</value>
+	</data>
+	<data name="CH2_S2_PARTNER_11_2" xml:space="preserve">
+		<value>They really are fantastic places to go explore!</value>
+	</data>
+	<data name="CH2_S2_Chatot_9" xml:space="preserve">
+		<value>Well! You're quite informed, aren't you! ♪</value>
+	</data>
+	<data name="CH2_S2_Chatot_10" xml:space="preserve">
+		<value>That makes things much easier for me to explain! ♪</value>
+	</data>
+	<data name="CH2_S2_Chatot_11" xml:space="preserve">
+		<value>Jobs all take place in mystery dungeons.</value>
+	</data>
+	<data name="CH2_S2_Chatot_12" xml:space="preserve">
+		<value>So...[pause=0]let's look for a job that you should perform! ♪</value>
+	</data>
+	<data name="CH2_S2_Chatot_13" xml:space="preserve">
+		<value>Ah, yes. ♪ Maybe this will do?</value>
+	</data>
+	<data name="CH2_S2_PARTNER_12_1" xml:space="preserve">
+		<value>Oh, yeah? Let's read it!</value>
+	</data>
+	<data name="CH2_S2_PARTNER_12_0" xml:space="preserve">
+		<value>Oh, really? Let's read it!</value>
+	</data>
+	<data name="CH2_S2_PARTNER_12_2" xml:space="preserve">
+		<value>Oh, really? Let's read it!</value>
+	</data>
+	<data name="CH2_S2_PARTNER_13" xml:space="preserve">
+		<value>"Hello! My name is {0}!"</value>
+	</data>
+	<data name="CH2_S2_PARTNER_14" xml:space="preserve">
+		<value>"An outlaw has run off with my most prized possession. My precious pearl!"</value>
+	</data>
+	<data name="CH2_S2_PARTNER_15" xml:space="preserve">
+		<value>"That pearl is life itself...to me!"</value>
+	</data>
+	<data name="CH2_S2_PARTNER_16" xml:space="preserve">
+		<value>"I just can't seem to settle down if that pearl isn't in its proper place atop my head!"</value>
+	</data>
+	<data name="CH2_S2_PARTNER_17" xml:space="preserve">
+		<value>"But I've heard my pearl has been sighted!"</value>
+	</data>
+	<data name="CH2_S2_PARTNER_18" xml:space="preserve">
+		<value>"It's said to be on a rocky bluff. But this bluff is reported to be extremely unsafe."</value>
+	</data>
+	<data name="CH2_S2_PARTNER_19" xml:space="preserve">
+		<value>"I could never go somewhere so frightening!"</value>
+	</data>
+	<data name="CH2_S2_PARTNER_20" xml:space="preserve">
+		<value>"Oh, friendly readers! Would you be so kind as to go to the bluff and get my pearl?"</value>
+	</data>
+	<data name="CH2_S2_PARTNER_21" xml:space="preserve">
+		<value>"I beg your help, exploration team members!"\n\t\t\tFrom {0}</value>
+	</data>
+	<data name="CH2_S2_PARTNER_22_1" xml:space="preserve">
+		<value>Hold on a second!</value>
+	</data>
+	<data name="CH2_S2_PARTNER_22_0" xml:space="preserve">
+		<value>Wait a second...</value>
+	</data>
+	<data name="CH2_S2_PARTNER_22_2" xml:space="preserve">
+		<value>Wait a second...</value>
+	</data>
+	<data name="CH2_S2_PARTNER_23_1" xml:space="preserve">
+		<value>We're only going to fetch an item that someone dropped?</value>
+	</data>
+	<data name="CH2_S2_PARTNER_23_0" xml:space="preserve">
+		<value>We're going to fetch an item that someone dropped?</value>
+	</data>
+	<data name="CH2_S2_PARTNER_23_2" xml:space="preserve">
+		<value>We're going to fetch an item that someone dropped?</value>
+	</data>
+	<data name="CH2_S2_PARTNER_24_1" xml:space="preserve">
+		<value>That's hardly an adventure at all!</value>
+	</data>
+	<data name="CH2_S2_PARTNER_24_0" xml:space="preserve">
+		<value>I would rather do something that's more of an adventure.</value>
+	</data>
+	<data name="CH2_S2_PARTNER_24_2" xml:space="preserve">
+		<value>I'd rather go on a bigger adventure than that.</value>
+	</data>
+	<data name="CH2_S2_PARTNER_25" xml:space="preserve">
+		<value>I'd rather look for treasure or explore unknown places. Things like that!</value>
+	</data>
+	<data name="CH2_S2_Chatot_14" xml:space="preserve">
+		<value>Hush!</value>
+	</data>
+	<data name="CH2_S2_PARTNER_26" xml:space="preserve">
+		<value>Yikes!</value>
+	</data>
+	<data name="CH2_S2_Chatot_15" xml:space="preserve">
+		<value>It's important that you rookies pay your dues!</value>
+	</data>
+	<data name="CH2_S2_Chatot_16" xml:space="preserve">
+		<value>Now pay attention![pause=0] I'll repeat the warnings again to make sure they stick!</value>
+	</data>
+	<data name="CH2_S2_Chatot_17" xml:space="preserve">
+		<value>You'll be forced out of a dungeon and sent back here if either of you faints.</value>
+	</data>
+	<data name="CH2_S2_Chatot_18" xml:space="preserve">
+		<value>You'll lose half your money![pause=0] And you could lose half your items or more. You'd best be careful!</value>
+	</data>
+	<data name="CH2_S2_Chatot_19" xml:space="preserve">
+		<value>If you've understood all that, I suggest you get on with the job! ♪</value>
+	</data>
+	<data name="CH2_S2_PARTNER_27" xml:space="preserve">
+		<value>Hmm...</value>
+	</data>
+	<data name="CH2_S3_PARTNER_1_1" xml:space="preserve">
+		<value>Ugh... That didn't end well...</value>
+	</data>
+	<data name="CH2_S3_PARTNER_1_0" xml:space="preserve">
+		<value>Ugh... That didn't go well, did it?</value>
+	</data>
+	<data name="CH2_S3_PARTNER_1_2" xml:space="preserve">
+		<value>Ugh... That didn't work at all...</value>
+	</data>
+	<data name="CH2_S3_Chatot_1" xml:space="preserve">
+		<value>Well...[pause=0] It appears that your outing was less than a total success.</value>
+	</data>
+	<data name="CH2_S3_PARTNER_2" xml:space="preserve">
+		<value>Ugh...</value>
+	</data>
+	<data name="CH2_S3_Chatot_2" xml:space="preserve">
+		<value>Of course, you're just beginners at all this. No need to fret! ♪</value>
+	</data>
+	<data name="CH2_S3_Chatot_3" xml:space="preserve">
+		<value>These things happen! ♪[pause=0] You can attempt another challenge tomorrow! ♪</value>
+	</data>
+	<data name="CH2_S4_Spoink_1" xml:space="preserve">
+		<value>Th-thank you!</value>
+	</data>
+	<data name="CH2_S4_Spoink_2" xml:space="preserve">
+		<value>That pearl must be propped on my head, you see. I missed it so much!</value>
+	</data>
+	<data name="CH2_S4_Spoink_3" xml:space="preserve">
+		<value>I just couldn't settle down without it up there!</value>
+	</data>
+	<data name="CH2_S4_Spoink_4" xml:space="preserve">
+		<value>So I was just boinging and sproinging everywhere!</value>
+	</data>
+	<data name="CH2_S4_Spoink_5" xml:space="preserve">
+		<value>That's why I'm covered in dings and bumps.</value>
+	</data>
+	<data name="CH2_S4_Spoink_6" xml:space="preserve">
+		<value>But thanks to you, that long nightmare is over!</value>
+	</data>
+	<data name="CH2_S4_Spoink_7" xml:space="preserve">
+		<value>You have my sincere thanks!</value>
+	</data>
+	<data name="CH2_S4_NARRATION_1" xml:space="preserve">
+		<value>{0}'s team was rewarded with a {1}!</value>
+	</data>
+	<data name="CH2_S4_NARRATION_2" xml:space="preserve">
+		<value>You also received a {0}!</value>
+	</data>
+	<data name="CH2_S4_NARRATION_3" xml:space="preserve">
+		<value>You also received an {0}!</value>
+	</data>
+	<data name="CH2_S4_NARRATION_4" xml:space="preserve">
+		<value>You were also given {0}! Incredible!</value>
+	</data>
+	<data name="CH2_S4_PARTNER_1_1" xml:space="preserve">
+		<value>Oh, wow! {0}?![pause=0] All this money's for us?</value>
+	</data>
+	<data name="CH2_S4_PARTNER_1_0" xml:space="preserve">
+		<value>Oh, wow! {0}?![pause=0] All this money is for us?</value>
+	</data>
+	<data name="CH2_S4_PARTNER_1_2" xml:space="preserve">
+		<value>Oh, wow! {0}?![pause=0] We can have all this money?</value>
+	</data>
+	<data name="CH2_S4_Spoink_8" xml:space="preserve">
+		<value>Of course! Of course! That's nothing compared to my pearl's value!</value>
+	</data>
+	<data name="CH2_S4_Spoink_9" xml:space="preserve">
+		<value>Farewell!</value>
+	</data>
+	<data name="CH2_S4_PARTNER_2_1" xml:space="preserve">
+		<value>We're rich, {0}! Just like that, we're rich!</value>
+	</data>
+	<data name="CH2_S4_PARTNER_2_0" xml:space="preserve">
+		<value>We're rich, {0}! We got rich just like that!</value>
+	</data>
+	<data name="CH2_S4_PARTNER_2_2" xml:space="preserve">
+		<value>We're rich, {0}! All of a sudden, we're rich!</value>
+	</data>
+	<data name="CH2_S4_Chatot_1" xml:space="preserve">
+		<value>Well done, team! ♪</value>
+	</data>
+	<data name="CH2_S4_Chatot_2" xml:space="preserve">
+		<value>Now hand that money over, if you please!</value>
+	</data>
+	<data name="CH2_S4_PARTNER_3_1" xml:space="preserve">
+		<value>Huh?!</value>
+	</data>
+	<data name="CH2_S4_PARTNER_3_0" xml:space="preserve">
+		<value>Huh?!</value>
+	</data>
+	<data name="CH2_S4_PARTNER_3_2" xml:space="preserve">
+		<value>Excuse me?!</value>
+	</data>
+	<data name="CH2_S4_Chatot_3" xml:space="preserve">
+		<value>Most of the money from jobs goes to the Guildmaster, you see! ♪</value>
+	</data>
+	<data name="CH2_S4_Chatot_4" xml:space="preserve">
+		<value>And your team's share of the money comes out to this much...! ♪</value>
+	</data>
+	<data name="CH2_S4_PARTNER_4" xml:space="preserve">
+		<value>Huh?![pause=0] We keep only {0}?</value>
+	</data>
+	<data name="CH2_S4_PARTNER_5_1" xml:space="preserve">
+		<value>That's terrible!</value>
+	</data>
+	<data name="CH2_S4_PARTNER_5_0" xml:space="preserve">
+		<value>That's awful!</value>
+	</data>
+	<data name="CH2_S4_PARTNER_5_2" xml:space="preserve">
+		<value>That's not fair!</value>
+	</data>
+	<data name="CH2_S4_Chatot_5" xml:space="preserve">
+		<value>Well that's the guild's rule.[pause=0] You simply have to accept it! ♪</value>
+	</data>
+	<data name="CH2_S4_PARTNER_6" xml:space="preserve">
+		<value>Hmph...</value>
+	</data>
 </root>
