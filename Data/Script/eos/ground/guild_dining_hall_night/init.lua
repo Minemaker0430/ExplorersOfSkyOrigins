@@ -22,9 +22,7 @@ end
 ---guild_dining_hall_night.Enter(map)
 --Engine callback function
 function guild_dining_hall_night.Enter(map)
-
-  GAME:FadeIn(20)
-
+    guild_dining_hall_night.COMMON_DinnerTime()
 end
 
 ---guild_dining_hall_night.Exit(map)
@@ -175,6 +173,85 @@ def 1 for actor ACTOR_NPC_PUKURIN {
 }
 
   ]]--
+
+    local continue = true 
+
+    local coro1 = TASK:BranchCoroutine(function()
+
+        SOUND:StopBGM()
+        -- back_SetGround(LEVEL_G01P06B) (Should be the map you're currently on, or the map it sends you to next)
+        -- ### supervision_Acting(0) [IRRELEVANT]
+        GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
+        -- TODO MovePositionOffset: MovePositionOffset<performer 0>(0.5, -200, 0)
+        GAME:WaitFrames(1)
+        GROUND:CharSetAnim(CH('PLAYER'), "UNK_64", false)
+        GROUND:CharSetAnim(CH('PARTNER'), "UNK_64", false)
+        GROUND:CharSetAnim(CH('Chatot'), "UNK_43", false)
+        GROUND:CharSetAnim(CH('Loudred'), "UNK_42", false)
+        GROUND:CharSetAnim(CH('Diglett'), "UNK_42", false)
+        GROUND:CharSetAnim(CH('Dugtrio'), "UNK_42", false)
+        GROUND:CharSetAnim(CH('UNK_ACTOR_NPC_KIMAWARI'), "UNK_42", false)
+        GROUND:CharSetAnim(CH('Sunflora'), "UNK_42", false)
+        GROUND:CharSetAnim(CH('Bidoof'), "UNK_42", false)
+        GROUND:CharSetAnim(CH('Croagunk'), "UNK_42", false)
+        GROUND:CharSetAnim(CH('Chimecho'), "UNK_42", false)
+        GROUND:CharSetAnim(CH('UNK_ACTOR_NPC_ZUBATTO'), "UNK_43", false)
+        GROUND:CharSetAnim(CH('UNK_ACTOR_NPC_DOGAASU'), "UNK_43", false)
+        GROUND:CharSetAnim(CH('UNK_ACTOR_NPC_SUKATANKU'), "UNK_42", false)
+        GROUND:CharSetEmote(CH('Chatot'), "UNK_EFFECT_EATING", 1)
+        GROUND:CharSetEmote(CH('Chimecho'), "UNK_EFFECT_EATING", 1)
+        GROUND:CharSetEmote(CH('Sunflora'), "UNK_EFFECT_EATING", 1)
+        GROUND:CharSetEmote(CH('Bidoof'), "UNK_EFFECT_EATING", 1)
+        GROUND:CharSetEmote(CH('Loudred'), "UNK_EFFECT_EATING", 1)
+        GROUND:CharSetEmote(CH('PLAYER'), "UNK_EFFECT_EATING", 1)
+        GROUND:CharSetEmote(CH('PARTNER'), "UNK_EFFECT_EATING", 1)
+        GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_SUKATANKU'), "UNK_EFFECT_EATING", 1)
+        GROUND:CharSetEmote(CH('Diglett'), "UNK_EFFECT_EATING_SLOW", 1)
+        GROUND:CharSetEmote(CH('Dugtrio'), "UNK_EFFECT_EATING_SLOW", 1)
+        GROUND:CharSetEmote(CH('Croagunk'), "UNK_EFFECT_EATING_SLOW", 1)
+        GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_KIMAWARI'), "UNK_EFFECT_EATING_SLOW", 1)
+        GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_ZUBATTO'), "UNK_EFFECT_EATING_SLOW", 1)
+        GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_DOGAASU'), "UNK_EFFECT_EATING_SLOW", 1)
+        -- TODO: @label_0
+        -- GROUND:Hide("Wigglytuff")
+        -- TODO: @label_2
+        -- TODO SetAnimation: SetAnimation<object OBJECT_G01P06B1_107>(20)
+        SOUND:PlayBGM("UNK_BGM_EATING.ogg", true, 60)
+        GAME:FadeIn(30)
+
+        UI:SetAutoFinish(true)
+        for i = 1, 6, 1 do
+            UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['C_EATING']))
+        end
+        UI:SetAutoFinish(false)
+        SOUND:FadeOutBGM(60)
+        GAME:FadeOut(false, 30)
+        -- TODO: WaitBgm(BGM_EATING)
+        GAME:WaitFrames(30)
+
+        continue = false
+    end)
+    local coro2 = TASK:BranchCoroutine(function()
+        -- DEF_1 for actor ACTOR_NPC_PUKURIN()
+        -- TODO SetAnimation: SetAnimation(5)
+        -- TODO SetEffect: SetEffect(EFFECT_APPLE_ON_HEAD, 3)
+        -- TODO: Lock(5)
+        -- TODO: @label_3
+        while continue do
+            -- Turn2Direction(8, 1, DIR_UP)
+            GROUND:CharAnimateTurnTo(CH('Wigglytuff'), Dir8.Up, 8)
+            GAME:WaitFrames(20)
+            GROUND:CharAnimateTurnTo(CH('Wigglytuff'), Dir8.Down, 8)
+            GAME:WaitFrames(20)
+        end
+    end)
+    TASK:JoinCoroutines({coro1, coro2})
+
+    if not SV.Flags.SawDinnerCutscene then
+        guild_dining_hall_night.CH2_FirstDinner()
+    end
+
+    GAME:EnterGroundMap("guild_bedroom_night", 'Entrance', false)
 end
 
 function guild_dining_hall_night.CH2_FirstDinner()
@@ -304,6 +381,17 @@ def 1 for actor ACTOR_NPC_PUKURIN {
 }
 
   ]]--
+
+    -- ### supervision_RemoveActing(0) [IRRELEVANT]
+    UI:ResetSpeaker()
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Unknown_1']))
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Unknown_2']))
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Unknown_3']))
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Unknown_4']))
+
+    GAME:WaitFrames(30)
+
+    SV.Flags.SawDinnerCutscene = true
   
 end
 

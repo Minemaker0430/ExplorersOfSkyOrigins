@@ -31,8 +31,7 @@ SV.General =
 {
   Rescue = nil,
   Starter = nil,
-  Partner = nil
-  --Anything that applies to more than a single level, and that is too small to make a sub-table for, should be put in here ideally, or a sub-table of this
+  Partner = nil,
 }
 
 SV.Dungeon =
@@ -57,6 +56,11 @@ SV.Progression =
 	DemoCompleted = false, --have you completed all available chapters?
 	DaysPassed = -1, --day counter, -1 means disabled
 	DaysToProgress = -1 --how many days until next flag, -1 means disabled
+}
+
+SV.Flags = 
+{
+	SawDinnerCutscene = false
 }
 
 SV.Cutscene =
@@ -187,7 +191,7 @@ SV.beach_cave =
 
 SV.drenched_bluff = 
 {
-	TimesFailed = 0 -- triggers a cutscene after 3
+	TimesFailed = 0 -- triggers a cutscene after 2
 }
 
 SV.mt_bristle = 

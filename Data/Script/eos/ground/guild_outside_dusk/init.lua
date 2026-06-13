@@ -499,6 +499,7 @@ function guild_outside_dusk.CH2_GuildSceneB()
 	GROUND:MoveScreen(RogueEssence.Content.ScreenMover(2, 2, 80))
 	GAME:WaitFrames(79) -- 4 frames per sprite frame * 20 sprite frames = 80 total frames - 1 frame to let the gate not loop
 	GROUND:Hide("GuildGate")
+	GAME:WaitFrames(1)
 
 	GAME:WaitFrames(40)
 

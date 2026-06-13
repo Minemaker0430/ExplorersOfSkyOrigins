@@ -143,13 +143,13 @@ function DebugTools:OnLossPenalty(save)
 
   --remove bag items
   for i = inv_count, 0, -1 do
-	local rand = math.random(1, 100)
+	  local rand = math.random(1, 100)
     local entry = _DATA.DataIndices[RogueEssence.Data.DataManager.DataType.Item]:Get(save.ActiveTeam:GetInv(i).ID)
     if (not entry.CannotDrop) and (rand >= 50) then
       save.ActiveTeam:RemoveFromInv(i)
 	    items_removed = items_removed + 1
     end
-	if items_removed >= removal_limit then break end
+	  if items_removed >= removal_limit then break end
   end
   
   --remove equips

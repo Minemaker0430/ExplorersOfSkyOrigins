@@ -618,24 +618,24 @@ function guild_second_floor.CH2_MeetingChatot()
         local chatot = CH("Chatot")
 
         GAME:WaitFrames(30)
-        local coro1 = TASK:BranchCoroutine(function () -- Chatot
+        local coro1B = TASK:BranchCoroutine(function () -- Chatot
             GROUND:TeleportTo(chatot, MRKR("EntranceBasement").Position.X, MRKR("EntranceBasement").Position.Y - 8, Direction.Down)
             GROUND:MoveToPosition(chatot, chatot.Position.X, MRKR("EntranceBasement").Position.Y, false, 1)
         end)
-        local coro2 = TASK:BranchCoroutine(function () -- Camera
+        local coro2B = TASK:BranchCoroutine(function () -- Camera
             GAME:MoveCamera(GAME:GetCameraCenter().X, MRKR("EntranceOutside").Position.Y, 90)
         end)
-        TASK:JoinCoroutines({coro1, coro2})
+        TASK:JoinCoroutines({coro1B, coro2B})
 
         GAME:WaitFrames(45)
-        local coro1 = TASK:BranchCoroutine(function () -- Chatot
+        local coro1B = TASK:BranchCoroutine(function () -- Chatot
             GROUND:TeleportTo(chatot, MRKR("EntranceBasement").Position.X, MRKR("EntranceBasement").Position.Y - 8, Direction.Down)
             GROUND:MoveToPosition(chatot, GAME:GetCameraCenter().Position.X, partner.Position.Y - 24, false, 1)
         end)
-        local coro2 = TASK:BranchCoroutine(function () -- Camera
+        local coro2B = TASK:BranchCoroutine(function () -- Camera
             GAME:MoveCamera(GAME:GetCameraCenter().X, partner.Position.Y - 8, 90)
         end)
-        TASK:JoinCoroutines({coro1, coro2})
+        TASK:JoinCoroutines({coro1B, coro2B})
 
         GAME:WaitFrames(15)
         ExplorerEssentials.SetSpeakerUnknown(chatot)
@@ -723,12 +723,12 @@ function guild_second_floor.CH2_MeetingChatot()
         UI:SetSpeaker(chatot)
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_11']))
 
-        local coro1 = TASK:BranchCoroutine(function () GROUND:CharAnimateTurnTo(player, Direction.Up, 4) end)
-        local coro2 = TASK:BranchCoroutine(function () GROUND:CharAnimateTurnTo(partner, Direction.Up, 4) end)
-        local coro3 = TASK:BranchCoroutine(function () 
+        local coro1B = TASK:BranchCoroutine(function () GROUND:CharAnimateTurnTo(player, Direction.Up, 4) end)
+        local coro2B = TASK:BranchCoroutine(function () GROUND:CharAnimateTurnTo(partner, Direction.Up, 4) end)
+        local coro3B = TASK:BranchCoroutine(function () 
             GROUND:MoveToPosition(chatot, chatot.Position.X, MRKR("EntranceBasement").Position.Y + 8, false, 1)
         end)
-        TASK:JoinCoroutines({coro1, coro2, coro3})
+        TASK:JoinCoroutines({coro1B, coro2B, coro3B})
 
         GAME:WaitFrames(20)
         SOUND:PlayBattleSE("EVT_Emote_Exclaim_2")
@@ -742,21 +742,21 @@ function guild_second_floor.CH2_MeetingChatot()
         UI:SetSpeakerEmotion("Happy")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_12']))
 
-        local coro1 = TASK:BranchCoroutine(function () -- Chatot
+        local coro1B = TASK:BranchCoroutine(function () -- Chatot
             GROUND:MoveToPosition(chatot, chatot.Position.X, MRKR("EntranceBasement").Position.Y - 8, false, 1)
             GAME:WaitFrames(25)
             GROUND:Hide("Chatot")
             GAME:WaitFrames(20)
             GAME:FadeOut(true, 30)
         end)
-        local coro2 = TASK:BranchCoroutine(function () -- Player
+        local coro2B = TASK:BranchCoroutine(function () -- Player
             GROUND:MoveToPosition(player, player.Position.X, MRKR("EntranceBasement").Position.Y - 8, false, 1)
         end)
-        local coro3 = TASK:BranchCoroutine(function () -- Partner
+        local coro3B = TASK:BranchCoroutine(function () -- Partner
             GAME:WaitFrames(25)
             GROUND:MoveToPosition(partner, player.Position.X, MRKR("EntranceBasement").Position.Y - 8, false, 1)
         end)
-        TASK:JoinCoroutines({coro1, coro2, coro3})
+        TASK:JoinCoroutines({coro1B, coro2B, coro3B})
 
         continue = false -- END OF SCENE
         GAME:EnterGroundMap("guild_basement", "Entrance", true)
@@ -1730,6 +1730,8 @@ def 0 {
 	GAME:WaitFrames(30)
 	-- TODO: dungeon_mode(3) = DMODE_OPEN
 
+    GAME:EnterZone('drenched_bluff', -1, 0, 0)
+
 end
 
 function guild_second_floor.CH2_FailedDrenchedBluff()
@@ -1878,6 +1880,12 @@ def 0 {
 	SOUND:FadeOutBGM(120)
 	GAME:FadeOut(false, 60)
 	-- TODO: WaitBgm(BGM_WIGGLYTUFFS_GUILD)
+
+    if not SV.Flags.SawDinnerCutscene then
+        GAME:EnterGroundMap("guild_basement", 'Entrance', false)
+    else
+        GAME:EnterGroundMap("guild_dining_hall_night", 'Entrance', false)
+    end
 end
 
 function guild_second_floor.CH2_FirstJobComplete()
@@ -2202,7 +2210,7 @@ def 0 {
 	-- ### supervision_Acting(0) [IRRELEVANT]
 	GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
 	GAME:FadeIn(30)
-	SOUND:PlayBGM("UNK_BGM_JOB_CLEAR.ogg")
+	SOUND:PlayBGM("013 - Job Clear!.ogg")
 	GAME:WaitFrames(30)
 	UI:SetSpeaker(CH('Spoink'))
 	UI:SetSpeakerEmotion("Normal")
@@ -2279,7 +2287,8 @@ def 0 {
 	-- TODO: message_FacePositionOffset(2, -1)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S4_Chatot_2']))
 	SOUND:PlayBattleSE("EVT_Emote_Shock")
-	-- TODO: bgm_Stop()
+    
+    SOUND:StopBGM()
 	GROUND:CharSetEmote(CH('PLAYER'), "shock", 1)
 	GROUND:CharSetEmote(CH('PARTNER'), "shock", 1)
 	GAME:WaitFrames(30)
@@ -2296,9 +2305,11 @@ def 0 {
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S4_Chatot_4']))
 	GROUND:MoveToPosition(CH('Chatot'), CH('Chatot').Position.X + 0, CH('Chatot').Position.Y + 16, false, 2)
 	-- !! WaitExecuteLives(ACTOR_NPC_PERAPPU)
-	SOUND:PlayBattleSE("UNK_8713")
-	-- TODO: $CARRY_GOLD += 200
+	
+    SOUND:PlayBattleSE("UNK_8713")
+	GAME:AddToPlayerMoney(200)
 	-- TODO: WaitSe(8713)
+
 	GAME:WaitFrames(10)
 	SOUND:PlayBattleSE("EVT_Emote_Startled")
 	GROUND:CharSetEmote(CH('PLAYER'), "shock", 1)
@@ -2327,6 +2338,11 @@ def 0 {
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S4_PARTNER_6']))
 	GAME:FadeOut(false, 60)
 
+    if not SV.Flags.SawDinnerCutscene then
+        GAME:EnterGroundMap("guild_basement", 'Entrance', false)
+    else
+        GAME:EnterGroundMap("guild_dining_hall_night", 'Entrance', false)
+    end
 end
 
 function guild_second_floor.CH3_JobComplete()

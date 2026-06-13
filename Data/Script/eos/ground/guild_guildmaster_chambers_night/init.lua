@@ -245,6 +245,7 @@ def 0 {
     GAME:GivePlayerItem("berry_oran")
     GAME:GivePlayerItem("medicine_max_elixir")
 
+    GAME:EnterGroundMap("guild_bedroom_night", 'Entrance', false)
 end
 
 return guild_guildmaster_chambers_night

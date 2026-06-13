@@ -58,7 +58,31 @@
   <resheader name="writer">
     <value>System.Resources.NetStandard.ResXResourceWriter, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </resheader>
-  <data name="String_0" xml:space="preserve">
-    <value />
-  </data>
+  	<data name="CH2_PARTNER_1_1" xml:space="preserve">
+		<value>Hey! There it is!</value>
+	</data>
+	<data name="CH2_PARTNER_1_0" xml:space="preserve">
+		<value>Oh! Look at that!</value>
+	</data>
+	<data name="CH2_PARTNER_1_2" xml:space="preserve">
+		<value>Oh! Over there!</value>
+	</data>
+	<data name="CH2_PARTNER_2_1" xml:space="preserve">
+		<value>This has to be {0}'s pearl!</value>
+	</data>
+	<data name="CH2_PARTNER_2_0" xml:space="preserve">
+		<value>This must be {0}'s pearl!</value>
+	</data>
+	<data name="CH2_PARTNER_2_2" xml:space="preserve">
+		<value>This has to be {0}'s pearl!</value>
+	</data>
+	<data name="CH2_PARTNER_3_1" xml:space="preserve">
+		<value>Let's take it back right now!</value>
+	</data>
+	<data name="CH2_PARTNER_3_0" xml:space="preserve">
+		<value>Let's hurry back with it!</value>
+	</data>
+	<data name="CH2_PARTNER_3_2" xml:space="preserve">
+		<value>Quick! Let's take it back!</value>
+	</data>
 </root>

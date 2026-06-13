@@ -36,7 +36,7 @@ function title_catch.Enter(map)
 	GAME:CutsceneMode(true)
 
 	local coro1 = TASK:BranchCoroutine(function() SOUND:PlayBGM("007 - Title Theme.ogg", false)
-												GAME:WaitFrames(830) 
+												GAME:WaitFrames(850) 
 												SOUND:StopBGM() end) 
 	local coro2 = TASK:BranchCoroutine(function() GAME:WaitFrames(90)
 												GAME:FadeIn(60)

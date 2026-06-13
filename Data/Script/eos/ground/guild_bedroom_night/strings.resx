@@ -58,6 +58,21 @@
   <resheader name="writer">
     <value>System.Resources.NetStandard.ResXResourceWriter, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </resheader>
+  	<data name="C_PARTNER_1" xml:space="preserve">
+		<value>We should get some sleep too.</value>
+	</data>
+	<data name="C_PARTNER_2" xml:space="preserve">
+		<value>Let's make tomorrow another good day, {0}!</value>
+	</data>
+	<data name="C_PARTNER_3_1" xml:space="preserve">
+		<value>All right, good night.</value>
+	</data>
+	<data name="C_PARTNER_3_0" xml:space="preserve">
+		<value>OK, good night.</value>
+	</data>
+	<data name="C_PARTNER_3_2" xml:space="preserve">
+		<value>OK, good night.</value>
+	</data>
   	<data name="CH2_NARRATION_1" xml:space="preserve">
 		<value>Exploration Team Quick Tip[pause=30]</value>
 	</data>
@@ -204,5 +219,74 @@
 	</data>
 	<data name="CH2_S2_Chatot_2" xml:space="preserve">
 		<value>Before you go to bed, our Guildmaster wants to speak with you.</value>
+	</data>
+	<data name="CH2_S3_PARTNER_1_1" xml:space="preserve">
+		<value>Hey, {0}...</value>
+	</data>
+	<data name="CH2_S3_PARTNER_1_0" xml:space="preserve">
+		<value>Listen, {0}...</value>
+	</data>
+	<data name="CH2_S3_PARTNER_1_2" xml:space="preserve">
+		<value>Say, {0}...</value>
+	</data>
+	<data name="CH2_S3_PARTNER_2_1" xml:space="preserve">
+		<value>Today was pretty hectic, wasn't it! So much happened!</value>
+	</data>
+	<data name="CH2_S3_PARTNER_2_0" xml:space="preserve">
+		<value>Wasn't today hectic? So much happened!</value>
+	</data>
+	<data name="CH2_S3_PARTNER_2_2" xml:space="preserve">
+		<value>Today was pretty hectic with everything we went through, wasn't it?</value>
+	</data>
+	<data name="CH2_S3_PARTNER_3_1" xml:space="preserve">
+		<value>But I'm glad we managed to pull off our first job.</value>
+	</data>
+	<data name="CH2_S3_PARTNER_3_0" xml:space="preserve">
+		<value>But I'm relieved that our first job was a success.</value>
+	</data>
+	<data name="CH2_S3_PARTNER_3_2" xml:space="preserve">
+		<value>But I'm glad our first job turned out so well.</value>
+	</data>
+	<data name="CH2_S3_PARTNER_4_1" xml:space="preserve">
+		<value>I was really steamed about how {0}'s Guild took most of the money...</value>
+	</data>
+	<data name="CH2_S3_PARTNER_4_0" xml:space="preserve">
+		<value>It was really upsetting how {0}'s Guild took most of the money...</value>
+	</data>
+	<data name="CH2_S3_PARTNER_4_2" xml:space="preserve">
+		<value>I was really mad about how {0}'s Guild took most of the money...</value>
+	</data>
+	<data name="CH2_S3_PARTNER_5" xml:space="preserve">
+		<value>That's just the cost of training, I guess. We can't do anything about it.</value>
+	</data>
+	<data name="CH2_S3_PARTNER_6_1" xml:space="preserve">
+		<value>What meant the most to me today, though, was getting thanked by {0}!</value>
+	</data>
+	<data name="CH2_S3_PARTNER_6_0" xml:space="preserve">
+		<value>But what made me really happy today, though, was getting thanked by {0}!</value>
+	</data>
+	<data name="CH2_S3_PARTNER_6_2" xml:space="preserve">
+		<value>But what made me really happy today, though, was getting thanked by {0}!</value>
+	</data>
+	<data name="CH2_S3_PARTNER_7" xml:space="preserve">
+		<value>Yawn... I'm getting sleepy.</value>
+	</data>
+	<data name="CH2_S3_PARTNER_8_1" xml:space="preserve">
+		<value>I'm going to sleep.[pause=0] Let's do a good job again tomorrow.</value>
+	</data>
+	<data name="CH2_S3_PARTNER_8_0" xml:space="preserve">
+		<value>I'm going to sleep.[pause=0] Let's try our best again tomorrow.</value>
+	</data>
+	<data name="CH2_S3_PARTNER_8_2" xml:space="preserve">
+		<value>I'm going to sleep.[pause=0] Let's try our best again tomorrow.</value>
+	</data>
+	<data name="CH2_S3_PARTNER_9_1" xml:space="preserve">
+		<value>Good night, {0}...</value>
+	</data>
+	<data name="CH2_S3_PARTNER_9_0" xml:space="preserve">
+		<value>Good night, {0}...</value>
+	</data>
+	<data name="CH2_S3_PARTNER_9_2" xml:space="preserve">
+		<value>Sleep tight, {0}...</value>
 	</data>
 </root>

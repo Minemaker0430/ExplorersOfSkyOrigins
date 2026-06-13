@@ -21,7 +21,9 @@ end
 ---guild_guildmaster_chambers.Enter(map)
 --Engine callback function
 function guild_guildmaster_chambers.Enter(map)
-    GAME:FadeIn(20)
+    if SV.Progression.Chapter == 2 then
+        guild_guildmaster_chambers.CH2_FormingTeam()
+    end
 end
 
 ---guild_guildmaster_chambers.Exit(map)
@@ -294,6 +296,8 @@ function guild_guildmaster_chambers.CH2_FormingTeam()
 
     UI:SetCenter(true)
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_NARRATION_6']))
+
+    _DATA.Save.ActiveTeam:SetRank('normal')
     
     -- GIVE ITEM BASED ON HERO SPECIES
     local gifts = {
@@ -437,7 +441,7 @@ function guild_guildmaster_chambers.CH2_FormingTeam()
     SOUND:FadeOutBGM(120)
     GAME:FadeOut(false, 60)
 
-    _DATA.Save.ActiveTeam:SetRank('normal')
+    GAME:EnterGroundMap("guild_bedroom", 'Entrance', false)
 end
 
 return guild_guildmaster_chambers

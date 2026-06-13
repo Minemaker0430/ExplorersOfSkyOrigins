@@ -21,7 +21,17 @@ end
 ---guild_bedroom_night.Enter(map)
 --Engine callback function
 function guild_bedroom_night.Enter(map)
-    GAME:FadeIn(20)
+    if SV.Progression.Chapter == 2 and SV.Progression.SectionFlag > 0 then
+        if SV.Progression.SectionFlag > 2 then
+            guild_bedroom_night.CH2_NightAfterJob()
+        elseif SV.drenched_bluff.TimesFailed > 1 then
+            guild_bedroom_night.CH2_OfferHelp()
+        else
+            guild_bedroom_night.CH2_FirstNight()
+        end
+    else
+        guild_bedroom_night.COMMON_GoToSleep()
+    end
 end
 
 ---guild_bedroom_night.Exit(map)
@@ -127,6 +137,26 @@ def 0 {
 }
 
   ]] --
+  
+	local hTalkKind = SV.Personality.HeroTalkKind
+	local pTalkKind = SV.Personality.PartnerTalkKind
+	SOUND:StopBGM()
+	-- back_SetGround(LEVEL_G01P07C) (Should be the map you're currently on, or the map it sends you to next)
+	-- ### supervision_Acting(0) [IRRELEVANT]
+	GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
+	GAME:FadeIn(30)
+	SOUND:PlayBGM("010 - Goodnight.ogg")
+	GAME:WaitFrames(30)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['C_PARTNER_1']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['C_PARTNER_2'], CH('PLAYER'):GetDisplayName()))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['C_PARTNER_3_'..tostring(pTalkKind)]))
+
+	SOUND:FadeOutBGM(120)
+	GAME:FadeOut(false, 60)
+	-- TODO: WaitBgm(BGM_GOODNIGHT)
+
 end
 
 function guild_bedroom_night.CH2_FirstNight()
@@ -714,6 +744,48 @@ def 0 {
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_Chatot_2']))
 	GAME:FadeOut(false, 30)
 
+end
+
+function guild_bedroom_night.CH2_NightAfterJob()
+	local hTalkKind = SV.Personality.HeroTalkKind
+	local pTalkKind = SV.Personality.PartnerTalkKind
+	SOUND:StopBGM()
+	-- ### back2_SetMode(4) [IRRELEVANT]
+	-- ### back2_SetGround(LEVEL_V02P06A) [IRRELEVANT]
+	-- ### camera2_SetPositionMark(Position<'m0', 19.5, 15.5>) [IRRELEVANT]
+	-- ### screen2_FadeIn(1, 60) [IRRELEVANT]
+	GAME:WaitFrames(150)
+	-- ### screen2_FadeOut(1, 60) [IRRELEVANT]
+	-- ### back2_SetMode(0) [IRRELEVANT]
+	-- back_SetGround(LEVEL_G01P07C) (Should be the map you're currently on, or the map it sends you to next)
+	-- ### supervision_Acting(0) [IRRELEVANT]
+	GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
+	GROUND:CharSetAnim(CH('PLAYER'), "UNK_76", false)
+	GROUND:CharSetAnim(CH('PARTNER'), "UNK_76", false)
+	-- TODO: screen_FadeChange(1, 60, 0, 192)
+	SOUND:PlayBGM("010 - Goodnight.ogg")
+	GAME:WaitFrames(30)
+	UI:SetSpeaker(CH('PARTNER'):GetDisplayName(), true)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S3_PARTNER_1_'..tostring(pTalkKind)]))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S3_PARTNER_2_'..tostring(pTalkKind)]))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S3_PARTNER_3_'..tostring(pTalkKind)]))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S3_PARTNER_4_'..tostring(pTalkKind)]))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S3_PARTNER_5']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S3_PARTNER_6_'..tostring(pTalkKind)]))
+	GAME:WaitFrames(45)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S3_PARTNER_7']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S3_PARTNER_8_'..tostring(pTalkKind)]))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S3_PARTNER_9_'..tostring(pTalkKind)]))
+
+	GAME:WaitFrames(30)
+	GROUND:CharSetAnim(CH('PARTNER'), "UNK_62", false)
+	GAME:WaitFrames(10)
+	GROUND:CharSetAnim(CH('PLAYER'), "UNK_62", false)
+	GAME:WaitFrames(80)
+	SOUND:FadeOutBGM(120)
+	GAME:FadeOut(false, 120)
+	-- TODO: WaitBgm(BGM_GOODNIGHT)
+	GAME:WaitFrames(30)
 end
 
 return guild_bedroom_night

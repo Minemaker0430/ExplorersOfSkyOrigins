@@ -58,7 +58,19 @@
   <resheader name="writer">
     <value>System.Resources.NetStandard.ResXResourceWriter, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </resheader>
-  <data name="String_0" xml:space="preserve">
-    <value />
+  	<data name="CH2_Unknown_1" xml:space="preserve">
+		<value>Aaaaah! I'm done eating! Excellent meal!</value>
+	</data>
+	<data name="CH2_Unknown_2" xml:space="preserve">
+		<value>I'm stuffed, and now I'm getting sleepy...</value>
+	</data>
+	<data name="CH2_Unknown_3" xml:space="preserve">
+		<value>Yep, I'm off to bed! Good night, gang!</value>
+	</data>
+	<data name="CH2_Unknown_4" xml:space="preserve">
+		<value>Good night!</value>
+	</data>
+  <data name="C_EATING" xml:space="preserve">
+    <value>[speed=1]Crunch-munch! Chew-chew! Snuffle-slurp!\nCrunch-munch! Chew-chew! Snuffle-slurp![/speed]</value><value/>
   </data>
 </root>

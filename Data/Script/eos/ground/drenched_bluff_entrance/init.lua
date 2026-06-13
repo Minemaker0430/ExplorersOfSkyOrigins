@@ -318,4 +318,6 @@ def 0 {
 	-- TODO: jump @label_2
 	-- TODO case: default:             jump @label_2
 
+    GAME:EnterDungeon('drenched_bluff', 0, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+
 end

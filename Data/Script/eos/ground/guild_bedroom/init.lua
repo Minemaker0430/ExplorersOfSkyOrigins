@@ -23,7 +23,17 @@ end
 --Engine callback function
 function guild_bedroom.Enter(map)
 
-  GAME:FadeIn(20)
+    if SV.Progression.Chapter == 2 then
+        if SV.Progression.SectionFlag == 1 then
+            guild_bedroom.CH2_WakeUp()
+        elseif SV.Progression.SectionFlag == 0 then
+            guild_bedroom.CH2_BedroomTour()
+        else
+            guild_bedroom.COMMON_WakeUp()
+        end
+    else
+        guild_bedroom.COMMON_WakeUp()
+    end
 
 end
 
