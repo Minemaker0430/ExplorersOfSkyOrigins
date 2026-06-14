@@ -6,6 +6,7 @@
 -- Commonly included lua functions and data
 require 'origin.common'
 require 'eos.ExplorerEssentials'
+require 'eos.CharacterActions'
 
 -- Package name
 local guild_second_floor = {}
@@ -558,19 +559,22 @@ function guild_second_floor.CH2_MeetingChatot()
     local player = CH("PLAYER")
     local partner = CH("PARTNER")
 
+    player.CollisionDisabled = true
+    partner.CollisionDisabled = true
+
     GAME:CutsceneMode(true)
     AI:DisableCharacterAI(partner)
 
     local hTalkKind = SV.Personality.HeroTalkKind
     local pTalkKind = SV.Personality.PartnerTalkKind
 
-    local continue = true
-
-    GROUND:TeleportTo(player, MRKR("EntranceBasement").Position.X, MRKR("EntranceBasement").Position.Y, Direction.Down)
-    GROUND:TeleportTo(partner, MRKR("EntranceOutside").Position.X, MRKR("EntranceOutside").Position.Y, Direction.Down)
-    GAME:MoveCameraToChara(-8, 0, 1, partner)
+    GROUND:TeleportTo(player, 364, 196, Direction.Down)
+    GROUND:TeleportTo(partner, 332, 196, Direction.Down)
+    GAME:MoveCamera(348, 200, 1, false)
 
     local wigglytuff = CH("Wigglytuff")
+
+    local continue = true
 
     local coro1 = TASK:BranchCoroutine(function ()
         GAME:FadeIn(30)
@@ -585,23 +589,28 @@ function guild_second_floor.CH2_MeetingChatot()
         UI:SetSpeakerEmotion("Inspired")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_1']))
 
-        local coro1 = TASK:BranchCoroutine(function ()
-            GROUND:MoveToPosition(player, player.Position.X, CH("CH2_Wurmple").Position.Y, false, 1)
+        local coro1B = TASK:BranchCoroutine(function()
+            GROUND:MoveToPosition(player, 364, 284, false, 1)
         end)
-        local coro2 = TASK:BranchCoroutine(function ()
+        local coro2B = TASK:BranchCoroutine(function()
             GAME:WaitFrames(10)
-            GROUND:MoveToPosition(partner, partner.Position.X, CH("CH2_Wurmple").Position.Y, false, 1)
+            GROUND:MoveToPosition(partner, 332, 284, false, 1)
         end)
-        local coro3 = TASK:BranchCoroutine(function ()
-            GAME:WaitFrames(10)
-            GAME:MoveCamera(GAME:GetCameraCenter().X, CH("CH2_Wurmple").Position.Y, 90) -- may be adjusted based on how fast the characters move
+        local coro3B = TASK:BranchCoroutine(function()
+            GAME:MoveCamera(348, 288, 90, false)
         end)
-        TASK:JoinCoroutines({coro1, coro2, coro3})
+        TASK:JoinCoroutines({coro1B, coro2B, coro3B})
 
         GAME:WaitFrames(30)
         GROUND:CharTurnToCharAnimated(partner, player, 4)
-        GROUND:CharTurnToCharAnimated(player, partner, 4)
-        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_2'], wigglytuff:GetDisplayName()))
+        local coro1B = TASK:BranchCoroutine(function ()
+            GROUND:CharTurnToCharAnimated(player, partner, 4)
+        end)
+        local coro2B = TASK:BranchCoroutine(function () 
+            UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_2'], wigglytuff:GetDisplayName()))
+        end)
+        TASK:JoinCoroutines({coro1B, coro2B})
+        
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_3_'..pTalkKind]))
 
         ExplorerEssentials.SetSpeakerUnknown(nil)
@@ -616,24 +625,24 @@ function guild_second_floor.CH2_MeetingChatot()
         GROUND:CharAnimateTurnTo(player, Direction.Up, 4)
 
         local chatot = CH("Chatot")
+        chatot.CollisionDisabled = true
 
         GAME:WaitFrames(30)
-        local coro1B = TASK:BranchCoroutine(function () -- Chatot
-            GROUND:TeleportTo(chatot, MRKR("EntranceBasement").Position.X, MRKR("EntranceBasement").Position.Y - 8, Direction.Down)
-            GROUND:MoveToPosition(chatot, chatot.Position.X, MRKR("EntranceBasement").Position.Y, false, 1)
+        local coro1B = TASK:BranchCoroutine(function() -- Chatot
+            GROUND:TeleportTo(chatot, MRKR("EntranceBasement").Position.X, MRKR("EntranceBasement").Position.Y, Direction.Down)
+            GROUND:MoveToPosition(chatot, chatot.Position.X, chatot.Position.Y + 8, false, 1)
         end)
-        local coro2B = TASK:BranchCoroutine(function () -- Camera
-            GAME:MoveCamera(GAME:GetCameraCenter().X, MRKR("EntranceOutside").Position.Y, 90)
+        local coro2B = TASK:BranchCoroutine(function() -- Camera
+            GAME:MoveCamera(348, 228, 60)
         end)
         TASK:JoinCoroutines({coro1B, coro2B})
 
         GAME:WaitFrames(45)
-        local coro1B = TASK:BranchCoroutine(function () -- Chatot
-            GROUND:TeleportTo(chatot, MRKR("EntranceBasement").Position.X, MRKR("EntranceBasement").Position.Y - 8, Direction.Down)
-            GROUND:MoveToPosition(chatot, GAME:GetCameraCenter().Position.X, partner.Position.Y - 24, false, 1)
+        local coro1B = TASK:BranchCoroutine(function() -- Chatot
+            GROUND:MoveToPosition(chatot, 348, 252, false, 1)
         end)
-        local coro2B = TASK:BranchCoroutine(function () -- Camera
-            GAME:MoveCamera(GAME:GetCameraCenter().X, partner.Position.Y - 8, 90)
+        local coro2B = TASK:BranchCoroutine(function() -- Camera
+            GAME:MoveCamera(348, 288, 60)
         end)
         TASK:JoinCoroutines({coro1B, coro2B})
 
@@ -687,7 +696,7 @@ function guild_second_floor.CH2_MeetingChatot()
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_8_'..pTalkKind]))
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_9_'..pTalkKind]))
 
-        SOUND:PlayBattleSE("EVT_Emote_Shocked_2")
+        SOUND:PlayBattleSE("EVT_Emote_Shock_2")
         GROUND:CharSetEmote(chatot, "shock", 1)
         GAME:WaitFrames(30)
 
@@ -696,25 +705,26 @@ function guild_second_floor.CH2_MeetingChatot()
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_7']))
 
         SOUND:PlayBattleSE("EVT_Emote_Sweating")
-        GROUND:CharAnimateTurnTo(chatot, Direction.Down, 1)
         GROUND:CharSetEmote(chatot, "sweating", 1)
+        GROUND:CharAnimateTurnTo(chatot, Direction.Down, 1)
         GROUND:CharSetAnim(chatot, "Shoot", true)
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_8']))
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_9']))
 
-        GROUND:CharSetEmote(chatot, "Wiggle", true)
+        GROUND:CharEndAnim(chatot)
+        GROUND:CharSetAnim(chatot, "Wiggle", true)
 
         UI:SetSpeakerEmotion("Joyous")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_10']))
 
         GROUND:CharEndAnim(chatot)
         SOUND:PlayBattleSE("EVT_Emote_Sweatdrop")
-        GROUND:CharSetEmote(player, "sweating", 1)
-        GROUND:CharSetEmote(partner, "sweating", 1)
+        GROUND:CharSetEmote(player, "sweatdrop", 1)
+        GROUND:CharSetEmote(partner, "sweatdrop", 1)
         GAME:WaitFrames(90) -- 30 for emote + 60
 
-        GAME:CharTurnToCharAnimated(partner, player, 4)
-        GAME:CharTurnToCharAnimated(player, partner, 4)
+        GROUND:CharTurnToCharAnimated(partner, player, 4)
+        GROUND:CharTurnToCharAnimated(player, partner, 4)
 
         UI:SetSpeaker(partner)
         UI:SetSpeakerEmotion("Sad")
@@ -723,10 +733,10 @@ function guild_second_floor.CH2_MeetingChatot()
         UI:SetSpeaker(chatot)
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_11']))
 
-        local coro1B = TASK:BranchCoroutine(function () GROUND:CharAnimateTurnTo(player, Direction.Up, 4) end)
-        local coro2B = TASK:BranchCoroutine(function () GROUND:CharAnimateTurnTo(partner, Direction.Up, 4) end)
-        local coro3B = TASK:BranchCoroutine(function () 
-            GROUND:MoveToPosition(chatot, chatot.Position.X, MRKR("EntranceBasement").Position.Y + 8, false, 1)
+        local coro1B = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(player, Direction.Up, 4) end)
+        local coro2B = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(partner, Direction.Up, 4) end)
+        local coro3B = TASK:BranchCoroutine(function() 
+            GROUND:MoveToPosition(chatot, chatot.Position.X, chatot.Position.Y - 40, false, 1)
         end)
         TASK:JoinCoroutines({coro1B, coro2B, coro3B})
 
@@ -742,56 +752,57 @@ function guild_second_floor.CH2_MeetingChatot()
         UI:SetSpeakerEmotion("Happy")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_12']))
 
-        local coro1B = TASK:BranchCoroutine(function () -- Chatot
-            GROUND:MoveToPosition(chatot, chatot.Position.X, MRKR("EntranceBasement").Position.Y - 8, false, 1)
-            GAME:WaitFrames(25)
+        local coro1B = TASK:BranchCoroutine(function() -- Chatot
+            GROUND:MoveToPosition(chatot, 364, 180, false, 1)
             GROUND:Hide("Chatot")
-            GAME:WaitFrames(20)
-            GAME:FadeOut(true, 30)
         end)
-        local coro2B = TASK:BranchCoroutine(function () -- Player
-            GROUND:MoveToPosition(player, player.Position.X, MRKR("EntranceBasement").Position.Y - 8, false, 1)
+        local coro2B = TASK:BranchCoroutine(function() -- Player
+            GROUND:MoveToPosition(player, player.Position.X, player.Position.Y - 88, false, 1)
         end)
-        local coro3B = TASK:BranchCoroutine(function () -- Partner
+        local coro3B = TASK:BranchCoroutine(function() -- Partner
             GAME:WaitFrames(25)
-            GROUND:MoveToPosition(partner, player.Position.X, MRKR("EntranceBasement").Position.Y - 8, false, 1)
+            GROUND:MoveToPosition(partner, 364, 180, false, 1)
         end)
-        TASK:JoinCoroutines({coro1B, coro2B, coro3B})
+        local coro4B = TASK:BranchCoroutine(function() -- Fade
+            GAME:WaitFrames(45)
+            GAME:FadeOut(false, 30)
+        end)
+        TASK:JoinCoroutines({coro1B, coro2B, coro3B, coro4B})
 
         continue = false -- END OF SCENE
-        GAME:EnterGroundMap("guild_basement", "Entrance", true)
+
+        GAME:EnterGroundMap("guild_basement", "Ladder", true)
     end)
-    local coro2 = TASK:BranchCoroutine(function () -- Seedot
+    local coro2 = TASK:BranchCoroutine(function() -- Seedot
         GAME:WaitFrames(30)
         while continue do
             GROUND:CharSetEmote(CH("CH2_Seedot"), "glowing", -1)
             GAME:WaitFrames(math.random(90, 180))
-            GROUND:CharSetEmote(CH("CH2_Seedot"), "glowing", 0)
+            GROUND:CharSetEmote(CH("CH2_Seedot"), "none", 1)
             GAME:WaitFrames(math.random(60, 180))
         end
     end)
-    local coro3 = TASK:BranchCoroutine(function () -- Swellow
+    local coro3 = TASK:BranchCoroutine(function() -- Swellow
         GAME:WaitFrames(30)
         while continue do
             GROUND:CharSetEmote(CH("CH2_Swellow"), "glowing", -1)
             GAME:WaitFrames(math.random(90, 180))
-            GROUND:CharSetEmote(CH("CH2_Swellow"), "glowing", 0)
+            GROUND:CharSetEmote(CH("CH2_Swellow"), "none", 1)
             GAME:WaitFrames(math.random(60, 180))
         end
     end)
-    local coro4 = TASK:BranchCoroutine(function () -- Sunflora
+    local coro4 = TASK:BranchCoroutine(function() -- Sunflora
         GAME:WaitFrames(30)
         while continue do
             GROUND:CharAnimateTurnTo(CH("CH2_Sunflora"), Direction.Left, 4)
             GROUND:CharSetEmote(CH("CH2_Sunflora"), "glowing", -1)
             GAME:WaitFrames(math.random(90, 180))
-            GROUND:CharSetEmote(CH("CH2_Sunflora"), "glowing", 0)
+            GROUND:CharSetEmote(CH("CH2_Sunflora"), "none", 1)
             GROUND:CharAnimateTurnTo(CH("CH2_Sunflora"), Direction.Up, 4)
             GAME:WaitFrames(math.random(120, 180))
         end
     end)
     TASK:JoinCoroutines({coro1, coro2, coro3, coro4})
-
 end
 
 function guild_second_floor.CH2_JobIntro()

@@ -74,7 +74,7 @@ function sentry_hole.Enter(map)
   UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Diglett_4']))
 
   GAME:FadeOut(false, 60)
-  GAME:EnterGroundMap('guild_outside_dusk', 0, false)
+  GAME:EnterGroundMap('guild_outside_dusk', 'Entrance', false)
 
 end
 
