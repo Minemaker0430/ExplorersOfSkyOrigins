@@ -1,5 +1,5 @@
 ﻿{
-"Version": "0.8.11.0",
+"Version": "0.8.12.0",
 "Object": {
 "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[RogueEssence.Data.EntrySummary, RogueEssence]], System.Private.CoreLib",
 "berry_cheri": {
@@ -8,11 +8,11 @@
 "UsageType": 4,
 "States": [
 {
-"assembly": "PMDC, Version=0.8.11.0, Culture=neutral, PublicKeyToken=null",
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
 "type": "PMDC.Dungeon.EdibleState"
 },
 {
-"assembly": "PMDC, Version=0.8.11.0, Culture=neutral, PublicKeyToken=null",
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
 "type": "PMDC.Dungeon.BerryState"
 }
 ],
@@ -44,15 +44,15 @@
 "UsageType": 4,
 "States": [
 {
-"assembly": "PMDC, Version=0.8.11.0, Culture=neutral, PublicKeyToken=null",
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
 "type": "PMDC.Dungeon.CurerState"
 },
 {
-"assembly": "PMDC, Version=0.8.11.0, Culture=neutral, PublicKeyToken=null",
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
 "type": "PMDC.Dungeon.EdibleState"
 },
 {
-"assembly": "PMDC, Version=0.8.11.0, Culture=neutral, PublicKeyToken=null",
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
 "type": "PMDC.Dungeon.BerryState"
 }
 ],
@@ -84,11 +84,11 @@
 "UsageType": 4,
 "States": [
 {
-"assembly": "PMDC, Version=0.8.11.0, Culture=neutral, PublicKeyToken=null",
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
 "type": "PMDC.Dungeon.EdibleState"
 },
 {
-"assembly": "PMDC, Version=0.8.11.0, Culture=neutral, PublicKeyToken=null",
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
 "type": "PMDC.Dungeon.BerryState"
 }
 ],
@@ -114,13 +114,106 @@
 "Comment": "",
 "SortOrder": 6
 },
+"held_defense_scarf": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": 14,
+"UsageType": 0,
+"States": [
+{
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.HeldState"
+}
+],
+"MaxStack": 0,
+"CannotDrop": false,
+"BagEffect": false,
+"Name": {
+"DefaultText": "Defense Scarf",
+"LocalTexts": {
+"fr": "Écharpe Déf+",
+"de": "Panzerschal"
+}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 1
+},
+"held_friend_bow": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": -1,
+"UsageType": 0,
+"States": [
+{
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.EquipState"
+},
+{
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.HeldState"
+}
+],
+"MaxStack": 0,
+"CannotDrop": false,
+"BagEffect": false,
+"Name": {
+"DefaultText": "Friend Bow",
+"LocalTexts": {
+"fr": "Ruban Ami",
+"de": "Sympathie",
+"es": "Lazo Amistad",
+"it": "Arcoamico",
+"ko": "친구리본",
+"ja": "ともだちリボン",
+"ja-jp": "ともだちリボン",
+"zh-hans": "朋友缎带"
+}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 1
+},
+"held_life_orb": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": -1,
+"UsageType": 0,
+"States": [
+{
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.EquipState"
+},
+{
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.HeldState"
+}
+],
+"MaxStack": 0,
+"CannotDrop": false,
+"BagEffect": false,
+"Name": {
+"DefaultText": "Life Orb",
+"LocalTexts": {
+"fr": "Orbe Vie",
+"de": "Leben-Orb",
+"es": "Vidasfera",
+"it": "Assorbisfera",
+"ko": "생명의구슬",
+"ja": "いのちのたま",
+"ja-jp": "いのちのたま",
+"zh-hans": "生命宝珠",
+"zh-hant": "生命寶珠"
+}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 1
+},
 "bow_blue": {
 "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
 "Icon": 14,
 "UsageType": 0,
 "States": [
 {
-"assembly": "PMDC, Version=0.8.11.0, Culture=neutral, PublicKeyToken=null",
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
 "type": "PMDC.Dungeon.HeldState"
 }
 ],
@@ -301,11 +394,11 @@
 "UsageType": 0,
 "States": [
 {
-"assembly": "PMDC, Version=0.8.11.0, Culture=neutral, PublicKeyToken=null",
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
 "type": "PMDC.Dungeon.EquipState"
 },
 {
-"assembly": "PMDC, Version=0.8.11.0, Culture=neutral, PublicKeyToken=null",
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
 "type": "PMDC.Dungeon.HeldState"
 }
 ],
@@ -384,37 +477,13 @@
 "Comment": "",
 "SortOrder": 0
 },
-"held_defense_scarf": {
-"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
-"Icon": 14,
-"UsageType": 0,
-"States": [
-{
-"assembly": "PMDC, Version=0.8.11.0, Culture=neutral, PublicKeyToken=null",
-"type": "PMDC.Dungeon.HeldState"
-}
-],
-"MaxStack": 0,
-"CannotDrop": false,
-"BagEffect": false,
-"Name": {
-"DefaultText": "Defense Scarf",
-"LocalTexts": {
-"fr": "Écharpe Déf+",
-"de": "Panzerschal"
-}
-},
-"Released": true,
-"Comment": "",
-"SortOrder": 1
-},
 "held_insomniascope": {
 "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
 "Icon": 15,
 "UsageType": 0,
 "States": [
 {
-"assembly": "PMDC, Version=0.8.11.0, Culture=neutral, PublicKeyToken=null",
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
 "type": "PMDC.Dungeon.HeldState"
 }
 ],
@@ -429,13 +498,38 @@
 "Comment": "",
 "SortOrder": 1
 },
+"held_joy_ribbon": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": -1,
+"UsageType": 0,
+"States": [
+{
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.EquipState"
+},
+{
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.HeldState"
+}
+],
+"MaxStack": 0,
+"CannotDrop": false,
+"BagEffect": false,
+"Name": {
+"DefaultText": "Joy Ribbon",
+"LocalTexts": {}
+},
+"Released": false,
+"Comment": "",
+"SortOrder": 1
+},
 "held_pecha_scarf": {
 "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
 "Icon": 14,
 "UsageType": 0,
 "States": [
 {
-"assembly": "PMDC, Version=0.8.11.0, Culture=neutral, PublicKeyToken=null",
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
 "type": "PMDC.Dungeon.HeldState"
 }
 ],
@@ -456,7 +550,7 @@
 "UsageType": 0,
 "States": [
 {
-"assembly": "PMDC, Version=0.8.11.0, Culture=neutral, PublicKeyToken=null",
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
 "type": "PMDC.Dungeon.HeldState"
 }
 ],
@@ -589,11 +683,11 @@
 "UsageType": 4,
 "States": [
 {
-"assembly": "PMDC, Version=0.8.11.0, Culture=neutral, PublicKeyToken=null",
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
 "type": "PMDC.Dungeon.EdibleState"
 },
 {
-"assembly": "PMDC, Version=0.8.11.0, Culture=neutral, PublicKeyToken=null",
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
 "type": "PMDC.Dungeon.SeedState"
 }
 ],

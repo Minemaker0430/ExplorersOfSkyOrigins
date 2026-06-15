@@ -268,9 +268,10 @@ function SINGLE_CHAR_SCRIPT.HeroPartnerCheck(owner, ownerChar, context, args) --
 				if not player.Dead then--dont beam out whoever died
 					GAME:WaitFrames(30)
             		local anim = RogueEssence.Dungeon.CharAbsentAnim(player.CharLoc, player.CharDir)
-            		RemoveCharEffects(player)
+            		DUNGEON:RemoveCharEffects(player)
             		TASK:WaitTask(_DUNGEON:ProcessBattleFX(player, player, _DATA.SendHomeFX))
             		TASK:WaitTask(player:StartAnim(anim))
+					player.Dead = true
 				end
 			end
 			--beam out guests
@@ -279,9 +280,10 @@ function SINGLE_CHAR_SCRIPT.HeroPartnerCheck(owner, ownerChar, context, args) --
 				if not guest.Dead then--dont beam out whoever died
 					GAME:WaitFrames(30)
 					local anim = RogueEssence.Dungeon.CharAbsentAnim(guest.CharLoc, guest.CharDir)
-					RemoveCharEffects(guest)
+					--DUNGEON:RemoveCharEffects(guest)
 					TASK:WaitTask(_DUNGEON:ProcessBattleFX(guest, guest, _DATA.SendHomeFX))
 					TASK:WaitTask(guest:StartAnim(anim))
+					player.Dead = true
 				end
 			end
 
@@ -302,9 +304,10 @@ function SINGLE_CHAR_SCRIPT.HeroPartnerCheck(owner, ownerChar, context, args) --
 				if not player.Dead then--dont beam out whoever died
 					GAME:WaitFrames(30)
             		local anim = RogueEssence.Dungeon.CharAbsentAnim(player.CharLoc, player.CharDir)
-            		RemoveCharEffects(player)
+            		--DUNGEON:RemoveCharEffects(player)
             		TASK:WaitTask(_DUNGEON:ProcessBattleFX(player, player, _DATA.SendHomeFX))
             		TASK:WaitTask(player:StartAnim(anim))
+					player.Dead = true
 				end
 			end
 			--beam out guests
@@ -313,9 +316,10 @@ function SINGLE_CHAR_SCRIPT.HeroPartnerCheck(owner, ownerChar, context, args) --
 				if not guest.Dead then--dont beam out whoever died
 					GAME:WaitFrames(30)
 					local anim = RogueEssence.Dungeon.CharAbsentAnim(guest.CharLoc, guest.CharDir)
-					RemoveCharEffects(guest)
+					--DUNGEON:RemoveCharEffects(guest)
 					TASK:WaitTask(_DUNGEON:ProcessBattleFX(guest, guest, _DATA.SendHomeFX))
 					TASK:WaitTask(guest:StartAnim(anim))
+					player.Dead = true
 				end
 			end
 
@@ -324,6 +328,15 @@ function SINGLE_CHAR_SCRIPT.HeroPartnerCheck(owner, ownerChar, context, args) --
 		end
 	end
 			
+end
+
+function SINGLE_CHAR_SCRIPT.JoyRibbonEXP(owner, ownerChar, context, args)
+	if context.User == nil then return end
+	local player = context.User
+
+	print("old exp: " .. tostring(player.EXP))
+	player.EXP  = player.EXP + 5;
+	print("new exp: " .. tostring(player.EXP))
 end
 
 function SINGLE_CHAR_SCRIPT.BeachCaveTutorial(owner, ownerChar, context, args) --Tutorial Script (Credit to Palika Again)

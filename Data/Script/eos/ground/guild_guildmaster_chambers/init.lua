@@ -335,11 +335,11 @@ function guild_guildmaster_chambers.CH2_FormingTeam()
 
     local gift = gifts[SV.General.Starter.Species]
     if gift == nil then
-        local hp = math.floor(SV.General.Starter.CurrentForm:ReverseGetStat(RogueEssence.Data.Stat.HP) / 2)
-        local atk = SV.General.Starter.CurrentForm:ReverseGetStat(RogueEssence.Data.Stat.Attack)
-        local def = SV.General.Starter.CurrentForm:ReverseGetStat(RogueEssence.Data.Stat.Defense)
-        local spatk = SV.General.Starter.CurrentForm:ReverseGetStat(RogueEssence.Data.Stat.MAtk)
-        local spdef = SV.General.Starter.CurrentForm:ReverseGetStat(RogueEssence.Data.Stat.MDef)
+        local hp = math.floor(CH('PLAYER').MaxHP / 2) --math.floor(SV.General.Starter.CurrentForm:GetStat(5, RogueEssence.Data.Stat.HP) / 2)
+        local atk = CH('PLAYER').BaseAtk --SV.General.Starter.CurrentForm:GetStat(5, RogueEssence.Data.Stat.Attack)
+        local def = CH('PLAYER').BaseDef --SV.General.Starter.CurrentForm:GetStat(5, RogueEssence.Data.Stat.Defense)
+        local spatk = CH('PLAYER').BaseMAtk --SV.General.Starter.CurrentForm:GetStat(5, RogueEssence.Data.Stat.MAtk)
+        local spdef = CH('PLAYER').BaseMDef --SV.General.Starter.CurrentForm:GetStat(5, RogueEssence.Data.Stat.MDef)
 
         local lowest = 1
         local comp = {hp, atk, def, spatk, spdef}
