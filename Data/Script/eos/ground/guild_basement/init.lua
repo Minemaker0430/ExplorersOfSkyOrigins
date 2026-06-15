@@ -2390,7 +2390,7 @@ def 0 {
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_3']))
 
     -- Moving Camera to (416, 220) with speed 2 and performer 0 | Duration has to be replaced manually. The reason the duration is so complicated is because Vanilla EoS camera movement measures in *speed*, not total duration
-	local coro1 = TASK:BranchCoroutine(function() GAME:MoveCamera(416, 220, 120, false) end)
+	local coro1 = TASK:BranchCoroutine(function() GAME:MoveCamera(416, 220, 60, false) end)
     local coro2 = TASK:BranchCoroutine(function() 
                                                   GROUND:MoveToPosition(CH('Chatot'), 416, 220, false, 2)
                                                   GROUND:MoveToPosition(CH('Chatot'), 420, 200, false, 2)
@@ -2464,7 +2464,7 @@ def 0 {
 	SOUND:FadeOutBGM(120)
 	GAME:FadeOut(false, 60)
 
-	print("end of scene")
+	GAME:EnterGroundMap("guild_guildmaster_chambers", "Entrance", true)
 
 end
 

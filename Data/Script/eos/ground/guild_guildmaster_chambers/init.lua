@@ -5,6 +5,8 @@
 ]] --
 -- Commonly included lua functions and data
 require 'origin.common'
+require 'eos.ExplorerEssentials'
+require 'eos.CharacterActions'
 
 -- Package name
 local guild_guildmaster_chambers = {}
@@ -15,7 +17,9 @@ local guild_guildmaster_chambers = {}
 ---guild_guildmaster_chambers.Init(map)
 --Engine callback function
 function guild_guildmaster_chambers.Init(map)
+    GROUND:Hide("ExplorationKit")
 
+    ExplorerEssentials.SpawnPartner()
 end
 
 ---guild_guildmaster_chambers.Enter(map)
@@ -60,11 +64,19 @@ end
 
 function guild_guildmaster_chambers.CH2_FormingTeam()
 
+    GAME:CutsceneMode(true)
+    AI:DisableCharacterAI(CH('PARTNER'))
+
     local hTalkKind = SV.Personality.HeroTalkKind
     local pTalkKind = SV.Personality.PartnerTalkKind
     -- back_SetGround(LEVEL_G01P05A) (Should be the map you're currently on, or the map it sends you to next)
     -- ### supervision_Acting(0) [IRRELEVANT]
-    GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
+    GAME:MoveCamera(200, 224, 1, false)
+    GROUND:TeleportTo(CH('Chatot'), 240, 220, Direction.UpLeft) -- chatot 30, 27.5
+    GROUND:TeleportTo(CH('PARTNER'), 180, 236, Direction.Up) -- partner 23, 29.5
+    GROUND:TeleportTo(CH('PLAYER'), 212, 236, Direction.Up) -- player 27, 29.5
+    GROUND:TeleportTo(CH('Wigglytuff'), 196, 188, Direction.Up) -- wigglytuff 24.5, 23.5
+    
     GAME:FadeIn(30)
     GAME:WaitFrames(30)
 
@@ -82,7 +94,7 @@ function guild_guildmaster_chambers.CH2_FormingTeam()
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_2']))
     
     GAME:WaitFrames(60)
-    GROUND:CharAnimateTurnTo(CH('Wigglytuff'), Dir8.Down, 0)
+    GROUND:CharAnimateTurnTo(CH('Wigglytuff'), Dir8.Down, 1)
     -- !! WaitExecuteLives(ACTOR_NPC_PUKURIN)
 
     local coro1 = TASK:BranchCoroutine(function ()
@@ -93,7 +105,7 @@ function guild_guildmaster_chambers.CH2_FormingTeam()
         GROUND:CharSetEmote(CH('PLAYER'), "exclaim", 1)
     end)
     local coro3 = TASK:BranchCoroutine(function ()
-        SOUND:PlayBGM("009 - Guildmaster Wigglytuff.ogg")
+        SOUND:PlayBGM("009 - Guildmaster Wigglytuff.ogg", true)
         UI:SetSpeaker(CH('Wigglytuff'))
         UI:SetSpeakerEmotion("Normal")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Wigglytuff_1']))
@@ -159,8 +171,7 @@ function guild_guildmaster_chambers.CH2_FormingTeam()
     UI:SetSpeakerEmotion("Normal")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_PARTNER_4'], GAME:GetTeamName()))
 
-    GROUND:CharWaitAnim(CH('PARTNER'), "UNK_71")
-    GROUND:CharWaitAnim(CH('PARTNER'), "UNK_71")
+    CharacterActions.HopTwice(CH('PARTNER'), CH('PARTNER').Direction)
 
     UI:SetSpeaker(CH('PARTNER'))
     UI:SetSpeakerEmotion("Happy")
@@ -172,12 +183,12 @@ function guild_guildmaster_chambers.CH2_FormingTeam()
     
     UI:SetSpeaker(CH('Wigglytuff'))
     UI:SetSpeakerEmotion("Normal")
-    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Wigglytuff_6']))
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Wigglytuff_6'], GAME:GetTeamName()))
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Wigglytuff_7']))
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Wigglytuff_8']))
-    UI:SetSpeakerEmotion("UNK_FACE_SIGH")
+    UI:SetSpeakerEmotion("Sigh")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Wigglytuff_9']))
-    GROUND:CharWaitAnim(CH('Wigglytuff'), "UNK_17")
+    GROUND:CharWaitAnim(CH('Wigglytuff'), "Hop")
     
     SOUND:StopBGM()
     
@@ -194,26 +205,23 @@ function guild_guildmaster_chambers.CH2_FormingTeam()
 
     -- !! WaitExecuteLives(ACTOR_NPC_PUKURIN)
 
-    SOUND:PlayBGM("008 - Wigglytuff's Guild.ogg")
+    SOUND:PlayBGM("008 - Wigglytuff's Guild.ogg", true)
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Wigglytuff_10']))
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Wigglytuff_11']))
-    GROUND:MoveToPosition(CH('Wigglytuff'), CH('Wigglytuff').Position.X + 0, CH('Wigglytuff').Position.Y + 16, false, 0)
+    GROUND:MoveToPosition(CH('Wigglytuff'), CH('Wigglytuff').Position.X, CH('Wigglytuff').Position.Y + 16, false, 1)
     -- !! WaitExecuteLives(ACTOR_NPC_PUKURIN)
 
     GROUND:CharAnimateTurnTo(CH('Chatot'), Dir8.Left, 4)
     SOUND:PlayBattleSE("EVT_CH02_Item_Place")
-    -- ### supervision_Acting(1) [IRRELEVANT]
-    -- TODO: $PERFORMANCE_PROGRESS_LIST[2] = 1
+    GROUND:Unhide("ExplorationKit")
     GAME:WaitFrames(30)
 
+    UI:ResetSpeaker()
     UI:SetCenter(true)
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_NARRATION_1'], CH('Wigglytuff'):GetDisplayName()))
     UI:SetCenter(false)
 
-    GROUND:CharSetAnim(CH('Wigglytuff'), "Walk", false)
-    -- TODO SlidePositionOffset: SlidePositionOffset<actor ACTOR_NPC_PUKURIN>(0.7969, 0, -16)
-    -- !! WaitExecuteLives(ACTOR_NPC_PUKURIN)
-    GROUND:CharSetAnim(CH('Wigglytuff'), "None", false)
+    GROUND:AnimateToPosition(CH('Wigglytuff'), "Walk", Dir8.Down, CH('Wigglytuff').Position.X, CH('Wigglytuff').Position.Y - 16, 1, 1)
     
     SOUND:PlayBattleSE("EVT_Emote_Confused")
     GROUND:CharSetEmote(CH('PARTNER'), "question", 1)
@@ -239,23 +247,22 @@ function guild_guildmaster_chambers.CH2_FormingTeam()
     GAME:WaitFrames(15)
 
     -- open box
+    local box = OBJ("ExplorationKit")
     SOUND:PlayBattleSE("EVT_CH02_Box_Open")
-    -- TODO SetAnimation: SetAnimation<object OBJECT_G01P05A1_106>(18)
-    -- TODO WaitAnimation: WaitAnimation<object OBJECT_G01P05A1_106>()
-    -- TODO: WaitExecuteObject(OBJECT_G01P05A1_106)
+    GROUND:ObjectSetAnim(box, 4, -1, -1, Direction.Down, 1)
+    GROUND:ObjectWaitAnimFrame(box, 5)
+    GROUND:ObjectSetDefaultAnim(box, "Open", 1, 5, 5, Direction.Down)
 
     GAME:WaitFrames(30)
 
+    UI:ResetSpeaker()
     UI:SetCenter(true)
-    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_NARRATION_2']))
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_NARRATION_2'], CH('PARTNER'):GetDisplayName()))
 
     GAME:FadeOut(false, 30)
     GAME:WaitFrames(10)
-    -- back_SetGround(LEVEL_V02P08A) (Should be the map you're currently on, or the map it sends you to next)
-    -- ### supervision_RemoveActing(0) [IRRELEVANT]
-    -- ### supervision_Acting(2) [IRRELEVANT]
-    GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
-    GAME:FadeIn(30)
+
+    UI:WaitShowBG("ExplorerBox", 1, 30)
 
     GAME:WaitFrames(30)
     SOUND:PlayFanfare("Fanfare/Item.ogg")
@@ -281,25 +288,18 @@ function guild_guildmaster_chambers.CH2_FormingTeam()
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Wigglytuff_18']))
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Wigglytuff_19']))
 
-    GAME:FadeOut(false, 30)
-    -- ### supervision_RemoveActing(2) [IRRELEVANT]
-    -- back_SetGround(LEVEL_G01P05A) (Should be the map you're currently on, or the map it sends you to next)
-    -- ### supervision_Acting(3) [IRRELEVANT]
-    
-    GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
-    -- TODO SetAnimation: SetAnimation<object OBJECT_G01P05A1_106>(18)
-    -- TODO WaitAnimation: WaitAnimation<object OBJECT_G01P05A1_106>()
-    -- TODO: WaitExecuteObject(OBJECT_G01P05A1_106)
+    UI:WaitHideBG(30)
 
     GAME:FadeIn(30)
     GAME:WaitFrames(30)
 
+    UI:ResetSpeaker()
     UI:SetCenter(true)
-    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_NARRATION_6']))
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_NARRATION_6'], CH('PARTNER'):GetDisplayName()))
 
     _DATA.Save.ActiveTeam:SetRank('normal')
     
-    -- GIVE ITEM BASED ON HERO SPECIES
+    -- GIVE ITEM BASED ON HERO SPECIES (DOESN'T WORK RN)
     local gifts = {
         ["bulbasaur"] = "held_power_band",
         ["charmander"] = "held_special_band",
@@ -335,7 +335,7 @@ function guild_guildmaster_chambers.CH2_FormingTeam()
 
     local gift = gifts[SV.General.Starter.Species]
     if gift == nil then
-        local hp = SV.General.Starter.CurrentForm:ReverseGetStat(RogueEssence.Data.Stat.HP)
+        local hp = math.floor(SV.General.Starter.CurrentForm:ReverseGetStat(RogueEssence.Data.Stat.HP) / 2)
         local atk = SV.General.Starter.CurrentForm:ReverseGetStat(RogueEssence.Data.Stat.Attack)
         local def = SV.General.Starter.CurrentForm:ReverseGetStat(RogueEssence.Data.Stat.Defense)
         local spatk = SV.General.Starter.CurrentForm:ReverseGetStat(RogueEssence.Data.Stat.MAtk)
@@ -344,7 +344,7 @@ function guild_guildmaster_chambers.CH2_FormingTeam()
         local lowest = 1
         local comp = {hp, atk, def, spatk, spdef}
         for i in #comp do
-            if comp[i] < comp[lowest] then
+            if comp[i] <= comp[lowest] then
                 lowest = i
             end
         end
