@@ -186,22 +186,29 @@ function guild_guildmaster_chambers.CH2_FormingTeam()
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Wigglytuff_6'], GAME:GetTeamName()))
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Wigglytuff_7']))
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Wigglytuff_8']))
-    UI:SetSpeakerEmotion("Sigh")
+    UI:SetSpeakerEmotion("Sigh") 
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Wigglytuff_9']))
-    GROUND:CharWaitAnim(CH('Wigglytuff'), "Hop")
     
-    SOUND:StopBGM()
+    local coro1 = TASK:BranchCoroutine(function ()
+        GROUND:CharWaitAnim(CH('Wigglytuff'), "Hop")
+    end)
+    local coro2 = TASK:BranchCoroutine(function ()
+        SOUND:StopBGM()
     
-    SOUND:PlayBattleSE("EVT_Battle_Flash")
-    GAME:FadeOut(true, 2)
-    GAME:WaitFrames(2)
-    GAME:FadeIn(2)
+        SOUND:PlayBattleSE("EVT_Battle_Flash")
+        GAME:FadeOut(true, 2)
+        GAME:WaitFrames(2)
+        GAME:FadeIn(2)
 
-    GAME:WaitFrames(5)
-    SOUND:PlayBattleSE("EVT_Battle_Flash")
-    GAME:FadeOut(true, 2)
-    GAME:WaitFrames(2)
-    GAME:FadeIn(2)
+        GAME:WaitFrames(5)
+        SOUND:PlayBattleSE("EVT_Battle_Flash")
+        GAME:FadeOut(true, 2)
+        GAME:WaitFrames(2)
+        GAME:FadeIn(2)
+    end)
+    TASK:JoinCoroutines({coro1, coro2})
+
+    GAME:WaitFrames(30)
 
     -- !! WaitExecuteLives(ACTOR_NPC_PUKURIN)
 
@@ -251,7 +258,7 @@ function guild_guildmaster_chambers.CH2_FormingTeam()
     SOUND:PlayBattleSE("EVT_CH02_Box_Open")
     GROUND:ObjectSetAnim(box, 4, -1, -1, Direction.Down, 1)
     GROUND:ObjectWaitAnimFrame(box, 5)
-    GROUND:ObjectSetDefaultAnim(box, "Open", 1, 5, 5, Direction.Down)
+    GROUND:ObjectSetDefaultAnim(box, "ExplorationKit", 1, 5, 5, Direction.Down)
 
     GAME:WaitFrames(30)
 
@@ -265,13 +272,13 @@ function guild_guildmaster_chambers.CH2_FormingTeam()
     UI:WaitShowBG("ExplorerBox", 1, 30)
 
     GAME:WaitFrames(30)
-    SOUND:PlayFanfare("Fanfare/Item.ogg")
+    SOUND:PlayFanfare("Fanfare/Item")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_NARRATION_3']))
     
-    SOUND:PlayFanfare("Fanfare/Item.ogg")
+    SOUND:PlayFanfare("Fanfare/Item")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_NARRATION_4']))
 
-    SOUND:PlayFanfare("Fanfare/Item.ogg")
+    SOUND:PlayFanfare("Fanfare/Item")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_NARRATION_5']))
     UI:SetCenter(false)
 
@@ -335,15 +342,21 @@ function guild_guildmaster_chambers.CH2_FormingTeam()
 
     local gift = gifts[SV.General.Starter.Species]
     if gift == nil then
-        local hp = math.floor(CH('PLAYER').MaxHP / 2) --math.floor(SV.General.Starter.CurrentForm:GetStat(5, RogueEssence.Data.Stat.HP) / 2)
-        local atk = CH('PLAYER').BaseAtk --SV.General.Starter.CurrentForm:GetStat(5, RogueEssence.Data.Stat.Attack)
-        local def = CH('PLAYER').BaseDef --SV.General.Starter.CurrentForm:GetStat(5, RogueEssence.Data.Stat.Defense)
-        local spatk = CH('PLAYER').BaseMAtk --SV.General.Starter.CurrentForm:GetStat(5, RogueEssence.Data.Stat.MAtk)
-        local spdef = CH('PLAYER').BaseMDef --SV.General.Starter.CurrentForm:GetStat(5, RogueEssence.Data.Stat.MDef)
+        local hp = math.floor(CH('PLAYER').Data.MaxHP / 2) --math.floor(SV.General.Starter.CurrentForm:GetStat(5, RogueEssence.Data.Stat.HP) / 2)
+        local atk = CH('PLAYER').Data.BaseAtk --SV.General.Starter.CurrentForm:GetStat(5, RogueEssence.Data.Stat.Attack)
+        local def = CH('PLAYER').Data.BaseDef --SV.General.Starter.CurrentForm:GetStat(5, RogueEssence.Data.Stat.Defense)
+        local spatk = CH('PLAYER').Data.BaseMAtk --SV.General.Starter.CurrentForm:GetStat(5, RogueEssence.Data.Stat.MAtk)
+        local spdef = CH('PLAYER').Data.BaseMDef --SV.General.Starter.CurrentForm:GetStat(5, RogueEssence.Data.Stat.MDef)
+
+        print("hp: " .. tostring(hp))
+        print("atk: " .. tostring(atk))
+        print("def: " .. tostring(def))
+        print("spatk: " .. tostring(spatk))
+        print("spdef: " .. tostring(spdef))
 
         local lowest = 1
         local comp = {hp, atk, def, spatk, spdef}
-        for i in #comp do
+        for i = 1, #comp, 1 do
             if comp[i] <= comp[lowest] then
                 lowest = i
             end
@@ -352,9 +365,10 @@ function guild_guildmaster_chambers.CH2_FormingTeam()
         local items = {"held_joy_ribbon", "held_power_band", "held_defense_scarf", "held_special_band", "held_zinc_band"}
         gift = items[lowest]
     end
+    if gift == nil then gift = "held_defense_scarf" end
     GAME:GivePlayerItem(gift)
 
-    SOUND:PlayFanfare("Fanfare/Item.ogg")
+    SOUND:PlayFanfare("Fanfare/Item")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_NARRATION_7'], RogueEssence.Dungeon.InvItem(gift):GetDisplayName()))
     
     -- GIVE AURA BOW
@@ -379,7 +393,7 @@ function guild_guildmaster_chambers.CH2_FormingTeam()
     local aura_bow = bows[SV.PlayerInputs.AuraColor + 1]
     GAME:GivePlayerItem(aura_bow)
 
-    SOUND:PlayFanfare("Fanfare/Item.ogg")
+    SOUND:PlayFanfare("Fanfare/Item")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_NARRATION_8'], RogueEssence.Dungeon.InvItem(aura_bow):GetDisplayName()))
     UI:SetCenter(false)
     
@@ -423,7 +437,7 @@ function guild_guildmaster_chambers.CH2_FormingTeam()
     UI:SetSpeakerEmotion("Happy")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_PARTNER_10_' .. tostring(pTalkKind)], CH('PLAYER'):GetDisplayName()))
     GROUND:CharWaitAnim(CH('PLAYER'), "Nod") -- unsure if this is correct
-    GROUND:CharWaitAnim(CH('PLAYER'), "Nod")
+    GROUND:CharWaitAnim(CH('PARTNER'), "Nod")
     GAME:WaitFrames(45)
 
     local coro1 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.Down, 4) end)
@@ -438,8 +452,9 @@ function guild_guildmaster_chambers.CH2_FormingTeam()
 	TASK:JoinCoroutines({coro1, coro2})
 
     GAME:WaitFrames(80)
-    SOUND:FadeOutBGM(120)
-    GAME:FadeOut(false, 60)
+    local coro1 = TASK:BranchCoroutine(function() SOUND:FadeOutBGM(120) end)
+    local coro2 = TASK:BranchCoroutine(function() GAME:FadeOut(false, 60) end)
+    TASK:JoinCoroutines({coro1, coro2})
 
     GAME:EnterGroundMap("guild_bedroom", 'Entrance', false)
 end

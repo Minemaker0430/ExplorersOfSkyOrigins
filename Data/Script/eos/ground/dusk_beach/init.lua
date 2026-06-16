@@ -792,7 +792,8 @@ function dusk_beach.CH1_ExplorerTeamInvite()
 	GROUND:MoveInDirection(partner, Direction.Right, 8, false, 1)
 	GROUND:MoveInDirection(player, Direction.Left, 8, false, 1)
 
-	GAME:WaitFrames(10)
+	GAME:FadeOut(false, 30)
+    GAME:WaitFrames(10)
 	UI:WaitShowBG("RelicFragmentCloseup", 1, 30)
 	GAME:WaitFrames(30)
 
@@ -811,7 +812,8 @@ function dusk_beach.CH1_ExplorerTeamInvite()
 
 	GAME:WaitFrames(10)
 	UI:WaitHideBG(30)
-	GAME:WaitFrames(30)
+	GAME:FadeIn(30)
+    GAME:WaitFrames(30)
 
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_20']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_21']), {function() CharacterActions.HopOnce(partner, Direction.Right) end})
