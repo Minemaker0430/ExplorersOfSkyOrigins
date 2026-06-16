@@ -268,7 +268,7 @@ function SINGLE_CHAR_SCRIPT.HeroPartnerCheck(owner, ownerChar, context, args) --
 				if not player.Dead then--dont beam out whoever died
 					GAME:WaitFrames(30)
             		local anim = RogueEssence.Dungeon.CharAbsentAnim(player.CharLoc, player.CharDir)
-            		DUNGEON:RemoveCharEffects(player)
+            		--DUNGEON:RemoveCharEffects(player)
             		TASK:WaitTask(_DUNGEON:ProcessBattleFX(player, player, _DATA.SendHomeFX))
             		TASK:WaitTask(player:StartAnim(anim))
 					player.Dead = true
@@ -331,12 +331,38 @@ function SINGLE_CHAR_SCRIPT.HeroPartnerCheck(owner, ownerChar, context, args) --
 end
 
 function SINGLE_CHAR_SCRIPT.JoyRibbonEXP(owner, ownerChar, context, args)
-	if context.User == nil then return end
-	local player = context.User
+	if context.User == nil or ownerChar == nil then return end
+	local player = ownerChar
+	local enemy = context.User
+	--print("player: " .. player.Name)
+	--print("enemy: " .. enemy.Name)
 
-	print("old exp: " .. tostring(player.EXP))
-	player.EXP  = player.EXP + 5;
-	print("new exp: " .. tostring(player.EXP))
+	if player == enemy then return end -- return if self damage (recoil, traps, etc.)
+
+	local player_count = GAME:GetPlayerPartyCount()
+	local guest_count = GAME:GetPlayerGuestCount()
+	for i = 0, player_count - 1, 1 do
+		local ch = GAME:GetPlayerPartyMember(i)
+		if enemy == ch then return end -- check for friendly fire (such as traps or explosions)
+	end
+	for i = 0, guest_count - 1, 1 do
+		local ch = GAME:GetPlayerGuestMember(i)
+		if enemy == ch then return end -- check for friendly fire (from guests)
+	end
+
+	local gainedEXP = math.floor((enemy.Level / player.Level) * ((enemy.BaseAtk + enemy.BaseMAtk) / 6))
+
+	if gainedEXP < 1 then return end -- no point in giving the target 0 exp
+
+	--print("old exp: " .. tostring(player.EXP))
+	player.EXP = player.EXP + gainedEXP;
+	--print("new exp: " .. tostring(player.EXP))
+
+	RogueEssence.Dungeon.DungeonScene.Instance:LogMsg(STRINGS:FormatKey("MSG_EXP_GAIN_MEMBER", player:GetDisplayName(true), gainedEXP), true, false);
+	
+	GAME:WaitFrames(20)
+
+	RogueEssence.Dungeon.DungeonScene.Instance:MeterChanged(player.CharLoc, gainedEXP, true)
 end
 
 function SINGLE_CHAR_SCRIPT.BeachCaveTutorial(owner, ownerChar, context, args) --Tutorial Script (Credit to Palika Again)

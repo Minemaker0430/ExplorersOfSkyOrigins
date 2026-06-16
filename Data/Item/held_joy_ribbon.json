@@ -10,8 +10,8 @@
 "DefaultText": "A held item that earns the Pokémon Exp. Points when taking damage.",
 "LocalTexts": {}
 },
-"Released": false,
-"Comment": "",
+"Released": true,
+"Comment": "EoS Addition",
 "Sprite": "Bow_Red",
 "Icon": -1,
 "SortCategory": 1,
@@ -209,7 +209,7 @@
 "Script": "JoyRibbonEXP",
 "ArgTable": "{}"
 },
-"AffectTarget": true
+"AffectTarget": false
 }
 }
 ],

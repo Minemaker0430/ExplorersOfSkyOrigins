@@ -519,8 +519,8 @@
 "DefaultText": "Joy Ribbon",
 "LocalTexts": {}
 },
-"Released": false,
-"Comment": "",
+"Released": true,
+"Comment": "EoS Addition",
 "SortOrder": 1
 },
 "held_pecha_scarf": {
