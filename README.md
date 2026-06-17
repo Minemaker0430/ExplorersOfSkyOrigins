@@ -6,7 +6,7 @@ A remake of EoS in the PMDO Engine, featuring more starters, a reworked battle s
 This project is in no way affiliated with Nintendo, Creatures Inc, The Pokémon Company, or Spike Chunsoft. I'm just a fan who likes the PMD games and wants to preserve them. 
 
 # Credits
-![Happy](https://github.com/Minemaker0430/ExplorersOfSkyOrigins/assets/85040155/43f9044e-c728-466b-bdf7-7be7d75e0399) [ItsMochaTheOtter](https://github.com/Minemaker0430) (Minemaker0430) - Project Creator, Cutscenes (Chapter 1), Dungeons, Balancing, Items, Vanilla Music
+![Happy](https://github.com/Minemaker0430/ExplorersOfSkyOrigins/assets/85040155/43f9044e-c728-466b-bdf7-7be7d75e0399) [ItsMochaTheOtter](https://github.com/Minemaker0430) (Minemaker0430) - Project Creator, Cutscenes (Chapters 1-2), Dungeons, Balancing, Items, Vanilla Music
 
 [Sloth](https://github.com/slothplaysnecro) - Ground Maps, Vanilla Music
 
@@ -16,9 +16,11 @@ This project is in no way affiliated with Nintendo, Creatures Inc, The Pokémon 
 
 [MistressNebula](https://github.com/435THz) - Job System Framework
 
-Playtesters: Mai Kiên, sleepdragoon
+[BobTheBobCatt](https://github.com/BobTheBobCatt) - Programming, Items
 
-Special Thanks: Trio-
+**Playtesters:** Mai Kiên, sleepdragoon
+
+**Special Thanks:** Trio-
 
 # Major Changes
  - Personality Quiz has more Starters.
