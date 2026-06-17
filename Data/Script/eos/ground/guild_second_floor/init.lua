@@ -34,8 +34,6 @@ end
 --Engine callback function
 function guild_second_floor.Enter(map)
 
-    ExplorerEssentials.SetProgress(2, 0) --TESTING
-
     if SV.Progression.Chapter == 2 then
         if SV.Progression.SectionFlag == 2 then
             guild_second_floor.CH2_FirstJobComplete()

@@ -207,11 +207,49 @@
 "Comment": "",
 "SortOrder": 1
 },
-"bow_blue": {
+"held_pink_bow": {
 "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
-"Icon": 14,
+"Icon": -1,
 "UsageType": 0,
 "States": [
+{
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.EquipState"
+},
+{
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.HeldState"
+}
+],
+"MaxStack": 0,
+"CannotDrop": false,
+"BagEffect": false,
+"Name": {
+"DefaultText": "Fairy Bow",
+"LocalTexts": {
+"fr": "Ruban Rose",
+"de": "Rosane Schleife",
+"es": "Lazo Rosa",
+"it": "Fiocco Pois",
+"ko": "분홍리본",
+"ja": "ピンクリボン",
+"ja-jp": "ピンクリボン",
+"zh-hans": "桃红蝴蝶结"
+}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 1
+},
+"bow_blue": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": -1,
+"UsageType": 0,
+"States": [
+{
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.EquipState"
+},
 {
 "assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
 "type": "PMDC.Dungeon.HeldState"
@@ -224,15 +262,24 @@
 "DefaultText": "Blue Bow",
 "LocalTexts": {}
 },
-"Released": false,
+"Released": true,
 "Comment": "",
-"SortOrder": 0
+"SortOrder": 2
 },
 "bow_brown": {
 "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
-"Icon": 14,
+"Icon": -1,
 "UsageType": 0,
-"States": [],
+"States": [
+{
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.EquipState"
+},
+{
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.HeldState"
+}
+],
 "MaxStack": 0,
 "CannotDrop": true,
 "BagEffect": false,
@@ -240,15 +287,24 @@
 "DefaultText": "Brown Bow",
 "LocalTexts": {}
 },
-"Released": false,
+"Released": true,
 "Comment": "",
-"SortOrder": 0
+"SortOrder": 2
 },
 "bow_cobalt": {
 "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
-"Icon": 14,
+"Icon": -1,
 "UsageType": 0,
-"States": [],
+"States": [
+{
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.EquipState"
+},
+{
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.HeldState"
+}
+],
 "MaxStack": 0,
 "CannotDrop": true,
 "BagEffect": false,
@@ -256,15 +312,24 @@
 "DefaultText": "Cobalt Bow",
 "LocalTexts": {}
 },
-"Released": false,
+"Released": true,
 "Comment": "",
-"SortOrder": 0
+"SortOrder": 2
 },
 "bow_fuchsia": {
 "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
-"Icon": 14,
+"Icon": -1,
 "UsageType": 0,
-"States": [],
+"States": [
+{
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.EquipState"
+},
+{
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.HeldState"
+}
+],
 "MaxStack": 0,
 "CannotDrop": true,
 "BagEffect": false,
@@ -272,15 +337,24 @@
 "DefaultText": "Fuchsia Bow",
 "LocalTexts": {}
 },
-"Released": false,
+"Released": true,
 "Comment": "",
-"SortOrder": 0
+"SortOrder": 2
 },
 "bow_green": {
 "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
-"Icon": 14,
+"Icon": -1,
 "UsageType": 0,
-"States": [],
+"States": [
+{
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.EquipState"
+},
+{
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.HeldState"
+}
+],
 "MaxStack": 0,
 "CannotDrop": true,
 "BagEffect": false,
@@ -288,15 +362,24 @@
 "DefaultText": "Green Bow",
 "LocalTexts": {}
 },
-"Released": false,
+"Released": true,
 "Comment": "",
-"SortOrder": 0
+"SortOrder": 2
 },
 "bow_lime": {
 "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
-"Icon": 14,
+"Icon": -1,
 "UsageType": 0,
-"States": [],
+"States": [
+{
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.EquipState"
+},
+{
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.HeldState"
+}
+],
 "MaxStack": 0,
 "CannotDrop": true,
 "BagEffect": false,
@@ -304,15 +387,24 @@
 "DefaultText": "Lime Bow",
 "LocalTexts": {}
 },
-"Released": false,
+"Released": true,
 "Comment": "",
-"SortOrder": 0
+"SortOrder": 2
 },
 "bow_minty": {
 "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
-"Icon": 14,
+"Icon": -1,
 "UsageType": 0,
-"States": [],
+"States": [
+{
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.EquipState"
+},
+{
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.HeldState"
+}
+],
 "MaxStack": 0,
 "CannotDrop": true,
 "BagEffect": false,
@@ -320,15 +412,24 @@
 "DefaultText": "Minty Bow",
 "LocalTexts": {}
 },
-"Released": false,
+"Released": true,
 "Comment": "",
-"SortOrder": 0
+"SortOrder": 2
 },
 "bow_orange": {
 "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
-"Icon": 14,
+"Icon": -1,
 "UsageType": 0,
-"States": [],
+"States": [
+{
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.EquipState"
+},
+{
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.HeldState"
+}
+],
 "MaxStack": 0,
 "CannotDrop": true,
 "BagEffect": false,
@@ -336,15 +437,24 @@
 "DefaultText": "Orange Bow",
 "LocalTexts": {}
 },
-"Released": false,
+"Released": true,
 "Comment": "",
-"SortOrder": 0
+"SortOrder": 2
 },
 "bow_pink": {
 "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
-"Icon": 14,
+"Icon": -1,
 "UsageType": 0,
-"States": [],
+"States": [
+{
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.EquipState"
+},
+{
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.HeldState"
+}
+],
 "MaxStack": 0,
 "CannotDrop": false,
 "BagEffect": false,
@@ -352,15 +462,24 @@
 "DefaultText": "Pink Bow",
 "LocalTexts": {}
 },
-"Released": false,
+"Released": true,
 "Comment": "",
-"SortOrder": 0
+"SortOrder": 2
 },
 "bow_purple": {
 "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
-"Icon": 14,
+"Icon": -1,
 "UsageType": 0,
-"States": [],
+"States": [
+{
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.EquipState"
+},
+{
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.HeldState"
+}
+],
 "MaxStack": 0,
 "CannotDrop": true,
 "BagEffect": false,
@@ -368,29 +487,38 @@
 "DefaultText": "Purple Bow",
 "LocalTexts": {}
 },
-"Released": false,
+"Released": true,
 "Comment": "",
-"SortOrder": 0
+"SortOrder": 2
 },
 "bow_red": {
 "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
-"Icon": 14,
+"Icon": -1,
 "UsageType": 0,
-"States": [],
+"States": [
+{
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.EquipState"
+},
+{
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.HeldState"
+}
+],
 "MaxStack": 0,
-"CannotDrop": false,
+"CannotDrop": true,
 "BagEffect": false,
 "Name": {
 "DefaultText": "Red Bow",
 "LocalTexts": {}
 },
-"Released": false,
+"Released": true,
 "Comment": "",
-"SortOrder": 0
+"SortOrder": 2
 },
 "bow_silver": {
 "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
-"Icon": 14,
+"Icon": -1,
 "UsageType": 0,
 "States": [
 {
@@ -409,15 +537,24 @@
 "DefaultText": "Silver Bow",
 "LocalTexts": {}
 },
-"Released": false,
+"Released": true,
 "Comment": "",
-"SortOrder": 0
+"SortOrder": 2
 },
 "bow_sky_blue": {
 "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
-"Icon": 14,
+"Icon": -1,
 "UsageType": 0,
-"States": [],
+"States": [
+{
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.EquipState"
+},
+{
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.HeldState"
+}
+],
 "MaxStack": 0,
 "CannotDrop": true,
 "BagEffect": false,
@@ -425,15 +562,24 @@
 "DefaultText": "Sky Blue Bow",
 "LocalTexts": {}
 },
-"Released": false,
+"Released": true,
 "Comment": "",
-"SortOrder": 0
+"SortOrder": 2
 },
 "bow_violet": {
 "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
-"Icon": 14,
+"Icon": -1,
 "UsageType": 0,
-"States": [],
+"States": [
+{
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.EquipState"
+},
+{
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.HeldState"
+}
+],
 "MaxStack": 0,
 "CannotDrop": true,
 "BagEffect": false,
@@ -441,15 +587,24 @@
 "DefaultText": "Violet Bow",
 "LocalTexts": {}
 },
-"Released": false,
+"Released": true,
 "Comment": "",
-"SortOrder": 0
+"SortOrder": 2
 },
 "bow_viridian": {
 "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
-"Icon": 14,
+"Icon": -1,
 "UsageType": 0,
-"States": [],
+"States": [
+{
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.EquipState"
+},
+{
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.HeldState"
+}
+],
 "MaxStack": 0,
 "CannotDrop": true,
 "BagEffect": false,
@@ -457,15 +612,24 @@
 "DefaultText": "Viridian Bow",
 "LocalTexts": {}
 },
-"Released": false,
+"Released": true,
 "Comment": "",
-"SortOrder": 0
+"SortOrder": 2
 },
 "bow_yellow": {
 "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
-"Icon": 14,
+"Icon": -1,
 "UsageType": 0,
-"States": [],
+"States": [
+{
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.EquipState"
+},
+{
+"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.HeldState"
+}
+],
 "MaxStack": 0,
 "CannotDrop": true,
 "BagEffect": false,
@@ -473,9 +637,9 @@
 "DefaultText": "Yellow Bow",
 "LocalTexts": {}
 },
-"Released": false,
+"Released": true,
 "Comment": "",
-"SortOrder": 0
+"SortOrder": 2
 },
 "held_insomniascope": {
 "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",

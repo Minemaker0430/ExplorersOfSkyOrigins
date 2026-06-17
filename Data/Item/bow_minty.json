@@ -1,5 +1,5 @@
 ﻿{
-"Version": "0.8.11.0",
+"Version": "0.8.12.0",
 "Object": {
 "$type": "RogueEssence.Data.ItemData, RogueEssence",
 "Name": {
@@ -10,17 +10,24 @@
 "DefaultText": "A mint-colored bow with an energetic aura. When held, this bow slightly boosts the Pokémon's Attack, Special Attack, Defense, and Special Defense.",
 "LocalTexts": {}
 },
-"Released": false,
+"Released": true,
 "Comment": "",
 "Sprite": "Bow_Minty",
-"Icon": 14,
-"SortCategory": 0,
+"Icon": -1,
+"SortCategory": 2,
 "Price": -1,
 "Rarity": 0,
 "MaxStack": 0,
 "CannotDrop": true,
 "BagEffect": false,
-"ItemStates": [],
+"ItemStates": [
+{
+"$type": "PMDC.Dungeon.EquipState, PMDC"
+},
+{
+"$type": "PMDC.Dungeon.HeldState, PMDC"
+}
+],
 "GroundUseActions": [],
 "UseAction": {
 "$type": "RogueEssence.Dungeon.AttackAction, RogueEssence",
@@ -184,9 +191,67 @@
 "OnRefresh": [],
 "BeforeTryActions": [],
 "BeforeActions": [],
-"OnActions": [],
+"OnActions": [
+{
+"Key": {
+"str": [
+0
+]
+},
+"Value": {
+"$type": "PMDC.Dungeon.MultiplyCategoryEvent, PMDC",
+"Category": 1,
+"Numerator": 105,
+"Denominator": 100,
+"Anims": []
+}
+},
+{
+"Key": {
+"str": [
+0
+]
+},
+"Value": {
+"$type": "PMDC.Dungeon.MultiplyCategoryEvent, PMDC",
+"Category": 2,
+"Numerator": 105,
+"Denominator": 100,
+"Anims": []
+}
+}
+],
 "BeforeHittings": [],
-"BeforeBeingHits": [],
+"BeforeBeingHits": [
+{
+"Key": {
+"str": [
+0
+]
+},
+"Value": {
+"$type": "PMDC.Dungeon.MultiplyCategoryEvent, PMDC",
+"Category": 1,
+"Numerator": 95,
+"Denominator": 100,
+"Anims": []
+}
+},
+{
+"Key": {
+"str": [
+0
+]
+},
+"Value": {
+"$type": "PMDC.Dungeon.MultiplyCategoryEvent, PMDC",
+"Category": 2,
+"Numerator": 95,
+"Denominator": 100,
+"Anims": []
+}
+}
+],
 "AfterHittings": [],
 "AfterBeingHits": [],
 "OnHitTiles": [],

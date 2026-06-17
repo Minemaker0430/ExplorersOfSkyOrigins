@@ -1,5 +1,5 @@
 ﻿{
-"Version": "0.8.11.0",
+"Version": "0.8.12.0",
 "Object": {
 "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[RogueEssence.Data.EntrySummary, RogueEssence]], System.Private.CoreLib",
 "beach_cave": {
@@ -67,7 +67,8 @@
 "krabby_scene_b",
 "sunset_view",
 "demo_room",
-"sentry_hole"
+"sentry_hole",
+"guild_bedroom_night"
 ],
 "Maps": [],
 "Name": {

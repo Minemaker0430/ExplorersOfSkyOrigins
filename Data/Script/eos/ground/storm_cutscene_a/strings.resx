@@ -74,6 +74,6 @@
     <value>N-n-no![pause=0] I can't...[pause=0] hold on...!</value>
   </data>
   <data name="Unknown_6" xml:space="preserve">
-    <value>[speed=1]Waaaaaah![/speed]</value>
+    <value>[speed=1]Waaaaaah![speed]</value>
   </data>
 </root>

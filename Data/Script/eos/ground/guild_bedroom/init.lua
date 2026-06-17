@@ -380,6 +380,9 @@ def 0 {
         SOUND:FadeOutBGM(120)
     end)
     TASK:JoinCoroutines({coro1, coro2})
+
+    SV.Progression.SectionFlag = 1
+    GAME:EnterGroundMap("cutscenes", "guild_bedroom_night", "Entrance", false)
 end
 
 function guild_bedroom.CH2_WakeUp()
@@ -758,6 +761,7 @@ def 0 {
 	GAME:WaitFrames(30)
 
 	SOUND:PlayBattleSE("EVT_Emote_Complain_2")
+    GROUND:MoveScreen(RogueEssence.Content.ScreenMover(2, 2, 80))
 	-- TODO: camera_SetEffect(2, 2, 3.0) // camera shake i think
 	GROUND:CharWaitAnim(CH('Loudred'), "Hop", false)
 	-- TODO: camera_SetEffect(0, 0, 0)
@@ -779,6 +783,7 @@ def 0 {
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_PARTNER_1_'..tostring(pTalkKind)]))
 	
     SOUND:PlayBattleSE("EVT_Emote_Complain_2")
+    GROUND:MoveScreen(RogueEssence.Content.ScreenMover(2, 2, 80))
 	-- TODO: camera_SetEffect(2, 2, 3.0) // camera shake i think
 	GROUND:CharWaitAnim(CH('Loudred'), "Hop", false)
 	-- TODO: camera_SetEffect(0, 0, 0)
@@ -818,6 +823,7 @@ def 0 {
 	GROUND:CharAnimateTurnTo(CH('Loudred'), Dir8.Right, 5)
 
 	SOUND:PlayBattleSE("EVT_Emote_Complain_2")
+    GROUND:MoveScreen(RogueEssence.Content.ScreenMover(2, 2, 80))
 	-- TODO: camera_SetEffect(2, 2, 3.0) // camera shake i think
 	GROUND:CharWaitAnim(CH('Loudred'), "Hop")
 	-- TODO: camera_SetEffect(0, 0, 0)
@@ -877,6 +883,7 @@ def 0 {
     end)
 	TASK:JoinCoroutines({coro1, coro2, coro3})
 
+    GAME:EnterGroundMap("guild_basement", "Entrance", true)
 end
 
 return guild_bedroom

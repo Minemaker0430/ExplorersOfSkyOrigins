@@ -1,104 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!--
-    Microsoft ResX Schema
-
-    Version 2.0
-
-    The primary goals of this format is to allow a simple XML format
-    that is mostly human readable. The generation and parsing of the
-    various data types are done through the TypeConverter classes
-    associated with the data types.
-
-    Example:
-
-    ... ado.net/XML headers & schema ...
-    <resheader name="resmimetype">text/microsoft-resx</resheader>
-    <resheader name="version">2.0</resheader>
-    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
-    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
-    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-        <value>[base64 mime encoded serialized .NET Framework object]</value>
-    </data>
-    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
-        <comment>This is a comment</comment>
-    </data>
-
-    There are any number of "resheader" rows that contain simple
-    name/value pairs.
-
-    Each data row contains a name, and value. The row also contains a
-    type or mimetype. Type corresponds to a .NET class that support
-    text/value conversion through the TypeConverter architecture.
-    Classes that don't support this are serialized and stored with the
-    mimetype set.
-
-    The mimetype is used for serialized objects, and tells the
-    ResXResourceReader how to depersist the object. This is currently not
-    extensible. For a given mimetype the value must be set accordingly:
-
-    Note - application/x-microsoft.net.object.binary.base64 is the format
-    that the ResXResourceWriter will generate, however the reader can
-    read any of the formats listed below.
-
-    mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with
-            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
-            : and then encoded with base64 encoding.
-
-    mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with
-            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-            : and then encoded with base64 encoding.
-
-    mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array
-            : using a System.ComponentModel.TypeConverter
-            : and then encoded with base64 encoding.
-    -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string"/>
-              <xsd:attribute name="type" type="xsd:string"/>
-              <xsd:attribute name="mimetype" type="xsd:string"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string"/>
-              <xsd:attribute name="name" type="xsd:string"/>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -112,158 +53,121 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.NetStandard.ResXResourceReader, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.NetStandard.ResXResourceWriter, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </resheader>
   <data name="DLG_MISSION_CONTINUE_CONFIRM" xml:space="preserve">
     <value>Do you really want to leave?</value>
-    <comment/>
   </data>
   <data name="DLG_MISSION_CONTINUE_NO_ONGOING" xml:space="preserve">
     <value>You have no more ongoing missions beyond this point.\nWould you like to leave the dungeon now?</value>
-    <comment/>
   </data>
   <data name="DLG_MISSION_CONTINUE_ONGOING" xml:space="preserve">
     <value>You have more ongoing missions, but would you like to leave the dungeon now?</value>
-    <comment/>
   </data>
   <data name="DLG_MISSION_OUTLAW_SPAWN_FAIL" xml:space="preserve">
     <value>But the outlaw doesn't seem to be around...</value>
-    <comment/>
   </data>
   <data name="DLG_MISSION_OUTLAW_REACHED" xml:space="preserve">
     <value>Wanted outlaw spotted!</value>
-    <comment/>
   </data>
   <data name="DLG_MISSION_OUTLAW_FLEE" xml:space="preserve">
     <value>Waah! A-adventurers! Run for it!</value>
-    <comment/>
   </data>
   <data name="DLG_MISSION_OUTLAW_FLED" xml:space="preserve">
     <value>{0} escaped...</value>
-    <comment/>
   </data>
   <data name="DLG_MISSION_OUTLAW_MONSTER_HOUSE" xml:space="preserve">
     <value>You've fallen into my trap!</value>
-    <comment/>
   </data>
   <data name="DLG_MISSION_OUTLAW_DEFEATED" xml:space="preserve">
     <value>Yes!\nKnocked out outlaw {0}!</value>
-    <comment/>
   </data>
   <data name="DLG_MISSION_OUTLAW_ITEM_RETRIEVED" xml:space="preserve">
     <value>Yes!\nYou reclaimed the {1}!</value>
-    <comment/>
   </data>
   <data name="DLG_MISSION_OUTLAW_ITEM_UNK_DEFEATED" xml:space="preserve">
     <value>Huh?\n{0} dropped the {1}![br]Yes!\n{0} was the outlaw!</value>
-    <comment/>
   </data>
   <data name="DLG_MISSION_OUTLAW_ITEM_UNK_RETRIEVED" xml:space="preserve">
     <value>Huh?\n{0} was holding the {1}![br]Yes!\n{0} was the outlaw!</value>
-    <comment/>
   </data>
   <data name="DLG_MISSION_OUTLAW_HOUSE_DEFEATED" xml:space="preserve">
     <value>Yes!\nKnocked out outlaw {0} and goons!</value>
-    <comment/>
   </data>
   <data name="DLG_MISSION_OUTLAW_BOSS_DEFEATED" xml:space="preserve">
     <value>Yes! You defeated {0}! Defeat the rest of the goons!</value>
-    <comment/>
   </data>
   <data name="DLG_MISSION_OUTLAW_MINIONS_DEFEATED" xml:space="preserve">
     <value>Grr! You won't be able to defeat me!</value>
-    <comment/>
   </data>
   <data name="DLG_MISSION_RESCUE_FOUND" xml:space="preserve">
     <value>Yes! You've found {0}!\nDo you want to use your badge to rescue {0}?</value>
-    <comment/>
   </data>
   <data name="DLG_MISSION_RESCUE_CONFIRM" xml:space="preserve">
     <value>Your badge shines on {0}, and {0} is transported away magically!</value>
-    <comment/>
   </data>
   <data name="DLG_MISSION_DELIVERY_FOUND" xml:space="preserve">
     <value>Yes! You've located {0}! Do you want to deliver the requested {1} to {0}?</value>
-    <comment/>
   </data>
   <data name="DLG_MISSION_DELIVERY_CONFIRM" xml:space="preserve">
     <value>Thanks for the {0}!\n I'll see you in town after with your reward!</value>
-    <comment/>
   </data>
   <data name="DLG_MISSION_DELIVERY_DENY" xml:space="preserve">
     <value>Oh, please! I really need that {0}...</value>
-    <comment/>
   </data>
   <data name="DLG_MISSION_DELIVERY_NO_ITEM" xml:space="preserve">
     <value>The requested {1} isn't in the Treasure Bag.\nThere is nothing to deliver.</value>
-    <comment/>
   </data>
   <data name="DLG_MISSION_DELIVERY_NO_ITEM_CHAR" xml:space="preserve">
     <value>Huh, you don't have the {0}? That's too bad...</value>
-    <comment/>
   </data>
   <data name="DLG_MISSION_TARGET_LEFT" xml:space="preserve">
     <value>{0} escaped from the dungeon!</value>
-    <comment/>
   </data>
   <data name="DLG_MISSION_LOST_ITEM_RETRIEVED" xml:space="preserve">
     <value>Yes! You found {0}'s {1}!</value>
-    <comment/>
   </data>
   <data name="MISSION_EXPLORATION_INTERACT" xml:space="preserve">
     <value>Please, take me to {0} {1}!</value>
-    <comment/>
   </data>
   <data name="MISSION_ESCORT_LOVER_INTERACT" xml:space="preserve">
     <value>Please, bring me to my love! I'm counting on you!</value>
-    <comment/>
   </data>
   <data name="MISSION_ESCORT_INTERACT" xml:space="preserve">
     <value>I'm counting on you to bring me to {0}!</value>
-    <comment/>
   </data>
   <data name="MISSION_ESCORT_ADD" xml:space="preserve">
     <value>Added {0} to the party as a guest.</value>
-    <comment/>
   </data>
   <data name="MISSION_ESCORT_ADD_PLURAL" xml:space="preserve">
     <value>Added {0} to the party as guests.</value>
-    <comment/>
   </data>
   <data name="MISSION_ESCORT_FAINTED" xml:space="preserve">
     <value>Oh, no! {0} fainted!</value>
-    <comment/>
   </data>
   <data name="MISSION_ESCORT_REACHED" xml:space="preserve">
     <value>Yes! You completed {0}'s escort mission.\n{0} is delighted!</value>
-    <comment/>
   </data>
   <data name="MISSION_ESCORT_THANKS" xml:space="preserve">
     <value>Thank you for escorting me to {0}!</value>
-    <comment/>
   </data>
   <data name="MISSION_ESCORT_DEPART" xml:space="preserve">
     <value>{0}'s twosome left the dungeon!</value>
-    <comment/>
   </data>
   <data name="MISSION_ESCORT_UNAVAILABLE" xml:space="preserve">
     <value>...{0} doesn't seem to be around.</value>
-    <comment/>
   </data>
   <data name="MISSION_EXPLORATION_REACHED" xml:space="preserve">
     <value>Yes! You've reached the target floor with {0}!</value>
-    <comment/>
   </data>
   <data name="MISSION_EXPLORATION_THANKS" xml:space="preserve">
     <value>Thank you for exploring the dungeon with me!</value>
-    <comment/>
   </data>
   <data name="MISSION_EXPLORATION_DEPART" xml:space="preserve">
     <value>{0} left the dungeon!</value>
-    <comment/>
   </data>
   <data name="MISSION_RESCUE_CONFIRM_DEFAULT" xml:space="preserve">
     <value>Thanks for the rescue!\nI'll see you in town after with your reward!</value>
@@ -307,127 +211,225 @@
   </data>
   <data name="MISSION_COMPLETED_CUTSCENE_AWARD_MONEY" xml:space="preserve">
     <value>Team {0} received {1}.[pause=40]</value>
-    <comment/>
   </data>
   <data name="MISSION_COMPLETED_CUTSCENE_AWARD_ITEM" xml:space="preserve">
     <value>Team {0} received [a/an] {1}.[pause=40]</value>
-    <comment/>
   </data>
   <data name="MISSION_COMPLETED_CUTSCENE_AWARD_ITEM_STORAGE" xml:space="preserve">
     <value>The {1} was sent to storage.</value>
-    <comment/>
   </data>
   <data name="MISSION_COMPLETED_CUTSCENE_AWARD_CHAR" xml:space="preserve">
     <value>The adventurous exploits of Team {0} are an inspiration to me![br]Please, let me become a member of your team!</value>
-    <comment/>
   </data>
   <data name="MISSION_COMPLETED_CUTSCENE_AWARD_CHAR_PROMPT" xml:space="preserve">
     <value>Accept {1} as a team member?</value>
-    <comment/>
   </data>
   <data name="MISSION_COMPLETED_CUTSCENE_AWARD_EXTRA" xml:space="preserve">
     <value>Your team gained {1} as a reward![pause=40]</value>
-    <comment/>
   </data>
   <data name="MISSION_COMPLETED_CUTSCENE_AWARD_RANK_UP" xml:space="preserve">
     <value>Congratulations![pause=0][br]Team {0} went up in rank from the\n[color=#FFA5FF]{1} Rank[color] to the [color=#FFA5FF]{2} Rank[color]!</value>
-    <comment/>
   </data>
   <data name="TUTORIAL_1" xml:space="preserve">
     <value>Head for the stairway! As you go, you can attack enemies by pressing {0}! Enemies won't move or act until you do.</value>
-    <comment/>
   </data>
   <data name="TUTORIAL_2" xml:space="preserve">
     <value>You can carry four items. The items you find on the floor have a variety of useful effects.</value>
-    <comment/>
   </data>
   <data name="TUTORIAL_3" xml:space="preserve">
     <value>If you find an item, open the menu with {0}, then select the Items option to see what it does.</value>
-    <comment/>
   </data>
   <data name="TUTORIAL_4" xml:space="preserve">
     <value>You can also open the Items menu directly with {0}.</value>
-    <comment/>
   </data>
   <data name="TUTORIAL_5" xml:space="preserve">
     <value>In some areas, you will see a tile with a green arrow, called a Wonder Tile. Step on it to heal any stat changes.</value>
-    <comment/>
   </data>
   <data name="TUTORIAL_6" xml:space="preserve">
     <value>Have questions about anything? You can check the controls by opening the menu with {0}, then selecting Others.</value>
-    <comment/>
   </data>
   <data name="TUTORIAL_7" xml:space="preserve">
     <value>Team Mode will automatically activate for Boss Battles. While in Team Mode, you can control all team members!</value>
-    <comment/>
   </data>
   <data name="TUTORIAL_8" xml:space="preserve">
     <value>You can toggle this mode anywhere by pressing {0}.</value>
-    <comment/>
+  </data>
+  <data name="TUTORIAL_9" xml:space="preserve">
+    <value>You and your partner can hold one item each. Now that you have the Treasure Bag, you can also keep 16 items in your inventory.</value>
+  </data>
+  <data name="TUTORIAL_10" xml:space="preserve">
+    <value>Some items, like [color=#FFCEFF]Bows[color], work only if held by a Pokémon. So use the Give option, found under the Items section of the menu, to hand it over.</value>
+  </data>
+  <data name="TUTORIAL_11" xml:space="preserve">
+    <value>Eat an {0} or a Gummi if you get hungry. If you get too hungry, you'll risk fainting before long, so keep an eye on your [color=#FFFF00]Belly[color] in the menu.</value>
+    <comment> 0 = Apple</comment>
+  </data>
+  <data name="TUTORIAL_12" xml:space="preserve">
+    <value>Team members will earn Experience Points (Exp. Points) when they defeat an enemy. And they'll level up when they earn enough of them!</value>
+  </data>
+  <data name="TUTORIAL_13" xml:space="preserve">
+    <value>A Pokémon will get more [color=#FFFF00]HP[color], raised stats, and a possible new move each time it levels up. So battle hard to level up more often!</value>
+  </data>
+  <data name="TUTORIAL_14" xml:space="preserve">
+    <value>To earn bonus Exp. Points, a Pokémon must use its moves at least once while battling an enemy, not just its regular {0} attack.</value>
+    <comment>0 = Basic Attack Btn (X)</comment>
+  </data>
+  <data name="TUTORIAL_15" xml:space="preserve">
+    <value>Use the Moves option in the menu to unleash one of these moves or press {0} for quicker access.</value>
+    <comment>0 = Quick Moves Menu Btn (Q)</comment>
+  </data>
+  <data name="TUTORIAL_16" xml:space="preserve">
+    <value>You can also hold {0} and press {1}/{2}/{3}/{4} to use a move quickly.</value>
+    <comment>0 = Quick Use Move Btn (A)
+1-4 = Move Btns (S/D/Z/X)</comment>
+  </data>
+  <data name="TUTORIAL_17" xml:space="preserve">
+    <value>If a Pokémon's [color=#FFFF00]HP[color] gets low, it puts itself at great risk of fainting from further enemy attack! When this happens, just run away!</value>
+  </data>
+  <data name="TUTORIAL_18" xml:space="preserve">
+    <value>Help your partner be a smart teammate by tweaking its Tactics setting! You can find it in the menu under Tactics!</value>
+  </data>
+  <data name="TUTORIAL_19" xml:space="preserve">
+    <value>You can also use the Switch option under Moves to keep your partner from using certain moves.</value>
+  </data>
+  <data name="TUTORIAL_FOOD" xml:space="preserve">
+    <value>Eating an {0} or a Gummi fills your Belly. Eat one if you're about to faint from hunger. To do so, find it under Items, then select Eat.</value>
+    <comment>0 = Apple</comment>
+  </data>
+  <data name="TUTORIAL_BERRY_ORAN" xml:space="preserve">
+    <value>An {0} restores [color=#FFFF00]HP[color]. If you want to use the Berry, open the menu with {1}, select it in the Items inventory, then select Eat.</value>
+    <comment>0 = Oran Berry
+1 = Menu Btn (Esc)</comment>
+  </data>
+  <data name="TUTORIAL_BERRY_CHERI" xml:space="preserve">
+    <value>A {0} heals {1}. Open the menu with {2}, select it in the Items inventory, then select Eat.</value>
+    <comment>0 = Cheri Berry
+1 = Paralysis
+2 = Menu Btn (Esc)</comment>
+  </data>
+  <data name="TUTORIAL_BERRY_PECHA" xml:space="preserve">
+    <value>A {0} heals {1} or {2} Pokémon. Open the menu with {3}, select it in the Items inventory, then select Eat.</value>
+    <comment>0 = Pecha Berry
+1 = Poisoned
+2 = Badly Poisoned
+3 = Menu Btn (Esc)</comment>
+  </data>
+  <data name="TUTORIAL_BERRY_LEPPA" xml:space="preserve">
+    <value>A {0} fully restores a Pokémon's [color=#FFFF00]Power Points (PP)[color]. To use it, open the menu with {1}, select it from Items, then select Eat.</value>
+    <comment>0 = Leppa Berry
+1 = Menu Btn (Esc)</comment>
+  </data>
+  <data name="TUTORIAL_BERRY_LUM" xml:space="preserve">
+    <value>The {0} heals all of a Pokémon's status problems. To use it, open the menu with {1}, find it under Items, then select Eat.</value>
+    <comment>0 = Lum Berry
+1 = Menu Btn (Esc)</comment>
+  </data>
+  <data name="TUTORIAL_SEED_BLAST" xml:space="preserve">
+    <value>You can eat a {0} to breathe fire at the target in front of you. To use it, open the menu, select it from Items, then select Eat.</value>
+    <comment>0 = Blast Seed</comment>
+  </data>
+  <data name="TUTORIAL_SEED_SLEEP" xml:space="preserve">
+    <value>Throw a {0} at an enemy to put it to sleep for a while. Don't eat it, or else you will fall asleep!</value>
+    <comment>0 = Sleep Seed</comment>
+  </data>
+  <data name="TUTORIAL_SEED_STUN" xml:space="preserve">
+    <value>Throw a {0} at an enemy to stun it, making it unable to act...until it is attacked. Beware: eating it will stun you!</value>
+    <comment>[NOTE: STILL A WIP ITEM, WILL LIKELY BE NERFED] 0 = Stun Seed</comment>
+  </data>
+  <data name="TUTORIAL_SEED_WARP" xml:space="preserve">
+    <value>If you eat a {0}, you'll be warped to a random tile on the same floor. If you throw it at an enemy, it will be warped away instead.</value>
+    <comment>0 = Warp Seed</comment>
+  </data>
+  <data name="TUTORIAL_SEED_VILE" xml:space="preserve">
+    <value>You can throw a {0} at a tough enemy to reduce its [color=#FFFF00]Defense[color] and [color=#FFFF00]Special Defense[color] to their lowest levels.</value>
+    <comment>0 = Vile Seed</comment>
+  </data>
+  <data name="TUTORIAL_SEED_XEYE" xml:space="preserve">
+    <value>You can throw an {0} at a tough enemy to make it dizzy and behave strangely. But don't eat it yourself!</value>
+    <comment>[NOTE: UNFINISHED ITEM, THIS MAY NOT BE USED] 0 = X-Eye Seed</comment>
+  </data>
+  <data name="TUTORIAL_SEED_VIOLENT" xml:space="preserve">
+    <value>If a Pokémon eats a {0}, its [color=#FFFF00]Attack[color] and [color=#FFFF00]Special Attack[color] are boosted to the highest levels. Select it from Items, then select Eat.</value>
+    <comment>0 = Violent Seed</comment>
+  </data>
+  <data name="TUTORIAL_MEDICINE_MAX_ELIXIR" xml:space="preserve">
+    <value>{0} fully restores [color=#FFFF00]Power Points (PP)[color] for every team member within 3 tiles. To use it, open the menu with {1}, select it from Items, then select Ingest.</value>
+    <comment>0 = Max Elixir
+1 = Menu Btn (Esc)</comment>
+  </data>
+  <data name="TUTORIAL_ORB_WEATHER" xml:space="preserve">
+    <value>The {0} is a strange Orb that can change the weather depending on who uses it! Changing the weather can help prevent damage from hail or other conditions.</value>
+    <comment>0 = Weather Orb</comment>
+  </data>
+  <data name="TUTORIAL_AMMO_1" xml:space="preserve">
+    <value>Throw {0}s at distant foes. Open the menu, select it from Items, then select Throw.</value>
+    <comment>0 = Geo Pebble</comment>
+  </data>
+  <data name="TUTORIAL_AMMO_2" xml:space="preserve">
+    <value>You can hold up to 99 {0}s or {1}s as one item in the Treasure Bag, so make sure to sort the Treasure Bag by opening it and pressing {2}!</value>
+    <comment>0 = Geo Pebble
+	1 = Stick
+	2 = Sort Btn (S)</comment>
+  </data>
+  <data name="TUTORIAL_LOOKALIKE_1" xml:space="preserve">
+    <value>This is an {0}...isn't it? Wait... If you look closer, that's not an "[color=#FFCEFF]a[color]," it's an "[color=#FFCEFF]e[color]"! This is the "{1}" "[color=#FFFF00]Lookalike Item[color]"!</value>
+    <comment>[NOTE: Lookalike Items are currently not planned, so this may go unused.] 0 = Oran Berry
+	1 = Oren Berry</comment>
+  </data>
+  <data name="TUTORIAL_LOOKALIKE_2" xml:space="preserve">
+    <value>You should always check the Item Info to make sure you've got the right item and not one of these sneaky Lookalikes!</value>
+    <comment>[NOTE: Lookalike Items are currently not planned, so this may go unused.]</comment>
+  </data>
+  <data name="TUTORIAL_MONEY" xml:space="preserve">
+    <value>\u{E023} is this world's money! Save it up to buy useful items for your adventures!</value>
   </data>
   <data name="SHOP_INTRO_A" xml:space="preserve">
     <value>Welcome to the {0} Shop! ♪</value>
-    <comment/>
   </data>
   <data name="SHOP_CONTINUE_A" xml:space="preserve">
     <value>May I help you with anything else?</value>
-    <comment/>
   </data>
   <data name="SHOP_EXIT_A" xml:space="preserve">
     <value>Thanks! Please come again! ♪</value>
-    <comment/>
   </data>
   <data name="SHOP_BUY_A" xml:space="preserve">
     <value>Very well! Feel free to examine my merchandise! ♪ (You can use {0} to choose more than one item.)</value>
-    <comment/>
   </data>
   <data name="SHOP_BUY_MORE_A" xml:space="preserve">
     <value>Do you wish to buy anything else today?</value>
-    <comment/>
   </data>
   <data name="SHOP_BUY_ONE_A" xml:space="preserve">
     <value>That {0}? That will be \uE024{1}\uE023. Is that to your liking?</value>
-    <comment/>
   </data>
   <data name="SHOP_BUY_MANY_A" xml:space="preserve">
     <value>Altogether, that comes to \uE024{0}\uE023. Is that OK?</value>
-    <comment/>
   </data>
   <data name="SHOP_BUY_CONFIRM_A" xml:space="preserve">
     <value>Thank you! All yours! ♪</value>
-    <comment/>
   </data>
   <data name="SHOP_SELL_A" xml:space="preserve">
     <value>Very well! What will you sell? (You can use {0} to choose multiple items.)</value>
-    <comment/>
   </data>
   <data name="SHOP_SELL_MORE_A" xml:space="preserve">
     <value>Do you wish to sell anything else? (You can use {0} to choose multiple items.)</value>
-    <comment/>
   </data>
   <data name="SHOP_SELL_ONE_A" xml:space="preserve">
     <value>Your {0}? I can pay you \uE024{1}\uE023 for that. Will you sell it for that price?</value>
-    <comment/>
   </data>
   <data name="SHOP_SELL_MANY_A" xml:space="preserve">
     <value>I can pay \uE024{0}\uE023 for everything. Is that acceptable?</value>
-    <comment/>
   </data>
   <data name="SHOP_SELL_CONFIRM_A" xml:space="preserve">
     <value>Done deal! Thank you! ♪</value>
-    <comment/>
   </data>
   <data name="SHOP_EMPTY_A_0" xml:space="preserve">
     <value>You know...[pause=0]I'm sold out. Please forgive me.</value>
-    <comment/>
   </data>
   <data name="SHOP_EMPTY_A_1" xml:space="preserve">
     <value>I will have new merchandise for you tomorrow, I swear!</value>
-    <comment/>
   </data>
   <data name="SHOP_NO_MONEY_A" xml:space="preserve">
     <value>What? [pause=0]You don't seem to have the money.</value>
-    <comment/>
   </data>
   <data name="SHOP_MAX_MONEY_A_0" xml:space="preserve">
     <value>Goodness! You're overflowing with money!</value>
@@ -435,19 +437,15 @@
   </data>
   <data name="SHOP_MAX_MONEY_A_1" xml:space="preserve">
     <value>You couldn't possibly carry any more money!</value>
-    <comment/>
   </data>
   <data name="SHOP_SELL_CANCEL_A" xml:space="preserve">
     <value>Oh? [pause=0]Nothing to sell?</value>
-    <comment/>
   </data>
   <data name="SHOP_SELL_NOTHING_A" xml:space="preserve">
     <value>Oh?[pause=0] You don't seem to have anything!</value>
-    <comment/>
   </data>
   <data name="SHOP_BUY_NO_SPACE_A" xml:space="preserve">
     <value>Oh! [pause=0]You have no more space for items!</value>
-    <comment/>
   </data>
   <data name="SHOP_EMPTY_A_0_ALT" xml:space="preserve">
     <value>Uh-oh![pause=0] No more merchandise!</value>
@@ -455,11 +453,9 @@
   </data>
   <data name="SHOP_EMPTY_A_1_ALT" xml:space="preserve">
     <value>I'm completely sold out!</value>
-    <comment/>
   </data>
   <data name="SHOP_NO_MONEY_A_ALT" xml:space="preserve">
     <value>Oh![pause=0] Sorry, you don't seem to have enough money!</value>
-    <comment/>
   </data>
   <data name="SHOP_UNSELLABLE_A" xml:space="preserve">
     <value>Oh my![pause=0] I couldn't possibly take that from you!</value>
@@ -467,102 +463,78 @@
   </data>
   <data name="SHOP_MAX_MONEY_A_ALT" xml:space="preserve">
     <value>Oh my![pause=0] You can't carry any more money! Sorry, I can't complete the deal.</value>
-    <comment/>
   </data>
   <data name="SHOP_INFO_A_0" xml:space="preserve">
     <value>We, the {0} Brothers, have a passion for selling items! ♪</value>
-    <comment/>
   </data>
   <data name="SHOP_INFO_A_1" xml:space="preserve">
     <value>Items are useful for your dungeon adventures!</value>
-    <comment/>
   </data>
   <data name="SHOP_INFO_A_2" xml:space="preserve">
     <value>Use items with imagination! And invent new uses for them!</value>
-    <comment/>
   </data>
   <data name="SHOP_INFO_A_3" xml:space="preserve">
     <value>Ah, yes! If the shop sells out...</value>
-    <comment/>
   </data>
   <data name="SHOP_INFO_A_4" xml:space="preserve">
     <value>We'll always have new things to sell on the next day!</value>
-    <comment/>
   </data>
   <data name="SHOP_INFO_A_5" xml:space="preserve">
     <value>So spend time in dungeons until we restock! Visit us when you return! ♪</value>
-    <comment/>
   </data>
   <data name="SHOP_INFO_A_6" xml:space="preserve">
     <value>Ah, yes! You can find our {0} Markets far and wide...</value>
-    <comment/>
   </data>
   <data name="SHOP_INFO_A_7" xml:space="preserve">
     <value>Even in dungeons! Visit us everywhere!</value>
-    <comment/>
   </data>
   <data name="SHOP_INTRO_B" xml:space="preserve">
     <value>Welcome to {0} Wares, where you can find Orbs and TMs! ♪</value>
-    <comment/>
   </data>
   <data name="SHOP_CONTINUE_B" xml:space="preserve">
     <value>May I assist you in any other way?</value>
-    <comment/>
   </data>
   <data name="SHOP_EXIT_B" xml:space="preserve">
     <value>Thanks! Please come again! ♪</value>
-    <comment/>
   </data>
   <data name="SHOP_BUY_B" xml:space="preserve">
     <value>Ah, very well! Take a look at my merchandise. All chosen with pride! ♪ (You can use {0} to choose multiple items.)</value>
-    <comment/>
   </data>
   <data name="SHOP_BUY_MORE_B" xml:space="preserve">
     <value>Do you wish to purchase anything else?</value>
-    <comment/>
   </data>
   <data name="SHOP_BUY_ONE_B" xml:space="preserve">
     <value>That {0}? That will be \uE024{1}\uE023. Is that acceptable?</value>
-    <comment/>
   </data>
   <data name="SHOP_BUY_MANY_B" xml:space="preserve">
     <value>Altogether, that comes to \uE024{0}\uE023. Is that OK?</value>
-    <comment/>
   </data>
   <data name="SHOP_BUY_CONFIRM_B" xml:space="preserve">
     <value>Thank you! Well chosen! ♪</value>
-    <comment/>
   </data>
   <data name="SHOP_SELL_B" xml:space="preserve">
     <value>Ah, very well! What do you wish to sell? (You can use {0} to choose multiple items.)</value>
-    <comment/>
   </data>
   <data name="SHOP_SELL_MORE_B" xml:space="preserve">
     <value>Is there anything else that you wish to sell? (You can use {0} to choose multiple items.)</value>
-    <comment/>
   </data>
   <data name="SHOP_SELL_ONE_B" xml:space="preserve">
     <value>Your {0}? I can offer \uE024{1}\uE023. Will you sell it for that price?</value>
-    <comment/>
   </data>
   <data name="SHOP_SELL_MANY_B" xml:space="preserve">
     <value>I will pay \uE024{0}\uE023 for everything you're offering. Is that acceptable?</value>
   </data>
   <data name="SHOP_SELL_CONFIRM_B" xml:space="preserve">
     <value>We have a deal! Thank you! ♪</value>
-    <comment/>
   </data>
   <data name="SHOP_EMPTY_B_0" xml:space="preserve">
     <value>You know...[pause=0]I'm sold out. So sorry, my friend.</value>
-    <comment/>
   </data>
   <data name="SHOP_EMPTY_B_1" xml:space="preserve">
     <value>Tomorrow! Tomorrow I shall have more wares!</value>
-    <comment/>
   </data>
   <data name="SHOP_NO_MONEY_B" xml:space="preserve">
     <value>Oh?[pause=0] You seem short on money, my friend.</value>
-    <comment/>
   </data>
   <data name="SHOP_MAX_MONEY_B_0" xml:space="preserve">
     <value>Oh! You're carrying too much money, my friend!</value>
@@ -570,119 +542,90 @@
   </data>
   <data name="SHOP_MAX_MONEY_B_1" xml:space="preserve">
     <value>You can't hold any more!</value>
-    <comment/>
   </data>
   <data name="SHOP_SELL_CANCEL_B" xml:space="preserve">
     <value>Oh? [pause=0]You don't seem to have anything that you can sell.</value>
-    <comment/>
   </data>
   <data name="SHOP_SELL_NOTHING_B" xml:space="preserve">
     <value>Oh? [pause=0]You seem to have nothing, my friend.</value>
-    <comment/>
   </data>
   <data name="SHOP_BUY_NO_SPACE_B" xml:space="preserve">
     <value>Oh![pause=0] You've run out of space for any more of my wares, my friend!</value>
-    <comment/>
   </data>
   <data name="SHOP_EMPTY_B_0_ALT" xml:space="preserve">
     <value>Oh?[pause=0] My shelves are bare of wares!</value>
-    <comment/>
   </data>
   <data name="SHOP_EMPTY_B_1_ALT" xml:space="preserve">
     <value>I am completely sold out, friend!</value>
-    <comment/>
   </data>
   <data name="SHOP_NO_MONEY_B_ALT" xml:space="preserve">
     <value>Oh! [pause=0]You're short on money, my friend!</value>
-    <comment/>
   </data>
   <data name="SHOP_UNSELLABLE_B" xml:space="preserve">
     <value>Whoa![pause=0] I... I can't accept anything like that!</value>
-    <comment/>
   </data>
   <data name="SHOP_MAX_MONEY_B_ALT" xml:space="preserve">
     <value>Oh no![pause=0] My friend, you cannot add to your money! I cannot do this.</value>
-    <comment/>
   </data>
   <data name="SHOP_INFO_B_0" xml:space="preserve">
     <value>Pokémon moves...[pause=0]are the path to ultimate power!</value>
-    <comment/>
   </data>
   <data name="SHOP_INFO_B_1" xml:space="preserve">
     <value>Smash walls![pause=0] Fly![pause=0] So many moves. All dynamic, each elegant in its way!</value>
-    <comment/>
   </data>
   <data name="SHOP_INFO_B_2" xml:space="preserve">
     <value>And some moves, obscure and rare, are...[pause=0]simply beautiful!</value>
-    <comment/>
   </data>
   <data name="SHOP_INFO_B_3" xml:space="preserve">
     <value>We sell many moves daily![pause=0] They can be learned using our Technical Machines, or TMs for short!</value>
-    <comment/>
   </data>
   <data name="SHOP_INFO_B_4" xml:space="preserve">
     <value>You see? Isn't it exciting? It's the stuff of dreams!</value>
-    <comment/>
   </data>
   <data name="SHOP_INFO_B_5" xml:space="preserve">
     <value>Why, it gets me so excited that I've taken on a rosy hue!</value>
-    <comment/>
   </data>
   <data name="SHOP_INFO_B_6" xml:space="preserve">
     <value>I do hope you will shop at our market. Visit my elder brother and me!</value>
-    <comment/>
   </data>
   <data name="STORAGE_INTRO" xml:space="preserve">
     <value>Hello, there! Welcome to {0} Storage.</value>
-    <comment/>
   </data>
   <data name="STORAGE_CONTINUE" xml:space="preserve">
     <value>Anything else, dear?</value>
-    <comment/>
   </data>
   <data name="STORAGE_EXIT" xml:space="preserve">
     <value>Thanks, sweetie! Come again!</value>
-    <comment/>
   </data>
   <data name="STORAGE_STORE" xml:space="preserve">
     <value>What would you like to store? (You can use {0} to choose more than one item, or {1} and {2} to select everything.)</value>
-    <comment/>
   </data>
   <data name="STORAGE_STORE_MORE" xml:space="preserve">
     <value>Care to store anything else?</value>
-    <comment/>
   </data>
   <data name="STORAGE_STORE_ONE" xml:space="preserve">
     <value>I'll put your {0} in storage, OK?</value>
-    <comment/>
   </data>
   <data name="STORAGE_STORE_MANY" xml:space="preserve">
     <value>I'll put the items you chose in storage, OK?</value>
-    <comment/>
   </data>
   <data name="STORAGE_STORE_CONFIRM" xml:space="preserve">
     <value>OK, stored away! You can count on me, honey.</value>
-    <comment/>
   </data>
   <data name="STORAGE_TAKE" xml:space="preserve">
     <value>What will you take out? (You can use {0} to choose more than one item.)</value>
-    <comment/>
   </data>
   <data name="STORAGE_TAKE_MORE" xml:space="preserve">
     <value>Care to take out anything else?</value>
-    <comment/>
   </data>
   <data name="STORAGE_TAKE_ONE" xml:space="preserve">
     <value>I'll take your {0} out of storage, OK?</value>
-    <comment/>
   </data>
   <data name="STORAGE_TAKE_MANY" xml:space="preserve">
     <value>I'll take the items you chose out of storage, OK?</value>
-    <comment/>
   </data>
   <data name="STORAGE_TAKE_CONFIRM" xml:space="preserve">
     <value>There you go, sweetie!</value>
-    <comment/>
   </data>
   <data name="STORAGE_NO_ITEMS" xml:space="preserve">
     <value>Oh? You don't seem to have anything.</value>
@@ -775,8 +718,8 @@
     <value>\uE024{0}\uE023! It will rest here in peace. Forever, if you wish. Hee-hee!</value>
   </data>
   <data name="BANK_MAX_PURSE" xml:space="preserve">
-    <comment>i have no idea if this is even possible in PMDO</comment>
     <value>What?[pause=0] I'm sorry, but you can't carry any more money! [pause=0]There's not even a ghost of a chance! Hee-hee!</value>
+    <comment>i have no idea if this is even possible in PMDO</comment>
   </data>
   <data name="BANK_NO_BALANCE" xml:space="preserve">
     <value>What?[pause=0] I'm sorry to say that you have no money here. Your vault is barren!</value>
@@ -804,8 +747,8 @@ were my very own! ♪</value>
     <value>So, if you want an Egg, go on lots of missions! ♪</value>
   </data>
   <data name="DAYCARE_NO_EGG_B_0" xml:space="preserve">
-    <comment>Triggers after player already hatched an egg</comment>
     <value>This is {0} Day Care! I'll take care of any more Eggs that you get!</value>
+    <comment>Triggers after player already hatched an egg</comment>
   </data>
   <data name="DAYCARE_NO_EGG_B_1" xml:space="preserve">
     <value>I've heard that you can get Eggs as rewards for doing missions sometimes! ♪</value>
@@ -893,8 +836,8 @@ were my very own! ♪</value>
     <value>You should think about keeping that item with you! ♪</value>
   </data>
   <data name="DAYCARE_HOLDING_ITEM_2" xml:space="preserve">
-    <comment>Only happens when bag is full</comment>
     <value>Or that's what I would suggest, if you had the room for it.</value>
+    <comment>Only happens when bag is full</comment>
   </data>
   <data name="DAYCARE_HOLDING_ITEM_3" xml:space="preserve">
     <value>You don't, so I'll take it over to storage for you later! ♪</value>

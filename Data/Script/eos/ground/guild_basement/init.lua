@@ -3133,6 +3133,8 @@ def 0 {
 	GAME:FadeOut(false, 30)
 	-- TODO: WaitBgm(BGM_WIGGLYTUFFS_GUILD)
 
+    GAME:EnterGroundMap("guild_second_floor", "Entrance", true)
+
 end
 
 function guild_basement.Chapter2Scene8()

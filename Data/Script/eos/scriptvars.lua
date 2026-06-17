@@ -68,6 +68,28 @@ SV.Cutscene =
 	ProgressFlag = 0 --used for when cutscenes have to switch back and forth between different ground maps
 }
 
+SV.ItemTutorials =
+{
+	Food = false,
+	OranBerry = false,
+	CheriBerry = false,
+	PechaBerry = false,
+	LeppaBerry = false,
+	LumBerry = false,
+	BlastSeed = false,
+	SleepSeed = false,
+	StunSeed = false,
+	WarpSeed = false,
+	VileSeed = false,
+	XEyeSeed = false,
+	ViolentSeed = false,
+	MaxElixir = false,
+	WeatherOrb = false,
+	Ammo = false,
+	Lookalikes = false,
+	Money = false
+}
+
 --From Halycon
 -------------------------------------------------
 -- Temporary Flags - Flags that reset at the end of the day or on screen transition are saved here
@@ -191,7 +213,8 @@ SV.beach_cave =
 
 SV.drenched_bluff = 
 {
-	TimesFailed = 0 -- triggers a cutscene after 2
+	TimesFailed = 0, -- triggers a cutscene after 2
+	Tutorial = 0
 }
 
 SV.mt_bristle = 

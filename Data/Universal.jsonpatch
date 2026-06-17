@@ -1,9 +1,26 @@
 ﻿{
   "Version": [
     "0.0",
-    "0.8.11.0"
+    "0.8.12.0"
   ],
   "Object": {
+    "OnPickups": {
+      "_t": "a",
+      "0": [
+        {
+          "Key": {
+            "str": [
+              0
+            ]
+          },
+          "Value": {
+            "$type": "RogueEssence.Dungeon.ItemScriptEvent, RogueEssence",
+            "Script": "ItemTutorials",
+            "ArgTable": "{}"
+          }
+        }
+      ]
+    },
     "OnTurnEnds": {
       "_t": "a",
       "0": [

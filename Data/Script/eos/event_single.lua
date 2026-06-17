@@ -358,19 +358,19 @@ function SINGLE_CHAR_SCRIPT.JoyRibbonEXP(owner, ownerChar, context, args)
 	player.EXP = player.EXP + gainedEXP;
 	--print("new exp: " .. tostring(player.EXP))
 
-	RogueEssence.Dungeon.DungeonScene.Instance:LogMsg(STRINGS:FormatKey("MSG_EXP_GAIN_MEMBER", player:GetDisplayName(true), gainedEXP), true, false);
+	_DUNGEON:LogMsg(STRINGS:FormatKey("MSG_EXP_GAIN_MEMBER", player:GetDisplayName(true), gainedEXP), true, false);
 	
 	GAME:WaitFrames(20)
 
-	RogueEssence.Dungeon.DungeonScene.Instance:MeterChanged(player.CharLoc, gainedEXP, true)
+	_DUNGEON:MeterChanged(player.CharLoc, gainedEXP, true)
 end
 
 function SINGLE_CHAR_SCRIPT.BeachCaveTutorial(owner, ownerChar, context, args) --Tutorial Script (Credit to Palika Again)
 	if context.User == nil then
     UI:ResetSpeaker()
-	GAME:WaitFrames(20)
     if args.Floor == 1 then
 			if SV.beach_cave.Tutorial < 1 then
+				GAME:WaitFrames(20)
 				SOUND:PlayFanfare("Fanfare/Note")
 				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_1"):ToLocal(), STRINGS:LocalKeyString(2)))
 				SV.beach_cave.Tutorial = 1
@@ -378,6 +378,7 @@ function SINGLE_CHAR_SCRIPT.BeachCaveTutorial(owner, ownerChar, context, args) -
 			end
     elseif args.Floor == 2 then
 			if SV.beach_cave.Tutorial < 2 then
+				GAME:WaitFrames(20)
 				SOUND:PlayFanfare("Fanfare/Note")
 				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_2"):ToLocal()))
 				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_3"):ToLocal(), STRINGS:LocalKeyString(9)))
@@ -387,6 +388,7 @@ function SINGLE_CHAR_SCRIPT.BeachCaveTutorial(owner, ownerChar, context, args) -
 			end
     elseif args.Floor == 3 then
 			if SV.beach_cave.Tutorial < 3 then
+				GAME:WaitFrames(20)
 				SOUND:PlayFanfare("Fanfare/Note")
 				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_5"):ToLocal()))
 				SV.beach_cave.Tutorial = 3
@@ -394,6 +396,7 @@ function SINGLE_CHAR_SCRIPT.BeachCaveTutorial(owner, ownerChar, context, args) -
 			end
     elseif args.Floor == 4 then
 			if SV.beach_cave.Tutorial < 4 then
+				GAME:WaitFrames(20)
 				SOUND:PlayFanfare("Fanfare/Note")
 				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_6"):ToLocal(), STRINGS:LocalKeyString(9)))
 				SV.beach_cave.Tutorial = 4
@@ -401,10 +404,71 @@ function SINGLE_CHAR_SCRIPT.BeachCaveTutorial(owner, ownerChar, context, args) -
 			end
 	elseif args.Floor == 5 then
 			if SV.beach_cave.Tutorial < 5 then
+				GAME:WaitFrames(20)
 				SOUND:PlayFanfare("Fanfare/Note")
 				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_7"):ToLocal()))
 				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_8"):ToLocal(), STRINGS:LocalKeyString(7)))
 				SV.beach_cave.Tutorial = 5
+				GAME:WaitFrames(20)	
+			end
+		end
+	end
+end
+
+function SINGLE_CHAR_SCRIPT.DrenchedBluffTutorial(owner, ownerChar, context, args)
+	if context.User == nil then
+    UI:ResetSpeaker()
+    if args.Floor == 1 then
+			if SV.drenched_bluff.Tutorial < 1 then
+				GAME:WaitFrames(20)
+				SOUND:PlayFanfare("Fanfare/Note")
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_9"):ToLocal()))
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_10"):ToLocal()))
+				SV.drenched_bluff.Tutorial = 1
+				GAME:WaitFrames(20)	
+			end
+    elseif args.Floor == 2 then
+			if SV.drenched_bluff.Tutorial < 2 then
+				GAME:WaitFrames(20)
+				SOUND:PlayFanfare("Fanfare/Note")
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_11"):ToLocal(), RogueEssence.Dungeon.InvItem("food_apple"):GetDisplayName()))
+				SV.drenched_bluff.Tutorial = 2
+				GAME:WaitFrames(20)	
+			end
+    elseif args.Floor == 3 then
+			if SV.drenched_bluff.Tutorial < 3 then
+				GAME:WaitFrames(20)
+				SOUND:PlayFanfare("Fanfare/Note")
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_12"):ToLocal()))
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_13"):ToLocal()))
+				SV.drenched_bluff.Tutorial = 3
+				GAME:WaitFrames(20)	
+			end
+    elseif args.Floor == 4 then
+			if SV.drenched_bluff.Tutorial < 4 then
+				GAME:WaitFrames(20)
+				SOUND:PlayFanfare("Fanfare/Note")
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_14"):ToLocal(), STRINGS:LocalKeyString(2)))
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_15"):ToLocal(), STRINGS:LocalKeyString(9)))
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_16"):ToLocal(), STRINGS:LocalKeyString(9), STRINGS:LocalKeyString(9), STRINGS:LocalKeyString(9), STRINGS:LocalKeyString(9), STRINGS:LocalKeyString(9)))
+				SV.drenched_bluff.Tutorial = 4
+				GAME:WaitFrames(20)	
+			end
+	elseif args.Floor == 5 then
+			if SV.drenched_bluff.Tutorial < 5 then
+				GAME:WaitFrames(20)
+				SOUND:PlayFanfare("Fanfare/Note")
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_17"):ToLocal()))
+				SV.drenched_bluff.Tutorial = 5
+				GAME:WaitFrames(20)	
+			end
+	elseif args.Floor == 6 then
+			if SV.drenched_bluff.Tutorial < 6 then
+				GAME:WaitFrames(20)
+				SOUND:PlayFanfare("Fanfare/Note")
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_18"):ToLocal()))
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_19"):ToLocal()))
+				SV.drenched_bluff.Tutorial = 6
 				GAME:WaitFrames(20)	
 			end
 		end

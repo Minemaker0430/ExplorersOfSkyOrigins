@@ -55,7 +55,7 @@ end
 ---guild_bedroom_night.GameLoad(map)
 --Engine callback function
 function guild_bedroom_night.GameLoad(map)
-    GAME:FadeIn(20)
+    GAME:EnterGroundMap("hub", "guild_bedroom", "Entrance", false)
 end
 
 -------------------------------
@@ -594,14 +594,18 @@ def 0 {
     -- ### back2_SetGround(LEVEL_V02P06A) [IRRELEVANT]
     -- ### camera2_SetPositionMark(Position<'m0', 19.5, 15.5>) [IRRELEVANT]
     -- ### screen2_FadeIn(1, 60) [IRRELEVANT]
+    UI:WaitShowBG("NightBG", 1, 60)
     GAME:WaitFrames(150)
+    UI:WaitHideBG(60)
     -- ### screen2_FadeOut(1, 60) [IRRELEVANT]
     -- ### back2_SetMode(0) [IRRELEVANT]
     -- back_SetGround(LEVEL_G01P07C) (Should be the map you're currently on, or the map it sends you to next)
     -- ### supervision_Acting(0) [IRRELEVANT]
+    GROUND:AddMapStatus("darkness")
 
     GROUND:CharSetAnim(CH('PLAYER'), "Laying", true)
 	GROUND:CharSetAnim(CH('PARTNER'), "Laying", true)
+    GAME:FadeIn(60)
     -- TODO: screen_FadeChange(1, 60, 0, 192) // Should be dark
     SOUND:PlayBGM("010 - Goodnight.ogg")
     GAME:WaitFrames(30)
@@ -648,7 +652,7 @@ def 0 {
     -- TODO: $SCENARIO_MAIN_BIT_FLAG[8] = 0
     --[[
     GAME:WaitFrames(30)
-    SOUND:PlayFanfare("Fanfare/Note.ogg")
+    SOUND:PlayFanfare("Fanfare/Note")
     UI:ResetSpeaker()
     UI:SetCenter(true)
     UI:WaitShowVoiceOver(STRINGS:Format(STRINGS.MapStrings['CH2_NARRATION_1']), -1)
@@ -657,6 +661,8 @@ def 0 {
     UI:SetCenter(false)
     GAME:WaitFrames(60)
     ]]--
+
+    GAME:EnterGroundMap("hub", "guild_bedroom", "Entrance", false)
 end
 
 function guild_bedroom_night.CH2_OfferHelp()
