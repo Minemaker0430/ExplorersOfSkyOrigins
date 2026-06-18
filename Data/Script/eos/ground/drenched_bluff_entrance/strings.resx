@@ -58,34 +58,34 @@
   <resheader name="writer">
     <value>System.Resources.NetStandard.ResXResourceWriter, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </resheader>
-  	<data name="CH2_PARTNER_1" xml:space="preserve">
-		<value>This must be the bluff's entrance.</value>
-	</data>
-	<data name="CH2_PARTNER_2" xml:space="preserve">
-		<value>{0}'s mission description said the pearl is deep down on the B7F level.</value>
-	</data>
-	<data name="CH2_PARTNER_3_1" xml:space="preserve">
-		<value>It's supposed to be a really dangerous place. We'd better be careful.</value>
-	</data>
-	<data name="CH2_PARTNER_3_0" xml:space="preserve">
-		<value>It sounds like a seriously dangerous place. Let's be careful.</value>
-	</data>
-	<data name="CH2_PARTNER_3_2" xml:space="preserve">
-		<value>It's supposedly very dangerous. Let's be really careful.</value>
-	</data>
-	<data name="CH2_PARTNER_4" xml:space="preserve">
-		<value>Let's do our best, {0}!</value>
-	</data>
-		<data name="CH2_S2_PARTNER_1" xml:space="preserve">
-		<value>{0}'s pearl should be down on the B7F level.</value>
-	</data>
-	<data name="CH2_S2_PARTNER_2_1" xml:space="preserve">
-		<value>Come on! This time, let's get this job done, {0}!</value>
-	</data>
-	<data name="CH2_S2_PARTNER_2_0" xml:space="preserve">
-		<value>OK, let's hang in and finish the job this time, {0}!</value>
-	</data>
-	<data name="CH2_S2_PARTNER_2_2" xml:space="preserve">
-		<value>Let's hang in there and finish the job this time, {0}!</value>
-	</data>
+  <data name="CH2_PARTNER_1" xml:space="preserve">
+    <value>This must be the bluff's entrance.</value>
+  </data>
+  <data name="CH2_PARTNER_2" xml:space="preserve">
+    <value>{0}'s mission description said the pearl is deep down on the B7F level.</value>
+  </data>
+  <data name="CH2_PARTNER_3_1" xml:space="preserve">
+    <value>It's supposed to be a really dangerous place. We'd better be careful.</value>
+  </data>
+  <data name="CH2_PARTNER_3_0" xml:space="preserve">
+    <value>It sounds like a seriously dangerous place. Let's be careful.</value>
+  </data>
+  <data name="CH2_PARTNER_3_2" xml:space="preserve">
+    <value>It's supposedly very dangerous. Let's be really careful.</value>
+  </data>
+  <data name="CH2_PARTNER_4" xml:space="preserve">
+    <value>Let's do our best, {0}!</value>
+  </data>
+  <data name="CH2_S2_PARTNER_1" xml:space="preserve">
+    <value>{0}'s pearl should be down on the B7F level.</value>
+  </data>
+  <data name="CH2_S2_PARTNER_2_1" xml:space="preserve">
+    <value>Come on! This time, let's get this job done, {0}!</value>
+  </data>
+  <data name="CH2_S2_PARTNER_2_0" xml:space="preserve">
+    <value>OK, let's hang in and finish the job this time, {0}!</value>
+  </data>
+  <data name="CH2_S2_PARTNER_2_2" xml:space="preserve">
+    <value>Let's hang in there and finish the job this time, {0}!</value>
+  </data>
 </root>

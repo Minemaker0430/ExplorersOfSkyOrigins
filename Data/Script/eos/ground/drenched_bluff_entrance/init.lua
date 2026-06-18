@@ -1,3 +1,69 @@
+require 'eos.common'
+
+-- Package name
+local drenched_bluff_entrance = {}
+
+-------------------------------
+-- Map Callbacks
+-------------------------------
+---drenched_bluff_entrance.Init(map)
+--Engine callback function
+function drenched_bluff_entrance.Init(map)
+
+    COMMON.RespawnStarterPartner()
+end
+
+---drenched_bluff_entrance.Enter(map)
+--Engine callback function
+function drenched_bluff_entrance.Enter(map)
+
+    if SV.Progression.Chapter == 2 then
+        drenched_bluff_entrance.CH2_Entrance()
+    elseif SV.Progression.Chapter == 2 and SV.drenched_bluff.TimesFailed > 0 then
+        drenched_bluff_entrance.CH2_EntranceAfterFail()
+    else
+        GAME:EnterDungeon('drenched_bluff', 0, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+    end
+
+end
+
+---drenched_bluff_entrance.Exit(map)
+--Engine callback function
+function drenched_bluff_entrance.Exit(map)
+
+
+end
+
+---drenched_bluff_entrance.Update(map)
+--Engine callback function
+function drenched_bluff_entrance.Update(map)
+
+
+end
+
+---drenched_bluff_entrance.GameSave(map)
+--Engine callback function
+function drenched_bluff_entrance.GameSave(map)
+
+
+end
+
+---drenched_bluff_entrance.GameLoad(map)
+--Engine callback function
+function drenched_bluff_entrance.GameLoad(map)
+
+  GAME:FadeIn(20)
+
+end
+
+-------------------------------
+-- Entities Callbacks
+-------------------------------
+
+
+
+
+
 
 function drenched_bluff_entrance.CH2_Entrance()
     --[[
@@ -154,45 +220,68 @@ def 0 {
 }
 ]]--
 
-	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
 	SOUND:StopBGM()
-	-- back_SetGround(LEVEL_D02P11A) (Should be the map you're currently on, or the map it sends you to next)
+	
+    -- back_SetGround(LEVEL_D02P11A) (Should be the map you're currently on, or the map it sends you to next)
 	-- ### supervision_Acting(0) [IRRELEVANT]
 	GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
-	GAME:FadeIn(30)
+	
+    GAME:FadeIn(30)
 	SOUND:PlayBGM("012 - Drenched Bluff.ogg")
-	GROUND:MoveToPosition(CH('PLAYER'), 276, 156, false, 2)
-	GROUND:MoveToPosition(CH('PARTNER'), 248, 156, false, 2)
+	
+    local coro1 = TASK:BranchCoroutine(function ()
+        GROUND:MoveToPosition(CH('PLAYER'), 276, 156, false, 2)
+    end)
+    local coro2 = TASK:BranchCoroutine(function ()
+        GROUND:MoveToPosition(CH('PARTNER'), 248, 156, false, 2)
+    end)
+    TASK:JoinCoroutines({coro1, coro2})
 	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+
 	GAME:WaitFrames(30)
 	GROUND:CharTurnToCharAnimated(CH('PARTNER'), CH('PLAYER'), 4)
 	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
-	GROUND:CharTurnToCharAnimated(CH('PLAYER'), CH('PARTNER'), 4)
-	UI:SetSpeaker(CH('PARTNER'))
-	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_PARTNER_1']))
+
+    local coro1 = TASK:BranchCoroutine(function ()
+        GROUND:CharTurnToCharAnimated(CH('PLAYER'), CH('PARTNER'), 4)
+    end)
+    local coro2 = TASK:BranchCoroutine(function ()
+        UI:SetSpeaker(CH('PARTNER'))
+	    UI:SetSpeakerEmotion("Normal")
+	    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_PARTNER_1']))
+    end)
+	TASK:JoinCoroutines({coro1, coro2})
+    
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_PARTNER_2'], CH('Spoink'):GetDisplayName()))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_PARTNER_3_'..tostring(pTalkKind)]))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_PARTNER_4'], CH('PLAYER'):GetDisplayName()))
-	GROUND:CharSetAnim(CH('PLAYER'), "UNK_71", false)
-	GROUND:CharSetAnim(CH('PARTNER'), "UNK_71", false)
-	-- TODO WaitAnimation: WaitAnimation<actor ACTOR_PLAYER>()
-	-- TODO WaitAnimation: WaitAnimation<actor ACTOR_ATTENDANT1>()
-	-- !! WaitExecuteLives(ACTOR_PLAYER)
-	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
-	GROUND:CharSetAnim(CH('PLAYER'), "None", false)
-	GROUND:CharSetAnim(CH('PARTNER'), "None", false)
-	GAME:WaitFrames(30)
-	GROUND:MoveToPosition(CH('PLAYER'), 264, 92, false, 2)
-	GAME:WaitFrames(20)
-	GROUND:MoveToPosition(CH('PARTNER'), 264, 92, false, 2)
-	GAME:WaitFrames(20)
-	GAME:FadeOut(false, 30)
+
+	local coro1 = TASK:BranchCoroutine(function () GROUND:CharWaitAnim(CH('PLAYER'), "Nod") end)
+	local coro2 = TASK:BranchCoroutine(function () GROUND:CharWaitAnim(CH('PARTNER'), "Nod") end)
+	TASK:JoinCoroutines({coro1, coro2})
+
+    GAME:WaitFrames(30)
+
+    local coro1 = TASK:BranchCoroutine(function ()
+        GROUND:MoveToPosition(CH('PLAYER'), 264, 92, false, 2)
+    end)
+	local coro2 = TASK:BranchCoroutine(function ()
+        GAME:WaitFrames(20)
+	    GROUND:MoveToPosition(CH('PARTNER'), 264, 92, false, 2)
+    end)
+    local coro3 = TASK:BranchCoroutine(function ()
+        GAME:WaitFrames(40)
+	    GAME:FadeOut(false, 30)
+    end)
+	TASK:JoinCoroutines({coro1, coro2, coro3})
+
 	-- TODO: $SCENARIO_MAIN = scn[3, 3]
 	-- TODO: main_EnterDungeon(3, 0)
 	-- TODO: switch ( message_Menu(MENU_DUNGEON_INITIALIZE_TEAM) ) { }         main_EnterDungeon(-1, 0)
 	-- TODO: hold
+
+    GAME:EnterDungeon('drenched_bluff', 0, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 
 end
 
@@ -287,27 +376,52 @@ def 0 {
 
 	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
-	-- back_SetGround(LEVEL_D02P11A) (Should be the map you're currently on, or the map it sends you to next)
+	
+    -- back_SetGround(LEVEL_D02P11A) (Should be the map you're currently on, or the map it sends you to next)
 	-- ### supervision_Acting(0) [IRRELEVANT]
 	GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
+
 	GAME:FadeIn(30)
 	SOUND:PlayBGM("012 - Drenched Bluff.ogg")
-	GROUND:MoveToPosition(CH('PLAYER'), 276, 156, false, 2)
-	GROUND:MoveToPosition(CH('PARTNER'), 248, 156, false, 2)
+	
+    local coro1 = TASK:BranchCoroutine(function ()
+        GROUND:MoveToPosition(CH('PLAYER'), 276, 156, false, 2)
+    end)
+    local coro2 = TASK:BranchCoroutine(function ()
+        GROUND:MoveToPosition(CH('PARTNER'), 248, 156, false, 2)
+    end)
+    TASK:JoinCoroutines({coro1, coro2})
 	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+
 	GAME:WaitFrames(45)
 	UI:SetSpeaker(CH('PARTNER'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_PARTNER_1'], CH('Spoink'):GetDisplayName()))
+
 	GROUND:CharTurnToCharAnimated(CH('PARTNER'), CH('PLAYER'), 4)
 	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
-	GROUND:CharTurnToCharAnimated(CH('PLAYER'), CH('PARTNER'), 4)
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_PARTNER_2_'..tostring(pTalkKind)], CH('PLAYER'):GetDisplayName()))
-	GROUND:MoveToPosition(CH('PLAYER'), 264, 92, false, 2)
-	GAME:WaitFrames(20)
-	GROUND:MoveToPosition(CH('PARTNER'), 264, 92, false, 2)
-	GAME:WaitFrames(20)
-	GAME:FadeOut(false, 30)
+
+    local coro1 = TASK:BranchCoroutine(function ()
+        GROUND:CharTurnToCharAnimated(CH('PLAYER'), CH('PARTNER'), 4)
+    end)
+    local coro2 = TASK:BranchCoroutine(function ()
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_PARTNER_2_'..tostring(pTalkKind)], CH('PLAYER'):GetDisplayName()))
+    end)
+	TASK:JoinCoroutines({coro1, coro2})
+	
+	local coro1 = TASK:BranchCoroutine(function ()
+        GROUND:MoveToPosition(CH('PLAYER'), 264, 92, false, 2)
+    end)
+	local coro2 = TASK:BranchCoroutine(function ()
+        GAME:WaitFrames(20)
+	    GROUND:MoveToPosition(CH('PARTNER'), 264, 92, false, 2)
+    end)
+    local coro3 = TASK:BranchCoroutine(function ()
+        GAME:WaitFrames(40)
+	    GAME:FadeOut(false, 30)
+    end)
+	TASK:JoinCoroutines({coro1, coro2, coro3})
+    
 	-- TODO: switch ( scn($SCENARIO_MAIN)[1] ) {         case 3:             @label_0
 	-- TODO: $SCENARIO_MAIN = scn[3, 4]
 	-- TODO: @label_2
@@ -321,3 +435,5 @@ def 0 {
     GAME:EnterDungeon('drenched_bluff', 0, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 
 end
+
+return drenched_bluff_entrance

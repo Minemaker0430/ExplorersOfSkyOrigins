@@ -4,6 +4,9 @@
 ]]--
 require 'origin.common_gen'
 
+require 'eos.CharacterActions'
+require 'eos.ExplorerEssentials'
+
 ----------------------------------------
 -- Lib Definitions
 ----------------------------------------

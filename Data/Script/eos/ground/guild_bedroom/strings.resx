@@ -58,109 +58,109 @@
   <resheader name="writer">
     <value>System.Resources.NetStandard.ResXResourceWriter, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </resheader>
-  	<data name="CH2_Chatot_1" xml:space="preserve">
-		<value>This is your room! ♪</value>
-	</data>
-	<data name="CH2_PARTNER_1_1" xml:space="preserve">
-		<value>Wow! We get beds!</value>
-	</data>
-	<data name="CH2_PARTNER_1_0" xml:space="preserve">
-		<value>Great! We get beds!</value>
-	</data>
-	<data name="CH2_PARTNER_1_2" xml:space="preserve">
-		<value>Yay! We get beds!</value>
-	</data>
-	<data name="CH2_Chatot_2" xml:space="preserve">
-		<value>You will live here while you work for us.</value>
-	</data>
-	<data name="CH2_Chatot_3" xml:space="preserve">
-		<value>Things will start getting busy for you tomorrow! ♪[pause=0] So rise early and start living up to our code!</value>
-	</data>
-	<data name="CH2_Chatot_4" xml:space="preserve">
-		<value>Don't stay up late. Get to sleep early tonight! ♪[pause=0] That is all.</value>
-	</data>
-	<data name="CH2_S2_NARRATION_1" xml:space="preserve">
-		<value>The next morning...</value>
-	</data>
-	<data name="CH2_S2_Unknown_1" xml:space="preserve">
-		<value>HEY![pause=0] HEY THERE!</value>
-	</data>
-	<data name="CH2_S2_Unknown_2" xml:space="preserve">
-		<value>RISE AND SHINE!</value>
-	</data>
-	<data name="CH2_S2_PLAYER_1" xml:space="preserve">
-		<value>(Ugh!)</value>
-	</data>
-	<data name="CH2_S2_PLAYER_2" xml:space="preserve">
-		<value>(M-my head is pounding!)</value>
-	</data>
-	<data name="CH2_S2_PLAYER_3" xml:space="preserve">
-		<value>(Wh-what a ridiculously loud voice! It almost blasted my eardrums!)</value>
-	</data>
-	<data name="CH2_S2_Loudred_1" xml:space="preserve">
-		<value>Why are you still ASLEEP?![pause=0] WAKE UP!</value>
-	</data>
-	<data name="CH2_S2_PLAYER_4" xml:space="preserve">
-		<value>(Ugh!)</value>
-	</data>
-	<data name="CH2_S2_PARTNER_1_1" xml:space="preserve">
-		<value>M-my ears...</value>
-	</data>
-	<data name="CH2_S2_PARTNER_1_0" xml:space="preserve">
-		<value>M-my poor ears...</value>
-	</data>
-	<data name="CH2_S2_PARTNER_1_2" xml:space="preserve">
-		<value>M-my poor ears...</value>
-	</data>
-	<data name="CH2_S2_Loudred_2" xml:space="preserve">
-		<value>C'mon! Snap OUT of it!</value>
-	</data>
-	<data name="CH2_S2_Loudred_3" xml:space="preserve">
-		<value>I'm {0}![pause=0] And I'm a fellow apprentice!</value>
-	</data>
-	<data name="CH2_S2_Loudred_4" xml:space="preserve">
-		<value>If you're late for our morning briefing, you'll be SORRY! So MOVE it!</value>
-	</data>
-	<data name="CH2_S2_Loudred_5" xml:space="preserve">
-		<value>Guildmaster {0} has got a BIG temper. If you make him lose it...</value>
-	</data>
-	<data name="CH2_S2_Loudred_6" xml:space="preserve">
-		<value>YOWEEE! That would be one very scary scene!</value>
-	</data>
-	<data name="CH2_S2_Loudred_7" xml:space="preserve">
-		<value>I've got goose bumps just thinking about it! YEESH!</value>
-	</data>
-	<data name="CH2_S2_Loudred_8" xml:space="preserve">
-		<value>So ANYWAY...</value>
-	</data>
-	<data name="CH2_S2_Loudred_9" xml:space="preserve">
-		<value>I'm not about to get in trouble because you rookies got up LATE!</value>
-	</data>
-	<data name="CH2_S2_Loudred_10" xml:space="preserve">
-		<value>SO GET IT IN GEAR!</value>
-	</data>
-	<data name="CH2_S2_PARTNER_2" xml:space="preserve">
-		<value>Urk! My ears are still ringing...</value>
-	</data>
-	<data name="CH2_S2_PARTNER_3" xml:space="preserve">
-		<value>What did he say? Something about getting ready?</value>
-	</data>
-	<data name="CH2_S2_PARTNER_4" xml:space="preserve">
-		<value>Er...[pause=0] Oh yeah!</value>
-	</data>
-	<data name="CH2_S2_PARTNER_5" xml:space="preserve">
-		<value>We signed up as apprentices at {0}'s guild, that's right!</value>
-	</data>
-	<data name="CH2_S2_PARTNER_6" xml:space="preserve">
-		<value>But that means...</value>
-	</data>
-	<data name="CH2_S2_PARTNER_7_1" xml:space="preserve">
-		<value>Oh no! We totally overslept! Hurry up, {0}!</value>
-	</data>
-	<data name="CH2_S2_PARTNER_7_0" xml:space="preserve">
-		<value>Waaaah! We totally overslept! We've got to hurry, {0}!</value>
-	</data>
-	<data name="CH2_S2_PARTNER_7_2" xml:space="preserve">
-		<value>Waaaah! We overslept! Come on, {0}!</value>
-	</data>
+  <data name="CH2_Chatot_1" xml:space="preserve">
+    <value>This is your room! ♪</value>
+  </data>
+  <data name="CH2_PARTNER_1_1" xml:space="preserve">
+    <value>Wow! We get beds!</value>
+  </data>
+  <data name="CH2_PARTNER_1_0" xml:space="preserve">
+    <value>Great! We get beds!</value>
+  </data>
+  <data name="CH2_PARTNER_1_2" xml:space="preserve">
+    <value>Yay! We get beds!</value>
+  </data>
+  <data name="CH2_Chatot_2" xml:space="preserve">
+    <value>You will live here while you work for us.</value>
+  </data>
+  <data name="CH2_Chatot_3" xml:space="preserve">
+    <value>Things will start getting busy for you tomorrow! ♪[pause=0] So rise early and start living up to our code!</value>
+  </data>
+  <data name="CH2_Chatot_4" xml:space="preserve">
+    <value>Don't stay up late. Get to sleep early tonight! ♪[pause=0] That is all.</value>
+  </data>
+  <data name="CH2_S2_NARRATION_1" xml:space="preserve">
+    <value>The next morning...</value>
+  </data>
+  <data name="CH2_S2_Unknown_1" xml:space="preserve">
+    <value>HEY![pause=0] HEY THERE!</value>
+  </data>
+  <data name="CH2_S2_Unknown_2" xml:space="preserve">
+    <value>RISE AND SHINE!</value>
+  </data>
+  <data name="CH2_S2_PLAYER_1" xml:space="preserve">
+    <value>(Ugh!)</value>
+  </data>
+  <data name="CH2_S2_PLAYER_2" xml:space="preserve">
+    <value>(M-my head is pounding!)</value>
+  </data>
+  <data name="CH2_S2_PLAYER_3" xml:space="preserve">
+    <value>(Wh-what a ridiculously loud voice! It almost blasted my eardrums!)</value>
+  </data>
+  <data name="CH2_S2_Loudred_1" xml:space="preserve">
+    <value>Why are you still ASLEEP?![pause=0] WAKE UP!</value>
+  </data>
+  <data name="CH2_S2_PLAYER_4" xml:space="preserve">
+    <value>(Ugh!)</value>
+  </data>
+  <data name="CH2_S2_PARTNER_1_1" xml:space="preserve">
+    <value>M-my ears...</value>
+  </data>
+  <data name="CH2_S2_PARTNER_1_0" xml:space="preserve">
+    <value>M-my poor ears...</value>
+  </data>
+  <data name="CH2_S2_PARTNER_1_2" xml:space="preserve">
+    <value>M-my poor ears...</value>
+  </data>
+  <data name="CH2_S2_Loudred_2" xml:space="preserve">
+    <value>C'mon! Snap OUT of it!</value>
+  </data>
+  <data name="CH2_S2_Loudred_3" xml:space="preserve">
+    <value>I'm {0}![pause=0] And I'm a fellow apprentice!</value>
+  </data>
+  <data name="CH2_S2_Loudred_4" xml:space="preserve">
+    <value>If you're late for our morning briefing, you'll be SORRY! So MOVE it!</value>
+  </data>
+  <data name="CH2_S2_Loudred_5" xml:space="preserve">
+    <value>Guildmaster {0} has got a BIG temper. If you make him lose it...</value>
+  </data>
+  <data name="CH2_S2_Loudred_6" xml:space="preserve">
+    <value>YOWEEE! That would be one very scary scene!</value>
+  </data>
+  <data name="CH2_S2_Loudred_7" xml:space="preserve">
+    <value>I've got goose bumps just thinking about it! YEESH!</value>
+  </data>
+  <data name="CH2_S2_Loudred_8" xml:space="preserve">
+    <value>So ANYWAY...</value>
+  </data>
+  <data name="CH2_S2_Loudred_9" xml:space="preserve">
+    <value>I'm not about to get in trouble because you rookies got up LATE!</value>
+  </data>
+  <data name="CH2_S2_Loudred_10" xml:space="preserve">
+    <value>SO GET IT IN GEAR!</value>
+  </data>
+  <data name="CH2_S2_PARTNER_2" xml:space="preserve">
+    <value>Urk! My ears are still ringing...</value>
+  </data>
+  <data name="CH2_S2_PARTNER_3" xml:space="preserve">
+    <value>What did he say? Something about getting ready?</value>
+  </data>
+  <data name="CH2_S2_PARTNER_4" xml:space="preserve">
+    <value>Er...[pause=0] Oh yeah!</value>
+  </data>
+  <data name="CH2_S2_PARTNER_5" xml:space="preserve">
+    <value>We signed up as apprentices at {0}'s guild, that's right!</value>
+  </data>
+  <data name="CH2_S2_PARTNER_6" xml:space="preserve">
+    <value>But that means...</value>
+  </data>
+  <data name="CH2_S2_PARTNER_7_1" xml:space="preserve">
+    <value>Oh no! We totally overslept! Hurry up, {0}!</value>
+  </data>
+  <data name="CH2_S2_PARTNER_7_0" xml:space="preserve">
+    <value>Waaaah! We totally overslept! We've got to hurry, {0}!</value>
+  </data>
+  <data name="CH2_S2_PARTNER_7_2" xml:space="preserve">
+    <value>Waaaah! We overslept! Come on, {0}!</value>
+  </data>
 </root>

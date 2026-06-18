@@ -2799,6 +2799,7 @@ def 0 {
 	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
 	SOUND:StopBGM()
+
 	-- back_SetGround(LEVEL_G01P04A2) (Should be the map you're currently on, or the map it sends you to next)
 	-- ### supervision_LoadStation(LEVEL_G01P04A, 'UM02') [IRRELEVANT]
 	-- ### supervision_Station(0) [IRRELEVANT]
@@ -2806,15 +2807,21 @@ def 0 {
 	-- ### supervision_StationCommon(99) [IRRELEVANT]
 	-- ### supervision_Acting(0) [IRRELEVANT]
 	-- ### supervision_Acting(4) [IRRELEVANT]
-	-- TODO: SetPositionInitial<actor ACTOR_NPC_PERAPPU>()
-	-- TODO: SetPositionInitial<actor ACTOR_NPC_DOGOOMU>()
-	-- TODO: SetPositionInitial<actor ACTOR_NPC_DIGUDA>()
-	GROUND:CharSetAnim(CH('Chatot'), "None", false)
-	GROUND:CharSetAnim(CH('Loudred'), "None", false)
-	GROUND:CharSetAnim(CH('Diglett'), "None", false)
-	-- TODO: SetPositionInitial<actor ACTOR_NPC_GUREGGURU>()
-	GROUND:CharSetAnim(CH('Croagunk'), "None", false)
-	GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
+
+    GAME:MoveCamera(416, 248, false) -- cam - 52, 31
+    GROUND:TeleportTo(CH('Chatot'), 452, 212, Direction.Down) -- chatot - 56.5, 26.5
+    GROUND:TeleportTo(CH('PLAYER'), 600, 268, Direction.Left) -- player - 75, 33.5
+    GROUND:TeleportTo(CH('PARTNER'), 560, 280, Direction.Left) -- partner - 70, 35
+    GROUND:TeleportTo(CH('Wigglytuff'), 416, 172, Direction.Down) -- wigglytuff - 52, 21.5
+    GROUND:TeleportTo(CH('Diglett'), 448, 264, Direction.Up) -- diglett - 56, 33
+    GROUND:TeleportTo(CH('Sunflora'), 448, 244, Direction.Up) -- sunflora - 56, 30.5
+    GROUND:TeleportTo(CH('Loudred'), 416, 264, Direction.Up) -- loudred - 52, 33
+    GROUND:TeleportTo(CH('Corphish'), 380, 264, Direction.Up) -- corphish - 47.5, 33
+    GROUND:TeleportTo(CH('Dugtrio'), 352, 264, Direction.UpRight) -- dugtrio - 44, 33
+    GROUND:TeleportTo(CH('Bidoof'), 416, 244, Direction.Up) -- bidoof - 52, 30.5
+    GROUND:TeleportTo(CH('Chimecho'), 380, 244, Direction.Up) -- chimecho - 47.5, 30.5
+    GROUND:TeleportTo(CH('Croagunk'), 352, 244, Direction.UpRight) -- croagunk - 44, 30.5
+    GROUND:Hide("Wigglytuff")
 
 	GAME:FadeIn(30)
 	SOUND:PlayBGM("008 - Wigglytuff's Guild.ogg")
@@ -2866,7 +2873,7 @@ def 0 {
     SOUND:PlayBattleSE("EVT_Emote_Complain_2")
 	-- TODO: camera_SetEffect(2, 2, 3.0)
     GROUND:MoveScreen(RogueEssence.Content.ScreenMover(2, 2, 80))
-	GROUND:CharWaitAnim(CH('Loudred'), "UNK_18", false)
+	GROUND:CharWaitAnim(CH('Loudred'), "Hop", false) -- hop?
 
 	UI:SetSpeaker(CH('Loudred'))
 	UI:SetSpeakerEmotion("Normal")
@@ -2948,11 +2955,10 @@ def 0 {
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_Chatot_5']))
 	
     SOUND:FadeOutBGM(120)
-	-- TODO: WaitBgm(BGM_WIGGLYTUFFS_GUILD)
-	SOUND:PlayBattleSE("UNK_8711")
-	-- TODO: back_ChangeGround(LEVEL_G01P04A)
+	SOUND:PlayBattleSE("UNK_8711") -- door?
+	GROUND:Hide("GuildmasterDoor")
 	GAME:WaitFrames(30)
-	-- ### supervision_Acting(2) [IRRELEVANT]
+	GROUND:Unhide("Wigglytuff")
 
 	local coro1 = TASK:BranchCoroutine(function () GROUND:CharTurnToCharAnimated(CH('PLAYER'), CH('Wigglytuff'), 4) end)
 	local coro2 = TASK:BranchCoroutine(function () GROUND:CharTurnToCharAnimated(CH('PARTNER'), CH('Wigglytuff'), 4) end)
@@ -2988,7 +2994,7 @@ def 0 {
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_Unknown_3']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_Unknown_4']))
 
-	GROUND:CharWaitAnim(CH('Chatot'), "UNK_25")
+	GROUND:CharWaitAnim(CH('Chatot'), "UNK_25") -- idk what anim this is
 	-- !! WaitExecuteLives(ACTOR_NPC_PERAPPU)
 	
     UI:SetSpeaker(CH('Chatot'))
@@ -3000,8 +3006,8 @@ def 0 {
     GROUND:CharAnimateTurnTo(CH('Chatot'), Dir8.Down, 4)
 	-- !! WaitExecuteLives(ACTOR_NPC_PERAPPU)
 	
-    SOUND:PlayBattleSE("UNK_5122")
-	GROUND:CharWaitAnim(CH('Chatot'), "Nod")
+    SOUND:PlayBattleSE("UNK_5122") -- gotta find this sfx
+	GROUND:CharWaitAnim(CH('Chatot'), "Nod") -- wrong anim? maybe it's flapping?
 	-- !! WaitExecuteLives(ACTOR_NPC_PERAPPU)
 
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_Chatot_8']))
@@ -3120,14 +3126,14 @@ def 0 {
     end)
     local coro10 = TASK:BranchCoroutine(function() -- bidoof 
         GAME:WaitFrames(10)
-        -- TODO: Move2PositionMark<actor ACTOR_NPC_BIPPA>(1.1992, Position<'m10', 40.5, 23.5>)
+        GROUND:MoveToPosition(CH('Bidoof'), 324, 188, false, 2)
         GROUND:MoveToPosition(CH('Bidoof'), 324, 132, false, 2)
         GROUND:Hide("Bidoof")
     end)
     local coro11 = TASK:BranchCoroutine(function() -- sunflora 
         GAME:WaitFrames(10)
         GROUND:MoveToPosition(CH('Sunflora'), CH('Sunflora').Position.X + -32, CH('Sunflora').Position.Y + 0, false, 2)
-        -- TODO: Move2PositionMark<actor ACTOR_NPC_KIMAWARI>(1.1992, Position<'m11', 40.5, 23.5>)
+        GROUND:MoveToPosition(CH('Sunflora'), 324, 188, false, 2)
         GROUND:MoveToPosition(CH('Sunflora'), 324, 132, false, 2)
         GROUND:Hide("Sunflora")
     end)

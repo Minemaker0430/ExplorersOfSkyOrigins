@@ -305,6 +305,7 @@ function guild_guildmaster_chambers.CH2_FormingTeam()
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_NARRATION_6'], CH('PARTNER'):GetDisplayName()))
 
     _DATA.Save.ActiveTeam:SetRank('normal')
+    _DATA.Save:UpdateTeamProfile(true)
     
     -- GIVE ITEM BASED ON HERO SPECIES (DOESN'T WORK RN)
     local gifts = {
@@ -436,8 +437,9 @@ function guild_guildmaster_chambers.CH2_FormingTeam()
     UI:SetSpeaker(CH('PARTNER'))
     UI:SetSpeakerEmotion("Happy")
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_PARTNER_10_' .. tostring(pTalkKind)], CH('PLAYER'):GetDisplayName()))
-    GROUND:CharWaitAnim(CH('PLAYER'), "Nod") -- unsure if this is correct
-    GROUND:CharWaitAnim(CH('PARTNER'), "Nod")
+    local coro1 = TASK:BranchCoroutine(function () GROUND:CharWaitAnim(CH('PLAYER'), "Nod") end)
+	local coro2 = TASK:BranchCoroutine(function () GROUND:CharWaitAnim(CH('PARTNER'), "Nod") end)
+	TASK:JoinCoroutines({coro1, coro2})
     GAME:WaitFrames(45)
 
     local coro1 = TASK:BranchCoroutine(function() GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.Down, 4) end)

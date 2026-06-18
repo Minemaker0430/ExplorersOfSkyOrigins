@@ -306,11 +306,15 @@ def 0 {
 
   ]]--
 
-	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
 	-- back_SetGround(LEVEL_G01P07A) (Should be the map you're currently on, or the map it sends you to next)
 	-- ### supervision_Acting(0) [IRRELEVANT]
-	GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
+    
+    ExplorerEssentials.SetupInitialPos(CH('Chatot'), 13.5, 22.5, Direction.Right)
+    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 12, 22, Direction.Right) -- player 12, 22
+    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 9, 22, Direction.Right) -- partner 9, 22
+	ExplorerEssentials.SetupCameraPos(20.5, 22.5)
+
 	GAME:FadeIn(30)
 	SOUND:PlayBGM("011 - Wigglytuff's Guild Remix.ogg")
 	GAME:WaitFrames(30)
@@ -722,7 +726,6 @@ def 0 {
 }
 ]]--
 
-	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
 	SOUND:StopBGM()
     
@@ -747,6 +750,11 @@ def 0 {
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_PLAYER_1']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_PLAYER_2']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_PLAYER_3']))
+
+    ExplorerEssentials.SetupCameraPos(22, 22.5)
+    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 25, 22, Direction.Down)
+    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 19, 22, Direction.Down)
+    ExplorerEssentials.SetupInitialPos(CH('Loudred'), 13.5, 21.5, Direction.Right)
 
 	-- back_SetGround(LEVEL_G01P07A) (Should be the map you're currently on, or the map it sends you to next)
 	-- ### supervision_Acting(0) [IRRELEVANT]

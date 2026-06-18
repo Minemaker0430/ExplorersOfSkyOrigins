@@ -1,5 +1,5 @@
 ﻿{
-"Version": "0.8.11.0",
+"Version": "0.8.12.0",
 "Object": {
 "$type": "RogueEssence.Ground.GroundMap, RogueEssence",
 "TexSize": 3,
@@ -53247,6 +53247,49 @@
 "Width": 32,
 "Height": 16
 }
+},
+{
+"EntName": "GuildmasterDoor",
+"Direction": 0,
+"EntEnabled": true,
+"EntOrder": 0,
+"InteractOrder": 0,
+"triggerType": 0,
+"ObjectAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "GuildmasterDoor",
+"FrameTime": 1,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": -1,
+"Alpha": 255,
+"AnimFlip": 0
+},
+"Passable": true,
+"CurrentAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "",
+"FrameTime": 1,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": -1,
+"Alpha": 255,
+"AnimFlip": 0
+},
+"AnimTime": {
+"Ticks": 0
+},
+"Cycles": 0,
+"DrawOffset": {
+"X": 38,
+"Y": 0
+},
+"Collider": {
+"X": 411,
+"Y": 125,
+"Width": 16,
+"Height": 16
+}
 }
 ],
 "Spawners": [
@@ -53406,6 +53449,20 @@
 "Collider": {
 "X": 411,
 "Y": 183,
+"Width": 16,
+"Height": 16
+}
+},
+{
+"EntName": "Entrance",
+"Direction": 0,
+"EntEnabled": true,
+"EntOrder": 0,
+"InteractOrder": 0,
+"triggerType": 0,
+"Collider": {
+"X": -23,
+"Y": 34,
 "Width": 16,
 "Height": 16
 }

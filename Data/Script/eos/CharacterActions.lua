@@ -3,7 +3,12 @@ CharacterActions = {}
 
 -- mostly just general cutscene actions from explorers that aren't present in base pmdo 
 
-function CharacterActions.ShakeHead(ent, dir)
+--- Makes a character shake their head, equivalent to CORO_HEAD_SHAKE_FUNC_SERIES in SkyTemple
+--- @param char any Character to be used
+--- @param dir Direction Direction the character should be facing
+function CharacterActions.ShakeHead(char, dir)
+	if dir == nil then dir = char.Direction end
+	
 	local directions = {Direction.Up, Direction.UpRight, Direction.Right, Direction.DownRight, Direction.Down, Direction.DownLeft, Direction.Left, Direction.UpLeft}
 	local dirNum = 0
 	
@@ -37,34 +42,39 @@ function CharacterActions.ShakeHead(ent, dir)
 	end
 	
 	--r
-	GROUND:EntTurn(ent, directions[dirRight])
+	GROUND:charTurn(char, directions[dirRight])
 	GAME:WaitFrames(4)
 	--m
-	GROUND:EntTurn(ent, directions[dirNum])
+	GROUND:charTurn(char, directions[dirNum])
 	GAME:WaitFrames(2)
 	--l
-	GROUND:EntTurn(ent, directions[dirLeft])
+	GROUND:charTurn(char, directions[dirLeft])
 	GAME:WaitFrames(4)
 	--m
-	GROUND:EntTurn(ent, directions[dirNum])
+	GROUND:charTurn(char, directions[dirNum])
 	GAME:WaitFrames(2)
 	
 	--r
-	GROUND:EntTurn(ent, directions[dirRight])
+	GROUND:charTurn(char, directions[dirRight])
 	GAME:WaitFrames(4)
 	--m
-	GROUND:EntTurn(ent, directions[dirNum])
+	GROUND:charTurn(char, directions[dirNum])
 	GAME:WaitFrames(2)
 	--l
-	GROUND:EntTurn(ent, directions[dirLeft])
+	GROUND:charTurn(char, directions[dirLeft])
 	GAME:WaitFrames(4)
 	--m
-	GROUND:EntTurn(ent, directions[dirNum])
+	GROUND:charTurn(char, directions[dirNum])
 	GAME:WaitFrames(2)
 	
 end
 
-function CharacterActions.ScaredJump(ent, dir)
+--- Makes a character jump in surprise, equivalent to CORO_JUMP_SURPRISE_FUNC_SERIES in SkyTemple
+--- @param char any Character to be used
+--- @param dir Direction Direction the character should be facing
+function CharacterActions.ScaredJump(char, dir)
+	if dir == nil then dir = char.Direction end
+
 	local directions = {Direction.Up, Direction.UpRight, Direction.Right, Direction.DownRight, Direction.Down, Direction.DownLeft, Direction.Left, Direction.UpLeft}
 	local dirNum = 0
 	
@@ -106,38 +116,51 @@ function CharacterActions.ScaredJump(ent, dir)
 	end
 
 	--actual animation
-	local xpos = ent.Position.X
-	local ypos = ent.Position.Y
+	local xpos = char.Position.X
+	local ypos = char.Position.Y
 	
-	GROUND:AnimateToPosition(ent, "Hurt", dir, (xpos + xoff), (ypos + yoff), 1, 2, 10)
-	GROUND:AnimateToPosition(ent, "Hurt", dir, xpos, ypos, 1, 2, 0)
+	GROUND:AnimateToPosition(char, "Hurt", dir, (xpos + xoff), (ypos + yoff), 1, 2, 10)
+	GROUND:AnimateToPosition(char, "Hurt", dir, xpos, ypos, 1, 2, 0)
 end
 
-function CharacterActions.HopOnce(ent, dir)
-	GROUND:AnimateToPosition(ent, "None", dir, ent.Position.X, ent.Position.Y, 1, 2, 10)
-	GROUND:AnimateToPosition(ent, "None", dir, ent.Position.X, ent.Position.Y, 1, 2, 0)
+--- Makes a character hop once, equivalent to CORO_JUMP_HAPPY_FUNC_SERIES in SkyTemple
+--- @param char any Character to be used
+--- @param dir Direction Direction the character should be facing
+function CharacterActions.HopOnce(char, dir)
+	if dir == nil then dir = char.Direction end
+
+	GROUND:AnimateToPosition(char, "None", dir, char.Position.X, char.Position.Y, 1, 2, 10)
+	GROUND:AnimateToPosition(char, "None", dir, char.Position.X, char.Position.Y, 1, 2, 0)
 end
 
-function CharacterActions.HopTwice(ent, dir)
-	GROUND:AnimateToPosition(ent, "None", dir, ent.Position.X, ent.Position.Y, 1, 2, 10)
-	GROUND:AnimateToPosition(ent, "None", dir, ent.Position.X, ent.Position.Y, 1, 2, 0)
-	GROUND:AnimateToPosition(ent, "None", dir, ent.Position.X, ent.Position.Y, 1, 2, 10)
-	GROUND:AnimateToPosition(ent, "None", dir, ent.Position.X, ent.Position.Y, 1, 2, 0)
+--- Makes a character hop twice, equivalent to CORO_JUMP_ANGRY_FUNC_SERIES in SkyTemple
+--- @param char any Character to be used
+--- @param dir Direction Direction the character should be facing
+function CharacterActions.HopTwice(char, dir)
+	if dir == nil then dir = char.Direction end
+
+	GROUND:AnimateToPosition(char, "None", dir, char.Position.X, char.Position.Y, 1, 2, 10)
+	GROUND:AnimateToPosition(char, "None", dir, char.Position.X, char.Position.Y, 1, 2, 0)
+	GROUND:AnimateToPosition(char, "None", dir, char.Position.X, char.Position.Y, 1, 2, 10)
+	GROUND:AnimateToPosition(char, "None", dir, char.Position.X, char.Position.Y, 1, 2, 0)
 end
 
-function CharacterActions.LookAround(ent)
+--- Makes a character look around in random directions
+--- @param char any Character to be used
+function CharacterActions.LookAround(char)
 	local directions = {Direction.Up, Direction.UpRight, Direction.Right, Direction.DownRight, Direction.Down, Direction.DownLeft, Direction.Left, Direction.UpLeft}
 	
 	for i = 1, 5 do
-		GROUND:CharAnimateTurnTo(ent, directions[math.random(1, #directions)], 4)
+		GROUND:CharAnimateTurnTo(char, directions[math.random(1, #directions)], 4)
 		GAME:WaitFrames(15)
 	end
 end
 
+--- Semi-transparent "Dizzy" effect, used in places like the Temporal Scream cutscenes
 function CharacterActions.DizzyFade()
-	local bg_anim = RogueEssence.Content.BGAnimData("Black", 1, -1, -1, 128, Dir8.None)
+	local bg_anim = RogueEssence.Contchar.BGAnimData("Black", 1, -1, -1, 128, Dir8.None)
 	
-	local emitter = RogueEssence.Content.FiniteOverlayEmitter()
+	local emitter = RogueEssence.Contchar.FiniteOverlayEmitter()
 	emitter.Anim = bg_anim
 	emitter.Layer = DrawLayer.Top
 	
@@ -150,12 +173,14 @@ function CharacterActions.DizzyFade()
 	
 	emitter.Color = Color.White
 	
-	GROUND:PlayVFX(emitter, GAME:GetCameraCenter().X, GAME:GetCameraCenter().Y)
+	GROUND:PlayVFX(emitter, GAME:GetCameraCcharer().X, GAME:GetCameraCcharer().Y)
 	GAME:WaitFrames(30) -- wait for as long as the effect lasts
 end
 
-function CharacterActions.Explain(ent)
-	GROUND:CharSetAnim(ent, "Walk", true)
+--- Used when a character (usually the Hero Pokemon) is "Explaining" something, equivalent to CORO_EXPLANATION_FUNC_SERIES in SkyTemple
+--- @param char any Character to be used
+function CharacterActions.Explain(char)
+	GROUND:CharSetAnim(char, "Walk", true)
 	GAME:WaitFrames(45)
-	GROUND:CharEndAnim(ent)
+	GROUND:CharEndAnim(char)
 end

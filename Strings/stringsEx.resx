@@ -386,7 +386,7 @@
     <comment>[NOTE: Lookalike Items are currently not planned, so this may go unused.]</comment>
   </data>
   <data name="TUTORIAL_MONEY" xml:space="preserve">
-    <value>\u{E023} is this world's money! Save it up to buy useful items for your adventures!</value>
+    <value>\uE023 is this world's money! Save it up to buy useful items for your adventures!</value>
   </data>
   <data name="SHOP_INTRO_A" xml:space="preserve">
     <value>Welcome to the {0} Shop! ♪</value>

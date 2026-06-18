@@ -1,4 +1,65 @@
+require 'eos.common'
+require 'eos.ExplorerEssentials'
+require 'eos.CharacterActions'
 
+-- Package name
+local drenched_bluff_end = {}
+
+-------------------------------
+-- Map Callbacks
+-------------------------------
+---drenched_bluff_end.Init(map)
+--Engine callback function
+function drenched_bluff_end.Init(map)
+
+    COMMON.RespawnStarterPartner()
+end
+
+---drenched_bluff_end.Enter(map)
+--Engine callback function
+function drenched_bluff_end.Enter(map)
+
+    if SV.Progression.Chapter == 2 then
+        drenched_bluff_end.CH2_FoundPearl()
+    else
+        drenched_bluff_end.COMMON_NothingHere()
+    end
+
+end
+
+---drenched_bluff_end.Exit(map)
+--Engine callback function
+function drenched_bluff_end.Exit(map)
+
+
+end
+
+---drenched_bluff_end.Update(map)
+--Engine callback function
+function drenched_bluff_end.Update(map)
+
+
+end
+
+---drenched_bluff_end.GameSave(map)
+--Engine callback function
+function drenched_bluff_end.GameSave(map)
+
+
+end
+
+---drenched_bluff_end.GameLoad(map)
+--Engine callback function
+function drenched_bluff_end.GameLoad(map)
+
+  GAME:FadeIn(20)
+
+end
+
+-------------------------------
+-- Entities Callbacks
+-------------------------------
+---
 function drenched_bluff_end.COMMON_NothingHere()
     --[[
 def 0 {
@@ -199,54 +260,99 @@ def 0 {
 	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
 	SOUND:StopBGM()
-	-- TODO: back_SetDungeonBanner(3, 0)
-	GAME:FadeIn(16)
+
+	UI:WaitShowTitle(GAME:GetCurrentGround().Name:ToLocal(), 16)
 	GAME:WaitFrames(60)
-	GAME:FadeOut(false, 16)
+	UI:WaitHideTitle(16)
+  
 	GAME:WaitFrames(15)
+    
 	-- TODO: $SCENARIO_MAIN = scn[3, 6]
 	-- TODO: @label_3
 	-- back_SetGround(LEVEL_D02P31A) (Should be the map you're currently on, or the map it sends you to next)
 	-- ### supervision_Acting(0) [IRRELEVANT]
-	GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
+	ExplorerEssentials.SetupCameraPos(29.5, 36) -- 29.5, 36
+    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 31.5, 42.5, Direction.Up) -- player 31.5, 42.5
+    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 27.5, 43.5, Direction.Up) -- partner 27.5, 43.5
+    ExplorerEssentials.SetupInitialPos(OBJ('SpoinkPearl'), 29.5, 22, Direction.Down) -- pearl 29.5, 22 (obj d02p31a1)
+
 	GAME:WaitFrames(1)
-	GROUND:MoveToPosition(CH('PLAYER'), 256, 284, false, 2)
-	GROUND:MoveToPosition(CH('PARTNER'), 224, 284, false, 2)
-	SOUND:PlayBGM("006 - In The Depths Of The Pit.ogg")
-	GAME:FadeIn(30)
+	
+    local coro1 = TASK:BranchCoroutine(function ()
+        GROUND:MoveToPosition(CH('PLAYER'), 256, 284, false, 2)
+    end)
+    local coro2 = TASK:BranchCoroutine(function ()
+        GROUND:MoveToPosition(CH('PARTNER'), 224, 284, false, 2)
+    end)
+    local coro3 = TASK:BranchCoroutine(function () 
+        SOUND:PlayBGM("006 - In The Depths Of The Pit.ogg")
+	    GAME:FadeIn(30)
+    end)
+    TASK:JoinCoroutines({coro1, coro2, coro3})
+	
 	-- !! WaitExecuteLives(ACTOR_PLAYER)
 	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+
 	SOUND:PlayBattleSE("EVT_Emote_Exclaim_2")
 	GROUND:CharSetEmote(CH('PARTNER'), "exclaim", 1)
 	GAME:WaitFrames(30)
 	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+
 	UI:SetSpeaker(CH('PARTNER'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_PARTNER_1_'..tostring(pTalkKind)]))
-	-- Moving Camera to (240, 196) with speed 2 and performer 0 | Duration has to be replaced manually. The reason the duration is so complicated is because Vanilla EoS camera movement measures in *speed*, not total duration
-	GAME:MoveCamera(240, 196, 60, false)
-	GROUND:MoveToPosition(CH('PLAYER'), 256, 204, false, 2)
-	GAME:WaitFrames(5)
-	GROUND:MoveToPosition(CH('PARTNER'), 224, 204, false, 2)
-	-- !! WaitExecuteLives(ACTOR_PLAYER)
-	GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.UpLeft, 4)
-	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
-	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.UpRight, 4)
-	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
-	GAME:WaitFrames(30)
+
+    local coro1 = TASK:BranchCoroutine(function () -- camera
+        ExplorerEssentials.MoveCameraAtSpeed(240, 196, 2, false)
+    end)
+    local coro2 = TASK:BranchCoroutine(function () -- player
+        GROUND:MoveToPosition(CH('PLAYER'), 256, 204, false, 2)
+        GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.UpLeft, 4)
+    end)
+    local coro3 = TASK:BranchCoroutine(function () -- partner
+        GAME:WaitFrames(5)
+	    GROUND:MoveToPosition(CH('PARTNER'), 224, 204, false, 2)
+        GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.UpRight, 4)
+    end)
+    TASK:JoinCoroutines({coro1, coro2, coro3})
+	
+    GAME:WaitFrames(30)
 	GROUND:CharTurnToCharAnimated(CH('PARTNER'), CH('PLAYER'), 4)
 	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
-	GROUND:CharTurnToCharAnimated(CH('PLAYER'), CH('PARTNER'), 4)
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_PARTNER_2_'..tostring(pTalkKind)], CH('Spoink'):GetDisplayName()))
+
+	local coro1 = TASK:BranchCoroutine(function () 
+        GROUND:CharTurnToCharAnimated(CH('PLAYER'), CH('PARTNER'), 4)
+    end)
+    local coro2 = TASK:BranchCoroutine(function () 
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_PARTNER_2_'..tostring(pTalkKind)], CH('Spoink'):GetDisplayName()))
+    end)
+    TASK:JoinCoroutines({coro1, coro2})
+	
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_PARTNER_3_'..tostring(pTalkKind)]))
-	GROUND:MoveToPosition(CH('PLAYER'), CH('PLAYER').Position.X + -16, CH('PLAYER').Position.Y + -16, false, 0)
-	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.UpRight, 4)
+
+    local coro1 = TASK:BranchCoroutine(function () 
+        ExplorerEssentials.MoveToPositionOffset(CH('PLAYER'), -16, -16, false, 1)
+    end)
+    local coro2 = TASK:BranchCoroutine(function () 
+        GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.UpRight, 4)
+    end)
+	TASK:JoinCoroutines({coro1, coro2})
+	
 	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
-	GAME:WaitFrames(30)
-	SOUND:FadeOutBGM(120)
-	GAME:FadeOut(false, 60)
+
+    local coro1 = TASK:BranchCoroutine(function () 
+        GAME:WaitFrames(30)
+	    GAME:FadeOut(false, 60)
+    end)
+    local coro2 = TASK:BranchCoroutine(function () 
+        SOUND:FadeOutBGM(120)
+    end)
+	TASK:JoinCoroutines({coro1, coro2})
+
 	-- TODO: WaitBgm(BGM_IN_THE_DEPTHS_OF_THE_PIT)
 	-- TODO: switch ( message_Menu(MENU_DUNGEON_TEAM_RETURNS_FROM_MAP) ) { }                 end
 
-    ExplorerEssentials.EndStoryDungeon(RogueEssence.Data.GameProgress.ResultType.Cleared, "hub", -1, 8, 0)
+    ExplorerEssentials.EndStoryDungeon(RogueEssence.Data.GameProgress.ResultType.Cleared, "hub", -1, 10, 0)
 end
+
+return drenched_bluff_end

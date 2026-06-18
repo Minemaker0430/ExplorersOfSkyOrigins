@@ -164,48 +164,48 @@
     <value>You two come here. ♪</value>
   </data>
   <data name="C_Chimecho_1" xml:space="preserve">
-		<value>Everyone![pause=0] Thanks for waiting! ♪</value>
-	</data>
-	<data name="C_Chimecho_2" xml:space="preserve">
-		<value>I finished making dinner! ♪</value>
-	</data>
-	<data name="C_Chimecho_3" xml:space="preserve">
-		<value>Come on! Dinner's on! ♪</value>
-	</data>
-	<data name="C_ALL_1" xml:space="preserve">
-		<value>YEAH!</value>
-	</data>
-		<data name="C_2_Chatot_1" xml:space="preserve">
-		<value>Ah, you two! ♪[pause=0] Let me give you your assignment for today...</value>
-	</data>
-	<data name="C_2_Chatot_2" xml:space="preserve">
-		<value>Look up jobs on the Job Bulletin Board and the Outlaw Notice Board.</value>
-	</data>
-	<data name="C_2_Chatot_3" xml:space="preserve">
-		<value>Do the listed jobs. That will do for today! ♪</value>
-	</data>
-	<data name="C_2_Chatot_4" xml:space="preserve">
-		<value>Understood? No shirking your work, OK?</value>
-	</data>
-	<data name="C_2_Chatot_5" xml:space="preserve">
-		<value>Well? If you understand, get on with it!</value>
-	</data>
-	<data name="C_3_Chatot_1" xml:space="preserve">
-		<value>Ah, you two! ♪[pause=0] Let me give you your assignment for today...</value>
-	</data>
-	<data name="C_3_Chatot_2" xml:space="preserve">
-		<value>Sentry duty! That's what we'll have you do today.</value>
-	</data>
-	<data name="C_3_Chatot_3" xml:space="preserve">
-		<value>I'll leave you to it! ♪</value>
-	</data>
-	<data name="C_4_ALL_1" xml:space="preserve">
-		<value>AND...THREE![pause=0] SMILES GO FOR MILES!</value>
-	</data>
-	<data name="C_4_Chatot_1" xml:space="preserve">
-		<value>OK, Pokémon! ♪[pause=0] Time to get to work! ♪</value>
-	</data>
-	<data name="C_4_ALL_2" xml:space="preserve">
-		<value>HOORAY!</value>
-	</data>
+    <value>Everyone![pause=0] Thanks for waiting! ♪</value>
+  </data>
+  <data name="C_Chimecho_2" xml:space="preserve">
+    <value>I finished making dinner! ♪</value>
+  </data>
+  <data name="C_Chimecho_3" xml:space="preserve">
+    <value>Come on! Dinner's on! ♪</value>
+  </data>
+  <data name="C_ALL_1" xml:space="preserve">
+    <value>YEAH!</value>
+  </data>
+  <data name="C_2_Chatot_1" xml:space="preserve">
+    <value>Ah, you two! ♪[pause=0] Let me give you your assignment for today...</value>
+  </data>
+  <data name="C_2_Chatot_2" xml:space="preserve">
+    <value>Look up jobs on the Job Bulletin Board and the Outlaw Notice Board.</value>
+  </data>
+  <data name="C_2_Chatot_3" xml:space="preserve">
+    <value>Do the listed jobs. That will do for today! ♪</value>
+  </data>
+  <data name="C_2_Chatot_4" xml:space="preserve">
+    <value>Understood? No shirking your work, OK?</value>
+  </data>
+  <data name="C_2_Chatot_5" xml:space="preserve">
+    <value>Well? If you understand, get on with it!</value>
+  </data>
+  <data name="C_3_Chatot_1" xml:space="preserve">
+    <value>Ah, you two! ♪[pause=0] Let me give you your assignment for today...</value>
+  </data>
+  <data name="C_3_Chatot_2" xml:space="preserve">
+    <value>Sentry duty! That's what we'll have you do today.</value>
+  </data>
+  <data name="C_3_Chatot_3" xml:space="preserve">
+    <value>I'll leave you to it! ♪</value>
+  </data>
+  <data name="C_4_ALL_1" xml:space="preserve">
+    <value>AND...THREE![pause=0] SMILES GO FOR MILES!</value>
+  </data>
+  <data name="C_4_Chatot_1" xml:space="preserve">
+    <value>OK, Pokémon! ♪[pause=0] Time to get to work! ♪</value>
+  </data>
+  <data name="C_4_ALL_2" xml:space="preserve">
+    <value>HOORAY!</value>
+  </data>
 </root>

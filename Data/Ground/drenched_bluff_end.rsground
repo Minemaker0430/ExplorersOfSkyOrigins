@@ -1,5 +1,5 @@
 ﻿{
-"Version": "0.8.11.0",
+"Version": "0.8.12.0",
 "Object": {
 "$type": "RogueEssence.Ground.GroundMap, RogueEssence",
 "TexSize": 1,
@@ -161581,7 +161581,7 @@
 }
 ],
 "AssetName": "drenched_bluff_end",
-"Music": "006 - In the Depths of the Pit.ogg",
+"Music": "",
 "EdgeView": 1,
 "NoSwitching": false,
 "ViewCenter": null,
@@ -161613,8 +161613,8 @@
 "triggerType": 0,
 "ObjectAnim": {
 "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
-"AnimIndex": "RelicFragment",
-"FrameTime": 1,
+"AnimIndex": "SpoinkPearl",
+"FrameTime": 6,
 "StartFrame": -1,
 "EndFrame": -1,
 "AnimDir": -1,
@@ -161641,8 +161641,8 @@
 "Y": 0
 },
 "Collider": {
-"X": 232,
-"Y": 172,
+"X": -20,
+"Y": 236,
 "Width": 16,
 "Height": 16
 }
@@ -161651,7 +161651,7 @@
 "Spawners": [],
 "Markers": [
 {
-"EntName": "Enter",
+"EntName": "Entrance",
 "Direction": 0,
 "EntEnabled": true,
 "EntOrder": 0,
