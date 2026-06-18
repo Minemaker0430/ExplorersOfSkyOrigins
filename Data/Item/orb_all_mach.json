@@ -3,11 +3,11 @@
 "Object": {
 "$type": "RogueEssence.Data.ItemData, RogueEssence",
 "Name": {
-"DefaultText": "Blowback Orb",
+"DefaultText": "All-Mach Orb",
 "LocalTexts": {}
 },
 "Desc": {
-"DefaultText": "An orb that flings nearby targets into the distance. It affects all enemies in a cone up to 5 tiles away.",
+"DefaultText": "An orb that drastically boosts movement speed. It affects team members up to 5 tiles away.",
 "LocalTexts": {}
 },
 "Released": true,
@@ -15,7 +15,7 @@
 "Sprite": "Orb_Green",
 "Icon": 9,
 "SortCategory": 11,
-"Price": 30,
+"Price": 40,
 "Rarity": 0,
 "MaxStack": 0,
 "CannotDrop": false,
@@ -34,7 +34,7 @@
 },
 "HitTiles": false,
 "BurstTiles": 0,
-"HitArea": 1,
+"HitArea": 0,
 "Range": 5,
 "Speed": 10,
 "CharAnimData": {
@@ -42,7 +42,7 @@
 "Process": 0,
 "AnimOverride": 0
 },
-"TargetAlignments": 4,
+"TargetAlignments": 3,
 "TileEmitter": {
 "$type": "RogueEssence.Content.EmptyFiniteEmitter, RogueEssence",
 "LocHeight": 0
@@ -85,29 +85,10 @@
 "ActionFX": {
 "Delay": 0,
 "AbsoluteDelay": false,
-"Sound": "DUN_Disable",
+"Sound": "",
 "Emitter": {
-"$type": "RogueEssence.Content.SingleEmitter, RogueEssence",
-"LocHeight": 0,
-"finished": false,
-"Offset": 0,
-"Anim": {
-"$type": "RogueEssence.Content.StaticAnim, RogueEssence",
-"Anim": {
-"AnimIndex": "Circle_Yellow_Out",
-"FrameTime": 3,
-"StartFrame": -1,
-"EndFrame": -1,
-"AnimDir": -1,
-"Alpha": 255,
-"AnimFlip": 0
-},
-"TotalTime": 0,
-"Cycles": 1,
-"FrameOffset": 0
-},
-"Layer": 2,
-"UseDest": false
+"$type": "RogueEssence.Content.EmptyFiniteEmitter, RogueEssence",
+"LocHeight": 0
 },
 "ScreenMovement": {
 "MinShake": 0,
@@ -118,7 +99,7 @@
 "LagBehindTime": 0
 },
 "Explosion": {
-"TargetAlignments": 4,
+"TargetAlignments": 3,
 "HitTiles": false,
 "Range": 0,
 "Speed": 0,
@@ -164,8 +145,17 @@
 ]
 },
 "Value": {
-"$type": "PMDC.Dungeon.KnockBackEvent, PMDC",
-"Distance": 16
+"$type": "PMDC.Dungeon.StatusStackBattleEvent, PMDC",
+"Stack": 3,
+"StatusID": "mod_speed",
+"AffectTarget": true,
+"SelfInflicted": false,
+"SilentCheck": false,
+"Anonymous": false,
+"TriggerMsg": {
+"Key": ""
+},
+"Anims": []
 }
 }
 ],

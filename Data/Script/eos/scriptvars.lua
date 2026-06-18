@@ -85,6 +85,7 @@ SV.ItemTutorials =
 	ViolentSeed = false,
 	MaxElixir = false,
 	WeatherOrb = false,
+	WeatherOrbAlt = false,
 	Ammo = false,
 	Lookalikes = false,
 	Money = false

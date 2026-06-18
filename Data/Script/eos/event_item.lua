@@ -137,6 +137,12 @@ function ITEM_SCRIPT.ItemTutorials(owner, ownerChar, context, args)
         UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_ORB_WEATHER"):ToLocal(), RogueEssence.Dungeon.InvItem("orb_weather"):GetDisplayName()))
         SV.ItemTutorials.WeatherOrb = true
         GAME:WaitFrames(20)
+    elseif (item.ID == "orb_sunny" or item.ID == "orb_rainy") and not SV.ItemTutorials.WeatherOrbAlt then
+        GAME:WaitFrames(20)
+        SOUND:PlayFanfare("Fanfare/Note")
+        UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_ORB_WEATHER_ALT"):ToLocal(), RogueEssence.Dungeon.InvItem("orb_rainy"):GetDisplayName(), RogueEssence.Dungeon.InvItem("orb_sunny"):GetDisplayName()))
+        SV.ItemTutorials.WeatherOrbAlt = true
+        GAME:WaitFrames(20)
     elseif item.ID == "ammo_geo_pebble" and not SV.ItemTutorials.Ammo then
         GAME:WaitFrames(20)
         SOUND:PlayFanfare("Fanfare/Note")

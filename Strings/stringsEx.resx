@@ -334,7 +334,7 @@
   </data>
   <data name="TUTORIAL_SEED_STUN" xml:space="preserve">
     <value>Throw a {0} at an enemy to stun it, making it unable to act...until it is attacked. Beware: eating it will stun you!</value>
-    <comment>[NOTE: STILL A WIP ITEM, WILL LIKELY BE NERFED] 0 = Stun Seed</comment>
+    <comment>[TODO: CHANGE WORDING] 0 = Stun Seed</comment>
   </data>
   <data name="TUTORIAL_SEED_WARP" xml:space="preserve">
     <value>If you eat a {0}, you'll be warped to a random tile on the same floor. If you throw it at an enemy, it will be warped away instead.</value>
@@ -361,6 +361,11 @@
     <value>The {0} is a strange Orb that can change the weather depending on who uses it! Changing the weather can help prevent damage from hail or other conditions.</value>
     <comment>0 = Weather Orb</comment>
   </data>
+  <data name="TUTORIAL_ORB_WEATHER_ALT" xml:space="preserve">
+    <value>The {0} and {1} are strange Orbs that can change the weather! Changing the weather can help prevent damage from hail or other conditions.</value>
+    <comment>0 = Rainy Orb
+1 = Sunny Orb</comment>
+  </data>
   <data name="TUTORIAL_AMMO_1" xml:space="preserve">
     <value>Throw {0}s at distant foes. Open the menu, select it from Items, then select Throw.</value>
     <comment>0 = Geo Pebble</comment>
@@ -385,9 +390,6 @@
   </data>
   <data name="SHOP_INTRO_A" xml:space="preserve">
     <value>Welcome to the {0} Shop! ♪</value>
-  </data>
-  <data name="SHOP_CONTINUE_A" xml:space="preserve">
-    <value>May I help you with anything else?</value>
   </data>
   <data name="SHOP_EXIT_A" xml:space="preserve">
     <value>Thanks! Please come again! ♪</value>
@@ -491,11 +493,11 @@
   <data name="SHOP_INTRO_B" xml:space="preserve">
     <value>Welcome to {0} Wares, where you can find Orbs and TMs! ♪</value>
   </data>
+  <data name="SHOP_CONTINUE_A" xml:space="preserve">
+    <value>May I help you with anything else?</value>
+  </data>
   <data name="SHOP_CONTINUE_B" xml:space="preserve">
     <value>May I assist you in any other way?</value>
-  </data>
-  <data name="SHOP_EXIT_B" xml:space="preserve">
-    <value>Thanks! Please come again! ♪</value>
   </data>
   <data name="SHOP_BUY_B" xml:space="preserve">
     <value>Ah, very well! Take a look at my merchandise. All chosen with pride! ♪ (You can use {0} to choose multiple items.)</value>
@@ -524,11 +526,11 @@
   <data name="SHOP_SELL_MANY_B" xml:space="preserve">
     <value>I will pay \uE024{0}\uE023 for everything you're offering. Is that acceptable?</value>
   </data>
+  <data name="SHOP_EXIT_B" xml:space="preserve">
+    <value>Thanks! Please come again! ♪</value>
+  </data>
   <data name="SHOP_SELL_CONFIRM_B" xml:space="preserve">
     <value>We have a deal! Thank you! ♪</value>
-  </data>
-  <data name="SHOP_EMPTY_B_0" xml:space="preserve">
-    <value>You know...[pause=0]I'm sold out. So sorry, my friend.</value>
   </data>
   <data name="SHOP_EMPTY_B_1" xml:space="preserve">
     <value>Tomorrow! Tomorrow I shall have more wares!</value>
@@ -603,23 +605,23 @@
   <data name="STORAGE_STORE_MORE" xml:space="preserve">
     <value>Care to store anything else?</value>
   </data>
+  <data name="SHOP_EMPTY_B_0" xml:space="preserve">
+    <value>You know...[pause=0]I'm sold out. So sorry, my friend.</value>
+  </data>
   <data name="STORAGE_STORE_ONE" xml:space="preserve">
     <value>I'll put your {0} in storage, OK?</value>
   </data>
   <data name="STORAGE_STORE_MANY" xml:space="preserve">
     <value>I'll put the items you chose in storage, OK?</value>
   </data>
-  <data name="STORAGE_STORE_CONFIRM" xml:space="preserve">
-    <value>OK, stored away! You can count on me, honey.</value>
-  </data>
   <data name="STORAGE_TAKE" xml:space="preserve">
     <value>What will you take out? (You can use {0} to choose more than one item.)</value>
   </data>
+  <data name="STORAGE_STORE_CONFIRM" xml:space="preserve">
+    <value>OK, stored away! You can count on me, honey.</value>
+  </data>
   <data name="STORAGE_TAKE_MORE" xml:space="preserve">
     <value>Care to take out anything else?</value>
-  </data>
-  <data name="STORAGE_TAKE_ONE" xml:space="preserve">
-    <value>I'll take your {0} out of storage, OK?</value>
   </data>
   <data name="STORAGE_TAKE_MANY" xml:space="preserve">
     <value>I'll take the items you chose out of storage, OK?</value>
@@ -959,17 +961,20 @@ were my very own! ♪</value>
   <data name="SWAP_ITEM_INFO_0" xml:space="preserve">
     <value>If you look up the Info on items, the ones that are Exclusive Items will have this \uE10C mark on them.</value>
   </data>
+  <data name="STORAGE_TAKE_ONE" xml:space="preserve">
+    <value>I'll take your {0} out of storage, OK?</value>
+  </data>
   <data name="SWAP_ITEM_INFO_1" xml:space="preserve">
     <value>You'll need a set of items with the \uE10C mark to do the swap.</value>
+  </data>
+  <data name="SWAP_ITEM_INFO_3" xml:space="preserve">
+    <value>You could swap them for a {0}. Get it?</value>
+    <comment>{0} = Flash Tag</comment>
   </data>
   <data name="SWAP_ITEM_INFO_2" xml:space="preserve">
     <value>Let me give you an example.[pause=0] Let's say you have a {0} and
 a {1)...</value>
     <comment>{0} = Shinx Claw, {1} = Shinx Fang</comment>
-  </data>
-  <data name="SWAP_ITEM_INFO_3" xml:space="preserve">
-    <value>You could swap them for a {0}. Get it?</value>
-    <comment>{0} = Flash Tag</comment>
   </data>
   <data name="SWAP_ITEM_INFO_4" xml:space="preserve">
     <value>Also,[pause=0] you don't have to be limited to just your Treasure Bag...</value>

@@ -1,113 +1,61 @@
 ﻿{
-"Version": "0.8.11.0",
+"Version": "0.8.10.0",
 "Object": {
 "$type": "RogueEssence.Data.ItemData, RogueEssence",
 "Name": {
-"DefaultText": "Blowback Orb",
+"DefaultText": "Recovery Scarf",
 "LocalTexts": {}
 },
 "Desc": {
-"DefaultText": "An orb that flings nearby targets into the distance. It affects all enemies in a cone up to 5 tiles away.",
+"DefaultText": "A held item that causes the Pokémon to recover faster from status problems.",
 "LocalTexts": {}
 },
 "Released": true,
 "Comment": "",
-"Sprite": "Orb_Green",
-"Icon": 9,
-"SortCategory": 11,
-"Price": 30,
+"Sprite": "Scarf_Green",
+"Icon": -1,
+"SortCategory": 1,
+"Price": 250,
 "Rarity": 0,
 "MaxStack": 0,
 "CannotDrop": false,
 "BagEffect": false,
 "ItemStates": [
 {
-"$type": "PMDC.Dungeon.OrbState, PMDC"
+"$type": "PMDC.Dungeon.EquipState, PMDC"
+},
+{
+"$type": "PMDC.Dungeon.HeldState, PMDC"
 }
 ],
 "GroundUseActions": [],
 "UseAction": {
-"$type": "RogueEssence.Dungeon.AreaAction, RogueEssence",
-"Emitter": {
-"$type": "RogueEssence.Content.EmptyCircleSquareEmitter, RogueEssence",
-"LocHeight": 0
-},
+"$type": "RogueEssence.Dungeon.AttackAction, RogueEssence",
 "HitTiles": false,
 "BurstTiles": 0,
-"HitArea": 1,
-"Range": 5,
-"Speed": 10,
+"Emitter": {
+"$type": "RogueEssence.Content.EmptyFiniteEmitter, RogueEssence",
+"LocHeight": 0
+},
+"WideAngle": 0,
 "CharAnimData": {
 "$type": "RogueEssence.Dungeon.CharAnimProcess, RogueEssence",
 "Process": 0,
 "AnimOverride": 0
 },
-"TargetAlignments": 4,
+"TargetAlignments": 0,
 "TileEmitter": {
 "$type": "RogueEssence.Content.EmptyFiniteEmitter, RogueEssence",
 "LocHeight": 0
 },
-"PreActions": [
-{
-"Delay": 10,
-"AbsoluteDelay": false,
-"Sound": "DUN_Move_Start",
-"Emitter": {
-"$type": "RogueEssence.Content.SingleEmitter, RogueEssence",
-"LocHeight": 0,
-"finished": false,
-"Offset": 0,
-"Anim": {
-"$type": "RogueEssence.Content.StaticAnim, RogueEssence",
-"Anim": {
-"AnimIndex": "Charge_Up",
-"FrameTime": 3,
-"StartFrame": -1,
-"EndFrame": -1,
-"AnimDir": -1,
-"Alpha": 255,
-"AnimFlip": 0
-},
-"TotalTime": 0,
-"Cycles": 1,
-"FrameOffset": 0
-},
-"Layer": 2,
-"UseDest": false
-},
-"ScreenMovement": {
-"MinShake": 0,
-"MaxShake": 0,
-"MaxShakeTime": 0
-}
-}
-],
+"PreActions": [],
 "ActionFX": {
 "Delay": 0,
 "AbsoluteDelay": false,
-"Sound": "DUN_Disable",
+"Sound": "",
 "Emitter": {
-"$type": "RogueEssence.Content.SingleEmitter, RogueEssence",
-"LocHeight": 0,
-"finished": false,
-"Offset": 0,
-"Anim": {
-"$type": "RogueEssence.Content.StaticAnim, RogueEssence",
-"Anim": {
-"AnimIndex": "Circle_Yellow_Out",
-"FrameTime": 3,
-"StartFrame": -1,
-"EndFrame": -1,
-"AnimDir": -1,
-"Alpha": 255,
-"AnimFlip": 0
-},
-"TotalTime": 0,
-"Cycles": 1,
-"FrameOffset": 0
-},
-"Layer": 2,
-"UseDest": false
+"$type": "RogueEssence.Content.EmptyFiniteEmitter, RogueEssence",
+"LocHeight": 0
 },
 "ScreenMovement": {
 "MinShake": 0,
@@ -118,7 +66,7 @@
 "LagBehindTime": 0
 },
 "Explosion": {
-"TargetAlignments": 4,
+"TargetAlignments": 0,
 "HitTiles": false,
 "Range": 0,
 "Speed": 0,
@@ -156,19 +104,7 @@
 "OnActions": [],
 "BeforeExplosions": [],
 "BeforeHits": [],
-"OnHits": [
-{
-"Key": {
-"str": [
-0
-]
-},
-"Value": {
-"$type": "PMDC.Dungeon.KnockBackEvent, PMDC",
-"Distance": 16
-}
-}
-],
+"OnHits": [],
 "OnHitTiles": [],
 "AfterActions": [],
 "ElementEffects": [],
@@ -193,7 +129,7 @@
 "AnimOverride": 0
 }
 },
-"UsageType": 1,
+"UsageType": 0,
 "ArcThrow": false,
 "BreakOnThrow": false,
 "ThrowAnim": {
@@ -240,7 +176,20 @@
 },
 "OnEquips": [],
 "OnPickups": [],
-"BeforeStatusAdds": [],
+"BeforeStatusAdds": [
+{
+"Key": {
+"str": [
+0
+]
+},
+"Value": {
+"$type": "PMDC.Dungeon.SelfCurerEvent, PMDC",
+"Numerator": 1,
+"Denominator": 2
+}
+}
+],
 "BeforeStatusAddings": [],
 "OnStatusAdds": [],
 "OnStatusRemoves": [],

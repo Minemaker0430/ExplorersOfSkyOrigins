@@ -7,15 +7,15 @@
 "LocalTexts": {}
 },
 "Desc": {
-"DefaultText": "A seed that Paralyzes the Pokémon for many turns.",
+"DefaultText": "A seed that paralyzes the Pokémon for a few turns.",
 "LocalTexts": {}
 },
 "Released": true,
 "Comment": "",
-"Sprite": "Seed_DarkBlue",
+"Sprite": "Seed_LightYellow",
 "Icon": 4,
 "SortCategory": 7,
-"Price": 5,
+"Price": 16,
 "Rarity": 0,
 "MaxStack": 0,
 "CannotDrop": false,
@@ -105,11 +105,26 @@
 ]
 },
 "Value": {
+"$type": "PMDC.Dungeon.RestoreBellyEvent, PMDC",
+"BoostAnims": [],
+"Heal": 3,
+"Msg": false,
+"AddMaxBelly": 0,
+"NeedFullBelly": false
+}
+},
+{
+"Key": {
+"str": [
+0
+]
+},
+"Value": {
 "$type": "PMDC.Dungeon.StatusStateBattleEvent, PMDC",
 "States": [
 {
 "$type": "RogueEssence.Dungeon.CountDownState, RogueEssence",
-"Counter": 11
+"Counter": 7
 }
 ],
 "StatusID": "paralyze",
@@ -121,21 +136,6 @@
 "Key": ""
 },
 "Anims": []
-}
-},
-{
-"Key": {
-"str": [
-0
-]
-},
-"Value": {
-"$type": "PMDC.Dungeon.RestoreBellyEvent, PMDC",
-"BoostAnims": [],
-"Heal": 3,
-"Msg": false,
-"AddMaxBelly": 0,
-"NeedFullBelly": false
 }
 }
 ],
