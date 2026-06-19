@@ -32,7 +32,7 @@ end
 function ExplorerEssentials.GetFormattedMoney(value)
 	local e = math.log(value, 10) -- get exponent
 	if e < 3 then
-		return "[color=#00FF00]\u{E024}" .. value .. "[/color]\u{E023}"
+		return "[color=#00FF00]\u{E024}" .. value .. "[color]\u{E023}"
 	end
 
 	local ret
@@ -45,7 +45,7 @@ function ExplorerEssentials.GetFormattedMoney(value)
 		e = e - 1
 	end
 
-	return "[color=#00FF00]\u{E024}" .. ret .. "[/color]\u{E023}"
+	return "[color=#00FF00]\u{E024}" .. ret .. "[color]\u{E023}"
 end
 
 --- Sets the Player to a specific Pokemon on a Ground Map

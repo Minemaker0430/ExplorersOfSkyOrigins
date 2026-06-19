@@ -147,7 +147,7 @@ function ITEM_SCRIPT.ItemTutorials(owner, ownerChar, context, args)
         GAME:WaitFrames(20)
         SOUND:PlayFanfare("Fanfare/Note")
         UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_AMMO_1"):ToLocal(), RogueEssence.Dungeon.InvItem("ammo_geo_pebble"):GetDisplayName()))
-        UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_AMMO_2"):ToLocal(), RogueEssence.Dungeon.InvItem("ammo_geo_pebble"):GetDisplayName(), RogueEssence.Dungeon.InvItem("ammo_stick"):GetDisplayName(), STRINGS:LocalKeyString(9)))
+        UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_AMMO_2"):ToLocal(), RogueEssence.Dungeon.InvItem("ammo_geo_pebble"):GetDisplayName(), RogueEssence.Dungeon.InvItem("ammo_stick"):GetDisplayName(), STRINGS:LocalKeyString(23)))
         SV.ItemTutorials.Ammo = true
         GAME:WaitFrames(20)
     elseif item.ID == "fake_berry_oran" and not SV.ItemTutorials.Lookalikes then
