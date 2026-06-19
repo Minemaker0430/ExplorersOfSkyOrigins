@@ -97,6 +97,10 @@
     <value>Chapter 4</value>
     <comment>USED ONLY FOR THE DEMO ROOM</comment>
   </data>
+  <data name="DEMO_CH5" xml:space="preserve">
+    <value>Chapter 5</value>
+    <comment>USED ONLY FOR THE DEMO ROOM</comment>
+  </data>
   <data name="DEMO_CH6" xml:space="preserve">
     <value>Chapter 6</value>
     <comment>USED ONLY FOR THE DEMO ROOM</comment>
@@ -612,10 +616,7 @@
     <value>I'm at my limit...</value>
     <comment>Mission Body Text Top- Target is Client</comment>
   </data>
-  <data name="DEMO_CH5" xml:space="preserve">
-    <value>Chapter 5</value>
-    <comment>USED ONLY FOR THE DEMO ROOM</comment>
-  </data>
+  
   <data name="MISSION_BODY_TOP_RESCUE_SELF_007" xml:space="preserve">
     <value>I'm about to faint...</value>
     <comment>Mission Body Text Top- Target is Client</comment>
