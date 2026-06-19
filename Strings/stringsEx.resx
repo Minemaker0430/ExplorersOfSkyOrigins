@@ -391,6 +391,18 @@
   <data name="MENU_ITEMS_ALT" xml:space="preserve">
     <value>Four Item Inventory</value>
   </data>
+  <data name="MENU_MAIN_TEAM" xml:space="preserve">
+    <value>Team {0}</value>
+  </data>
+  <data name="MENU_MAIN_RANK" xml:space="preserve">
+    <value>Rank: {0}</value>
+  </data>
+  <data name="MENU_MAIN_TONEXT" xml:space="preserve">
+    <value>To Next: [color=#00FFFF]{0}[color]</value>
+  </data>
+  <data name="MENU_MAIN_MAXRANK" xml:space="preserve">
+    <value>Maxed!</value>
+  </data>
   <data name="SHOP_INTRO_A" xml:space="preserve">
     <value>Welcome to the {0} Shop! ♪</value>
   </data>

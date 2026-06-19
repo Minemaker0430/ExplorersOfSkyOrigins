@@ -40,12 +40,74 @@ end
 ---------------------------------------------------------------]]
 function MenuTools:OnMenuButtonPressed()
   -- TODO: Remove this when the memory leak is fixed or confirmed not a leak
+
   if MenuTools.MainMenu == nil then
     MenuTools.MainMenu = RogueEssence.Menu.MainMenu()
   end
+
   MenuTools.MainMenu:SetupChoices()
   MenuTools.MainMenu:SetupTitleAndSummary()
+
+  -- custom summary stuff
+  if RogueEssence.GameManager.Instance.CurrentScene ~= RogueEssence.Dungeon.DungeonScene.Instance then
+    
+    local hpStr = RogueEssence.Text.FormatKey("MENU_TEAM_HP")
+    local bellyStr = RogueEssence.Text.FormatKey("MENU_TEAM_HUNGER")
+
+    -- hide hp and belly on ground maps
+    local elements = MenuTools.MainMenu.SummaryElements
+    for i = 0, elements.Count - 1, 1 do
+      if elements[i].Text == hpStr or elements[i].Text == bellyStr then
+        elements[i]:SetText("")
+        elements[i + 1]:SetText("")
+        elements[i + 2]:SetText("")
+        elements[i + 3]:SetText("")
+      end
+    end
+    
+    local rank = _DATA.Save.ActiveTeam.Rank
+	  local next = _DATA:GetRank(rank).FameToNext - _DATA.Save.ActiveTeam.Fame 
+	
+    -- -1 to go represents max rank
+    if next < 0 then
+      next = RogueEssence.StringKey("MENU_MAIN_MAXRANK"):ToLocal()
+    end
+
+    local rankIcons = {
+      ["none"] = "RankGuildmaster",
+      ["normal"] = "RankNormal",
+      ["bronze"] = "RankBronze",
+      ["silver"] = "RankSilver",
+      ["gold"] = "RankGold",
+      ["diamond"] = "RankDiamond",
+      ["super"] = "RankSuper",
+      ["ultra"] = "RankUltra",
+      ["hyper"] = "RankHyper",
+      ["master"] = "RankMaster",
+      ["master_2"] = "RankMaster2",
+      ["master_3"] = "RankMaster3",
+      ["master_4"] = "RankMaster4",
+      ["guildmaster"] = "RankGuildmaster"
+    }
+
+    MenuTools.MainMenu.SummaryElements:Add(RogueEssence.Menu.MenuText(STRINGS:Format(RogueEssence.StringKey("MENU_MAIN_TEAM"):ToLocal(), GAME:GetTeamName()),
+										RogueElements.Loc(145, RogueEssence.Content.GraphicsManager.MenuBG.TileHeight), RogueElements.DirH.Left))
+  
+    MenuTools.MainMenu.SummaryElements:Add(RogueEssence.Menu.MenuText(STRINGS:Format(RogueEssence.StringKey("MENU_MAIN_RANK"):ToLocal(), _DATA:GetRank(rank):GetColoredName()),
+										RogueElements.Loc(180, RogueEssence.Content.GraphicsManager.MenuBG.TileHeight + 12), RogueElements.DirH.Left))
+	
+  	MenuTools.MainMenu.SummaryElements:Add(RogueEssence.Menu.MenuText(STRINGS:Format(RogueEssence.StringKey("MENU_MAIN_TONEXT"):ToLocal(), next),
+                    RogueElements.Loc(180, RogueEssence.Content.GraphicsManager.MenuBG.TileHeight + 24), RogueElements.DirH.Left))
+
+    MenuTools.MainMenu.SummaryElements:Add(RogueEssence.Menu.MenuDirTex(
+      RogueElements.Loc(145, RogueEssence.Content.GraphicsManager.MenuBG.TileHeight + 8), 
+      RogueEssence.Menu.MenuDirTex.TexType.Object, 
+      RogueEssence.Content.AnimData(rankIcons[rank], 1)
+    ))
+  end
+
   MenuTools.MainMenu:InitMenu()
+
   TASK:WaitTask(_MENU:ProcessMenuCoroutine(MenuTools.MainMenu))
 end
 
@@ -69,8 +131,7 @@ function MenuTools:OnAddMenu(menu)
     menu:ImportChoices(choices)
   end
 
-  if RogueEssence.GameManager.Instance.CurrentScene == RogueEssence.Dungeon.DungeonScene.Instance and
-      menu:HasLabel() and menu.Label == labels.INVENTORY_MENU then
+  if menu:HasLabel() and menu.Label == labels.INVENTORY_MENU then
     -- check for rank
     if _DATA.Save.ActiveTeam.Rank == "none" then
       menu.Title:SetText(RogueEssence.StringKey("MENU_ITEMS_ALT"):ToLocal())
