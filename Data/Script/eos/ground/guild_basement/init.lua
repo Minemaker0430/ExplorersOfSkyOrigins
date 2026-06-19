@@ -33,20 +33,24 @@ end
 ---guild_basement.Enter(map)
 --Engine callback function
 function guild_basement.Enter(map)
-  if SV.Progression.Chapter == 2 then
-    if SV.Progression.SectionFlag == 2 and not SV.Flags.SawDinnerCutscene then
-        guild_basement.COMMON_DinnerReady()
-    elseif SV.Progression.SectionFlag == 1 then
-        guild_basement.CH2_FirstMorning()
-        guild_basement.CH2_ChatotBeckons()
-    else
-        guild_basement.CH2_BasementTour()
+    if SV.Progression.Chapter == 2 then
+        if (not SV.Flags.SawDinnerCutscene) and SV.DailyFlags.EndedDay then
+            guild_basement.COMMON_DinnerReady()
+        elseif SV.Progression.SectionFlag == 1 and SV.drenched_bluff.TimesFailed > 0 then
+            guild_basement.COMMON_MorningCheer()
+        elseif SV.Progression.SectionFlag == 1 then
+            guild_basement.CH2_FirstMorning()
+            guild_basement.CH2_ChatotBeckons()
+        else
+            guild_basement.CH2_BasementTour()
+        end
+    elseif not SV.DailyFlags.DidMorningCheers then
+        guild_basement.COMMON_MorningCheer()
+    else -- No Cutscenes
+        ExplorerEssentials.SpawnPartner()
+
+        GAME:FadeIn(20)
     end
-  else -- No Cutscenes
-    ExplorerEssentials.SpawnPartner()
-    
-    GAME:FadeIn(20)
-  end
 
 end
 
@@ -155,6 +159,135 @@ end
 
 function guild_basement.COMMON_MorningCheer()
 	--[[
+
+    
+def 0 {
+    bgm_PlayFadeIn(BGM_WIGGLYTUFFS_GUILD, 0, 256);
+    $SCENARIO_MAIN_BIT_FLAG[1] = 0;
+    debug_Print('CHOUREI');
+    back_SetGround(LEVEL_G01P04A);
+    supervision_StationCommon(0);
+    supervision_StationCommon(10);
+    supervision_Acting(0);
+    supervision_Acting(1);
+    supervision_Acting(2);
+    SetPositionInitial<actor ACTOR_NPC_GUREGGURU>();
+    SetAnimation<actor ACTOR_NPC_GUREGGURU>(2);
+    SetPositionInitial<actor ACTOR_NPC_DOGOOMU>();
+    SetAnimation<actor ACTOR_NPC_DOGOOMU>(2);
+    SetPositionInitial<actor ACTOR_NPC_PERAPPU>();
+    SetAnimation<actor ACTOR_NPC_PERAPPU>(2);
+    SetPositionInitial<actor ACTOR_NPC_BIPPA>();
+    SetAnimation<actor ACTOR_NPC_BIPPA>(2);
+    camera_SetMyself<performer 0>();
+    screen_FadeIn(1, 30);
+    SetEffect<actor ACTOR_NPC_DAGUTORIO>(EFFECT_JOYOUS, 3);
+    SetEffect<actor ACTOR_NPC_DOGOOMU>(EFFECT_JOYOUS, 3);
+    SetEffect<actor ACTOR_NPC_CHIRIIN>(EFFECT_JOYOUS, 3);
+    SetEffect<actor ACTOR_NPC_KIMAWARI>(EFFECT_JOYOUS, 3);
+    SetEffect<actor ACTOR_ATTENDANT1>(EFFECT_JOYOUS, 3);
+    message_EmptyActor();
+    message_Talk({
+        english="[CS:N]Everyone[CR]: AND...THREE![K] SMILES GO FOR MILES!",
+    });
+    SetEffect<actor ACTOR_NPC_DAGUTORIO>(EFFECT_NONE, 3);
+    SetEffect<actor ACTOR_NPC_DOGOOMU>(EFFECT_NONE, 3);
+    SetEffect<actor ACTOR_NPC_CHIRIIN>(EFFECT_NONE, 3);
+    SetEffect<actor ACTOR_NPC_KIMAWARI>(EFFECT_NONE, 3);
+    SetEffect<actor ACTOR_ATTENDANT1>(EFFECT_NONE, 3);
+    message_Close();
+    Wait(15);
+    message_SetFace(ACTOR_NPC_PERAPPU, FACE_NORMAL, FACE_POS_TOP_R_FACEINW);
+    message_Talk({
+        english="""
+             OK, Pokémon! ♪[K] Time to get
+            to work! ♪
+        """,
+    });
+    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
+    SetEffect<actor ACTOR_NPC_DAGUTORIO>(EFFECT_JOYOUS, 3);
+    SetEffect<actor ACTOR_NPC_DOGOOMU>(EFFECT_JOYOUS, 3);
+    SetEffect<actor ACTOR_NPC_CHIRIIN>(EFFECT_JOYOUS, 3);
+    SetEffect<actor ACTOR_NPC_KIMAWARI>(EFFECT_JOYOUS, 3);
+    SetEffect<actor ACTOR_ATTENDANT1>(EFFECT_JOYOUS, 3);
+    Wait(1);
+    SetDirection<actor ACTOR_NPC_GUREGGURU>(DIR_UP);
+    SetAnimation<actor ACTOR_NPC_GUREGGURU>(23);
+    SetDirection<actor ACTOR_NPC_DAGUTORIO>(DIR_UP);
+    SetAnimation<actor ACTOR_NPC_DAGUTORIO>(23);
+    SetAnimation<actor ACTOR_NPC_CHIRIIN>(23);
+    SetAnimation<actor ACTOR_NPC_HEIGANI>(23);
+    SetAnimation<actor ACTOR_NPC_BIPPA>(24);
+    SetAnimation<actor ACTOR_NPC_DOGOOMU>(23);
+    SetAnimation<actor ACTOR_NPC_KIMAWARI>(23);
+    SetAnimation<actor ACTOR_NPC_DIGUDA>(25);
+    SetDirection<actor ACTOR_PLAYER>(DIR_UP);
+    SetAnimation<actor ACTOR_PLAYER>(66);
+    SetDirection<actor ACTOR_ATTENDANT1>(DIR_UP);
+    SetAnimation<actor ACTOR_ATTENDANT1>(66);
+    message_EmptyActor();
+    message_Talk({
+        english="[CS:N]Everyone[CR]: HOORAY!",
+    });
+    message_Close();
+    SetAnimation<actor ACTOR_NPC_GUREGGURU>(2);
+    SetAnimation<actor ACTOR_NPC_DAGUTORIO>(2);
+    SetAnimation<actor ACTOR_NPC_CHIRIIN>(2);
+    SetAnimation<actor ACTOR_NPC_HEIGANI>(2);
+    SetAnimation<actor ACTOR_NPC_BIPPA>(2);
+    SetAnimation<actor ACTOR_NPC_DOGOOMU>(2);
+    SetAnimation<actor ACTOR_NPC_KIMAWARI>(2);
+    SetAnimation<actor ACTOR_NPC_DIGUDA>(2);
+    SetAnimation<actor ACTOR_PLAYER>(2);
+    SetAnimation<actor ACTOR_ATTENDANT1>(2);
+    SetEffect<actor ACTOR_NPC_DAGUTORIO>(EFFECT_NONE, 3);
+    SetEffect<actor ACTOR_NPC_DOGOOMU>(EFFECT_NONE, 3);
+    SetEffect<actor ACTOR_NPC_CHIRIIN>(EFFECT_NONE, 3);
+    SetEffect<actor ACTOR_NPC_KIMAWARI>(EFFECT_NONE, 3);
+    SetEffect<actor ACTOR_ATTENDANT1>(EFFECT_NONE, 3);
+    MovePositionLives<performer 0>(1, ACTOR_PLAYER);
+    SetDirection<actor ACTOR_NPC_DAGUTORIO>(DIR_DOWN);
+    SetAnimation<actor ACTOR_NPC_DAGUTORIO>(25);
+    WaitAnimation<actor ACTOR_NPC_DAGUTORIO>();
+    Destroy<actor ACTOR_NPC_DAGUTORIO>();
+    SetDirection<actor ACTOR_NPC_DIGUDA>(DIR_DOWN);
+    SetAnimation<actor ACTOR_NPC_DIGUDA>(24);
+    WaitAnimation<actor ACTOR_NPC_DIGUDA>();
+    Destroy<actor ACTOR_NPC_DIGUDA>();
+    Turn2Direction<actor ACTOR_PLAYER>(8, 10, DIR_LEFT);
+    Turn2Direction<actor ACTOR_ATTENDANT1>(8, 10, DIR_LEFT);
+    MovePositionMark<actor ACTOR_NPC_PUKURIN>(1, Position<'m0', 52.5, 22.5>);
+    MovePositionMark<actor ACTOR_NPC_GUREGGURU>(1.1992, Position<'m1', 28, 31.5>);
+    MovePositionMark<actor ACTOR_NPC_CHIRIIN>(1.1992, Position<'m2', 40.5, 23.5>);
+    Wait(5);
+    MovePositionMark<actor ACTOR_NPC_HEIGANI>(1.1992, Position<'m3', 40.5, 23.5>);
+    MovePositionMark<actor ACTOR_NPC_DOGOOMU>(1.1992, Position<'m4', 30, 34>);
+    Move2PositionMark<actor ACTOR_NPC_BIPPA>(1.1992, Position<'m5', 40.5, 23.5>);
+    Move2PositionOffset<actor ACTOR_NPC_KIMAWARI>(1.1992, -32, 0);
+    Destroy<actor ACTOR_NPC_PUKURIN>();
+    Move2PositionMark<actor ACTOR_NPC_KIMAWARI>(1.1992, Position<'m6', 40.5, 23.5>);
+    MovePositionMark<actor ACTOR_NPC_CHIRIIN>(1.1992, Position<'m7', 40.5, 16.5>);
+    MovePositionMark<actor ACTOR_NPC_HEIGANI>(1.1992, Position<'m8', 40.5, 16.5>);
+    MovePositionMark<actor ACTOR_NPC_BIPPA>(1.1992, Position<'m9', 40.5, 16.5>);
+    supervision_RemoveActing(1);
+    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
+    switch ( sector() ) {
+        case 1:
+            @label_0;
+            bgm_FadeOut(120);
+            screen_FadeOut(1, 60);
+            WaitBgm(BGM_WIGGLYTUFFS_GUILD);
+            end;
+        case 2:
+            end;
+        default:
+            CallCommon(CORO_EVENT_END_MAPIN);
+            main_SetGround(LEVEL_G01P04A);
+            supervision_ExecuteStationCommon(LEVEL_G01P04A, 1);
+            end;
+    }
+}
+
 
 def 0 {
     bgm_PlayFadeIn(BGM_WIGGLYTUFFS_GUILD, 0, 256);
@@ -291,6 +424,20 @@ def 0 {
 
 ]]--
 
+    GAME:MoveCamera(416, 248, false) -- cam - 52, 31
+    GROUND:TeleportTo(CH('Chatot'), 452, 212, Direction.Down) -- chatot - 56.5, 26.5
+    GROUND:TeleportTo(CH('PLAYER'), 600, 268, Direction.Left) -- player - 75, 33.5
+    GROUND:TeleportTo(CH('PARTNER'), 560, 280, Direction.Left) -- partner - 70, 35
+    GROUND:TeleportTo(CH('Wigglytuff'), 416, 172, Direction.Down) -- wigglytuff - 52, 21.5
+    GROUND:TeleportTo(CH('Diglett'), 448, 264, Direction.Up) -- diglett - 56, 33
+    GROUND:TeleportTo(CH('Sunflora'), 448, 244, Direction.Up) -- sunflora - 56, 30.5
+    GROUND:TeleportTo(CH('Loudred'), 416, 264, Direction.Up) -- loudred - 52, 33
+    GROUND:TeleportTo(CH('Corphish'), 380, 264, Direction.Up) -- corphish - 47.5, 33
+    GROUND:TeleportTo(CH('Dugtrio'), 352, 264, Direction.UpRight) -- dugtrio - 44, 33
+    GROUND:TeleportTo(CH('Bidoof'), 416, 244, Direction.Up) -- bidoof - 52, 30.5
+    GROUND:TeleportTo(CH('Chimecho'), 380, 244, Direction.Up) -- chimecho - 47.5, 30.5
+    GROUND:TeleportTo(CH('Croagunk'), 352, 244, Direction.UpRight) -- croagunk - 44, 30.5
+
 	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
 	SOUND:PlayBGM("008 - Wigglytuff's Guild.ogg")
@@ -307,7 +454,7 @@ def 0 {
 	GROUND:CharSetAnim(CH('Loudred'), "None", false)
 	-- TODO: SetPositionInitial<actor ACTOR_NPC_PERAPPU>()
 	GROUND:CharSetAnim(CH('Chatot'), "None", false)
-	GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
+
 	GAME:FadeIn(30)
 	GROUND:CharSetEmote(CH('Dugtrio'), "glowing", 1)
 	GROUND:CharSetEmote(CH('Loudred'), "glowing", 1)
@@ -316,7 +463,8 @@ def 0 {
 	GROUND:CharSetEmote(CH('PARTNER'), "glowing", 1)
 	GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_ZUBATTO'), "glowing", 1)
 	GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_DOGAASU'), "glowing", 1)
-	ExplorerEssentials.SetSpeakerUnknown(nil)
+
+	UI:SetSpeaker("Everyone", true)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['C_4_ALL_1']))
 	GROUND:CharSetEmote(CH('Dugtrio'), "none", 1)
 	GROUND:CharSetEmote(CH('Loudred'), "none", 1)
@@ -398,6 +546,16 @@ def 0 {
 	GROUND:MoveToPosition(CH('Corphish'), 324, 132, false, 2)
 	GROUND:MoveToPosition(CH('Bidoof'), 324, 132, false, 2)
 	-- ### supervision_RemoveActing(1) [IRRELEVANT]
+
+    if SV.Progression.Chapter == 2 then -- time to go back to drenched bluff
+        local coro1 = TASK:BranchCoroutine(function () SOUND:FadeOutBGM(120) end)
+        local coro2 = TASK:BranchCoroutine(function () GAME:FadeOut(false, 60) end)
+        TASK:JoinCoroutines({coro1, coro2})
+        
+        GAME:EnterZone('drenched_bluff', -1, 0, 0)
+    else
+
+    end
 
 end
 
@@ -2390,7 +2548,7 @@ def 0 {
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_3']))
 
     -- Moving Camera to (416, 220) with speed 2 and performer 0 | Duration has to be replaced manually. The reason the duration is so complicated is because Vanilla EoS camera movement measures in *speed*, not total duration
-	local coro1 = TASK:BranchCoroutine(function() GAME:MoveCamera(416, 220, 60, false) end)
+	local coro1 = TASK:BranchCoroutine(function() ExplorerEssentials.MoveCameraAtSpeed(416, 220, 2, false) end)
     local coro2 = TASK:BranchCoroutine(function() 
                                                   GROUND:MoveToPosition(CH('Chatot'), 416, 220, false, 2)
                                                   GROUND:MoveToPosition(CH('Chatot'), 420, 200, false, 2)

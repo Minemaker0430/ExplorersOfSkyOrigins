@@ -156,3 +156,9 @@ end
 function ExplorerEssentials.MoveToPositionOffset(char, offx, offy, running, speed)
 	GROUND:MoveToPosition(char, char.Position.X + offx, char.Position.Y + offy, running, speed)
 end
+
+function ExplorerEssentials.ResetDailyFlags()
+	SV.DailyFlags.DidMorningCheers = false
+	SV.DailyFlags.EndedDay = false
+	SV.DailyFlags.SereneForestUnlocked = false
+end

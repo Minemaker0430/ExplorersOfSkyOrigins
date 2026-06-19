@@ -58,6 +58,13 @@ SV.Progression =
 	DaysToProgress = -1 --how many days until next flag, -1 means disabled
 }
 
+SV.DailyFlags =
+{
+	DidMorningCheers = false,
+	EndedDay = false,
+	SereneForestUnlocked = false -- used for the special "Oddity Cave" like dungeon
+}
+
 SV.Flags = 
 {
 	SawDinnerCutscene = false
@@ -97,15 +104,13 @@ SV.ItemTutorials =
 -------------------------------------------------
 --todo, move existing daily flags here
 --These flags are to be reset to their initial values at the end of the day.
-SV.DailyFlags =
+--[[SV.DailyFlags =
 {
   GreenKecleonRefreshedStock = false,
   GreenKecleonStock = {},
   PurpleKecleonRefreshedStock = false,
   PurpleKecleonStock = {},
-
-	SereneForestUnlocked = false -- used for the special "Oddity Cave" like dungeon
-}
+}]]
 
 --partner flags for imported follow script
 SV.partner =

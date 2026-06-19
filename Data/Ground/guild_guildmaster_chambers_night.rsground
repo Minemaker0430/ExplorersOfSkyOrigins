@@ -1,5 +1,5 @@
 ﻿{
-"Version": "0.8.11.0",
+"Version": "0.8.12.0",
 "Object": {
 "$type": "RogueEssence.Ground.GroundMap, RogueEssence",
 "TexSize": 3,
@@ -20841,6 +20841,1308 @@
 },
 "Tags": 0
 }
+],
+[
+{
+"Bounds": {
+"X": 384,
+"Y": 0,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 8,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 16,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 24,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 32,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 40,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 48,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 56,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 64,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 72,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 80,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 88,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 96,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 104,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 112,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 120,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 128,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 136,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 144,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 152,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 160,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 168,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 176,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 184,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 192,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 200,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 208,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 216,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 224,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 232,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 240,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 248,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 256,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 264,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 272,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 280,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 288,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 296,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 304,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 312,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 320,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 328,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 336,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 344,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 352,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 360,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 368,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 384,
+"Y": 376,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+}
+],
+[
+{
+"Bounds": {
+"X": 392,
+"Y": 0,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 8,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 16,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 24,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 32,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 40,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 48,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 56,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 64,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 72,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 80,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 88,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 96,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 104,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 112,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 120,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 128,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 136,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 144,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 152,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 160,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 168,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 176,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 184,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 192,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 200,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 208,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 216,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 224,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 232,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 240,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 248,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 256,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 264,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 272,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 280,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 288,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 296,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 304,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 312,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 320,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 328,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 336,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 344,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 352,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 360,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 368,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 392,
+"Y": 376,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+}
+],
+[
+{
+"Bounds": {
+"X": 400,
+"Y": 0,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 8,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 16,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 24,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 32,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 40,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 48,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 56,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 64,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 72,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 80,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 88,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 96,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 104,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 112,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 120,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 128,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 136,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 144,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 152,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 160,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 168,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 176,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 184,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 192,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 200,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 208,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 216,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 224,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 232,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 240,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 248,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 256,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 264,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 272,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 280,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 288,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 296,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 304,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 312,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 320,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 328,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 336,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 344,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 352,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 360,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 368,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+},
+{
+"Bounds": {
+"X": 400,
+"Y": 376,
+"Width": 8,
+"Height": 8
+},
+"Tags": 0
+}
 ]
 ],
 "rand": {
@@ -20893,97 +22195,641 @@
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 0
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 16
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 32
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 48
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 1
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 17
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 33
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 49
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 2
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 18
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 34
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 50
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 3
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 19
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 35
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 51
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 4
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 20
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 36
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 52
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 5
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 21
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 37
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 53
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 6
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 22
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 38
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 54
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 7
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 23
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 39
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 55
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 8
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 24
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 40
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 56
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 9
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 25
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 41
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 57
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 10
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 26
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 42
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 58
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 11
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 27
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 43
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 59
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 12
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 28
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 44
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 60
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 13
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 29
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 45
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 61
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 14
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 30
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 46
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 62
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 15
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 31
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 47
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 0,
+"Y": 63
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 }
 ],
@@ -20991,97 +22837,641 @@
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 0
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 16
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 32
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 48
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 1
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 17
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 33
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 49
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 2
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 18
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 34
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 50
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 3
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 19
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 35
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 51
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 4
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 20
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 36
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 52
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 5
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 21
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 37
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 53
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 6
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 22
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 38
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 54
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 7
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 23
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 39
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 55
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 8
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 24
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 40
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 56
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 9
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 25
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 41
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 57
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 10
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 26
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 42
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 58
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 11
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 27
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 43
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 59
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 12
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 28
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 44
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 60
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 13
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 29
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 45
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 61
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 14
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 30
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 46
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 62
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 15
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 31
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 47
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 1,
+"Y": 63
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 }
 ],
@@ -21089,97 +23479,641 @@
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 0
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 16
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 32
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 48
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 1
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 17
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 33
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 49
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 2
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 18
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 34
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 50
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 3
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 19
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 35
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 51
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 4
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 20
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 36
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 52
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 5
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 21
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 37
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 53
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 6
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 22
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 38
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 54
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 7
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 23
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 39
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 55
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 8
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 24
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 40
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 56
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 9
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 25
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 41
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 57
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 10
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 26
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 42
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 58
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 11
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 27
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 43
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 59
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 12
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 28
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 44
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 60
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 13
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 29
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 45
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 61
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 14
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 30
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 46
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 62
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 15
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 31
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 47
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 2,
+"Y": 63
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 }
 ],
@@ -21187,97 +24121,641 @@
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 0
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 16
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 32
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 48
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 1
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 17
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 33
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 49
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 2
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 18
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 34
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 50
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 3
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 19
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 35
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 51
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 4
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 20
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 36
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 52
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 5
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 21
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 37
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 53
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 6
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 22
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 38
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 54
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 7
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 23
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 39
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 55
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 8
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 24
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 40
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 56
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 9
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 25
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 41
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 57
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 10
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 26
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 42
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 58
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 11
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 27
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 43
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 59
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 12
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 28
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 44
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 60
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 13
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 29
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 45
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 61
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 14
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 30
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 46
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 62
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 15
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 31
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 47
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 3,
+"Y": 63
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 }
 ],
@@ -21285,97 +24763,641 @@
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 0
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 16
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 32
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 48
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 1
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 17
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 33
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 49
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 2
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 18
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 34
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 50
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 3
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 19
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 35
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 51
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 4
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 20
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 36
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 52
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 5
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 21
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 37
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 53
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 6
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 22
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 38
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 54
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 7
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 23
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 39
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 55
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 8
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 24
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 40
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 56
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 9
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 25
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 41
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 57
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 10
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 26
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 42
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 58
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 11
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 27
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 43
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 59
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 12
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 28
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 44
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 60
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 13
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 29
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 45
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 61
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 14
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 30
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 46
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 62
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 15
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 31
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 47
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 4,
+"Y": 63
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 }
 ],
@@ -21383,97 +25405,641 @@
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 0
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 16
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 32
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 48
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 1
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 17
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 33
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 49
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 2
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 18
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 34
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 50
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 3
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 19
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 35
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 51
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 4
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 20
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 36
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 52
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 5
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 21
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 37
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 53
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 6
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 22
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 38
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 54
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 7
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 23
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 39
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 55
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 8
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 24
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 40
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 56
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 9
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 25
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 41
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 57
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 10
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 26
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 42
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 58
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 11
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 27
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 43
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 59
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 12
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 28
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 44
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 60
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 13
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 29
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 45
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 61
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 14
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 30
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 46
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 62
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 15
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 31
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 47
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 5,
+"Y": 63
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 }
 ],
@@ -21481,97 +26047,641 @@
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 0
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 16
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 32
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 48
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 1
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 17
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 33
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 49
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 2
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 18
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 34
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 50
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 3
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 19
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 35
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 51
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 4
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 20
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 36
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 52
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 5
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 21
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 37
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 53
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 6
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 22
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 38
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 54
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 7
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 23
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 39
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 55
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 8
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 24
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 40
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 56
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 9
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 25
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 41
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 57
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 10
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 26
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 42
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 58
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 11
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 27
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 43
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 59
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 12
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 28
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 44
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 60
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 13
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 29
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 45
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 61
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 14
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 30
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 46
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 62
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 15
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 31
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 47
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 6,
+"Y": 63
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 }
 ],
@@ -21579,97 +26689,641 @@
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 0
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 16
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 32
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 48
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 1
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 17
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 33
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 49
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 2
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 18
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 34
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 50
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 3
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 19
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 35
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 51
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 4
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 20
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 36
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 52
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 5
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 21
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 37
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 53
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 6
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 22
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 38
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 54
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 7
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 23
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 39
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 55
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 8
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 24
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 40
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 56
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 9
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 25
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 41
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 57
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 10
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 26
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 42
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 58
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 11
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 27
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 43
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 59
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 12
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 28
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 44
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 60
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 13
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 29
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 45
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 61
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 14
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 30
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 46
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 62
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 15
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 31
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 47
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 7,
+"Y": 63
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 }
 ],
@@ -21677,97 +27331,641 @@
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 0
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 16
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 32
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 48
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 1
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 17
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 33
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 49
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 2
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 18
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 34
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 50
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 3
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 19
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 35
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 51
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 4
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 20
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 36
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 52
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 5
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 21
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 37
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 53
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 6
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 22
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 38
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 54
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 7
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 23
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 39
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 55
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 8
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 24
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 40
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 56
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 9
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 25
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 41
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 57
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 10
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 26
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 42
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 58
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 11
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 27
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 43
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 59
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 12
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 28
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 44
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 60
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 13
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 29
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 45
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 61
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 14
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 30
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 46
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 62
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 15
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 31
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 47
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 8,
+"Y": 63
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 }
 ],
@@ -21775,97 +27973,641 @@
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 0
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 16
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 32
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 48
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 1
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 17
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 33
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 49
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 2
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 18
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 34
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 50
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 3
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 19
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 35
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 51
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 4
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 20
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 36
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 52
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 5
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 21
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 37
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 53
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 6
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 22
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 38
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 54
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 7
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 23
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 39
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 55
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 8
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 24
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 40
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 56
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 9
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 25
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 41
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 57
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 10
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 26
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 42
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 58
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 11
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 27
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 43
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 59
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 12
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 28
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 44
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 60
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 13
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 29
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 45
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 61
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 14
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 30
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 46
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 62
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 15
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 31
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 47
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 9,
+"Y": 63
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 }
 ],
@@ -21873,97 +28615,641 @@
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 0
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 16
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 32
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 48
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 1
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 17
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 33
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 49
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 2
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 18
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 34
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 50
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 3
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 19
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 35
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 51
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 4
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 20
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 36
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 52
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 5
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 21
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 37
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 53
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 6
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 22
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 38
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 54
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 7
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 23
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 39
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 55
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 8
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 24
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 40
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 56
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 9
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 25
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 41
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 57
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 10
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 26
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 42
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 58
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 11
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 27
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 43
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 59
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 12
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 28
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 44
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 60
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 13
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 29
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 45
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 61
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 14
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 30
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 46
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 62
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 15
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 31
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 47
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 10,
+"Y": 63
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 }
 ],
@@ -21971,97 +29257,641 @@
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 0
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 16
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 32
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 48
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 1
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 17
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 33
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 49
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 2
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 18
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 34
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 50
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 3
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 19
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 35
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 51
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 4
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 20
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 36
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 52
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 5
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 21
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 37
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 53
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 6
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 22
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 38
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 54
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 7
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 23
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 39
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 55
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 8
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 24
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 40
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 56
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 9
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 25
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 41
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 57
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 10
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 26
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 42
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 58
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 11
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 27
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 43
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 59
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 12
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 28
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 44
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 60
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 13
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 29
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 45
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 61
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 14
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 30
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 46
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 62
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 15
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 31
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 47
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 11,
+"Y": 63
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 }
 ],
@@ -22069,97 +29899,641 @@
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 0
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 16
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 32
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 48
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 1
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 17
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 33
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 49
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 2
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 18
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 34
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 50
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 3
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 19
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 35
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 51
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 4
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 20
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 36
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 52
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 5
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 21
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 37
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 53
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 6
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 22
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 38
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 54
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 7
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 23
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 39
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 55
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 8
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 24
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 40
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 56
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 9
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 25
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 41
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 57
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 10
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 26
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 42
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 58
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 11
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 27
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 43
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 59
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 12
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 28
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 44
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 60
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 13
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 29
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 45
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 61
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 14
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 30
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 46
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 62
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 15
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 31
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 47
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 12,
+"Y": 63
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 }
 ],
@@ -22167,97 +30541,641 @@
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 0
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 16
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 32
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 48
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 1
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 17
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 33
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 49
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 2
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 18
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 34
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 50
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 3
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 19
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 35
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 51
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 4
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 20
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 36
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 52
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 5
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 21
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 37
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 53
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 6
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 22
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 38
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 54
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 7
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 23
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 39
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 55
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 8
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 24
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 40
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 56
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 9
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 25
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 41
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 57
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 10
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 26
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 42
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 58
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 11
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 27
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 43
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 59
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 12
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 28
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 44
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 60
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 13
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 29
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 45
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 61
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 14
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 30
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 46
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 62
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 15
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 31
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 47
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 13,
+"Y": 63
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 }
 ],
@@ -22265,97 +31183,641 @@
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 0
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 16
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 32
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 48
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 1
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 17
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 33
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 49
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 2
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 18
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 34
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 50
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 3
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 19
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 35
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 51
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 4
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 20
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 36
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 52
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 5
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 21
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 37
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 53
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 6
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 22
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 38
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 54
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 7
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 23
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 39
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 55
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 8
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 24
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 40
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 56
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 9
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 25
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 41
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 57
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 10
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 26
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 42
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 58
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 11
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 27
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 43
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 59
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 12
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 28
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 44
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 60
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 13
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 29
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 45
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 61
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 14
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 30
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 46
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 62
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 15
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 31
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 47
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 14,
+"Y": 63
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 }
 ],
@@ -22363,97 +31825,1283 @@
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 0
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 16
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 32
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 48
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 1
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 17
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 33
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 49
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 2
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 18
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 34
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 50
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 3
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 19
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 35
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 51
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 4
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 20
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 36
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 52
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 5
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 21
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 37
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 53
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 6
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 22
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 38
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 54
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 7
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 23
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 39
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 55
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 8
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 24
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 40
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 56
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 9
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 25
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 41
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 57
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 10
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 26
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 42
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 58
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 11
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 27
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 43
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 59
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 12
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 28
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 44
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 60
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 13
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 29
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 45
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 61
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 14
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 30
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 46
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 62
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 },
 {
 "AutoTileset": "",
 "Associates": [],
-"Layers": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 15
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 31
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 47
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 15,
+"Y": 63
+}
+}
+],
+"FrameLength": 6
+}
+],
+"NeighborCode": -1
+}
+],
+[
+{
+"AutoTileset": "",
+"Associates": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 0
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 16
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 32
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 48
+}
+}
+],
+"FrameLength": 6
+}
+],
+"NeighborCode": -1
+},
+{
+"AutoTileset": "",
+"Associates": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 1
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 17
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 33
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 49
+}
+}
+],
+"FrameLength": 6
+}
+],
+"NeighborCode": -1
+},
+{
+"AutoTileset": "",
+"Associates": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 2
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 18
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 34
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 50
+}
+}
+],
+"FrameLength": 6
+}
+],
+"NeighborCode": -1
+},
+{
+"AutoTileset": "",
+"Associates": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 3
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 19
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 35
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 51
+}
+}
+],
+"FrameLength": 6
+}
+],
+"NeighborCode": -1
+},
+{
+"AutoTileset": "",
+"Associates": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 4
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 20
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 36
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 52
+}
+}
+],
+"FrameLength": 6
+}
+],
+"NeighborCode": -1
+},
+{
+"AutoTileset": "",
+"Associates": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 5
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 21
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 37
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 53
+}
+}
+],
+"FrameLength": 6
+}
+],
+"NeighborCode": -1
+},
+{
+"AutoTileset": "",
+"Associates": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 6
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 22
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 38
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 54
+}
+}
+],
+"FrameLength": 6
+}
+],
+"NeighborCode": -1
+},
+{
+"AutoTileset": "",
+"Associates": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 7
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 23
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 39
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 55
+}
+}
+],
+"FrameLength": 6
+}
+],
+"NeighborCode": -1
+},
+{
+"AutoTileset": "",
+"Associates": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 8
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 24
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 40
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 56
+}
+}
+],
+"FrameLength": 6
+}
+],
+"NeighborCode": -1
+},
+{
+"AutoTileset": "",
+"Associates": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 9
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 25
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 41
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 57
+}
+}
+],
+"FrameLength": 6
+}
+],
+"NeighborCode": -1
+},
+{
+"AutoTileset": "",
+"Associates": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 10
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 26
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 42
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 58
+}
+}
+],
+"FrameLength": 6
+}
+],
+"NeighborCode": -1
+},
+{
+"AutoTileset": "",
+"Associates": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 11
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 27
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 43
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 59
+}
+}
+],
+"FrameLength": 6
+}
+],
+"NeighborCode": -1
+},
+{
+"AutoTileset": "",
+"Associates": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 12
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 28
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 44
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 60
+}
+}
+],
+"FrameLength": 6
+}
+],
+"NeighborCode": -1
+},
+{
+"AutoTileset": "",
+"Associates": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 13
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 29
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 45
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 61
+}
+}
+],
+"FrameLength": 6
+}
+],
+"NeighborCode": -1
+},
+{
+"AutoTileset": "",
+"Associates": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 14
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 30
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 46
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 62
+}
+}
+],
+"FrameLength": 6
+}
+],
+"NeighborCode": -1
+},
+{
+"AutoTileset": "",
+"Associates": [],
+"Layers": [
+{
+"Frames": [
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 15
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 31
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 47
+}
+},
+{
+"Sheet": "GuildGuildmasterChamberNight",
+"TexLoc": {
+"X": 16,
+"Y": 63
+}
+}
+],
+"FrameLength": 6
+}
+],
 "NeighborCode": -1
 }
 ]
@@ -22482,10 +33130,307 @@
 {
 "Name": "New EntLayer",
 "Visible": true,
-"MapChars": [],
+"MapChars": [
+{
+"Direction": 0,
+"IsInteracting": false,
+"AIEnabled": true,
+"EntName": "Wigglytuff",
+"EntEnabled": true,
+"EntOrder": 0,
+"InteractOrder": 0,
+"serializationLoc": {
+"X": -1,
+"Y": -19
+},
+"serializationHeight": 0,
+"serializationDir": 0,
+"triggerType": 1,
+"<AI>k__BackingField": null,
+"Data": {
+"Nickname": "",
+"OriginalUUID": "",
+"OriginalTeam": "",
+"BaseForm": {
+"Species": "wigglytuff",
+"Form": 0,
+"Skin": "normal",
+"Gender": 0
+},
+"Level": 1,
+"EXP": 0,
+"MaxHPBonus": 0,
+"AtkBonus": 0,
+"DefBonus": 0,
+"MAtkBonus": 0,
+"MDefBonus": 0,
+"SpeedBonus": 0,
+"BaseSkills": [
+{
+"SkillNum": "",
+"Charges": 0,
+"CanForget": true
+},
+{
+"SkillNum": "",
+"Charges": 0,
+"CanForget": true
+},
+{
+"SkillNum": "",
+"Charges": 0,
+"CanForget": true
+},
+{
+"SkillNum": "",
+"Charges": 0,
+"CanForget": true
+}
+],
+"BaseIntrinsics": [
+""
+],
+"FormIntrinsicSlot": -1,
+"Relearnables": {},
+"Discriminator": 0,
+"MetAt": "",
+"MetLoc": {
+"ID": "",
+"StructID": {
+"Segment": -1,
+"ID": -1
+},
+"EntryPoint": -1
+},
+"DefeatAt": "",
+"DefeatLoc": {
+"ID": "",
+"StructID": {
+"Segment": -1,
+"ID": -1
+},
+"EntryPoint": -1
+},
+"IsFounder": false,
+"IsPartner": false,
+"NameLocked": false,
+"IsFavorite": false,
+"Unrecruitable": false,
+"ActionEvents": [],
+"ScriptVars": null
+},
+"CollisionDisabled": false,
+"Collider": {
+"X": 0,
+"Y": 0,
+"Width": 16,
+"Height": 16
+}
+},
+{
+"Direction": 0,
+"IsInteracting": false,
+"AIEnabled": true,
+"EntName": "Chatot",
+"EntEnabled": true,
+"EntOrder": 0,
+"InteractOrder": 0,
+"serializationLoc": {
+"X": 17,
+"Y": -20
+},
+"serializationHeight": 0,
+"serializationDir": 0,
+"triggerType": 1,
+"<AI>k__BackingField": null,
+"Data": {
+"Nickname": "",
+"OriginalUUID": "",
+"OriginalTeam": "",
+"BaseForm": {
+"Species": "chatot",
+"Form": 0,
+"Skin": "normal",
+"Gender": 0
+},
+"Level": 1,
+"EXP": 0,
+"MaxHPBonus": 0,
+"AtkBonus": 0,
+"DefBonus": 0,
+"MAtkBonus": 0,
+"MDefBonus": 0,
+"SpeedBonus": 0,
+"BaseSkills": [
+{
+"SkillNum": "",
+"Charges": 0,
+"CanForget": true
+},
+{
+"SkillNum": "",
+"Charges": 0,
+"CanForget": true
+},
+{
+"SkillNum": "",
+"Charges": 0,
+"CanForget": true
+},
+{
+"SkillNum": "",
+"Charges": 0,
+"CanForget": true
+}
+],
+"BaseIntrinsics": [
+""
+],
+"FormIntrinsicSlot": -1,
+"Relearnables": {},
+"Discriminator": 0,
+"MetAt": "",
+"MetLoc": {
+"ID": "",
+"StructID": {
+"Segment": -1,
+"ID": -1
+},
+"EntryPoint": -1
+},
+"DefeatAt": "",
+"DefeatLoc": {
+"ID": "",
+"StructID": {
+"Segment": -1,
+"ID": -1
+},
+"EntryPoint": -1
+},
+"IsFounder": false,
+"IsPartner": false,
+"NameLocked": false,
+"IsFavorite": false,
+"Unrecruitable": false,
+"ActionEvents": [],
+"ScriptVars": null
+},
+"CollisionDisabled": false,
+"Collider": {
+"X": 0,
+"Y": 0,
+"Width": 16,
+"Height": 16
+}
+}
+],
 "GroundObjects": [],
-"Spawners": [],
-"Markers": []
+"Spawners": [
+{
+"NPCName": "PARTNER",
+"NPCChar": {
+"Nickname": "",
+"OriginalUUID": "",
+"OriginalTeam": "",
+"BaseForm": {
+"Species": "missingno",
+"Form": 0,
+"Skin": "normal",
+"Gender": 0
+},
+"Level": 0,
+"EXP": 0,
+"MaxHPBonus": 0,
+"AtkBonus": 0,
+"DefBonus": 0,
+"MAtkBonus": 0,
+"MDefBonus": 0,
+"SpeedBonus": 0,
+"BaseSkills": [
+{
+"SkillNum": "",
+"Charges": 0,
+"CanForget": true
+},
+{
+"SkillNum": "",
+"Charges": 0,
+"CanForget": true
+},
+{
+"SkillNum": "",
+"Charges": 0,
+"CanForget": true
+},
+{
+"SkillNum": "",
+"Charges": 0,
+"CanForget": true
+}
+],
+"BaseIntrinsics": [
+""
+],
+"FormIntrinsicSlot": -1,
+"Relearnables": {},
+"Discriminator": 0,
+"MetAt": "",
+"MetLoc": {
+"ID": "",
+"StructID": {
+"Segment": -1,
+"ID": -1
+},
+"EntryPoint": -1
+},
+"DefeatAt": "",
+"DefeatLoc": {
+"ID": "",
+"StructID": {
+"Segment": -1,
+"ID": -1
+},
+"EntryPoint": -1
+},
+"IsFounder": false,
+"IsPartner": false,
+"NameLocked": false,
+"IsFavorite": false,
+"Unrecruitable": false,
+"ActionEvents": [],
+"ScriptVars": null
+},
+"EntName": "PARTNER_SPAWN",
+"Direction": 0,
+"EntEnabled": true,
+"EntOrder": 0,
+"InteractOrder": 0,
+"triggerType": 0,
+"EntityCallbacks": [],
+"Collider": {
+"X": -22,
+"Y": 0,
+"Width": 16,
+"Height": 16
+}
+}
+],
+"Markers": [
+{
+"EntName": "Entrance",
+"Direction": 0,
+"EntEnabled": true,
+"EntOrder": 0,
+"InteractOrder": 0,
+"triggerType": 0,
+"Collider": {
+"X": -21,
+"Y": -18,
+"Width": 16,
+"Height": 16
+}
+}
+]
 }
 ]
 }

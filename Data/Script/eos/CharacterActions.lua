@@ -184,3 +184,24 @@ function CharacterActions.Explain(char)
 	GAME:WaitFrames(45)
 	GROUND:CharEndAnim(char)
 end
+
+--- Ground Map Partner Dialogue that changes based on flags. There's a LOT of these.
+function CharacterActions.GetPartnerDialogue()
+	
+	GAME:CutsceneMode(true)
+
+	local coro1 = TASK:BranchCoroutine(function ()
+		GROUND:CharTurnToCharAnimated(CH('PLAYER'), CH('PARTNER'), 4)
+	end)
+	local coro2 = TASK:BranchCoroutine(function ()
+		GROUND:CharTurnToCharAnimated(CH('PARTNER'), CH('PLAYER'), 4)
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
+
+	-- the dialogue tree
+	if false then
+		
+	end
+
+	GAME:CutsceneMode(false)
+end

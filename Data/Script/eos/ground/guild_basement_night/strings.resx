@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -58,16 +58,16 @@
   <resheader name="writer">
     <value>System.Resources.NetStandard.ResXResourceWriter, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </resheader>
-  	<data name="CH2_Chatot_1" xml:space="preserve">
-		<value>Now, this could just be a wild guess on my part, but...</value>
-	</data>
-	<data name="CH2_Chatot_2" xml:space="preserve">
-		<value>I would guess that it's because you fail so often. Our Guildmaster must be seething with anger over you.</value>
-	</data>
-	<data name="CH2_Chatot_3" xml:space="preserve">
-		<value>Our Guildmaster is truly a terror when enraged...</value>
-	</data>
-	<data name="CH2_Chatot_4" xml:space="preserve">
-		<value>So watch yourself and do your best to avoid displeasing our Guildmaster.</value>
-	</data>
+  <data name="CH2_Chatot_1" xml:space="preserve">
+    <value>Now, this could just be a wild guess on my part, but...</value>
+  </data>
+  <data name="CH2_Chatot_2" xml:space="preserve">
+    <value>I would guess that it's because you fail so often. Our Guildmaster must be seething with anger over you.</value>
+  </data>
+  <data name="CH2_Chatot_3" xml:space="preserve">
+    <value>Our Guildmaster is truly a terror when enraged...</value>
+  </data>
+  <data name="CH2_Chatot_4" xml:space="preserve">
+    <value>So watch yourself and do your best to avoid displeasing our Guildmaster.</value>
+  </data>
 </root>

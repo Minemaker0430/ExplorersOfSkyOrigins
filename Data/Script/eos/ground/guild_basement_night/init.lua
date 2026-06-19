@@ -5,6 +5,8 @@
 ]]--
 -- Commonly included lua functions and data
 require 'eos.common'
+require 'eos.CharacterActions'
+require 'eos.ExplorerEssentials'
 
 -- Package name
 local guild_basement_night = {}
@@ -25,7 +27,7 @@ function guild_basement_night.Init(map)
   --This will fill the localized strings table automatically based on the locale the game is 
   -- currently in. You can use the MapStrings table after this line!
   
-
+    COMMON.RespawnStarterPartner()
 end
 
 ---guild_basement_night.Enter(map)
@@ -123,29 +125,33 @@ def 0 {
 
   ]]--
 
-	local hTalkKind = SV.Personality.HeroTalkKind
-	local pTalkKind = SV.Personality.PartnerTalkKind
-	SOUND:StopBGM()
-	-- back_SetGround(LEVEL_G01P04C) (Should be the map you're currently on, or the map it sends you to next)
-	-- ### supervision_Acting(0) [IRRELEVANT]
-	GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
+    ExplorerEssentials.SetupCameraPos(52, 28)
+    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 54, 28.5, Direction.Up)
+    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 50, 28.5, Direction.Up)
+    ExplorerEssentials.SetupInitialPos(CH('Chatot'), 52, 24.5, Direction.Down)
+    GROUND:Hide("GuildmasterDoor")
+
 	GAME:FadeIn(30)
 	GAME:WaitFrames(30)
-	UI:SetSpeaker(CH('Chatot'))
+	
+    UI:SetSpeaker(CH('Chatot'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_1']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_2']))
-	GROUND:CharSetAnim(CH('Chatot'), "Charge", false)
+
+	GROUND:CharSetAnim(CH('Chatot'), "Charge", true)
 	GAME:WaitFrames(30)
-	GROUND:CharSetAnim(CH('Chatot'), "None", false)
-	UI:SetSpeaker(CH('Chatot'))
+	GROUND:CharEndAnim(CH('Chatot'))
+	
 	UI:SetSpeakerEmotion("Pain")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_3']))
-	UI:SetSpeaker(CH('Chatot'))
+
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_4']))
-	GAME:FadeOut(false, 30)
+	
+    GAME:FadeOut(false, 30)
 
+    GAME:EnterGroundMap("guild_guildmaster_chambers_night", "Entrance", false)
 end
 
 return guild_basement_night

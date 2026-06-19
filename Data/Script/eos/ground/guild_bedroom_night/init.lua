@@ -15,7 +15,7 @@ local guild_bedroom_night = {}
 ---guild_bedroom_night.Init(map)
 --Engine callback function
 function guild_bedroom_night.Init(map)
-
+    COMMON.RespawnStarterPartner()
 end
 
 ---guild_bedroom_night.Enter(map)
@@ -586,9 +586,12 @@ def 0 {
 
 ]] --
 
-    local hTalkKind = SV.Personality.HeroTalkKind
     local pTalkKind = SV.Personality.PartnerTalkKind
     SOUND:StopBGM()
+
+    ExplorerEssentials.SetupCameraPos(22, 22.5)
+    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 25, 22, Direction.Left)
+    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 19, 22, Direction.Right)
 
     -- TODO: else {         back2_SetMode(4)
     -- ### back2_SetGround(LEVEL_V02P06A) [IRRELEVANT]
@@ -601,6 +604,7 @@ def 0 {
     -- ### back2_SetMode(0) [IRRELEVANT]
     -- back_SetGround(LEVEL_G01P07C) (Should be the map you're currently on, or the map it sends you to next)
     -- ### supervision_Acting(0) [IRRELEVANT]
+
     GROUND:AddMapStatus("darkness")
 
     GROUND:CharSetAnim(CH('PLAYER'), "Laying", true)
@@ -629,7 +633,7 @@ def 0 {
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_PLAYER_1']))
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_PLAYER_2']))
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_PLAYER_3']))
-    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_PLAYER_4']))
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_PLAYER_4'], CH('PARTNER'):GetDisplayName()))
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_PLAYER_5']))
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_PLAYER_6']))
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_PLAYER_7']))
@@ -721,35 +725,50 @@ def 0 {
 
   ]] --
 
-	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
 	SOUND:StopBGM()
+
 	-- back_SetGround(LEVEL_G01P07C) (Should be the map you're currently on, or the map it sends you to next)
 	-- ### supervision_Acting(0) [IRRELEVANT]
 	GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
+
 	GAME:FadeIn(30)
 	GAME:WaitFrames(30)
 	UI:SetSpeaker(CH('PARTNER'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_PARTNER_1_'..tostring(pTalkKind)]))
-	-- ### supervision_Acting(1) [IRRELEVANT]
-	GAME:WaitFrames(1)
-	GROUND:MoveToPosition(CH('Chatot'), 112, 184, false, 2)
-	GAME:WaitFrames(20)
-	SOUND:PlayBattleSE("EVT_Emote_Exclaim_2")
-	GROUND:CharSetEmote(CH('PLAYER'), "notice", 1)
+	
+    local coro1 = TASK:BranchCoroutine(function ()
+        GROUND:MoveToPosition(CH('Chatot'), 112, 184, false, 2)
+    end)
+	local coro2 = TASK:BranchCoroutine(function ()
+        GAME:WaitFrames(20)
+	    SOUND:PlayBattleSE("EVT_Emote_Exclaim_2")
+	    GROUND:CharSetEmote(CH('PLAYER'), "notice", 1)
+    end)
+    TASK:JoinCoroutines({coro1, coro2})
 	-- !! WaitExecuteLives(ACTOR_NPC_PERAPPU)
+
 	UI:SetSpeaker(CH('Chatot'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_Chatot_1']))
-	SOUND:PlayBattleSE("EVT_Emote_Exclaim")
+	
+    SOUND:PlayBattleSE("EVT_Emote_Exclaim")
 	GROUND:CharSetEmote(CH('PARTNER'), "exclaim", 1)
 	GAME:WaitFrames(30)
 	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
-	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Left, 4)
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_Chatot_2']))
+	
+    local coro1 = TASK:BranchCoroutine(function ()
+        GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Left, 4)
+    end)
+	local coro2 = TASK:BranchCoroutine(function ()
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_Chatot_2']))
+    end)
+    TASK:JoinCoroutines({coro1, coro2})
+	
 	GAME:FadeOut(false, 30)
 
+    GAME:EnterGroundMap("guild_basement_night", "Entrance", false)
 end
 
 function guild_bedroom_night.CH2_NightAfterJob()
