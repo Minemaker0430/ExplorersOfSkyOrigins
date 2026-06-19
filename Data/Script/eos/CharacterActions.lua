@@ -42,29 +42,29 @@ function CharacterActions.ShakeHead(char, dir)
 	end
 	
 	--r
-	GROUND:charTurn(char, directions[dirRight])
+	GROUND:EntTurn(char, directions[dirRight])
 	GAME:WaitFrames(4)
 	--m
-	GROUND:charTurn(char, directions[dirNum])
+	GROUND:EntTurn(char, directions[dirNum])
 	GAME:WaitFrames(2)
 	--l
-	GROUND:charTurn(char, directions[dirLeft])
+	GROUND:EntTurn(char, directions[dirLeft])
 	GAME:WaitFrames(4)
 	--m
-	GROUND:charTurn(char, directions[dirNum])
+	GROUND:EntTurn(char, directions[dirNum])
 	GAME:WaitFrames(2)
 	
 	--r
-	GROUND:charTurn(char, directions[dirRight])
+	GROUND:EntTurn(char, directions[dirRight])
 	GAME:WaitFrames(4)
 	--m
-	GROUND:charTurn(char, directions[dirNum])
+	GROUND:EntTurn(char, directions[dirNum])
 	GAME:WaitFrames(2)
 	--l
-	GROUND:charTurn(char, directions[dirLeft])
+	GROUND:EntTurn(char, directions[dirLeft])
 	GAME:WaitFrames(4)
 	--m
-	GROUND:charTurn(char, directions[dirNum])
+	GROUND:EntTurn(char, directions[dirNum])
 	GAME:WaitFrames(2)
 	
 end
@@ -158,9 +158,9 @@ end
 
 --- Semi-transparent "Dizzy" effect, used in places like the Temporal Scream cutscenes
 function CharacterActions.DizzyFade()
-	local bg_anim = RogueEssence.Contchar.BGAnimData("Black", 1, -1, -1, 128, Dir8.None)
+	local bg_anim = RogueEssence.Content.BGAnimData("Black", 1, -1, -1, 128, Dir8.None)
 	
-	local emitter = RogueEssence.Contchar.FiniteOverlayEmitter()
+	local emitter = RogueEssence.Content.FiniteOverlayEmitter()
 	emitter.Anim = bg_anim
 	emitter.Layer = DrawLayer.Top
 	
@@ -173,7 +173,7 @@ function CharacterActions.DizzyFade()
 	
 	emitter.Color = Color.White
 	
-	GROUND:PlayVFX(emitter, GAME:GetCameraCcharer().X, GAME:GetCameraCcharer().Y)
+	GROUND:PlayVFX(emitter, GAME:GetCameraCenter().X, GAME:GetCameraCenter().Y)
 	GAME:WaitFrames(30) -- wait for as long as the effect lasts
 end
 
