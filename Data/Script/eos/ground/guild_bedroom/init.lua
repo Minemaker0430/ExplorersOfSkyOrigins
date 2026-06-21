@@ -16,7 +16,7 @@ local guild_bedroom = {}
 --Engine callback function
 function guild_bedroom.Init(map)
 
-
+    ExplorerEssentials.SpawnPartner()
 end
 
 ---guild_bedroom.Enter(map)
@@ -24,7 +24,7 @@ end
 function guild_bedroom.Enter(map)
 
     if SV.Progression.Chapter == 2 then
-        if SV.Progression.SectionFlag == 1 then
+        if SV.Progression.SectionFlag == 1 and SV.drenched_bluff.TimesFailed == 0 then
             guild_bedroom.CH2_WakeUp()
         elseif SV.Progression.SectionFlag == 0 then
             guild_bedroom.CH2_BedroomTour()
@@ -69,6 +69,12 @@ end
 -------------------------------
 -- Entities Callbacks
 -------------------------------
+
+function guild_bedroom.Exit_Touch()
+    if not SV.DailyFlags.DidMorningCheers then
+        GROUND:EnterGroundMap("guild_basement", "Entrance", true)
+    end    
+end
 
 -------------------------------
 -- Cutscene Functions
@@ -214,6 +220,78 @@ def 0 {
 }
 
   ]]--
+
+	AI:DisableCharacterAI(CH('PARTNER'))
+    CH('Loudred').CollisionDisabled = true
+	
+	UI:WaitShowVoiceOver(STRINGS:Format(STRINGS.MapStrings['C_NARRATION_1']), -1)
+	GAME:WaitFrames(30)
+
+	UI:SetSpeaker(CH('Loudred'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['C_Loudred_1']))
+
+	-- back_SetGround(LEVEL_G01P07A) (Should be the map you're currently on, or the map it sends you to next)
+	-- ### supervision_StationCommon(0) [IRRELEVANT]
+	-- ### supervision_Acting(0) [IRRELEVANT]
+	ExplorerEssentials.SetupCameraPos(22, 22.5)
+    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 25, 22, Direction.Right)
+    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 19, 22, Direction.Left)
+    ExplorerEssentials.SetupInitialPos(CH('Loudred'), 13.5, 21.5, Direction.Right)
+
+	GROUND:CharSetAction(CH('PLAYER'), RogueEssence.Ground.PoseGroundAction(CH('PLAYER').Position, CH('PLAYER').Direction, RogueEssence.Content.GraphicsManager.GetAnimIndex("Pain")))
+    GROUND:CharSetAction(CH('PARTNER'), RogueEssence.Ground.PoseGroundAction(CH('PARTNER').Position, CH('PARTNER').Direction, RogueEssence.Content.GraphicsManager.GetAnimIndex("Pain")))
+
+	GAME:FadeIn(30)
+	
+    SOUND:PlayBattleSE("EVT_Emote_Complain_2")
+	-- TODO: camera_SetEffect(2, 2, 3.0)
+    GROUND:MoveScreen(RogueEssence.Content.ScreenMover(2, 2, 80))
+	GROUND:CharWaitAnim(CH('Loudred'), "Hop")
+	
+	GAME:WaitFrames(10)
+	ExplorerEssentials.MoveToPositionOffset(CH('Loudred'), -96, 0, false, 2)
+	-- !! WaitExecuteLives(ACTOR_NPC_DOGOOMU)
+
+	GROUND:Hide("Loudred")
+
+    GROUND:CharSetDrawEffect(CH('PARTNER'), DrawEffect.Shaking)
+	GAME:WaitFrames(2)
+    GROUND:CharSetDrawEffect(CH('PLAYER'), DrawEffect.Shaking)
+	GAME:WaitFrames(4)
+    GROUND:CharEndDrawEffect(CH('PARTNER'), DrawEffect.Shaking)
+	GAME:WaitFrames(2)
+	GROUND:CharEndDrawEffect(CH('PLAYER'), DrawEffect.Shaking)
+	
+    UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Dizzy")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['C_PARTNER_1']))
+
+	GAME:WaitFrames(30)
+	SOUND:PlayBGM("008 - Wigglytuff's Guild.ogg")
+	
+    local coro1 = TASK:BranchCoroutine(function () GROUND:CharWaitAnim(CH('PLAYER'), "Wake", false) end)
+	local coro2 = TASK:BranchCoroutine(function () GROUND:CharWaitAnim(CH('PARTNER'), "Wake", false) end)
+    TASK:JoinCoroutines({coro1, coro2})
+
+	GAME:WaitFrames(10)
+
+	local coro1 = TASK:BranchCoroutine(function () GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.Down, 4) end)
+	local coro2 = TASK:BranchCoroutine(function () GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Down, 4) end)
+    TASK:JoinCoroutines({coro1, coro2})
+
+	GAME:WaitFrames(30)
+
+	-- TODO: main_SetGround(LEVEL_G01P07A)
+	-- TODO: $SCENARIO_MAIN_BIT_FLAG[7] = 1
+
+    ExplorerEssentials.MoveCameraAtSpeed(0, 0, 1, true)
+	ExplorerEssentials.AutosaveWithNotification()
+
+    GAME:CutsceneMode(false)
+    AI:EnableCharacterAI(CH('PARTNER'))
+	-- TODO CallCommon: CallCommon(CORO_EVENT_END_MAPIN)
+	-- ### supervision_ExecuteStationCommon(LEVEL_G01P07A, 1) [IRRELEVANT]
 end
 
 function guild_bedroom.CH2_BedroomTour()
@@ -306,6 +384,7 @@ def 0 {
 
   ]]--
 
+    AI:DisableCharacterAI(CH('PARTNER'))
 	local pTalkKind = SV.Personality.PartnerTalkKind
 	-- back_SetGround(LEVEL_G01P07A) (Should be the map you're currently on, or the map it sends you to next)
 	-- ### supervision_Acting(0) [IRRELEVANT]
@@ -726,6 +805,7 @@ def 0 {
 }
 ]]--
 
+    AI:DisableCharacterAI(CH('PARTNER'))
 	local pTalkKind = SV.Personality.PartnerTalkKind
 	SOUND:StopBGM()
     
@@ -852,8 +932,8 @@ def 0 {
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_PARTNER_3']))
 	GAME:WaitFrames(20)
 	
-    GROUND:CharSetAnim(CH('PLAYER'), "None", false)
-	GROUND:CharSetAnim(CH('PARTNER'), "None", false)
+    GROUND:CharEndAnim(CH('PLAYER'))
+	GROUND:CharEndAnim(CH('PARTNER'))
 	
     SOUND:PlayBattleSE("EVT_Emote_Exclaim_Surprised")
 	GROUND:CharSetEmote(CH('PLAYER'), "exclaim", 1)

@@ -74,7 +74,7 @@ function MenuTools:OnMenuButtonPressed()
     end
 
     local rankIcons = {
-      ["none"] = "RankGuildmaster",
+      ["none"] = "RankNormal",
       ["normal"] = "RankNormal",
       ["bronze"] = "RankBronze",
       ["silver"] = "RankSilver",

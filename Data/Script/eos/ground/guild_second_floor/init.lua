@@ -1850,45 +1850,72 @@ def 0 {
 }
 ]]--
 
-	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
 	SOUND:StopBGM()
+
 	-- back_SetGround(LEVEL_S04P01A) (Should be the map you're currently on, or the map it sends you to next)
-	GAME:FadeIn(0)
+
+	-- hotswap the fade effect for a background so we can fade out front
+	local coro1 = TASK:BranchCoroutine(function() UI:WaitShowBG("Black", 1, 1) end)
+	local coro2 = TASK:BranchCoroutine(function() GAME:FadeIn(1) end)
+	TASK:JoinCoroutines({coro1, coro2})
+
 	UI:SetSpeaker(CH('PARTNER'))
 	UI:SetSpeakerEmotion("Pain")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S3_PARTNER_1_'..tostring(pTalkKind)]))
-	-- TODO: message_KeyWait()
-	GAME:FadeOut(false, 60)
+
+    UI:SetAutoFinish(true)
+	local coro1 = TASK:BranchCoroutine(function() UI:WaitShowTimedDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S3_PARTNER_1_'..tostring(pTalkKind)]), 60) end)
+	local coro2 = TASK:BranchCoroutine(function() GAME:FadeOutFront(false, 60) end)
+	TASK:JoinCoroutines({coro1, coro2})
+	
+	-- switch it back
+	UI:SetAutoFinish(false)
+	UI:WaitHideBG(1)
+	
 	GAME:WaitFrames(60)
-	-- TODO CallCommon: CallCommon(CORO_FADE_OUT_ALL_AFTER)
+
 	-- back_SetGround(LEVEL_G01P03A) (Should be the map you're currently on, or the map it sends you to next)
 	-- ### supervision_Acting(0) [IRRELEVANT]
-	GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
+
+    ExplorerEssentials.SetupCameraPos(31, 29) -- cam 31, 29
+    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 33, 28.5, Direction.Up) -- player 33, 28.5
+    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 29, 28.5, Direction.Up) -- partner 29, 28.5
+    ExplorerEssentials.SetupInitialPos(CH('Chatot'), 31, 24.5, Direction.Down) -- chatot 31, 24.5
+
 	GAME:FadeIn(30)
 	SOUND:PlayBGM("008 - Wigglytuff's Guild.ogg")
 	GAME:WaitFrames(30)
-	UI:SetSpeaker(CH('Chatot'))
+	
+    UI:SetSpeaker(CH('Chatot'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S3_Chatot_1']))
+
 	SOUND:PlayBattleSE("EVT_Emote_Sweatdrop")
 	GROUND:CharSetEmote(CH('PARTNER'), "sweatdrop", 1)
 	GAME:WaitFrames(30)
 	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+
 	UI:SetSpeaker(CH('PARTNER'))
 	UI:SetSpeakerEmotion("Pain")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S3_PARTNER_2']))
+
 	UI:SetSpeaker(CH('Chatot'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S3_Chatot_2']))
-	GROUND:CharSetAnim(CH('Chatot'), "UNK_44", false)
+
+	GROUND:CharSetAnim(CH('Chatot'), "Wiggle", true) -- unsure if this is correct
 	UI:SetSpeaker(CH('Chatot'))
 	UI:SetSpeakerEmotion("Happy")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S3_Chatot_3']))
-	GROUND:CharSetAnim(CH('Chatot'), "None", false)
-	SOUND:FadeOutBGM(120)
-	GAME:FadeOut(false, 60)
-	-- TODO: WaitBgm(BGM_WIGGLYTUFFS_GUILD)
+
+	GROUND:CharEndAnim(CH('Chatot'))
+
+	local coro1 = TASK:BranchCoroutine(function() SOUND:FadeOutBGM(120) end)
+	local coro2 = TASK:BranchCoroutine(function() GAME:FadeOut(false, 60) end)
+	TASK:JoinCoroutines({coro1, coro2})
+
+    SV.DailyFlags.EndedDay = true
 
     if not SV.Flags.SawDinnerCutscene then
         GAME:EnterGroundMap("guild_basement", 'Entrance', false)
@@ -2215,13 +2242,16 @@ def 0 {
 	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
 	SOUND:StopBGM()
+    
 	-- back_SetGround(LEVEL_G01P03A) (Should be the map you're currently on, or the map it sends you to next)
 	-- ### supervision_Acting(0) [IRRELEVANT]
 	GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
-	GAME:FadeIn(30)
+	
+    GAME:FadeIn(30)
 	SOUND:PlayBGM("013 - Job Clear!.ogg")
 	GAME:WaitFrames(30)
-	UI:SetSpeaker(CH('Spoink'))
+	
+    UI:SetSpeaker(CH('Spoink'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S4_Spoink_1']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S4_Spoink_2']))
@@ -2230,18 +2260,20 @@ def 0 {
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S4_Spoink_5']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S4_Spoink_6']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S4_Spoink_7']))
-	GROUND:MoveToPosition(CH('Spoink'), CH('Spoink').Position.X + 16, CH('Spoink').Position.Y + 16, false, 0)
+	
+    GROUND:MoveToPosition(CH('Spoink'), CH('Spoink').Position.X + 16, CH('Spoink').Position.Y + 16, false, 0)
 	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.UpRight, 4)
 	GROUND:CharAnimateTurnTo(CH('Spoink'), Dir8.Down, 4)
 	-- !! WaitExecuteLives(ACTOR_NPC_BANEBUU)
-	SOUND:PlayFanfare("Fanfare/Item.ogg")
+
+	SOUND:PlayFanfare("Fanfare/Item")
 	UI:SetCenter(true)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S4_NARRATION_1'], CH('PLAYER'):GetDisplayName(), RogueEssence.Dungeon.InvItem("boost_protein"):GetDisplayName()))
-	SOUND:PlayFanfare("Fanfare/Item.ogg")
+	SOUND:PlayFanfare("Fanfare/Item")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S4_NARRATION_2'], RogueEssence.Dungeon.InvItem("boost_calcium"):GetDisplayName()))
-	SOUND:PlayFanfare("Fanfare/Item.ogg")
+	SOUND:PlayFanfare("Fanfare/Item")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S4_NARRATION_3'], RogueEssence.Dungeon.InvItem("boost_iron"):GetDisplayName()))
-	SOUND:PlayFanfare("Fanfare/Treasure.ogg")
+	SOUND:PlayFanfare("Fanfare/Treasure")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S4_NARRATION_4'], ExplorerEssentials.GetFormattedMoney(2000)))
 	UI:SetCenter(false)
 	-- TODO: WaitMe(9)

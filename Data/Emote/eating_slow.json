@@ -3,14 +3,14 @@
 "Object": {
 "$type": "RogueEssence.Data.EmoteData, RogueEssence",
 "Name": {
-"DefaultText": "Eating",
+"DefaultText": "Eating Slow",
 "LocalTexts": {}
 },
 "Comment": "",
 "LocHeight": 10,
 "Anim": {
 "AnimIndex": "Emote_Eating",
-"FrameTime": 3,
+"FrameTime": 6,
 "StartFrame": -1,
 "EndFrame": -1,
 "AnimDir": 0,

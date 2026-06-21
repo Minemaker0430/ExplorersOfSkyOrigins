@@ -223,9 +223,9 @@ def 0 {
 	local pTalkKind = SV.Personality.PartnerTalkKind
 	SOUND:StopBGM()
 	
-    -- back_SetGround(LEVEL_D02P11A) (Should be the map you're currently on, or the map it sends you to next)
-	-- ### supervision_Acting(0) [IRRELEVANT]
-	GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
+	ExplorerEssentials.SetupCameraPos(32.5, 17)
+    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 34, 32.5, Direction.Up)
+    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 30.5, 30.5, Direction.Up)
 	
     GAME:FadeIn(30)
 	SOUND:PlayBGM("012 - Drenched Bluff.ogg")
@@ -377,9 +377,9 @@ def 0 {
 	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
 	
-    -- back_SetGround(LEVEL_D02P11A) (Should be the map you're currently on, or the map it sends you to next)
-	-- ### supervision_Acting(0) [IRRELEVANT]
-	GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
+    ExplorerEssentials.SetupCameraPos(32.5, 17)
+    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 34, 32.5, Direction.Up)
+    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 30.5, 30.5, Direction.Up)
 
 	GAME:FadeIn(30)
 	SOUND:PlayBGM("012 - Drenched Bluff.ogg")

@@ -1,5 +1,5 @@
 ﻿{
-"Version": "0.8.11.0",
+"Version": "0.8.12.0",
 "Object": {
 "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[RogueEssence.Data.EntrySummary, RogueEssence]], System.Private.CoreLib",
 "eating": {
@@ -14,6 +14,15 @@
 "none": {
 "Name": {
 "DefaultText": "None",
+"LocalTexts": {}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 0
+},
+"eating_slow": {
+"Name": {
+"DefaultText": "Eating Slow",
 "LocalTexts": {}
 },
 "Released": true,

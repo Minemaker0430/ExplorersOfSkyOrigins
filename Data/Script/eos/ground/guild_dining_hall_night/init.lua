@@ -176,65 +176,98 @@ def 1 for actor ACTOR_NPC_PUKURIN {
 
     local continue = true 
 
+    ExplorerEssentials.SetupCameraPos(45.5, 26)
+    ExplorerEssentials.SetupInitialPos(CH('Wigglytuff'), 45.5, 27.5, Direction.Down)
+    ExplorerEssentials.SetupInitialPos(CH('Chatot'), 42, 25, Direction.Left)
+    ExplorerEssentials.SetupInitialPos(CH('Diglett'), 39, 27.5, Direction.Up)
+    ExplorerEssentials.SetupInitialPos(CH('Dugtrio'), 36, 27.5, Direction.Up)
+    ExplorerEssentials.SetupInitialPos(CH('Croagunk'), 33, 27.5, Direction.Up)
+    ExplorerEssentials.SetupInitialPos(CH('Sunflora'), 30, 27.5, Direction.Up)
+    ExplorerEssentials.SetupInitialPos(CH('Chimecho'), 39, 22, Direction.Down)
+    ExplorerEssentials.SetupInitialPos(CH('Corphish'), 36, 22, Direction.Down)
+    ExplorerEssentials.SetupInitialPos(CH('Bidoof'), 33, 22, Direction.Down)
+    ExplorerEssentials.SetupInitialPos(CH('Loudred'), 30, 22, Direction.Down)
+    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 27, 22, Direction.Down)
+    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 24, 22, Direction.Down)
+    if SV.Flags.TeamSkullInGuild then
+        ExplorerEssentials.SetupInitialPos(CH('UNK_ACTOR_NPC_ZUBATTO'), 26.5, 27.5, Direction.Up)
+        ExplorerEssentials.SetupInitialPos(CH('UNK_ACTOR_NPC_DOGAASU'), 23.5, 27.5, Direction.Up)
+        ExplorerEssentials.SetupInitialPos(CH('UNK_ACTOR_NPC_SUKATANKU'), 20.5, 24.5, Direction.Right)
+    end
+    
     local coro1 = TASK:BranchCoroutine(function()
 
         SOUND:StopBGM()
+
         -- back_SetGround(LEVEL_G01P06B) (Should be the map you're currently on, or the map it sends you to next)
         -- ### supervision_Acting(0) [IRRELEVANT]
-        GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
-        -- TODO MovePositionOffset: MovePositionOffset<performer 0>(0.5, -200, 0)
-        GAME:WaitFrames(1)
-        GROUND:CharSetAnim(CH('PLAYER'), "UNK_64", false)
-        GROUND:CharSetAnim(CH('PARTNER'), "UNK_64", false)
-        GROUND:CharSetAnim(CH('Chatot'), "UNK_43", false)
-        GROUND:CharSetAnim(CH('Loudred'), "UNK_42", false)
-        GROUND:CharSetAnim(CH('Diglett'), "UNK_42", false)
-        GROUND:CharSetAnim(CH('Dugtrio'), "UNK_42", false)
-        GROUND:CharSetAnim(CH('UNK_ACTOR_NPC_KIMAWARI'), "UNK_42", false)
-        GROUND:CharSetAnim(CH('Sunflora'), "UNK_42", false)
-        GROUND:CharSetAnim(CH('Bidoof'), "UNK_42", false)
-        GROUND:CharSetAnim(CH('Croagunk'), "UNK_42", false)
-        GROUND:CharSetAnim(CH('Chimecho'), "UNK_42", false)
-        GROUND:CharSetAnim(CH('UNK_ACTOR_NPC_ZUBATTO'), "UNK_43", false)
-        GROUND:CharSetAnim(CH('UNK_ACTOR_NPC_DOGAASU'), "UNK_43", false)
-        GROUND:CharSetAnim(CH('UNK_ACTOR_NPC_SUKATANKU'), "UNK_42", false)
-        GROUND:CharSetEmote(CH('Chatot'), "UNK_EFFECT_EATING", 1)
-        GROUND:CharSetEmote(CH('Chimecho'), "UNK_EFFECT_EATING", 1)
-        GROUND:CharSetEmote(CH('Sunflora'), "UNK_EFFECT_EATING", 1)
-        GROUND:CharSetEmote(CH('Bidoof'), "UNK_EFFECT_EATING", 1)
-        GROUND:CharSetEmote(CH('Loudred'), "UNK_EFFECT_EATING", 1)
-        GROUND:CharSetEmote(CH('PLAYER'), "UNK_EFFECT_EATING", 1)
-        GROUND:CharSetEmote(CH('PARTNER'), "UNK_EFFECT_EATING", 1)
-        GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_SUKATANKU'), "UNK_EFFECT_EATING", 1)
-        GROUND:CharSetEmote(CH('Diglett'), "UNK_EFFECT_EATING_SLOW", 1)
-        GROUND:CharSetEmote(CH('Dugtrio'), "UNK_EFFECT_EATING_SLOW", 1)
-        GROUND:CharSetEmote(CH('Croagunk'), "UNK_EFFECT_EATING_SLOW", 1)
-        GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_KIMAWARI'), "UNK_EFFECT_EATING_SLOW", 1)
-        GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_ZUBATTO'), "UNK_EFFECT_EATING_SLOW", 1)
-        GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_DOGAASU'), "UNK_EFFECT_EATING_SLOW", 1)
+
+        GROUND:CharSetAnim(CH('PLAYER'), "Eat", false)
+        GROUND:CharSetAnim(CH('PARTNER'), "Eat", false)
+        GROUND:CharSetAnim(CH('Chatot'), "Eat", false)
+        GROUND:CharSetAnim(CH('Loudred'), "Eat", false)
+        GROUND:CharSetAnim(CH('Diglett'), "Eat", false)
+        GROUND:CharSetAnim(CH('Dugtrio'), "Eat", false)
+        GROUND:CharSetAnim(CH('Sunflora'), "Eat", false)
+        GROUND:CharSetAnim(CH('Corphish'), "Eat", false)
+        GROUND:CharSetAnim(CH('Bidoof'), "Eat", false)
+        GROUND:CharSetAnim(CH('Croagunk'), "Eat", false)
+        GROUND:CharSetAnim(CH('Chimecho'), "Eat", false)
+        if SV.Flags.TeamSkullInGuild then
+            GROUND:CharSetAnim(CH('UNK_ACTOR_NPC_ZUBATTO'), "Eat", false)
+            GROUND:CharSetAnim(CH('UNK_ACTOR_NPC_DOGAASU'), "Eat", false)
+            GROUND:CharSetAnim(CH('UNK_ACTOR_NPC_SUKATANKU'), "Eat", false)
+        end
+
+        GROUND:CharSetEmote(CH('Chatot'), "eating", -1)
+        GROUND:CharSetEmote(CH('Chimecho'), "eating", -1)
+        GROUND:CharSetEmote(CH('Corphish'), "eating", -1)
+        GROUND:CharSetEmote(CH('Bidoof'), "eating", -1)
+        GROUND:CharSetEmote(CH('Loudred'), "eating", -1)
+        GROUND:CharSetEmote(CH('PLAYER'), "eating", -1)
+        GROUND:CharSetEmote(CH('PARTNER'), "eating", -1)
+        if SV.Flags.TeamSkullInGuild then
+            GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_SUKATANKU'), "eating", -1)
+        end
+
+        GROUND:CharSetEmote(CH('Diglett'), "eating_slow", -1)
+        GROUND:CharSetEmote(CH('Dugtrio'), "eating_slow", -1)
+        GROUND:CharSetEmote(CH('Croagunk'), "eating_slow", -1)
+        GROUND:CharSetEmote(CH('Sunflora'), "eating_slow", -1)
+        if SV.Flags.TeamSkullInGuild then
+            GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_ZUBATTO'), "eating_slow", -1)
+            GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_DOGAASU'), "eating_slow", -1)
+        end
+
         -- TODO: @label_0
         -- GROUND:Hide("Wigglytuff")
         -- TODO: @label_2
         -- TODO SetAnimation: SetAnimation<object OBJECT_G01P06B1_107>(20)
-        SOUND:PlayBGM("UNK_BGM_EATING.ogg", true, 60)
-        GAME:FadeIn(30)
 
-        UI:SetAutoFinish(true)
+        local coro1B = TASK:BranchCoroutine(function () SOUND:FadeInSE("Battle/EVT_Dinner", 60) end)
+        local coro2B = TASK:BranchCoroutine(function () GAME:FadeIn(30) end)
+        TASK:JoinCoroutines({coro1B, coro2B})
+
         for i = 1, 6, 1 do
-            UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['C_EATING']))
+            UI:WaitShowTimedDialogue(STRINGS:Format(STRINGS.MapStrings['C_EATING']), 1)
         end
-        UI:SetAutoFinish(false)
-        SOUND:FadeOutBGM(60)
-        GAME:FadeOut(false, 30)
-        -- TODO: WaitBgm(BGM_EATING)
-        GAME:WaitFrames(30)
+
+        local coro1B = TASK:BranchCoroutine(function () SOUND:FadeOutSE("Battle/EVT_Dinner", 60) end)
+        local coro2B = TASK:BranchCoroutine(function () 
+            GAME:FadeOut(false, 30)
+            GAME:WaitFrames(30)
+        end)
+        TASK:JoinCoroutines({coro1B, coro2B})
 
         continue = false
     end)
-    local coro2 = TASK:BranchCoroutine(function()
+    local coro2 = TASK:BranchCoroutine(function() -- wigglytuff
         -- DEF_1 for actor ACTOR_NPC_PUKURIN()
         -- TODO SetAnimation: SetAnimation(5)
         -- TODO SetEffect: SetEffect(EFFECT_APPLE_ON_HEAD, 3)
+
+        GROUND:CharSetAnim(CH('Wigglytuff'), "Walk", true)
+
         -- TODO: Lock(5)
         -- TODO: @label_3
         while continue do
@@ -244,6 +277,10 @@ def 1 for actor ACTOR_NPC_PUKURIN {
             GROUND:CharAnimateTurnTo(CH('Wigglytuff'), Dir8.Down, 8)
             GAME:WaitFrames(20)
         end
+    end)
+    local coro3 = TASK:BranchCoroutine(function() -- camera
+        -- TODO MovePositionOffset: MovePositionOffset<performer 0>(0.5, -200, 0)
+        ExplorerEssentials.MoveCameraAtSpeedOffset(-200, 0, 1, false)
     end)
     TASK:JoinCoroutines({coro1, coro2})
 

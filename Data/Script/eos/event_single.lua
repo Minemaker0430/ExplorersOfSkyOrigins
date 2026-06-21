@@ -474,3 +474,27 @@ function SINGLE_CHAR_SCRIPT.DrenchedBluffTutorial(owner, ownerChar, context, arg
 		end
 	end
 end
+
+function SINGLE_CHAR_SCRIPT.TreasureBagCheck(owner, ownerChar, context, args)
+    if _DATA.Save.ActiveTeam.Rank ~= "none" or _DATA.MsgLog.Count == 0 then return end
+	
+	--_DUNGEON.LiveBattleLog
+
+	local last = _DATA:GetRecentMsgs(1)
+	local msgs = {
+		"MSG_ITEM_DEQUIP",
+		"MSG_ITEM_SWAP",
+		"MSG_PICKUP_ITEM",
+		"MSG_PICKUP_SOME_ITEM"
+	}
+
+	print(last)
+
+	--for i = 1, #msgs, 1 do
+		--if last == RogueEssence.Text.FormatKey(msgs[i]) then
+			--_DATA.MsgLog.RemoveAt(last)
+			--_DUNGEON:LogMsg(_DATA.MsgLog.Add(RogueEssence.Text.FormatKey(msgs[i] .. "_ALT")), false, false)
+			--break
+		--end
+	--end
+end

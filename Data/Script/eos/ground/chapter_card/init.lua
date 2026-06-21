@@ -39,7 +39,7 @@ function chapter_card.Enter(map)
   GROUND:Hide("PLAYER")
 
   -- demo end check
-  if SV.Progression.Chapter == 2 then
+  if SV.Progression.Chapter > 2 then
     SV.Progression.DemoCompleted = true
     GAME:WaitFrames(30)
     UI:ResetSpeaker()
@@ -69,10 +69,8 @@ function chapter_card.Enter(map)
 	  GAME:EnterGroundMap("storm_cutscene_a", "Entrance")
   elseif SV.Progression.Chapter == 2 then
 	  GAME:EnterGroundMap("guild_outside_dusk", "Entrance")
-  elseif SV.Progression.Chapter == 3 then
-	  SV.Progression.SectionFlag = 1
-	  SV.partner.Spawn = 'Ladder'
-	  GAME:EnterZone("hub", -1, 5, 0)
+  elseif SV.Progression.Chapter >= 3 and SV.Progression.Chapter <= 6 then
+	  GAME:EnterGroundMap("hub", "guild_bedroom", "Entrance", false)
   else
 	  --progression broke you aren't supposed to be here
 	  UI:WaitShowDialogue(STRINGS:Format("If you're currently reading this, the game's progression system has broken somehow. You should probably tell Mocha about this. Going to title screen now."))
@@ -113,6 +111,8 @@ function chapter_card.GameLoad(map)
 	  GAME:EnterGroundMap("storm_cutscene_a", "Entrance")
   elseif SV.Progression.Chapter == 2 then
     GAME:EnterGroundMap("demo_room", "Entrance")
+  elseif SV.Progression.Chapter >= 3 and SV.Progression.Chapter <= 6 then
+    GAME:EnterGroundMap("hub", "guild_bedroom", "Entrance", false)
   else
 	  --progression broke you aren't supposed to be here
 	  UI:WaitShowDialogue(STRINGS:Format("If you're currently reading this, the game's progression system has broken somehow. You should probably tell Mocha about this. Going to title screen now."))

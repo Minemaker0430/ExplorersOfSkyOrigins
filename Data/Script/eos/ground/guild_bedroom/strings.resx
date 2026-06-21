@@ -58,6 +58,12 @@
   <resheader name="writer">
     <value>System.Resources.NetStandard.ResXResourceWriter, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </resheader>
+  <data name="C_NARRATION_1" xml:space="preserve">
+    <value>The next morning...</value>
+  </data>
+  <data name="C_PARTNER_1" xml:space="preserve">
+    <value>Ugh! Good morning, {0}...</value>
+  </data>
   <data name="CH2_Chatot_1" xml:space="preserve">
     <value>This is your room! ♪</value>
   </data>
@@ -117,6 +123,9 @@
   </data>
   <data name="CH2_S2_Loudred_3" xml:space="preserve">
     <value>I'm {0}![pause=0] And I'm a fellow apprentice!</value>
+  </data>
+  <data name="C_Loudred_1" xml:space="preserve">
+    <value>UP AND AT 'EM![pause=0] IT'S MORNING!</value>
   </data>
   <data name="CH2_S2_Loudred_4" xml:space="preserve">
     <value>If you're late for our morning briefing, you'll be SORRY! So MOVE it!</value>

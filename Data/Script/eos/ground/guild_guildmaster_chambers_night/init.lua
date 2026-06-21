@@ -261,6 +261,7 @@ def 0 {
     GAME:GivePlayerItem("berry_oran")
     GAME:GivePlayerItem("medicine_max_elixir")
 
+    ExplorerEssentials.ResetDailyFlags()
     GAME:EnterGroundMap("hub", "guild_bedroom", "Entrance", false)
 end
 

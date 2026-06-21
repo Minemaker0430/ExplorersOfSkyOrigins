@@ -426,8 +426,8 @@ def 0 {
 
     GAME:MoveCamera(416, 248, false) -- cam - 52, 31
     GROUND:TeleportTo(CH('Chatot'), 452, 212, Direction.Down) -- chatot - 56.5, 26.5
-    GROUND:TeleportTo(CH('PLAYER'), 600, 268, Direction.Left) -- player - 75, 33.5
-    GROUND:TeleportTo(CH('PARTNER'), 560, 280, Direction.Left) -- partner - 70, 35
+    GROUND:TeleportTo(CH('PLAYER'), 484, 252, Direction.Up)
+    GROUND:TeleportTo(CH('PARTNER'), 484, 272, Direction.Up)
     GROUND:TeleportTo(CH('Wigglytuff'), 416, 172, Direction.Down) -- wigglytuff - 52, 21.5
     GROUND:TeleportTo(CH('Diglett'), 448, 264, Direction.Up) -- diglett - 56, 33
     GROUND:TeleportTo(CH('Sunflora'), 448, 244, Direction.Up) -- sunflora - 56, 30.5
@@ -438,8 +438,6 @@ def 0 {
     GROUND:TeleportTo(CH('Chimecho'), 380, 244, Direction.Up) -- chimecho - 47.5, 30.5
     GROUND:TeleportTo(CH('Croagunk'), 352, 244, Direction.UpRight) -- croagunk - 44, 30.5
 
-	local hTalkKind = SV.Personality.HeroTalkKind
-	local pTalkKind = SV.Personality.PartnerTalkKind
 	SOUND:PlayBGM("008 - Wigglytuff's Guild.ogg")
 	-- TODO: $SCENARIO_MAIN_BIT_FLAG[1] = 0
 	-- back_SetGround(LEVEL_G01P04A) (Should be the map you're currently on, or the map it sends you to next)
@@ -448,21 +446,17 @@ def 0 {
 	-- ### supervision_Acting(0) [IRRELEVANT]
 	-- ### supervision_Acting(1) [IRRELEVANT]
 	-- ### supervision_Acting(2) [IRRELEVANT]
-	-- TODO: SetPositionInitial<actor ACTOR_NPC_GUREGGURU>()
-	GROUND:CharSetAnim(CH('Croagunk'), "None", false)
-	-- TODO: SetPositionInitial<actor ACTOR_NPC_DOGOOMU>()
-	GROUND:CharSetAnim(CH('Loudred'), "None", false)
-	-- TODO: SetPositionInitial<actor ACTOR_NPC_PERAPPU>()
-	GROUND:CharSetAnim(CH('Chatot'), "None", false)
 
 	GAME:FadeIn(30)
-	GROUND:CharSetEmote(CH('Dugtrio'), "glowing", 1)
-	GROUND:CharSetEmote(CH('Loudred'), "glowing", 1)
-	GROUND:CharSetEmote(CH('Chimecho'), "glowing", 1)
-	GROUND:CharSetEmote(CH('Sunflora'), "glowing", 1)
-	GROUND:CharSetEmote(CH('PARTNER'), "glowing", 1)
-	GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_ZUBATTO'), "glowing", 1)
-	GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_DOGAASU'), "glowing", 1)
+	GROUND:CharSetEmote(CH('Dugtrio'), "glowing", -1)
+	GROUND:CharSetEmote(CH('Loudred'), "glowing", -1)
+	GROUND:CharSetEmote(CH('Chimecho'), "glowing", -1)
+	GROUND:CharSetEmote(CH('Sunflora'), "glowing", -1)
+	GROUND:CharSetEmote(CH('PARTNER'), "glowing", -1)
+    if SV.Flags.TeamSkullInGuild then
+        GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_ZUBATTO'), "glowing", -1)
+	    GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_DOGAASU'), "glowing", -1)
+    end
 
 	UI:SetSpeaker("Everyone", true)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['C_4_ALL_1']))
@@ -471,81 +465,131 @@ def 0 {
 	GROUND:CharSetEmote(CH('Chimecho'), "none", 1)
 	GROUND:CharSetEmote(CH('Sunflora'), "none", 1)
 	GROUND:CharSetEmote(CH('PARTNER'), "none", 1)
-	GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_ZUBATTO'), "none", 1)
-	GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_DOGAASU'), "none", 1)
+    if SV.Flags.TeamSkullInGuild then
+        GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_ZUBATTO'), "none", 1)
+        GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_DOGAASU'), "none", 1)
+    end
+
 	GAME:WaitFrames(15)
 	UI:SetSpeaker(CH('Chatot'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['C_4_Chatot_1']))
-	GROUND:CharSetEmote(CH('Dugtrio'), "glowing", 1)
-	GROUND:CharSetEmote(CH('Loudred'), "glowing", 1)
-	GROUND:CharSetEmote(CH('Chimecho'), "glowing", 1)
-	GROUND:CharSetEmote(CH('Sunflora'), "glowing", 1)
-	GROUND:CharSetEmote(CH('PARTNER'), "glowing", 1)
-	GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_ZUBATTO'), "glowing", 1)
-	GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_DOGAASU'), "glowing", 1)
-	GAME:WaitFrames(1)
-	-- TODO: SetDirection<actor ACTOR_NPC_GUREGGURU>(DIR_UP)
-	GROUND:CharSetAnim(CH('Croagunk'), "UNK_23", false)
-	-- TODO: SetDirection<actor ACTOR_NPC_DAGUTORIO>(DIR_UP)
-	GROUND:CharSetAnim(CH('Dugtrio'), "UNK_23", false)
-	GROUND:CharSetAnim(CH('Chimecho'), "UNK_23", false)
-	GROUND:CharSetAnim(CH('Corphish'), "UNK_23", false)
-	GROUND:CharSetAnim(CH('Bidoof'), "UNK_24", false)
-	GROUND:CharSetAnim(CH('Loudred'), "UNK_23", false)
-	GROUND:CharSetAnim(CH('Sunflora'), "UNK_23", false)
-	GROUND:CharSetAnim(CH('Diglett'), "UNK_25", false)
-	-- TODO: SetDirection<actor ACTOR_PLAYER>(DIR_UP)
-	GROUND:CharSetAnim(CH('PLAYER'), "Pose", false)
-	-- TODO: SetDirection<actor ACTOR_ATTENDANT1>(DIR_UP)
-	GROUND:CharSetAnim(CH('PARTNER'), "Pose", false)
-	ExplorerEssentials.SetSpeakerUnknown(nil)
+
+	GROUND:CharSetEmote(CH('Dugtrio'), "glowing", -1)
+	GROUND:CharSetEmote(CH('Loudred'), "glowing", -1)
+	GROUND:CharSetEmote(CH('Chimecho'), "glowing", -1)
+	GROUND:CharSetEmote(CH('Sunflora'), "glowing", -1)
+	GROUND:CharSetEmote(CH('PARTNER'), "glowing", -1)
+    if SV.Flags.TeamSkullInGuild then
+        GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_ZUBATTO'), "glowing", -1)
+        GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_DOGAASU'), "glowing", -1)
+	end
+
+    GAME:WaitFrames(1)
+	local coro1 = TASK:BranchCoroutine(function() GROUND:CharSetAction(CH('Croagunk'), RogueEssence.Ground.PoseGroundAction(CH('Croagunk').Position, Direction.Up, RogueEssence.Content.GraphicsManager.GetAnimIndex("Pose"))) end) 
+	local coro2 = TASK:BranchCoroutine(function() GROUND:CharSetAction(CH('Dugtrio'), RogueEssence.Ground.PoseGroundAction(CH('Dugtrio').Position, Direction.Up, RogueEssence.Content.GraphicsManager.GetAnimIndex("Pose"))) end) 
+	local coro3 = TASK:BranchCoroutine(function() GROUND:CharSetAction(CH('Chimecho'), RogueEssence.Ground.PoseGroundAction(CH('Chimecho').Position, Direction.Up, RogueEssence.Content.GraphicsManager.GetAnimIndex("Pose"))) end) 
+	local coro4 = TASK:BranchCoroutine(function() GROUND:CharSetAction(CH('Corphish'), RogueEssence.Ground.PoseGroundAction(CH('Corphish').Position, Direction.Up, RogueEssence.Content.GraphicsManager.GetAnimIndex("Pose"))) end) 
+	local coro5 = TASK:BranchCoroutine(function() GROUND:CharSetAction(CH('Bidoof'), RogueEssence.Ground.PoseGroundAction(CH('Bidoof').Position, Direction.Up, RogueEssence.Content.GraphicsManager.GetAnimIndex("Pose"))) end) 
+	local coro6 = TASK:BranchCoroutine(function() GROUND:CharSetAction(CH('Loudred'), RogueEssence.Ground.PoseGroundAction(CH('Loudred').Position, Direction.Up, RogueEssence.Content.GraphicsManager.GetAnimIndex("Pose"))) end) 
+	local coro7 = TASK:BranchCoroutine(function() GROUND:CharSetAction(CH('Sunflora'), RogueEssence.Ground.PoseGroundAction(CH('Sunflora').Position, Direction.Up, RogueEssence.Content.GraphicsManager.GetAnimIndex("Pose"))) end) 
+	local coro8 = TASK:BranchCoroutine(function() GROUND:CharSetAction(CH('Diglett'), RogueEssence.Ground.PoseGroundAction(CH('Diglett').Position, Direction.Up, RogueEssence.Content.GraphicsManager.GetAnimIndex("Pose"))) end) 
+    local coro9 = TASK:BranchCoroutine(function() GROUND:CharSetAction(CH('PLAYER'), RogueEssence.Ground.PoseGroundAction(CH('PLAYER').Position, Direction.Up, RogueEssence.Content.GraphicsManager.GetAnimIndex("Pose"))) end) 
+	local coro10 = TASK:BranchCoroutine(function() GROUND:CharSetAction(CH('PARTNER'), RogueEssence.Ground.PoseGroundAction(CH('PARTNER').Position, Direction.Up, RogueEssence.Content.GraphicsManager.GetAnimIndex("Pose"))) end) 
+	TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5, coro6, coro7, coro8, coro9, coro10})
+
+	UI:SetSpeaker("Everyone", true)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['C_4_ALL_2']))
-	GROUND:CharSetAnim(CH('Croagunk'), "None", false)
-	GROUND:CharSetAnim(CH('Dugtrio'), "None", false)
-	GROUND:CharSetAnim(CH('Chimecho'), "None", false)
-	GROUND:CharSetAnim(CH('Corphish'), "None", false)
-	GROUND:CharSetAnim(CH('Bidoof'), "None", false)
-	GROUND:CharSetAnim(CH('Loudred'), "None", false)
-	GROUND:CharSetAnim(CH('Sunflora'), "None", false)
-	GROUND:CharSetAnim(CH('Diglett'), "None", false)
-	GROUND:CharSetAnim(CH('PLAYER'), "None", false)
-	GROUND:CharSetAnim(CH('PARTNER'), "None", false)
+
+	GROUND:CharEndAnim(CH('Croagunk'))
+	GROUND:CharEndAnim(CH('Dugtrio'))
+	GROUND:CharEndAnim(CH('Chimecho'))
+	GROUND:CharEndAnim(CH('Corphish'))
+	GROUND:CharEndAnim(CH('Bidoof'))
+	GROUND:CharEndAnim(CH('Loudred'))
+	GROUND:CharEndAnim(CH('Sunflora'))
+	GROUND:CharEndAnim(CH('Diglett'))
+	GROUND:CharEndAnim(CH('PLAYER'))
+	GROUND:CharEndAnim(CH('PARTNER'))
+
 	GROUND:CharSetEmote(CH('Dugtrio'), "none", 1)
 	GROUND:CharSetEmote(CH('Loudred'), "none", 1)
 	GROUND:CharSetEmote(CH('Chimecho'), "none", 1)
 	GROUND:CharSetEmote(CH('Sunflora'), "none", 1)
 	GROUND:CharSetEmote(CH('PARTNER'), "none", 1)
-	GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_ZUBATTO'), "none", 1)
-	GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_DOGAASU'), "none", 1)
-	-- TODO: MovePositionLives<performer 0>(1, ACTOR_PLAYER)
-	-- TODO: SetDirection<actor ACTOR_NPC_DAGUTORIO>(DIR_DOWN)
-	GROUND:CharSetAnim(CH('Dugtrio'), "UNK_25", false)
-	-- TODO WaitAnimation: WaitAnimation<actor ACTOR_NPC_DAGUTORIO>()
-	GROUND:Hide("Dugtrio")
-	-- TODO: SetDirection<actor ACTOR_NPC_DIGUDA>(DIR_DOWN)
-	GROUND:CharSetAnim(CH('Diglett'), "UNK_24", false)
-	-- TODO WaitAnimation: WaitAnimation<actor ACTOR_NPC_DIGUDA>()
-	GROUND:Hide("Diglett")
-	GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.Left, 8)
-	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Left, 8)
-	GROUND:MoveToPosition(CH('UNK_ACTOR_NPC_SUKATANKU'), 324, 132, false, 2)
-	GROUND:MoveToPosition(CH('UNK_ACTOR_NPC_ZUBATTO'), 324, 132, false, 2)
-	GROUND:MoveToPosition(CH('UNK_ACTOR_NPC_DOGAASU'), 324, 132, false, 2)
-	GROUND:MoveToPosition(CH('Wigglytuff'), 420, 180, false, 2)
-	GROUND:MoveToPosition(CH('Croagunk'), 224, 252, false, 2)
-	GROUND:MoveToPosition(CH('Chimecho'), 324, 188, false, 2)
-	GAME:WaitFrames(5)
-	GROUND:MoveToPosition(CH('Corphish'), 324, 188, false, 2)
-	GROUND:MoveToPosition(CH('Loudred'), 240, 272, false, 2)
-	-- TODO: Move2PositionMark<actor ACTOR_NPC_BIPPA>(1.1992, Position<'m8', 40.5, 23.5>)
-	GROUND:MoveToPosition(CH('Sunflora'), CH('Sunflora').Position.X + -32, CH('Sunflora').Position.Y + 0, false, 2)
-	GROUND:Hide("Wigglytuff")
-	-- TODO: Move2PositionMark<actor ACTOR_NPC_KIMAWARI>(1.1992, Position<'m9', 40.5, 23.5>)
-	GROUND:MoveToPosition(CH('Chimecho'), 324, 132, false, 2)
-	GROUND:MoveToPosition(CH('Corphish'), 324, 132, false, 2)
-	GROUND:MoveToPosition(CH('Bidoof'), 324, 132, false, 2)
+    if SV.Flags.TeamSkullInGuild then
+        GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_ZUBATTO'), "none", 1)
+        GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_DOGAASU'), "none", 1)
+    end
+
+    -- this is gonna be a long one
+    local coro1 = TASK:BranchCoroutine(function() -- dugtrio
+        GROUND:CharWaitAnim(CH('Dugtrio'), "DigOut")
+        GROUND:Hide("Dugtrio")
+    end)
+    local coro2 = TASK:BranchCoroutine(function() -- diglett
+        GROUND:CharWaitAnim(CH('Diglett'), "DigOut")
+        GROUND:Hide("Diglett")
+    end)
+    local coro3 = TASK:BranchCoroutine(function() -- player
+        GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.Left, 8)
+    end)
+    local coro4 = TASK:BranchCoroutine(function() -- partner
+        GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Left, 8)
+    end)
+    local coro5 = TASK:BranchCoroutine(function() -- wigglytuff
+        GROUND:MoveToPosition(CH('Wigglytuff'), 420, 180, false, 2)
+        GAME:WaitFrames(5)
+        GROUND:Hide("Wigglytuff")
+    end)
+	local coro6 = TASK:BranchCoroutine(function() -- croagunk 
+        GROUND:MoveToPosition(CH('Croagunk'), 224, 252, false, 2)
+    end)
+    local coro7 = TASK:BranchCoroutine(function() -- chimecho 
+        GROUND:MoveToPosition(CH('Chimecho'), 324, 188, false, 2)
+        GROUND:MoveToPosition(CH('Chimecho'), 324, 132, false, 2)
+    end)
+    local coro8 = TASK:BranchCoroutine(function() -- corphish 
+        GAME:WaitFrames(5)
+        GROUND:MoveToPosition(CH('Corphish'), 324, 188, false, 2)
+        GROUND:MoveToPosition(CH('Corphish'), 324, 132, false, 2)
+        GROUND:Hide("Corphish")
+    end)
+    local coro9 = TASK:BranchCoroutine(function() -- loudred 
+        GAME:WaitFrames(5)
+        GROUND:MoveToPosition(CH('Loudred'), 240, 272, false, 2)
+    end)
+    local coro10 = TASK:BranchCoroutine(function() -- bidoof 
+        GAME:WaitFrames(5)
+        GROUND:MoveToPosition(CH('Bidoof'), 324, 188, false, 2)
+        GROUND:MoveToPosition(CH('Bidoof'), 324, 132, false, 2)
+    end)
+    local coro11 = TASK:BranchCoroutine(function() -- sunflora 
+        GAME:WaitFrames(5)
+        GROUND:MoveToPosition(CH('Sunflora'), CH('Sunflora').Position.X + -32, CH('Sunflora').Position.Y + 0, false, 2)
+        GROUND:MoveToPosition(CH('Sunflora'), 324, 188, false, 2)
+        GROUND:MoveToPosition(CH('Sunflora'), 324, 132, false, 2)
+    end)
+    local coro12 = TASK:BranchCoroutine(function () -- camera
+        ExplorerEssentials.MoveCameraAtSpeed(0, 0, 1, true)
+    end)
+    local coro13 = TASK:BranchCoroutine(function () -- skuntank
+        if not SV.Flags.TeamSkullInGuild then return end
+        GROUND:MoveToPosition(CH('UNK_ACTOR_NPC_SUKATANKU'), 324, 132, false, 2)
+    end)
+    local coro14 = TASK:BranchCoroutine(function () -- zubat
+        if not SV.Flags.TeamSkullInGuild then return end
+        GROUND:MoveToPosition(CH('UNK_ACTOR_NPC_ZUBATTO'), 324, 132, false, 2)
+    end)
+    local coro15 = TASK:BranchCoroutine(function () -- koffing
+        if not SV.Flags.TeamSkullInGuild then return end
+        GROUND:MoveToPosition(CH('UNK_ACTOR_NPC_DOGAASU'), 324, 132, false, 2)
+    end)
+	TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5, coro6, coro7, coro8, coro9, coro10, coro11, coro12, coro13, coro14, coro15})
+
 	-- ### supervision_RemoveActing(1) [IRRELEVANT]
+
+    SV.DailyFlags.DidMorningCheers = true
 
     if SV.Progression.Chapter == 2 then -- time to go back to drenched bluff
         local coro1 = TASK:BranchCoroutine(function () SOUND:FadeOutBGM(120) end)
@@ -554,7 +598,7 @@ def 0 {
         
         GAME:EnterZone('drenched_bluff', -1, 0, 0)
     else
-
+        GAME:CutsceneMode(false)
     end
 
 end
@@ -786,11 +830,12 @@ def 3 for actor ACTOR_ATTENDANT1 {
         UI:SetSpeaker(CH('Chimecho'))
         UI:SetSpeakerEmotion("Normal")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['C_Chimecho_1']))
+
         -- back_SetGround(LEVEL_G01P04A) (Should be the map you're currently on, or the map it sends you to next)
         -- ### supervision_Acting(0) [IRRELEVANT]
-        GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
-        GAME:WaitFrames(1)
-        -- TODO: WaitLockLives(5, ACTOR_NPC_GUREGGURU)
+        
+
+        
         GAME:FadeIn(30)
 
         local coro1B = TASK:BranchCoroutine(function ()
@@ -847,7 +892,7 @@ def 3 for actor ACTOR_ATTENDANT1 {
         GROUND:CharSetEmote(CH('Loudred'), "glowing", -1)
         -- TODO: @label_2
         while continue do
-            GROUND:CharWaitAnim(CH('Loudred'), "None") -- SetAnimation(19)
+            GROUND:CharWaitAnim(CH('Loudred'), "Dance") -- SetAnimation(19)
         end
     end)  
     local coro4 = TASK:BranchCoroutine(function()
@@ -3247,11 +3292,11 @@ def 0 {
 
     -- this is gonna be a long one
     local coro1 = TASK:BranchCoroutine(function() -- dugtrio
-        GROUND:CharWaitAnim(CH('Dugtrio'), "Dig")
+        GROUND:CharWaitAnim(CH('Dugtrio'), "DigOut")
         GROUND:Hide("Dugtrio")
     end)
     local coro2 = TASK:BranchCoroutine(function() -- diglett
-        GROUND:CharWaitAnim(CH('Diglett'), "Dig")
+        GROUND:CharWaitAnim(CH('Diglett'), "DigOut")
         GROUND:Hide("Diglett")
     end)
     local coro3 = TASK:BranchCoroutine(function() -- player

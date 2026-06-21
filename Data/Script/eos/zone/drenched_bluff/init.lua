@@ -45,7 +45,7 @@ function drenched_bluff.ExitSegment(zone, result, rescue, segmentID, mapID)
 		SV.drenched_bluff.TimesFailed = SV.drenched_bluff.TimesFailed + 1
 
 		GAME:WaitFrames(20)
-		ExplorerEssentials.EndDungeonWithFanfare(result, "hub", -1, 0, 0) --temporary
+		ExplorerEssentials.EndDungeonWithFanfare(result, "hub", -1, 10, 0)
 	else
 		GAME:WaitFrames(20)
 		GAME:EnterZone("drenched_bluff", -1, 1, 0)

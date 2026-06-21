@@ -71,6 +71,6 @@
 		<value>Good night!</value>
 	</data>
   <data name="C_EATING" xml:space="preserve">
-    <value>[speed=1]Crunch-munch! Chew-chew! Snuffle-slurp!\nCrunch-munch! Chew-chew! Snuffle-slurp![/speed]</value><value/>
+    <value>[speed=1]Crunch-munch! Chew-chew! Snuffle-slurp!\nCrunch-munch! Chew-chew! Snuffle-slurp![speed]</value>
   </data>
 </root>

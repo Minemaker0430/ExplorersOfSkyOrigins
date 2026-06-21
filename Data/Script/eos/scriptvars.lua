@@ -67,7 +67,8 @@ SV.DailyFlags =
 
 SV.Flags = 
 {
-	SawDinnerCutscene = false
+	SawDinnerCutscene = false,
+	TeamSkullInGuild = false
 }
 
 SV.Cutscene =

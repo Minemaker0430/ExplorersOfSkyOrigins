@@ -77,6 +77,19 @@
   <data name="MENU_SAVE_AND_QUIT" xml:space="preserve">
     <value>Save and Quit</value>
   </data>
+  <data name="MSG_ITEM_DEQUIP_ALT" xml:space="preserve">
+    <value>{0} put the {1} back.</value>
+    <comment></comment>  
+	</data>
+	<data name="MSG_ITEM_SWAP_ALT" xml:space="preserve">
+    <value>{0} got the {1} and put the {2} away.</value>
+    <comment></comment>  </data>
+	<data name="MSG_PICKUP_ITEM_ALT" xml:space="preserve">
+    <value>{0} picked up the {1} and put it away.</value>
+    <comment></comment>  </data>
+	<data name="MSG_PICKUP_SOME_ITEM_ALT" xml:space="preserve">
+    <value>{0} picked up some of the {1} and put it away.</value>
+    <comment></comment>  </data>
   <data name="DEMO_MENU_TITLE" xml:space="preserve">
     <value>Chapter Select</value>
     <comment>USED ONLY FOR THE DEMO ROOM</comment>

@@ -12,7 +12,7 @@ ExplorerEssentials = {}
 -- so yea that's it bye
 
 --- Spawns the Partner Pokemon and sets its AI to follow the Player
---- MAKE SURE TO DISABLE THE PARTNER'S CHARACTER AI WHEN IN CUTSCENES
+--- [MAKE SURE TO DISABLE THE PARTNER'S CHARACTER AI WHEN IN CUTSCENES]
 function ExplorerEssentials.SpawnPartner()
 	COMMON.RespawnStarterPartner()
 	
@@ -88,10 +88,7 @@ end
 
 --- Sets the speaker to the Hero Pokemon (your Starter)
 function ExplorerEssentials.SetSpeakerHero()
-	if SV.General.Starter == nil then
-		SV.General.Starter = GAME:GetPlayerPartyMember(0)
-		GAME:WaitFrames(1)
-	end 
+	SV.General.Starter = SV.General.Starter or GAME:GetPlayerPartyMember(0)
 	
 	UI:SetSpeaker('', false, SV.General.Starter.CurrentForm.Species, SV.General.Starter.CurrentForm.Form, SV.General.Starter.CurrentForm.Skin, SV.General.Starter.CurrentForm.Gender)
 end
@@ -118,7 +115,7 @@ end
 --- @param y number Y Position (in SkyTemple Units)
 --- @param dir Direction Direction the character should be facing
 function ExplorerEssentials.SetupInitialPos(char, x, y, dir)
-	if dir == nil then dir = Direction.Down end
+	dir = dir or Direction.Down
 	GROUND:TeleportTo(char, math.floor(x * 8), math.floor(y * 8), dir) -- flooring may be unnecessary but i'm doing it anyways
 end
 
@@ -137,6 +134,27 @@ end
 function ExplorerEssentials.MoveCameraAtSpeed(x, y, speed, relative)
 	local startX = GAME:GetCameraCenter().X
 	local startY = GAME:GetCameraCenter().Y
+
+	-- borrowed this snippet from halcyon
+	local distX = startX - x
+	local distY = startY - y
+	
+	local distance = math.sqrt((distX * distX) + (distY * distY))
+	
+	GAME:MoveCamera(x, y, math.floor(distance / speed), relative)
+end
+
+--- MoveCamera, but calculated to travel at a specific speed rather than a specified duration
+--- @param offx number X Position
+--- @param offy number Y Position
+--- @param speed integer Speed in pixels/sec
+--- @param relative boolean Whether the camera position is relative to the player or not
+function ExplorerEssentials.MoveCameraAtSpeedOffset(offx, offy, speed, relative)
+	local startX = GAME:GetCameraCenter().X
+	local startY = GAME:GetCameraCenter().Y
+
+	local x = startX + offx
+	local y = startY + offy
 
 	-- borrowed this snippet from halcyon
 	local distX = startX - x

@@ -257,7 +257,6 @@ def 0 {
 }
 ]]--
 
-	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
 	SOUND:StopBGM()
 
