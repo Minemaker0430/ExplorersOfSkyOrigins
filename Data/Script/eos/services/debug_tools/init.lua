@@ -135,10 +135,10 @@ function DebugTools:OnLossPenalty(save)
   assert(self, 'DebugTools:OnLossPenalty() : self is null!')
  
   --remove half of the player's money
-  save.ActiveTeam.Money = math.floor(save.ActiveTeam.Money / 2)
+  save.ActiveTeam.Money = math.floor(save.ActiveTeam.Money * (math.random(2.0, 3.0) / 4))
   
   local inv_count = save.ActiveTeam:GetInvCount() - 1
-  local removal_limit = math.floor(inv_count / 2)
+  local removal_limit = math.floor(inv_count * 0.75)
   local items_removed = 0
 
   --remove bag items

@@ -104,6 +104,12 @@ function MenuTools:OnMenuButtonPressed()
       RogueEssence.Menu.MenuDirTex.TexType.Object, 
       RogueEssence.Content.AnimData(rankIcons[rank], 1)
     ))
+
+    -- add star next to badge if special rank
+    if SV.MajorFlags.HasSpecialRank then
+      MenuTools.MainMenu.SummaryElements:Add(RogueEssence.Menu.MenuText(STRINGS:Format("\u{E10C}"),
+                    RogueElements.Loc(145, RogueEssence.Content.GraphicsManager.MenuBG.TileHeight + 30), RogueElements.DirH.Right))
+    end
   end
 
   MenuTools.MainMenu:InitMenu()

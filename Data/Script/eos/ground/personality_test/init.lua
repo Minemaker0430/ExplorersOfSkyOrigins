@@ -1226,7 +1226,7 @@ function personality_test.Enter(map)
 	GROUND:SetPlayer(GAME:GetPlayerPartyMember(0))
 
 	GAME:SetCanSwitch(false)
-	GAME:SetTeamName('')
+	GAME:SetTeamName('????')
 	_DATA.Save.ActiveTeam:SetRank('none')
 	_DATA.Save.ActiveTeam.Fame = 0
 	_DATA.Save:UpdateTeamProfile(true)

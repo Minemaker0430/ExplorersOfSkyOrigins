@@ -68,7 +68,9 @@
 "sunset_view",
 "demo_room",
 "sentry_hole",
-"guild_bedroom_night"
+"guild_bedroom_night",
+"guild_basement_night",
+"guild_dining_hall_night"
 ],
 "Maps": [],
 "Name": {

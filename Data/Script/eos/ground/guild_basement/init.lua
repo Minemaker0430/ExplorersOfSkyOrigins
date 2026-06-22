@@ -34,7 +34,7 @@ end
 --Engine callback function
 function guild_basement.Enter(map)
     if SV.Progression.Chapter == 2 then
-        if (not SV.Flags.SawDinnerCutscene) and SV.DailyFlags.EndedDay then
+        if (not SV.MajorFlags.SawDinnerCutscene) and SV.DailyFlags.EndedDay then
             guild_basement.COMMON_DinnerReady()
         elseif SV.Progression.SectionFlag == 1 and SV.drenched_bluff.TimesFailed > 0 then
             guild_basement.COMMON_MorningCheer()
@@ -453,7 +453,7 @@ def 0 {
 	GROUND:CharSetEmote(CH('Chimecho'), "glowing", -1)
 	GROUND:CharSetEmote(CH('Sunflora'), "glowing", -1)
 	GROUND:CharSetEmote(CH('PARTNER'), "glowing", -1)
-    if SV.Flags.TeamSkullInGuild then
+    if SV.MajorFlags.TeamSkullInGuild then
         GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_ZUBATTO'), "glowing", -1)
 	    GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_DOGAASU'), "glowing", -1)
     end
@@ -465,7 +465,7 @@ def 0 {
 	GROUND:CharSetEmote(CH('Chimecho'), "none", 1)
 	GROUND:CharSetEmote(CH('Sunflora'), "none", 1)
 	GROUND:CharSetEmote(CH('PARTNER'), "none", 1)
-    if SV.Flags.TeamSkullInGuild then
+    if SV.MajorFlags.TeamSkullInGuild then
         GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_ZUBATTO'), "none", 1)
         GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_DOGAASU'), "none", 1)
     end
@@ -480,7 +480,7 @@ def 0 {
 	GROUND:CharSetEmote(CH('Chimecho'), "glowing", -1)
 	GROUND:CharSetEmote(CH('Sunflora'), "glowing", -1)
 	GROUND:CharSetEmote(CH('PARTNER'), "glowing", -1)
-    if SV.Flags.TeamSkullInGuild then
+    if SV.MajorFlags.TeamSkullInGuild then
         GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_ZUBATTO'), "glowing", -1)
         GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_DOGAASU'), "glowing", -1)
 	end
@@ -517,7 +517,7 @@ def 0 {
 	GROUND:CharSetEmote(CH('Chimecho'), "none", 1)
 	GROUND:CharSetEmote(CH('Sunflora'), "none", 1)
 	GROUND:CharSetEmote(CH('PARTNER'), "none", 1)
-    if SV.Flags.TeamSkullInGuild then
+    if SV.MajorFlags.TeamSkullInGuild then
         GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_ZUBATTO'), "none", 1)
         GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_DOGAASU'), "none", 1)
     end
@@ -574,15 +574,15 @@ def 0 {
         ExplorerEssentials.MoveCameraAtSpeed(0, 0, 1, true)
     end)
     local coro13 = TASK:BranchCoroutine(function () -- skuntank
-        if not SV.Flags.TeamSkullInGuild then return end
+        if not SV.MajorFlags.TeamSkullInGuild then return end
         GROUND:MoveToPosition(CH('UNK_ACTOR_NPC_SUKATANKU'), 324, 132, false, 2)
     end)
     local coro14 = TASK:BranchCoroutine(function () -- zubat
-        if not SV.Flags.TeamSkullInGuild then return end
+        if not SV.MajorFlags.TeamSkullInGuild then return end
         GROUND:MoveToPosition(CH('UNK_ACTOR_NPC_ZUBATTO'), 324, 132, false, 2)
     end)
     local coro15 = TASK:BranchCoroutine(function () -- koffing
-        if not SV.Flags.TeamSkullInGuild then return end
+        if not SV.MajorFlags.TeamSkullInGuild then return end
         GROUND:MoveToPosition(CH('UNK_ACTOR_NPC_DOGAASU'), 324, 132, false, 2)
     end)
 	TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5, coro6, coro7, coro8, coro9, coro10, coro11, coro12, coro13, coro14, coro15})

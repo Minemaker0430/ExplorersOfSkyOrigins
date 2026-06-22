@@ -15,6 +15,6 @@
 
 require 'eos.services.menu_tools'
 require 'eos.services.debug_tools'
-require 'eos.services.upgrade_tools'
+--require 'eos.services.upgrade_tools'
 
 math.randomseed(os.time())

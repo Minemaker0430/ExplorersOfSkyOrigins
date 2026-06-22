@@ -63,6 +63,7 @@ function chapter_card.Enter(map)
 												  UI:WaitHideBG(60) end)
   TASK:JoinCoroutines({coro1, coro2})
 
+  GAME:FadeOut(false, 1)
   GAME:WaitFrames(60)
   
   if SV.Progression.Chapter == 1 then

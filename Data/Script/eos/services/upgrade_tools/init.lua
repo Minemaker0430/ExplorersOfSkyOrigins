@@ -86,12 +86,17 @@ function UpgradeTools:OnUpgrade()
 
   if SV.DailyFlags == nil then
     SV.DailyFlags ={
-      GreenKecleonRefreshedStock = false,
-      GreenKecleonStock = {},
-      PurpleKecleonRefreshedStock = false,
-      PurpleKecleonStock = {},
-
+      DidMorningCheers = false,
+	    EndedDay = false,
       SereneForestUnlocked = false -- used for the special "Oddity Cave" like dungeon
+    }
+  end
+
+  if SV.MajorFlags == nil then
+    SV.MajorFlags = 
+    {
+      SawDinnerCutscene = false,
+      TeamSkullInGuild = false
     }
   end
 
@@ -193,6 +198,14 @@ function UpgradeTools:OnUpgrade()
   end
 
   if SV.drenched_bluff.TimesFailed == nil then SV.drenched_bluff.TimesFailed = 0 end
+  if SV.drenched_bluff.Tutorial == nil then 
+    if SV.Progression.Chapter > 2 then 
+      SV.drenched_bluff.Tutorial = 6 
+    else
+      SV.drenched_bluff.Tutorial = 0
+    end 
+
+  end
 
   if SV.mt_bristle.FailedDungeon == nil then SV.mt_bristle.FailedDungeon = false end
   if SV.mt_bristle.FailedBoss == nil then SV.mt_bristle.FailedBoss = false end

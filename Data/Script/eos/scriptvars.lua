@@ -58,6 +58,17 @@ SV.Progression =
 	DaysToProgress = -1 --how many days until next flag, -1 means disabled
 }
 
+--[[
+
+	Progression Mapping
+	-------------------
+	[chapter, section flag] = event
+	[1, 1] = obtained relic fragment
+	[2, 1] = signed up at the guild
+	[2, 2] = completed drenched bluff
+
+]]
+
 SV.DailyFlags =
 {
 	DidMorningCheers = false,
@@ -65,10 +76,11 @@ SV.DailyFlags =
 	SereneForestUnlocked = false -- used for the special "Oddity Cave" like dungeon
 }
 
-SV.Flags = 
+SV.MajorFlags =
 {
 	SawDinnerCutscene = false,
-	TeamSkullInGuild = false
+	TeamSkullInGuild = false,
+	HasSpecialRank = false -- epilogue only
 }
 
 SV.Cutscene =
