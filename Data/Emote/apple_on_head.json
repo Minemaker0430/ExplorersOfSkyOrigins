@@ -1,0 +1,21 @@
+﻿{
+"Version": "0.8.12.0",
+"Object": {
+"$type": "RogueEssence.Data.EmoteData, RogueEssence",
+"Name": {
+"DefaultText": "Apple On Head",
+"LocalTexts": {}
+},
+"Comment": "",
+"LocHeight": 10,
+"Anim": {
+"AnimIndex": "Emote_AppleOnHead",
+"FrameTime": 4,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": -1,
+"Alpha": 255,
+"AnimFlip": 0
+}
+}
+}

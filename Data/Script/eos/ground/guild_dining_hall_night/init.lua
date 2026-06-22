@@ -263,9 +263,8 @@ def 1 for actor ACTOR_NPC_PUKURIN {
     end)
     local coro2 = TASK:BranchCoroutine(function() -- wigglytuff
         -- DEF_1 for actor ACTOR_NPC_PUKURIN()
-        -- TODO SetAnimation: SetAnimation(5)
-        -- TODO SetEffect: SetEffect(EFFECT_APPLE_ON_HEAD, 3)
-
+       
+        GROUND:CharSetEmote(CH('Wigglytuff'), "apple_on_head", -1)
         GROUND:CharSetAnim(CH('Wigglytuff'), "Walk", true)
 
         -- TODO: Lock(5)
