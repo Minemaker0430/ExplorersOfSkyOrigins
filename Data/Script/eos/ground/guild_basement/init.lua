@@ -27,6 +27,8 @@ function guild_basement.Init(map)
   --This will fill the localized strings table automatically based on the locale the game is 
   -- currently in. You can use the MapStrings table after this line!
 
+  SV.MajorFlags = SV.MajorFlags or {}
+
   COMMON.RespawnStarterPartner()
 end
 
@@ -34,17 +36,21 @@ end
 --Engine callback function
 function guild_basement.Enter(map)
     if SV.Progression.Chapter == 2 then
-        if (not SV.MajorFlags.SawDinnerCutscene) and SV.DailyFlags.EndedDay then
+        if SV.MajorFlags.SawDinnerCutscene ~= true and SV.DailyFlags.EndedDay == true then
+            print("dinner")
             guild_basement.COMMON_DinnerReady()
         elseif SV.Progression.SectionFlag == 1 and SV.drenched_bluff.TimesFailed > 0 then
+            print("morning cheer")
             guild_basement.COMMON_MorningCheer()
         elseif SV.Progression.SectionFlag == 1 then
+            print("first morning")
             guild_basement.CH2_FirstMorning()
             guild_basement.CH2_ChatotBeckons()
         else
+            print("basement tour")
             guild_basement.CH2_BasementTour()
         end
-    elseif not SV.DailyFlags.DidMorningCheers then
+    elseif SV.DailyFlags.DidMorningCheers ~= true then
         guild_basement.COMMON_MorningCheer()
     else -- No Cutscenes
         ExplorerEssentials.SpawnPartner()
@@ -453,7 +459,7 @@ def 0 {
 	GROUND:CharSetEmote(CH('Chimecho'), "glowing", -1)
 	GROUND:CharSetEmote(CH('Sunflora'), "glowing", -1)
 	GROUND:CharSetEmote(CH('PARTNER'), "glowing", -1)
-    if SV.MajorFlags.TeamSkullInGuild then
+    if SV.MajorFlags.TeamSkullInGuild == true then
         GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_ZUBATTO'), "glowing", -1)
 	    GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_DOGAASU'), "glowing", -1)
     end
@@ -465,7 +471,7 @@ def 0 {
 	GROUND:CharSetEmote(CH('Chimecho'), "none", 1)
 	GROUND:CharSetEmote(CH('Sunflora'), "none", 1)
 	GROUND:CharSetEmote(CH('PARTNER'), "none", 1)
-    if SV.MajorFlags.TeamSkullInGuild then
+    if SV.MajorFlags.TeamSkullInGuild == true then
         GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_ZUBATTO'), "none", 1)
         GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_DOGAASU'), "none", 1)
     end
@@ -480,7 +486,7 @@ def 0 {
 	GROUND:CharSetEmote(CH('Chimecho'), "glowing", -1)
 	GROUND:CharSetEmote(CH('Sunflora'), "glowing", -1)
 	GROUND:CharSetEmote(CH('PARTNER'), "glowing", -1)
-    if SV.MajorFlags.TeamSkullInGuild then
+    if SV.MajorFlags.TeamSkullInGuild == true then
         GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_ZUBATTO'), "glowing", -1)
         GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_DOGAASU'), "glowing", -1)
 	end
@@ -517,7 +523,7 @@ def 0 {
 	GROUND:CharSetEmote(CH('Chimecho'), "none", 1)
 	GROUND:CharSetEmote(CH('Sunflora'), "none", 1)
 	GROUND:CharSetEmote(CH('PARTNER'), "none", 1)
-    if SV.MajorFlags.TeamSkullInGuild then
+    if SV.MajorFlags.TeamSkullInGuild == true then
         GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_ZUBATTO'), "none", 1)
         GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_DOGAASU'), "none", 1)
     end
@@ -574,15 +580,15 @@ def 0 {
         ExplorerEssentials.MoveCameraAtSpeed(0, 0, 1, true)
     end)
     local coro13 = TASK:BranchCoroutine(function () -- skuntank
-        if not SV.MajorFlags.TeamSkullInGuild then return end
+        if SV.MajorFlags.TeamSkullInGuild ~= true then return end
         GROUND:MoveToPosition(CH('UNK_ACTOR_NPC_SUKATANKU'), 324, 132, false, 2)
     end)
     local coro14 = TASK:BranchCoroutine(function () -- zubat
-        if not SV.MajorFlags.TeamSkullInGuild then return end
+        if SV.MajorFlags.TeamSkullInGuild ~= true then return end
         GROUND:MoveToPosition(CH('UNK_ACTOR_NPC_ZUBATTO'), 324, 132, false, 2)
     end)
     local coro15 = TASK:BranchCoroutine(function () -- koffing
-        if not SV.MajorFlags.TeamSkullInGuild then return end
+        if SV.MajorFlags.TeamSkullInGuild ~= true then return end
         GROUND:MoveToPosition(CH('UNK_ACTOR_NPC_DOGAASU'), 324, 132, false, 2)
     end)
 	TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5, coro6, coro7, coro8, coro9, coro10, coro11, coro12, coro13, coro14, coro15})
@@ -2554,37 +2560,18 @@ def 0 {
 	
 	GAME:CutsceneMode(true)
 
-    local player = CH("PLAYER")
-    local partner = CH("PARTNER")
-    local chatot = CH("Chatot")
-    
-    local hTalkKind = SV.Personality.HeroTalkKind
-    local pTalkKind = SV.Personality.PartnerTalkKind
+	AI:DisableCharacterAI(CH('PARTNER'))
+	CH('PARTNER').CollisionDisabled = true
+	CH('PLAYER').CollisionDisabled = true
+	CH('Chatot').CollisionDisabled = true
 
-	AI:DisableCharacterAI(partner)
-	partner.CollisionDisabled = true
-	player.CollisionDisabled = true
-	chatot.CollisionDisabled = true
-
-    local cam = MRKR("CamPos_1")
-    GAME:MoveCamera(cam.Position.X, cam.Position.Y, 1, false)
-    local marker = MRKR("Ladder")
+    ExplorerEssentials.SetupCameraPos(40, 27)
+    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 42, 22.5, Direction.Down)
+    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 38, 22.5, Direction.Down)
+    ExplorerEssentials.SetupInitialPos(CH('Chatot'), 40, 26.5, Direction.Up)
 
     GAME:FadeIn(30)
 	GAME:WaitFrames(30)
-
-	--Down the ladder we go
-    GROUND:TeleportTo(Chatot, marker.Position.X, marker.Position.Y, Direction.Down)
-	GROUND:MoveToPosition(Chatot, marker.Position.X, marker.Position.Y + 170, false, 1)
-	GROUND:CharAnimateTurnTo(Chatot, Direction.Up, 2)
-	GROUND:TeleportTo(player, marker.Position.X, marker.Position.Y, Direction.Down)
-	GROUND:MoveToPosition(player, marker.Position.X, marker.Position.Y + 130, false, 1)
-	GROUND:MoveToPosition(player, marker.Position.X + 20, marker.Position.Y + 130, false, 1)
-	GROUND:CharAnimateTurnTo(player, Direction.Down, 2)
-    GROUND:TeleportTo(partner, marker.Position.X, marker.Position.Y, Direction.Down)
-    GROUND:MoveToPosition(partner, marker.Position.X, marker.Position.Y + 130, false, 1)
-    GROUND:MoveToPosition(partner, marker.Position.X - 20, marker.Position.Y + 130, false, 1)
-	GROUND:CharAnimateTurnTo(partner, Direction.Down, 2)
 
 	UI:SetSpeaker(CH('Chatot'))
 	UI:SetSpeakerEmotion("Normal")
@@ -2600,7 +2587,8 @@ def 0 {
                                                   GROUND:CharAnimateTurnTo(CH('Chatot'), Dir8.Left, 4)
     end)
     local coro3 = TASK:BranchCoroutine(function() GAME:WaitFrames(30)
-                                                  GROUND:MoveToPosition(CH('PLAYER'), 384, 200, false, 2) 
+                                                  GROUND:MoveToPosition(CH('PLAYER'), 384, 200, false, 2)
+                                                  GROUND:EntTurn(CH('PLAYER'), Direction.Right)
     end)
     local coro4 = TASK:BranchCoroutine(function() GAME:WaitFrames(30)
                                                   GROUND:MoveToPosition(CH('PARTNER'), 384, 224, false, 2)
@@ -2657,13 +2645,13 @@ def 0 {
 	
     UI:SetSpeaker(CH('Chatot'))
 	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_7']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_7'], CH('Wigglytuff'):GetDisplayName()))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_8']))
 	
     GROUND:CharAnimateTurnTo(CH('Chatot'), Dir8.Up, 4)
 	GAME:WaitFrames(30)
 
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_9']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_9'], CH('Chatot'):GetDisplayName()))
 	SOUND:FadeOutBGM(120)
 	GAME:FadeOut(false, 60)
 

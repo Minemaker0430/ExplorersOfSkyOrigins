@@ -5,6 +5,8 @@
 ]] --
 -- Commonly included lua functions and data
 require 'eos.common'
+require 'eos.CharacterActions'
+require 'eos.ExplorerEssentials'
 
 -- Package name
 local guild_bedroom_night = {}
@@ -21,6 +23,7 @@ end
 ---guild_bedroom_night.Enter(map)
 --Engine callback function
 function guild_bedroom_night.Enter(map)
+    ExplorerEssentials.SetProgress(2, 1) -- TESTING
     if SV.Progression.Chapter == 2 and SV.Progression.SectionFlag > 0 then
         if SV.Progression.SectionFlag > 2 then
             guild_bedroom_night.CH2_NightAfterJob()
@@ -147,11 +150,11 @@ def 0 {
 	-- back_SetGround(LEVEL_G01P07C) (Should be the map you're currently on, or the map it sends you to next)
 	-- ### supervision_Acting(0) [IRRELEVANT]
 	ExplorerEssentials.SetupCameraPos(22, 22.5)
-    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 25, 22, Direction.Left)
-    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 19, 22, Direction.Right)
+    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 24.5, 21.5, Direction.Left)
+    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 18.5, 21.5, Direction.Right)
 
 	GAME:FadeIn(30)
-	SOUND:PlayBGM("010 - Goodnight.ogg")
+	SOUND:PlayBGM("010 - Goodnight.ogg", true)
 	GAME:WaitFrames(30)
 	UI:SetSpeaker(CH('PARTNER'))
 	UI:SetSpeakerEmotion("Normal")
@@ -598,8 +601,8 @@ def 0 {
     SOUND:StopBGM()
 
     ExplorerEssentials.SetupCameraPos(22, 22.5)
-    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 25, 22, Direction.Right)
-    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 19, 22, Direction.Left)
+    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 24.5, 21.5, Direction.Right)
+    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 18.5, 21.5, Direction.Left)
 
     -- TODO: else {         back2_SetMode(4)
     -- ### back2_SetGround(LEVEL_V02P06A) [IRRELEVANT]
@@ -619,7 +622,7 @@ def 0 {
 	GROUND:CharSetAnim(CH('PARTNER'), "Laying", true)
     GAME:FadeIn(60)
     -- TODO: screen_FadeChange(1, 60, 0, 192) // Should be dark
-    SOUND:PlayBGM("010 - Goodnight.ogg")
+    SOUND:PlayBGM("010 - Goodnight.ogg", true)
     GAME:WaitFrames(30)
     UI:SetSpeaker(CH('PARTNER'):GetDisplayName(), true)
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_PARTNER_1']))

@@ -5,6 +5,8 @@
 ]]--
 -- Commonly included lua functions and data
 require 'eos.common'
+require 'eos.CharacterActions'
+require 'eos.ExplorerEssentials'
 
 -- Package name
 local guild_bedroom = {}
@@ -384,18 +386,24 @@ def 0 {
 
   ]]--
 
+    GAME:CutsceneMode(true)
     AI:DisableCharacterAI(CH('PARTNER'))
 	local pTalkKind = SV.Personality.PartnerTalkKind
+
+    CH('Chatot').CollisionDisabled = true
+    CH('PLAYER').CollisionDisabled = true
+    CH('PARTNER').CollisionDisabled = true
+
 	-- back_SetGround(LEVEL_G01P07A) (Should be the map you're currently on, or the map it sends you to next)
 	-- ### supervision_Acting(0) [IRRELEVANT]
     
-    ExplorerEssentials.SetupInitialPos(CH('Chatot'), 13.5, 22.5, Direction.Right)
+    ExplorerEssentials.SetupInitialPos(CH('Chatot'), 13.5, 20.5, Direction.Right)
     ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 12, 22, Direction.Right) -- player 12, 22
     ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 9, 22, Direction.Right) -- partner 9, 22
 	ExplorerEssentials.SetupCameraPos(20.5, 22.5)
 
 	GAME:FadeIn(30)
-	SOUND:PlayBGM("011 - Wigglytuff's Guild Remix.ogg")
+	SOUND:PlayBGM("011 - Wigglytuff's Guild Remix.ogg", true)
 	GAME:WaitFrames(30)
 
 	UI:SetSpeaker(CH('Chatot'))
@@ -403,12 +411,12 @@ def 0 {
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_1']))
 
     local coro1 = TASK:BranchCoroutine(function ()
-        GROUND:MoveToPosition(CH('PLAYER'), 204, 184, false, 2)
+        GROUND:MoveToPosition(CH('PLAYER'), 196, 168, false, 2)
         GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.Left, 4)
     end)
     local coro2 = TASK:BranchCoroutine(function ()
         GAME:WaitFrames(10)
-	    GROUND:MoveToPosition(CH('PARTNER'), 156, 184, false, 2)
+	    GROUND:MoveToPosition(CH('PARTNER'), 148, 168, false, 2)
         GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Down, 4)
     end)
     TASK:JoinCoroutines({coro1, coro2})
@@ -449,7 +457,7 @@ def 0 {
         GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Left, 4)
     end)
     local coro2 = TASK:BranchCoroutine(function ()
-        GROUND:MoveToPosition(CH('Chatot'), CH('Chatot').Position.X + -88, CH('Chatot').Position.Y + 0, false, 2)
+        GROUND:MoveToPosition(CH('Chatot'), CH('Chatot').Position.X + -132, CH('Chatot').Position.Y + 0, false, 2)
     end)
 	TASK:JoinCoroutines({coro1, coro2})
 

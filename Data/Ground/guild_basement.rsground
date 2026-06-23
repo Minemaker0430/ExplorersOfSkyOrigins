@@ -52161,7 +52161,7 @@
 },
 "CollisionDisabled": false,
 "Collider": {
-"X": 450,
+"X": 448,
 "Y": 209,
 "Width": 16,
 "Height": 16
@@ -53393,20 +53393,6 @@
 "Collider": {
 "X": 316,
 "Y": 54,
-"Width": 16,
-"Height": 16
-}
-},
-{
-"EntName": "CamPos_1",
-"Direction": 0,
-"EntEnabled": true,
-"EntOrder": 0,
-"InteractOrder": 0,
-"triggerType": 0,
-"Collider": {
-"X": 316,
-"Y": 210,
 "Width": 16,
 "Height": 16
 }

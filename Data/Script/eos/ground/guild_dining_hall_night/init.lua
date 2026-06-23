@@ -191,7 +191,7 @@ def 1 for actor ACTOR_NPC_PUKURIN {
     ExplorerEssentials.SetupInitialPos(CH('Loudred'), 30, 22, Direction.Down)
     ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 27, 22, Direction.Down)
     ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 24, 22, Direction.Down)
-    if SV.MajorFlags.TeamSkullInGuild then
+    if SV.MajorFlags.TeamSkullInGuild == true then
         ExplorerEssentials.SetupInitialPos(CH('UNK_ACTOR_NPC_ZUBATTO'), 26.5, 27.5, Direction.Up)
         ExplorerEssentials.SetupInitialPos(CH('UNK_ACTOR_NPC_DOGAASU'), 23.5, 27.5, Direction.Up)
         ExplorerEssentials.SetupInitialPos(CH('UNK_ACTOR_NPC_SUKATANKU'), 20.5, 24.5, Direction.Right)
@@ -215,7 +215,7 @@ def 1 for actor ACTOR_NPC_PUKURIN {
         GROUND:CharSetAnim(CH('Bidoof'), "Eat", false)
         GROUND:CharSetAnim(CH('Croagunk'), "Eat", false)
         GROUND:CharSetAnim(CH('Chimecho'), "Eat", false)
-        if SV.MajorFlags.TeamSkullInGuild then
+        if SV.MajorFlags.TeamSkullInGuild == true then
             GROUND:CharSetAnim(CH('UNK_ACTOR_NPC_ZUBATTO'), "Eat", false)
             GROUND:CharSetAnim(CH('UNK_ACTOR_NPC_DOGAASU'), "Eat", false)
             GROUND:CharSetAnim(CH('UNK_ACTOR_NPC_SUKATANKU'), "Eat", false)
@@ -228,7 +228,7 @@ def 1 for actor ACTOR_NPC_PUKURIN {
         GROUND:CharSetEmote(CH('Loudred'), "eating", -1)
         GROUND:CharSetEmote(CH('PLAYER'), "eating", -1)
         GROUND:CharSetEmote(CH('PARTNER'), "eating", -1)
-        if SV.MajorFlags.TeamSkullInGuild then
+        if SV.MajorFlags.TeamSkullInGuild == true then
             GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_SUKATANKU'), "eating", -1)
         end
 
@@ -236,7 +236,7 @@ def 1 for actor ACTOR_NPC_PUKURIN {
         GROUND:CharSetEmote(CH('Dugtrio'), "eating_slow", -1)
         GROUND:CharSetEmote(CH('Croagunk'), "eating_slow", -1)
         GROUND:CharSetEmote(CH('Sunflora'), "eating_slow", -1)
-        if SV.MajorFlags.TeamSkullInGuild then
+        if SV.MajorFlags.TeamSkullInGuild == true then
             GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_ZUBATTO'), "eating_slow", -1)
             GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_DOGAASU'), "eating_slow", -1)
         end
