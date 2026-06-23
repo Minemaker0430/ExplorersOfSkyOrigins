@@ -17,8 +17,8 @@ local guild_dining_hall_night = {}
 ---guild_dining_hall_night.Init(map)
 --Engine callback function
 function guild_dining_hall_night.Init(map)
-
-
+    SV.MajorFlags = SV.MajorFlags or {}
+    COMMON.RespawnStarterPartner()
 end
 
 ---guild_dining_hall_night.Enter(map)
@@ -179,22 +179,33 @@ def 1 for actor ACTOR_NPC_PUKURIN {
     local continue = true 
 
     ExplorerEssentials.SetupCameraPos(45.5, 26)
-    ExplorerEssentials.SetupInitialPos(CH('Wigglytuff'), 45.5, 27.5, Direction.Down)
-    ExplorerEssentials.SetupInitialPos(CH('Chatot'), 42, 25, Direction.Left)
-    ExplorerEssentials.SetupInitialPos(CH('Diglett'), 39, 27.5, Direction.Up)
-    ExplorerEssentials.SetupInitialPos(CH('Dugtrio'), 36, 27.5, Direction.Up)
-    ExplorerEssentials.SetupInitialPos(CH('Croagunk'), 33, 27.5, Direction.Up)
-    ExplorerEssentials.SetupInitialPos(CH('Sunflora'), 30, 27.5, Direction.Up)
-    ExplorerEssentials.SetupInitialPos(CH('Chimecho'), 39, 22, Direction.Down)
-    ExplorerEssentials.SetupInitialPos(CH('Corphish'), 36, 22, Direction.Down)
-    ExplorerEssentials.SetupInitialPos(CH('Bidoof'), 33, 22, Direction.Down)
-    ExplorerEssentials.SetupInitialPos(CH('Loudred'), 30, 22, Direction.Down)
-    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 27, 22, Direction.Down)
-    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 24, 22, Direction.Down)
+    ExplorerEssentials.SetupInitialPos(CH('Wigglytuff'), 45, 27, Direction.Down)
+    ExplorerEssentials.SetupInitialPos(CH('Chatot'), 41.5, 24.5, Direction.Left)
+    ExplorerEssentials.SetupInitialPos(CH('Diglett'), 38.5, 27.5, Direction.Up)
+    ExplorerEssentials.SetupInitialPos(CH('Dugtrio'), 35.5, 27.5, Direction.Up)
+    ExplorerEssentials.SetupInitialPos(CH('Croagunk'), 32.5, 27.5, Direction.Up)
+    ExplorerEssentials.SetupInitialPos(CH('Sunflora'), 29.5, 27.5, Direction.Up)
+    ExplorerEssentials.SetupInitialPos(CH('Chimecho'), 38.5, 21.5, Direction.Down)
+    ExplorerEssentials.SetupInitialPos(CH('Corphish'), 35.5, 21.5, Direction.Down)
+    ExplorerEssentials.SetupInitialPos(CH('Bidoof'), 32.5, 21.5, Direction.Down)
+    ExplorerEssentials.SetupInitialPos(CH('Loudred'), 29.5, 21.5, Direction.Down)
+    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 26.5, 21.5, Direction.Down)
+    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 23.5, 21.5, Direction.Down)
     if SV.MajorFlags.TeamSkullInGuild == true then
         ExplorerEssentials.SetupInitialPos(CH('UNK_ACTOR_NPC_ZUBATTO'), 26.5, 27.5, Direction.Up)
         ExplorerEssentials.SetupInitialPos(CH('UNK_ACTOR_NPC_DOGAASU'), 23.5, 27.5, Direction.Up)
         ExplorerEssentials.SetupInitialPos(CH('UNK_ACTOR_NPC_SUKATANKU'), 20.5, 24.5, Direction.Right)
+    end
+
+    -- setting up food
+    -- 0 (default): everyone
+    -- 1: everyone except hero + partner
+    -- 2: everyone except hero + partner + loudred / everyone except bidoof (?)
+    -- 3: everyone + team skull
+    -- 4: everyone + team skull except hero + partner
+
+    if SV.MajorFlags.TeamSkullInGuild == true then
+        GROUND:ObjectSetDefaultAnim(OBJ('GuildFood'), "GuildFood", 1, 3, 3, Direction.Down)
     end
     
     local coro1 = TASK:BranchCoroutine(function()
@@ -204,21 +215,21 @@ def 1 for actor ACTOR_NPC_PUKURIN {
         -- back_SetGround(LEVEL_G01P06B) (Should be the map you're currently on, or the map it sends you to next)
         -- ### supervision_Acting(0) [IRRELEVANT]
 
-        GROUND:CharSetAnim(CH('PLAYER'), "Eat", false)
-        GROUND:CharSetAnim(CH('PARTNER'), "Eat", false)
-        GROUND:CharSetAnim(CH('Chatot'), "Eat", false)
-        GROUND:CharSetAnim(CH('Loudred'), "Eat", false)
-        GROUND:CharSetAnim(CH('Diglett'), "Eat", false)
-        GROUND:CharSetAnim(CH('Dugtrio'), "Eat", false)
-        GROUND:CharSetAnim(CH('Sunflora'), "Eat", false)
-        GROUND:CharSetAnim(CH('Corphish'), "Eat", false)
-        GROUND:CharSetAnim(CH('Bidoof'), "Eat", false)
-        GROUND:CharSetAnim(CH('Croagunk'), "Eat", false)
-        GROUND:CharSetAnim(CH('Chimecho'), "Eat", false)
+        GROUND:CharSetAnim(CH('PLAYER'), "Eat", true)
+        GROUND:CharSetAnim(CH('PARTNER'), "Eat", true)
+        GROUND:CharSetAnim(CH('Chatot'), "Eat", true)
+        GROUND:CharSetAnim(CH('Loudred'), "Eat", true)
+        GROUND:CharSetAnim(CH('Diglett'), "Eat", true)
+        GROUND:CharSetAnim(CH('Dugtrio'), "Eat", true)
+        GROUND:CharSetAnim(CH('Sunflora'), "Eat", true)
+        GROUND:CharSetAnim(CH('Corphish'), "Eat", true)
+        GROUND:CharSetAnim(CH('Bidoof'), "Eat", true)
+        GROUND:CharSetAnim(CH('Croagunk'), "Eat", true)
+        GROUND:CharSetAnim(CH('Chimecho'), "Eat", true)
         if SV.MajorFlags.TeamSkullInGuild == true then
-            GROUND:CharSetAnim(CH('UNK_ACTOR_NPC_ZUBATTO'), "Eat", false)
-            GROUND:CharSetAnim(CH('UNK_ACTOR_NPC_DOGAASU'), "Eat", false)
-            GROUND:CharSetAnim(CH('UNK_ACTOR_NPC_SUKATANKU'), "Eat", false)
+            GROUND:CharSetAnim(CH('UNK_ACTOR_NPC_ZUBATTO'), "Eat", true)
+            GROUND:CharSetAnim(CH('UNK_ACTOR_NPC_DOGAASU'), "Eat", true)
+            GROUND:CharSetAnim(CH('UNK_ACTOR_NPC_SUKATANKU'), "Eat", true)
         end
 
         GROUND:CharSetEmote(CH('Chatot'), "eating", -1)
@@ -250,6 +261,7 @@ def 1 for actor ACTOR_NPC_PUKURIN {
         local coro2B = TASK:BranchCoroutine(function () GAME:FadeIn(30) end)
         TASK:JoinCoroutines({coro1B, coro2B})
 
+        UI:SetSpeaker('', false)
         for i = 1, 6, 1 do
             UI:WaitShowTimedDialogue(STRINGS:Format(STRINGS.MapStrings['C_EATING']), 1)
         end
@@ -281,11 +293,11 @@ def 1 for actor ACTOR_NPC_PUKURIN {
     end)
     local coro3 = TASK:BranchCoroutine(function() -- camera
         -- TODO MovePositionOffset: MovePositionOffset<performer 0>(0.5, -200, 0)
-        ExplorerEssentials.MoveCameraAtSpeedOffset(-200, 0, 1, false)
+        ExplorerEssentials.MoveCameraAtSpeedOffset(-200, 0, 0.5, false)
     end)
-    TASK:JoinCoroutines({coro1, coro2})
+    TASK:JoinCoroutines({coro1, coro2, coro3})
 
-    if not SV.MajorFlags.SawDinnerCutscene then
+    if SV.MajorFlags.SawDinnerCutscene ~= true then
         guild_dining_hall_night.CH2_FirstDinner()
     end
 
@@ -421,7 +433,7 @@ def 1 for actor ACTOR_NPC_PUKURIN {
   ]]--
 
     -- ### supervision_RemoveActing(0) [IRRELEVANT]
-    UI:ResetSpeaker()
+    ExplorerEssentials.SetSpeakerUnknown(nil)
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Unknown_1']))
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Unknown_2']))
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Unknown_3']))

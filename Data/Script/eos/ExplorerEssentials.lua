@@ -135,34 +135,151 @@ function ExplorerEssentials.MoveCameraAtSpeed(x, y, speed, relative)
 	local startX = GAME:GetCameraCenter().X
 	local startY = GAME:GetCameraCenter().Y
 
+	local endX = x
+	local endY = y
+
+	if relative and CH('PLAYER') ~= nil then
+		endX = CH('PLAYER').Position.X + x
+		endY = CH('PLAYER').Position.Y + y
+	end
+
 	-- borrowed this snippet from halcyon
-	local distX = startX - x
-	local distY = startY - y
+	local distX = endX - startX
+	local distY = endY - startY
 	
 	local distance = math.sqrt((distX * distX) + (distY * distY))
+	local duration = 1
+	if speed > 0 then
+		duration = math.max(1, math.floor(distance / speed))
+	end
 	
-	GAME:MoveCamera(x, y, math.floor(distance / speed), relative)
+	GAME:MoveCamera(x, y, duration, relative)
 end
 
 --- MoveCamera, but calculated to travel at a specific speed rather than a specified duration
---- @param offx number X Position
---- @param offy number Y Position
+--- @param offx number X Offset
+--- @param offy number Y Offset
 --- @param speed integer Speed in pixels/sec
 --- @param relative boolean Whether the camera position is relative to the player or not
 function ExplorerEssentials.MoveCameraAtSpeedOffset(offx, offy, speed, relative)
+	if relative then
+		ExplorerEssentials.MoveCameraAtSpeed(offx, offy, speed, relative)
+		return
+	end
+	
 	local startX = GAME:GetCameraCenter().X
 	local startY = GAME:GetCameraCenter().Y
 
 	local x = startX + offx
 	local y = startY + offy
 
-	-- borrowed this snippet from halcyon
-	local distX = startX - x
-	local distY = startY - y
-	
-	local distance = math.sqrt((distX * distX) + (distY * distY))
-	
-	GAME:MoveCamera(x, y, math.floor(distance / speed), relative)
+	ExplorerEssentials.MoveCameraAtSpeed(x, y, speed, relative)
+end
+
+--- MoveCamera, with calculated duration and easing for smooth panning
+--- @param x number X Position
+--- @param y number Y Position
+--- @param speed integer Speed in pixels/sec
+--- @param relative boolean Whether the camera position is relative to the player or not
+--- @param easing number Easing value, defaults to 2.0
+--- @param easeIn boolean Whether to use Ease In
+--- @param easeOut boolean Whether to use Ease Out
+function ExplorerEssentials.MoveCameraSmooth(x, y, speed, relative, easing, easeIn, easeOut)
+	easing = (easing == nil or easing <= 0) and 2.0 or easing
+	if easeIn == nil then
+		easeIn = true
+	end
+	if easeOut == nil then
+		easeOut = true
+	end
+
+	local startX = GAME:GetCameraCenter().X
+	local startY = GAME:GetCameraCenter().Y
+
+	local endX = x
+	local endY = y
+
+	if relative and CH('PLAYER') ~= nil then
+		endX = CH('PLAYER').Position.X + x
+		endY = CH('PLAYER').Position.Y + y
+	end
+
+	local deltaX = endX - startX
+	local deltaY = endY - startY
+	local totalDistance = math.sqrt((deltaX * deltaX) + (deltaY * deltaY))
+	if totalDistance <= 0 or speed <= 0 then
+		return
+	end
+
+	local function lerp(a, b, t)
+		return a + (b - a) * t
+	end
+
+	local substeps = {}
+	local function addSubstep(fraction, stepSpeed)
+		local stepX = lerp(startX, endX, fraction)
+		local stepY = lerp(startY, endY, fraction)
+		table.insert(substeps, { X = stepX, Y = stepY, Speed = math.max(1, math.floor(stepSpeed)) })
+	end
+
+	if not easeIn and not easeOut then
+		ExplorerEssentials.MoveCameraAtSpeed(endX, endY, speed, relative)
+		return
+	end
+
+	if easeIn then
+		for i = 10, 1, -1 do
+			local fraction = (11 - i) / (22)
+			local newSpd = speed / (i * easing)
+			addSubstep(fraction, newSpd)
+		end
+	end
+
+	addSubstep(0.5, speed)
+
+	if easeOut then
+		for i = 1, 10, 1 do
+			local fraction = (11 + i) / (22)
+			local newSpd = speed / (i * easing)
+			addSubstep(fraction, newSpd)
+		end
+	else
+		addSubstep(1.0, speed)
+	end
+
+	for _, step in ipairs(substeps) do
+		print("x: " .. step.X)
+		print("y: " .. step.Y)
+		print("speed: " .. step.Speed)
+		ExplorerEssentials.MoveCameraAtSpeed(step.X, step.Y, step.Speed, relative)
+	end
+end
+
+--- MoveCamera, with calculated duration and easing for smooth panning
+--- @param offx number X Offset
+--- @param offy number Y Offset
+--- @param speed integer Speed in pixels/sec
+--- @param relative boolean Whether the camera position is relative to the player or not
+--- @param easing number Easing value, defaults to 2.0
+--- @param easeIn boolean Whether to use Ease In
+--- @param easeOut boolean Whether to use Ease Out
+function ExplorerEssentials.MoveCameraSmoothOffset(offx, offy, speed, relative, easing, easeIn, easeOut)
+	easing = easing or 2.0
+	easeIn = easeIn or true
+	easeOut = easeOut or true
+
+	if relative then
+		ExplorerEssentials.MoveCameraSmooth(offx, offy, speed, relative, easing, easeIn, easeOut)
+		return
+	end
+
+	local startX = GAME:GetCameraCenter().X
+	local startY = GAME:GetCameraCenter().Y
+
+	local x = startX + offx
+	local y = startY + offy
+
+	ExplorerEssentials.MoveCameraSmooth(x, y, speed, relative, easing, easeIn, easeOut)
 end
 
 --- MoveToPosition, but using an offset instead of an exact position

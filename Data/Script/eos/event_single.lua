@@ -350,7 +350,11 @@ function SINGLE_CHAR_SCRIPT.JoyRibbonEXP(owner, ownerChar, context, args)
 		if enemy == ch then return end -- check for friendly fire (from guests)
 	end
 
-	local gainedEXP = math.floor((enemy.Level / player.Level) * ((enemy.BaseAtk + enemy.BaseMAtk) / 6))
+	-- Formula Explanations:
+	-- (enemyLvl / lvl) - makes it so that you gain more/less EXP depending on if the enemy is a higher level or not. Example: 5 / 5 = 1.0x, 5 / 10 = 0.5x, 10 / 5 = 2.0x
+	-- (baseAtk + baseMAtk) / 6 - first gets the average of base attack and magic attack (/2), and then divides that value by 3 (/ (2 * 3) = 6)
+	-- Example: (10 / 5) * (24 / 6) = 2 * 4 = 8
+	local gainedEXP = math.floor(((enemy.Level / player.Level) * ((enemy.BaseAtk + enemy.BaseMAtk) / 6)) * (_ZONE.CurrentZone.ExpPercent / 100))
 
 	if gainedEXP < 1 then return end -- no point in giving the target 0 exp
 

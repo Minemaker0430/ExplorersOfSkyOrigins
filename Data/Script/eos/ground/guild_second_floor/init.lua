@@ -1884,7 +1884,7 @@ def 0 {
     ExplorerEssentials.SetupInitialPos(CH('Chatot'), 31, 24.5, Direction.Down) -- chatot 31, 24.5
 
 	GAME:FadeIn(30)
-	SOUND:PlayBGM("008 - Wigglytuff's Guild.ogg")
+	SOUND:PlayBGM("008 - Wigglytuff's Guild.ogg", true)
 	GAME:WaitFrames(30)
 	
     UI:SetSpeaker(CH('Chatot'))
@@ -1917,7 +1917,7 @@ def 0 {
 
     SV.DailyFlags.EndedDay = true
 
-    if not SV.Flags.SawDinnerCutscene then
+    if SV.Flags.SawDinnerCutscene ~= true then
         GAME:EnterGroundMap("guild_basement", 'Entrance', false)
     else
         GAME:EnterGroundMap("guild_dining_hall_night", 'Entrance', false)
@@ -2248,7 +2248,7 @@ def 0 {
 	GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
 	
     GAME:FadeIn(30)
-	SOUND:PlayBGM("013 - Job Clear!.ogg")
+	SOUND:PlayBGM("013 - Job Clear!.ogg", true)
 	GAME:WaitFrames(30)
 	
     UI:SetSpeaker(CH('Spoink'))

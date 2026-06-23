@@ -30,6 +30,8 @@ function sentry_hole.Enter(map)
   GROUND:Hide("PLAYER")
   GAME:CutsceneMode(true)
 
+  GAME:MoveCamera(160, 120, 1, false)
+
   GAME:FadeIn(60)
 
   GAME:WaitFrames(120)
