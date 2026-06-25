@@ -292,6 +292,24 @@ function ExplorerEssentials.MoveToPositionOffset(char, offx, offy, running, spee
 	GROUND:MoveToPosition(char, char.Position.X + offx, char.Position.Y + offy, running, speed)
 end
 
+--- MoveToPosition, but moves the character as if they were stepping backwards (NOTE: This will always animate them in the same direction they started at)
+--- @param char any Character to move
+--- @param x number X Position
+--- @param y number Y Position
+--- @param speed integer Speed in pixels/sec
+function ExplorerEssentials.MoveToPositionBackwards(char, x, y, speed)
+	GROUND:AnimateToPosition(char, "Walk", char.Direction, x, y, 1, speed)
+end
+
+--- MoveToPositionOffset, but moves the character as if they were stepping backwards (NOTE: This will always animate them in the same direction they started at)
+--- @param char any Character to move
+--- @param offx number X Position
+--- @param offy number Y Position
+--- @param speed integer Speed in pixels/sec
+function ExplorerEssentials.MoveToPositionOffsetBackwards(char, offx, offy, speed)
+	ExplorerEssentials.MoveToPositionBackwards(char, char.Position.X + offx, char.Position.Y + offy, speed)
+end
+
 function ExplorerEssentials.ResetDailyFlags()
 	SV.DailyFlags.DidMorningCheers = false
 	SV.DailyFlags.EndedDay = false

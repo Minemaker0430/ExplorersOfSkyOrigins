@@ -78,10 +78,15 @@ Usage: SOUND:PlayBattleSE(ID)
 8963 -> EVT_Emote_Confused_2
 8962 -> EVT_Emote_Confused
 8961 -> EVT_Emote_Sweatdrop
+8713 -> DUN_Money
 6411 -> EVT_CH02_Box_Open
 6410 -> EVT_CH02_Item_Place
 6408 -> EVT_CH02_Guild_Gate_Open
 5143 -> EVT_Battle_Flash
+5138 -> EVT_Applause_Cheer
+5124 -> EVT_CH02_Paper (EoSO Inclusion)
+5123 -> EVT_Assembly_Bell
+5122 -> EVT_Chatot_Flutter
 
 --------------------
 Effects/Emotes
@@ -94,7 +99,7 @@ EFFECT_SWEAT_DROPS_FROM_BOTH_SIDES_MEDIUM -> sweating
 EFFECT_SWEAT_DROP + EFFECT_SWEAT_DROP_SLOW -> sweatdrop
 EFFECT_TWO_ARROWS_AT_SIDE_LEFT + EFFECT_TWO_ARROWS_AT_SIDE_RIGHT -> notice
 EFFECT_EXCLAMATION_MARK -> exclaim
-EFFECT_ANGRY -> angry
+EFFECT_ANGRY + EFFECT_ANGRY_MIRRORED -> angry
 EFFECT_QUESTION_MARK -> question
 EFFECT_JOYOUS -> glowing
 EFFECT_NONE -> none

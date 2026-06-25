@@ -25,7 +25,9 @@ end
 --Engine callback function
 function guild_guildmaster_chambers_night.Enter(map)
 
-  GAME:FadeIn(20)
+    if SV.Progression.Chapter == 2 then
+        guild_guildmaster_chambers_night.CH2_TeamSupport()
+    end
 
 end
 
@@ -181,8 +183,6 @@ def 0 {
   ]]--
 
 	-- back_SetGround(LEVEL_G01P05C) (Should be the map you're currently on, or the map it sends you to next)
-	-- ### supervision_Acting(0) [IRRELEVANT]
-	GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
 
     ExplorerEssentials.SetupCameraPos(25, 28) -- cam 25, 28
     ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 27, 29.5, Direction.Left) -- player 27, 29.5
@@ -214,7 +214,7 @@ def 0 {
 	CharacterActions.ScaredJump(CH('PARTNER'), CH('PARTNER').Direction)
 	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
 	
-    SOUND:PlayBGM("009 - Guildmaster Wigglytuff.ogg")
+    SOUND:PlayBGM("009 - Guildmaster Wigglytuff.ogg", true)
 	
     UI:SetSpeaker(CH('Wigglytuff'))
 	UI:SetSpeakerEmotion("Normal")

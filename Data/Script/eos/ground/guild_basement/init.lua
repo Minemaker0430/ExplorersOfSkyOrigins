@@ -829,17 +829,13 @@ def 3 for actor ACTOR_ATTENDANT1 {
 
     local coro1 = TASK:BranchCoroutine(function()
         SOUND:StopBGM()
-        -- TODO: @label_0
 
-        SOUND:PlayBattleSE("UNK_5123")
-        -- TODO: WaitSe(5123)
+        SOUND:PlayBattleSE("EVT_Assembly_Bell")
+        GAME:WaitFrames(90)
+
         UI:SetSpeaker(CH('Chimecho'))
         UI:SetSpeakerEmotion("Normal")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['C_Chimecho_1']))
-
-        -- back_SetGround(LEVEL_G01P04A) (Should be the map you're currently on, or the map it sends you to next)
-        -- ### supervision_Acting(0) [IRRELEVANT]
-        
 
         
         GAME:FadeIn(30)
@@ -861,21 +857,32 @@ def 3 for actor ACTOR_ATTENDANT1 {
             GROUND:CharSetEmote(CH('PLAYER'), "exclaim", 1)
             GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.DownLeft, 4)
         end)
+        TASK:JoinCoroutines({coro1B, coro2B})
 
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['C_Chimecho_2']))
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['C_Chimecho_3']))
-        SOUND:PlayBattleSE("UNK_5138")
         
+        SOUND:LoopBattleSE("EVT_Applause_Cheer")
         GROUND:CharSetEmote(CH('Diglett'), "glowing", -1)
         GROUND:CharSetEmote(CH('PLAYER'), "glowing", -1)
         lockB = false
+
         UI:SetSpeaker('Everyone', true)
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['C_ALL_1']))
 
-        -- TODO: se_FadeOut(5138, 30)
-        GAME:FadeOut(false, 30)
+        local coro1B = TASK:BranchCoroutine(function ()
+            SOUND:FadeOutBattleSE("EVT_Applause_Cheer", 30)
+        end)
+        local coro2B = TASK:BranchCoroutine(function ()
+            GAME:FadeOut(false, 30)
+        end)
+        TASK:JoinCoroutines({coro1B, coro2B})
 
         continue = false
+
+        SV.MajorFlags.SawDinnerCutscene = true
+
+        GAME:EnterGroundMap("cutscenes", "guild_dining_hall_night", "Entrance", false)
     end)
     local coro2 = TASK:BranchCoroutine(function() 
         --DEF_1 for actor ACTOR_NPC_GUREGGURU()
@@ -2999,7 +3006,7 @@ def 0 {
 	-- ### supervision_Acting(0) [IRRELEVANT]
 	-- ### supervision_Acting(4) [IRRELEVANT]
 
-    GAME:MoveCamera(416, 248, false) -- cam - 52, 31
+    GAME:MoveCamera(416, 248, 1, false) -- cam - 52, 31
     GROUND:TeleportTo(CH('Chatot'), 452, 212, Direction.Down) -- chatot - 56.5, 26.5
     GROUND:TeleportTo(CH('PLAYER'), 600, 268, Direction.Left) -- player - 75, 33.5
     GROUND:TeleportTo(CH('PARTNER'), 560, 280, Direction.Left) -- partner - 70, 35
@@ -3015,7 +3022,7 @@ def 0 {
     GROUND:Hide("Wigglytuff")
 
 	GAME:FadeIn(30)
-	SOUND:PlayBGM("008 - Wigglytuff's Guild.ogg")
+	SOUND:PlayBGM("008 - Wigglytuff's Guild.ogg", true)
 	-- ### supervision_Acting(1) [IRRELEVANT]
 	GAME:WaitFrames(20)
 	local coro1 = TASK:BranchCoroutine(function ()
@@ -3177,7 +3184,7 @@ def 0 {
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_Wigglytuff_1']))
 	
-    SOUND:PlayBGM("009 - Guildmaster Wigglytuff.ogg")
+    SOUND:PlayBGM("009 - Guildmaster Wigglytuff.ogg", true)
 
 	UI:SetSpeaker("Apprentice", true)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_Unknown_1']))
