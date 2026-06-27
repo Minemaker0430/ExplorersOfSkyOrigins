@@ -98,7 +98,9 @@ function guild_basement.GuildSecondFloor_Touch(obj, activator)
 end
 
 function guild_basement.CutsceneWanderTrigger_Touch(obj, activator)
-    guild_basement.CH2_ChatotBeckons()
+    if SV.Progression.Chapter == 2 then
+        guild_basement.CH2_ChatotBeckons()
+    end
 end
 
 function guild_basement.CutsceneWanderTrigger_1_Touch(obj, activator)
@@ -458,7 +460,7 @@ def 0 {
     GROUND:TeleportTo(CH('Chimecho'), 380, 244, Direction.Up) -- chimecho - 47.5, 30.5
     GROUND:TeleportTo(CH('Croagunk'), 352, 244, Direction.UpRight) -- croagunk - 44, 30.5
 
-	SOUND:PlayBGM("008 - Wigglytuff's Guild.ogg")
+	SOUND:PlayBGM("008 - Wigglytuff's Guild.ogg", true)
 	-- TODO: $SCENARIO_MAIN_BIT_FLAG[1] = 0
 	-- back_SetGround(LEVEL_G01P04A) (Should be the map you're currently on, or the map it sends you to next)
 	-- ### supervision_StationCommon(0) [IRRELEVANT]
@@ -478,7 +480,7 @@ def 0 {
 	    GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_DOGAASU'), "glowing", -1)
     end
 
-	UI:SetSpeaker("Everyone", true)
+	UI:SetSpeaker("[color=#00FFFF]Everyone[color]", true)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['C_4_ALL_1']))
 	GROUND:CharSetEmote(CH('Dugtrio'), "none", 1)
 	GROUND:CharSetEmote(CH('Loudred'), "none", 1)
@@ -518,7 +520,7 @@ def 0 {
 	local coro10 = TASK:BranchCoroutine(function() GROUND:CharSetAction(CH('PARTNER'), RogueEssence.Ground.PoseGroundAction(CH('PARTNER').Position, Direction.Up, RogueEssence.Content.GraphicsManager.GetAnimIndex("Pose"))) end) 
 	TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5, coro6, coro7, coro8, coro9, coro10})
 
-	UI:SetSpeaker("Everyone", true)
+	UI:SetSpeaker("[color=#00FFFF]Everyone[color]", true)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['C_4_ALL_2']))
 
 	GROUND:CharEndAnim(CH('Croagunk'))
@@ -619,7 +621,7 @@ def 0 {
         GAME:EnterZone('drenched_bluff', -1, 0, 0)
     else
         GAME:CutsceneMode(false)
-        AI:EnableCharacterAI(CH('PARTNER'))
+        ExplorerEssentials.EnablePartnerAI()
     end
 
 end
@@ -913,7 +915,7 @@ def 3 for actor ACTOR_ATTENDANT1 {
         while croagunkLockA do GAME:WaitFrames(1) end
         GROUND:CharAnimateTurnTo(CH('Croagunk'), Dir8.DownLeft, 4)
         while lockB do GAME:WaitFrames(1) end
-        GROUND:CharSetAnim(CH('Croagunk'), "None", true) -- SetAnimation(19)
+        GROUND:CharSetAnim(CH('Croagunk'), "Hop", true) -- SetAnimation(19)
         -- idk what croagunk does here uhhhhh
     end)  
     local coro3 = TASK:BranchCoroutine(function()

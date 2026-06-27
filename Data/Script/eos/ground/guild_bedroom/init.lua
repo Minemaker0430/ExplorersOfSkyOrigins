@@ -293,7 +293,7 @@ def 0 {
 	ExplorerEssentials.AutosaveWithNotification()
 
     GAME:CutsceneMode(false)
-    AI:EnableCharacterAI(CH('PARTNER'))
+    ExplorerEssentials.EnablePartnerAI()
 	-- TODO CallCommon: CallCommon(CORO_EVENT_END_MAPIN)
 	-- ### supervision_ExecuteStationCommon(LEVEL_G01P07A, 1) [IRRELEVANT]
 end
@@ -413,12 +413,12 @@ def 0 {
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_1']))
 
     local coro1 = TASK:BranchCoroutine(function ()
-        GROUND:MoveToPosition(CH('PLAYER'), 196, 168, false, 2)
+        GROUND:MoveToPosition(CH('PLAYER'), 196, 168, false, 1)
         GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.Left, 4)
     end)
     local coro2 = TASK:BranchCoroutine(function ()
         GAME:WaitFrames(10)
-	    GROUND:MoveToPosition(CH('PARTNER'), 148, 168, false, 2)
+	    GROUND:MoveToPosition(CH('PARTNER'), 148, 168, false, 1)
         GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Down, 4)
     end)
     TASK:JoinCoroutines({coro1, coro2})
@@ -453,13 +453,13 @@ def 0 {
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_3']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_4']))
 
-	GROUND:MoveToPosition(CH('Chatot'), CH('Chatot').Position.X + -8, CH('Chatot').Position.Y + 8, false, 2)
+	GROUND:MoveToPosition(CH('Chatot'), CH('Chatot').Position.X + -8, CH('Chatot').Position.Y + 8, false, 1)
 	
 	local coro1 = TASK:BranchCoroutine(function ()
         GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Left, 4)
     end)
     local coro2 = TASK:BranchCoroutine(function ()
-        GROUND:MoveToPosition(CH('Chatot'), CH('Chatot').Position.X + -132, CH('Chatot').Position.Y + 0, false, 2)
+        GROUND:MoveToPosition(CH('Chatot'), CH('Chatot').Position.X + -132, CH('Chatot').Position.Y + 0, false, 1)
     end)
 	TASK:JoinCoroutines({coro1, coro2})
 
@@ -940,7 +940,7 @@ def 0 {
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_Loudred_9']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_Loudred_10']))
 	
-    GROUND:MoveToPosition(CH('Loudred'), CH('Loudred').Position.X + -96, CH('Loudred').Position.Y + 0, false, 1)
+    GROUND:MoveToPosition(CH('Loudred'), CH('Loudred').Position.X + -120, CH('Loudred').Position.Y + 0, false, 2)
 	GROUND:Hide("Loudred")
 	GAME:WaitFrames(60)
 	

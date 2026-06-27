@@ -1,4 +1,5 @@
 require 'eos.common'
+require 'eos.ExplorerEssentials'
 
 -----------------------------------
 -- Base Functions
@@ -150,8 +151,8 @@ function ITEM_SCRIPT.ItemTutorials(owner, ownerChar, context, args)
     elseif item == "ammo_geo_pebble" and not SV.ItemTutorials.Ammo then
         GAME:WaitFrames(20)
         SOUND:PlayFanfare("Fanfare/Note")
-        UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_AMMO_1"):ToLocal(), RogueEssence.Dungeon.InvItem("ammo_geo_pebble"):GetDisplayName()))
-        UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_AMMO_2"):ToLocal(), RogueEssence.Dungeon.InvItem("ammo_geo_pebble"):GetDisplayName(), RogueEssence.Dungeon.InvItem("ammo_stick"):GetDisplayName(), STRINGS:LocalKeyString(23)))
+        UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_AMMO_1"):ToLocal(), ExplorerEssentials.GetPluralItem("ammo_geo_pebble")))
+        UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_AMMO_2"):ToLocal(), ExplorerEssentials.GetPluralItem("ammo_geo_pebble"), ExplorerEssentials.GetPluralItem("ammo_stick"), STRINGS:LocalKeyString(23)))
         SV.ItemTutorials.Ammo = true
         GAME:WaitFrames(20)
     elseif item == "fake_berry_oran" and not SV.ItemTutorials.Lookalikes then

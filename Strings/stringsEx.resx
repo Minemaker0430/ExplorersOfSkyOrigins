@@ -334,7 +334,7 @@
   </data>
   <data name="TUTORIAL_SEED_STUN" xml:space="preserve">
     <value>Throw a {0} at an enemy to stun it, making it unable to act...until it is attacked. Beware: eating it will stun you!</value>
-    <comment>[TODO: CHANGE WORDING] 0 = Stun Seed</comment>
+    <comment>[TODO: CHANGE WORDING?] 0 = Stun Seed</comment>
   </data>
   <data name="TUTORIAL_SEED_WARP" xml:space="preserve">
     <value>If you eat a {0}, you'll be warped to a random tile on the same floor. If you throw it at an enemy, it will be warped away instead.</value>
@@ -367,11 +367,11 @@
 1 = Sunny Orb</comment>
   </data>
   <data name="TUTORIAL_AMMO_1" xml:space="preserve">
-    <value>Throw {0}s at distant foes. Open the menu, select it from Items, then select Throw.</value>
+    <value>Throw {0} at distant foes. Open the menu, select it from Items, then select Throw.</value>
     <comment>0 = Geo Pebble</comment>
   </data>
   <data name="TUTORIAL_AMMO_2" xml:space="preserve">
-    <value>You can hold up to 99 {0}s or {1}s as one item in the Treasure Bag, so make sure to sort the Treasure Bag by opening it and pressing {2}!</value>
+    <value>You can hold up to 99 {0} or {1} as one item in the Treasure Bag, so make sure to sort the Treasure Bag by opening it and pressing {2}!</value>
     <comment>0 = Geo Pebble
 	1 = Stick
 	2 = Sort Btn (S)</comment>
@@ -1026,5 +1026,8 @@ a {1)...</value>
   </data>
   <data name="SWAP_INFO_PROMPT" xml:space="preserve">
     <value>What information would you like to get?</value>
+  </data>
+  <data name="ITEM_PLURAL_SUFFIX" xml:space="preserve">
+    <value>{0}s</value>
   </data>
 </root>

@@ -793,7 +793,7 @@ function guild_bedroom_night.CH2_NightAfterJob()
 
 	ExplorerEssentials.SetupCameraPos(22, 22.5)
     ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 24.5, 21.5, Direction.Right)
-    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 24.5, 21.5, Direction.Left)
+    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 18.5, 21.5, Direction.Left)
 
     -- TODO: else {         back2_SetMode(4)
     -- ### back2_SetGround(LEVEL_V02P06A) [IRRELEVANT]

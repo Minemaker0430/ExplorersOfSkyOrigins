@@ -48,6 +48,30 @@ function ExplorerEssentials.GetFormattedMoney(value)
 	return "[color=#00FF00]\u{E024} " .. ret .. "[color] \u{E023}"
 end
 
+--- Gets the plural form of an item
+--- @param item string Item ID to use
+--- @return string
+function ExplorerEssentials.GetPluralItem(item)
+	local disp = RogueEssence.Dungeon.InvItem(item):GetDisplayName()
+	local ret = ""
+
+	if string.sub(item, 1, 5) == "ammo_" then
+		-- " (0)[color]" 11 chars
+		ret = STRINGS:Format(
+			RogueEssence.StringKey("ITEM_PLURAL_SUFFIX"):ToLocal(), 
+			string.sub(disp, 1, #disp - 12) .. "[color]"
+		)
+	else
+		-- "[color]" 7 chars
+		ret = STRINGS:Format(
+			RogueEssence.StringKey("ITEM_PLURAL_SUFFIX"):ToLocal(), 
+			string.sub(disp, 1, #disp - 8) .. "[color]"
+		)
+	end
+
+	return ret
+end
+
 --- Sets the Player to a specific Pokemon on a Ground Map
 --- @param data RogueEssence.Dungeon.MonsterID Pokemon data
 function ExplorerEssentials.SetPlayerFromData(data)

@@ -774,8 +774,10 @@ function guild_second_floor.CH2_MeetingChatot()
     local coro2 = TASK:BranchCoroutine(function() -- Seedot
         GAME:WaitFrames(30)
         while continue do
+            if not continue then break end
             GROUND:CharSetEmote(CH("CH2_Seedot"), "glowing", -1)
             GAME:WaitFrames(math.random(90, 180))
+            if not continue then break end
             GROUND:CharSetEmote(CH("CH2_Seedot"), "none", 1)
             GAME:WaitFrames(math.random(60, 180))
         end
@@ -783,8 +785,10 @@ function guild_second_floor.CH2_MeetingChatot()
     local coro3 = TASK:BranchCoroutine(function() -- Swellow
         GAME:WaitFrames(30)
         while continue do
+            if not continue then break end
             GROUND:CharSetEmote(CH("CH2_Swellow"), "glowing", -1)
             GAME:WaitFrames(math.random(90, 180))
+            if not continue then break end
             GROUND:CharSetEmote(CH("CH2_Swellow"), "none", 1)
             GAME:WaitFrames(math.random(60, 180))
         end
@@ -792,9 +796,11 @@ function guild_second_floor.CH2_MeetingChatot()
     local coro4 = TASK:BranchCoroutine(function() -- Sunflora
         GAME:WaitFrames(30)
         while continue do
+            if not continue then break end
             GROUND:CharAnimateTurnTo(CH("CH2_Sunflora"), Direction.Left, 4)
             GROUND:CharSetEmote(CH("CH2_Sunflora"), "glowing", -1)
             GAME:WaitFrames(math.random(90, 180))
+            if not continue then break end
             GROUND:CharSetEmote(CH("CH2_Sunflora"), "none", 1)
             GROUND:CharAnimateTurnTo(CH("CH2_Sunflora"), Direction.Up, 4)
             GAME:WaitFrames(math.random(120, 180))
@@ -1578,7 +1584,7 @@ def 0 {
     end)
     local coro4 = TASK:BranchCoroutine(function ()
         GAME:WaitFrames(150)
-        ExplorerEssentials.MoveCameraAtSpeed(252, 228, 2, false)
+        ExplorerEssentials.MoveCameraAtSpeed(252, 228, 1, false)
     end)
 	TASK:JoinCoroutines({coro1, coro2, coro3, coro4})
     
@@ -1747,7 +1753,7 @@ def 0 {
 	-- !! WaitExecuteLives(ACTOR_NPC_PERAPPU)
     
     local coro1 = TASK:BranchCoroutine(function ()
-        GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.Up, 0)
+        GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.Up, 1)
     end)
     local coro2 = TASK:BranchCoroutine(function ()
         UI:SetSpeaker(CH('Chatot'))
@@ -2412,7 +2418,7 @@ def 0 {
         GROUND:CharTurnToCharAnimated(CH('PLAYER'), CH('Chatot'), 4)
     end)
     local coro2 = TASK:BranchCoroutine(function ()
-        GROUND:MoveToPosition(CH('Chatot'), 268, 228, false, 2)
+        GROUND:MoveToPosition(CH('Chatot'), 268, 228, false, 1)
     end)
 	TASK:JoinCoroutines({coro1, coro2})
 
@@ -2442,7 +2448,7 @@ def 0 {
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S4_PARTNER_3_'..tostring(pTalkKind)]))
 	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
 
-	GROUND:MoveToPosition(CH('Chatot'), CH('Chatot').Position.X + 0, CH('Chatot').Position.Y + -16, false, 2)
+	GROUND:MoveToPosition(CH('Chatot'), CH('Chatot').Position.X + 0, CH('Chatot').Position.Y + -16, false, 1)
 	-- !! WaitExecuteLives(ACTOR_NPC_PERAPPU)
 	
     UI:SetSpeaker(CH('Chatot'))
@@ -2450,7 +2456,7 @@ def 0 {
 	-- TODO: message_FacePositionOffset(2, 2)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S4_Chatot_3']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S4_Chatot_4']))
-	GROUND:MoveToPosition(CH('Chatot'), CH('Chatot').Position.X + 0, CH('Chatot').Position.Y + 16, false, 2)
+	GROUND:MoveToPosition(CH('Chatot'), CH('Chatot').Position.X + 0, CH('Chatot').Position.Y + 16, false, 1)
 	-- !! WaitExecuteLives(ACTOR_NPC_PERAPPU)
 	
     SOUND:PlayBattleSE("DUN_Money")

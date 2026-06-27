@@ -454,7 +454,7 @@ function SINGLE_CHAR_SCRIPT.DrenchedBluffTutorial(owner, ownerChar, context, arg
 				SOUND:PlayFanfare("Fanfare/Note")
 				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_14"):ToLocal(), STRINGS:LocalKeyString(2)))
 				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_15"):ToLocal(), STRINGS:LocalKeyString(11)))
-				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_16"):ToLocal(), STRINGS:LocalKeyString(4), STRINGS:LocalKeyString(18), STRINGS:LocalKeyString(19), STRINGS:LocalKeyString(21), STRINGS:LocalKeyString(22)))
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_16"):ToLocal(), STRINGS:LocalKeyString(4), STRINGS:LocalKeyString(19), STRINGS:LocalKeyString(20), STRINGS:LocalKeyString(21), STRINGS:LocalKeyString(22)))
 				SV.drenched_bluff.Tutorial = 4
 				GAME:WaitFrames(20)	
 			end
