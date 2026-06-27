@@ -290,7 +290,7 @@
     <value>"Oh, friendly readers! Would you be so kind as to go to the bluff and get my pearl?"</value>
   </data>
   <data name="CH2_S2_PARTNER_21" xml:space="preserve">
-    <value>"I beg your help, exploration team members!"\n\t\t\tFrom {0}</value>
+    <value>"I beg your help, exploration team members!"\n                           From {0}</value>
   </data>
   <data name="CH2_S2_PARTNER_22_1" xml:space="preserve">
     <value>Hold on a second!</value>

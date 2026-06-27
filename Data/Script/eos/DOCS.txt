@@ -79,6 +79,7 @@ Usage: SOUND:PlayBattleSE(ID)
 8962 -> EVT_Emote_Confused
 8961 -> EVT_Emote_Sweatdrop
 8713 -> DUN_Money
+8711 -> EVT_Door_Open (?) (EoSO Inclusion)
 6411 -> EVT_CH02_Box_Open
 6410 -> EVT_CH02_Item_Place
 6408 -> EVT_CH02_Guild_Gate_Open

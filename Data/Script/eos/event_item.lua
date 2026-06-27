@@ -41,89 +41,93 @@ function ITEM_SCRIPT.ProsperEvent(owner, ownerChar, context, args)
 end
 
 function ITEM_SCRIPT.ItemTutorials(owner, ownerChar, context, args)
-    local item = context.Item
+    local item = context.Item.Value
+    SV.ItemTutorials = SV.ItemTutorials or {}
 
-    if item.ID == "food_apple" and not SV.ItemTutorials.Food then
+    UI:ResetSpeaker()
+    print(item)
+
+    if item == "food_apple" and not SV.ItemTutorials.Food then
         GAME:WaitFrames(20)
         SOUND:PlayFanfare("Fanfare/Note")
         UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_FOOD"):ToLocal(), RogueEssence.Dungeon.InvItem("food_apple"):GetDisplayName()))
         SV.ItemTutorials.Food = true
         GAME:WaitFrames(20)
-    elseif item.ID == "berry_oran" and not SV.ItemTutorials.OranBerry then
+    elseif item == "berry_oran" and not SV.ItemTutorials.OranBerry then
         GAME:WaitFrames(20)
         SOUND:PlayFanfare("Fanfare/Note")
         UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_BERRY_ORAN"):ToLocal(), RogueEssence.Dungeon.InvItem("berry_oran"):GetDisplayName(), STRINGS:LocalKeyString(9)))
         SV.ItemTutorials.OranBerry = true
         GAME:WaitFrames(20)
-    elseif item.ID == "berry_cheri" and not SV.ItemTutorials.CheriBerry then
+    elseif item == "berry_cheri" and not SV.ItemTutorials.CheriBerry then
         GAME:WaitFrames(20)
         SOUND:PlayFanfare("Fanfare/Note")
         UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_BERRY_CHERI"):ToLocal(), RogueEssence.Dungeon.InvItem("berry_cheri"):GetDisplayName(), "Paralysis", STRINGS:LocalKeyString(9)))
         SV.ItemTutorials.CheriBerry = true
         GAME:WaitFrames(20)
-    elseif item.ID == "berry_pecha" and not SV.ItemTutorials.PechaBerry then
+    elseif item == "berry_pecha" and not SV.ItemTutorials.PechaBerry then
         GAME:WaitFrames(20)
         SOUND:PlayFanfare("Fanfare/Note")
         UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_BERRY_PECHA"):ToLocal(), RogueEssence.Dungeon.InvItem("berry_pecha"):GetDisplayName(), "Poisoned", "Badly Poisoned", STRINGS:LocalKeyString(9)))
         SV.ItemTutorials.PechaBerry = true
         GAME:WaitFrames(20)
-    elseif item.ID == "berry_leppa" and not SV.ItemTutorials.LeppaBerry then
+    elseif item == "berry_leppa" and not SV.ItemTutorials.LeppaBerry then
         GAME:WaitFrames(20)
         SOUND:PlayFanfare("Fanfare/Note")
         UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_BERRY_LEPPA"):ToLocal(), RogueEssence.Dungeon.InvItem("berry_leppa"):GetDisplayName(), STRINGS:LocalKeyString(9)))
         SV.ItemTutorials.LeppaBerry = true
         GAME:WaitFrames(20)
-    elseif item.ID == "berry_lum" and not SV.ItemTutorials.LumBerry then
+    elseif item == "berry_lum" and not SV.ItemTutorials.LumBerry then
         GAME:WaitFrames(20)
         SOUND:PlayFanfare("Fanfare/Note")
         UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_BERRY_LUM"):ToLocal(), RogueEssence.Dungeon.InvItem("berry_lum"):GetDisplayName(), STRINGS:LocalKeyString(9)))
         SV.ItemTutorials.LumBerry = true
         GAME:WaitFrames(20)
-    elseif item.ID == "seed_blast" and not SV.ItemTutorials.BlastSeed then
+    elseif item == "seed_blast" and not SV.ItemTutorials.BlastSeed then
         GAME:WaitFrames(20)
         SOUND:PlayFanfare("Fanfare/Note")
         UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_SEED_BLAST"):ToLocal(), RogueEssence.Dungeon.InvItem("seed_blast"):GetDisplayName()))
         SV.ItemTutorials.BlastSeed = true
         GAME:WaitFrames(20)
-    elseif item.ID == "seed_sleep" and not SV.ItemTutorials.SleepSeed then
+    elseif item == "seed_sleep" and not SV.ItemTutorials.SleepSeed then
         GAME:WaitFrames(20)
         SOUND:PlayFanfare("Fanfare/Note")
         UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_SEED_SLEEP"):ToLocal(), RogueEssence.Dungeon.InvItem("seed_sleep"):GetDisplayName()))
         SV.ItemTutorials.SleepSeed = true
         GAME:WaitFrames(20)
-    elseif item.ID == "seed_stun" and not SV.ItemTutorials.StunSeed then
+    elseif item == "seed_stun" and not SV.ItemTutorials.StunSeed then
         -- item is still wip
         GAME:WaitFrames(20)
         SOUND:PlayFanfare("Fanfare/Note")
         UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_SEED_STUN"):ToLocal(), RogueEssence.Dungeon.InvItem("seed_stun"):GetDisplayName()))
         SV.ItemTutorials.StunSeed = true
         GAME:WaitFrames(20)
-    elseif item.ID == "seed_warp" and not SV.ItemTutorials.WarpSeed then
+    elseif item == "seed_warp" and not SV.ItemTutorials.WarpSeed then
         GAME:WaitFrames(20)
         SOUND:PlayFanfare("Fanfare/Note")
         UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_SEED_WARP"):ToLocal(), RogueEssence.Dungeon.InvItem("seed_warp"):GetDisplayName()))
         SV.ItemTutorials.WarpSeed = true
         GAME:WaitFrames(20)
-    elseif item.ID == "seed_vile" and not SV.ItemTutorials.VileSeed then
+    elseif item == "seed_vile" and not SV.ItemTutorials.VileSeed then
         GAME:WaitFrames(20)
         SOUND:PlayFanfare("Fanfare/Note")
         UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_SEED_VILE"):ToLocal(), RogueEssence.Dungeon.InvItem("seed_vile"):GetDisplayName()))
         SV.ItemTutorials.VileSeed = true
         GAME:WaitFrames(20)
-    elseif item.ID == "seed_x_eye" and not SV.ItemTutorials.XEyeSeed then
+    elseif item == "seed_x_eye" and not SV.ItemTutorials.XEyeSeed then
         -- unsure if this will be used
         GAME:WaitFrames(20)
         SOUND:PlayFanfare("Fanfare/Note")
         UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_SEED_XEYE"):ToLocal(), RogueEssence.Dungeon.InvItem("seed_x_eye"):GetDisplayName()))
         SV.ItemTutorials.XEyeSeed = true
         GAME:WaitFrames(20)
-    elseif item.ID == "seed_violent" and not SV.ItemTutorials.ViolentSeed then
+    elseif item == "seed_violent" and not SV.ItemTutorials.ViolentSeed then
         GAME:WaitFrames(20)
         SOUND:PlayFanfare("Fanfare/Note")
         UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_SEED_VIOLENT"):ToLocal(), RogueEssence.Dungeon.InvItem("seed_violent"):GetDisplayName()))
         SV.ItemTutorials.ViolentSeed = true
         GAME:WaitFrames(20)
-    elseif item.ID == "medicine_max_elixir" and not SV.ItemTutorials.MaxElixir then
+    elseif item == "medicine_max_elixir" and not SV.ItemTutorials.MaxElixir then
         -- ngl i'm not sure how this is gonna work since these are mostly gonna be from rewards...
         -- i mean i guess you could trigger it manually?
         GAME:WaitFrames(20)
@@ -131,26 +135,26 @@ function ITEM_SCRIPT.ItemTutorials(owner, ownerChar, context, args)
         UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_MEDICINE_MAX_ELIXIR"):ToLocal(), RogueEssence.Dungeon.InvItem("medicine_max_elixir"):GetDisplayName(), STRINGS:LocalKeyString(9)))
         SV.ItemTutorials.MaxElixir = true
         GAME:WaitFrames(20)
-    elseif item.ID == "orb_weather" and not SV.ItemTutorials.WeatherOrb then
+    elseif item == "orb_weather" and not SV.ItemTutorials.WeatherOrb then
         GAME:WaitFrames(20)
         SOUND:PlayFanfare("Fanfare/Note")
         UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_ORB_WEATHER"):ToLocal(), RogueEssence.Dungeon.InvItem("orb_weather"):GetDisplayName()))
         SV.ItemTutorials.WeatherOrb = true
         GAME:WaitFrames(20)
-    elseif (item.ID == "orb_sunny" or item.ID == "orb_rainy") and not SV.ItemTutorials.WeatherOrbAlt then
+    elseif (item == "orb_sunny" or item == "orb_rainy") and not SV.ItemTutorials.WeatherOrbAlt then
         GAME:WaitFrames(20)
         SOUND:PlayFanfare("Fanfare/Note")
         UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_ORB_WEATHER_ALT"):ToLocal(), RogueEssence.Dungeon.InvItem("orb_rainy"):GetDisplayName(), RogueEssence.Dungeon.InvItem("orb_sunny"):GetDisplayName()))
         SV.ItemTutorials.WeatherOrbAlt = true
         GAME:WaitFrames(20)
-    elseif item.ID == "ammo_geo_pebble" and not SV.ItemTutorials.Ammo then
+    elseif item == "ammo_geo_pebble" and not SV.ItemTutorials.Ammo then
         GAME:WaitFrames(20)
         SOUND:PlayFanfare("Fanfare/Note")
         UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_AMMO_1"):ToLocal(), RogueEssence.Dungeon.InvItem("ammo_geo_pebble"):GetDisplayName()))
         UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_AMMO_2"):ToLocal(), RogueEssence.Dungeon.InvItem("ammo_geo_pebble"):GetDisplayName(), RogueEssence.Dungeon.InvItem("ammo_stick"):GetDisplayName(), STRINGS:LocalKeyString(23)))
         SV.ItemTutorials.Ammo = true
         GAME:WaitFrames(20)
-    elseif item.ID == "fake_berry_oran" and not SV.ItemTutorials.Lookalikes then
+    elseif item == "fake_berry_oran" and not SV.ItemTutorials.Lookalikes then
         -- unused for now
         GAME:WaitFrames(20)
         SOUND:PlayFanfare("Fanfare/Note")
@@ -158,7 +162,7 @@ function ITEM_SCRIPT.ItemTutorials(owner, ownerChar, context, args)
         UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_LOOKALIKE_2"):ToLocal()))
         SV.ItemTutorials.Lookalikes = true
         GAME:WaitFrames(20)
-    elseif item.IsMoney and not SV.ItemTutorials.Money then
+    elseif context.Item.IsMoney and not SV.ItemTutorials.Money then
         GAME:WaitFrames(20)
         SOUND:PlayFanfare("Fanfare/Note")
         UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_MONEY"):ToLocal()))

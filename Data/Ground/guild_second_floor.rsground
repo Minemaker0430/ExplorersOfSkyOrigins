@@ -56903,6 +56903,20 @@
 "Width": 16,
 "Height": 16
 }
+},
+{
+"EntName": "Entrance",
+"Direction": 0,
+"EntEnabled": true,
+"EntOrder": 0,
+"InteractOrder": 0,
+"triggerType": 0,
+"Collider": {
+"X": -19,
+"Y": -2,
+"Width": 16,
+"Height": 16
+}
 }
 ]
 }

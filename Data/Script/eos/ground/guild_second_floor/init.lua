@@ -1536,12 +1536,19 @@ def 0 {
 }
 ]]--
 
+    GAME:CutsceneMode(true)
 	local pTalkKind = SV.Personality.PartnerTalkKind
+
+    CH('PLAYER').CollisionDisabled = true
+    CH('PARTNER').CollisionDisabled = true
+    CH('Chatot').CollisionDisabled = true
+
+    AI:DisableCharacterAI(CH('PARTNER'))
 	
     ExplorerEssentials.SetupCameraPos(43, 28.5)
-    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 45.5, 22.5, Direction.Down)
-    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 45.5, 22.5, Direction.Down)
-    ExplorerEssentials.SetupInitialPos(CH('Chatot'), 45.5, 22.5, Direction.Down)
+    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 45, 22.5, Direction.Down)
+    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 45, 22.5, Direction.Down)
+    ExplorerEssentials.SetupInitialPos(CH('Chatot'), 45, 22.5, Direction.Down)
     GROUND:Hide("PLAYER")
     GROUND:Hide("PARTNER")
     GROUND:Hide('Chatot')
@@ -1552,21 +1559,21 @@ def 0 {
     local coro1 = TASK:BranchCoroutine(function ()
         GROUND:Unhide("Chatot")
         GAME:WaitFrames(30)
-	    GROUND:MoveToPosition(CH('Chatot'), 272, 212, false, 2)
+	    GROUND:MoveToPosition(CH('Chatot'), 272, 212, false, 1)
         GROUND:CharAnimateTurnTo(CH('Chatot'), Dir8.Down, 4)
     end)
     local coro2 = TASK:BranchCoroutine(function ()
         GAME:WaitFrames(60)
         GROUND:Unhide("PARTNER")
         GAME:WaitFrames(30)
-        GROUND:MoveToPosition(CH('PARTNER'), 236, 244, false, 2)
+        GROUND:MoveToPosition(CH('PARTNER'), 236, 244, false, 1)
         GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Up, 4)
     end)
     local coro3 = TASK:BranchCoroutine(function ()
         GAME:WaitFrames(120)
-        GAME:Unhide("PLAYER")
+        GROUND:Unhide("PLAYER")
         GAME:WaitFrames(30)
-        GROUND:MoveToPosition(CH('PLAYER'), 268, 244, false, 2)
+        GROUND:MoveToPosition(CH('PLAYER'), 268, 244, false, 1)
         GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.Up, 4)
     end)
     local coro4 = TASK:BranchCoroutine(function ()
@@ -1670,7 +1677,7 @@ def 0 {
 
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_Chatot_13']))
     local coro1 = TASK:BranchCoroutine(function ()
-        GROUND:MoveToPosition(CH('Chatot'), CH('Chatot').Position.X + -16, CH('Chatot').Position.Y + 16, false, 2)
+        GROUND:MoveToPosition(CH('Chatot'), CH('Chatot').Position.X + -16, CH('Chatot').Position.Y + 16, false, 1)
     end)
     local coro2 = TASK:BranchCoroutine(function ()
         GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.UpRight, 4)
@@ -1682,7 +1689,7 @@ def 0 {
 
 	SOUND:PlayBattleSE("EVT_CH02_Paper")
 	GAME:WaitFrames(45)
-    ExplorerEssentials.MoveToPositionOffsetBackwards(CH('Chatot'), 16, -16, 1)
+    ExplorerEssentials.MoveToPositionOffsetBackwards(CH('Chatot'), Dir8.DownLeft, 16, -16, 1)
 	-- !! WaitExecuteLives(ACTOR_NPC_PERAPPU)
     
     local coro1 = TASK:BranchCoroutine(function ()
@@ -2288,6 +2295,10 @@ def 0 {
 }
 ]]--
 
+    AI:DisableCharacterAI(CH('PARTNER'))
+
+    GAME:CutsceneMode(true)
+
 	local pTalkKind = SV.Personality.PartnerTalkKind
 	SOUND:StopBGM()
     
@@ -2353,7 +2364,7 @@ def 0 {
     local coro1 = TASK:BranchCoroutine(function ()
         ExplorerEssentials.MoveToPositionOffset(CH('Spoink'), 40, 0, false, 1)
 	    GROUND:MoveToPosition(CH('Spoink'), 332, 204, false, 1)
-        GROUND:MoveToPosition(CH('Spoink'), 332, 180, false, 0)
+        GROUND:MoveToPosition(CH('Spoink'), 332, 180, false, 1)
         ExplorerEssentials.MoveToPositionOffset(CH('Spoink'), 0, -64, false, 1)
         GROUND:Hide("Spoink")
     end)
@@ -2386,7 +2397,7 @@ def 0 {
     local coro2 = TASK:BranchCoroutine(function ()
         UI:SetSpeaker(CH('PARTNER'))
 	    UI:SetSpeakerEmotion("Normal")
-	    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S4_PARTNER_2_'..tostring(pTalkKind)]))
+	    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S4_PARTNER_2_'..tostring(pTalkKind)], CH('PLAYER'):GetDisplayName()))
     end)
 	TASK:JoinCoroutines({coro1, coro2})
 	
@@ -2483,6 +2494,8 @@ def 0 {
 	UI:SetSpeakerEmotion("Sad")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S4_PARTNER_6']))
 	GAME:FadeOut(false, 60)
+
+    SV.DailyFlags.EndedDay = true
 
     if SV.MajorFlags.SawDinnerCutscene ~= true then
         GAME:EnterGroundMap("guild_basement", 'Entrance', false)

@@ -26,26 +26,26 @@ function ExplorerEssentials.SpawnPartner()
 	partner.InteractOrder = 1
 end
 
+--- Resets the Partner Pokemon's AI to start following the Player where it is, instead of where it spawned.
+function ExplorerEssentials.EnablePartnerAI()
+	local partner = CH('PARTNER')
+	
+	local pos = partner.Position
+	local dir = partner.Direction
+
+	GROUND:TeleportTo(partner, pos.X, pos.Y, dir)
+	AI:SetCharacterAI(partner, "origin.ai.ground_partner", CH('PLAYER'), partner.Position)
+	AI:EnableCharacterAI(CH('PARTNER'))
+end
+
 --- Utility function for formatting money amounts
 --- @param value number Value to format
 --- @return string
 function ExplorerEssentials.GetFormattedMoney(value)
-	local e = math.log(value, 10) -- get exponent
-	if e < 3 then
-		return "[color=#00FF00]\u{E024}" .. value .. "[color]\u{E023}"
-	end
+  	local ret = tostring(value):reverse():gsub("(%d%d%d)", "%1,")
+	ret = ret:reverse():gsub("^,", "")
 
-	local ret
-	while e >= 0 do
-		ret = ret .. tostring(value)[e]
-		if e % 3 == 0 then
-			ret = ret .. ','
-		end
-
-		e = e - 1
-	end
-
-	return "[color=#00FF00]\u{E024}" .. ret .. "[color]\u{E023}"
+	return "[color=#00FF00]\u{E024} " .. ret .. "[color] \u{E023}"
 end
 
 --- Sets the Player to a specific Pokemon on a Ground Map
@@ -294,20 +294,22 @@ end
 
 --- MoveToPosition, but moves the character as if they were stepping backwards (NOTE: This will always animate them in the same direction they started at)
 --- @param char any Character to move
+--- @param dir Dir8 Direction to animate in
 --- @param x number X Position
 --- @param y number Y Position
 --- @param speed integer Speed in pixels/sec
-function ExplorerEssentials.MoveToPositionBackwards(char, x, y, speed)
-	GROUND:AnimateToPosition(char, "Walk", char.Direction, x, y, 1, speed)
+function ExplorerEssentials.MoveToPositionBackwards(char, dir, x, y, speed)
+	GROUND:AnimateToPosition(char, "Walk", dir, x, y, 1, speed)
 end
 
 --- MoveToPositionOffset, but moves the character as if they were stepping backwards (NOTE: This will always animate them in the same direction they started at)
 --- @param char any Character to move
+--- @param dir Dir8 Direction to animate in
 --- @param offx number X Position
 --- @param offy number Y Position
 --- @param speed integer Speed in pixels/sec
-function ExplorerEssentials.MoveToPositionOffsetBackwards(char, offx, offy, speed)
-	ExplorerEssentials.MoveToPositionBackwards(char, char.Position.X + offx, char.Position.Y + offy, speed)
+function ExplorerEssentials.MoveToPositionOffsetBackwards(char, dir, offx, offy, speed)
+	ExplorerEssentials.MoveToPositionBackwards(char, dir, char.Position.X + offx, char.Position.Y + offy, speed)
 end
 
 function ExplorerEssentials.ResetDailyFlags()

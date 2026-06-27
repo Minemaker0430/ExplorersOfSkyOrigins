@@ -23,11 +23,11 @@ end
 ---guild_bedroom_night.Enter(map)
 --Engine callback function
 function guild_bedroom_night.Enter(map)
-    ExplorerEssentials.SetProgress(2, 1) -- TESTING
+    
     if SV.Progression.Chapter == 2 and SV.Progression.SectionFlag > 0 then
-        if SV.Progression.SectionFlag > 2 then
+        if SV.Progression.SectionFlag == 2 then
             guild_bedroom_night.CH2_NightAfterJob()
-        elseif SV.drenched_bluff.TimesFailed > 2 then
+        elseif SV.drenched_bluff.TimesFailed == 2 then
             guild_bedroom_night.CH2_OfferHelp()
         elseif SV.Progression.SectionFlag == 1 and SV.drenched_bluff.TimesFailed == 0 then
             guild_bedroom_night.CH2_FirstNight()

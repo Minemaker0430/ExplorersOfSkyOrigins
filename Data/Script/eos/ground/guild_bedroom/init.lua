@@ -223,6 +223,8 @@ def 0 {
 
   ]]--
 
+    GAME:FadeOut(false, 1)
+
 	AI:DisableCharacterAI(CH('PARTNER'))
     CH('Loudred').CollisionDisabled = true
 	
@@ -813,7 +815,15 @@ def 0 {
 }
 ]]--
 
+    GAME:FadeOut(false, 1)
+    GAME:CutsceneMode(true)
+
     AI:DisableCharacterAI(CH('PARTNER'))
+
+    CH('PLAYER').CollisionDisabled = true
+    CH('PARTNER').CollisionDisabled = true
+    CH('Loudred').CollisionDisabled = true
+
 	local pTalkKind = SV.Personality.PartnerTalkKind
 	SOUND:StopBGM()
     
@@ -840,8 +850,8 @@ def 0 {
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_PLAYER_3']))
 
     ExplorerEssentials.SetupCameraPos(22, 22.5)
-    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 25, 22, Direction.Down)
-    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 19, 22, Direction.Down)
+    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 24.5, 21.5, Direction.Down)
+    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 18.5, 21.5, Direction.Down)
     ExplorerEssentials.SetupInitialPos(CH('Loudred'), 13.5, 21.5, Direction.Right)
 
 	-- back_SetGround(LEVEL_G01P07A) (Should be the map you're currently on, or the map it sends you to next)
@@ -857,7 +867,7 @@ def 0 {
 	GAME:WaitFrames(30)
 
 	SOUND:PlayBattleSE("EVT_Emote_Complain_2")
-    GROUND:MoveScreen(RogueEssence.Content.ScreenMover(2, 2, 80))
+    GROUND:MoveScreen(RogueEssence.Content.ScreenMover(2, 2, 30))
 	-- TODO: camera_SetEffect(2, 2, 3.0) // camera shake i think
 	GROUND:CharWaitAnim(CH('Loudred'), "Hop", false)
 	-- TODO: camera_SetEffect(0, 0, 0)
@@ -879,7 +889,7 @@ def 0 {
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_PARTNER_1_'..tostring(pTalkKind)]))
 	
     SOUND:PlayBattleSE("EVT_Emote_Complain_2")
-    GROUND:MoveScreen(RogueEssence.Content.ScreenMover(2, 2, 80))
+    GROUND:MoveScreen(RogueEssence.Content.ScreenMover(2, 2, 30))
 	-- TODO: camera_SetEffect(2, 2, 3.0) // camera shake i think
 	GROUND:CharWaitAnim(CH('Loudred'), "Hop", false)
 	-- TODO: camera_SetEffect(0, 0, 0)
@@ -919,7 +929,7 @@ def 0 {
 	GROUND:CharAnimateTurnTo(CH('Loudred'), Dir8.Right, 5)
 
 	SOUND:PlayBattleSE("EVT_Emote_Complain_2")
-    GROUND:MoveScreen(RogueEssence.Content.ScreenMover(2, 2, 80))
+    GROUND:MoveScreen(RogueEssence.Content.ScreenMover(2, 2, 30))
 	-- TODO: camera_SetEffect(2, 2, 3.0) // camera shake i think
 	GROUND:CharWaitAnim(CH('Loudred'), "Hop")
 	-- TODO: camera_SetEffect(0, 0, 0)
@@ -930,7 +940,7 @@ def 0 {
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_Loudred_9']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_Loudred_10']))
 	
-    GROUND:MoveToPosition(CH('Loudred'), CH('Loudred').Position.X + -96, CH('Loudred').Position.Y + 0, false, 2)
+    GROUND:MoveToPosition(CH('Loudred'), CH('Loudred').Position.X + -96, CH('Loudred').Position.Y + 0, false, 1)
 	GROUND:Hide("Loudred")
 	GAME:WaitFrames(60)
 	
@@ -971,8 +981,8 @@ def 0 {
 	UI:SetSpeakerEmotion("Surprised")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_PARTNER_7_'..tostring(pTalkKind)], CH('PLAYER'):GetDisplayName()))
 
-	local coro1 = TASK:BranchCoroutine(function () GROUND:MoveToPosition(CH('PLAYER'), CH('PLAYER').Position.X + -180, CH('PLAYER').Position.Y + 0, true, 6) end)
-	local coro2 = TASK:BranchCoroutine(function () GROUND:MoveToPosition(CH('PARTNER'), CH('PARTNER').Position.X + -160, CH('PARTNER').Position.Y + 0, true, 6) end)
+	local coro1 = TASK:BranchCoroutine(function () GROUND:MoveToPosition(CH('PLAYER'), CH('PLAYER').Position.X + -180, CH('PLAYER').Position.Y + 0, true, 2) end)
+	local coro2 = TASK:BranchCoroutine(function () GROUND:MoveToPosition(CH('PARTNER'), CH('PARTNER').Position.X + -160, CH('PARTNER').Position.Y + 0, true, 2) end)
     local coro3 = TASK:BranchCoroutine(function ()
         GAME:WaitFrames(45)
 	    GAME:FadeOut(false, 30)

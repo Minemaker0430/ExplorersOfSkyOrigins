@@ -257,6 +257,8 @@ def 0 {
 }
 ]]--
 
+    GAME:CutsceneMode(true)
+
 	local pTalkKind = SV.Personality.PartnerTalkKind
 	SOUND:StopBGM()
 
@@ -284,7 +286,7 @@ def 0 {
         GROUND:MoveToPosition(CH('PARTNER'), 224, 284, false, 2)
     end)
     local coro3 = TASK:BranchCoroutine(function () 
-        SOUND:PlayBGM("006 - In The Depths Of The Pit.ogg")
+        SOUND:PlayBGM("006 - In The Depths Of The Pit.ogg", true)
 	    GAME:FadeIn(30)
     end)
     TASK:JoinCoroutines({coro1, coro2, coro3})
@@ -305,12 +307,12 @@ def 0 {
         ExplorerEssentials.MoveCameraAtSpeed(240, 196, 2, false)
     end)
     local coro2 = TASK:BranchCoroutine(function () -- player
-        GROUND:MoveToPosition(CH('PLAYER'), 256, 204, false, 2)
+        GROUND:MoveToPosition(CH('PLAYER'), 256, 204, false, 1)
         GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.UpLeft, 4)
     end)
     local coro3 = TASK:BranchCoroutine(function () -- partner
         GAME:WaitFrames(5)
-	    GROUND:MoveToPosition(CH('PARTNER'), 224, 204, false, 2)
+	    GROUND:MoveToPosition(CH('PARTNER'), 224, 204, false, 1)
         GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.UpRight, 4)
     end)
     TASK:JoinCoroutines({coro1, coro2, coro3})
@@ -351,6 +353,8 @@ def 0 {
 	-- TODO: WaitBgm(BGM_IN_THE_DEPTHS_OF_THE_PIT)
 	-- TODO: switch ( message_Menu(MENU_DUNGEON_TEAM_RETURNS_FROM_MAP) ) { }                 end
 
+    SV.Progression.SectionFlag = 2
+    
     ExplorerEssentials.EndStoryDungeon(RogueEssence.Data.GameProgress.ResultType.Cleared, "hub", -1, 10, 0)
 end
 

@@ -1,4 +1,6 @@
 require 'eos.common'
+require 'eos.CharacterActions'
+require 'eos.ExplorerEssentials'
 
 -- Package name
 local drenched_bluff_entrance = {}
@@ -22,6 +24,7 @@ function drenched_bluff_entrance.Enter(map)
     elseif SV.Progression.Chapter == 2 and SV.drenched_bluff.TimesFailed > 0 then
         drenched_bluff_entrance.CH2_EntranceAfterFail()
     else
+        GAME:CutsceneMode(false)
         GAME:EnterDungeon('drenched_bluff', 0, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
     end
 
@@ -52,7 +55,7 @@ end
 --Engine callback function
 function drenched_bluff_entrance.GameLoad(map)
 
-  GAME:FadeIn(20)
+  GAME:EnterDungeon('drenched_bluff', 0, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 
 end
 
@@ -228,13 +231,13 @@ def 0 {
     ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 30.5, 30.5, Direction.Up)
 	
     GAME:FadeIn(30)
-	SOUND:PlayBGM("012 - Drenched Bluff.ogg")
+	SOUND:PlayBGM("012 - Drenched Bluff.ogg", true)
 	
     local coro1 = TASK:BranchCoroutine(function ()
-        GROUND:MoveToPosition(CH('PLAYER'), 276, 156, false, 2)
+        GROUND:MoveToPosition(CH('PLAYER'), 276, 156, false, 1)
     end)
     local coro2 = TASK:BranchCoroutine(function ()
-        GROUND:MoveToPosition(CH('PARTNER'), 248, 156, false, 2)
+        GROUND:MoveToPosition(CH('PARTNER'), 248, 156, false, 1)
     end)
     TASK:JoinCoroutines({coro1, coro2})
 	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
@@ -264,11 +267,11 @@ def 0 {
     GAME:WaitFrames(30)
 
     local coro1 = TASK:BranchCoroutine(function ()
-        GROUND:MoveToPosition(CH('PLAYER'), 264, 92, false, 2)
+        GROUND:MoveToPosition(CH('PLAYER'), 264, 92, false, 1)
     end)
 	local coro2 = TASK:BranchCoroutine(function ()
         GAME:WaitFrames(20)
-	    GROUND:MoveToPosition(CH('PARTNER'), 264, 92, false, 2)
+	    GROUND:MoveToPosition(CH('PARTNER'), 264, 92, false, 1)
     end)
     local coro3 = TASK:BranchCoroutine(function ()
         GAME:WaitFrames(40)
@@ -281,6 +284,7 @@ def 0 {
 	-- TODO: switch ( message_Menu(MENU_DUNGEON_INITIALIZE_TEAM) ) { }         main_EnterDungeon(-1, 0)
 	-- TODO: hold
 
+    GAME:CutsceneMode(false)
     GAME:EnterDungeon('drenched_bluff', 0, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 
 end
@@ -374,7 +378,6 @@ def 0 {
 }
     ]]--
 
-	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
 	
     ExplorerEssentials.SetupCameraPos(32.5, 17)
@@ -382,13 +385,13 @@ def 0 {
     ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 30.5, 30.5, Direction.Up)
 
 	GAME:FadeIn(30)
-	SOUND:PlayBGM("012 - Drenched Bluff.ogg")
+	SOUND:PlayBGM("012 - Drenched Bluff.ogg", true)
 	
     local coro1 = TASK:BranchCoroutine(function ()
-        GROUND:MoveToPosition(CH('PLAYER'), 276, 156, false, 2)
+        GROUND:MoveToPosition(CH('PLAYER'), 276, 156, false, 1)
     end)
     local coro2 = TASK:BranchCoroutine(function ()
-        GROUND:MoveToPosition(CH('PARTNER'), 248, 156, false, 2)
+        GROUND:MoveToPosition(CH('PARTNER'), 248, 156, false, 1)
     end)
     TASK:JoinCoroutines({coro1, coro2})
 	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
@@ -410,11 +413,11 @@ def 0 {
 	TASK:JoinCoroutines({coro1, coro2})
 	
 	local coro1 = TASK:BranchCoroutine(function ()
-        GROUND:MoveToPosition(CH('PLAYER'), 264, 92, false, 2)
+        GROUND:MoveToPosition(CH('PLAYER'), 264, 92, false, 1)
     end)
 	local coro2 = TASK:BranchCoroutine(function ()
         GAME:WaitFrames(20)
-	    GROUND:MoveToPosition(CH('PARTNER'), 264, 92, false, 2)
+	    GROUND:MoveToPosition(CH('PARTNER'), 264, 92, false, 1)
     end)
     local coro3 = TASK:BranchCoroutine(function ()
         GAME:WaitFrames(40)
@@ -432,6 +435,7 @@ def 0 {
 	-- TODO: jump @label_2
 	-- TODO case: default:             jump @label_2
 
+    GAME:CutsceneMode(false)
     GAME:EnterDungeon('drenched_bluff', 0, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
 
 end
