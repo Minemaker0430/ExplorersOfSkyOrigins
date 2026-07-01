@@ -41,7 +41,7 @@ function UpgradeTools:OnUpgrade()
   local old_ver = _DATA.Save:GetVersion(System.Guid.Empty)
   local new_ver = RogueEssence.PathMod.GetVersion(System.Guid.Empty)
   PrintInfo("=>> Upgrading version " .. old_ver:ToString() .. " to " .. new_ver:ToString())
-  _DATA.Save.NextDest = _DATA.Start.Map
+  --_DATA.Save.NextDest = _DATA.Start.Map
   
   if SV.General.Starter == nil then SV.General.Starter = GAME:GetPlayerPartyMember(0) end
   if SV.General.Partner == nil then SV.General.Starter = GAME:GetPlayerPartyMember(1) end
@@ -99,6 +99,28 @@ function UpgradeTools:OnUpgrade()
       TeamSkullInGuild = false
     }
   end
+
+  SV.ItemTutorials = SV.ItemTutorials or {
+    Food = false,
+    OranBerry = false,
+    CheriBerry = false,
+    PechaBerry = false,
+    LeppaBerry = false,
+    LumBerry = false,
+    BlastSeed = false,
+    SleepSeed = false,
+    StunSeed = false,
+    WarpSeed = false,
+    VileSeed = false,
+    XEyeSeed = false,
+    ViolentSeed = false,
+    MaxElixir = false,
+    WeatherOrb = false,
+    WeatherOrbAlt = false,
+    Ammo = false,
+    Lookalikes = false,
+    Money = false
+  }
 
   if SV.partner == nil then
     SV.partner =
