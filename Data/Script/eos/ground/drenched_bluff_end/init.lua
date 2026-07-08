@@ -280,10 +280,10 @@ def 0 {
 	GAME:WaitFrames(1)
 	
     local coro1 = TASK:BranchCoroutine(function ()
-        GROUND:MoveToPosition(CH('PLAYER'), 256, 284, false, 2)
+        GROUND:MoveToPosition(CH('PLAYER'), 256, 284, false, 1)
     end)
     local coro2 = TASK:BranchCoroutine(function ()
-        GROUND:MoveToPosition(CH('PARTNER'), 224, 284, false, 2)
+        GROUND:MoveToPosition(CH('PARTNER'), 224, 284, false, 1)
     end)
     local coro3 = TASK:BranchCoroutine(function () 
         SOUND:PlayBGM("006 - In The Depths Of The Pit.ogg", true)
@@ -304,7 +304,7 @@ def 0 {
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_PARTNER_1_'..tostring(pTalkKind)]))
 
     local coro1 = TASK:BranchCoroutine(function () -- camera
-        ExplorerEssentials.MoveCameraAtSpeed(240, 196, 2, false)
+        ExplorerEssentials.MoveCameraAtSpeed(240, 196, 1, false)
     end)
     local coro2 = TASK:BranchCoroutine(function () -- player
         GROUND:MoveToPosition(CH('PLAYER'), 256, 204, false, 1)

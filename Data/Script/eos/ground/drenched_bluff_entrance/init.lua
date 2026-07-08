@@ -225,6 +225,7 @@ def 0 {
 
 	local pTalkKind = SV.Personality.PartnerTalkKind
 	SOUND:StopBGM()
+    GAME:CutsceneMode(true)
 	
 	ExplorerEssentials.SetupCameraPos(32.5, 17)
     ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 34, 32.5, Direction.Up)
@@ -379,6 +380,8 @@ def 0 {
     ]]--
 
 	local pTalkKind = SV.Personality.PartnerTalkKind
+
+    GAME:CutsceneMode(true)
 	
     ExplorerEssentials.SetupCameraPos(32.5, 17)
     ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 34, 32.5, Direction.Up)

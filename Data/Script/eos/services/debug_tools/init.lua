@@ -84,9 +84,9 @@ function DebugTools:OnNewGame()
     _DATA.Save.ActiveTeam.Money = 1000
     _DATA.Save.ActiveTeam.Bank = 1000000
   
-    local mon_id = RogueEssence.Dungeon.MonsterID("bulbasaur", 0, "normal", Gender.Male)
+    local mon_id = RogueEssence.Dungeon.MonsterID("oshawott", 0, "shiny", Gender.Male)
     _DATA.Save.ActiveTeam.Players:Add(_DATA.Save.ActiveTeam:CreatePlayer(_DATA.Save.Rand, mon_id, 50, "", 0))
-    mon_id = RogueEssence.Dungeon.MonsterID("charmander", 0, "normal", Gender.Male)
+    mon_id = RogueEssence.Dungeon.MonsterID("snivy", 0, "shiny", Gender.Male)
     _DATA.Save.ActiveTeam.Players:Add(_DATA.Save.ActiveTeam:CreatePlayer(_DATA.Save.Rand, mon_id, 50, "", 0))
 	
     local talk_evt = RogueEssence.Dungeon.BattleScriptEvent("AllyInteract")
@@ -99,6 +99,9 @@ function DebugTools:OnNewGame()
 	
 	  _DATA.Save.ActiveTeam.Players[0].IsPartner = true
 	  _DATA.Save.ActiveTeam.Players[1].IsPartner = true
+
+    _DATA.Save.ActiveTeam.Players[0]:SetCharacterNickname("Mocha")
+	  _DATA.Save.ActiveTeam.Players[1]:SetCharacterNickname("Goober")
 	
     _DATA.Save:UpdateTeamProfile(true)
       

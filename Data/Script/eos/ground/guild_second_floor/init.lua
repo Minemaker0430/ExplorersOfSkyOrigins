@@ -2309,10 +2309,10 @@ def 0 {
 	SOUND:StopBGM()
     
 	ExplorerEssentials.SetupCameraPos(31.5, 28.5)
-    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 33.5, 30.5, Direction.Up)
-    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 29.5, 30.5, Direction.Up)
-    ExplorerEssentials.SetupInitialPos(CH('Chatot'), 27.5, 25.5, Direction.DownRight)
-    ExplorerEssentials.SetupInitialPos(CH('Spoink'), 31.5, 26.5, Direction.Down)
+    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 33, 30, Direction.Up)
+    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 29, 30, Direction.Up)
+    ExplorerEssentials.SetupInitialPos(CH('Chatot'), 27, 25, Direction.DownRight)
+    ExplorerEssentials.SetupInitialPos(CH('Spoink'), 31, 26, Direction.Down)
 	
     GAME:FadeIn(30)
 	SOUND:PlayBGM("013 - Job Clear!.ogg", true)
@@ -2369,8 +2369,8 @@ def 0 {
 
     local coro1 = TASK:BranchCoroutine(function ()
         ExplorerEssentials.MoveToPositionOffset(CH('Spoink'), 40, 0, false, 1)
-	    GROUND:MoveToPosition(CH('Spoink'), 332, 204, false, 1)
-        GROUND:MoveToPosition(CH('Spoink'), 332, 180, false, 1)
+	    GROUND:MoveToPosition(CH('Spoink'), 328, 204, false, 1)
+        GROUND:MoveToPosition(CH('Spoink'), 328, 180, false, 1)
         ExplorerEssentials.MoveToPositionOffset(CH('Spoink'), 0, -64, false, 1)
         GROUND:Hide("Spoink")
     end)
@@ -2418,7 +2418,7 @@ def 0 {
         GROUND:CharTurnToCharAnimated(CH('PLAYER'), CH('Chatot'), 4)
     end)
     local coro2 = TASK:BranchCoroutine(function ()
-        GROUND:MoveToPosition(CH('Chatot'), 268, 228, false, 1)
+        GROUND:MoveToPosition(CH('Chatot'), 264, 224, false, 1)
     end)
 	TASK:JoinCoroutines({coro1, coro2})
 
