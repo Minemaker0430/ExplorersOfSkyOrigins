@@ -1,0 +1,109 @@
+﻿{
+  "Version": [
+    "0.0",
+    "0.8.12.0"
+  ],
+  "Object": {
+    "Desc": {
+      "DefaultText": [
+        "@@ -0,0 +1,97 @@\n+An orb that drastically boosts Attack and Sp. Attack. It affects team members up to 5 tiles away.\n",
+        0,
+        2
+      ]
+    },
+    "Released": [
+      false,
+      true
+    ],
+    "Sprite": [
+      "",
+      "Orb_Red"
+    ],
+    "UseAction": {
+      "$type": [
+        "RogueEssence.Dungeon.AttackAction, RogueEssence",
+        "RogueEssence.Dungeon.AreaAction, RogueEssence"
+      ],
+      "Emitter": {
+        "$type": [
+          "@@ -23,13 +23,19 @@\n mpty\n-Finit\n+CircleSquar\n eEmi\n",
+          0,
+          2
+        ]
+      },
+      "WideAngle": [
+        0,
+        0,
+        0
+      ],
+      "TargetAlignments": [
+        0,
+        3
+      ],
+      "HitArea": [
+        0
+      ],
+      "Range": [
+        5
+      ],
+      "Speed": [
+        10
+      ]
+    },
+    "Explosion": {
+      "TargetAlignments": [
+        0,
+        3
+      ]
+    },
+    "UseEvent": {
+      "OnHits": {
+        "_t": "a",
+        "0": [
+          {
+            "Key": {
+              "str": [
+                0
+              ]
+            },
+            "Value": {
+              "$type": "PMDC.Dungeon.StatusStackBattleEvent, PMDC",
+              "Stack": 6,
+              "StatusID": "mod_attack",
+              "AffectTarget": true,
+              "SelfInflicted": false,
+              "SilentCheck": false,
+              "Anonymous": false,
+              "TriggerMsg": {
+                "Key": ""
+              },
+              "Anims": []
+            }
+          }
+        ],
+        "1": [
+          {
+            "Key": {
+              "str": [
+                0
+              ]
+            },
+            "Value": {
+              "$type": "PMDC.Dungeon.StatusStackBattleEvent, PMDC",
+              "Stack": 6,
+              "StatusID": "mod_special_attack",
+              "AffectTarget": true,
+              "SelfInflicted": false,
+              "SilentCheck": false,
+              "Anonymous": false,
+              "TriggerMsg": {
+                "Key": ""
+              },
+              "Anims": []
+            }
+          }
+        ]
+      }
+    }
+  }
+}

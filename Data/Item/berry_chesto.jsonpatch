@@ -1,0 +1,85 @@
+﻿{
+  "Version": [
+    "0.0",
+    "0.8.12.0"
+  ],
+  "Object": {
+    "Desc": {
+      "DefaultText": [
+        "@@ -0,0 +1,111 @@\n+A dry-tasting berry with thick, tough skin. It gives the Sleepless status to the user & cures the Sleep status.\n",
+        0,
+        2
+      ]
+    },
+    "Released": [
+      false,
+      true
+    ],
+    "Sprite": [
+      "",
+      "Berry_Chesto"
+    ],
+    "UseAction": {
+      "CharAnimData": {
+        "$type": [
+          "@@ -26,15 +26,17 @@\n Anim\n-Process\n+FrameType\n , Ro\n",
+          0,
+          2
+        ],
+        "Process": [
+          0,
+          0,
+          0
+        ],
+        "AnimOverride": [
+          0,
+          0,
+          0
+        ],
+        "ActionType": [
+          0
+        ]
+      }
+    },
+    "UseEvent": {
+      "OnHits": {
+        "_t": "a",
+        "1": [
+          {
+            "Key": {
+              "str": [
+                0
+              ]
+            },
+            "Value": {
+              "$type": "PMDC.Dungeon.RemoveStatusBattleEvent, PMDC",
+              "StatusID": "sleep",
+              "AffectTarget": true
+            }
+          }
+        ],
+        "2": [
+          {
+            "Key": {
+              "str": [
+                0
+              ]
+            },
+            "Value": {
+              "$type": "PMDC.Dungeon.StatusBattleEvent, PMDC",
+              "StatusID": "sleepless",
+              "AffectTarget": true,
+              "SelfInflicted": false,
+              "SilentCheck": false,
+              "Anonymous": false,
+              "TriggerMsg": {
+                "Key": null
+              },
+              "Anims": []
+            }
+          }
+        ]
+      }
+    }
+  }
+}

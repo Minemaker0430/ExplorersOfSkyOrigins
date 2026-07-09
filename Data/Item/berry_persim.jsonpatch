@@ -1,0 +1,64 @@
+﻿{
+  "Version": [
+    "0.0",
+    "0.8.12.0"
+  ],
+  "Object": {
+    "Desc": {
+      "DefaultText": [
+        "@@ -0,0 +1,87 @@\n+A berry whose colors grow vivid when exposed to the sun. It cures the Confusion status.\n",
+        0,
+        2
+      ]
+    },
+    "Released": [
+      false,
+      true
+    ],
+    "Sprite": [
+      "",
+      "Berry_Persim"
+    ],
+    "UseAction": {
+      "CharAnimData": {
+        "$type": [
+          "@@ -26,15 +26,17 @@\n Anim\n-Process\n+FrameType\n , Ro\n",
+          0,
+          2
+        ],
+        "Process": [
+          0,
+          0,
+          0
+        ],
+        "AnimOverride": [
+          0,
+          0,
+          0
+        ],
+        "ActionType": [
+          0
+        ]
+      }
+    },
+    "UseEvent": {
+      "OnHits": {
+        "_t": "a",
+        "1": [
+          {
+            "Key": {
+              "str": [
+                0
+              ]
+            },
+            "Value": {
+              "$type": "PMDC.Dungeon.RemoveStatusBattleEvent, PMDC",
+              "StatusID": "confuse",
+              "AffectTarget": true
+            }
+          }
+        ]
+      }
+    }
+  }
+}

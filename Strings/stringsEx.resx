@@ -1030,4 +1030,32 @@ a {1)...</value>
   <data name="ITEM_PLURAL_SUFFIX" xml:space="preserve">
     <value>{0}s</value>
   </data>
+  <data name="MSG_CHERI_SCARF" xml:space="preserve">
+    <value>{0} can't be paralyzed due to its Cheri Scarf!</value>
+	<comment>Added by BobTheBobCatt</comment>
+  </data>
+  <data name="MSG_CHESTO_SCARF" xml:space="preserve">
+    <value>{0} can't fall asleep due to its Chesto Scarf!</value>
+	<comment>Added by BobTheBobCatt</comment>
+  </data>
+  <data name="MSG_PERSIM_BAND" xml:space="preserve">
+    <value>{0} can't be confused due to its Persim Band!</value>
+	<comment>Added by BobTheBobCatt</comment>
+  </data>
+  <data name="MSG_PECHA_SCARF" xml:space="preserve">
+    <value>{0} can't be poisoned due to its Pecha Scarf!</value>
+	<comment>Added by BobTheBobCatt</comment>
+  </data>
+  <data name="MSG_ASPEAR_SCARF" xml:space="preserve">
+    <value>{0} can't be frozen due to its Aspear Scarf!</value>
+	<comment>Added by BobTheBobCatt</comment>
+  </data>
+  <data name="MSG_RAWST_SCARF" xml:space="preserve">
+    <value>{0} can't be burned due to its Rawst Scarf!</value>
+	<comment>Added by BobTheBobCatt</comment>
+  </data>
+  <data name="MSG_FLOOR_GUIDING" xml:space="preserve">
+    <value>The location of the stairs was revealed!</value>
+	<comment>Added by BobTheBobCatt</comment>
+  </data>
 </root>

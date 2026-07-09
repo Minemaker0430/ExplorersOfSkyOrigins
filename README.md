@@ -3,20 +3,20 @@
 
 A remake of EoS in the PMDO Engine, featuring more starters, a reworked battle system, revamped dungeons, and more!
 
-This project is in no way affiliated with Nintendo, Creatures Inc, The Pokémon Company, or Spike Chunsoft. I'm just a fan who likes the PMD games and wants to preserve them. 
+Disclaimer: This project is in no way affiliated with Nintendo, Creatures Inc, The Pokémon Company, or Spike Chunsoft. I'm just a fan who likes the PMD games and wants to preserve them. No profits are made from this project.
 
 # Credits
-![Happy](https://github.com/Minemaker0430/ExplorersOfSkyOrigins/assets/85040155/43f9044e-c728-466b-bdf7-7be7d75e0399) [ItsMochaTheOtter](https://github.com/Minemaker0430) (Minemaker0430) - Project Creator, Cutscenes (Chapters 1-2), Dungeons, Balancing, Items, Vanilla Music
+![Happy](https://github.com/Minemaker0430/ExplorersOfSkyOrigins/assets/85040155/43f9044e-c728-466b-bdf7-7be7d75e0399) [ItsMochaTheOtter](https://github.com/Minemaker0430) (Minemaker0430) - Project Creator, Cutscenes (Chapters 1-2), Dungeons, Balancing, Items, Vanilla Music, UI
 
 [Sloth](https://github.com/slothplaysnecro) - Ground Maps, Vanilla Music
 
 [servantofTestator](https://github.com/servantoftestator) - Cutscenes (Chapters 1-3)
 
-![Inspired](https://github.com/Minemaker0430/ExplorersOfSkyOrigins/assets/85040155/404187c5-1773-4f20-9c7f-714d14a356ad) [Palika](https://github.com/Palikadude) - Dusk/Darkness Shaders, Event Scripts, Coding/Asset Assistance, Items
+![Inspired](https://github.com/Minemaker0430/ExplorersOfSkyOrigins/assets/85040155/404187c5-1773-4f20-9c7f-714d14a356ad) [Palika](https://github.com/Palikadude) - Shaders (Darkness, Dusk), Items (Data, Sprites), Programming (Event Scripts, Other)
 
-[MistressNebula](https://github.com/435THz) - Job System Framework
+[MistressNebula](https://github.com/435THz) - Programming (Job System Framework)
 
-[BobTheBobCatt](https://github.com/BobTheBobCatt) - Programming, Items
+[BobTheBobCatt](https://github.com/BobTheBobCatt) - Items (Data, Sprites, Scripts, Strings)
 
 **Playtesters:** Mai Kiên, sleepdragoon
 
@@ -35,12 +35,10 @@ This project is in no way affiliated with Nintendo, Creatures Inc, The Pokémon 
  - Storage no longer has a limit. (NYI)
  - Electivire's Link Shop now only helps remember moves, due to PMDO not supporting Linked Moves. (NYI)
  - Rank Ups now increase the amount of Jobs you can have at once. (NYI)
- - Game Autosaves after each Chapter & Day (NYI)
+ - Game Autosaves after each Chapter & Day
 
 # Known Issues
- - Gameplay loop is unfinished, game ends after Chapter 1
- - Chapter 1 inventory still says Treasure Bag
- - Mocha cannot spell, apparently
+ - Gameplay loop is unfinished, game ends after Chapter 2
 
 # Installation
  - Get PMDO from https://github.com/audinowho/PMDODump/releases

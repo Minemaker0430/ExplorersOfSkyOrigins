@@ -1,0 +1,306 @@
+﻿{
+"Version": "0.8.11.0",
+"Object": {
+"$type": "RogueEssence.Data.ItemData, RogueEssence",
+"Name": {
+"DefaultText": "Heal Seed",
+"LocalTexts": {
+"fr": "Baie Oran",
+"de": "Sinelbeere",
+"es": "Baya Aranja",
+"pt": "Fruta Laran",
+"it": "Baccarancia",
+"ko": "오랭열매",
+"ja": "オレンのみ",
+"ja-jp": "オレンのみ",
+"zh-hans": "橙橙果",
+"zh-hant": "橙橙果"
+}
+},
+"Desc": {
+"DefaultText": "A seed that fully restores HP & cures many status problems.",
+"LocalTexts": {
+"fr": "Une baie particulière avec un subtil mélange de saveur. Elle restaure tout les PV du Pokémon.",
+"de": "Eine eigenartige Beere mit einer Mischung aus Geschmäckern. Es füllt die KP vollständig auf.",
+"es": "Baya peculiar con una mezcla de sabores. Restaura por completo los PS.",
+"pt": "Uma fruta peculiar com uma mistura de sabores. Restaura os PV por completo.",
+"it": "Bacca che concentra in sé tutto il meglio della natura, sprigionando in bocca un insolito concerto di sapori deliziosi. Ripristina tutti i PS del Pokémon.",
+"ko": "여러가지 맛이 섞인 신기한 열매. 먹으면 체력을 완전히 회복한다.",
+"zh-hans": "混杂着各种滋味的奇妙树果。食用后完全回复HP。",
+"zh-hant": "混雜著各種滋味的奇妙樹果。食用後完全回復HP。"
+}
+},
+"Released": true,
+"Comment": "",
+"Sprite": "Seed_Yellow",
+"Icon": 4,
+"SortCategory": 7,
+"Price": 50,
+"Rarity": 0,
+"MaxStack": 0,
+"CannotDrop": false,
+"BagEffect": false,
+"ItemStates": [
+{
+"$type": "PMDC.Dungeon.CurerState, PMDC"
+},
+{
+"$type": "PMDC.Dungeon.EdibleState, PMDC"
+},
+{
+"$type": "PMDC.Dungeon.BerryState, PMDC"
+}
+],
+"GroundUseActions": [],
+"UseAction": {
+"$type": "RogueEssence.Dungeon.SelfAction, RogueEssence",
+"CharAnimData": {
+"$type": "RogueEssence.Dungeon.CharAnimProcess, RogueEssence",
+"Process": 0,
+"AnimOverride": 0
+},
+"TargetAlignments": 1,
+"TileEmitter": {
+"$type": "RogueEssence.Content.EmptyFiniteEmitter, RogueEssence",
+"LocHeight": 0
+},
+"PreActions": [],
+"ActionFX": {
+"Delay": 0,
+"AbsoluteDelay": false,
+"Sound": "",
+"Emitter": {
+"$type": "RogueEssence.Content.EmptyFiniteEmitter, RogueEssence",
+"LocHeight": 0
+},
+"ScreenMovement": {
+"MinShake": 0,
+"MaxShake": 0,
+"MaxShakeTime": 0
+}
+},
+"LagBehindTime": 0
+},
+"Explosion": {
+"TargetAlignments": 1,
+"HitTiles": false,
+"Range": 0,
+"Speed": 0,
+"TileEmitter": {
+"$type": "RogueEssence.Content.EmptyFiniteEmitter, RogueEssence",
+"LocHeight": 0
+},
+"Emitter": {
+"$type": "RogueEssence.Content.EmptyCircleSquareEmitter, RogueEssence",
+"LocHeight": 0
+},
+"IntroFX": [],
+"ExplodeFX": {
+"Delay": 0,
+"AbsoluteDelay": false,
+"Sound": "",
+"Emitter": {
+"$type": "RogueEssence.Content.EmptyFiniteEmitter, RogueEssence",
+"LocHeight": 0
+},
+"ScreenMovement": {
+"MinShake": 0,
+"MaxShake": 0,
+"MaxShakeTime": 0
+}
+}
+},
+"UseEvent": {
+"Element": "none",
+"Category": 0,
+"HitRate": -1,
+"SkillStates": [],
+"BeforeTryActions": [],
+"BeforeActions": [
+{
+"Key": {
+"str": [
+0
+]
+},
+"Value": {
+"$type": "PMDC.Dungeon.AddContextStateEvent, PMDC",
+"AddedState": {
+"$type": "PMDC.Dungeon.CureAttack, PMDC"
+},
+"Global": false
+}
+}
+],
+"OnActions": [],
+"BeforeExplosions": [],
+"BeforeHits": [],
+"OnHits": [
+{
+"Key": {
+"str": [
+0
+]
+},
+"Value": {
+"$type": "PMDC.Dungeon.RemoveStateStatusBattleEvent, PMDC",
+"States": [
+{
+"assembly": "PMDC, Version=0.8.3.0, Culture=neutral, PublicKeyToken=null",
+"type": "PMDC.Dungeon.BadStatusState"
+}
+],
+"AffectTarget": true,
+"Msg": {
+"Key": "MSG_CURE_ALL"
+},
+"Anims": []
+}
+},
+{
+"Key": {
+"str": [
+0
+]
+},
+"Value": {
+"$type": "PMDC.Dungeon.RestoreHPEvent, PMDC",
+"Numerator": 1,
+"Denominator": 1,
+"AffectTarget": true
+}
+},
+{
+"Key": {
+"str": [
+0
+]
+},
+"Value": {
+"$type": "PMDC.Dungeon.RestoreBellyEvent, PMDC",
+"BoostAnims": [],
+"Heal": 3,
+"Msg": false,
+"AddMaxBelly": 0,
+"NeedFullBelly": false
+}
+}
+],
+"OnHitTiles": [],
+"AfterActions": [],
+"ElementEffects": [],
+"IntroFX": [],
+"HitFX": {
+"Delay": 15,
+"AbsoluteDelay": false,
+"Sound": "DUN_Berry",
+"Emitter": {
+"$type": "RogueEssence.Content.SingleEmitter, RogueEssence",
+"LocHeight": 0,
+"finished": false,
+"Offset": 0,
+"Anim": {
+"$type": "RogueEssence.Content.StaticAnim, RogueEssence",
+"Anim": {
+"AnimIndex": "Circle_Small_Blue_In",
+"FrameTime": 2,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": -1,
+"Alpha": 255,
+"AnimFlip": 0
+},
+"TotalTime": 0,
+"Cycles": 1,
+"FrameOffset": 0
+},
+"Layer": 2,
+"UseDest": false
+},
+"ScreenMovement": {
+"MinShake": 0,
+"MaxShake": 0,
+"MaxShakeTime": 0
+}
+},
+"HitCharAction": {
+"$type": "RogueEssence.Dungeon.CharAnimProcess, RogueEssence",
+"Process": 0,
+"AnimOverride": 0
+}
+},
+"UsageType": 4,
+"ArcThrow": false,
+"BreakOnThrow": false,
+"ThrowAnim": {
+"AnimIndex": "",
+"FrameTime": 1,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": -1,
+"Alpha": 255,
+"AnimFlip": 0
+},
+"ProximityEvent": {
+"Radius": -1,
+"TargetAlignments": 0,
+"BeforeExplosions": [],
+"OnEquips": [],
+"OnPickups": [],
+"BeforeStatusAdds": [],
+"BeforeStatusAddings": [],
+"OnStatusAdds": [],
+"OnStatusRemoves": [],
+"OnMapStatusAdds": [],
+"OnMapStatusRemoves": [],
+"OnMapStarts": [],
+"OnTurnStarts": [],
+"OnTurnEnds": [],
+"OnMapTurnEnds": [],
+"OnWalks": [],
+"OnDeaths": [],
+"OnRefresh": [],
+"BeforeTryActions": [],
+"BeforeActions": [],
+"OnActions": [],
+"BeforeHittings": [],
+"BeforeBeingHits": [],
+"AfterHittings": [],
+"AfterBeingHits": [],
+"OnHitTiles": [],
+"AfterActions": [],
+"UserElementEffects": [],
+"TargetElementEffects": [],
+"ModifyHPs": [],
+"RestoreHPs": []
+},
+"OnEquips": [],
+"OnPickups": [],
+"BeforeStatusAdds": [],
+"BeforeStatusAddings": [],
+"OnStatusAdds": [],
+"OnStatusRemoves": [],
+"OnMapStatusAdds": [],
+"OnMapStatusRemoves": [],
+"OnMapStarts": [],
+"OnTurnStarts": [],
+"OnTurnEnds": [],
+"OnMapTurnEnds": [],
+"OnWalks": [],
+"OnDeaths": [],
+"OnRefresh": [],
+"BeforeTryActions": [],
+"BeforeActions": [],
+"OnActions": [],
+"BeforeHittings": [],
+"BeforeBeingHits": [],
+"AfterHittings": [],
+"AfterBeingHits": [],
+"OnHitTiles": [],
+"AfterActions": [],
+"UserElementEffects": [],
+"TargetElementEffects": [],
+"ModifyHPs": [],
+"RestoreHPs": []
+}
+}
