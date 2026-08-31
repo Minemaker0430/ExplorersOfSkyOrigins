@@ -106,6 +106,16 @@ function demo_room.MenuLoop()
             if confirm then
                 continue = false
                 ExplorerEssentials.SetProgress(result, 0)
+
+                if result == 1 then
+                    SV.beach_cave.FailedBoss = false
+                    SV.beach_cave.FailedDungeon = false
+                    SV.beach_cave.Tutorial = 0
+                elseif result == 2 then
+                    SV.drenched_bluff.TimesFailed = 0
+                    SV.drenched_bluff.Tutorial = 0
+                end
+
                 GAME:FadeOut(false, 60)
                 GAME:CutsceneMode(false)
                 GAME:EnterGroundMap("chapter_card", "Entrance")
