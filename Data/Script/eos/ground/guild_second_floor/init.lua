@@ -576,7 +576,7 @@ function guild_second_floor.CH2_MeetingChatot()
 
     local coro1 = TASK:BranchCoroutine(function ()
         GAME:FadeIn(30)
-        SOUND:PlayBGM("008 - Wigglytuff's Guild.ogg", true)
+        SOUND:PlayBGM("BGM_Guild.ogg", true)
 
         GAME:WaitFrames(30)
 
@@ -1560,7 +1560,7 @@ def 0 {
     GROUND:Hide('Chatot')
 
 	GAME:FadeIn(30)
-	SOUND:PlayBGM("011 - Wigglytuff's Guild Remix.ogg", true)
+	SOUND:PlayBGM("BGM_GuildRemix.ogg", true)
 
     local coro1 = TASK:BranchCoroutine(function ()
         GROUND:Unhide("Chatot")
@@ -1946,7 +1946,7 @@ def 0 {
     ExplorerEssentials.SetupInitialPos(CH('Chatot'), 30.5, 24, Direction.Down) -- chatot 31, 24.5
 
 	GAME:FadeIn(30)
-	SOUND:PlayBGM("008 - Wigglytuff's Guild.ogg", true)
+	SOUND:PlayBGM("BGM_Guild.ogg", true)
 	GAME:WaitFrames(30)
 	
     UI:SetSpeaker(CH('Chatot'))
@@ -2315,7 +2315,7 @@ def 0 {
     ExplorerEssentials.SetupInitialPos(CH('Spoink'), 30.5, 25.5, Direction.Down)
 	
     GAME:FadeIn(30)
-	SOUND:PlayBGM("013 - Job Clear!.ogg", true)
+	SOUND:PlayBGM("BGM_JobClear.ogg", true)
 	GAME:WaitFrames(30)
 	
     UI:SetSpeaker(CH('Spoink'))

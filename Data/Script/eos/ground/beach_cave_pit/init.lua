@@ -104,7 +104,7 @@ function beach_cave_pit.NothingHere()
   
 	GAME:WaitFrames(30)
   
-	SOUND:PlayBGM("006 - In the Depths of the Pit.ogg", true)
+	SOUND:PlayBGM("BGM_Depths.ogg", true)
 	GAME:FadeIn(20)
 	GAME:CutsceneMode(false)
 	ExplorerEssentials.EndDungeonWithFanfare(RogueEssence.Data.GameProgress.ResultType.Cleared, "hub", -1, 5, 3)
@@ -133,7 +133,7 @@ function beach_cave_pit.EncounterBoss()
   
 	GAME:WaitFrames(30)
   
-	SOUND:PlayBGM("006 - In the Depths of the Pit.ogg", true)
+	SOUND:PlayBGM("BGM_Depths.ogg", true)
 	GAME:FadeIn(20)
 	
 	local coro1 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(partner, koffing.Position.X, koffing.Position.Y + 52, false, 1) end) 
@@ -241,7 +241,7 @@ function beach_cave_pit.BossReEntry()
   
 	GAME:WaitFrames(30)
   
-	SOUND:PlayBGM("006 - In the Depths of the Pit.ogg", true)
+	SOUND:PlayBGM("BGM_Depths.ogg", true)
 	GAME:FadeIn(20)
 	
 	local coro1 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(partner, koffing.Position.X, koffing.Position.Y + 48, false, 1) end) 
@@ -330,7 +330,7 @@ function beach_cave_pit.BossDefeated()
 	GROUND:EntTurn(zubat, Direction.Down)
 	GROUND:CharSetAnim(koffing, "Fainted", true)
 	GROUND:CharSetAnim(zubat, "Fainted", true)
-	SOUND:PlayBGM("006 - In the Depths of the Pit.ogg", true)
+	SOUND:PlayBGM("BGM_Depths.ogg", true)
 	GAME:FadeIn(20)
 	
 	UI:SetSpeaker(koffing)

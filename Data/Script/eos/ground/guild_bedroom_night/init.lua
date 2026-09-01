@@ -154,7 +154,7 @@ def 0 {
     ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 18.5, 21.5, Direction.Right)
 
 	GAME:FadeIn(30)
-	SOUND:PlayBGM("010 - Goodnight.ogg", true)
+	SOUND:PlayBGM("BGM_Goodnight.ogg", true)
 	GAME:WaitFrames(30)
 	UI:SetSpeaker(CH('PARTNER'))
 	UI:SetSpeakerEmotion("Normal")
@@ -622,7 +622,7 @@ def 0 {
 	GROUND:CharSetAnim(CH('PARTNER'), "Laying", true)
     GAME:FadeIn(60)
     -- TODO: screen_FadeChange(1, 60, 0, 192) // Should be dark
-    SOUND:PlayBGM("010 - Goodnight.ogg", true)
+    SOUND:PlayBGM("BGM_Goodnight.ogg", true)
     GAME:WaitFrames(30)
     UI:SetSpeaker(CH('PARTNER'):GetDisplayName(), true)
     UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_PARTNER_1']))
@@ -745,7 +745,7 @@ def 0 {
 	ExplorerEssentials.SetupCameraPos(22, 22.5)
     ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 24.5, 21.5, Direction.Left)
     ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 18.5, 21.5, Direction.Right)
-    ExplorerEssentials.SetupInitialPos(CH('Chatot'), 1.5, 22, Direction.Right)
+    ExplorerEssentials.SetupInitialPos(CH('Chatot'), 1, 21.5, Direction.Right)
 
 	GAME:FadeIn(30)
 	GAME:WaitFrames(30)
@@ -754,7 +754,7 @@ def 0 {
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_PARTNER_1_'..tostring(pTalkKind)]))
 	
     local coro1 = TASK:BranchCoroutine(function ()
-        GROUND:MoveToPosition(CH('Chatot'), 112, 184, false, 2)
+        GROUND:MoveToPosition(CH('Chatot'), 108, 180, false, 1)
     end)
 	local coro2 = TASK:BranchCoroutine(function ()
         GAME:WaitFrames(20)
@@ -815,7 +815,7 @@ function guild_bedroom_night.CH2_NightAfterJob()
 	GAME:FadeIn(60)
 	-- TODO: screen_FadeChange(1, 60, 0, 192)
 
-	SOUND:PlayBGM("010 - Goodnight.ogg", true)
+	SOUND:PlayBGM("BGM_Goodnight.ogg", true)
 	GAME:WaitFrames(30)
 	UI:SetSpeaker(CH('PARTNER'):GetDisplayName(), true)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S3_PARTNER_1_'..tostring(pTalkKind)], CH('PLAYER'):GetDisplayName()))

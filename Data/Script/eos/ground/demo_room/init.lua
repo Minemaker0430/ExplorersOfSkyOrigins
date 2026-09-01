@@ -111,6 +111,8 @@ function demo_room.MenuLoop()
                     SV.beach_cave.FailedBoss = false
                     SV.beach_cave.FailedDungeon = false
                     SV.beach_cave.Tutorial = 0
+
+                    
                 elseif result == 2 then
                     SV.drenched_bluff.TimesFailed = 0
                     SV.drenched_bluff.Tutorial = 0

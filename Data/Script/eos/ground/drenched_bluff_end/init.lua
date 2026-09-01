@@ -272,21 +272,21 @@ def 0 {
 	-- TODO: @label_3
 	-- back_SetGround(LEVEL_D02P31A) (Should be the map you're currently on, or the map it sends you to next)
 	-- ### supervision_Acting(0) [IRRELEVANT]
-	ExplorerEssentials.SetupCameraPos(29.5, 36) -- 29.5, 36
-    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 31.5, 42.5, Direction.Up) -- player 31.5, 42.5
-    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 27.5, 43.5, Direction.Up) -- partner 27.5, 43.5
-    ExplorerEssentials.SetupInitialPos(OBJ('SpoinkPearl'), 29.5, 22, Direction.Down) -- pearl 29.5, 22 (obj d02p31a1)
+	ExplorerEssentials.SetupCameraPos(29, 35.5) -- 29.5, 36
+    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 31, 42, Direction.Up) -- player 31.5, 42.5
+    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 27, 43, Direction.Up) -- partner 27.5, 43.5
+    ExplorerEssentials.SetupInitialPos(OBJ('SpoinkPearl'), 29, 21.5, Direction.Down) -- pearl 29.5, 22 (obj d02p31a1)
 
 	GAME:WaitFrames(1)
 	
     local coro1 = TASK:BranchCoroutine(function ()
-        GROUND:MoveToPosition(CH('PLAYER'), 256, 284, false, 1)
+        GROUND:MoveToPosition(CH('PLAYER'), 252, 280, false, 1)
     end)
     local coro2 = TASK:BranchCoroutine(function ()
-        GROUND:MoveToPosition(CH('PARTNER'), 224, 284, false, 1)
+        GROUND:MoveToPosition(CH('PARTNER'), 220, 280, false, 1)
     end)
     local coro3 = TASK:BranchCoroutine(function () 
-        SOUND:PlayBGM("006 - In The Depths Of The Pit.ogg", true)
+        SOUND:PlayBGM("BGM_Depths.ogg", true)
 	    GAME:FadeIn(30)
     end)
     TASK:JoinCoroutines({coro1, coro2, coro3})
@@ -307,12 +307,12 @@ def 0 {
         ExplorerEssentials.MoveCameraAtSpeed(240, 196, 1, false)
     end)
     local coro2 = TASK:BranchCoroutine(function () -- player
-        GROUND:MoveToPosition(CH('PLAYER'), 256, 204, false, 1)
+        GROUND:MoveToPosition(CH('PLAYER'), 252, 200, false, 1)
         GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.UpLeft, 4)
     end)
     local coro3 = TASK:BranchCoroutine(function () -- partner
         GAME:WaitFrames(5)
-	    GROUND:MoveToPosition(CH('PARTNER'), 224, 204, false, 1)
+	    GROUND:MoveToPosition(CH('PARTNER'), 220, 200, false, 1)
         GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.UpRight, 4)
     end)
     TASK:JoinCoroutines({coro1, coro2, coro3})

@@ -37,7 +37,7 @@
 },
 "Value": {
 "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-"Music": "012 - Drenched Bluff.ogg",
+"Music": "BGM_DUN_DrenchedBluff.ogg",
 "TimeLimit": 1000,
 "TileSight": 0,
 "CharSight": 1,
@@ -716,7 +716,7 @@
 },
 "Value": {
 "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-"Music": "012 - Drenched Bluff.ogg",
+"Music": "BGM_DUN_DrenchedBluff.ogg",
 "TimeLimit": 1000,
 "TileSight": 0,
 "CharSight": 1,
@@ -1395,7 +1395,7 @@
 },
 "Value": {
 "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-"Music": "012 - Drenched Bluff.ogg",
+"Music": "BGM_DUN_DrenchedBluff.ogg",
 "TimeLimit": 1000,
 "TileSight": 0,
 "CharSight": 1,
@@ -2074,7 +2074,7 @@
 },
 "Value": {
 "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-"Music": "012 - Drenched Bluff.ogg",
+"Music": "BGM_DUN_DrenchedBluff.ogg",
 "TimeLimit": 1000,
 "TileSight": 0,
 "CharSight": 1,
@@ -2753,7 +2753,7 @@
 },
 "Value": {
 "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-"Music": "012 - Drenched Bluff.ogg",
+"Music": "BGM_DUN_DrenchedBluff.ogg",
 "TimeLimit": 1000,
 "TileSight": 0,
 "CharSight": 1,
@@ -3432,7 +3432,7 @@
 },
 "Value": {
 "$type": "PMDC.LevelGen.MapDataStep`1[[RogueEssence.LevelGen.MapGenContext, RogueEssence]], PMDC",
-"Music": "012 - Drenched Bluff.ogg",
+"Music": "BGM_DUN_DrenchedBluff.ogg",
 "TimeLimit": 1000,
 "TileSight": 0,
 "CharSight": 1,
@@ -4141,7 +4141,7 @@
 "Spawns": [
 {
 "Spawn": {
-"ID": "seed_x_eye",
+"ID": "seed_decoy",
 "Cursed": false,
 "HiddenValue": "",
 "Amount": 0,

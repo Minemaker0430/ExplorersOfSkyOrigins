@@ -272,7 +272,7 @@ def 0 {
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['C_PARTNER_1']))
 
 	GAME:WaitFrames(30)
-	SOUND:PlayBGM("008 - Wigglytuff's Guild.ogg")
+	SOUND:PlayBGM("BGM_Guild.ogg")
 	
     local coro1 = TASK:BranchCoroutine(function () GROUND:CharWaitAnim(CH('PLAYER'), "Wake", false) end)
 	local coro2 = TASK:BranchCoroutine(function () GROUND:CharWaitAnim(CH('PARTNER'), "Wake", false) end)
@@ -405,7 +405,7 @@ def 0 {
 	ExplorerEssentials.SetupCameraPos(20.5, 22.5)
 
 	GAME:FadeIn(30)
-	SOUND:PlayBGM("011 - Wigglytuff's Guild Remix.ogg", true)
+	SOUND:PlayBGM("BGM_GuildRemix.ogg", true)
 	GAME:WaitFrames(30)
 
 	UI:SetSpeaker(CH('Chatot'))

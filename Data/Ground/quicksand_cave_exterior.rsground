@@ -41253,7 +41253,7 @@
 }
 ],
 "AssetName": "quicksand_cave_exterior",
-"Music": "006 - In the Depths of the Pit.ogg",
+"Music": "BGM_Depths.ogg",
 "EdgeView": 0,
 "NoSwitching": false,
 "ViewCenter": null,

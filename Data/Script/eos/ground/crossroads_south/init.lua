@@ -27,7 +27,7 @@ function crossroads_south.Init(map)
   --This will fill the localized strings table automatically based on the locale the game is 
   -- currently in. You can use the MapStrings table after this line!
   
-SOUND:PlayBGM("014 - Treasure Town.ogg", true)
+SOUND:PlayBGM("BGM_TreasureTown.ogg", true)
 COMMON:RespawnAllies()
 ExplorerEssentials.SpawnPartner()
 end

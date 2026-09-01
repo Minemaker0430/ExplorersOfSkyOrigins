@@ -86518,7 +86518,7 @@
 }
 ],
 "AssetName": "Brine_Cave_Pit",
-"Music": "006 - In the Depths of the Pit.ogg",
+"Music": "BGM_Depths.ogg",
 "EdgeView": 1,
 "NoSwitching": false,
 "ViewCenter": null,

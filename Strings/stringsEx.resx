@@ -271,7 +271,7 @@
     <value>A Pokémon will get more [color=#FFFF00]HP[color], raised stats, and a possible new move each time it levels up. So battle hard to level up more often!</value>
   </data>
   <data name="TUTORIAL_14" xml:space="preserve">
-    <value>To earn bonus Exp. Points, a Pokémon must use its moves at least once while battling an enemy, not just its regular {0} attack.</value>
+    <value>To earn Exp. Points, a Pokémon must use its moves at least once while battling an enemy, not just its regular {0} attack.</value>
     <comment>0 = Basic Attack Btn (X)</comment>
   </data>
   <data name="TUTORIAL_15" xml:space="preserve">
@@ -344,9 +344,9 @@
     <value>You can throw a {0} at a tough enemy to reduce its [color=#FFFF00]Defense[color] and [color=#FFFF00]Special Defense[color] to their lowest levels.</value>
     <comment>0 = Vile Seed</comment>
   </data>
-  <data name="TUTORIAL_SEED_XEYE" xml:space="preserve">
-    <value>You can throw an {0} at a tough enemy to make it dizzy and behave strangely. But don't eat it yourself!</value>
-    <comment>[NOTE: UNFINISHED ITEM, THIS MAY NOT BE USED] 0 = X-Eye Seed</comment>
+  <data name="TUTORIAL_SEED_DECOY" xml:space="preserve">
+    <value>You can throw a {0} at a tough enemy to make all attacks focus on it! You can also eat it to draw focus to yourself, but be careful!</value>
+    <comment>0 = Decoy Seed</comment>
   </data>
   <data name="TUTORIAL_SEED_VIOLENT" xml:space="preserve">
     <value>If a Pokémon eats a {0}, its [color=#FFFF00]Attack[color] and [color=#FFFF00]Special Attack[color] are boosted to the highest levels. Select it from Items, then select Eat.</value>
@@ -1032,30 +1032,30 @@ a {1)...</value>
   </data>
   <data name="MSG_CHERI_SCARF" xml:space="preserve">
     <value>{0} can't be paralyzed due to its Cheri Scarf!</value>
-	<comment>Added by BobTheBobCatt</comment>
+    <comment>Added by BobTheBobCatt</comment>
   </data>
   <data name="MSG_CHESTO_SCARF" xml:space="preserve">
     <value>{0} can't fall asleep due to its Chesto Scarf!</value>
-	<comment>Added by BobTheBobCatt</comment>
+    <comment>Added by BobTheBobCatt</comment>
   </data>
   <data name="MSG_PERSIM_BAND" xml:space="preserve">
     <value>{0} can't be confused due to its Persim Band!</value>
-	<comment>Added by BobTheBobCatt</comment>
+    <comment>Added by BobTheBobCatt</comment>
   </data>
   <data name="MSG_PECHA_SCARF" xml:space="preserve">
     <value>{0} can't be poisoned due to its Pecha Scarf!</value>
-	<comment>Added by BobTheBobCatt</comment>
+    <comment>Added by BobTheBobCatt</comment>
   </data>
   <data name="MSG_ASPEAR_SCARF" xml:space="preserve">
     <value>{0} can't be frozen due to its Aspear Scarf!</value>
-	<comment>Added by BobTheBobCatt</comment>
+    <comment>Added by BobTheBobCatt</comment>
   </data>
   <data name="MSG_RAWST_SCARF" xml:space="preserve">
     <value>{0} can't be burned due to its Rawst Scarf!</value>
-	<comment>Added by BobTheBobCatt</comment>
+    <comment>Added by BobTheBobCatt</comment>
   </data>
   <data name="MSG_FLOOR_GUIDING" xml:space="preserve">
     <value>The location of the stairs was revealed!</value>
-	<comment>Added by BobTheBobCatt</comment>
+    <comment>Added by BobTheBobCatt</comment>
   </data>
 </root>

@@ -97,7 +97,6 @@ function ITEM_SCRIPT.ItemTutorials(owner, ownerChar, context, args)
         SV.ItemTutorials.SleepSeed = true
         GAME:WaitFrames(20)
     elseif item == "seed_stun" and not SV.ItemTutorials.StunSeed then
-        -- item is still wip
         GAME:WaitFrames(20)
         SOUND:PlayFanfare("Fanfare/Note")
         UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_SEED_STUN"):ToLocal(), RogueEssence.Dungeon.InvItem("seed_stun"):GetDisplayName()))
@@ -115,12 +114,11 @@ function ITEM_SCRIPT.ItemTutorials(owner, ownerChar, context, args)
         UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_SEED_VILE"):ToLocal(), RogueEssence.Dungeon.InvItem("seed_vile"):GetDisplayName()))
         SV.ItemTutorials.VileSeed = true
         GAME:WaitFrames(20)
-    elseif item == "seed_x_eye" and not SV.ItemTutorials.XEyeSeed then
-        -- unsure if this will be used
+    elseif item == "seed_decoy" and not SV.ItemTutorials.DecoySeed then
         GAME:WaitFrames(20)
         SOUND:PlayFanfare("Fanfare/Note")
-        UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_SEED_XEYE"):ToLocal(), RogueEssence.Dungeon.InvItem("seed_x_eye"):GetDisplayName()))
-        SV.ItemTutorials.XEyeSeed = true
+        UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_SEED_DECOY"):ToLocal(), RogueEssence.Dungeon.InvItem("seed_decoy"):GetDisplayName()))
+        SV.ItemTutorials.DecoySeed = true
         GAME:WaitFrames(20)
     elseif item == "seed_violent" and not SV.ItemTutorials.ViolentSeed then
         GAME:WaitFrames(20)

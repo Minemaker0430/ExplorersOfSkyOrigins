@@ -663,7 +663,7 @@ function personality_test.Enter(map)
 		UI:WaitShowVoiceOver(STRINGS:Format(STRINGS.MapStrings['Intro_' .. tostring(i)]), -1)
 	end
 	GAME:WaitFrames(20)
-	SOUND:PlayBGM("003 - Welcome to the World of Pokémon!.ogg", true)
+	SOUND:PlayBGM("BGM_Dream.ogg", true)
 	UI:WaitHideBG(60)
 
 	UI:SetCenter(false)

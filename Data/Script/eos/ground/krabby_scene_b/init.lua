@@ -29,7 +29,7 @@ function krabby_scene_b.Enter(map)
   -- iirc these scenes only show up in chapters 1 and 20 so we're probably fine to just leave it like this
 
   --krabby 2 & play bgm
-		SOUND:PlayBGM("004 - On the Beach at Dusk.ogg", true)
+		SOUND:PlayBGM("BGM_Beach.ogg", true)
 		
     --bubbles
     local bigBubbleSpawn = MRKR('BigBubbleSpawner')

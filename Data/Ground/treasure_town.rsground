@@ -122413,7 +122413,7 @@
 }
 ],
 "AssetName": "treasure_town",
-"Music": "014 - Treasure Town.ogg",
+"Music": "BGM_TreasureTown.ogg",
 "EdgeView": 1,
 "NoSwitching": false,
 "ViewCenter": null,

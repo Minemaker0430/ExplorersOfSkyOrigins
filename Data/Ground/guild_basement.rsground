@@ -52049,7 +52049,7 @@
 }
 ],
 "AssetName": "guild_basement",
-"Music": "008 - Wigglytuff's Guild.ogg",
+"Music": "BGM_Guild.ogg",
 "EdgeView": 1,
 "NoSwitching": false,
 "ViewCenter": null,

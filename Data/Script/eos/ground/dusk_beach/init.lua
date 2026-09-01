@@ -773,7 +773,7 @@ function dusk_beach.CH1_ExplorerTeamInvite()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_3']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_4']))
 
-	SOUND:PlayBGM("004 - On the Beach at Dusk.ogg", true)
+	SOUND:PlayBGM("BGM_Beach.ogg", true)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_5']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_6']), {function() CharacterActions.HopOnce(partner, Direction.Right) end})
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH1_S3_Partner_7']))

@@ -214,7 +214,7 @@ def 0 {
 	CharacterActions.ScaredJump(CH('PARTNER'), CH('PARTNER').Direction)
 	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
 	
-    SOUND:PlayBGM("009 - Guildmaster Wigglytuff.ogg", true)
+    SOUND:PlayBGM("BGM_Guildmaster.ogg", true)
 	
     UI:SetSpeaker(CH('Wigglytuff'))
 	UI:SetSpeakerEmotion("Normal")
@@ -222,7 +222,7 @@ def 0 {
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Wigglytuff_2']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Wigglytuff_3']))
 
-	local coro1 = TASK:BranchCoroutine(function () GROUND:MoveToPosition(CH('Wigglytuff'), 220, 228, false, 2) end)
+	local coro1 = TASK:BranchCoroutine(function () GROUND:MoveToPosition(CH('Wigglytuff'), 220, 228, false, 12) end)
 	local coro2 = TASK:BranchCoroutine(function () GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.UpRight, 16) end)
 	local coro3 = TASK:BranchCoroutine(function () GROUND:CharAnimateTurnTo(CH('Chatot'), Dir8.Left, 16) end)
     TASK:JoinCoroutines({coro1, coro2, coro3})

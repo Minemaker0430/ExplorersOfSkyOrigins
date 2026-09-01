@@ -27,7 +27,7 @@ function crossroads_assembly.Init(map)
   -- currently in. You can use the MapStrings table after this line!
   
 COMMON:RespawnAllies()
-SOUND:PlayBGM("014 - Treasure Town.ogg", true)
+SOUND:PlayBGM("BGM_TreasureTown.ogg", true)
 ExplorerEssentials.SpawnPartner()
 
 end

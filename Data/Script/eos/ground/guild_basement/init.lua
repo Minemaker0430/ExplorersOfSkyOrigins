@@ -446,21 +446,21 @@ def 0 {
     GAME:CutsceneMode(true)
     AI:DisableCharacterAI(CH('PARTNER'))
 
-    GAME:MoveCamera(416, 248, false) -- cam - 52, 31
-    GROUND:TeleportTo(CH('Chatot'), 452, 212, Direction.Down) -- chatot - 56.5, 26.5
-    GROUND:TeleportTo(CH('PLAYER'), 484, 252, Direction.Up)
-    GROUND:TeleportTo(CH('PARTNER'), 484, 272, Direction.Up)
-    GROUND:TeleportTo(CH('Wigglytuff'), 416, 172, Direction.Down) -- wigglytuff - 52, 21.5
-    GROUND:TeleportTo(CH('Diglett'), 448, 264, Direction.Up) -- diglett - 56, 33
-    GROUND:TeleportTo(CH('Sunflora'), 448, 244, Direction.Up) -- sunflora - 56, 30.5
-    GROUND:TeleportTo(CH('Loudred'), 416, 264, Direction.Up) -- loudred - 52, 33
-    GROUND:TeleportTo(CH('Corphish'), 380, 264, Direction.Up) -- corphish - 47.5, 33
-    GROUND:TeleportTo(CH('Dugtrio'), 352, 264, Direction.UpRight) -- dugtrio - 44, 33
-    GROUND:TeleportTo(CH('Bidoof'), 416, 244, Direction.Up) -- bidoof - 52, 30.5
-    GROUND:TeleportTo(CH('Chimecho'), 380, 244, Direction.Up) -- chimecho - 47.5, 30.5
-    GROUND:TeleportTo(CH('Croagunk'), 352, 244, Direction.UpRight) -- croagunk - 44, 30.5
+    ExplorerEssentials.SetupCameraPos(52, 31) -- cam - 52.5, 31.5
+    ExplorerEssentials.SetupInitialPos(CH('Chatot'), 56.5, 27, Direction.Down) -- chatot - 57, 27.5
+    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 75, 34, Direction.Left) -- player - 75.5, 34.5
+    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 70, 36, Direction.Left) -- partner - 70.5, 36
+    ExplorerEssentials.SetupInitialPos(CH('Wigglytuff'), 52, 22, Direction.Down) -- wigglytuff - 52.5, 22.5
+    ExplorerEssentials.SetupInitialPos(CH('Diglett'), 56, 33.5, Direction.Up) -- diglett - 56.5, 34
+    ExplorerEssentials.SetupInitialPos(CH('Sunflora'), 56, 31, Direction.Up) -- sunflora - 56.5, 31.5
+    ExplorerEssentials.SetupInitialPos(CH('Loudred'), 52, 33.5, Direction.Up) -- loudred - 52.5, 34
+    ExplorerEssentials.SetupInitialPos(CH('Corphish'), 48, 33.5, Direction.Up) -- corphish - 48.5, 34
+    ExplorerEssentials.SetupInitialPos(CH('Dugtrio'), 44, 33.5, Direction.UpRight) -- dugtrio - 44.5, 34
+    ExplorerEssentials.SetupInitialPos(CH('Bidoof'), 52, 31, Direction.Up) -- bidoof - 52.5, 31.5
+    ExplorerEssentials.SetupInitialPos(CH('Chimecho'), 48, 31, Direction.Up) -- chimecho - 48.5, 31.5
+    ExplorerEssentials.SetupInitialPos(CH('Croagunk'), 44, 31, Direction.UpRight) -- croagunk - 44.5, 31.5
 
-	SOUND:PlayBGM("008 - Wigglytuff's Guild.ogg", true)
+	SOUND:PlayBGM("BGM_Guild.ogg", true)
 	-- TODO: $SCENARIO_MAIN_BIT_FLAG[1] = 0
 	-- back_SetGround(LEVEL_G01P04A) (Should be the map you're currently on, or the map it sends you to next)
 	-- ### supervision_StationCommon(0) [IRRELEVANT]
@@ -560,52 +560,52 @@ def 0 {
         GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Left, 8)
     end)
     local coro5 = TASK:BranchCoroutine(function() -- wigglytuff
-        GROUND:MoveToPosition(CH('Wigglytuff'), 420, 180, false, 2)
+        GROUND:MoveToPosition(CH('Wigglytuff'), 416, 176, false, 2)
         GAME:WaitFrames(5)
         GROUND:Hide("Wigglytuff")
     end)
 	local coro6 = TASK:BranchCoroutine(function() -- croagunk 
-        GROUND:MoveToPosition(CH('Croagunk'), 224, 252, false, 2)
+        GROUND:MoveToPosition(CH('Croagunk'), 220, 244, false, 2)
     end)
     local coro7 = TASK:BranchCoroutine(function() -- chimecho 
-        GROUND:MoveToPosition(CH('Chimecho'), 324, 188, false, 2)
-        GROUND:MoveToPosition(CH('Chimecho'), 324, 132, false, 2)
+        GROUND:MoveToPosition(CH('Chimecho'), 320, 184, false, 2)
+        GROUND:MoveToPosition(CH('Chimecho'), 320, 128, false, 2)
     end)
     local coro8 = TASK:BranchCoroutine(function() -- corphish 
         GAME:WaitFrames(5)
-        GROUND:MoveToPosition(CH('Corphish'), 324, 188, false, 2)
-        GROUND:MoveToPosition(CH('Corphish'), 324, 132, false, 2)
+        GROUND:MoveToPosition(CH('Corphish'), 320, 184, false, 2)
+        GROUND:MoveToPosition(CH('Corphish'), 320, 128, false, 2)
         GROUND:Hide("Corphish")
     end)
     local coro9 = TASK:BranchCoroutine(function() -- loudred 
         GAME:WaitFrames(5)
-        GROUND:MoveToPosition(CH('Loudred'), 240, 272, false, 2)
+        GROUND:MoveToPosition(CH('Loudred'), 240, 268, false, 2)
     end)
     local coro10 = TASK:BranchCoroutine(function() -- bidoof 
         GAME:WaitFrames(5)
-        GROUND:MoveToPosition(CH('Bidoof'), 324, 188, false, 2)
-        GROUND:MoveToPosition(CH('Bidoof'), 324, 132, false, 2)
+        GROUND:MoveToPosition(CH('Bidoof'), 320, 184, false, 2)
+        GROUND:MoveToPosition(CH('Bidoof'), 320, 128, false, 2)
     end)
     local coro11 = TASK:BranchCoroutine(function() -- sunflora 
         GAME:WaitFrames(5)
         GROUND:MoveToPosition(CH('Sunflora'), CH('Sunflora').Position.X + -32, CH('Sunflora').Position.Y + 0, false, 2)
-        GROUND:MoveToPosition(CH('Sunflora'), 324, 188, false, 2)
-        GROUND:MoveToPosition(CH('Sunflora'), 324, 132, false, 2)
+        GROUND:MoveToPosition(CH('Sunflora'), 320, 184, false, 2)
+        GROUND:MoveToPosition(CH('Sunflora'), 320, 128, false, 2)
     end)
     local coro12 = TASK:BranchCoroutine(function () -- camera
         ExplorerEssentials.MoveCameraAtSpeed(0, 0, 1, true)
     end)
     local coro13 = TASK:BranchCoroutine(function () -- skuntank
         if SV.MajorFlags.TeamSkullInGuild ~= true then return end
-        GROUND:MoveToPosition(CH('UNK_ACTOR_NPC_SUKATANKU'), 324, 132, false, 2)
+        GROUND:MoveToPosition(CH('UNK_ACTOR_NPC_SUKATANKU'), 320, 128, false, 2)
     end)
     local coro14 = TASK:BranchCoroutine(function () -- zubat
         if SV.MajorFlags.TeamSkullInGuild ~= true then return end
-        GROUND:MoveToPosition(CH('UNK_ACTOR_NPC_ZUBATTO'), 324, 132, false, 2)
+        GROUND:MoveToPosition(CH('UNK_ACTOR_NPC_ZUBATTO'), 320, 128, false, 2)
     end)
     local coro15 = TASK:BranchCoroutine(function () -- koffing
         if SV.MajorFlags.TeamSkullInGuild ~= true then return end
-        GROUND:MoveToPosition(CH('UNK_ACTOR_NPC_DOGAASU'), 324, 132, false, 2)
+        GROUND:MoveToPosition(CH('UNK_ACTOR_NPC_DOGAASU'), 320, 128, false, 2)
     end)
 	TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5, coro6, coro7, coro8, coro9, coro10, coro11, coro12, coro13, coro14, coro15})
 
@@ -841,13 +841,13 @@ def 3 for actor ACTOR_ATTENDANT1 {
     GAME:CutsceneMode(true)
     AI:DisableCharacterAI(CH('PARTNER'))
 
-    ExplorerEssentials.SetupCameraPos(26, 34)
-    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 35, 28.5, Direction.DownRight)
-    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 38, 30.5, Direction.UpLeft)
-    ExplorerEssentials.SetupInitialPos(CH('Loudred'), 30, 35.5, Direction.Right)
-    ExplorerEssentials.SetupInitialPos(CH('Diglett'), 34, 35.5, Direction.Left)
-    ExplorerEssentials.SetupInitialPos(CH('Croagunk'), 28.5, 27.5, Direction.Down)
-    ExplorerEssentials.SetupInitialPos(CH('Chimecho'), 5, 35.5, Direction.Right)
+    ExplorerEssentials.SetupCameraPos(25.5, 33.5)
+    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 34.5, 28, Direction.DownRight)
+    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 37.5, 30, Direction.UpLeft)
+    ExplorerEssentials.SetupInitialPos(CH('Loudred'), 29.5, 35, Direction.Right)
+    ExplorerEssentials.SetupInitialPos(CH('Diglett'), 33.5, 35, Direction.Left)
+    ExplorerEssentials.SetupInitialPos(CH('Croagunk'), 28, 27, Direction.Down)
+    ExplorerEssentials.SetupInitialPos(CH('Chimecho'), 4.5, 35, Direction.Right)
 
     local continue = true
     local partnerLockA = true
@@ -868,7 +868,7 @@ def 3 for actor ACTOR_ATTENDANT1 {
         GAME:FadeIn(30)
 
         local coro1B = TASK:BranchCoroutine(function ()
-            GROUND:MoveToPosition(CH('Chimecho'), 176, 284, false, 2)
+            GROUND:MoveToPosition(CH('Chimecho'), 172, 280, false, 1)
         end)
         local coro2B = TASK:BranchCoroutine(function ()
             GAME:WaitFrames(40)
@@ -1006,7 +1006,7 @@ def 0 {
 }
 ]]--
 
-	SOUND:PlayBGM("008 - Wigglytuff's Guild.ogg")
+	SOUND:PlayBGM("BGM_Guild.ogg")
 	GROUND:CharSetAnim(CH('PLAYER'), "None", false)
 	GROUND:CharSetAnim(CH('PARTNER'), "None", false)
 	GROUND:CharSetAnim(CH('Chatot'), "None", false)
@@ -1076,7 +1076,7 @@ def 0 {
 
 	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
-	SOUND:PlayBGM("008 - Wigglytuff's Guild.ogg")
+	SOUND:PlayBGM("BGM_Guild.ogg")
 	GROUND:CharSetAnim(CH('PLAYER'), "None", false)
 	GROUND:CharSetAnim(CH('PARTNER'), "None", false)
 	GROUND:CharSetAnim(CH('Chatot'), "None", false)
@@ -2591,10 +2591,10 @@ def 0 {
 	CH('PLAYER').CollisionDisabled = true
 	CH('Chatot').CollisionDisabled = true
 
-    ExplorerEssentials.SetupCameraPos(40, 27)
-    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 42, 22.5, Direction.Down)
-    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 38, 22.5, Direction.Down)
-    ExplorerEssentials.SetupInitialPos(CH('Chatot'), 40, 26.5, Direction.Up)
+    ExplorerEssentials.SetupCameraPos(39.5, 26.5)
+    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 41.5, 22, Direction.Down)
+    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 37.5, 22, Direction.Down)
+    ExplorerEssentials.SetupInitialPos(CH('Chatot'), 39.5, 26, Direction.Up)
 
     GAME:FadeIn(30)
 	GAME:WaitFrames(30)
@@ -2605,19 +2605,18 @@ def 0 {
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_2']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_3']))
 
-    -- Moving Camera to (416, 220) with speed 2 and performer 0 | Duration has to be replaced manually. The reason the duration is so complicated is because Vanilla EoS camera movement measures in *speed*, not total duration
-	local coro1 = TASK:BranchCoroutine(function() ExplorerEssentials.MoveCameraAtSpeed(416, 220, 2, false) end)
+    local coro1 = TASK:BranchCoroutine(function() ExplorerEssentials.MoveCameraAtSpeed(412, 216, 1, false) end)
     local coro2 = TASK:BranchCoroutine(function() 
-                                                  GROUND:MoveToPosition(CH('Chatot'), 416, 220, false, 2)
-                                                  GROUND:MoveToPosition(CH('Chatot'), 420, 200, false, 2)
+                                                  GROUND:MoveToPosition(CH('Chatot'), 412, 216, false, 1)
+                                                  GROUND:MoveToPosition(CH('Chatot'), 416, 196, false, 1)
                                                   GROUND:CharAnimateTurnTo(CH('Chatot'), Dir8.Left, 4)
     end)
     local coro3 = TASK:BranchCoroutine(function() GAME:WaitFrames(30)
-                                                  GROUND:MoveToPosition(CH('PLAYER'), 384, 200, false, 2)
+                                                  GROUND:MoveToPosition(CH('PLAYER'), 380, 196, false, 1)
                                                   GROUND:EntTurn(CH('PLAYER'), Direction.Right)
     end)
     local coro4 = TASK:BranchCoroutine(function() GAME:WaitFrames(30)
-                                                  GROUND:MoveToPosition(CH('PARTNER'), 384, 224, false, 2)
+                                                  GROUND:MoveToPosition(CH('PARTNER'), 380, 220, false, 1)
                                                   GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Right, 4)
     end)
     TASK:JoinCoroutines({coro1, coro2, coro3, coro4})
@@ -2629,7 +2628,7 @@ def 0 {
 	GAME:WaitFrames(30)
 
     local coro1 = TASK:BranchCoroutine(function()
-        GROUND:MoveToPosition(CH('PARTNER'), 468, 224, false, 2) 
+        GROUND:MoveToPosition(CH('PARTNER'), 464, 220, false, 1) 
         GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.UpRight, 4)
     end)
     local coro2 = TASK:BranchCoroutine(function()
@@ -2665,7 +2664,7 @@ def 0 {
     end)
 	local coro2 = TASK:BranchCoroutine(function() 
         GAME:WaitFrames(20)
-	    GROUND:MoveToPosition(CH('PARTNER'), CH('PARTNER').Position.X + -16, CH('PARTNER').Position.Y + -16, false, 2) 
+	    GROUND:MoveToPosition(CH('PARTNER'), CH('PARTNER').Position.X + -16, CH('PARTNER').Position.Y + -16, false, 1) 
     end)
     TASK:JoinCoroutines({coro1, coro2})
 	
@@ -3029,28 +3028,28 @@ def 0 {
     CH('PLAYER').CollisionDisabled = true
     CH('PARTNER').CollisionDisabled = true
 
-    ExplorerEssentials.SetupCameraPos(52.5, 31.5) -- cam - 52.5, 31.5
-    ExplorerEssentials.SetupInitialPos(CH('Chatot'), 57, 27.5, Direction.Down) -- chatot - 57, 27.5
-    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 75.5, 34.5, Direction.Left) -- player - 75.5, 34.5
-    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 70.5, 36, Direction.Left) -- partner - 70.5, 36
-    ExplorerEssentials.SetupInitialPos(CH('Wigglytuff'), 51.5, 22.5, Direction.Down) -- wigglytuff - 52.5, 22.5
-    ExplorerEssentials.SetupInitialPos(CH('Diglett'), 56.5, 34, Direction.Up) -- diglett - 56.5, 34
-    ExplorerEssentials.SetupInitialPos(CH('Sunflora'), 56.5, 31.5, Direction.Up) -- sunflora - 56.5, 31.5
-    ExplorerEssentials.SetupInitialPos(CH('Loudred'), 52.5, 34, Direction.Up) -- loudred - 52.5, 34
-    ExplorerEssentials.SetupInitialPos(CH('Corphish'), 48.5, 34, Direction.Up) -- corphish - 48.5, 34
-    ExplorerEssentials.SetupInitialPos(CH('Dugtrio'), 44.5, 34, Direction.UpRight) -- dugtrio - 44.5, 34
-    ExplorerEssentials.SetupInitialPos(CH('Bidoof'), 52.5, 31.5, Direction.Up) -- bidoof - 52.5, 31.5
-    ExplorerEssentials.SetupInitialPos(CH('Chimecho'), 48.5, 31.5, Direction.Up) -- chimecho - 48.5, 31.5
-    ExplorerEssentials.SetupInitialPos(CH('Croagunk'), 44.5, 31.5, Direction.UpRight) -- croagunk - 44.5, 31.5
+    ExplorerEssentials.SetupCameraPos(52, 31) -- cam - 52.5, 31.5
+    ExplorerEssentials.SetupInitialPos(CH('Chatot'), 56.5, 27, Direction.Down) -- chatot - 57, 27.5
+    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 75, 34, Direction.Left) -- player - 75.5, 34.5
+    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 70, 36, Direction.Left) -- partner - 70.5, 36
+    ExplorerEssentials.SetupInitialPos(CH('Wigglytuff'), 52, 22, Direction.Down) -- wigglytuff - 52.5, 22.5
+    ExplorerEssentials.SetupInitialPos(CH('Diglett'), 56, 33.5, Direction.Up) -- diglett - 56.5, 34
+    ExplorerEssentials.SetupInitialPos(CH('Sunflora'), 56, 31, Direction.Up) -- sunflora - 56.5, 31.5
+    ExplorerEssentials.SetupInitialPos(CH('Loudred'), 52, 33.5, Direction.Up) -- loudred - 52.5, 34
+    ExplorerEssentials.SetupInitialPos(CH('Corphish'), 48, 33.5, Direction.Up) -- corphish - 48.5, 34
+    ExplorerEssentials.SetupInitialPos(CH('Dugtrio'), 44, 33.5, Direction.UpRight) -- dugtrio - 44.5, 34
+    ExplorerEssentials.SetupInitialPos(CH('Bidoof'), 52, 31, Direction.Up) -- bidoof - 52.5, 31.5
+    ExplorerEssentials.SetupInitialPos(CH('Chimecho'), 48, 31, Direction.Up) -- chimecho - 48.5, 31.5
+    ExplorerEssentials.SetupInitialPos(CH('Croagunk'), 44, 31, Direction.UpRight) -- croagunk - 44.5, 31.5
     GROUND:Hide("Wigglytuff")
 
 	GAME:FadeIn(30)
-	SOUND:PlayBGM("008 - Wigglytuff's Guild.ogg", true)
+	SOUND:PlayBGM("BGM_Guild.ogg", true)
 	-- ### supervision_Acting(1) [IRRELEVANT]
 	GAME:WaitFrames(20)
 	local coro1 = TASK:BranchCoroutine(function ()
-        GROUND:MoveToPosition(CH('PARTNER'), 496, 284, false, 2)
-        GROUND:MoveToPosition(CH('PARTNER'), 484, 272, false, 2)
+        GROUND:MoveToPosition(CH('PARTNER'), 492, 284, false, 2)
+        GROUND:MoveToPosition(CH('PARTNER'), 480, 268, false, 2)
 
         local coro1B = TASK:BranchCoroutine(function ()
             GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Left, 4)
@@ -3077,8 +3076,8 @@ def 0 {
         TASK:JoinCoroutines({coro1B, coro2B, coro3B, coro4B})
     end)
     local coro2 = TASK:BranchCoroutine(function ()
-        GROUND:MoveToPosition(CH('PLAYER'), 512, 276, false, 2)
-        GROUND:MoveToPosition(CH('PLAYER'), 484, 252, false, 2)
+        GROUND:MoveToPosition(CH('PLAYER'), 508, 272, false, 2)
+        GROUND:MoveToPosition(CH('PLAYER'), 480, 248, false, 2)
     end)
     TASK:JoinCoroutines({coro1, coro2})
 	
@@ -3207,7 +3206,7 @@ def 0 {
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_Wigglytuff_1']))
 	
-    SOUND:PlayBGM("009 - Guildmaster Wigglytuff.ogg", true)
+    SOUND:PlayBGM("BGM_Guildmaster.ogg", true)
 
 	UI:SetSpeaker("[color=#00FFFF]Apprentice[color]", true)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_Unknown_1'], CH('Wigglytuff'):GetDisplayName()))
@@ -3237,7 +3236,7 @@ def 0 {
 	UI:SetSpeaker("[color=#00FFFF]Everyone[color]", true)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_ALL_1']))
 	
-    SOUND:PlayBGM("008 - Wigglytuff's Guild.ogg", true)
+    SOUND:PlayBGM("BGM_Guild.ogg", true)
 
 	GROUND:CharSetEmote(CH('Dugtrio'), "glowing", 3)
 	GROUND:CharSetEmote(CH('Loudred'), "glowing", 3)
@@ -3424,7 +3423,7 @@ def 0 {
     --ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 60.5, 31.5, Direction.UpLeft)
     --ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 60.5, 34, Direction.UpLeft)
 
-	SOUND:PlayBGM("008 - Wigglytuff's Guild.ogg", true)
+	SOUND:PlayBGM("BGM_Guild.ogg", true)
 	-- TODO: $SCENARIO_MAIN = scn[3, 2]
 	ExplorerEssentials.MoveCameraAtSpeed(0, 0, 1, true)
 	-- !! WaitExecuteLives(ACTOR_PLAYER)
