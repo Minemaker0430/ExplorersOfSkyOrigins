@@ -48545,7 +48545,7 @@
 }
 ],
 "AssetName": "far_amp_plains_boss_arena",
-"Music": "019 - Boss Battle!.ogg",
+"Music": "BGM_Boss.ogg",
 "EdgeView": 0,
 "NoSwitching": false,
 "ViewCenter": null,

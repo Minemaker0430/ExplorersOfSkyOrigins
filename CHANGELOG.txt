@@ -1,4 +1,13 @@
 -------------------------------
+Chapter 2 Demo - v0.2.0
+-------------------------------
+ - Added Chapter 2
+ - Added a few improvements to Chapter 1
+ - Added a custom UI for ground maps
+ - Minor Graphical Improvements
+ - Picking a Chapter from the Demo menu now removes all items and resets your level to where you should be
+
+-------------------------------
 Chapter 1 Demo - v0.1.0
 -------------------------------
  - Initial Release

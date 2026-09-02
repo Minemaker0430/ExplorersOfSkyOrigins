@@ -568,7 +568,7 @@ function guild_second_floor.CH2_MeetingChatot()
 
     GROUND:TeleportTo(player, 356, 192, Direction.Down)
     GROUND:TeleportTo(partner, 324, 192, Direction.Down)
-    GAME:MoveCamera(344, 196, 1, false)
+    GAME:MoveCamera(340, 192, 1, false)
 
     local wigglytuff = CH("Wigglytuff")
 
@@ -588,14 +588,14 @@ function guild_second_floor.CH2_MeetingChatot()
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Partner_1']))
 
         local coro1B = TASK:BranchCoroutine(function()
-            GROUND:MoveToPosition(player, 360, 280, false, 1)
+            GROUND:MoveToPosition(player, 356, 276, false, 1)
         end)
         local coro2B = TASK:BranchCoroutine(function()
             GAME:WaitFrames(10)
-            GROUND:MoveToPosition(partner, 328, 280, false, 1)
+            GROUND:MoveToPosition(partner, 324, 276, false, 1)
         end)
         local coro3B = TASK:BranchCoroutine(function()
-            GAME:MoveCamera(344, 284, 90, false)
+            GAME:MoveCamera(340, 280, 90, false)
         end)
         TASK:JoinCoroutines({coro1B, coro2B, coro3B})
 

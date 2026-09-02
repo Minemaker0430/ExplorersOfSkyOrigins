@@ -704,6 +704,7 @@ function dusk_beach.CH1_PartnerFindsHero()
 							
 							--getting result doesn't matter here as both options force you into yes
 							GROUND:CharSetEmote(partner, "none", 1)
+							result = 1
 							
 						end
 						

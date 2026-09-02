@@ -62276,7 +62276,7 @@
 }
 ],
 "AssetName": "Brine_Cave_Boss",
-"Music": "019 - Boss Battle!.ogg",
+"Music": "BGM_Boss.ogg",
 "EdgeView": 1,
 "NoSwitching": false,
 "ViewCenter": null,

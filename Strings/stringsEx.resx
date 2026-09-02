@@ -333,8 +333,8 @@
     <comment>0 = Sleep Seed</comment>
   </data>
   <data name="TUTORIAL_SEED_STUN" xml:space="preserve">
-    <value>Throw a {0} at an enemy to stun it, making it unable to act...until it is attacked. Beware: eating it will stun you!</value>
-    <comment>[TODO: CHANGE WORDING?] 0 = Stun Seed</comment>
+    <value>Throw a {0} at an enemy to stun it, making it unable to act for a few turns. Beware: eating it will stun you!</value>
+    <comment>0 = Stun Seed</comment>
   </data>
   <data name="TUTORIAL_SEED_WARP" xml:space="preserve">
     <value>If you eat a {0}, you'll be warped to a random tile on the same floor. If you throw it at an enemy, it will be warped away instead.</value>
@@ -345,7 +345,7 @@
     <comment>0 = Vile Seed</comment>
   </data>
   <data name="TUTORIAL_SEED_DECOY" xml:space="preserve">
-    <value>You can throw a {0} at a tough enemy to make all attacks focus on it! You can also eat it to draw focus to yourself, but be careful!</value>
+    <value>You can throw a {0} at a tough enemy to make all attacks focus on it! Don't eat it if you don't want to draw attention to yourself!</value>
     <comment>0 = Decoy Seed</comment>
   </data>
   <data name="TUTORIAL_SEED_VIOLENT" xml:space="preserve">

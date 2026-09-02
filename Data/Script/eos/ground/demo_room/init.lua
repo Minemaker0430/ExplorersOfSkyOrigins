@@ -112,10 +112,56 @@ function demo_room.MenuLoop()
                     SV.beach_cave.FailedDungeon = false
                     SV.beach_cave.Tutorial = 0
 
+                    _DATA.Save.ActiveTeam.Money = 0
                     
+                    local inv_count = _DATA.Save.ActiveTeam:GetInvCount() - 1
+
+                    for i = inv_count, 0, -1 do
+                        _DATA.Save.ActiveTeam:RemoveFromInv(i)
+                    end
+                    
+                    local player_count = _DATA.Save.ActiveTeam.Players.Count
+                    for i = 0, player_count - 1, 1 do 
+                        local player = _DATA.Save.ActiveTeam.Players[i]
+                        if player.EquippedItem.ID ~= '' and player.EquippedItem.ID ~= nil then 
+                            player.EquippedItem.ID = nil
+                        end
+
+                        player.Level = 5
+                        player.EXP = 0
+                        for i = player.Skills.Count - 1, 0, -1 do
+                            GAME:ForgetSkill(player, i)
+                        end
+                        GAME:CheckLevelSkills(player, 5)
+                    end
+
+
                 elseif result == 2 then
                     SV.drenched_bluff.TimesFailed = 0
                     SV.drenched_bluff.Tutorial = 0
+
+                    _DATA.Save.ActiveTeam.Money = 0
+                    
+                    local inv_count = _DATA.Save.ActiveTeam:GetInvCount() - 1
+
+                    for i = inv_count, 0, -1 do
+                        _DATA.Save.ActiveTeam:RemoveFromInv(i)
+                    end
+                    
+                    local player_count = _DATA.Save.ActiveTeam.Players.Count
+                    for i = 0, player_count - 1, 1 do 
+                        local player = _DATA.Save.ActiveTeam.Players[i]
+                        if player.EquippedItem.ID ~= '' and player.EquippedItem.ID ~= nil then 
+                            player.EquippedItem.ID = nil
+                        end
+
+                        player.Level = 8
+                        player.EXP = 0
+                        for i = player.Skills.Count - 1, 0, -1 do
+                            GAME:ForgetSkill(player, i)
+                        end
+                        GAME:CheckLevelSkills(player, 8)
+                    end
                 end
 
                 GAME:FadeOut(false, 60)

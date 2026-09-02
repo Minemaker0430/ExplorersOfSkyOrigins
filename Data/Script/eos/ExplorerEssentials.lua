@@ -59,7 +59,7 @@ function ExplorerEssentials.GetPluralItem(item)
 		-- " (0)[color]" 11 chars
 		ret = STRINGS:Format(
 			RogueEssence.StringKey("ITEM_PLURAL_SUFFIX"):ToLocal(), 
-			string.sub(disp, 1, #disp - 12) .. "[color]"
+			string.sub(disp, 1, #disp - 11) .. "[color]"
 		)
 	else
 		-- "[color]" 7 chars
