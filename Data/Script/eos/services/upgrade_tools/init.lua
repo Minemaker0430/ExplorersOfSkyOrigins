@@ -44,7 +44,7 @@ function UpgradeTools:OnUpgrade()
   --_DATA.Save.NextDest = _DATA.Start.Map
   
   if SV.General.Starter == nil then SV.General.Starter = GAME:GetPlayerPartyMember(0) end
-  if SV.General.Partner == nil then SV.General.Starter = GAME:GetPlayerPartyMember(1) end
+  if SV.General.Partner == nil then SV.General.Partner = GAME:GetPlayerPartyMember(1) end
 
   if SV.Dungeon == nil then
     SV.Dungeon = {
@@ -65,7 +65,7 @@ function UpgradeTools:OnUpgrade()
     elseif SV.drenched_bluff.TimesFailed > 0 then
       SV.Progression.Chapter = 2
     else
-      SV.Progressopm.Chapter = 1
+      SV.Progression.Chapter = 1
     end
   end
 
@@ -78,27 +78,23 @@ function UpgradeTools:OnUpgrade()
     end
   end
 
-  if SV.Progression.DemoCompleted == nil then SV.Progression.DemoCompleted = false end
-  if SV.Progression.DaysPassed == nil then SV.Progression.DaysPassed = -1 end
-  if SV.Progression.DaysToProgress == nil then SV.Progression.DaysToProgress = -1 end
+  SV.Progression.DemoCompleted = SV.Progression.DemoCompleted or false
+  SV.Progression.DaysPassed = SV.Progression.DaysPassed or -1
+  SV.Progression.DaysToProgress = SV.Progression.DaysToProgress or -1
 
-  if SV.Cutscene.ProgressFlag == nil then SV.Cutscene.ProgressFlag = 0 end
+  SV.Cutscene.ProgressFlag = SV.Cutscene.ProgressFlag or 0
 
-  if SV.DailyFlags == nil then
-    SV.DailyFlags ={
-      DidMorningCheers = false,
-	    EndedDay = false,
-      SereneForestUnlocked = false -- used for the special "Oddity Cave" like dungeon
-    }
-  end
+  SV.DailyFlags = SV.DailyFlags or {
+    DidMorningCheers = false,
+	  EndedDay = false,
+    SereneForestUnlocked = false -- used for the special "Oddity Cave" like dungeon
+  }
 
-  if SV.MajorFlags == nil then
-    SV.MajorFlags = 
-    {
-      SawDinnerCutscene = false,
-      TeamSkullInGuild = false
-    }
-  end
+  SV.MajorFlags = SV.MajorFlags or {
+    SawDinnerCutscene = false,
+    TeamSkullInGuild = false,
+    HasSpecialRank = false
+  }
 
   SV.ItemTutorials = SV.ItemTutorials or {
     Food = false,
@@ -122,23 +118,19 @@ function UpgradeTools:OnUpgrade()
     Money = false
   }
 
-  if SV.partner == nil then
-    SV.partner =
-    {
-      Spawn = 'Default',
-      Dialogue = 'Default',
-      LoadPositionX = -1,
-      LoadPositionY = -1,
-      LoadDirection = -1
+  SV.partner = SV.partner or {
+    Spawn = 'Default',
+    Dialogue = 'Default',
+    LoadPositionX = -1,
+    LoadPositionY = -1,
+    LoadDirection = -1
+  }
 
-    }
-  end
+  SV.Personality.HeroTalkKind = SV.Personality.HeroTalkKind or 0
+  SV.Personality.PartnerTalkKind = SV.Personality.PartnerTalkKind or 0
 
-  if SV.Personality.HeroTalkKind == nil then SV.Personality.HeroTalkKind = 0 end
-  if SV.Personality.PartnerTalkKind == nil then SV.Personality.PartnerTalkKind = 0 end
-
-  if SV.PlayerInputs.AuraColor == nil then SV.PlayerInputs.AuraColor = 15 end
-  if SV.PlayerInputs.Personality == nil then SV.PlayerInputs.Personality = 0 end
+  SV.PlayerInputs.AuraColor = SV.PlayerInputs.AuraColor or 15
+  SV.PlayerInputs.Personality = SV.PlayerInputs.Personality or 0
 
   if SV.SpecialEpisodes == nil then
     SV.SpecialEpisodes = {

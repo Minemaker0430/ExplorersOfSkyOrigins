@@ -6,7 +6,7 @@
 Currently features Chapters 1 +	2.</Description>
   <Namespace>eos</Namespace>
   <UUID>24139FE5-134F-498F-A91C-2D606E2F50F2</UUID>
-  <Version>0.1.10</Version>
+  <Version>0.2.0</Version>
   <GameVersion>0.8.12</GameVersion>
   <ModType>Quest</ModType>
   <Relationships>
