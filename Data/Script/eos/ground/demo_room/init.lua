@@ -112,7 +112,38 @@ function demo_room.MenuLoop()
                     SV.beach_cave.FailedDungeon = false
                     SV.beach_cave.Tutorial = 0
 
+                    SV.drenched_bluff.TimesFailed = 0
+                    SV.drenched_bluff.Tutorial = 0
+                    SV.MajorFlags.SawDinnerCutscene = false
+
+                    SV.ItemTutorials =
+                        {
+                            Food = false,
+                            OranBerry = false,
+                            CheriBerry = false,
+                            PechaBerry = false,
+                            LeppaBerry = false,
+                            LumBerry = false,
+                            BlastSeed = false,
+                            SleepSeed = false,
+                            StunSeed = false,
+                            WarpSeed = false,
+                            VileSeed = false,
+                            DecoySeed = false,
+                            ViolentSeed = false,
+                            MaxElixir = false,
+                            WeatherOrb = false,
+                            WeatherOrbAlt = false,
+                            Ammo = false,
+                            Lookalikes = false,
+                            Money = false
+                        }
+
                     _DATA.Save.ActiveTeam.Money = 0
+                    GAME:SetTeamName('????')
+                    _DATA.Save.ActiveTeam:SetRank('none')
+                    _DATA.Save.ActiveTeam.Fame = 0
+                    _DATA.Save:UpdateTeamProfile(true)
                     
                     local inv_count = _DATA.Save.ActiveTeam:GetInvCount() - 1
 
@@ -129,16 +160,20 @@ function demo_room.MenuLoop()
 
                         player.Level = 5
                         player.EXP = 0
-                        for i = player.Skills.Count - 1, 0, -1 do
-                            GAME:ForgetSkill(player, i)
-                        end
-                        GAME:CheckLevelSkills(player, 5)
+                        player.HP = player.MaxHP
+                        GAME:CheckLevelSkills(player, 0)
                     end
-
 
                 elseif result == 2 then
                     SV.drenched_bluff.TimesFailed = 0
                     SV.drenched_bluff.Tutorial = 0
+                    SV.MajorFlags.SawDinnerCutscene = false
+
+                    SV.ItemTutorials.PechaBerry = false
+                    SV.ItemTutorials.StunSeed = false
+                    SV.ItemTutorials.Food = false
+                    SV.ItemTutorials.DecoySeed = false
+                    SV.ItemTutorials.Ammo = false
 
                     _DATA.Save.ActiveTeam.Money = 0
                     
@@ -157,10 +192,8 @@ function demo_room.MenuLoop()
 
                         player.Level = 8
                         player.EXP = 0
-                        for i = player.Skills.Count - 1, 0, -1 do
-                            GAME:ForgetSkill(player, i)
-                        end
-                        GAME:CheckLevelSkills(player, 8)
+                        player.HP = player.MaxHP
+                        GAME:CheckLevelSkills(player, 0)
                     end
                 end
 

@@ -280,10 +280,10 @@ def 0 {
 	GAME:WaitFrames(1)
 	
     local coro1 = TASK:BranchCoroutine(function ()
-        GROUND:MoveToPosition(CH('PLAYER'), 252, 280, false, 1)
+        GROUND:MoveToPosition(CH('PLAYER'), 248, 280, false, 1)
     end)
     local coro2 = TASK:BranchCoroutine(function ()
-        GROUND:MoveToPosition(CH('PARTNER'), 220, 280, false, 1)
+        GROUND:MoveToPosition(CH('PARTNER'), 216, 280, false, 1)
     end)
     local coro3 = TASK:BranchCoroutine(function () 
         SOUND:PlayBGM("BGM_Depths.ogg", true)
@@ -304,15 +304,15 @@ def 0 {
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_PARTNER_1_'..tostring(pTalkKind)]))
 
     local coro1 = TASK:BranchCoroutine(function () -- camera
-        ExplorerEssentials.MoveCameraAtSpeed(240, 196, 1, false)
+        ExplorerEssentials.MoveCameraAtSpeed(232, 196, 1, false)
     end)
     local coro2 = TASK:BranchCoroutine(function () -- player
-        GROUND:MoveToPosition(CH('PLAYER'), 252, 200, false, 1)
+        GROUND:MoveToPosition(CH('PLAYER'), 248, 196, false, 1)
         GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.UpLeft, 4)
     end)
     local coro3 = TASK:BranchCoroutine(function () -- partner
         GAME:WaitFrames(5)
-	    GROUND:MoveToPosition(CH('PARTNER'), 220, 200, false, 1)
+	    GROUND:MoveToPosition(CH('PARTNER'), 216, 196, false, 1)
         GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.UpRight, 4)
     end)
     TASK:JoinCoroutines({coro1, coro2, coro3})

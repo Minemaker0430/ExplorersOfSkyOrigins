@@ -112,7 +112,7 @@ function UpgradeTools:OnUpgrade()
     StunSeed = false,
     WarpSeed = false,
     VileSeed = false,
-    XEyeSeed = false,
+    DecoySeed = false,
     ViolentSeed = false,
     MaxElixir = false,
     WeatherOrb = false,

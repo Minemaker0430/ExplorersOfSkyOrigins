@@ -172,4 +172,8 @@
   <data name="CH2_S2_PARTNER_7_2" xml:space="preserve">
     <value>Waaaah! We overslept! Come on, {0}!</value>
   </data>
+  <data name="C_SIGN_1" xml:space="preserve">
+    <value>GET UP ALREADY!\n-{0}</value>
+    <comment>0 = Loudred</comment>
+  </data>
 </root>

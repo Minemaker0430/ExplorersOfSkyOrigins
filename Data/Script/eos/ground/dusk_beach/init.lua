@@ -1422,7 +1422,7 @@ function dusk_beach.UTIL_PopulateBubbles()
 		RogueEssence.Content.AnimData("BeachSmallBubble_4", 15, -1, -1, 255, Dir8.None)
 	}
 
-	for i = 1, 10 do -- spawn 10 random bubbles
+	for i = 1, 20 do -- spawn 10 random bubbles
 
 		local bubbleEmitter = RogueEssence.Content.MoveToEmitter()
     	bubbleEmitter.Anim = anims[math.random(#anims)]
@@ -1433,7 +1433,7 @@ function dusk_beach.UTIL_PopulateBubbles()
         bubbleEmitter.HeightEnd = 10
     	bubbleEmitter.MoveTime = 2400 + math.random(-600, 600)
 
-		GROUND:PlayVFX(bubbleEmitter, GAME:GetCameraCenter().X - (330 + math.random(-120, 120)), GAME:GetCameraCenter().Y + math.random(-100, 100))
+		GROUND:PlayVFX(bubbleEmitter, GAME:GetCameraCenter().X - (330 + (math.random(-10, 10) * 20)), GAME:GetCameraCenter().Y + (math.random(-5, 5) * 20))
 	end
 end
 

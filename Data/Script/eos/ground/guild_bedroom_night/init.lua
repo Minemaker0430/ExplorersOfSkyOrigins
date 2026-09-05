@@ -143,6 +143,9 @@ def 0 {
 
   ]] --
   
+    GAME:CutsceneMode(true)
+    AI:DisableCharacterAI(CH('PARTNER'))
+  
 	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
 	SOUND:StopBGM()
@@ -164,6 +167,7 @@ def 0 {
 
 	SOUND:FadeOutBGM(120)
 	GAME:FadeOut(false, 60)
+    GAME:WaitFrames(60)
 	-- TODO: WaitBgm(BGM_GOODNIGHT)
 
     ExplorerEssentials.ResetDailyFlags()
@@ -737,6 +741,9 @@ def 0 {
 
   ]] --
 
+    GAME:CutsceneMode(true)
+    AI:DisableCharacterAI(CH('PARTNER'))
+
 	local pTalkKind = SV.Personality.PartnerTalkKind
 	SOUND:StopBGM()
 
@@ -745,7 +752,7 @@ def 0 {
 	ExplorerEssentials.SetupCameraPos(22, 22.5)
     ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 24.5, 21.5, Direction.Left)
     ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 18.5, 21.5, Direction.Right)
-    ExplorerEssentials.SetupInitialPos(CH('Chatot'), 1, 21.5, Direction.Right)
+    ExplorerEssentials.SetupInitialPos(CH('Chatot'), 0, 21.5, Direction.Right)
 
 	GAME:FadeIn(30)
 	GAME:WaitFrames(30)
@@ -754,7 +761,7 @@ def 0 {
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_S2_PARTNER_1_'..tostring(pTalkKind)]))
 	
     local coro1 = TASK:BranchCoroutine(function ()
-        GROUND:MoveToPosition(CH('Chatot'), 108, 180, false, 1)
+        GROUND:MoveToPosition(CH('Chatot'), 104, 172, false, 1)
     end)
 	local coro2 = TASK:BranchCoroutine(function ()
         GAME:WaitFrames(20)

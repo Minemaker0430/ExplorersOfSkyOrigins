@@ -27,7 +27,7 @@ function sunset_view.Enter(map)
 
     if SV.Progression.Chapter == 1 then
       -- draw initial bubbles
-      for i = 1, 10 do -- spawn 10 random bubbles
+      for i = 1, 20 do -- spawn 20 random bubbles
         local anims = {
           RogueEssence.Content.AnimData("BeachBubble_1", 15, -1, -1, 255, Dir8.None),
           RogueEssence.Content.AnimData("BeachBubble_2", 15, -1, -1, 255, Dir8.None),
@@ -44,7 +44,7 @@ function sunset_view.Enter(map)
         bubbleEmitter.OffsetEnd = RogueElements.Loc(-180, math.random(-100, 100))
         bubbleEmitter.MoveTime = 900
 
-        GROUND:PlayVFX(bubbleEmitter, GAME:GetCameraCenter().X - (180 + math.random(-140, 140)), GAME:GetCameraCenter().Y + math.random(-100, 100))
+        GROUND:PlayVFX(bubbleEmitter, GAME:GetCameraCenter().X - (180 + (math.random(-10, 10) * 20)), GAME:GetCameraCenter().Y + (math.random(-5, 5) * 20))
       end
       
       --sunset view

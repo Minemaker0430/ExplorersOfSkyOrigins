@@ -39,7 +39,8 @@
 "sentry_hole",
 "guild_bedroom_night",
 "guild_basement_night",
-"guild_dining_hall_night"
+"guild_dining_hall_night",
+"guild_guildmaster_chambers_night"
 ]
 }
 }

@@ -46,7 +46,7 @@ function ITEM_SCRIPT.ItemTutorials(owner, ownerChar, context, args)
     SV.ItemTutorials = SV.ItemTutorials or {}
 
     UI:ResetSpeaker()
-    print(item)
+    --print(item)
 
     if item == "food_apple" and not SV.ItemTutorials.Food then
         GAME:WaitFrames(20)
@@ -150,7 +150,7 @@ function ITEM_SCRIPT.ItemTutorials(owner, ownerChar, context, args)
         GAME:WaitFrames(20)
         SOUND:PlayFanfare("Fanfare/Note")
         UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_AMMO_1"):ToLocal(), ExplorerEssentials.GetPluralItem("ammo_geo_pebble")))
-        UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_AMMO_2"):ToLocal(), ExplorerEssentials.GetPluralItem("ammo_geo_pebble"), ExplorerEssentials.GetPluralItem("ammo_stick"), STRINGS:LocalKeyString(23)))
+        UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_AMMO_2"):ToLocal(), ExplorerEssentials.GetPluralItem("ammo_geo_pebble"), ExplorerEssentials.GetPluralItem("ammo_stick"), STRINGS:LocalKeyString(25)))
         SV.ItemTutorials.Ammo = true
         GAME:WaitFrames(20)
     elseif item == "fake_berry_oran" and not SV.ItemTutorials.Lookalikes then

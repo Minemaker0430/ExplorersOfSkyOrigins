@@ -19,10 +19,10 @@ end
 --Engine callback function
 function drenched_bluff_entrance.Enter(map)
 
-    if SV.Progression.Chapter == 2 then
-        drenched_bluff_entrance.CH2_Entrance()
-    elseif SV.Progression.Chapter == 2 and SV.drenched_bluff.TimesFailed > 0 then
+    if SV.Progression.Chapter == 2 and SV.drenched_bluff.TimesFailed > 0 then
         drenched_bluff_entrance.CH2_EntranceAfterFail()
+    elseif SV.Progression.Chapter == 2 then
+        drenched_bluff_entrance.CH2_Entrance()
     else
         GAME:CutsceneMode(false)
         GAME:EnterDungeon('drenched_bluff', 0, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
@@ -228,8 +228,8 @@ def 0 {
     GAME:CutsceneMode(true)
 	
 	ExplorerEssentials.SetupCameraPos(32, 16.5)
-    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 33.5, 32, Direction.Up)
-    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 30, 30, Direction.Up)
+    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 34, 33, Direction.Up)
+    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 30, 31, Direction.Up)
 	
     GAME:FadeIn(30)
 	SOUND:PlayBGM("BGM_DUN_DrenchedBluff.ogg", true)
@@ -238,7 +238,7 @@ def 0 {
         GROUND:MoveToPosition(CH('PLAYER'), 272, 152, false, 1)
     end)
     local coro2 = TASK:BranchCoroutine(function ()
-        GROUND:MoveToPosition(CH('PARTNER'), 244, 152, false, 1)
+        GROUND:MoveToPosition(CH('PARTNER'), 240, 152, false, 1)
     end)
     TASK:JoinCoroutines({coro1, coro2})
 	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
@@ -384,8 +384,8 @@ def 0 {
     GAME:CutsceneMode(true)
 	
     ExplorerEssentials.SetupCameraPos(32, 16.5)
-    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 33.5, 32, Direction.Up)
-    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 30, 30, Direction.Up)
+    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 34, 33, Direction.Up)
+    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 30, 31, Direction.Up)
 
 	GAME:FadeIn(30)
 	SOUND:PlayBGM("BGM_DUN_DrenchedBluff.ogg", true)
@@ -394,7 +394,7 @@ def 0 {
         GROUND:MoveToPosition(CH('PLAYER'), 272, 152, false, 1)
     end)
     local coro2 = TASK:BranchCoroutine(function ()
-        GROUND:MoveToPosition(CH('PARTNER'), 244, 152, false, 1)
+        GROUND:MoveToPosition(CH('PARTNER'), 240, 152, false, 1)
     end)
     TASK:JoinCoroutines({coro1, coro2})
 	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)

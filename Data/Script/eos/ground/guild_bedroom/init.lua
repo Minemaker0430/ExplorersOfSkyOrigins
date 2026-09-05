@@ -63,9 +63,8 @@ end
 ---guild_bedroom.GameLoad(map)
 --Engine callback function
 function guild_bedroom.GameLoad(map)
-
-  GAME:FadeIn(20)
-
+    SOUND:PlayBGM("BGM_Guild.ogg", true)
+    GAME:FadeIn(20)
 end
 
 -------------------------------
@@ -73,9 +72,18 @@ end
 -------------------------------
 
 function guild_bedroom.Exit_Touch()
-    if not SV.DailyFlags.DidMorningCheers then
-        GROUND:EnterGroundMap("guild_basement", "Entrance", true)
+    GAME:FadeOut(false, 20)
+
+    if SV.DailyFlags.DidMorningCheers ~= true then
+        GAME:EnterGroundMap("guild_basement", "Entrance", true)
     end    
+end
+
+function guild_bedroom.Sign_Action(obj, activator)
+    UI:ResetSpeaker()
+    UI:SetCenter(true)
+    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['C_SIGN_1'], CH('Loudred'):GetDisplayName()))
+    UI:SetCenter(false)
 end
 
 -------------------------------
@@ -227,9 +235,15 @@ def 0 {
 
 	AI:DisableCharacterAI(CH('PARTNER'))
     CH('Loudred').CollisionDisabled = true
+
+    GROUND:CharSetAction(CH('PLAYER'), RogueEssence.Ground.PoseGroundAction(CH('PLAYER').Position, CH('PLAYER').Direction, RogueEssence.Content.GraphicsManager.GetAnimIndex("Pain")))
+    GROUND:CharSetAction(CH('PARTNER'), RogueEssence.Ground.PoseGroundAction(CH('PARTNER').Position, CH('PARTNER').Direction, RogueEssence.Content.GraphicsManager.GetAnimIndex("Pain")))
 	
+    UI:SetAutoFinish(true)
 	UI:WaitShowVoiceOver(STRINGS:Format(STRINGS.MapStrings['C_NARRATION_1']), -1)
-	GAME:WaitFrames(30)
+	UI:SetAutoFinish(false)
+
+    GAME:WaitFrames(30)
 
 	UI:SetSpeaker(CH('Loudred'))
 	UI:SetSpeakerEmotion("Normal")
@@ -239,18 +253,15 @@ def 0 {
 	-- ### supervision_StationCommon(0) [IRRELEVANT]
 	-- ### supervision_Acting(0) [IRRELEVANT]
 	ExplorerEssentials.SetupCameraPos(22, 22.5)
-    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 25, 22, Direction.Right)
-    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 19, 22, Direction.Left)
+    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 24.5, 21.5, Direction.Right)
+    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 18.5, 21.5, Direction.Left)
     ExplorerEssentials.SetupInitialPos(CH('Loudred'), 13.5, 21.5, Direction.Right)
-
-	GROUND:CharSetAction(CH('PLAYER'), RogueEssence.Ground.PoseGroundAction(CH('PLAYER').Position, CH('PLAYER').Direction, RogueEssence.Content.GraphicsManager.GetAnimIndex("Pain")))
-    GROUND:CharSetAction(CH('PARTNER'), RogueEssence.Ground.PoseGroundAction(CH('PARTNER').Position, CH('PARTNER').Direction, RogueEssence.Content.GraphicsManager.GetAnimIndex("Pain")))
 
 	GAME:FadeIn(30)
 	
     SOUND:PlayBattleSE("EVT_Emote_Complain_2")
 	-- TODO: camera_SetEffect(2, 2, 3.0)
-    GROUND:MoveScreen(RogueEssence.Content.ScreenMover(2, 2, 80))
+    GROUND:MoveScreen(RogueEssence.Content.ScreenMover(2, 2, 30))
 	GROUND:CharWaitAnim(CH('Loudred'), "Hop")
 	
 	GAME:WaitFrames(10)
@@ -269,10 +280,10 @@ def 0 {
 	
     UI:SetSpeaker(CH('PARTNER'))
 	UI:SetSpeakerEmotion("Dizzy")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['C_PARTNER_1']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['C_PARTNER_1'], CH('PLAYER'):GetDisplayName()))
 
 	GAME:WaitFrames(30)
-	SOUND:PlayBGM("BGM_Guild.ogg")
+	SOUND:PlayBGM("BGM_Guild.ogg", true)
 	
     local coro1 = TASK:BranchCoroutine(function () GROUND:CharWaitAnim(CH('PLAYER'), "Wake", false) end)
 	local coro2 = TASK:BranchCoroutine(function () GROUND:CharWaitAnim(CH('PARTNER'), "Wake", false) end)
@@ -399,9 +410,9 @@ def 0 {
 	-- back_SetGround(LEVEL_G01P07A) (Should be the map you're currently on, or the map it sends you to next)
 	-- ### supervision_Acting(0) [IRRELEVANT]
     
-    ExplorerEssentials.SetupInitialPos(CH('Chatot'), 13.5, 20.5, Direction.Right)
-    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 12, 22, Direction.Right) -- player 12, 22
-    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 9, 22, Direction.Right) -- partner 9, 22
+    ExplorerEssentials.SetupInitialPos(CH('Chatot'), 13.5, 20, Direction.Right)
+    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 12, 21, Direction.Right) -- player 12, 22
+    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 9, 21, Direction.Right) -- partner 9, 22
 	ExplorerEssentials.SetupCameraPos(20.5, 22.5)
 
 	GAME:FadeIn(30)

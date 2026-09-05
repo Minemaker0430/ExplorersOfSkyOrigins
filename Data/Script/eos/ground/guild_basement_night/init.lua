@@ -27,15 +27,15 @@ function guild_basement_night.Init(map)
   --This will fill the localized strings table automatically based on the locale the game is 
   -- currently in. You can use the MapStrings table after this line!
   
-    COMMON.RespawnStarterPartner()
+    ExplorerEssentials.SpawnPartner()
 end
 
 ---guild_basement_night.Enter(map)
 --Engine callback function
 function guild_basement_night.Enter(map)
-
-  GAME:FadeIn(20)
-
+    if SV.Progression.Chapter == 2 then
+        guild_basement_night.CH2_OutsideChambers()
+    end
 end
 
 ---guild_basement_night.Exit(map)
@@ -125,10 +125,13 @@ def 0 {
 
   ]]--
 
+    GAME:CutsceneMode(true)
+    AI:DisableCharacterAI(CH('PARTNER'))
+
     ExplorerEssentials.SetupCameraPos(52, 28)
-    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 54, 28.5, Direction.Up)
-    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 50, 28.5, Direction.Up)
-    ExplorerEssentials.SetupInitialPos(CH('Chatot'), 52, 24.5, Direction.Down)
+    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 53.5, 28, Direction.Up)
+    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 49.5, 28, Direction.Up)
+    ExplorerEssentials.SetupInitialPos(CH('Chatot'), 51.5, 24, Direction.Down)
     GROUND:Hide("GuildmasterDoor")
 
 	GAME:FadeIn(30)

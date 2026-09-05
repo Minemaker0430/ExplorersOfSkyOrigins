@@ -151,8 +151,8 @@ function ExplorerEssentials.SetupCameraPos(x, y)
 end
 
 --- MoveCamera, but calculated to travel at a specific speed rather than a specified duration
---- @param x number X Position
---- @param y number Y Position
+--- @param x integer X Position
+--- @param y integer Y Position
 --- @param speed integer Speed in pixels/sec
 --- @param relative boolean Whether the camera position is relative to the player or not
 function ExplorerEssentials.MoveCameraAtSpeed(x, y, speed, relative)
@@ -181,8 +181,8 @@ function ExplorerEssentials.MoveCameraAtSpeed(x, y, speed, relative)
 end
 
 --- MoveCamera, but calculated to travel at a specific speed rather than a specified duration
---- @param offx number X Offset
---- @param offy number Y Offset
+--- @param offx integer X Offset
+--- @param offy integer Y Offset
 --- @param speed integer Speed in pixels/sec
 --- @param relative boolean Whether the camera position is relative to the player or not
 function ExplorerEssentials.MoveCameraAtSpeedOffset(offx, offy, speed, relative)
@@ -201,8 +201,8 @@ function ExplorerEssentials.MoveCameraAtSpeedOffset(offx, offy, speed, relative)
 end
 
 --- MoveCamera, with calculated duration and easing for smooth panning
---- @param x number X Position
---- @param y number Y Position
+--- @param x integer X Position
+--- @param y integer Y Position
 --- @param speed integer Speed in pixels/sec
 --- @param relative boolean Whether the camera position is relative to the player or not
 --- @param easing number Easing value, defaults to 2.0
@@ -280,8 +280,8 @@ function ExplorerEssentials.MoveCameraSmooth(x, y, speed, relative, easing, ease
 end
 
 --- MoveCamera, with calculated duration and easing for smooth panning
---- @param offx number X Offset
---- @param offy number Y Offset
+--- @param offx integer X Offset
+--- @param offy integer Y Offset
 --- @param speed integer Speed in pixels/sec
 --- @param relative boolean Whether the camera position is relative to the player or not
 --- @param easing number Easing value, defaults to 2.0
@@ -308,8 +308,8 @@ end
 
 --- MoveToPosition, but using an offset instead of an exact position
 --- @param char any Character to move
---- @param offx number X Position Offset
---- @param offy number Y Position Offset
+--- @param offx integer X Position Offset
+--- @param offy integer Y Position Offset
 --- @param running boolean Whether the character should use a running animation
 --- @param speed integer Speed in pixels/sec
 function ExplorerEssentials.MoveToPositionOffset(char, offx, offy, running, speed)
@@ -319,18 +319,18 @@ end
 --- MoveToPosition, but moves the character as if they were stepping backwards (NOTE: This will always animate them in the same direction they started at)
 --- @param char any Character to move
 --- @param dir Dir8 Direction to animate in
---- @param x number X Position
---- @param y number Y Position
+--- @param x integer X Position
+--- @param y integer Y Position
 --- @param speed integer Speed in pixels/sec
 function ExplorerEssentials.MoveToPositionBackwards(char, dir, x, y, speed)
-	GROUND:AnimateToPosition(char, "Walk", dir, x, y, 1, speed)
+	GROUND:AnimateToPosition(char, "Walk", dir, x, y, 1, speed, 0)
 end
 
 --- MoveToPositionOffset, but moves the character as if they were stepping backwards (NOTE: This will always animate them in the same direction they started at)
 --- @param char any Character to move
 --- @param dir Dir8 Direction to animate in
---- @param offx number X Position
---- @param offy number Y Position
+--- @param offx integer X Position
+--- @param offy integer Y Position
 --- @param speed integer Speed in pixels/sec
 function ExplorerEssentials.MoveToPositionOffsetBackwards(char, dir, offx, offy, speed)
 	ExplorerEssentials.MoveToPositionBackwards(char, dir, char.Position.X + offx, char.Position.Y + offy, speed)

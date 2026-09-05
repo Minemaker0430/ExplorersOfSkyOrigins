@@ -749,6 +749,8 @@ function guild_second_floor.CH2_MeetingChatot()
 
         UI:SetSpeakerEmotion("Happy")
         UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Chatot_12']))
+        
+        continue = false -- END OF SCENE
 
         local coro1B = TASK:BranchCoroutine(function() -- Chatot
             GROUND:MoveToPosition(chatot, 360, 176, false, 1)
@@ -766,8 +768,6 @@ function guild_second_floor.CH2_MeetingChatot()
             GAME:FadeOut(false, 30)
         end)
         TASK:JoinCoroutines({coro1B, coro2B, coro3B, coro4B})
-
-        continue = false -- END OF SCENE
 
         GAME:EnterGroundMap("guild_basement", "Ladder", true)
     end)
@@ -1565,21 +1565,21 @@ def 0 {
     local coro1 = TASK:BranchCoroutine(function ()
         GROUND:Unhide("Chatot")
         GAME:WaitFrames(30)
-	    GROUND:MoveToPosition(CH('Chatot'), 268, 208, false, 1)
+	    GROUND:MoveToPosition(CH('Chatot'), 260, 208, false, 1)
         GROUND:CharAnimateTurnTo(CH('Chatot'), Dir8.Down, 4)
     end)
     local coro2 = TASK:BranchCoroutine(function ()
         GAME:WaitFrames(60)
         GROUND:Unhide("PARTNER")
         GAME:WaitFrames(30)
-        GROUND:MoveToPosition(CH('PARTNER'), 232, 240, false, 1)
+        GROUND:MoveToPosition(CH('PARTNER'), 228, 240, false, 1)
         GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Up, 4)
     end)
     local coro3 = TASK:BranchCoroutine(function ()
         GAME:WaitFrames(120)
         GROUND:Unhide("PLAYER")
         GAME:WaitFrames(30)
-        GROUND:MoveToPosition(CH('PLAYER'), 262, 240, false, 1)
+        GROUND:MoveToPosition(CH('PLAYER'), 260, 240, false, 1)
         GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.Up, 4)
     end)
     local coro4 = TASK:BranchCoroutine(function ()
@@ -1912,6 +1912,9 @@ def 0 {
 }
 ]]--
 
+    GAME:CutsceneMode(true)
+    AI:DisableCharacterAI(CH('PARTNER'))
+
 	local pTalkKind = SV.Personality.PartnerTalkKind
 	SOUND:StopBGM()
 
@@ -1934,6 +1937,8 @@ def 0 {
 	-- switch it back
 	UI:SetAutoFinish(false)
 	UI:WaitHideBG(1)
+    GAME:FadeOut(false, 1)
+    GAME:FadeInFront(1)
 	
 	GAME:WaitFrames(60)
 
@@ -1973,9 +1978,9 @@ def 0 {
 
 	GROUND:CharEndAnim(CH('Chatot'))
 
-	local coro1 = TASK:BranchCoroutine(function() SOUND:FadeOutBGM(120) end)
-	local coro2 = TASK:BranchCoroutine(function() GAME:FadeOut(false, 60) end)
-	TASK:JoinCoroutines({coro1, coro2})
+	SOUND:FadeOutBGM(120)
+	GAME:FadeOut(false, 60)
+    GAME:WaitFrames(60)
 
     SV.DailyFlags.EndedDay = true
 
@@ -2418,7 +2423,7 @@ def 0 {
         GROUND:CharTurnToCharAnimated(CH('PLAYER'), CH('Chatot'), 4)
     end)
     local coro2 = TASK:BranchCoroutine(function ()
-        GROUND:MoveToPosition(CH('Chatot'), 264, 224, false, 1)
+        GROUND:MoveToPosition(CH('Chatot'), 260, 220, false, 1)
     end)
 	TASK:JoinCoroutines({coro1, coro2})
 

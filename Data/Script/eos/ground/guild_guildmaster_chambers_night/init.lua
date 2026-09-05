@@ -18,7 +18,7 @@ local guild_guildmaster_chambers_night = {}
 --Engine callback function
 function guild_guildmaster_chambers_night.Init(map)
 
-    COMMON.RespawnStarterPartner()
+    ExplorerEssentials.SpawnPartner()
 end
 
 ---guild_guildmaster_chambers_night.Enter(map)
@@ -184,11 +184,14 @@ def 0 {
 
 	-- back_SetGround(LEVEL_G01P05C) (Should be the map you're currently on, or the map it sends you to next)
 
+    GAME:CutsceneMode(true)
+    AI:DisableCharacterAI(CH('PARTNER'))
+
     ExplorerEssentials.SetupCameraPos(25, 28) -- cam 25, 28
-    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 27, 29.5, Direction.Left) -- player 27, 29.5
-    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 23, 29.5, Direction.Right) -- partner 23, 29.5
-    ExplorerEssentials.SetupInitialPos(CH('Chatot'), 30.5, 27.5, Direction.Right) -- chatot 30.5, 27.5
-    ExplorerEssentials.SetupInitialPos(CH('Wigglytuff'), 25, 23.5, Direction.Right) -- wigglytuff 25, 23.5
+    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 26.5, 29, Direction.Up) -- player 27, 29.5
+    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 22.5, 29, Direction.Up) -- partner 23, 29.5
+    ExplorerEssentials.SetupInitialPos(CH('Chatot'), 30, 27, Direction.UpLeft) -- chatot 30.5, 27.5
+    ExplorerEssentials.SetupInitialPos(CH('Wigglytuff'), 24.5, 23, Direction.Up) -- wigglytuff 25, 23.5
     
 	GAME:FadeIn(30)
 	GAME:WaitFrames(30)
@@ -222,7 +225,7 @@ def 0 {
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Wigglytuff_2']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Wigglytuff_3']))
 
-	local coro1 = TASK:BranchCoroutine(function () GROUND:MoveToPosition(CH('Wigglytuff'), 220, 228, false, 12) end)
+	local coro1 = TASK:BranchCoroutine(function () GROUND:MoveToPosition(CH('Wigglytuff'), 212, 316, false, 1) end)
 	local coro2 = TASK:BranchCoroutine(function () GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.UpRight, 16) end)
 	local coro3 = TASK:BranchCoroutine(function () GROUND:CharAnimateTurnTo(CH('Chatot'), Dir8.Left, 16) end)
     TASK:JoinCoroutines({coro1, coro2, coro3})
@@ -235,6 +238,7 @@ def 0 {
 	
     GAME:WaitFrames(20)
 
+    UI:ResetSpeaker()
 	SOUND:PlayFanfare("Fanfare/Item")
 	UI:SetCenter(true)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_NARRATION_1'], CH('Wigglytuff'):GetDisplayName(), RogueEssence.Dungeon.InvItem("seed_reviver"):GetDisplayName()))
@@ -252,9 +256,9 @@ def 0 {
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Wigglytuff_4']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Wigglytuff_5']))
 	
-    local coro1 = TASK:BranchCoroutine(function () SOUND:FadeOutBGM(120) end)
-	local coro2 = TASK:BranchCoroutine(function () GAME:FadeOut(false, 60) end)
-    TASK:JoinCoroutines({coro1, coro2})
+    SOUND:FadeOutBGM(120)
+	GAME:FadeOut(false, 60)
+    GAME:WaitFrames(60)
 	-- TODO: WaitBgm(BGM_GUILDMASTER_WIGGLYTUFF)
 
     GAME:GivePlayerItem("seed_reviver")
