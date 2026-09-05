@@ -3494,115 +3494,138 @@ def 0 {
 
 end
 
-function guild_basement.CH2BidoofTutorialScene2()
-	--everyone jitters in this tutorial lol
-	player = CH("PLAYER")
-        partner = CH("TEAMMATE_1") --why does this have to be like this?
-        Chatot = CH("Chatot")
-        Loudred = CH("Loudred")
-        Dugtrio = CH("Dugtrio")
-        Diglett= CH("Diglett")
-        Sunflora = CH("Sunflora")
-        Bidoof = CH("Bidoof")
-        Chimecho = CH("Chimecho")
-        Corphish = CH("Corphish")
-        Croagunk = CH("Croagunk")
-        Wigglytuff = CH("Wigglytuff")
-	GROUND:Hide("Wigglytuff")
-        GROUND:Hide("Sunflora")
-        GROUND:Unhide("Bidoof")
-        GROUND:Unhide("PLAYER")
-        GROUND:Unhide("TEAMMATE_1")
-        GROUND:Hide("Corphish")
-        GROUND:Hide("Chimecho")
-        GROUND:Hide("Loudred")
-	GROUND:Hide("Dugtrio")
-	GROUND:Hide("Diglett")
-	GROUND:Hide("TEAMMATE_2")
-	AI:DisableCharacterAI(partner)
-        GAME:CutsceneMode(false)
-	partner.CollisionDisabled = true
-        player.CollisionDisabled = true
-        Chatot.CollisionDisabled = true
-        Loudred.CollisionDisabled = true
-        Dugtrio.CollisionDisabled = true
-        Diglett.CollisionDisabled = true
-        Sunflora.CollisionDisabled = true
-        Bidoof.CollisionDisabled = true
-        Chimecho.CollisionDisabled = true
-        Corphish.CollisionDisabled = true
-        Croagunk.CollisionDisabled = true
-        Wigglytuff.CollisionDisabled = true
-        local hTalkKind = SV.Personality.HeroTalkKind
-        local pTalkKind = SV.Personality.PartnerTalkKind
-        local marker = MRKR("Ladder")
-	GROUND:TeleportTo(Croagunk, 220, 204, Direction.Down)
-	GAME:MoveCamera(0, 0, 1, true)
+function guild_basement.CH3_ChatotCalls()
+	local hTalkKind = SV.Personality.HeroTalkKind
+	local pTalkKind = SV.Personality.PartnerTalkKind
+	-- TODO: $SCENARIO_MAIN = scn[4, 1]
+	SOUND:PlayBGM("008 - Wigglytuff's Guild.ogg", true)
+	GROUND:CharEndAnim(CH('PLAYER'))
+	GROUND:CharEndAnim(CH('PARTNER'))
+	GROUND:CharEndAnim(CH('Chatot'))
+	-- TODO: camera_SetMyPosition<actor ACTOR_PLAYER>()
+	-- !! WaitExecuteLives(ACTOR_PLAYER)
+	GROUND:CharTurnToCharAnimated(CH('Chatot'), CH('PLAYER'), 2)
+	GROUND:CharTurnToCharAnimated(CH('PLAYER'), CH('Chatot'), 2)
+	GROUND:CharTurnToCharAnimated(CH('PARTNER'), CH('Chatot'), 2)
+	GROUND:CharSetEmote(CH('Chatot'), "glowing", 1)
+	UI:SetSpeaker(CH('Chatot'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_1']))
+	GROUND:CharSetEmote(CH('Chatot'), "none", 1)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_2']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	GROUND:MoveToPosition(CH('Chatot'), 316, 216, false, 1)
+	GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.UpLeft, 12)
+	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.UpLeft, 12)
+	-- !! WaitExecuteLives(ACTOR_NPC_PERAPPU)
+	GROUND:MoveToPosition(CH('Chatot'), 320, 168, false, 1)
+	ExplorerEssentials.MoveToPositionOffset(CH('Chatot'), 0, -100, false, 1)
+	GROUND:CharTurnToCharAnimated(CH('PLAYER'), CH('PARTNER'), 2)
+	GROUND:CharTurnToCharAnimated(CH('PARTNER'), CH('PLAYER'), 2)
+	GAME:WaitFrames(60)
+	GROUND:MoveToPosition(CH('PLAYER'), 316, 216, false, 1)
+	GAME:WaitFrames(10)
+	GROUND:MoveToPosition(CH('PARTNER'), 316, 216, false, 1)
+	GAME:WaitFrames(20)
+	SOUND:FadeOutBGM(60)
+	GAME:FadeOut(false, 30)
+	-- TODO: WaitBgm(BGM_WIGGLYTUFFS_GUILD)
+end
 
-	GAME:FadeIn(20)
-	GROUND:TeleportTo(Bidoof, marker.Position.X, marker.Position.Y, Direction.Down)
-        GROUND:TeleportTo(partner, marker.Position.X, marker.Position.Y, Direction.Down)
-        GROUND:TeleportTo(player, marker.Position.X, marker.Position.Y, Direction.Down)
-        GROUND:MoveToPosition(Bidoof, marker.Position.X, marker.Position.Y + 140, false, 1)
-        GROUND:CharAnimateTurnTo(Bidoof, Direction.Down, 2)
-        GROUND:MoveToPosition(player, marker.Position.X, marker.Position.Y + 110, false, 1)
-        GROUND:MoveToPosition(player, marker.Position.X + 20, marker.Position.Y + 110, false, 1)
-        GROUND:CharAnimateTurnTo(player, Direction.Down, 2)
-        GROUND:MoveToPosition(partner, marker.Position.X, marker.Position.Y + 110, false, 1)
-        GROUND:MoveToPosition(partner, marker.Position.X - 20, marker.Position.Y + 110, false, 1)
-        GROUND:CharAnimateTurnTo(partner, Direction.Down, 2)
+function guild_basement.CH3_BidoofTour()
+	local hTalkKind = SV.Personality.HeroTalkKind
+	local pTalkKind = SV.Personality.PartnerTalkKind
+	SOUND:PlayBGM("011 - Wigglytuff's Guild Remix.ogg", true)
+	-- back_SetGround(LEVEL_G01P04A) (Should be the map you're currently on, or the map it sends you to next)
+	-- ### supervision_StationCommon(0) [IRRELEVANT]
+	-- ### supervision_StationCommon(99) [IRRELEVANT]
+	-- ### supervision_Acting(0) [IRRELEVANT]
+	-- ### supervision_LoadStation(LEVEL_G01P04A, 'UM03') [IRRELEVANT]
+	-- ### supervision_Station(1) [IRRELEVANT]
+	GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
+	GAME:FadeIn(30)
+	GAME:WaitFrames(30)
+	CharacterActions.LookAround(CH('Bidoof'))
+	UI:SetSpeaker(CH('Bidoof'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_Bidoof_1']))
+	-- !! WaitExecuteLives(ACTOR_NPC_BIPPA)
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	GROUND:CharAnimateTurnTo(CH('Bidoof'), Dir8.Left, 2)
+	-- !! WaitExecuteLives(ACTOR_NPC_BIPPA)
+	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.DownLeft, 2)
+	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+	GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.DownLeft, 2)
+	-- !! WaitExecuteLives(ACTOR_PLAYER)
+ExplorerEssentials.MoveCameraAtSpeed(224, 216, 1, false)
+	-- TODO: WaitExecutePerformer(0)
+	-- TODO message_SetActor: message_SetActor(ACTOR_NPC_BIPPA)
+	UI:WaitShowTimedDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_Bidoof_2']), CH('CROAGUNK'):GetDisplayName())
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	GROUND:CharSetEmote(CH('Bidoof'), "sweating", 1)
+	GAME:WaitFrames(30)
+	-- !! WaitExecuteLives(ACTOR_NPC_BIPPA)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_Bidoof_3']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_Bidoof_4']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+ExplorerEssentials.MoveCameraAtSpeed(120, 272, 1, false)
+	GROUND:CharAnimateTurnTo(CH('Bidoof'), Dir8.DownLeft, 2)
+	-- TODO: WaitExecutePerformer(0)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_Bidoof_5']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+ExplorerEssentials.MoveCameraAtSpeed(296, 272, 2, false)
+ExplorerEssentials.MoveCameraAtSpeed(504, 272, 2, false)
+	GROUND:CharAnimateTurnTo(CH('Bidoof'), Dir8.DownRight, 4)
+	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.DownRight, 4)
+	GAME:WaitFrames(10)
+	GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.DownRight, 2)
+	-- TODO: WaitExecutePerformer(0)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_Bidoof_6']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+ExplorerEssentials.MoveCameraAtSpeed(416, 216, 1, false)
+	GROUND:CharAnimateTurnTo(CH('Bidoof'), Dir8.UpRight, 4)
+	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Right, 4)
+	GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.Right, 4)
+	-- TODO: WaitExecutePerformer(0)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_Bidoof_7']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+ExplorerEssentials.MoveCameraAtSpeed(320, 216, 1, false)
+	-- TODO: WaitExecutePerformer(0)
+	GROUND:CharAnimateTurnTo(CH('Bidoof'), Dir8.Up, 2)
+	-- !! WaitExecuteLives(ACTOR_NPC_BIPPA)
+	GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.Down, 2)
+	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Down, 2)
+	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+	UI:SetSpeaker(CH('Bidoof'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_Bidoof_8']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	GROUND:MoveToPosition(CH('Bidoof'), 320, 112, false, 1)
+	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.UpRight, 8)
+	GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.UpLeft, 8)
+	GAME:WaitFrames(45)
+	ExplorerEssentials.MoveToPositionOffset(CH('PLAYER'), -16, -16, false, 1)
+	GROUND:MoveToPosition(CH('PLAYER'), 320, 112, false, 1)
+	GAME:WaitFrames(10)
+	ExplorerEssentials.MoveToPositionOffset(CH('PARTNER'), 16, -16, false, 1)
+	GROUND:MoveToPosition(CH('PARTNER'), 320, 112, false, 1)
+	GROUND:Hide("Bidoof")
+	GROUND:Hide("PLAYER")
+	GROUND:Hide("PARTNER")
+	GAME:FadeOut(false, 30)
+end
 
-	--coroutine begin when text is added
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Bidoof_tutorial_1']))
-        GROUND:CharAnimateTurnTo(Bidoof, Direction.DownRight, 2)
-        GROUND:CharAnimateTurnTo(Bidoof, Direction.DownLeft, 2)
-	--coroutine end, remember to remove all the pauses that text should have stopped for
-
-	GAME:WaitFrames(120)
-	GAME:MoveCamera(-120, 30, 1, true)
-        GROUND:CharAnimateTurnTo(Bidoof, Direction.Left, 2)
-	GAME:WaitFrames(300)
-
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Bidoof_tutorial_1']))
-	--bidoof tears
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Bidoof_tutorial_1']))
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Bidoof_tutorial_1']))
-
-	GROUND:CharAnimateTurnTo(Bidoof, Direction.DownLeft, 2)
-	GAME:MoveCamera(-270, 110, 1, true)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Bidoof_tutorial_1']))
-	GAME:WaitFrames(300)
-
-	GROUND:CharAnimateTurnTo(Bidoof, Direction.DownRight, 2)
-	GAME:MoveCamera(190, 110, 1, true)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Bidoof_tutorial_1']))
-	GAME:WaitFrames(300)
-
-
-	GROUND:CharAnimateTurnTo(Bidoof, Direction.UpRight, 2)
-	GAME:MoveCamera(60, 0, 1, true)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Bidoof_tutorial_1']))
-	GAME:WaitFrames(300)
-
-
-	GROUND:CharAnimateTurnTo(Bidoof, Direction.Up, 2)
-	GAME:MoveCamera(0, 0, 1, true)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH2_Bidoof_tutorial_1']))
-
-        GROUND:MoveToPosition(Bidoof, marker.Position.X, marker.Position.Y, false, 1)
-        GROUND:MoveToPosition(player, marker.Position.X, marker.Position.Y + 110, false, 1)
-        GROUND:MoveToPosition(player, marker.Position.X, marker.Position.Y, false, 1)
-        GROUND:MoveToPosition(partner, marker.Position.X, marker.Position.Y + 110, false, 1)
-        GROUND:MoveToPosition(partner, marker.Position.X, marker.Position.Y, false, 1)
-	GAME:FadeOut(false, 60)
-	SV.Progression.SectionFlag = 4
-        Chatot.CollisionDisabled = false
-	player.CollisionDisabled = false
-	Croagunk.CollisionDisabled = false
-	Bidoof.CollisionDisabled = false
-	SV.partner.Spawn = 'GuildEntranceMarker'
-	GAME:EnterGroundMap("guild_outside", "GuildEntranceMarker")
-
+function guild_basement.CH3_HurryBack()
+	local hTalkKind = SV.Personality.HeroTalkKind
+	local pTalkKind = SV.Personality.PartnerTalkKind
+	SOUND:PlayBGM("008 - Wigglytuff's Guild.ogg", true)
+	GROUND:CharTurnToCharAnimated(CH('PARTNER'), CH('PLAYER'), 2)
+	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+	GROUND:CharTurnToCharAnimated(CH('PLAYER'), CH('PARTNER'), 2)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Determined")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S3_PARTNER_1']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S3_PARTNER_2_'..tostring(pTalkKind)]))
 end
 
 return guild_basement

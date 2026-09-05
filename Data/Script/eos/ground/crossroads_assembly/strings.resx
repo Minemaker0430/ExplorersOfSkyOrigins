@@ -58,4 +58,55 @@
   <resheader name="writer">
     <value>System.Resources.NetStandard.ResXResourceWriter, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </resheader>
+  	<data name="CH3_S1_Bidoof_1" xml:space="preserve">
+		<value>I hear you can make a record of             your adventure at that Watering Hole.</value>
+	</data>
+	<data name="CH3_S1_Bidoof_2" xml:space="preserve">
+		<value>Usually, you make a record of             your adventure by going to your bed at             the guild, yup yup.</value>
+	</data>
+	<data name="CH3_S1_Bidoof_3" xml:space="preserve">
+		<value>Seems you can make a record             of your adventure over there too.</value>
+	</data>
+	<data name="CH3_S1_Bidoof_4" xml:space="preserve">
+		<value>By golly, it's a handy spot when             you want to record your adventure frequently.</value>
+	</data>
+		<data name="CH3_S2_PARTNER_1_1" xml:space="preserve">
+		<value>Hey! There's {0}!</value>
+	</data>
+	<data name="CH3_S2_PARTNER_1_0" xml:space="preserve">
+		<value>Look! There's {0}!</value>
+	</data>
+	<data name="CH3_S2_PARTNER_1_2" xml:space="preserve">
+		<value>Oh! {0}'s over there!</value>
+	</data>
+	<data name="CH3_S2_PARTNER_2_1" xml:space="preserve">
+		<value>{0}, what's wrong?</value>
+	</data>
+	<data name="CH3_S2_PARTNER_2_0" xml:space="preserve">
+		<value>{0}, what's the matter?</value>
+	</data>
+	<data name="CH3_S2_PARTNER_2_2" xml:space="preserve">
+		<value>{0}, what's the matter?</value>
+	</data>
+	<data name="CH3_S2_PARTNER_3" xml:space="preserve">
+		<value>Where are {0} and {1}?</value>
+	</data>
+	<data name="CH3_S2_UNK_ACTOR_NPC_MARIRU_1" xml:space="preserve">
+		<value>Yes...about them...!</value>
+	</data>
+	<data name="CH3_S2_UNK_ACTOR_NPC_MARIRU_2" xml:space="preserve">
+		<value>After we all left, we went             looking for our lost item together...</value>
+	</data>
+	<data name="CH3_S2_UNK_ACTOR_NPC_MARIRU_3" xml:space="preserve">
+		<value>But I wound up all alone when             Mr. {0} went somewhere with {1}.</value>
+	</data>
+	<data name="CH3_S2_UNK_ACTOR_NPC_MARIRU_4" xml:space="preserve">
+		<value>I called and called! But they             didn't come back.[pause=0] I got scared...</value>
+	</data>
+	<data name="CH3_S2_PARTNER_4" xml:space="preserve">
+		<value>So which way did they go?!</value>
+	</data>
+	<data name="CH3_S2_UNK_ACTOR_NPC_MARIRU_5" xml:space="preserve">
+		<value>Th-that way!</value>
+	</data>
 </root>

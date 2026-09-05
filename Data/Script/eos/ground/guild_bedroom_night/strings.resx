@@ -289,4 +289,193 @@
   <data name="CH2_S3_PARTNER_9_2" xml:space="preserve">
     <value>Sleep tight, {0}...</value>
   </data>
+  	<data name="CH3_S1_PARTNER_1_1" xml:space="preserve">
+		<value>Whoa! That lightning's intense!</value>
+	</data>
+	<data name="CH3_S1_PARTNER_1_0" xml:space="preserve">
+		<value>Wow, that lightning's intense!</value>
+	</data>
+	<data name="CH3_S1_PARTNER_1_2" xml:space="preserve">
+		<value>Wow, that lightning's intense!</value>
+	</data>
+	<data name="CH3_S1_PARTNER_2" xml:space="preserve">
+		<value>It looks like it's really                     stormy tonight...</value>
+	</data>
+	<data name="CH3_S1_PARTNER_3_1" xml:space="preserve">
+		<value>Wait a second!</value>
+	</data>
+	<data name="CH3_S1_PARTNER_3_0" xml:space="preserve">
+		<value>Hold on!</value>
+	</data>
+	<data name="CH3_S1_PARTNER_3_2" xml:space="preserve">
+		<value>That reminds me!</value>
+	</data>
+	<data name="CH3_S1_PARTNER_4" xml:space="preserve">
+		<value>You know the night before we                     met, {0}?</value>
+	</data>
+	<data name="CH3_S1_PARTNER_5" xml:space="preserve">
+		<value>It was storming that night.</value>
+	</data>
+	<data name="CH3_S1_PARTNER_6" xml:space="preserve">
+		<value>I found you out cold on the                     beach the day after that stormy night,                     {0}.</value>
+	</data>
+	<data name="CH3_S1_PARTNER_7_1" xml:space="preserve">
+		<value>Do you remember why you were                     out cold on the beach?[pause=0] Can you remember                     anything at all?</value>
+	</data>
+	<data name="CH3_S1_PARTNER_7_0" xml:space="preserve">
+		<value>Well? Do you remember anything                     about being out cold on the beach?[pause=0] Can you                     remember anything at all?</value>
+	</data>
+	<data name="CH3_S1_PARTNER_7_2" xml:space="preserve">
+		<value>So do you remember anything                     about being out cold on the beach?[pause=0] Can you                     remember anything at all?</value>
+	</data>
+	<data name="CH3_S1_PLAYER_1" xml:space="preserve">
+		<value>(I wonder...[pause=0] Hmm...)</value>
+	</data>
+	<data name="CH3_S1_PLAYER_2" xml:space="preserve">
+		<value>(There was a storm... But how did I end up                     unconscious there?)</value>
+	</data>
+	<data name="CH3_S1_PLAYER_3" xml:space="preserve">
+		<value>(Nope. I can't remember a thing.)</value>
+	</data>
+	<data name="CH3_S1_PARTNER_8" xml:space="preserve">
+		<value>I guess it won't be that easy.</value>
+	</data>
+	<data name="CH3_S1_PARTNER_9" xml:space="preserve">
+		<value>But that's all right. Just try                     remembering a little at a time.</value>
+	</data>
+	<data name="CH3_S1_PARTNER_10" xml:space="preserve">
+		<value>We have to get up early again                     tomorrow. Let's get some sleep.</value>
+	</data>
+		<data name="CH3_S2_NARRATION_1_1" xml:space="preserve">
+		<value>Hey, {0}.</value>
+	</data>
+	<data name="CH3_S2_NARRATION_1_0" xml:space="preserve">
+		<value>Listen, {0}.</value>
+	</data>
+	<data name="CH3_S2_NARRATION_1_2" xml:space="preserve">
+		<value>Say, {0}.</value>
+	</data>
+	<data name="CH3_S2_NARRATION_2" xml:space="preserve">
+		<value>Are you still awake,                     {0}?</value>
+	</data>
+	<data name="CH3_S2_NARRATION_3_1" xml:space="preserve">
+		<value>I've been thinking about this                     since it happened.</value>
+	</data>
+	<data name="CH3_S2_NARRATION_3_0" xml:space="preserve">
+		<value>I've been thinking it over since                     it happened.</value>
+	</data>
+	<data name="CH3_S2_NARRATION_3_2" xml:space="preserve">
+		<value>I've been thinking about it since                     it happened.</value>
+	</data>
+	<data name="CH3_S2_NARRATION_4_1" xml:space="preserve">
+		<value>That weird dream you had,                     {0}...</value>
+	</data>
+	<data name="CH3_S2_NARRATION_4_0" xml:space="preserve">
+		<value>That strange dream you had,                     {0}...</value>
+	</data>
+	<data name="CH3_S2_NARRATION_4_2" xml:space="preserve">
+		<value>That strange dream you had,                     {0}...</value>
+	</data>
+	<data name="CH3_S2_NARRATION_5" xml:space="preserve">
+		<value>Maybe it has to do with you                     personally, {0}.</value>
+	</data>
+	<data name="CH3_S2_UNKNOWN_1" xml:space="preserve">
+		<value>(Huh?)</value>
+	</data>
+	<data name="CH3_S2_UNKNOWN_2_1" xml:space="preserve">
+		<value>It's just the feeling that I get.</value>
+	</data>
+	<data name="CH3_S2_UNKNOWN_2_0" xml:space="preserve">
+		<value>That's just the feeling I get.</value>
+	</data>
+	<data name="CH3_S2_UNKNOWN_2_2" xml:space="preserve">
+		<value>I can't quite say why.</value>
+	</data>
+	<data name="CH3_S2_UNKNOWN_3" xml:space="preserve">
+		<value>I sure don't know any other                     {0}d:PLAYER] who dreams about the future.</value>
+	</data>
+	<data name="CH3_S2_UNKNOWN_4" xml:space="preserve">
+		<value>And I've never heard of a human                     suddenly turning into a Pokémon either.</value>
+	</data>
+	<data name="CH3_S2_UNKNOWN_5" xml:space="preserve">
+		<value>That's why I think those two                     events are connected.</value>
+	</data>
+	<data name="CH3_S2_UNKNOWN_6_1" xml:space="preserve">
+		<value>I just can't shake that feeling.</value>
+	</data>
+	<data name="CH3_S2_UNKNOWN_6_0" xml:space="preserve">
+		<value>I can't help feeling that way.</value>
+	</data>
+	<data name="CH3_S2_UNKNOWN_6_2" xml:space="preserve">
+		<value>That's the feeling I keep getting.</value>
+	</data>
+	<data name="CH3_S2_UNKNOWN_7" xml:space="preserve">
+		<value>(The key to unlocking my memory...)</value>
+	</data>
+	<data name="CH3_S2_UNKNOWN_8" xml:space="preserve">
+		<value>(Was it in that dream?)</value>
+	</data>
+	<data name="CH3_S2_UNKNOWN_9" xml:space="preserve">
+		<value>(But even if that were true...)</value>
+	</data>
+	<data name="CH3_S2_UNKNOWN_10" xml:space="preserve">
+		<value>(How does it relate to anything else?)</value>
+	</data>
+	<data name="CH3_S2_UNKNOWN_11_1" xml:space="preserve">
+		<value>I don't know what you were like                     as a human, {0}...</value>
+	</data>
+	<data name="CH3_S2_UNKNOWN_11_0" xml:space="preserve">
+		<value>I have no way of knowing what                     you were like as a human, {0}...</value>
+	</data>
+	<data name="CH3_S2_UNKNOWN_11_2" xml:space="preserve">
+		<value>I don't know what you were like                     as a human, {0}...</value>
+	</data>
+	<data name="CH3_S2_UNKNOWN_12_1" xml:space="preserve">
+		<value>But I'm sure you were a                     good person.</value>
+	</data>
+	<data name="CH3_S2_UNKNOWN_12_0" xml:space="preserve">
+		<value>But I think you must have been                     a good person.</value>
+	</data>
+	<data name="CH3_S2_UNKNOWN_12_2" xml:space="preserve">
+		<value>But I think you must have been                     a good person.</value>
+	</data>
+	<data name="CH3_S2_UNKNOWN_13_1" xml:space="preserve">
+		<value>I mean, it was because of your                     dream, {0}, that we were able to                     catch that bad Pokémon.</value>
+	</data>
+	<data name="CH3_S2_UNKNOWN_13_0" xml:space="preserve">
+		<value>After all, {0}, it was                     your dream that helped us catch that                     bad Pokémon.</value>
+	</data>
+	<data name="CH3_S2_UNKNOWN_13_2" xml:space="preserve">
+		<value>After all, {0}, it was                     your dream that helped us catch that                     bad Pokémon.</value>
+	</data>
+	<data name="CH3_S2_UNKNOWN_14" xml:space="preserve">
+		<value>(Bad Pokémon, huh...)</value>
+	</data>
+	<data name="CH3_S2_UNKNOWN_15" xml:space="preserve">
+		<value>(Oh! That reminds me of what {0} said.)</value>
+	</data>
+	<data name="CH3_S2_UNKNOWN_16" xml:space="preserve">
+		<value>(That the growing number of bad Pokémon has                     been caused by time going out of whack.)</value>
+	</data>
+	<data name="CH3_S2_UNKNOWN_17" xml:space="preserve">
+		<value>You know...</value>
+	</data>
+	<data name="CH3_S2_UNKNOWN_18" xml:space="preserve">
+		<value>Time is getting messed up,                     bit by bit, all over the world.</value>
+	</data>
+	<data name="CH3_S2_UNKNOWN_19" xml:space="preserve">
+		<value>No one seems to know why.</value>
+	</data>
+	<data name="CH3_S2_UNKNOWN_20" xml:space="preserve">
+		<value>But everyone believes that the                     Time Gears are somehow involved.</value>
+	</data>
+	<data name="CH3_S2_UNKNOWN_21" xml:space="preserve">
+		<value>(Huh?[pause=0] Time Gears?)</value>
+	</data>
+	<data name="CH3_S2_UNKNOWN_22" xml:space="preserve">
+		<value>They say Time Gears are hidden                     in secret places around the world.</value>
+	</data>
+		<data name="CH3_S3_NARRATION_1" xml:space="preserve">
+		<value>But...what happens if a region                     loses its Time Gear?</value>
+	</data>
 </root>

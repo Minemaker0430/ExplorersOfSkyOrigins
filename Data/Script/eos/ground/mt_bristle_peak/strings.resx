@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.NetStandard.ResXResourceReader, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.NetStandard.ResXResourceWriter, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </resheader>
+  	<data name="C_NARRATION_1" xml:space="preserve">
+		<value>This appears to be the end of the dungeon.</value>
+	</data>
+	<data name="C_NARRATION_2" xml:space="preserve">
+		<value>It's impossible to go any farther.[pause=0] It's time to go back.</value>
+	</data>
+	<data name="C_NARRATION_3" xml:space="preserve">
+		<value>[player] cleared [CS:P]Mt. Bristle[CR]! Impressive!</value>
+	</data>
+  	<data name="CH3_S1_Azurill_1" xml:space="preserve">
+		<value>Uh-oh. It's a dead end.</value>
+	</data>
+	<data name="CH3_S1_Azurill_2" xml:space="preserve">
+		<value>Excuse me, Mr. {0}. Where is my lost item?</value>
+	</data>
+	<data name="CH3_S1_Azurill_3" xml:space="preserve">
+		<value>Could you show me where the item is now?</value>
+	</data>
+	<data name="CH3_S1_Drowzee_1" xml:space="preserve">
+		<value>Sorry, kiddo.</value>
+	</data>
+	<data name="CH3_S1_Drowzee_2" xml:space="preserve">
+		<value>Your lost item? It's not here, that's for sure.</value>
+	</data>
+	<data name="CH3_S1_Azurill_4" xml:space="preserve">
+		<value>Huh?</value>
+	</data>
+	<data name="CH3_S1_Azurill_5" xml:space="preserve">
+		<value>My...big brother...</value>
+	</data>
+	<data name="CH3_S1_Azurill_6" xml:space="preserve">
+		<value>My big brother's following us, right? He's coming soon?</value>
+	</data>
+	<data name="CH3_S1_Drowzee_3" xml:space="preserve">
+		<value>Nope. Your big brother's not coming.</value>
+	</data>
+	<data name="CH3_S1_Drowzee_4" xml:space="preserve">
+		<value>I'll let you in on a little secret. This was all a trick.[pause=0] I deceived you.</value>
+	</data>
+	<data name="CH3_S1_Azurill_7" xml:space="preserve">
+		<value>Huh?!</value>
+	</data>
+	<data name="CH3_S1_Drowzee_5" xml:space="preserve">
+		<value>But let's not dwell on that. There's a little favor I need to ask.</value>
+	</data>
+	<data name="CH3_S1_Drowzee_6" xml:space="preserve">
+		<value>See that hole behind you?</value>
+	</data>
+	<data name="CH3_S1_Drowzee_7" xml:space="preserve">
+		<value>Well...</value>
+	</data>
+	<data name="CH3_S1_Drowzee_8" xml:space="preserve">
+		<value>There's a rumor that there's a trove of thief treasure inside there!</value>
+	</data>
+	<data name="CH3_S1_Drowzee_9" xml:space="preserve">
+		<value>But as you can see, I'm too big to squirm my way through that hole.</value>
+	</data>
+	<data name="CH3_S1_Drowzee_10" xml:space="preserve">
+		<value>And that's where you come in!</value>
+	</data>
+	<data name="CH3_S1_Drowzee_11" xml:space="preserve">
+		<value>Don't worry. Just do as I say.</value>
+	</data>
+	<data name="CH3_S1_Drowzee_12" xml:space="preserve">
+		<value>Do that, then I'll help you get back out of there.</value>
+	</data>
+	<data name="CH3_S1_Azurill_8" xml:space="preserve">
+		<value>B-but...</value>
+	</data>
+	<data name="CH3_S1_Drowzee_13" xml:space="preserve">
+		<value>Go on, get going!</value>
+	</data>
+	<data name="CH3_S1_Drowzee_14" xml:space="preserve">
+		<value>Go into that hole. And don't forget to bring back the treasure!</value>
+	</data>
+	<data name="CH3_S1_Azurill_9" xml:space="preserve">
+		<value>I want my big brother!</value>
+	</data>
+	<data name="CH3_S1_Drowzee_15" xml:space="preserve">
+		<value>H-hey! Stop that!</value>
+	</data>
+	<data name="CH3_S1_Drowzee_16" xml:space="preserve">
+		<value>Sheesh! I said that I'll take you home when you're done!</value>
+	</data>
+	<data name="CH3_S1_Drowzee_17" xml:space="preserve">
+		<value>If you keep being difficult, it will mean big trouble for you!</value>
+	</data>
+	<data name="CH3_S1_Azurill_10" xml:space="preserve">
+		<value>H-h-h...HELP!</value>
+	</data>
+	<data name="CH3_S1_UNKNOWN_1" xml:space="preserve">
+		<value>Stop right there!</value>
+	</data>
+	<data name="CH3_S1_PARTNER_1" xml:space="preserve">
+		<value>We won't let you do that![pause=0] {0}, you bully!</value>
+	</data>
+	<data name="CH3_S1_Drowzee_18" xml:space="preserve">
+		<value>H-how did you find this place?!</value>
+	</data>
+	<data name="CH3_S1_PARTNER_2" xml:space="preserve">
+		<value>We're Team [team:]![pause=0] An exploration team!</value>
+	</data>
+	<data name="CH3_S1_PARTNER_3" xml:space="preserve">
+		<value>No criminal can escape us!</value>
+	</data>
+	<data name="CH3_S1_Drowzee_19" xml:space="preserve">
+		<value>An exploration team?![pause=0] You came to apprehend...</value>
+	</data>
+	<data name="CH3_S1_Drowzee_20" xml:space="preserve">
+		<value>...Huh?[pause=0] Are you...trembling?</value>
+	</data>
+	<data name="CH3_S1_Drowzee_21" xml:space="preserve">
+		<value>A-ha! I've figured it out!</value>
+	</data>
+	<data name="CH3_S1_Drowzee_22" xml:space="preserve">
+		<value>You say you're on an exploration team, but you're total rookies!</value>
+	</data>
+	<data name="CH3_S1_PARTNER_4" xml:space="preserve">
+		<value>Urk!</value>
+	</data>
+	<data name="CH3_S1_Drowzee_23" xml:space="preserve">
+		<value>Heh.[pause=0] That's right, I'm a wanted Pokémon with a bounty on my head.</value>
+	</data>
+	<data name="CH3_S1_Drowzee_24" xml:space="preserve">
+		<value>But can you two do the job?</value>
+	</data>
+	<data name="CH3_S1_Drowzee_25" xml:space="preserve">
+		<value>Can you confront this outlaw and bring him to justice?</value>
+	</data>
+	<data name="CH3_S1_PARTNER_5" xml:space="preserve">
+		<value>Urk!</value>
+	</data>
+	<data name="CH3_S1_PARTNER_6" xml:space="preserve">
+		<value>Y-yes. We can![pause=0] Yes, we can!</value>
+	</data>
+	<data name="CH3_S1_PARTNER_7" xml:space="preserve">
+		<value>We'd never lose to a bad guy like you!</value>
+	</data>
+	<data name="CH3_S1_Drowzee_26" xml:space="preserve">
+		<value>Ha ha ha![pause=0] I've been chased by all sorts of exploration teams in my day...</value>
+	</data>
+	<data name="CH3_S1_Drowzee_27" xml:space="preserve">
+		<value>But never a sorrier-looking bunch than you two!</value>
+	</data>
+	<data name="CH3_S1_PARTNER_8" xml:space="preserve">
+		<value>Urk!</value>
+	</data>
+	<data name="CH3_S1_Drowzee_28" xml:space="preserve">
+		<value>This should be a laugh.[pause=0] Let's see if you can take me down.</value>
+	</data>
+	<data name="CH3_S1_Drowzee_29" xml:space="preserve">
+		<value>Show me what you've got!</value>
+	</data>
+		<data name="CH3_S2_PARTNER_1" xml:space="preserve">
+		<value>{0}!</value>
+	</data>
+	<data name="CH3_S2_Drowzee_1" xml:space="preserve">
+		<value>Not you again.</value>
+	</data>
+	<data name="CH3_S2_PARTNER_2" xml:space="preserve">
+		<value>Let go of {0}, {1}!</value>
+	</data>
+	<data name="CH3_S2_Drowzee_2" xml:space="preserve">
+		<value>You foolish pests. Do I have to embarrass you again?</value>
+	</data>
+	<data name="CH3_S2_Drowzee_3" xml:space="preserve">
+		<value>You seem to hunger for punishment. Let me help you out!</value>
+	</data>
+	<data name="CH3_S2_Drowzee_4" xml:space="preserve">
+		<value>C'mon! Whenever you want!</value>
+	</data>
+		<data name="CH3_S3_Drowzee_1" xml:space="preserve">
+		<value>Rrrrawrrr!</value>
+	</data>
+	<data name="CH3_S3_PARTNER_1_1" xml:space="preserve">
+		<value>We came to rescue you.</value>
+	</data>
+	<data name="CH3_S3_PARTNER_1_0" xml:space="preserve">
+		<value>We came to rescue you.</value>
+	</data>
+	<data name="CH3_S3_PARTNER_1_2" xml:space="preserve">
+		<value>We're here to rescue you.</value>
+	</data>
+	<data name="CH3_S3_PARTNER_2_1" xml:space="preserve">
+		<value>Are you all right? You're not hurt, are you?</value>
+	</data>
+	<data name="CH3_S3_PARTNER_2_0" xml:space="preserve">
+		<value>Are you all right? You're not hurt, are you?</value>
+	</data>
+	<data name="CH3_S3_PARTNER_2_2" xml:space="preserve">
+		<value>Are you OK? You're not hurt, are you?</value>
+	</data>
+	<data name="CH3_S3_Azurill_1" xml:space="preserve">
+		<value>I'm OK.</value>
+	</data>
+	<data name="CH3_S3_PARTNER_3_1" xml:space="preserve">
+		<value>Awesome! That's a big relief!</value>
+	</data>
+	<data name="CH3_S3_PARTNER_3_0" xml:space="preserve">
+		<value>Great! What a relief!</value>
+	</data>
+	<data name="CH3_S3_PARTNER_3_2" xml:space="preserve">
+		<value>Great! What a relief!</value>
+	</data>
+	<data name="CH3_S3_PARTNER_4_1" xml:space="preserve">
+		<value>Your big brother's waiting. Let's get you home!</value>
+	</data>
+	<data name="CH3_S3_PARTNER_4_0" xml:space="preserve">
+		<value>Your big brother is waiting. Let's go home!</value>
+	</data>
+	<data name="CH3_S3_PARTNER_4_2" xml:space="preserve">
+		<value>Your big brother's waiting. Let's go home!</value>
+	</data>
+	<data name="CH3_S3_Azurill_2" xml:space="preserve">
+		<value>OK.</value>
+	</data>
+	<data name="CH3_S4_Drowzee_1" xml:space="preserve">
+		<value>If you keep being difficult, it will mean big trouble for you!</value>
+	</data>
+	<data name="CH3_S4_Azurill_1" xml:space="preserve">
+		<value>H-h-h...HELP!</value>
+	</data>
+</root>

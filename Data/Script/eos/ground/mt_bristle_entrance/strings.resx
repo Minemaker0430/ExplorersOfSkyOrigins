@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.NetStandard.ResXResourceReader, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.NetStandard.ResXResourceWriter, System.Resources.NetStandard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </resheader>
+  	<data name="CH3_S1_PARTNER_1_1" xml:space="preserve">
+		<value>You're sure {0} and {1} went off in this direction?</value>
+	</data>
+	<data name="CH3_S1_PARTNER_1_0" xml:space="preserve">
+		<value>You think {0} and {1} went in this direction?</value>
+	</data>
+	<data name="CH3_S1_PARTNER_1_2" xml:space="preserve">
+		<value>So you think that {0} and {1} went off in this direction?</value>
+	</data>
+	<data name="CH3_S1_Marill_1" xml:space="preserve">
+		<value>Yes...</value>
+	</data>
+	<data name="CH3_S1_PARTNER_2" xml:space="preserve">
+		<value>Oh, {0}! The {1} and {2} you saw in your dream...</value>
+	</data>
+	<data name="CH3_S1_PARTNER_3_1" xml:space="preserve">
+		<value>You said you saw them in a mountainous place, right?</value>
+	</data>
+	<data name="CH3_S1_PARTNER_3_0" xml:space="preserve">
+		<value>You were saying you saw them in a mountainous place, right?</value>
+	</data>
+	<data name="CH3_S1_PARTNER_3_2" xml:space="preserve">
+		<value>You said you saw them in a mountainous place, didn't you?</value>
+	</data>
+	<data name="CH3_S1_PARTNER_4_1" xml:space="preserve">
+		<value>I think the two of them are up ahead here.</value>
+	</data>
+	<data name="CH3_S1_PARTNER_4_0" xml:space="preserve">
+		<value>I get the feeling that they're up ahead here.</value>
+	</data>
+	<data name="CH3_S1_PARTNER_4_2" xml:space="preserve">
+		<value>I think they're up ahead here.</value>
+	</data>
+	<data name="CH3_S1_PARTNER_5_1" xml:space="preserve">
+		<value>Let's roll, {0}. Quick!</value>
+	</data>
+	<data name="CH3_S1_PARTNER_5_0" xml:space="preserve">
+		<value>Let's get going, {0}!</value>
+	</data>
+	<data name="CH3_S1_PARTNER_5_2" xml:space="preserve">
+		<value>Let's get going, {0}!</value>
+	</data>
+		<data name="CH3_S2_Magnezone_1" xml:space="preserve">
+		<value>ZZZT! I am {0}, the primary officer in this region! ZZZT!</value>
+	</data>
+	<data name="CH3_S2_Magnezone_2" xml:space="preserve">
+		<value>ZZZT! Thanks to you...</value>
+	</data>
+	<data name="CH3_S2_Magnezone_3" xml:space="preserve">
+		<value>We have been able to arrest a wanted outlaw! ZZZT!</value>
+	</data>
+	<data name="CH3_S2_Magnezone_4" xml:space="preserve">
+		<value>ZZZT! We owe you great thanks for your cooperation! ZZZT!</value>
+	</data>
+	<data name="CH3_S2_Magnezone_5" xml:space="preserve">
+		<value>ZZZT! We will send the reward to your guild. Thank you again! ZZZT!</value>
+	</data>
+	<data name="CH3_S2_Magnezone_6" xml:space="preserve">
+		<value>ZZZT! Now come with us! ZZZT!</value>
+	</data>
+	<data name="CH3_S2_Drowzee_1" xml:space="preserve">
+		<value>Awww...</value>
+	</data>
+	<data name="CH3_S2_Marill_1" xml:space="preserve">
+		<value>{0}!</value>
+	</data>
+	<data name="CH3_S2_Azurill_1" xml:space="preserve">
+		<value>{0}!</value>
+	</data>
+	<data name="CH3_S2_Azurill_2" xml:space="preserve">
+		<value>Waaaaah!</value>
+	</data>
+	<data name="CH3_S2_Azurill_3" xml:space="preserve">
+		<value>{0}![pause=0] It was so scary!</value>
+	</data>
+	<data name="CH3_S2_Marill_2" xml:space="preserve">
+		<value>You OK, {0}?[pause=0] Are you hurt?</value>
+	</data>
+	<data name="CH3_S2_PARTNER_1_1" xml:space="preserve">
+		<value>He's fine. The little guy's not hurt at all.</value>
+	</data>
+	<data name="CH3_S2_PARTNER_1_0" xml:space="preserve">
+		<value>He's fine. The little guy hasn't been harmed in any way.</value>
+	</data>
+	<data name="CH3_S2_PARTNER_1_2" xml:space="preserve">
+		<value>He's fine. The little guy's not hurt in any way.</value>
+	</data>
+	<data name="CH3_S2_Marill_3" xml:space="preserve">
+		<value>Really?</value>
+	</data>
+	<data name="CH3_S2_Marill_4" xml:space="preserve">
+		<value>That's a relief!</value>
+	</data>
+	<data name="CH3_S2_Marill_5" xml:space="preserve">
+		<value>Oh, {0}...[pause=0]{1}...</value>
+	</data>
+	<data name="CH3_S2_PARTNER_2_1" xml:space="preserve">
+		<value>I'm really glad for you guys.</value>
+	</data>
+	<data name="CH3_S2_PARTNER_2_0" xml:space="preserve">
+		<value>I'm glad you kids are happy!</value>
+	</data>
+	<data name="CH3_S2_PARTNER_2_2" xml:space="preserve">
+		<value>I'm truly happy for you two!</value>
+	</data>
+	<data name="CH3_S2_Marill_6" xml:space="preserve">
+		<value>You did this all for us, {1} and {0}.</value>
+	</data>
+	<data name="CH3_S2_Marill_7" xml:space="preserve">
+		<value>We won't forget what you did for us.[pause=0] Thank you so much.</value>
+	</data>
+	<data name="CH3_S2_Marill_8" xml:space="preserve">
+		<value>Come on, {0}. You too.</value>
+	</data>
+	<data name="CH3_S2_Azurill_4" xml:space="preserve">
+		<value>Yup...</value>
+	</data>
+	<data name="CH3_S2_Azurill_5" xml:space="preserve">
+		<value>Thank you very much![pause=0] Thank you for rescuing me!</value>
+	</data>
+	<data name="CH3_S2_Marill_9" xml:space="preserve">
+		<value>Really...[pause=0] Really, thank you!</value>
+	</data>
+	<data name="CH3_S2_NARRATION_1" xml:space="preserve">
+		<value>The Exploration Team Federation has sent a message...[pause=30]</value>
+	</data>
+	<data name="CH3_S2_NARRATION_2" xml:space="preserve">
+		<value>{0}'s team was rewarded with an enlarged Treasure Bag![pause=100]</value>
+	</data>
+	<data name="CH3_S2_NARRATION_3" xml:space="preserve">
+		<value>You can now carry more items than you could before!</value>
+	</data>
+	<data name="CH3_S2_NARRATION_4" xml:space="preserve">
+		<value>Wait...[pause=0] There's one more message.</value>
+	</data>
+	<data name="CH3_S2_NARRATION_5" xml:space="preserve">
+		<value>The Special Episode "Bidoof's Wish" has been unlocked![pause=90]</value>
+	</data>
+	<data name="CH3_S2_NARRATION_6" xml:space="preserve">
+		<value>To play a Special Episode, select it from the Episode List on the Top Menu.</value>
+	</data>
+	<data name="CH3_S2_NARRATION_7" xml:space="preserve">
+		<value>If you would like to play the Special Episode, save your adventure progress, and return to the Top Menu.</value>
+	</data>
+</root>

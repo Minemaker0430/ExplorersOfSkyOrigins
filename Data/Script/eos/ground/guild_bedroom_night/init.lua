@@ -851,4 +851,228 @@ function guild_bedroom_night.CH2_NightAfterJob()
     GAME:EnterGroundMap("cutscenes", "chapter_card", "Entrance", false)
 end
 
+function DEF_0()
+	local hTalkKind = SV.Personality.HeroTalkKind
+	local pTalkKind = SV.Personality.PartnerTalkKind
+	SOUND:StopBGM()
+	-- back_SetGround(LEVEL_G01P07C) (Should be the map you're currently on, or the map it sends you to next)
+	-- ### supervision_Acting(0) [IRRELEVANT]
+	GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
+	SOUND:PlayBGM("UNK_BGM_STORM_INSIDE.ogg", true, 120)
+	SOUND:SetBGMVolume(0.703125)
+	GAME:FadeIn(30)
+	GAME:WaitFrames(30)
+	SOUND:PlayBattleSE("UNK_6424")
+	-- TODO: back_SetBackEffect(3)
+	GAME:WaitFrames(60)
+	-- TODO: back_SetBackEffect(1)
+	GAME:WaitFrames(10)
+	SOUND:PlayBattleSE("EVT_Emote_Startled")
+	CharacterActions.ScaredJump(CH('PARTNER'), CH('PARTNER').Direction)
+	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+	GROUND:CharTurnToCharAnimated(CH('PLAYER'), CH('PARTNER'), 2)
+	-- !! WaitExecuteLives(ACTOR_PLAYER)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Surprised")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_1_'..tostring(pTalkKind)]))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	GAME:WaitFrames(30)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_2']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	SOUND:PlayBattleSE("EVT_Emote_Exclaim_2")
+	GROUND:CharSetEmote(CH('PARTNER'), "exclaim", 1)
+	GAME:WaitFrames(30)
+	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+	GAME:WaitFrames(10)
+	GROUND:CharTurnToCharAnimated(CH('PARTNER'), CH('PLAYER'), 2)
+	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_3_'..tostring(pTalkKind)]))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_4']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_5']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_6']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_7_'..tostring(pTalkKind)]))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	ExplorerEssentials.SetSpeakerHero()
+	UI:SetSpeakerEmotion("UNK_FACE_WORRIED")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PLAYER_1']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PLAYER_2']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	GAME:WaitFrames(45)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PLAYER_3']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_8']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_9']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
+
+
+	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Up, 2)
+	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+	GAME:WaitFrames(120)
+	GROUND:CharTurnToCharAnimated(CH('PARTNER'), CH('PLAYER'), 2)
+	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_10']))
+
+
+
+
+
+
+
+
+	SOUND:FadeOutBGM(120)
+	GAME:FadeOut(false, 60)
+	-- TODO: WaitBgm(BGM_STORM_INSIDE)
+
+end
+
+function DEF_0()
+	local hTalkKind = SV.Personality.HeroTalkKind
+	local pTalkKind = SV.Personality.PartnerTalkKind
+	SOUND:StopBGM()
+	-- back_SetGround(LEVEL_G01P07C) (Should be the map you're currently on, or the map it sends you to next)
+	-- ### supervision_Acting(0) [IRRELEVANT]
+	GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
+	-- TODO: SetDirection<actor ACTOR_PLAYER>(DIR_RIGHT)
+	-- TODO: SetDirection<actor ACTOR_ATTENDANT1>(DIR_LEFT)
+	GROUND:CharSetAnim(CH('PLAYER'), "UNK_76", false)
+	GROUND:CharSetAnim(CH('PARTNER'), "UNK_76", false)
+	-- TODO: bgm2_PlayFadeIn(BGM_STORM_INSIDE, 120, 140)
+	-- TODO: screen_FadeChange(1, 30, 0, 192)
+	GAME:WaitFrames(30)
+	GAME:WaitFrames(60)
+	-- TODO message_SetActor: message_SetActor(ACTOR_ATTENDANT1)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_NARRATION_1_'..tostring(pTalkKind)]))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_NARRATION_2']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_NARRATION_3_'..tostring(pTalkKind)]))
+	-- TODO: back_SetBackEffect(3)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_NARRATION_4_'..tostring(pTalkKind)]))
+	-- TODO: back_SetBackEffect(1)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_NARRATION_5']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	ExplorerEssentials.SetSpeakerUnknown(nil)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_UNKNOWN_1']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	-- TODO: back_SetBackEffect(3)
+	GAME:WaitFrames(60)
+	-- TODO: back_SetBackEffect(1)
+	-- TODO message_SetActor: message_SetActor(ACTOR_ATTENDANT1)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_UNKNOWN_2_'..tostring(pTalkKind)]))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_UNKNOWN_3']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_UNKNOWN_4']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_UNKNOWN_5']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_UNKNOWN_6_'..tostring(pTalkKind)]))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	ExplorerEssentials.SetSpeakerUnknown(nil)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_UNKNOWN_7']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_UNKNOWN_8']))
+	-- TODO: back_SetBackEffect(3)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_UNKNOWN_9']))
+	-- TODO: back_SetBackEffect(1)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_UNKNOWN_10']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	-- TODO message_SetActor: message_SetActor(ACTOR_ATTENDANT1)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_UNKNOWN_11_'..tostring(pTalkKind)]))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_UNKNOWN_12_'..tostring(pTalkKind)]))
+	-- TODO: back_SetBackEffect(3)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_UNKNOWN_13_'..tostring(pTalkKind)]))
+	-- TODO: back_SetBackEffect(1)
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	ExplorerEssentials.SetSpeakerUnknown(nil)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_UNKNOWN_14']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_UNKNOWN_15']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_UNKNOWN_16']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
+
+
+
+
+
+
+
+	-- TODO message_SetActor: message_SetActor(ACTOR_ATTENDANT1)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_UNKNOWN_17']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_UNKNOWN_18']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_UNKNOWN_19']))
+	-- TODO: back_SetBackEffect(3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_UNKNOWN_20']))
+	-- TODO: back_SetBackEffect(1)
+
+
+
+
+
+
+
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	ExplorerEssentials.SetSpeakerUnknown(nil)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_UNKNOWN_21']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
+
+
+
+
+	-- TODO message_SetActor: message_SetActor(ACTOR_ATTENDANT1)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_UNKNOWN_22']))
+
+
+
+
+
+
+
+
+	-- TODO: bgm2_FadeOut(60)
+	GAME:FadeOut(false, 30)
+
+end
+
+function DEF_0()
+	local hTalkKind = SV.Personality.HeroTalkKind
+	local pTalkKind = SV.Personality.PartnerTalkKind
+	SOUND:PlayBGM("UNK_BGM_TIME_GEAR_REMIX.ogg", true)
+	-- TODO: bgm2_PlayFadeIn(BGM_STORM, 0, 128)
+	-- back_SetGround(LEVEL_G01P07C) (Should be the map you're currently on, or the map it sends you to next)
+	-- ### supervision_Acting(0) [IRRELEVANT]
+	GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
+	-- TODO: SetDirection<actor ACTOR_PLAYER>(DIR_RIGHT)
+	-- TODO: SetDirection<actor ACTOR_ATTENDANT1>(DIR_LEFT)
+	GROUND:CharSetAnim(CH('PLAYER'), "UNK_76", false)
+	GROUND:CharSetAnim(CH('PARTNER'), "UNK_76", false)
+	-- TODO: screen_FadeChange(1, 15, 0, 192)
+	GAME:WaitFrames(30)
+	-- TODO message_SetActor: message_SetActor(ACTOR_ATTENDANT1)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S3_NARRATION_1']))
+	GAME:FadeOut(false, 15)
+end
+
 return guild_bedroom_night

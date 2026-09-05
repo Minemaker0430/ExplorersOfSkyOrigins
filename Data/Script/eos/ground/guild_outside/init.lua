@@ -81,6 +81,29 @@ end
 -- Cutscene Functions
 -------------------------------
 
+function guild_outside.CH3_LeaveGuild()
+	local hTalkKind = SV.Personality.HeroTalkKind
+	local pTalkKind = SV.Personality.PartnerTalkKind
+	SOUND:PlayBGM("011 - Wigglytuff's Guild Remix.ogg", true)
+	-- back_SetGround(LEVEL_G01P01A) (Should be the map you're currently on, or the map it sends you to next)
+	-- ### supervision_StationCommon(0) [IRRELEVANT]
+	-- ### supervision_Acting(0) [IRRELEVANT]
+	GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
+	GAME:FadeIn(30)
+	GAME:WaitFrames(30)
+	-- ### supervision_Acting(1) [IRRELEVANT]
+	ExplorerEssentials.MoveToPositionOffset(CH('Bidoof'), 0, 140, false, 1)
+	GAME:WaitFrames(30)
+	-- ### supervision_Acting(2) [IRRELEVANT]
+	ExplorerEssentials.MoveToPositionOffset(CH('PLAYER'), 0, 140, false, 1)
+	GAME:WaitFrames(30)
+	-- ### supervision_Acting(3) [IRRELEVANT]
+	ExplorerEssentials.MoveToPositionOffset(CH('PARTNER'), 0, 140, false, 1)
+	GAME:WaitFrames(45)
+	SOUND:FadeOutBGM(60)
+	GAME:FadeOut(false, 30)
+end
+
 function guild_outside.CH2BidoofTutorialScene3()
 	player = CH("PLAYER")
         partner = CH("TEAMMATE_1") --why does this have to be like this?

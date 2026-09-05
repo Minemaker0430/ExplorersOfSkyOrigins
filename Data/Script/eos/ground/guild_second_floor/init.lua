@@ -2515,339 +2515,824 @@ def 0 {
     end
 end
 
+function guild_second_floor.CH3_OutlawIntro()
+	local hTalkKind = SV.Personality.HeroTalkKind
+	local pTalkKind = SV.Personality.PartnerTalkKind
+	-- back_SetGround(LEVEL_G01P03A) (Should be the map you're currently on, or the map it sends you to next)
+	-- ### supervision_Acting(0) [IRRELEVANT]
+	-- ### supervision_LoadStation(LEVEL_G01P03A, 'UM03') [IRRELEVANT]
+	-- ### supervision_Station(1) [IRRELEVANT]
+	GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
+	GAME:FadeIn(30)
+	SOUND:PlayBGM("011 - Wigglytuff's Guild Remix.ogg", true)
+	-- ### supervision_Acting(1) [IRRELEVANT]
+	GAME:WaitFrames(30)
+	GROUND:MoveToPosition(CH('Chatot'), 412, 208, false, 1)
+	GAME:WaitFrames(30)
+	-- ### supervision_Acting(2) [IRRELEVANT]
+	GAME:WaitFrames(30)
+	GROUND:MoveToPosition(CH('PLAYER'), 456, 240, false, 1)
+	-- !! WaitExecuteLives(ACTOR_NPC_PERAPPU)
+	GROUND:CharAnimateTurnTo(CH('Chatot'), Dir8.Down, 2)
+	GAME:WaitFrames(30)
+	-- ### supervision_Acting(3) [IRRELEVANT]
+	GAME:WaitFrames(30)
+	GROUND:MoveToPosition(CH('PARTNER'), 424, 240, false, 1)
+ExplorerEssentials.MoveCameraAtSpeed(440, 224, 1, false)
+	-- !! WaitExecuteLives(ACTOR_PLAYER)
+	GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.Up, 2)
+	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Up, 2)
+	-- !! WaitExecuteLives(ACTOR_NPC_PERAPPU)
+	-- !! WaitExecuteLives(ACTOR_PLAYER)
+	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+	-- TODO: WaitExecutePerformer(0)
+	GAME:WaitFrames(30)
+	SOUND:PlayBattleSE("EVT_Emote_Confused")
+	GROUND:CharSetEmote(CH('PARTNER'), "question", 1)
+	GAME:WaitFrames(30)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_1_'..tostring(pTalkKind)]))
+	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Left, 2)
+	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+	GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.Left, 2)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_2']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	UI:SetSpeaker(CH('Chatot'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_1']))
+	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Up, 2)
+	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+	GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.Up, 2)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_2']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	SOUND:PlayBattleSE("EVT_Emote_Confused")
+	GROUND:CharSetEmote(CH('PARTNER'), "question", 1)
+	GAME:WaitFrames(30)
+	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_3']))
+	GROUND:CharAnimateTurnTo(CH('Chatot'), Dir8.UpRight, 2)
+	-- !! WaitExecuteLives(ACTOR_NPC_PERAPPU)
+	UI:SetSpeaker(CH('Chatot'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_3']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	-- ### back2_SetMode(4) [IRRELEVANT]
+	-- ### back2_SetGround(LEVEL_V03P01A) [IRRELEVANT]
+	-- ### camera2_SetPositionMark(Position<'m4', 19.5, 16.5>) [IRRELEVANT]
+	-- ### screen2_FadeIn(1, 15) [IRRELEVANT]
+	GAME:WaitFrames(30)
+	SOUND:PlayBattleSE("EVT_Emote_Exclaim")
+	GROUND:CharSetEmote(CH('PARTNER'), "exclaim", 1)
+	GAME:WaitFrames(30)
+	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_4_'..tostring(pTalkKind)]))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_5']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_6_'..tostring(pTalkKind)]))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_7']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	GROUND:CharTurnToCharAnimated(CH('PLAYER'), CH('Chatot'), 2)
+	-- !! WaitExecuteLives(ACTOR_PLAYER)
+	UI:SetSpeaker(CH('Chatot'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_4']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_5']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	-- ### screen2_FadeOut(1, 15) [IRRELEVANT]
+	-- ### back2_SetMode(0) [IRRELEVANT]
+	SOUND:PlayBattleSE("EVT_Emote_Shock")
+	GROUND:CharSetEmote(CH('PLAYER'), "shock", 1)
+	CharacterActions.ScaredJump(CH('PARTNER'), CH('PARTNER').Direction)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Surprised")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_8_'..tostring(pTalkKind)]))
+	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+	GROUND:CharAnimateTurnTo(CH('Chatot'), Dir8.Down, 2)
+	-- !! WaitExecuteLives(ACTOR_NPC_PERAPPU)
+	UI:SetSpeaker(CH('Chatot'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_6']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_7']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_8']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Surprised")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_9_'..tostring(pTalkKind)]))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	SOUND:PlayBattleSE("EVT_Emote_Sweating")
+	GROUND:CharSetEmote(CH('PARTNER'), "sweating", 1)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("UNK_FACE_SHOUTING")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_10_'..tostring(pTalkKind)]))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	GROUND:CharSetEmote(CH('Chatot'), "happy", 1)
+	UI:SetSpeaker(CH('Chatot'))
+	UI:SetSpeakerEmotion("Happy")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_9']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	GROUND:CharSetEmote(CH('Chatot'), "none", 1)
+	GAME:WaitFrames(15)
+	UI:SetSpeaker(CH('Chatot'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_10']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_11']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_12']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_13']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	GROUND:CharSetEmote(CH('Chatot'), "happy", 1)
+	UI:SetSpeaker(CH('Chatot'))
+	UI:SetSpeakerEmotion("Happy")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_14']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	GROUND:CharSetEmote(CH('Chatot'), "none", 1)
+	UI:SetSpeaker(CH('Chatot'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_15']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	SOUND:PlayBattleSE("EVT_Emote_Sweatdrop")
+	GROUND:CharSetEmote(CH('PARTNER'), "sweatdrop", 1)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Sad")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_11']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_12_'..tostring(pTalkKind)]))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_13_'..tostring(pTalkKind)]))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	UI:SetSpeaker(CH('Chatot'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_16']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_17']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_18']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	GROUND:CharAnimateTurnTo(CH('Chatot'), Dir8.UpLeft, 2)
+	-- !! WaitExecuteLives(ACTOR_NPC_PERAPPU)
+	GROUND:CharSetEmote(CH('Chatot'), "glowing", 1)
+	UI:SetSpeaker(CH('Chatot'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowTimedDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_19']), CH('Bidoof'):GetDisplayName())
+	GROUND:CharSetEmote(CH('Chatot'), "none", 1)
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.UpLeft, 2)
+	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+	-- TODO message_SetActor: message_SetActor(ACTOR_NPC_BIPPA)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_20']))
+	-- ### supervision_Acting(4) [IRRELEVANT]
+	-- TODO: SetOutputAttribute<actor ACTOR_NPC_BIPPA>(8)
+	GAME:WaitFrames(20)
+	GROUND:MoveToPosition(CH('Bidoof'), 360, 208, false, 1)
+	GROUND:MoveToPosition(CH('Bidoof'), 380, 208, false, 1)
+	-- !! WaitExecuteLives(ACTOR_NPC_BIPPA)
+	GROUND:CharEndAnim(CH('Bidoof'))
+	GROUND:CharTurnToCharAnimated(CH('Bidoof'), CH('Chatot'), 2)
+	-- !! WaitExecuteLives(ACTOR_NPC_BIPPA)
+	GROUND:CharTurnToCharAnimated(CH('Chatot'), CH('Bidoof'), 2)
+	-- !! WaitExecuteLives(ACTOR_NPC_PERAPPU)
+	GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.UpLeft, 2)
+	GROUND:CharTurnToCharAnimated(CH('PARTNER'), CH('Bidoof'), 2)
+	GROUND:CharSetEmote(CH('Bidoof'), "sweating", 1)
+	GAME:WaitFrames(30)
+	UI:SetSpeaker(CH('Bidoof'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Bidoof_1']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	UI:SetSpeaker(CH('Chatot'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowTimedDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_21']), CH('BIDOOF'):GetDisplayName())
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_22']))
+	GROUND:CharTurnToCharAnimated(CH('Bidoof'), CH('PARTNER'), 2)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_23']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	CharacterActions.HopOnce(CH('Bidoof'), CH('Bidoof').Direction)
+	-- !! WaitExecuteLives(ACTOR_NPC_BIPPA)
+	UI:SetSpeaker(CH('Bidoof'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Bidoof_2']))
+	GROUND:CharAnimateTurnTo(CH('Chatot'), Dir8.Down, 2)
+	-- !! WaitExecuteLives(ACTOR_NPC_PERAPPU)
+	UI:SetSpeaker(CH('Chatot'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowTimedDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_24']), CH('BIDOOF'):GetDisplayName())
+	UI:WaitShowTimedDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_25']), CH('BIDOOF'):GetDisplayName())
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_26']))
+	GROUND:CharAnimateTurnTo(CH('Bidoof'), Dir8.UpLeft, 16)
+	GROUND:MoveToPosition(CH('Chatot'), 388, 224, false, 1)
+	-- !! WaitExecuteLives(ACTOR_NPC_PERAPPU)
+	GROUND:MoveToPosition(CH('Chatot'), 360, 224, false, 1)
+	-- !! WaitExecuteLives(ACTOR_NPC_PERAPPU)
+	GROUND:MoveToPosition(CH('Chatot'), 360, 176, false, 1)
+	-- !! WaitExecuteLives(ACTOR_NPC_PERAPPU)
+	GROUND:Hide("Chatot")
+	GAME:WaitFrames(60)
+	SOUND:PlayBattleSE("EVT_Emote_Sweating")
+	GROUND:CharSetEmote(CH('Bidoof'), "sweating", 1)
+	GAME:WaitFrames(30)
+	UI:SetSpeaker(CH('Bidoof'))
+	UI:SetSpeakerEmotion("UNK_FACE_TEARY_EYED")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Bidoof_3']))
+	-- !! WaitExecuteLives(ACTOR_NPC_BIPPA)
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("UNK_FACE_WORRIED")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_14']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	GROUND:CharTurnToCharAnimated(CH('Bidoof'), CH('PARTNER'), 2)
+	-- !! WaitExecuteLives(ACTOR_NPC_BIPPA)
+	UI:SetSpeaker(CH('Bidoof'))
+	UI:SetSpeakerEmotion("UNK_FACE_TEARY_EYED")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Bidoof_4']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Bidoof_5']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	GROUND:CharSetAnim(CH('Bidoof'), "UNK_23", false)
+	-- TODO WaitAnimation: WaitAnimation<actor ACTOR_NPC_BIPPA>()
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Bidoof_6']))
+	GROUND:CharEndAnim(CH('Bidoof'))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	GROUND:CharTurnToCharAnimated(CH('Bidoof'), CH('PARTNER'), 2)
+	-- !! WaitExecuteLives(ACTOR_NPC_BIPPA)
+	UI:SetSpeaker(CH('Bidoof'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Bidoof_7']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	GROUND:MoveToPosition(CH('Bidoof'), 360, 208, false, 1)
+	GAME:WaitFrames(10)
+	ExplorerEssentials.MoveToPositionOffset(CH('PARTNER'), -32, 0, false, 1)
+	ExplorerEssentials.MoveToPositionOffset(CH('PLAYER'), -64, 0, false, 1)
+	GROUND:MoveToPosition(CH('Bidoof'), 360, 176, false, 1)
+	GROUND:MoveToPosition(CH('PARTNER'), 360, 208, false, 1)
+	GROUND:Hide("Bidoof")
+	GROUND:MoveToPosition(CH('PLAYER'), 360, 208, false, 1)
+	GROUND:MoveToPosition(CH('PARTNER'), 360, 176, false, 1)
+	GAME:FadeOut(false, 30)
+end
+
+function guild_second_floor.CH3_ReadyCheck()
+	local hTalkKind = SV.Personality.HeroTalkKind
+	local pTalkKind = SV.Personality.PartnerTalkKind
+	SOUND:PlayBGM("008 - Wigglytuff's Guild.ogg", true)
+	GROUND:CharTurnToCharAnimated(CH('PARTNER'), CH('Bidoof'), 2)
+	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+	UI:SetSpeaker(CH('Bidoof'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_Bidoof_1']))
+	-- TODO: switch ( message_SwitchMenu(0, 1) ) {         case menu({             english="Yes",         }):             @label_0
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	-- ### supervision_ExecuteCommon(CORO_EVENT_M03_05_06) [IRRELEVANT]
+	-- TODO: @label_2
+	-- TODO CallCommon: CallCommon(CORO_EVENT_END_FREE)
+	GROUND:CharSetAnim(CH('Bidoof'), "UNK_4", false)
+	-- TODO case: case menu({             english="No",         }):         default:             CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_Bidoof_2A']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_Bidoof_3A']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_Bidoof_2B']))
+	GROUND:CharAnimateTurnTo(CH('Bidoof'), Dir8.Down, 2)
+	-- !! WaitExecuteLives(ACTOR_NPC_BIPPA)
+	-- TODO: jump @label_2
+end
+
+function guild_second_floor.CH3_LookAtJobsA()
+	local hTalkKind = SV.Personality.HeroTalkKind
+	local pTalkKind = SV.Personality.PartnerTalkKind
+	SOUND:PlayBGM("008 - Wigglytuff's Guild.ogg", true)
+	-- TODO: $SCENARIO_MAIN = scn[4, 4]
+	-- ### supervision_Acting(0) [IRRELEVANT]
+	UI:SetSpeaker(CH('Bidoof'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S3_Bidoof_1']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S3_Bidoof_2']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	GROUND:CharAnimateTurnTo(CH('Bidoof'), Dir8.Up, 2)
+	GROUND:MoveToPosition(CH('PARTNER'), 416, 208, false, 1)
+	GAME:WaitFrames(10)
+	GROUND:MoveToPosition(CH('PLAYER'), 440, 208, false, 1)
+	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Up, 2)
+	-- !! WaitExecuteLives(ACTOR_PLAYER)
+	GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.Up, 2)
+	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+	-- !! WaitExecuteLives(ACTOR_PLAYER)
+	UI:SetSpeaker(CH('Bidoof'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S3_Bidoof_3']))
+	-- ### back2_SetMode(4) [IRRELEVANT]
+	-- ### back2_SetGround(LEVEL_V03P01A) [IRRELEVANT]
+	-- ### camera2_SetPositionMark(Position<'m2', 19.5, 16.5>) [IRRELEVANT]
+	-- ### screen2_FadeIn(1, 15) [IRRELEVANT]
+	GAME:WaitFrames(30)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S3_PARTNER_1']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	GROUND:CharTurnToCharAnimated(CH('Bidoof'), CH('PLAYER'), 2)
+	-- !! WaitExecuteLives(ACTOR_NPC_BIPPA)
+	GROUND:CharTurnToCharAnimated(CH('PLAYER'), CH('Bidoof'), 2)
+	GAME:WaitFrames(5)
+	GROUND:CharTurnToCharAnimated(CH('PARTNER'), CH('Bidoof'), 2)
+	UI:SetSpeaker(CH('Bidoof'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S3_Bidoof_4']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S3_PARTNER_2_'..tostring(pTalkKind)]))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	UI:SetSpeaker(CH('Bidoof'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S3_Bidoof_5']))
+	GROUND:CharAnimateTurnTo(CH('Bidoof'), Dir8.Up, 2)
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	GAME:WaitFrames(15)
+	-- TODO: bgm_Stop()
+	SOUND:PlayBattleSE("UNK_6415")
+	GAME:WaitFrames(15)
+	GROUND:CharSetEmote(CH('PLAYER'), "exclaim", 1)
+	CharacterActions.ScaredJump(CH('PARTNER'), CH('PARTNER').Direction)
+	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+	GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.Up, 2)
+	GAME:WaitFrames(5)
+	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Up, 2)
+	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+	ExplorerEssentials.SetSpeakerUnknown(nil)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S3_UNKNOWN_1']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S3_UNKNOWN_2']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	-- ### screen2_FadeOut(1, 15) [IRRELEVANT]
+	-- ### back2_SetMode(0) [IRRELEVANT]
+	SOUND:PlayBGM("UNK_BGM_EARTHQUAKE1.ogg", true)
+	-- TODO: camera_SetEffect(2, 1, 1.0)
+	GAME:WaitFrames(15)
+	-- TODO camera_SetPositionMark: camera_SetPositionMark(Position<'m3', 55.5, 26.5>)
+	GROUND:CharSetAnim(CH('Bidoof'), "Walk", false)
+	-- TODO SlidePositionOffset: SlidePositionOffset<actor ACTOR_NPC_BIPPA>(1, 0, 8)
+	GAME:WaitFrames(10)
+	GROUND:CharEndAnim(CH('Bidoof'))
+	GROUND:CharSetAnim(CH('PLAYER'), "Walk", false)
+	-- TODO SlidePositionOffset: SlidePositionOffset<actor ACTOR_PLAYER>(1, 0, 8)
+	GAME:WaitFrames(5)
+	GROUND:CharSetAnim(CH('PARTNER'), "Walk", false)
+	-- TODO SlidePositionOffset: SlidePositionOffset<actor ACTOR_ATTENDANT1>(1, 0, 8)
+	-- !! WaitExecuteLives(ACTOR_PLAYER)
+	GROUND:CharEndAnim(CH('PLAYER'))
+	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+	GROUND:CharEndAnim(CH('PARTNER'))
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Surprised")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S3_PARTNER_3']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	UI:SetSpeaker(CH('Bidoof'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S3_Bidoof_6']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S3_PARTNER_4']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	-- TODO: bgm_Stop()
+	SOUND:PlayBattleSE("UNK_6416")
+	-- TODO SetAnimation: SetAnimation<object OBJECT_G01P03A1_100>(18)
+	-- TODO WaitAnimation: WaitAnimation<object OBJECT_G01P03A1_100>()
+	-- TODO: WaitExecuteObject(OBJECT_G01P03A1_100)
+	-- TODO SetAnimation: SetAnimation<object OBJECT_G01P03A1_100>(11)
+	-- TODO: camera_SetEffect(0, 0, 0)
+	GROUND:CharSetEmote(CH('PLAYER'), "exclaim", 1)
+	CharacterActions.ScaredJump(CH('PARTNER'), CH('PARTNER').Direction)
+	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Surprised")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S3_PARTNER_5']))
+	-- ### back2_SetMode(4) [IRRELEVANT]
+	-- ### back2_SetGround(LEVEL_V03P02A) [IRRELEVANT]
+	-- ### camera2_SetPositionMark(Position<'m4', 19.5, 16.5>) [IRRELEVANT]
+	-- ### screen2_FadeIn(1, 15) [IRRELEVANT]
+	GAME:WaitFrames(30)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Surprised")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S3_PARTNER_6']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	GROUND:CharTurnToCharAnimated(CH('Bidoof'), CH('PLAYER'), 2)
+	-- !! WaitExecuteLives(ACTOR_NPC_BIPPA)
+	GROUND:CharTurnToCharAnimated(CH('PARTNER'), CH('Bidoof'), 2)
+	GROUND:CharTurnToCharAnimated(CH('PLAYER'), CH('Bidoof'), 2)
+	SOUND:PlayBGM("011 - Wigglytuff's Guild Remix.ogg", true)
+	UI:SetSpeaker(CH('Bidoof'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S3_Bidoof_7']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S3_Bidoof_8']))
+	UI:WaitShowTimedDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S3_Bidoof_9']), CH('DUGTRIO'):GetDisplayName())
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	SOUND:PlayBattleSE("EVT_Emote_Confused")
+	GROUND:CharSetEmote(CH('PARTNER'), "question", 1)
+	GAME:WaitFrames(30)
+	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("UNK_FACE_WORRIED")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S3_PARTNER_7']))
+	-- ### screen2_FadeOut(0, 30) [IRRELEVANT]
+	GAME:FadeOut(false, 30)
+	-- ### back2_SetMode(0) [IRRELEVANT]
+end
+
+function guild_second_floor.CH3_LookAtJobsB()
+	local hTalkKind = SV.Personality.HeroTalkKind
+	local pTalkKind = SV.Personality.PartnerTalkKind
+	SOUND:PlayBGM("011 - Wigglytuff's Guild Remix.ogg", true)
+	-- ### back2_SetMode(4) [IRRELEVANT]
+	-- ### back2_SetGround(LEVEL_V03P02A) [IRRELEVANT]
+	-- back_SetGround(LEVEL_G01P03A) (Should be the map you're currently on, or the map it sends you to next)
+	-- ### supervision_Acting(0) [IRRELEVANT]
+	-- ### supervision_LoadStation(LEVEL_G01P03A, 'UM03') [IRRELEVANT]
+	-- ### supervision_Station(4) [IRRELEVANT]
+	GROUND:CharEndAnim(CH('Bidoof'))
+	-- TODO SetAnimation: SetAnimation<object OBJECT_G01P03A1_100>(11)
+	-- ### camera2_SetPositionMark(Position<'m0', 19.5, 16.5>) [IRRELEVANT]
+	GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
+	-- TODO: WaitLockLives(5, ACTOR_ATTENDANT1)
+	-- ### screen2_FadeIn(0, 30) [IRRELEVANT]
+	GAME:FadeIn(30)
+	GAME:WaitFrames(30)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_PARTNER_1']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	GAME:WaitFrames(15)
+	SOUND:PlayBattleSE("UNK_6415")
+	GAME:WaitFrames(15)
+	GROUND:CharSetEmote(CH('PLAYER'), "notice", 1)
+	-- TODO: Unlock(5)
+	UI:SetSpeaker(CH('Dugtrio'):GetDisplayName())
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_Dugtrio_1']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_Dugtrio_2']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	-- TODO: WaitLockLives(6, ACTOR_ATTENDANT1)
+	-- TODO: Unlock(6)
+	GAME:WaitFrames(5)
+	GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.Up, 2)
+	GROUND:CharAnimateTurnTo(CH('Bidoof'), Dir8.Up, 2)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_PARTNER_2']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	-- ### screen2_FadeOut(1, 15) [IRRELEVANT]
+	-- ### back2_SetMode(0) [IRRELEVANT]
+	-- TODO: bgm2_Play(BGM_EARTHQUAKE1)
+	-- TODO: camera_SetEffect(2, 1, 1.0)
+	GAME:WaitFrames(45)
+	-- TODO: bgm2_Stop()
+	SOUND:PlayBattleSE("UNK_6416")
+	-- TODO SetAnimation: SetAnimation<object OBJECT_G01P03A1_100>(20)
+	-- TODO WaitAnimation: WaitAnimation<object OBJECT_G01P03A1_100>()
+	-- TODO: WaitExecuteObject(OBJECT_G01P03A1_100)
+	-- TODO SetAnimation: SetAnimation<object OBJECT_G01P03A1_100>(9)
+	-- TODO: camera_SetEffect(0, 0, 0)
+	GAME:WaitFrames(45)
+	UI:SetSpeaker(CH('Bidoof'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_Bidoof_1']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_Bidoof_2']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	GAME:WaitFrames(30)
+	SOUND:FadeOutBGM(120)
+	-- TODO: clear $EVENT_LOCAL
+	-- TODO: Unlock(7)
+	GAME:WaitFrames(15)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Determined")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_PARTNER_3']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	SOUND:PlayBattleSE("EVT_Emote_Exclaim_2")
+	GROUND:CharSetEmote(CH('Bidoof'), "notice", 1)
+	GAME:WaitFrames(30)
+	GAME:WaitFrames(30)
+	GROUND:CharTurnToCharAnimated(CH('Bidoof'), CH('PARTNER'), 2)
+	-- !! WaitExecuteLives(ACTOR_NPC_BIPPA)
+	UI:SetSpeaker(CH('Bidoof'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_Bidoof_3']))
+	GROUND:CharTurnToCharAnimated(CH('PLAYER'), CH('PARTNER'), 2)
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	GAME:WaitFrames(20)
+	GROUND:CharAnimateTurnTo(CH('Bidoof'), UNK_2, 1)
+	GAME:WaitFrames(20)
+	GROUND:CharAnimateTurnTo(CH('Bidoof'), UNK_3, 1)
+	GAME:WaitFrames(30)
+	GROUND:CharAnimateTurnTo(CH('Bidoof'), UNK_2, 1)
+	GAME:WaitFrames(45)
+	SOUND:PlayBattleSE("EVT_Emote_Confused")
+	GROUND:CharSetEmote(CH('Bidoof'), "question", 1)
+	GAME:WaitFrames(30)
+	-- !! WaitExecuteLives(ACTOR_NPC_BIPPA)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_Bidoof_4']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Determined")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_PARTNER_4_'..tostring(pTalkKind)]))
+	-- ### back2_SetMode(4) [IRRELEVANT]
+	-- ### screen2_FadeOut(1, 15) [IRRELEVANT]
+	-- ### back2_SetGround(LEVEL_V03P01A) [IRRELEVANT]
+	-- ### camera2_SetPositionMark(Position<'m1', 19.5, 16.5>) [IRRELEVANT]
+	-- ### screen2_FadeIn(1, 15) [IRRELEVANT]
+	GAME:WaitFrames(30)
+	GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.Up, 2)
+	-- !! WaitExecuteLives(ACTOR_PLAYER)
+	GROUND:CharAnimateTurnTo(CH('Bidoof'), Dir8.Up, 2)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Determined")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_PARTNER_5_'..tostring(pTalkKind)]))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	-- ### screen2_FadeOut(1, 15) [IRRELEVANT]
+	-- ### back2_SetGround(LEVEL_V03P04A) [IRRELEVANT]
+	-- ### camera2_SetPositionMark(Position<'m2', 19.5, 16.5>) [IRRELEVANT]
+	-- ### screen2_FadeIn(1, 15) [IRRELEVANT]
+	SOUND:PlayBattleSE("EVT_Emote_Exclaim_Realized")
+	-- TODO: WaitSe(8966)
+	GAME:WaitFrames(15)
+	SOUND:PlayBattleSE("EVT_Emote_Shock")
+	GROUND:CharSetEmote(CH('PLAYER'), "shock", 1)
+	GAME:WaitFrames(30)
+	-- !! WaitExecuteLives(ACTOR_PLAYER)
+	-- TODO: WaitSe(8968)
+	SOUND:PlayBGM("UNK_BGM_OH_NO.ogg", true)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Determined")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_PARTNER_6']))
+	-- TODO: $EVENT_LOCAL = 1
+	-- TODO: WaitLockLives(8, ACTOR_ATTENDANT1)
+	-- ### screen2_FadeOut(1, 15) [IRRELEVANT]
+	-- ### back2_SetMode(0) [IRRELEVANT]
+	GAME:WaitFrames(30)
+	GROUND:CharTurnToCharAnimated(CH('PARTNER'), CH('PLAYER'), 2)
+	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+	GROUND:CharTurnToCharAnimated(CH('PLAYER'), CH('PARTNER'), 2)
+	GROUND:CharTurnToCharAnimated(CH('Bidoof'), CH('PARTNER'), 2)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_PARTNER_7_'..tostring(pTalkKind)]))
+	GROUND:MoveToPosition(CH('PARTNER'), 328, 216, false, 2)
+	GAME:WaitFrames(5)
+	GROUND:MoveToPosition(CH('PLAYER'), 328, 216, false, 2)
+	GROUND:MoveToPosition(CH('PARTNER'), 328, 120, false, 2)
+	GROUND:MoveToPosition(CH('PLAYER'), 328, 120, false, 2)
+	ExplorerEssentials.MoveToPositionOffset(CH('PARTNER'), 0, -32, false, 2)
+	ExplorerEssentials.MoveToPositionOffset(CH('PLAYER'), 0, -32, false, 2)
+	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+	GROUND:Hide("PARTNER")
+	-- !! WaitExecuteLives(ACTOR_PLAYER)
+	GROUND:Hide("PLAYER")
+	GAME:WaitFrames(30)
+	SOUND:PlayBattleSE("EVT_Emote_Sweating")
+	GROUND:CharSetEmote(CH('Bidoof'), "sweating", 1)
+	GAME:WaitFrames(30)
+	-- !! WaitExecuteLives(ACTOR_NPC_BIPPA)
+	UI:SetSpeaker(CH('Bidoof'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_Bidoof_5']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_Bidoof_6']))
+	GAME:FadeOut(false, 30)
+	-- TODO: $PERFORMANCE_PROGRESS_LIST[3] = 1
+end
+
+--[[function DEF_1()
+	local hTalkKind = SV.Personality.HeroTalkKind
+	local pTalkKind = SV.Personality.PartnerTalkKind
+GROUND:CharEndAnim(CH('UNK_tor ACTOR_ATTENDANT1'))
+	-- TODO: Lock(5)
+	-- TODO SetEffect: SetEffect(EFFECT_EXCLAMATION_MARK, 3)
+	-- TODO: Lock(6)
+	-- Turn2Direction(4, 10, DIR_UP)
+	-- TODO: Lock(7)
+	-- TODO: ResetHitAttribute(31)
+GROUND:CharSetAnim(CH('UNK_tor ACTOR_ATTENDANT1'), "UNK_3", false)
+	-- TODO: @label_1
+	-- TODO: forever {         SlidePositionOffset(1, 1, 0)
+	GAME:WaitFrames(1)
+	-- TODO SlidePositionOffset: SlidePositionOffset(1, -1, 0)
+	GAME:WaitFrames(1)
+	-- TODO: switch ( $EVENT_LOCAL ) {             case 1:                 break_loop
+	-- TODO: break
+	-- TODO case: default:                 continue
+	-- TODO: // may be redundant         }     }     @label_0
+GROUND:CharEndAnim(CH('UNK_tor ACTOR_ATTENDANT1'))
+	-- TODO: Lock(8)
+	-- TODO: hold
+end]]
+
+function guild_second_floor.CH3_Failed()
+	local hTalkKind = SV.Personality.HeroTalkKind
+	local pTalkKind = SV.Personality.PartnerTalkKind
+	SOUND:StopBGM()
+	-- back_SetGround(LEVEL_S04P01A) (Should be the map you're currently on, or the map it sends you to next)
+	GAME:FadeIn(0)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Pain")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S5_PARTNER_1_'..tostring(pTalkKind)]))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S5_PARTNER_2_'..tostring(pTalkKind)]))
+	-- TODO: message_KeyWait()
+	GAME:FadeOut(false, 60)
+	GAME:WaitFrames(60)
+	-- TODO CallCommon: CallCommon(CORO_FADE_OUT_ALL_AFTER)
+
+end
+
 function guild_second_floor.CH3_JobComplete()
-    --[[
-def 0 {
-    sound_Stop();
-    back_SetGround(LEVEL_G01P03A);
-    supervision_Acting(0);
-    camera_SetMyself<performer 0>();
-    screen_FadeIn(1, 30);
-    bgm_PlayFadeIn(BGM_JOB_CLEAR, 0, 256);
-    Wait(30);
-    message_SetFace(ACTOR_NPC_PERAPPU, FACE_NORMAL, FACE_POS_TOP_R_CENTER);
-    message_Talk({
-        english="""
-             I've gotten the bounty from
-            Officer [CS:N]Magnezone[CR] for the captured outlaw! ♪
-        """,
-    });
-    message_Talk({
-        english=" Well done, you two! ♪",
-    });
-    message_Talk({
-        english="""
-             Here's your share for the job.[K]
-            It's yours to keep! ♪
-        """,
-    });
-    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-    me_Play(4);
-    message_Mail({
-        english="""
-            [CN][hero]'s team received
-            [CN]the [CS:G]3[MP]000[CR][M:S0] bounty that was on
-            [CN]the head of the captured outlaw!
-        """,
-    });
-    WaitMe(4);
-    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-    message_Mail({
-        english="[CN]However...",
-    });
-    message_Mail({
-        english="""
-            [CN]Because [CS:G]2[MP]700[CR][M:S0] of that
-            [CN]is the guild's share...
-        """,
-    });
-    message_Mail({
-        english="[CN]That portion was withheld...",
-    });
-    message_Mail({
-        english="""
-            [CN]As a result,
-            [CN][hero]'s team...
-        """,
-    });
-    message_Mail({
-        english="""
-            [CN]Received only the
-            [CN]remaining [CS:G]300[CR][M:S0]!
-        """,
-    });
-    message_Close();
-    $CARRY_GOLD += 300;
-    bgm_Stop();
-    se_Play(8968);
-    SetEffect<actor ACTOR_PLAYER>(EFFECT_SHOCKED, 3);
-    SetEffect<actor ACTOR_ATTENDANT1>(EFFECT_SHOCKED, 3);
-    WaitEffect<actor ACTOR_ATTENDANT1>();
-    WaitExecuteLives(ACTOR_ATTENDANT1);
-    WaitSe(8968);
-    Wait(15);
-    bgm_PlayFadeIn(BGM_GUILDMASTER_WIGGLYTUFF, 0, 256);
-    message_SetFace(ACTOR_ATTENDANT1, FACE_SURPRISED, FACE_POS_STANDARD);
-    message_SwitchTalk ($PARTNER_TALK_KIND) {
-        case 1:
-            {
-                english=" Huh?! We get only this much?!",
-            }
-        case 2:
-            {
-                english=" What?! This is all we get?!",
-            }
-        default:
-            {
-                english=" No way! This is all we get?!",
-            }
-    }
-    WaitExecuteLives(ACTOR_ATTENDANT1);
-    message_KeyWait();
-    message_SetFace(ACTOR_ATTENDANT1, FACE_SAD, FACE_POS_STANDARD);
-    message_SwitchTalk ($PARTNER_TALK_KIND) {
-        case 1:
-            {
-                english=" After all that hard work...",
-            }
-        case 2:
-            {
-                english=" After all that hard work...",
-            }
-        default:
-            {
-                english=" After all our effort...",
-            }
-    }
-    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-    message_SetFace(ACTOR_NPC_PERAPPU, FACE_NORMAL, FACE_POS_TOP_R_CENTER);
-    message_Talk({
-        english="""
-             ...[K]But of course![K] It's all part
-            of the training!
-        """,
-    });
-    message_SetFace(ACTOR_NPC_PERAPPU, FACE_HAPPY, FACE_POS_TOP_R_CENTER);
-    message_Talk({
-        english="""
-             And we expect just as much
-            effort tomorrow![K] Hee-heeee! ♪
-        """,
-    });
-    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-    Turn2Direction<actor ACTOR_PLAYER>(16, 10, DIR_UPLEFT);
-    Turn2Direction<actor ACTOR_ATTENDANT1>(16, 10, DIR_UPLEFT);
-    MovePositionMark<actor ACTOR_NPC_PERAPPU>(1, Position<'m0', 45.5, 25.5>);
-    WaitExecuteLives(ACTOR_NPC_PERAPPU);
-    MovePositionMark<actor ACTOR_NPC_PERAPPU>(1, Position<'m1', 45.5, 22.5>);
-    WaitExecuteLives(ACTOR_NPC_PERAPPU);
-    Destroy<actor ACTOR_NPC_PERAPPU>();
-    Wait(60);
-    se_Play(8972);
-    SetEffect<actor ACTOR_ATTENDANT1>(EFFECT_SWEAT_DROPS_FROM_BOTH_SIDES_MEDIUM, 3);
-    WaitEffect<actor ACTOR_ATTENDANT1>();
-    message_SetFace(ACTOR_ATTENDANT1, FACE_PAIN, FACE_POS_BOTTOM_L_FACEOUTW);
-    message_SwitchTalk ($PARTNER_TALK_KIND) {
-        case 1:
-            {
-                english=" Urf...",
-            }
-        case 2:
-            {
-                english=" Urf...",
-            }
-        default:
-            {
-                english=" Urf...",
-            }
-    }
-    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-    Turn2DirectionLives<actor ACTOR_ATTENDANT1>(4, 1, ACTOR_PLAYER);
-    WaitExecuteLives(ACTOR_ATTENDANT1);
-    Turn2DirectionLives<actor ACTOR_PLAYER>(4, 2, ACTOR_ATTENDANT1);
-    message_SetFace(ACTOR_ATTENDANT1, FACE_SAD, FACE_POS_STANDARD);
-    message_SwitchTalk ($PARTNER_TALK_KIND) {
-        case 1:
-            {
-                english="""
-                     You know, it would make me
-                    happy if our share was just a little bigger.
-                """,
-            }
-        case 2:
-            {
-                english="""
-                     I'd be happy if our share of the
-                    reward was just a little bigger.
-                """,
-            }
-        default:
-            {
-                english="""
-                     It would be nice if they'd give
-                    us a slightly bigger share of the reward.
-                """,
-            }
-    }
-    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-    Wait(30);
-    SetEffect<actor ACTOR_ATTENDANT1>(EFFECT_LAUGHING, 3);
-    message_SetFace(ACTOR_ATTENDANT1, FACE_HAPPY, FACE_POS_STANDARD);
-    message_SwitchTalk ($PARTNER_TALK_KIND) {
-        case 1:
-            {
-                english="""
-                     But that's OK.[K] We managed to
-                    rescue [CS:N]Azurill[CR].
-                """,
-            }
-        case 2:
-            {
-                english="""
-                     But that's all right.[K] We managed
-                    to rescue [CS:N]Azurill[CR].
-                """,
-            }
-        default:
-            {
-                english="""
-                     But that's all right.[K] We managed
-                    to rescue [CS:N]Azurill[CR].
-                """,
-            }
-    }
-    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-    bgm_FadeOut(190);
-    SetEffect<actor ACTOR_ATTENDANT1>(EFFECT_NONE, 3);
-    message_SetFace(ACTOR_ATTENDANT1, FACE_NORMAL, FACE_POS_STANDARD);
-    message_SwitchTalk ($PARTNER_TALK_KIND) {
-        case 1:
-            {
-                english="""
-                     And it's all thanks to you,
-                    [hero]!
-                """,
-            }
-        case 2:
-            {
-                english="""
-                     And it's all thanks to you,
-                    [hero]!
-                """,
-            }
-        default:
-            {
-                english="""
-                     And it's all thanks to you,
-                    [hero]!
-                """,
-            }
-    }
-    message_SwitchTalk ($PARTNER_TALK_KIND) {
-        case 1:
-            {
-                english="""
-                     Because you had that dream,
-                    [hero]...
-                """,
-            }
-        case 2:
-            {
-                english="""
-                     Because you had that dream,
-                    [hero]...
-                """,
-            }
-        default:
-            {
-                english="""
-                     Because you had that dream,
-                    [hero]...
-                """,
-            }
-    }
-    message_SwitchTalk ($PARTNER_TALK_KIND) {
-        case 1:
-            {
-                english="""
-                     We knew about [CS:N]Azurill[CR]'s
-                    trouble in advance.
-                """,
-            }
-        case 2:
-            {
-                english="""
-                     We learned about [CS:N]Azurill[CR]'s
-                    trouble in advance.
-                """,
-            }
-        default:
-            {
-                english="""
-                     We learned about [CS:N]Azurill[CR]'s
-                    trouble in advance.
-                """,
-            }
-    }
-    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-    se_Play(8978);
-    SetEffect<actor ACTOR_PLAYER>(EFFECT_EXCLAMATION_MARK, 3);
-    message_SetFace(ACTOR_PLAYER, FACE_NORMAL, FACE_POS_BOTTOM_R_FACEINW);
-    message_SwitchMonologue ($HERO_TALK_KIND) {
-        case 4:
-            {
-                english="(It's true!)",
-            }
-        default:
-            {
-                english="(It's true!)",
-            }
-    }
-    message_SwitchMonologue ($HERO_TALK_KIND) {
-        case 4:
-            {
-                english="(I can't explain it, but...)",
-            }
-        default:
-            {
-                english="(I can't explain it, but...)",
-            }
-    }
-    message_SwitchMonologue ($HERO_TALK_KIND) {
-        case 4:
-            {
-                english="(That first shout I heard from [CS:N]Azurill[CR]...)",
-            }
-        default:
-            {
-                english="(That first shout I heard from [CS:N]Azurill[CR]...)",
-            }
-    }
-    message_Close();
-    screen_FadeOut(1, 15);
-    Wait(20);
-    message_Explanation({
-        english="[CN]H-h-h...HELP!",
-    });
-    message_Close();
-    screen_FadeIn(1, 15);
-    Wait(20);
-    message_SetFace(ACTOR_PLAYER, FACE_NORMAL, FACE_POS_BOTTOM_R_FACEINW);
-    message_SwitchMonologue ($HERO_TALK_KIND) {
-        case 4:
-            {
-                english="(And that dream I had...)",
-            }
-        default:
-            {
-                english="(And that dream I had...)",
-            }
-    }
-    message_Close();
-    screen_FadeOut(1, 15);
-    end;
-}
-]]--
+	local hTalkKind = SV.Personality.HeroTalkKind
+	local pTalkKind = SV.Personality.PartnerTalkKind
+	SOUND:StopBGM()
+	-- back_SetGround(LEVEL_G01P03A) (Should be the map you're currently on, or the map it sends you to next)
+	-- ### supervision_Acting(0) [IRRELEVANT]
+	GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
+	GAME:FadeIn(30)
+	SOUND:PlayBGM("UNK_BGM_JOB_CLEAR.ogg", true)
+	GAME:WaitFrames(30)
+	UI:SetSpeaker(CH('Chatot'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowTimedDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S6_Chatot_1']), CH('MAGNEZONE'):GetDisplayName())
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S6_Chatot_2']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S6_Chatot_3']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	SOUND:PlayFanfare("Fanfare/Item")
+	UI:SetCenter(true)
+	UI:WaitShowTimedDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S6_Chatot_4']), CH('PLAYER'):GetDisplayName())
+	UI:SetCenter(false)
+	-- TODO: WaitMe(4)
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	UI:SetCenter(true)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S6_Chatot_5']))
+	UI:SetCenter(false)
+	UI:SetCenter(true)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S6_Chatot_6']))
+	UI:SetCenter(false)
+	UI:SetCenter(true)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S6_Chatot_7']))
+	UI:SetCenter(false)
+	UI:SetCenter(true)
+	UI:WaitShowTimedDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S6_Chatot_8']), CH('PLAYER'):GetDisplayName())
+	UI:SetCenter(false)
+	UI:SetCenter(true)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S6_Chatot_9']))
+	UI:SetCenter(false)
+	-- TODO: $CARRY_GOLD += 300
+	-- TODO: bgm_Stop()
+	SOUND:PlayBattleSE("EVT_Emote_Shock")
+	GROUND:CharSetEmote(CH('PLAYER'), "shock", 1)
+	GROUND:CharSetEmote(CH('PARTNER'), "shock", 1)
+	GAME:WaitFrames(30)
+	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+	-- TODO: WaitSe(8968)
+	GAME:WaitFrames(15)
+	SOUND:PlayBGM("009 - Guildmaster Wigglytuff.ogg", true)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Surprised")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S6_PARTNER_1_'..tostring(pTalkKind)]))
+	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+	-- TODO: message_KeyWait()
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Sad")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S6_PARTNER_2_'..tostring(pTalkKind)]))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	UI:SetSpeaker(CH('Chatot'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S6_Chatot_10']))
+	UI:SetSpeaker(CH('Chatot'))
+	UI:SetSpeakerEmotion("Happy")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S6_Chatot_11']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.UpLeft, 8)
+	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.UpLeft, 8)
+	GROUND:MoveToPosition(CH('Chatot'), 360, 200, false, 1)
+	-- !! WaitExecuteLives(ACTOR_NPC_PERAPPU)
+	GROUND:MoveToPosition(CH('Chatot'), 360, 176, false, 1)
+	-- !! WaitExecuteLives(ACTOR_NPC_PERAPPU)
+	GROUND:Hide("Chatot")
+	GAME:WaitFrames(60)
+	SOUND:PlayBattleSE("EVT_Emote_Sweating")
+	GROUND:CharSetEmote(CH('PARTNER'), "sweating", 1)
+	GAME:WaitFrames(30)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Pain")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S6_PARTNER_3']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	GROUND:CharTurnToCharAnimated(CH('PARTNER'), CH('PLAYER'), 2)
+	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+	GROUND:CharTurnToCharAnimated(CH('PLAYER'), CH('PARTNER'), 2)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Sad")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S6_PARTNER_4_'..tostring(pTalkKind)]))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	GAME:WaitFrames(30)
+	GROUND:CharSetEmote(CH('PARTNER'), "happy", 1)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Happy")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S6_PARTNER_5_'..tostring(pTalkKind)]))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	SOUND:FadeOutBGM(190)
+	GROUND:CharSetEmote(CH('PARTNER'), "none", 1)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S6_PARTNER_6']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S6_PARTNER_7']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S6_PARTNER_8_'..tostring(pTalkKind)]))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	SOUND:PlayBattleSE("EVT_Emote_Exclaim_2")
+	GROUND:CharSetEmote(CH('PLAYER'), "exclaim", 1)
+	ExplorerEssentials.SetSpeakerHero()
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S6_PLAYER_1']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S6_PLAYER_2']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S6_PLAYER_3']))
+	GAME:FadeOut(false, 15)
+	GAME:WaitFrames(20)
+	UI:ResetSpeaker()
+	UI:SetCenter(true)
+	UI:WaitShowVoiceOver(STRINGS:Format(STRINGS.MapStrings['CH3_S6_NARRATION_1']), -1)
+	UI:SetCenter(false)
+	GAME:FadeIn(15)
+	GAME:WaitFrames(20)
+	ExplorerEssentials.SetSpeakerHero()
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S6_PLAYER_4']))
+	GAME:FadeOut(false, 15)
+end
+
+function guild_second_floor.CH3_JobCompleteB()
+	local hTalkKind = SV.Personality.HeroTalkKind
+	local pTalkKind = SV.Personality.PartnerTalkKind
+	SOUND:StopBGM()
+	-- back_SetGround(LEVEL_G01P03A) (Should be the map you're currently on, or the map it sends you to next)
+	-- ### supervision_Acting(0) [IRRELEVANT]
+	GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
+	GAME:FadeIn(15)
+	GAME:WaitFrames(30)
+	ExplorerEssentials.SetSpeakerHero()
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S7_PLAYER_1']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S7_PLAYER_2']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S7_PLAYER_3']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S7_PLAYER_4']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	SOUND:PlayBattleSE("UNK_8720")
+	-- TODO: WaitSe(8720)
+	SOUND:PlayBattleSE("EVT_Emote_Exclaim_2")
+	GROUND:CharSetEmote(CH('PLAYER'), "exclaim", 1)
+	GROUND:CharSetEmote(CH('PARTNER'), "exclaim", 1)
+	GAME:WaitFrames(30)
+	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Normal")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S7_PARTNER_1_'..tostring(pTalkKind)]))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	SOUND:PlayBattleSE("UNK_8720")
+	-- TODO: WaitSe(8720)
+	GROUND:CharSetEmote(CH('PLAYER'), "exclaim", 1)
+	GROUND:CharSetEmote(CH('PARTNER'), "exclaim", 1)
+	GAME:WaitFrames(30)
+	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+	SOUND:PlayBGM("UNK_BGM_HEARTWARMING.ogg", true)
+	GROUND:CharSetEmote(CH('PARTNER'), "happy", 1)
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Joyous")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S7_PARTNER_2']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S7_PARTNER_3_'..tostring(pTalkKind)]))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S7_PARTNER_4']))
+	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	GROUND:CharSetEmote(CH('PARTNER'), "none", 1)
+	SOUND:PlayBattleSE("UNK_8720")
+	-- TODO: WaitSe(8720)
+	SOUND:PlayBattleSE("UNK_8720")
+	-- TODO: WaitSe(8720)
+	GROUND:CharSetEmote(CH('PLAYER'), "exclaim", 1)
+	GROUND:CharSetEmote(CH('PARTNER'), "exclaim", 1)
+	GAME:WaitFrames(30)
+	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+	GAME:WaitFrames(15)
+	GROUND:CharSetEmote(CH('PARTNER'), "happy", 1)
+	GAME:WaitFrames(5)
+	GROUND:CharSetEmote(CH('PLAYER'), "happy", 1)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S7_PARTNER_5']))
+	UI:SetSpeaker(CH('PARTNER'))
+	UI:SetSpeakerEmotion("Happy")
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S7_PARTNER_6_'..tostring(pTalkKind)]))
+	GROUND:CharSetEmote(CH('PLAYER'), "none", 1)
+	GROUND:CharSetEmote(CH('PARTNER'), "none", 1)
+	GAME:WaitFrames(20)
+	GROUND:MoveToPosition(CH('PARTNER'), 360, 232, false, 1)
+	GAME:WaitFrames(10)
+	GROUND:MoveToPosition(CH('PLAYER'), 360, 232, false, 1)
+	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+	GROUND:MoveToPosition(CH('PARTNER'), 360, 176, false, 1)
+	-- !! WaitExecuteLives(ACTOR_PLAYER)
+	GROUND:MoveToPosition(CH('PLAYER'), 360, 176, false, 1)
+	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+	GROUND:Hide("PARTNER")
+	SOUND:FadeOutBGM(120)
+	GAME:FadeOut(true, 60)
+	-- !! WaitExecuteLives(ACTOR_PLAYER)
+	GROUND:Hide("PLAYER")
+	-- TODO: WaitBgm(BGM_HEARTWARMING)
 end
 
 return guild_second_floor

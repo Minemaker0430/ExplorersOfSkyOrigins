@@ -163,6 +163,48 @@
   <data name="CH2_S3_Chatot_2" xml:space="preserve">
     <value>You two come here. ♪</value>
   </data>
+  	<data name="CH3_S1_Chatot_1" xml:space="preserve">
+		<value>Oh, you two! Still wandering around lost, it seems...</value>
+	</data>
+	<data name="CH3_S1_Chatot_2" xml:space="preserve">
+		<value>Well, come with me.</value>
+	</data>
+		<data name="CH3_S2_Bidoof_1" xml:space="preserve">
+		<value>First things first!</value>
+	</data>
+	<data name="CH3_S2_Bidoof_2" xml:space="preserve">
+		<value>Here, we have {0}...</value>
+	</data>
+	<data name="CH3_S2_Bidoof_3" xml:space="preserve">
+		<value>But to tell the truth, I don't have any idea what that Pokémon's up to...</value>
+	</data>
+	<data name="CH3_S2_Bidoof_4" xml:space="preserve">
+		<value>He always seems to be fiddling around with that big cauldron back there. It's all a mystery to me! Yup yup!</value>
+	</data>
+	<data name="CH3_S2_Bidoof_5" xml:space="preserve">
+		<value>Over this way's the mess hall.</value>
+	</data>
+	<data name="CH3_S2_Bidoof_6" xml:space="preserve">
+		<value>And if you all look that way, you'll find the crew rooms.</value>
+	</data>
+	<data name="CH3_S2_Bidoof_7" xml:space="preserve">
+		<value>And this here leads to the Guildmaster's Chamber.</value>
+	</data>
+	<data name="CH3_S2_Bidoof_8" xml:space="preserve">
+		<value>Next, I'll guide you both around places outside the guild.</value>
+	</data>
+		<data name="CH3_S3_PARTNER_1" xml:space="preserve">
+		<value>Hurry! We have to rescue {0}!</value>
+	</data>
+	<data name="CH3_S3_PARTNER_2_1" xml:space="preserve">
+		<value>Quick! Off to [CS:P]Mt. Bristle[CR]!</value>
+	</data>
+	<data name="CH3_S3_PARTNER_2_0" xml:space="preserve">
+		<value>Hurry! Off to [CS:P]Mt. Bristle[CR]!</value>
+	</data>
+	<data name="CH3_S3_PARTNER_2_2" xml:space="preserve">
+		<value>Hurry! Off to [CS:P]Mt. Bristle[CR]!</value>
+	</data>
   <data name="C_Chimecho_1" xml:space="preserve">
     <value>Everyone![pause=0] Thanks for waiting! ♪</value>
   </data>
