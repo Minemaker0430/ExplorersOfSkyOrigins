@@ -11,7 +11,7 @@
 --------------------------------------------------------------------------------------------------------------
 -- Service Packages
 --------------------------------------------------------------------------------------------------------------
---require 'missiongen_lib.missiongen_service' [TEMPORARILY DISABLED]
+require 'missiongen_lib.missiongen_service'
 
 require 'eos.services.menu_tools'
 require 'eos.services.debug_tools'

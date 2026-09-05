@@ -1,5 +1,5 @@
 ﻿{
-"Version": "0.8.11.0",
+"Version": "0.8.12.0",
 "Object": {
 "$type": "RogueEssence.Data.ItemData, RogueEssence",
 "Name": {
@@ -7,7 +7,7 @@
 "LocalTexts": {}
 },
 "Desc": {
-"DefaultText": "A hold item that prevents the Pokémon from falling asleep.",
+"DefaultText": "A held item that prevents a Sleep status condition or a Yawning status from being inflicted on the Pokémon.",
 "LocalTexts": {}
 },
 "Released": true,
@@ -183,7 +183,22 @@
 "$type": "PMDC.Dungeon.PreventStatusCheck, PMDC",
 "StatusID": "sleep",
 "Message": {
-"Key": "MSG_INSOMNIASCOPE"
+"Key": "MSG_INSOMNIA"
+},
+"Anims": []
+}
+},
+{
+"Key": {
+"str": [
+0
+]
+},
+"Value": {
+"$type": "PMDC.Dungeon.PreventStatusCheck, PMDC",
+"StatusID": "sleep",
+"Message": {
+"Key": "MSG_INSOMNIA"
 },
 "Anims": []
 }

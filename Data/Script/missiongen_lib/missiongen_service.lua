@@ -13,7 +13,7 @@
 local library_name = "MissionGen"
 
 
-require 'nebula_mission_board.common'
+require 'eos.common'
 require 'origin.services.baseservice'
 
 local MissionTools = Class('MissionTools', BaseService)

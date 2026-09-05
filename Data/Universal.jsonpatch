@@ -4,6 +4,16 @@
     "0.8.12.0"
   ],
   "Object": {
+    "ZoneSteps": {
+      "_t": "a",
+      "2": [
+        {
+          "$type": "RogueEssence.LevelGen.ScriptZoneStep, RogueEssence",
+          "Script": "GenerateJobInFloor",
+          "ArgTable": "{}"
+        }
+      ]
+    },
     "OnPickups": {
       "_t": "a",
       "0": [
