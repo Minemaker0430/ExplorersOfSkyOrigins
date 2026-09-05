@@ -818,31 +818,6 @@
 "Comment": "",
 "SortOrder": 1
 },
-"held_chesto_scarf": {
-"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
-"Icon": -1,
-"UsageType": 0,
-"States": [
-{
-"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
-"type": "PMDC.Dungeon.EquipState"
-},
-{
-"assembly": "PMDC, Version=0.8.12.0, Culture=neutral, PublicKeyToken=null",
-"type": "PMDC.Dungeon.HeldState"
-}
-],
-"MaxStack": 0,
-"CannotDrop": false,
-"BagEffect": false,
-"Name": {
-"DefaultText": "Chesto Scarf",
-"LocalTexts": {}
-},
-"Released": true,
-"Comment": "",
-"SortOrder": 1
-},
 "held_clairvoyance_specs": {
 "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
 "Icon": -1,
@@ -1690,6 +1665,102 @@
 "Released": true,
 "Comment": "",
 "SortOrder": 1
+},
+"mission_lost_band": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": 14,
+"UsageType": 0,
+"States": [],
+"MaxStack": 0,
+"CannotDrop": true,
+"BagEffect": false,
+"Name": {
+"DefaultText": "Lost Band",
+"LocalTexts": {}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 0
+},
+"mission_lost_scarf": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": 14,
+"UsageType": 0,
+"States": [],
+"MaxStack": 0,
+"CannotDrop": true,
+"BagEffect": false,
+"Name": {
+"DefaultText": "Lost Scarf",
+"LocalTexts": {}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 0
+},
+"mission_lost_specs": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": 15,
+"UsageType": 0,
+"States": [],
+"MaxStack": 0,
+"CannotDrop": true,
+"BagEffect": false,
+"Name": {
+"DefaultText": "Lost Specs",
+"LocalTexts": {}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 0
+},
+"mission_stolen_band": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": 14,
+"UsageType": 0,
+"States": [],
+"MaxStack": 0,
+"CannotDrop": true,
+"BagEffect": false,
+"Name": {
+"DefaultText": "Stolen Band",
+"LocalTexts": {}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 0
+},
+"mission_stolen_scarf": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": 14,
+"UsageType": 0,
+"States": [],
+"MaxStack": 0,
+"CannotDrop": true,
+"BagEffect": false,
+"Name": {
+"DefaultText": "Stolen Scarf",
+"LocalTexts": {}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 0
+},
+"mission_stolen_specs": {
+"$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
+"Icon": 15,
+"UsageType": 0,
+"States": [],
+"MaxStack": 0,
+"CannotDrop": true,
+"BagEffect": false,
+"Name": {
+"DefaultText": "Stolen Specs",
+"LocalTexts": {}
+},
+"Released": true,
+"Comment": "",
+"SortOrder": 0
 },
 "orb_all_dodge": {
 "$type": "RogueEssence.Data.ItemEntrySummary, RogueEssence",
