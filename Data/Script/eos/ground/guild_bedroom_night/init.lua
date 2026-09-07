@@ -851,7 +851,7 @@ function guild_bedroom_night.CH2_NightAfterJob()
     GAME:EnterGroundMap("cutscenes", "chapter_card", "Entrance", false)
 end
 
-function DEF_0()
+function guild_bedroom_night.CH3_StormOutside()
 	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
 	SOUND:StopBGM()

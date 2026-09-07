@@ -29,6 +29,8 @@ function chapter_card.Init(map)
 
 end
 
+DEMO_END = 2
+
 ---chapter_card.Enter(map)
 --Engine callback function
 function chapter_card.Enter(map)
@@ -39,7 +41,7 @@ function chapter_card.Enter(map)
   GROUND:Hide("PLAYER")
 
   -- demo end check
-  if SV.Progression.Chapter > 2 then
+  if SV.Progression.Chapter > DEMO_END then
     SV.Progression.DemoCompleted = true
     GAME:WaitFrames(30)
     UI:ResetSpeaker()
@@ -107,11 +109,15 @@ end
 --Engine callback function
 function chapter_card.GameLoad(map)
   GROUND:Hide("PLAYER")
+
+  if SV.Progression.Chapter > DEMO_END then
+    GAME:EnterGroundMap("demo_room", "Entrance")
+  end
   
   if SV.Progression.Chapter == 1 then
 	  GAME:EnterGroundMap("storm_cutscene_a", "Entrance")
   elseif SV.Progression.Chapter == 2 then
-    GAME:EnterGroundMap("demo_room", "Entrance")
+    GAME:EnterGroundMap("guild_outside_dusk", "Entrance")
   elseif SV.Progression.Chapter >= 3 and SV.Progression.Chapter <= 6 then
     GAME:EnterGroundMap("hub", "guild_bedroom", "Entrance", false)
   else

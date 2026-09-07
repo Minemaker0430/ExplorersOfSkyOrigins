@@ -1422,7 +1422,7 @@ function dusk_beach.UTIL_PopulateBubbles()
 		RogueEssence.Content.AnimData("BeachSmallBubble_4", 15, -1, -1, 255, Dir8.None)
 	}
 
-	for i = 1, 20 do -- spawn 10 random bubbles
+	for i = 1, 20 do -- spawn 20 random bubbles
 
 		local bubbleEmitter = RogueEssence.Content.MoveToEmitter()
     	bubbleEmitter.Anim = anims[math.random(#anims)]

@@ -83,7 +83,7 @@ end
 -- Cutscene Functions
 -------------------------------
 
-function DEF_0()
+function crossroads_assembly.CH3_BidoofTour()
 	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
 	-- back_SetGround(LEVEL_P01P01A) (Should be the map you're currently on, or the map it sends you to next)
@@ -132,7 +132,7 @@ ExplorerEssentials.MoveCameraAtSpeed(252, 160, 1, false)
 	GAME:FadeOut(false, 30)
 end
 
-function DEF_0()
+function crossroads_assembly.CH3_FoundMarill()
 	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
 	SOUND:PlayBGM("UNK_BGM_OH_NO.ogg", true)
