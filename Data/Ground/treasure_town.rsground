@@ -1,5 +1,5 @@
 ﻿{
-"Version": "0.8.11.0",
+"Version": "0.8.12.0",
 "Object": {
 "$type": "RogueEssence.Ground.GroundMap, RogueEssence",
 "TexSize": 3,
@@ -69616,7 +69616,7 @@
 "Width": 8,
 "Height": 8
 },
-"Tags": 1
+"Tags": 0
 },
 {
 "Bounds": {
@@ -70185,7 +70185,7 @@
 "Width": 8,
 "Height": 8
 },
-"Tags": 1
+"Tags": 0
 },
 {
 "Bounds": {
@@ -70754,7 +70754,7 @@
 "Width": 8,
 "Height": 8
 },
-"Tags": 1
+"Tags": 0
 },
 {
 "Bounds": {
@@ -71323,7 +71323,7 @@
 "Width": 8,
 "Height": 8
 },
-"Tags": 1
+"Tags": 0
 },
 {
 "Bounds": {
@@ -71892,7 +71892,7 @@
 "Width": 8,
 "Height": 8
 },
-"Tags": 1
+"Tags": 0
 },
 {
 "Bounds": {
@@ -72461,7 +72461,7 @@
 "Width": 8,
 "Height": 8
 },
-"Tags": 1
+"Tags": 0
 },
 {
 "Bounds": {
@@ -122622,7 +122622,7 @@
 "CollisionDisabled": false,
 "Collider": {
 "X": 316,
-"Y": 153,
+"Y": 152,
 "Width": 16,
 "Height": 16
 }
@@ -122814,7 +122814,7 @@
 "CollisionDisabled": false,
 "Collider": {
 "X": 992,
-"Y": 154,
+"Y": 152,
 "Width": 16,
 "Height": 16
 }
@@ -122829,7 +122829,7 @@
 "InteractOrder": 0,
 "serializationLoc": {
 "X": 652,
-"Y": 151
+"Y": 152
 },
 "serializationHeight": 0,
 "serializationDir": 0,
@@ -122909,7 +122909,7 @@
 },
 "CollisionDisabled": false,
 "Collider": {
-"X": 651,
+"X": 652,
 "Y": 151,
 "Width": 16,
 "Height": 16
@@ -123197,8 +123197,8 @@
 },
 "CollisionDisabled": false,
 "Collider": {
-"X": 0,
-"Y": 0,
+"X": 792,
+"Y": 257,
 "Width": 16,
 "Height": 16
 }
@@ -123597,7 +123597,7 @@
 "InteractOrder": 0,
 "serializationLoc": {
 "X": 149,
-"Y": 225
+"Y": 224
 },
 "serializationHeight": 0,
 "serializationDir": 5,
@@ -123678,7 +123678,7 @@
 "CollisionDisabled": false,
 "Collider": {
 "X": 149,
-"Y": 225,
+"Y": 224,
 "Width": 16,
 "Height": 16
 }
@@ -123869,8 +123869,8 @@
 },
 "CollisionDisabled": false,
 "Collider": {
-"X": 0,
-"Y": 0,
+"X": 494,
+"Y": -22,
 "Width": 16,
 "Height": 16
 }
@@ -123965,8 +123965,8 @@
 },
 "CollisionDisabled": false,
 "Collider": {
-"X": 0,
-"Y": 0,
+"X": 522,
+"Y": -23,
 "Width": 16,
 "Height": 16
 }
@@ -124061,8 +124061,8 @@
 },
 "CollisionDisabled": false,
 "Collider": {
-"X": 0,
-"Y": 0,
+"X": 549,
+"Y": -26,
 "Width": 16,
 "Height": 16
 }
@@ -124157,8 +124157,8 @@
 },
 "CollisionDisabled": false,
 "Collider": {
-"X": 0,
-"Y": 0,
+"X": 464,
+"Y": -25,
 "Width": 16,
 "Height": 16
 }
@@ -124503,9 +124503,9 @@
 "Y": 0
 },
 "Collider": {
-"X": 968,
-"Y": 321,
-"Width": 16,
+"X": 952,
+"Y": 328,
+"Width": 48,
 "Height": 16
 }
 },
@@ -124589,10 +124589,10 @@
 "Y": 0
 },
 "Collider": {
-"X": 1067,
-"Y": 163,
+"X": 1068,
+"Y": 176,
 "Width": 16,
-"Height": 16
+"Height": 8
 }
 },
 {
@@ -124632,10 +124632,10 @@
 "Y": 0
 },
 "Collider": {
-"X": 587,
-"Y": 163,
+"X": 588,
+"Y": 176,
 "Width": 16,
-"Height": 16
+"Height": 8
 }
 },
 {
@@ -124676,9 +124676,9 @@
 },
 "Collider": {
 "X": 404,
-"Y": 161,
+"Y": 176,
 "Width": 16,
-"Height": 16
+"Height": 8
 }
 },
 {
@@ -124719,9 +124719,9 @@
 },
 "Collider": {
 "X": 100,
-"Y": 163,
+"Y": 176,
 "Width": 16,
-"Height": 16
+"Height": 8
 }
 },
 {
@@ -124768,7 +124768,7 @@
 }
 },
 {
-"EntName": "TM",
+"EntName": "TMShop",
 "Direction": 0,
 "EntEnabled": true,
 "EntOrder": 0,
@@ -124811,7 +124811,7 @@
 }
 },
 {
-"EntName": "Apple_Red",
+"EntName": "AppleObj",
 "Direction": 0,
 "EntEnabled": true,
 "EntOrder": 0,
@@ -124894,6 +124894,135 @@
 "Y": 165,
 "Width": 16,
 "Height": 92
+}
+},
+{
+"EntName": "Bank",
+"Direction": 0,
+"EntEnabled": true,
+"EntOrder": 0,
+"InteractOrder": 0,
+"triggerType": 1,
+"ObjectAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "",
+"FrameTime": 1,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": -1,
+"Alpha": 255,
+"AnimFlip": 0
+},
+"Passable": false,
+"CurrentAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "",
+"FrameTime": 1,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": -1,
+"Alpha": 255,
+"AnimFlip": 0
+},
+"AnimTime": {
+"Ticks": 0
+},
+"Cycles": 0,
+"DrawOffset": {
+"X": 0,
+"Y": 0
+},
+"Collider": {
+"X": 992,
+"Y": 168,
+"Width": 16,
+"Height": 16
+}
+},
+{
+"EntName": "Storage",
+"Direction": 0,
+"EntEnabled": true,
+"EntOrder": 0,
+"InteractOrder": 0,
+"triggerType": 1,
+"ObjectAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "",
+"FrameTime": 1,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": -1,
+"Alpha": 255,
+"AnimFlip": 0
+},
+"Passable": false,
+"CurrentAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "",
+"FrameTime": 1,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": -1,
+"Alpha": 255,
+"AnimFlip": 0
+},
+"AnimTime": {
+"Ticks": 0
+},
+"Cycles": 0,
+"DrawOffset": {
+"X": 0,
+"Y": 0
+},
+"Collider": {
+"X": 172,
+"Y": 168,
+"Width": 16,
+"Height": 16
+}
+},
+{
+"EntName": "Moves",
+"Direction": 0,
+"EntEnabled": true,
+"EntOrder": 0,
+"InteractOrder": 0,
+"triggerType": 1,
+"ObjectAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "",
+"FrameTime": 1,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": -1,
+"Alpha": 255,
+"AnimFlip": 0
+},
+"Passable": false,
+"CurrentAnim": {
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "",
+"FrameTime": 1,
+"StartFrame": -1,
+"EndFrame": -1,
+"AnimDir": -1,
+"Alpha": 255,
+"AnimFlip": 0
+},
+"AnimTime": {
+"Ticks": 0
+},
+"Cycles": 0,
+"DrawOffset": {
+"X": 0,
+"Y": 0
+},
+"Collider": {
+"X": 652,
+"Y": 168,
+"Width": 16,
+"Height": 16
 }
 }
 ],
@@ -125275,7 +125404,7 @@
 "triggerType": 0,
 "Collider": {
 "X": 968,
-"Y": 340,
+"Y": 349,
 "Width": 16,
 "Height": 16
 }

@@ -17,7 +17,7 @@ local treasure_town = {}
 --      local localizedstring = STRINGS.MapStrings['SomeStringName']
 
 -- left side is 68 units wide, so the right side of the map is offset in coords since there's no loading zone now
-RIGHT_SIDE_OFFSET_UNITS = 68
+RIGHT_SIDE_OFFSET_UNITS = 59.5
 RIGHT_SIDE_OFFSET = RIGHT_SIDE_OFFSET_UNITS * 8
 
 -------------------------------
@@ -26,55 +26,25 @@ RIGHT_SIDE_OFFSET = RIGHT_SIDE_OFFSET_UNITS * 8
 ---treasure_town.Init(map)
 --Engine callback function
 function treasure_town.Init(map)
-	player = CH("PLAYER")
-	partner = CH("TEAMMATE_1")     --why does this have to be like this?
-	Bidoof = CH("Bidoof")
-	Marill = CH("Marill")
-	Azurill = CH("Azurill")
-	Drowzee = CH("Drowzee")
-	Murkrow = CH("Murkrow")
-	Shuppet = CH("Shuppet")
-	Vigoroth = CH("Vigoroth")
-	Kangaskhan = CH("Kangaskhan")
-	Xatu = CH("Xatu")
-	Kecleon = CH("Kecleon")
-	PurpleKecleon = CH("PurpleKecleon")
-	Wurmple = CH("Wurmple")
-	Swellow = CH("Swellow")
-	Electivire = CH("Electivire")
-	Corphish = CH("Corphish")
-	Pidgey = CH("Pidgey")
-	Seedot = CH("Seedot")
-	Duskull = CH("Duskull")
-
-
-	--This will fill the localized strings table automatically based on the locale the game is
-	-- currently in. You can use the MapStrings table after this line!
-	COMMON:RespawnAllies()
 	ExplorerEssentials.SpawnPartner()
+	GROUND:AddMapStatus("clouds_overhead")
+
+	-- Handle NPCs
+	if SV.Progression.Chapter == 3 then GROUND:Hide('Electivire') end
+	COMMON.CreateWalkArea('Corphish', 792, 257, 32, 32)
+	COMMON.CreateWalkArea('Vigoroth', 149, 192, 32, 32)
 end
 
 ---treasure_town.Enter(map)
 --Engine callback function
 function treasure_town.Enter(map)
-	GAME:FadeIn(20)
-
-
 	if SV.Progression.Chapter == 3 then
-		GROUND:Hide("Electivire")
-		GROUND:Hide("Xatu")
-		if SV.Progression.SectionFlag == 6 then
-			treasure_town.CH3BidoofTutorialScene5()
-		end
-		if SV.Progression.SectionFlag == 8 then
-			-- player entered sharpedo bluff reset character positons for drowzee cutscene
-			GROUND:TeleportTo(Drowzee, 818, 136, Direction.Right)
-			GROUND:TeleportTo(Azurill, 850, 136, Direction.Left)
-			GROUND:TeleportTo(Marill, 850, 155, Direction.Left)
-		end
+		treasure_town.CH3_EastTownTour()
+		treasure_town.CH3_WestTownTour()
+		treasure_town.CH3_EndTour()
+	else
+		GAME:FadeIn(20)
 	end
-
-	GAME:FadeIn(20)
 end
 
 ---treasure_town.Exit(map)
@@ -99,7 +69,6 @@ end
 --Engine callback function
 function treasure_town.GameLoad(map)
 	GAME:FadeIn(20)
-	ExplorerEssentials.SpawnPartner()
 end
 
 -------------------------------
@@ -155,47 +124,25 @@ end
 function treasure_town.Shop_Action(obj, activator)
 	DEBUG.EnableDbgCoro() --Enable debugging this coroutine
 
+	if SV.DailyFlags.ShopTable == nil then ExplorerEssentials.RefreshShops() end
+
 	local state = 0
 	local repeated = false
 	local cart = {}
 	local catalog = {}
-
-	--generate stock if it hasn't been for the day
-	if not SV.DailyFlags.GreenKecleonStockedRefreshed then
-		treasure_town.GenerateGreenKecleonStock()
-	end
-
-	--populate the catalog of items to buy using the generated stock. Item and hidden (amount of items in the stack typically) are grabbed from the item's predefined values in the item editor
-	for ii = 1, #SV.DailyFlags.GreenKecleonStock, 1 do
-		local itemEntry = RogueEssence.Data.DataManager.Instance:GetItem(SV.DailyFlags.GreenKecleonStock[ii])
-		local item = RogueEssence.Dungeon.InvItem(SV.DailyFlags.GreenKecleonStock[ii], false, itemEntry.MaxStack)
-
-		--item price is 5 times the sell value.
-		local item_data = { Item = item, Price = item:GetSellValue() * 5 }
+	for ii = 1, #SV.base_shop, 1 do
+		local base_data = SV.base_shop[ii]
+		local item_data = { Item = RogueEssence.Dungeon.InvItem(base_data.Index, false, base_data.Amount), Price =
+		base_data.Price }
 		table.insert(catalog, item_data)
 	end
 
+	UI:SetSpeaker(CH('Kecleon'))
 
-	local hero = CH('PLAYER')
-	local partner = CH('TEAMMATE_1')
-	local chara = CH('Kecleon')
-	chara.IsInteracting = true
-	partner.IsInteracting = true
-	UI:SetSpeaker(chara)
-
-	GROUND:CharSetAnim(partner, 'None', true)
-	GROUND:CharSetAnim(hero, 'None', true)
-	--put kec in first frame of walk to simulate explorers behavior
-	GROUND:CharSetAction(chara,
-		RogueEssence.Ground.FrameGroundAction(chara.Position, chara.Direction,
-			RogueEssence.Content.GraphicsManager.GetAnimIndex("Walk"), 0))
-
-	GROUND:CharTurnToChar(hero, chara)
-	local coro1 = TASK:BranchCoroutine(function() GROUND:CharTurnToCharAnimated(partner, chara, 4) end)
 	while state > -1 do
 		if state == 0 then
 			local msg = STRINGS:Format(STRINGS.MapStrings['Shop_Intro'])
-			if repeated then
+			if repeated == true then
 				msg = STRINGS:Format(STRINGS.MapStrings['Shop_Intro_Return'])
 			end
 			local shop_choices = { STRINGS:Format(STRINGS.MapStrings['Shop_Option_Buy']), STRINGS:Format(STRINGS
@@ -215,7 +162,7 @@ function treasure_town.Shop_Action(obj, activator)
 					UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Buy_Empty']))
 				end
 			elseif result == 2 then
-				local bag_count = GAME:GetPlayerBagCount()
+				local bag_count = GAME:GetPlayerBagCount() + GAME:GetPlayerEquippedCount()
 				if bag_count > 0 then
 					--TODO: use the enum instead of a hardcoded number
 					UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Sell'], STRINGS:LocalKeyString(26)))
@@ -267,9 +214,10 @@ function treasure_town.Shop_Action(obj, activator)
 			else
 				if #cart == 1 then
 					local name = catalog[cart[1]].Item:GetDisplayName()
-					--msg = STRINGS:Format(STRINGS.MapStrings['Shop_Buy_One'], total, name, GeneralFunctions.GetItemArticle(catalog[cart[1]].Item, true))
+					msg = STRINGS:Format(STRINGS.MapStrings['Shop_Buy_One'], STRINGS:FormatKey("MONEY_AMOUNT", total),
+						name)
 				else
-					msg = STRINGS:Format(STRINGS.MapStrings['Shop_Buy_Multi'], total)
+					msg = STRINGS:Format(STRINGS.MapStrings['Shop_Buy_Multi'], STRINGS:FormatKey("MONEY_AMOUNT", total))
 				end
 				UI:ChoiceMenuYesNo(msg, false)
 				UI:WaitForChoice()
@@ -279,11 +227,11 @@ function treasure_town.Shop_Action(obj, activator)
 					GAME:RemoveFromPlayerMoney(total)
 					for ii = 1, #cart, 1 do
 						local item = catalog[cart[ii]].Item
-						GAME:GivePlayerItem(item.ID, item.Amount)
+						GAME:GivePlayerItem(item.ID, item.Amount, false)
 					end
 					for ii = #cart, 1, -1 do
 						table.remove(catalog, cart[ii])
-						table.remove(SV.DailyFlags.GreenKecleonStock, cart[ii])
+						table.remove(SV.base_shop, cart[ii])
 					end
 
 					cart = {}
@@ -324,9 +272,10 @@ function treasure_town.Shop_Action(obj, activator)
 				else
 					item = GAME:GetPlayerBagItem(cart[1].Slot)
 				end
-				msg = STRINGS:Format(STRINGS.MapStrings['Shop_Sell_One'], total, item:GetDisplayName())
+				msg = STRINGS:Format(STRINGS.MapStrings['Shop_Sell_One'], STRINGS:FormatKey("MONEY_AMOUNT", total),
+					item:GetDisplayName())
 			else
-				msg = STRINGS:Format(STRINGS.MapStrings['Shop_Sell_Multi'], total)
+				msg = STRINGS:Format(STRINGS.MapStrings['Shop_Sell_Multi'], STRINGS:FormatKey("MONEY_AMOUNT", total))
 			end
 			UI:ChoiceMenuYesNo(msg, false)
 			UI:WaitForChoice()
@@ -350,19 +299,8 @@ function treasure_town.Shop_Action(obj, activator)
 			end
 		end
 	end
-	TASK:JoinCoroutines({ coro1 })
-	partner.IsInteracting = false
-	chara.IsInteracting = false
 
-	GROUND:CharEndAnim(partner)
-	GROUND:CharEndAnim(hero)
-	GROUND:CharEndAnim(chara)
-
-	if SV.Progression.Chapter == 3 then
-		if SV.Progression.SectionFlag == 7 then
-			treasure_town.CH3AzumarillScene1()
-		end
-	end
+	if SV.Progression.Chapter == 3 then treasure_town.CH3_MeetingMarillAndAzurill() end
 end -- green kecleon shop action
 
 function treasure_town.GenerateGreenKecleonStock(generate_random_item)
@@ -383,67 +321,67 @@ function treasure_town.GenerateGreenKecleonStock(generate_random_item)
 
 	--total weight = 100
 	local food_stock = {
-		{ "food_apple",    182 },    --Apple
-		{ "gummi_blue",    1 },      --Blue Gummi
-		{ "gummi_black",   1 },      --Black Gummi
-		{ "gummi_clear",   1 },      --Clear Gummi
-		{ "gummi_grass",   1 },      --Grass Gummi
-		{ "gummi_green",   1 },      --Green Gummi
-		{ "gummi_brown",   1 },      --Brown Gummi
-		{ "gummi_orange",  1 },      --Orange Gummi
-		{ "gummi_gold",    1 },      --Gold Gummi
-		{ "gummi_pink",    1 },      --Pink Gummi
-		{ "gummi_purple",  1 },      --Purple Gummi
-		{ "gummi_red",     1 },      --Red Gummi
-		{ "gummi_royal",   1 },      --Royal Gummi
-		{ "gummi_silver",  1 },      --Silver Gummi
-		{ "gummi_white",   1 },      --White Gummi
-		{ "gummi_yellow",  1 },      --Yellow Gummi
-		{ "gummi_sky",     1 },      --Sky Gummi
-		{ "gummi_gray",    1 },      --Gray Gummi
-		{ "gummi_magenta", 1 }       --Magenta Gummi
+		{ "food_apple",    182 }, --Apple
+		{ "gummi_blue",    1 }, --Blue Gummi
+		{ "gummi_black",   1 }, --Black Gummi
+		{ "gummi_clear",   1 }, --Clear Gummi
+		{ "gummi_grass",   1 }, --Grass Gummi
+		{ "gummi_green",   1 }, --Green Gummi
+		{ "gummi_brown",   1 }, --Brown Gummi
+		{ "gummi_orange",  1 }, --Orange Gummi
+		{ "gummi_gold",    1 }, --Gold Gummi
+		{ "gummi_pink",    1 }, --Pink Gummi
+		{ "gummi_purple",  1 }, --Purple Gummi
+		{ "gummi_red",     1 }, --Red Gummi
+		{ "gummi_royal",   1 }, --Royal Gummi
+		{ "gummi_silver",  1 }, --Silver Gummi
+		{ "gummi_white",   1 }, --White Gummi
+		{ "gummi_yellow",  1 }, --Yellow Gummi
+		{ "gummi_sky",     1 }, --Sky Gummi
+		{ "gummi_gray",    1 }, --Gray Gummi
+		{ "gummi_magenta", 1 } --Magenta Gummi
 	}
 
 	--total weight = 120
 	local medicine_stock = {
-		{ "seed_reviver", 10 },       --Reviver seed
-		{ "seed_warp",    5 },        --Warp Seed
-		{ "seed_sleep",   5 },        --Sleep seed
-		{ "seed_vile",    2 },        --Vile seed
-		{ "seed_decoy",   6 },        --decoy seed
-		{ "seed_blast",   8 },        --Blast seed
+		{ "seed_reviver", 10 }, --Reviver seed
+		{ "seed_warp",    5 }, --Warp Seed
+		{ "seed_sleep",   5 }, --Sleep seed
+		{ "seed_vile",    2 }, --Vile seed
+		{ "seed_decoy",   6 }, --decoy seed
+		{ "seed_blast",   8 }, --Blast seed
 
-		{ "berry_leppa",  25 },       --Leppa berry
+		{ "berry_leppa",  25 }, --Leppa berry
 
 
-		{ "berry_oran",   32 },      --Oran berry
-		{ "berry_lum",    2 },       --Lum berry
-		{ "berry_cheri",  6 },       -- Cheri berry
-		{ "berry_chesto", 4 },       -- Chesto berry
-		{ "berry_pecha",  8 },       -- Pecha berry
-		{ "berry_aspear", 3 },       -- Aspear berry
-		{ "berry_rawst",  4 },       -- Rawst berry
-		{ "berry_persim", 6 }        -- Persim berry
+		{ "berry_oran",   32 }, --Oran berry
+		{ "berry_lum",    2 }, --Lum berry
+		{ "berry_cheri",  6 }, -- Cheri berry
+		{ "berry_chesto", 4 }, -- Chesto berry
+		{ "berry_pecha",  8 }, -- Pecha berry
+		{ "berry_aspear", 3 }, -- Aspear berry
+		{ "berry_rawst",  4 }, -- Rawst berry
+		{ "berry_persim", 6 } -- Persim berry
 	}
 
 
 	local ammo_stock =
 	{
-		{ "ammo_geo_pebble", 50 },       --Geo pebble
-		{ "ammo_stick",      50 },       --stick
-		{ "ammo_iron_thorn", 50 }        --iron thorn
+		{ "ammo_geo_pebble", 50 }, --Geo pebble
+		{ "ammo_stick",      50 }, --stick
+		{ "ammo_iron_thorn", 50 } --iron thorn
 	}
 
 
 	local held_stock = {
-		{ "held_power_band",    10 },       -- power band
-		{ "held_special_band",  10 },       --special band
-		{ "held_defense_scarf", 10 },       --defense scarf
-		{ "held_zinc_band",     10 },       --Zinc band
+		{ "held_power_band",    10 }, -- power band
+		{ "held_special_band",  10 }, --special band
+		{ "held_defense_scarf", 10 }, --defense scarf
+		{ "held_zinc_band",     10 }, --Zinc band
 
-		{ "held_pecha_scarf",   10 },       --Pecha Scarf
-		{ "held_insomniascope", 10 },       --Insomnia scope
-		{ "held_persim_band",   10 },       --Persim Band
+		{ "held_pecha_scarf",   10 }, --Pecha Scarf
+		{ "held_insomniascope", 10 }, --Insomnia scope
+		{ "held_persim_band",   10 }, --Persim Band
 
 	}
 
@@ -464,23 +402,23 @@ function treasure_town.GenerateGreenKecleonStock(generate_random_item)
 
 	--Apricorns become available once Chapter 4 starts
 	if SV.Progression.Chapter == 4 then
-		table.insert(stock, 0)         --GeneralFunctions.WeightedRandom(held_stock))
-		table.insert(stock, 0)         --GeneralFunctions.WeightedRandom(ammo_stock))
-		table.insert(stock, 0)         --GeneralFunctions.WeightedRandom(apricorn_stock))
-		table.insert(stock, 0)         --GeneralFunctions.WeightedRandom(food_stock))
-		table.insert(stock, 0)         --GeneralFunctions.WeightedRandom(food_stock))
-		table.insert(stock, 0)         --GeneralFunctions.WeightedRandom(medicine_stock))
-		table.insert(stock, 0)         --GeneralFunctions.WeightedRandom(medicine_stock))
-		table.insert(stock, 0)         --GeneralFunctions.WeightedRandom(medicine_stock))
+		table.insert(stock, 0) --GeneralFunctions.WeightedRandom(held_stock))
+		table.insert(stock, 0) --GeneralFunctions.WeightedRandom(ammo_stock))
+		table.insert(stock, 0) --GeneralFunctions.WeightedRandom(apricorn_stock))
+		table.insert(stock, 0) --GeneralFunctions.WeightedRandom(food_stock))
+		table.insert(stock, 0) --GeneralFunctions.WeightedRandom(food_stock))
+		table.insert(stock, 0) --GeneralFunctions.WeightedRandom(medicine_stock))
+		table.insert(stock, 0) --GeneralFunctions.WeightedRandom(medicine_stock))
+		table.insert(stock, 0) --GeneralFunctions.WeightedRandom(medicine_stock))
 	else
-		table.insert(stock, 0)         --GeneralFunctions.WeightedRandom(held_stock))
-		table.insert(stock, 0)         --GeneralFunctions.WeightedRandom(ammo_stock))
-		table.insert(stock, 0)         --GeneralFunctions.WeightedRandom(food_stock))
-		table.insert(stock, 0)         --GeneralFunctions.WeightedRandom(food_stock))
-		table.insert(stock, 0)         --GeneralFunctions.WeightedRandom(medicine_stock))
-		table.insert(stock, 0)         --GeneralFunctions.WeightedRandom(medicine_stock))
-		table.insert(stock, 0)         --GeneralFunctions.WeightedRandom(medicine_stock))
-		table.insert(stock, 0)         --GeneralFunctions.WeightedRandom(medicine_stock))
+		table.insert(stock, 0) --GeneralFunctions.WeightedRandom(held_stock))
+		table.insert(stock, 0) --GeneralFunctions.WeightedRandom(ammo_stock))
+		table.insert(stock, 0) --GeneralFunctions.WeightedRandom(food_stock))
+		table.insert(stock, 0) --GeneralFunctions.WeightedRandom(food_stock))
+		table.insert(stock, 0) --GeneralFunctions.WeightedRandom(medicine_stock))
+		table.insert(stock, 0) --GeneralFunctions.WeightedRandom(medicine_stock))
+		table.insert(stock, 0) --GeneralFunctions.WeightedRandom(medicine_stock))
+		table.insert(stock, 0) --GeneralFunctions.WeightedRandom(medicine_stock))
 	end
 
 	if not generate_random_item then
@@ -516,62 +454,62 @@ function treasure_town.GeneratePurpleKecleonStock(generate_random_item)
 	--total weight =
 	--mostly meh TMs for early game
 	local tm_stock = {
-		{ "tm_secret_power", 10 },       --secret power
-		{ "tm_embargo",      10 },       --embargo
-		{ "tm_echoed_voice", 10 },       --echoed voice
-		{ "tm_protect",      5 },        --protect
-		{ "tm_roar",         10 },       --roar
-		{ "tm_swagger",      10 },       --swagger
-		{ "tm_facade",       10 },       --facade
-		{ "tm_payback",      10 },       --payback
-		{ "tm_dig",          2 },        --dig
-		{ "tm_safeguard",    10 },       --safeguard
-		{ "tm_venoshock",    5 },        --venoshock
-		{ "tm_work_up",      5 },        --workup
-		{ "tm_thunder_wave", 5 },        --thunder wave
-		{ "tm_return",       5 },        --return
-		{ "tm_pluck",        5 },        --pluck
-		{ "tm_frustration",  5 },        --frustration
-		{ "tm_thief",        10 },       --thief
-		{ "tm_water_pulse",  2 },        --water pulse
-		{ "tm_shock_wave",   2 },        --shock wave
-		{ "tm_incinerate",   2 },        --incinerate
-		{ "tm_rock_tomb",    4 },        --rock tomb
-		{ "tm_attract",      10 },       --attract
-		{ "tm_hidden_power", 8 },        --hidden power
-		{ "tm_taunt",        10 },       --taunt
-		{ "tm_grass_knot",   4 },        --grass knot
-		{ "tm_brick_break",  2 },        --brick break
-		{ "tm_rest",         5 },        --rest
+		{ "tm_secret_power", 10 }, --secret power
+		{ "tm_embargo",      10 }, --embargo
+		{ "tm_echoed_voice", 10 }, --echoed voice
+		{ "tm_protect",      5 }, --protect
+		{ "tm_roar",         10 }, --roar
+		{ "tm_swagger",      10 }, --swagger
+		{ "tm_facade",       10 }, --facade
+		{ "tm_payback",      10 }, --payback
+		{ "tm_dig",          2 }, --dig
+		{ "tm_safeguard",    10 }, --safeguard
+		{ "tm_venoshock",    5 }, --venoshock
+		{ "tm_work_up",      5 }, --workup
+		{ "tm_thunder_wave", 5 }, --thunder wave
+		{ "tm_return",       5 }, --return
+		{ "tm_pluck",        5 }, --pluck
+		{ "tm_frustration",  5 }, --frustration
+		{ "tm_thief",        10 }, --thief
+		{ "tm_water_pulse",  2 }, --water pulse
+		{ "tm_shock_wave",   2 }, --shock wave
+		{ "tm_incinerate",   2 }, --incinerate
+		{ "tm_rock_tomb",    4 }, --rock tomb
+		{ "tm_attract",      10 }, --attract
+		{ "tm_hidden_power", 8 }, --hidden power
+		{ "tm_taunt",        10 }, --taunt
+		{ "tm_grass_knot",   4 }, --grass knot
+		{ "tm_brick_break",  2 }, --brick break
+		{ "tm_rest",         5 }, --rest
 	}
 
 	local orb_stock =
 	{
-		{ "orb_escape",   50 },       --escape orb
-		{ "orb_cleanse",  10 },       --cleanse orb
+		{ "orb_escape",   50 }, --escape orb
+		{ "orb_cleanse",  10 }, --cleanse orb
 
-		{ "orb_petrify",  10 },       --petrify orb
-		{ "orb_slumber",  10 },       --slumber orb
-		{ "orb_totter",   10 },       --totter orb
-		{ "orb_scanner",  10 },       --scanner orb
-		{ "orb_luminous", 10 },       --luminous orb
-		{ "orb_spurn",    10 },       --spurn orb
-		{ "orb_foe_hold", 10 },       --foe hold orb
-		{ "orb_foe_seal", 10 },       --foe seal orb
-		{ "orb_rollcall", 15 },       --rollcall orb
-		{ "orb_trawl",    5 },        --trawl orb
-		{ "orb_all_aim",  10 },       --all aim orb
-		{ "orb_invert",   5 },        --invert orb
-		{ "orb_fill_in",  5 }         --fill in orb
+		{ "orb_petrify",  10 }, --petrify orb
+		{ "orb_slumber",  10 }, --slumber orb
+		{ "orb_totter",   10 }, --totter orb
+		{ "orb_scanner",  10 }, --scanner orb
+		{ "orb_luminous", 10 }, --luminous orb
+		{ "orb_spurn",    10 }, --spurn orb
+		{ "orb_foe_hold", 10 }, --foe hold orb
+		{ "orb_foe_seal", 10 }, --foe seal orb
+		{ "orb_rollcall", 15 }, --rollcall orb
+		{ "orb_trawl",    5 }, --trawl orb
+		{ "orb_all_aim",  10 }, --all aim orb
+		{ "orb_invert",   5 }, --invert orb
+		{ "orb_fill_in",  5 } --fill in orb
 	}
 
 
-	table.insert(stock, 0)     --GeneralFunctions.WeightedRandom(tm_stock))
-	table.insert(stock, 0)     --GeneralFunctions.WeightedRandom(orb_stock))
-	table.insert(stock, 0)     --GeneralFunctions.WeightedRandom(orb_stock))
-	table.insert(stock, 0)     --GeneralFunctions.WeightedRandom(orb_stock))
-	table.insert(stock, 0)     --GeneralFunctions.WeightedRandom(orb_stock))
-	table.insert(stock, 0)     --GeneralFunctions.WeightedRandom(orb_stock))
+	table.insert(stock, 0) --GeneralFunctions.WeightedRandom(tm_stock))
+	table.insert(stock, 0) --GeneralFunctions.WeightedRandom(orb_stock))
+	table.insert(stock, 0) --GeneralFunctions.WeightedRandom(orb_stock))
+	table.insert(stock, 0) --GeneralFunctions.WeightedRandom(orb_stock))
+	table.insert(stock, 0) --GeneralFunctions.WeightedRandom(orb_stock))
+	table.insert(stock, 0) --GeneralFunctions.WeightedRandom(orb_stock))
 
 
 
@@ -634,7 +572,7 @@ function treasure_town.TM_Action(obj, activator)
 				msg = STRINGS:Format(STRINGS.MapStrings['TM_Shop_Intro_Return'])
 			end
 			local TM_Shop_choices = { STRINGS:Format(STRINGS.MapStrings['TM_Shop_Option_Buy']), STRINGS:Format(STRINGS
-			.MapStrings['TM_Shop_Option_Sell']),
+				.MapStrings['TM_Shop_Option_Sell']),
 				STRINGS:FormatKey("MENU_INFO"),
 				STRINGS:FormatKey("MENU_EXIT") }
 			UI:BeginChoiceMenu(msg, TM_Shop_choices, 1, 4)
@@ -832,18 +770,21 @@ end
 --Ground map transitions
 
 function treasure_town.HabitatSharpedoBluffDayEntrance_Touch(obj, activator)
-	SV.partner.Spawn = 'TreasureTownEntranceMarker'
 	GAME:EnterGroundMap("habitat_sharpedo_bluff_day", "TreasureTownEntranceMarker")
 end
 
 function treasure_town.MarowakDojoEntrance_Touch(obj, activator)
-	SV.partner.Spawn = 'MarowakDojoExitMarker'
-	GAME:EnterGroundMap("marowak_dojo", "MarowakDojoExitMarker")
+	if SV.Progression.Chapter > 3 then -- idr when this actually unlocks lol
+		GAME:EnterGroundMap("marowak_dojo", "MarowakDojoExitMarker")
+	end
 end
 
 function treasure_town.CrossRoadsAssemblyEntrance_Touch(obj, activator)
-	SV.partner.Spawn = 'TreasureTownEntranceMarker'
-	GAME:EnterGroundMap("crossroads_assembly", "TreasureTownEntranceMarker")
+	if SV.Progression.Chapter == 3 then
+		treasure_town.CH3_WrongWay()
+	else
+		GAME:EnterGroundMap("crossroads_assembly", "TreasureTownEntranceMarker")
+	end
 end
 
 --Cutscene markers
@@ -860,16 +801,26 @@ end
 -------------------------------
 
 function treasure_town.CH3_EastTownTour()
+	GAME:CutsceneMode(true)
+
 	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
 	SOUND:PlayBGM("BGM_TreasureTown.ogg", true)
 	-- TODO CallCommon: CallCommon(CORO_FADE_OUT_ALL_BEFORE)
 	-- back_SetGround(LEVEL_T01P01A) (Should be the map you're currently on, or the map it sends you to next)
 
+	GROUND:Hide("CrossRoadsAssemblyEntrance")
+
+	CH('Bidoof').CollisionDisabled = true
+	CH('PLAYER').CollisionDisabled = true
+	CH('PARTNER').CollisionDisabled = true
+
+	AI:DisableCharacterAI(CH('PARTNER'))
+
 	ExplorerEssentials.SetupCameraPos(RIGHT_SIDE_OFFSET_UNITS + 65, 26)
-	ExplorerEssentials.SetupInitialPos(CH('Bidoof'), RIGHT_SIDE_OFFSET_UNITS + 79.5, 25.5, Direction.Right)
-	ExplorerEssentials.SetupInitialPos(CH('PLAYER'), RIGHT_SIDE_OFFSET_UNITS + 82.5, 23.5, Direction.Left)
-	ExplorerEssentials.SetupInitialPos(CH('PARTNER'), RIGHT_SIDE_OFFSET_UNITS + 82.5, 26.5, Direction.Left)
+	ExplorerEssentials.SetupInitialPos(CH('Bidoof'), RIGHT_SIDE_OFFSET_UNITS + 79.5, 26, Direction.Right)
+	ExplorerEssentials.SetupInitialPos(CH('PLAYER'), RIGHT_SIDE_OFFSET_UNITS + 82.5, 24, Direction.Left)
+	ExplorerEssentials.SetupInitialPos(CH('PARTNER'), RIGHT_SIDE_OFFSET_UNITS + 82.5, 27, Direction.Left)
 
 	GAME:WaitFrames(1)
 	GAME:FadeIn(30)
@@ -888,10 +839,10 @@ function treasure_town.CH3_EastTownTour()
 	end)
 	local coro4 = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(120)
-		ExplorerEssentials.MoveCameraAtSpeed(348, 208, 1, false)
+		ExplorerEssentials.MoveCameraAtSpeed(RIGHT_SIDE_OFFSET + 348, 208, 1, false)
 	end)
 	TASK:JoinCoroutines({ coro1, coro2, coro3, coro4 })
-	
+
 	GAME:WaitFrames(20)
 	UI:SetSpeaker(CH('Bidoof'))
 	UI:SetSpeakerEmotion("Normal")
@@ -904,18 +855,18 @@ function treasure_town.CH3_EastTownTour()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_1']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
 
-	local coro1 = TASK:BranchCoroutine(function() 
+	local coro1 = TASK:BranchCoroutine(function()
 		GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.UpRight, 2)
 	end)
-	local coro2 = TASK:BranchCoroutine(function() 
+	local coro2 = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(5)
-	GROUND:CharAnimateTurnTo(CH('Bidoof'), Dir8.UpRight, 2)
+		GROUND:CharAnimateTurnTo(CH('Bidoof'), Dir8.UpRight, 2)
 	end)
-	local coro3 = TASK:BranchCoroutine(function() 
+	local coro3 = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(10)
 		GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.UpRight, 2)
 	end)
-	local coro4 = TASK:BranchCoroutine(function() 
+	local coro4 = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(10)
 		ExplorerEssentials.MoveCameraAtSpeed(RIGHT_SIDE_OFFSET + 516, 168, 2, false)
 	end)
@@ -923,34 +874,36 @@ function treasure_town.CH3_EastTownTour()
 	-- TODO: WaitExecutePerformer(0)
 
 	UI:SetSpeaker(CH('PARTNER'):GetDisplayName())
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_2_' .. tostring(pTalkKind)]))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_2_' .. tostring(pTalkKind)],
+		CH('Duskull'):GetDisplayName()))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_3']))
 
-	local coro1 = TASK:BranchCoroutine(function() 
+	local coro1 = TASK:BranchCoroutine(function()
 		GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.UpLeft, 2)
 	end)
-	local coro2 = TASK:BranchCoroutine(function() 
+	local coro2 = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(10)
 		GROUND:CharAnimateTurnTo(CH('Bidoof'), Dir8.UpLeft, 2)
 	end)
-	local coro3 = TASK:BranchCoroutine(function() 
+	local coro3 = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(20)
 		GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.Left, 2)
 	end)
-	local coro4 = TASK:BranchCoroutine(function() 
+	local coro4 = TASK:BranchCoroutine(function()
 		ExplorerEssentials.MoveCameraAtSpeed(RIGHT_SIDE_OFFSET + 176, 168, 2, false)
 	end)
 	TASK:JoinCoroutines({ coro1, coro2, coro3, coro4 })
 	-- TODO: WaitExecutePerformer(0)
 
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_4']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_4'], CH('Electivire'):GetDisplayName()))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_5']))
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_6_' .. tostring(pTalkKind)]))
-	
-	local coro1 = TASK:BranchCoroutine(function() 
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_6_' .. tostring(pTalkKind)],
+		CH('Electivire'):GetDisplayName()))
+
+	local coro1 = TASK:BranchCoroutine(function()
 		ExplorerEssentials.MoveCameraAtSpeedOffset(-100, 0, 1, false)
 	end)
-	local coro2 = TASK:BranchCoroutine(function() 
+	local coro2 = TASK:BranchCoroutine(function()
 		GAME:WaitFrames(15)
 		GAME:FadeOut(false, 60)
 	end)
@@ -966,9 +919,9 @@ function treasure_town.CH3_EndTour()
 	-- back_SetGround(LEVEL_T01P01A) (Should be the map you're currently on, or the map it sends you to next)
 
 	ExplorerEssentials.SetupCameraPos(RIGHT_SIDE_OFFSET_UNITS + 44, 26)
-	ExplorerEssentials.SetupInitialPos(CH('Bidoof'), RIGHT_SIDE_OFFSET_UNITS + 39.5, 25.5, Direction.Right)
-	ExplorerEssentials.SetupInitialPos(CH('PLAYER'), RIGHT_SIDE_OFFSET_UNITS + 47.5, 23.5, Direction.Left)
-	ExplorerEssentials.SetupInitialPos(CH('PARTNER'), RIGHT_SIDE_OFFSET_UNITS + 47.5, 26.5, Direction.Left)
+	ExplorerEssentials.SetupInitialPos(CH('Bidoof'), RIGHT_SIDE_OFFSET_UNITS + 39.5, 26, Direction.Right)
+	ExplorerEssentials.SetupInitialPos(CH('PLAYER'), RIGHT_SIDE_OFFSET_UNITS + 47.5, 24, Direction.Left)
+	ExplorerEssentials.SetupInitialPos(CH('PARTNER'), RIGHT_SIDE_OFFSET_UNITS + 47.5, 27, Direction.Left)
 
 	GAME:WaitFrames(1)
 	GAME:FadeIn(30)
@@ -987,68 +940,95 @@ function treasure_town.CH3_EndTour()
 
 	UI:SetSpeaker(CH('PARTNER'))
 	UI:SetSpeakerEmotion("Happy")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_PARTNER_2_' .. tostring(pTalkKind)]))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_PARTNER_2_' .. tostring(pTalkKind)],
+		CH('Bidoof'):GetDisplayName()))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
 
 	SOUND:PlayBattleSE("EVT_Emote_Sweating")
 	GROUND:CharSetEmote(CH('Bidoof'), "sweating", 1)
 	GAME:WaitFrames(30)
 
-	GROUND:CharAnimateTurnTo(CH('Bidoof'), UNK_3, 2)
+	GROUND:CharAnimateTurnTo(CH('Bidoof'), Direction.Down, 2) -- Direction 3
 
 	UI:SetSpeaker(CH('Bidoof'))
 	UI:SetSpeakerEmotion("Sigh")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_Bidoof_4']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
 
-	GROUND:CharAnimateTurnTo(CH('Bidoof'), UNK_4, 2)
+	GROUND:CharAnimateTurnTo(CH('Bidoof'), Direction.Right, 2) -- Direction 4
 	-- !! WaitExecuteLives(ACTOR_NPC_BIPPA)
 
 	UI:SetSpeaker(CH('Bidoof'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_Bidoof_5']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
-	
-	GROUND:MoveToPosition(CH('Bidoof'), RIGHT_SIDE_OFFSET + 348, 232, false, 1)
-	GAME:WaitFrames(10)
-	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Right, 18)
-	GAME:WaitFrames(5)
-	GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.Right, 18)
+
+	local coro1 = TASK:BranchCoroutine(function()
+		GROUND:MoveToPosition(CH('Bidoof'), RIGHT_SIDE_OFFSET + 348, 232, false, 1)
+		ExplorerEssentials.MoveToPositionOffset(CH('Bidoof'), 160, 0, false, 1)
+	end)
+	local coro2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(10)
+		GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Right, 18)
+	end)
+	local coro3 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(15)
+		GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.Right, 18)
+	end)
+	TASK:JoinCoroutines({ coro1, coro2, coro3 })
 	-- !! WaitExecuteLives(ACTOR_NPC_BIPPA)
-	ExplorerEssentials.MoveToPositionOffset(CH('Bidoof'), 160, 0, false, 1)
-	-- !! WaitExecuteLives(ACTOR_NPC_BIPPA)
+
 	GROUND:Hide("Bidoof")
 	GAME:WaitFrames(45)
+
 	GROUND:CharTurnToCharAnimated(CH('PARTNER'), CH('PLAYER'), 2)
-	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
 	GROUND:CharTurnToCharAnimated(CH('PLAYER'), CH('PARTNER'), 2)
+
 	UI:SetSpeaker(CH('PARTNER'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_PARTNER_3_' .. tostring(pTalkKind)]))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_PARTNER_4']))
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_PARTNER_5']))
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_PARTNER_6']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_PARTNER_5'], CH('Kecleon'):GetDisplayName()))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_PARTNER_6'], CH('Kecleon'):GetDisplayName()))
+
+	ExplorerEssentials.MoveCameraAtSpeed(0, 0, 1, true)
+	GAME:CutsceneMode(false)
+
+	GROUND:Unhide("CrossRoadsAssemblyEntrance")
+	CH('PLAYER').CollisionDisabled = false
+	ExplorerEssentials.EnablePartnerAI()
 end
 
 function treasure_town.CH3_WrongWay()
 	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
-	SOUND:PlayBGM("UNK_BGM_TREASURE_TOWN.ogg", true)
-	GROUND:CharEndAnim(CH('PLAYER'))
-	GROUND:CharEndAnim(CH('PARTNER'))
+
+	GAME:CutsceneMode(true)
+
 	GROUND:CharTurnToCharAnimated(CH('PARTNER'), CH('PLAYER'), 2)
 	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+
 	UI:SetSpeaker(CH('PARTNER'))
 	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S3_PARTNER_1']))
-	GROUND:CharTurnToCharAnimated(CH('PLAYER'), CH('PARTNER'), 2)
+	local coro1 = TASK:BranchCoroutine(function()
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S3_PARTNER_1'], CH('Kecleon'):GetDisplayName()))
+	end)
+	local coro2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(30)
+		GROUND:CharTurnToCharAnimated(CH('PLAYER'), CH('PARTNER'), 2)
+	end)
+	TASK:JoinCoroutines({ coro1, coro2 })
 	-- !! WaitExecuteLives(ACTOR_PLAYER)
+
 	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Left, 2)
 	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+
 	UI:SetSpeaker(CH('PARTNER'))
 	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S3_PARTNER_2']))
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S3_PARTNER_3']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S3_PARTNER_2'], CH('Kecleon'):GetDisplayName()))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S3_PARTNER_3'], CH('PLAYER'):GetDisplayName()))
+
+	GAME:CutsceneMode(false)
 end
 
 function treasure_town.CH3_MeetingDrowzee()
@@ -1065,35 +1045,43 @@ function treasure_town.CH3_MeetingDrowzee()
 	GAME:WaitFrames(1)
 	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.UpRight, 2)
 	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+
 	SOUND:PlayBattleSE("EVT_Emote_Exclaim")
 	GROUND:CharSetEmote(CH('PARTNER'), "exclaim", 1)
 	GAME:WaitFrames(30)
 	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+
 	GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.UpRight, 2)
 	UI:SetSpeaker(CH('PARTNER'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_PARTNER_1_' .. tostring(pTalkKind)]))
+
 	-- TODO: SetPositionLives<performer 0>(0)
 	GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
 	ExplorerEssentials.MoveCameraAtSpeed(RIGHT_SIDE_OFFSET + 352, 176, 2, false)
 	-- TODO: WaitExecutePerformer(0)
-	GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_RURIRI'), "happy", 1)
+
+	GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_RURIRI'), "happy", -1)
 	UI:SetSpeaker(CH('UNK_ACTOR_NPC_RURIRI'))
 	UI:SetSpeakerEmotion("Joyous")
 	-- TODO: message_FacePositionOffset(2, 0)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_UNK_ACTOR_NPC_RURIRI_1']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_RURIRI'), "none", 1)
 	CharacterActions.HopOnce(CH('UNK_ACTOR_NPC_MARIRU'), CH('UNK_ACTOR_NPC_MARIRU').Direction)
 	-- !! WaitExecuteLives(ACTOR_NPC_MARIRU)
+
 	UI:SetSpeaker(CH('UNK_ACTOR_NPC_MARIRU'))
 	UI:SetSpeakerEmotion("Joyous")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_UNK_ACTOR_NPC_MARIRU_1']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	UI:SetSpeaker(CH('UNK_ACTOR_NPC_SURIIPU'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_UNK_ACTOR_NPC_SURIIPU_1']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	ExplorerEssentials.MoveToPositionOffset(CH('PLAYER'), RIGHT_SIDE_OFFSET + 48, 0, false, 1)
 	GAME:WaitFrames(10)
 	ExplorerEssentials.MoveToPositionOffset(CH('PARTNER'), RIGHT_SIDE_OFFSET + 48, 0, false, 1)
@@ -1102,80 +1090,95 @@ function treasure_town.CH3_MeetingDrowzee()
 	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Up, 2)
 	GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.Up, 2)
 	-- !! WaitExecuteLives(ACTOR_PLAYER)
+
 	UI:SetSpeaker(CH('PARTNER'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_PARTNER_2_' .. tostring(pTalkKind)]))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	GROUND:CharTurnToCharAnimated(CH('UNK_ACTOR_NPC_MARIRU'), CH('PARTNER'), 2)
 	-- !! WaitExecuteLives(ACTOR_NPC_MARIRU)
+
 	GROUND:CharTurnToCharAnimated(CH('UNK_ACTOR_NPC_RURIRI'), CH('PARTNER'), 2)
 	-- !! WaitExecuteLives(ACTOR_NPC_RURIRI)
+
 	GROUND:CharTurnToCharAnimated(CH('UNK_ACTOR_NPC_SURIIPU'), CH('PARTNER'), 2)
 	SOUND:PlayBattleSE("EVT_Emote_Exclaim_2")
 	GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_RURIRI'), "exclaim", 1)
 	GAME:WaitFrames(30)
 	CharacterActions.HopOnce(CH('UNK_ACTOR_NPC_RURIRI'), CH('UNK_ACTOR_NPC_RURIRI').Direction)
 	-- !! WaitExecuteLives(ACTOR_NPC_RURIRI)
+
 	UI:SetSpeaker(CH('UNK_ACTOR_NPC_RURIRI'))
 	UI:SetSpeakerEmotion("Normal")
 	-- TODO: message_FacePositionOffset(2, 0)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_UNK_ACTOR_NPC_RURIRI_2']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	UI:SetSpeaker(CH('UNK_ACTOR_NPC_MARIRU'))
 	UI:SetSpeakerEmotion("Sigh")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_UNK_ACTOR_NPC_MARIRU_2']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_UNK_ACTOR_NPC_MARIRU_3']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	GROUND:CharTurnToCharAnimated(CH('UNK_ACTOR_NPC_MARIRU'), CH('UNK_ACTOR_NPC_SURIIPU'), 2)
 	-- !! WaitExecuteLives(ACTOR_NPC_MARIRU)
+
 	GROUND:CharTurnToCharAnimated(CH('UNK_ACTOR_NPC_RURIRI'), CH('UNK_ACTOR_NPC_SURIIPU'), 2)
 	-- !! WaitExecuteLives(ACTOR_NPC_RURIRI)
+
 	UI:SetSpeaker(CH('UNK_ACTOR_NPC_MARIRU'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowTimedDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_UNK_ACTOR_NPC_MARIRU_4']),
-		CH('DROWZEE'):GetDisplayName())
+		CH('Drowzee'):GetDisplayName())
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_UNK_ACTOR_NPC_MARIRU_5']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	GROUND:CharTurnToCharAnimated(CH('UNK_ACTOR_NPC_MARIRU'), CH('PARTNER'), 2)
 	GROUND:CharTurnToCharAnimated(CH('UNK_ACTOR_NPC_RURIRI'), CH('PARTNER'), 2)
-	-- !! WaitExecuteLives(ACTOR_NPC_MARIRU)
-	-- !! WaitExecuteLives(ACTOR_NPC_RURIRI)
+
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_UNK_ACTOR_NPC_MARIRU_6']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_UNK_ACTOR_NPC_MARIRU_7']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	UI:SetSpeaker(CH('PARTNER'))
 	UI:SetSpeakerEmotion("Happy")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_PARTNER_3_' .. tostring(pTalkKind)]))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	GROUND:CharTurnToCharAnimated(CH('UNK_ACTOR_NPC_RURIRI'), CH('UNK_ACTOR_NPC_SURIIPU'), 2)
 	GAME:WaitFrames(10)
 	GROUND:CharTurnToCharAnimated(CH('UNK_ACTOR_NPC_MARIRU'), CH('UNK_ACTOR_NPC_SURIIPU'), 2)
-	-- !! WaitExecuteLives(ACTOR_NPC_RURIRI)
-	-- !! WaitExecuteLives(ACTOR_NPC_MARIRU)
+
 	GROUND:CharTurnToCharAnimated(CH('UNK_ACTOR_NPC_SURIIPU'), CH('UNK_ACTOR_NPC_RURIRI'), 2)
 	CharacterActions.HopOnce(CH('UNK_ACTOR_NPC_RURIRI'), CH('UNK_ACTOR_NPC_RURIRI').Direction)
 	-- !! WaitExecuteLives(ACTOR_NPC_RURIRI)
+
 	UI:SetSpeaker(CH('UNK_ACTOR_NPC_RURIRI'))
 	UI:SetSpeakerEmotion("Joyous")
 	-- TODO: message_FacePositionOffset(2, 0)
 	UI:WaitShowTimedDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_UNK_ACTOR_NPC_RURIRI_3']),
-		CH('DROWZEE'):GetDisplayName())
+		CH('Drowzee'):GetDisplayName())
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	UI:SetSpeaker(CH('UNK_ACTOR_NPC_SURIIPU'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_UNK_ACTOR_NPC_SURIIPU_2']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_UNK_ACTOR_NPC_SURIIPU_3']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_UNK_ACTOR_NPC_SURIIPU_4']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	UI:SetSpeaker(CH('UNK_ACTOR_NPC_MARIRU'))
 	UI:SetSpeakerEmotion("Joyous")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_UNK_ACTOR_NPC_MARIRU_8']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	UI:SetSpeaker(CH('UNK_ACTOR_NPC_RURIRI'))
 	UI:SetSpeakerEmotion("Joyous")
 	-- TODO: message_FacePositionOffset(2, 0)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_UNK_ACTOR_NPC_RURIRI_4']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	GROUND:MoveToPosition(CH('UNK_ACTOR_NPC_MARIRU'), RIGHT_SIDE_OFFSET + 532, 216, false, 1)
 	GAME:WaitFrames(10)
 	GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.Right, 8)
@@ -1189,15 +1192,18 @@ function treasure_town.CH3_MeetingDrowzee()
 	-- TODO: bgm_Stop()
 	SOUND:PlayBattleSE("UNK_6414")
 	GROUND:CharSetEmote(CH('PLAYER'), "UNK_EFFECT_SHOCKED_MIRRORED", 1)
-	ExplorerEssentials.MoveToPositionOffset(CH('PLAYER'), RIGHT_SIDE_OFFSET + 4, 0, false, 1)
-	-- TODO SlidePositionOffset: SlidePositionOffset<actor ACTOR_PLAYER>(1, -4, 0)
+	ExplorerEssentials.MoveToPositionOffset(CH('PLAYER'), 4, 0, false, 1)
+	ExplorerEssentials.MoveToPositionOffsetBackwards(CH('PLAYER'), Direction.Right, -4, 0, 1)
 	-- !! WaitExecuteLives(ACTOR_NPC_SURIIPU)
+
 	GROUND:CharTurnToCharAnimated(CH('UNK_ACTOR_NPC_SURIIPU'), CH('PLAYER'), 2)
 	-- !! WaitExecuteLives(ACTOR_NPC_SURIIPU)
+
 	UI:SetSpeaker(CH('UNK_ACTOR_NPC_SURIIPU'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_UNK_ACTOR_NPC_SURIIPU_5']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	GROUND:MoveToPosition(CH('UNK_ACTOR_NPC_SURIIPU'), RIGHT_SIDE_OFFSET + 516, 192, false, 1)
 	GAME:WaitFrames(30)
 	SOUND:PlayBattleSE("UNK_5133")
@@ -1242,7 +1248,7 @@ function treasure_town.CH3_SawTheFuture()
 	local pTalkKind = SV.Personality.PartnerTalkKind
 	-- TODO CallCommon: CallCommon(CORO_FADE_OUT_ALL_BEFORE)
 	-- back_SetGround(LEVEL_T01P01A) (Should be the map you're currently on, or the map it sends you to next)
-	
+
 	ExplorerEssentials.SetupCameraPos(RIGHT_SIDE_OFFSET_UNITS + 44, 22)
 	ExplorerEssentials.SetupInitialPos(CH('PLAYER'), RIGHT_SIDE_OFFSET_UNITS + 46.5, 22.5, Direction.Left)
 	ExplorerEssentials.SetupInitialPos(CH('PARTNER'), RIGHT_SIDE_OFFSET_UNITS + 42.5, 22.5, Direction.Right)
@@ -1344,7 +1350,7 @@ function treasure_town.CH3_DrowzeeBumpFlashback()
 	local pTalkKind = SV.Personality.PartnerTalkKind
 	SOUND:StopBGM()
 	-- back_SetGround(LEVEL_T01P01A) (Should be the map you're currently on, or the map it sends you to next)
-	
+
 	ExplorerEssentials.SetupCameraPos(RIGHT_SIDE_OFFSET_UNITS + 44, 22)
 	ExplorerEssentials.SetupInitialPos(CH('PLAYER'), RIGHT_SIDE_OFFSET_UNITS + 46.5, 22.5, Direction.Left)
 	ExplorerEssentials.SetupInitialPos(CH('PARTNER'), RIGHT_SIDE_OFFSET_UNITS + 42.5, 22.5, Direction.Right)
@@ -1358,7 +1364,7 @@ function treasure_town.CH3_DrowzeeBumpFlashback()
 	GAME:WaitFrames(45)
 	GROUND:CharSetEmote(CH('PLAYER'), "UNK_EFFECT_SHOCKED_MIRRORED", 1)
 	ExplorerEssentials.MoveToPositionOffset(CH('PLAYER'), 4, 0, false, 1)
-	-- TODO SlidePositionOffset: SlidePositionOffset<actor ACTOR_PLAYER>(1, -4, 0)
+	ExplorerEssentials.MoveToPositionOffsetBackwards(CH('PLAYER'), Direction.Right, -4, 0, 1)
 	-- !! WaitExecuteLives(ACTOR_NPC_SURIIPU)
 	GROUND:CharTurnToCharAnimated(CH('UNK_ACTOR_NPC_SURIIPU'), CH('PLAYER'), 2)
 	-- !! WaitExecuteLives(ACTOR_NPC_SURIIPU)
@@ -1374,31 +1380,37 @@ function treasure_town.CH3_WestTownTour()
 	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
 	SOUND:PlayBGM("BGM_TreasureTown.ogg", true)
+
 	-- TODO CallCommon: CallCommon(CORO_FADE_OUT_ALL_BEFORE)
 	-- back_SetGround(LEVEL_T01P02A) (Should be the map you're currently on, or the map it sends you to next)
-	-- ### supervision_StationCommon(0) [IRRELEVANT]
-	-- ### supervision_StationCommon(99) [IRRELEVANT]
-	-- ### supervision_Acting(0) [IRRELEVANT]
-	-- ### supervision_LoadStation(LEVEL_T01P02A, 'UM03') [IRRELEVANT]
-	-- ### supervision_Station(10) [IRRELEVANT]
-	GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
+
+	ExplorerEssentials.SetupCameraPos(53, 20)
 	GAME:WaitFrames(1)
-	ExplorerEssentials.MoveCameraAtSpeed(332, 160, 1, false)
-	GAME:FadeIn(30)
+
+	local coro1 = TASK:BranchCoroutine(function()
+		ExplorerEssentials.MoveCameraAtSpeed(332, 160, 1, false)
+	end)
+	local coro2 = TASK:BranchCoroutine(function()
+		GAME:FadeIn(30)
+	end)
+	TASK:JoinCoroutines({ coro1, coro2 })
 	-- TODO: WaitExecutePerformer(0)
-	-- TODO message_SetActor: message_SetActor(ACTOR_ATTENDANT1)
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S7_NARRATION_1_' .. tostring(pTalkKind)]))
+
+	UI:SetSpeaker(CH('PARTNER'):GetDisplayName())
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S7_PARTNER_1_' .. tostring(pTalkKind)],
+		CH('Kecleon'):GetDisplayName()))
+
 	ExplorerEssentials.MoveCameraAtSpeed(176, 160, 1, false)
-	-- TODO: WaitExecutePerformer(0)
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S7_NARRATION_2']))
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S7_NARRATION_3']))
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S7_NARRATION_4_' .. tostring(pTalkKind)]))
+
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S7_PARTNER_2'], CH('Kangaskhan'):GetDisplayName()))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S7_PARTNER_3']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S7_PARTNER_4_' .. tostring(pTalkKind)]))
 
 	GAME:FadeOut(false, 60)
 	-- TODO CallCommon: CallCommon(CORO_FADE_OUT_ALL_AFTER)
 end
 
-function treasure_town.CH3_KeckleonShopping()
+function treasure_town.CH3_MeetingMarillAndAzurill()
 	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
 	SOUND:PlayBGM("BGM_TreasureTown.ogg", true)
@@ -1407,6 +1419,9 @@ function treasure_town.CH3_KeckleonShopping()
 	GROUND:CharEndAnim(CH('UNK_ACTOR_NPC_KAKUREON2'))
 	GROUND:CharEndAnim(CH('PARTNER'))
 	-- ### supervision_Acting(1) [IRRELEVANT]
+
+	-- apple - 51, 23.5
+
 	GAME:WaitFrames(1)
 	GROUND:MoveToPosition(CH('UNK_ACTOR_NPC_MARIRU'), 344, 192, false, 1)
 	GROUND:MoveToPosition(CH('UNK_ACTOR_NPC_RURIRI'), 352, 208, false, 1)
@@ -1420,9 +1435,10 @@ function treasure_town.CH3_KeckleonShopping()
 	GROUND:CharAnimateTurnTo(CH('UNK_ACTOR_NPC_KAKUREON2'), Dir8.Right, 4)
 	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Right, 2)
 	GAME:WaitFrames(90)
-	-- TODO: SetPositionLives<performer 0>(0)
-	GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
+
+	ExplorerEssentials.MoveCameraAtSpeed((41.5 * 8), (24 * 8), 1, false) -- 41.5, 24.0
 	ExplorerEssentials.MoveCameraAtSpeed(332, 192, 1, false)
+
 	GROUND:MoveToPosition(CH('PLAYER'), 308, 192, false, 1)
 	GROUND:MoveToPosition(CH('PARTNER'), 308, 208, false, 1)
 	-- !! WaitExecuteLives(ACTOR_PLAYER)
@@ -1903,7 +1919,7 @@ end
 function treasure_town.CH3BidoofTutorialScene5()
 	GAME:CutsceneMode(true)
 	player = CH("PLAYER")
-	partner = CH("TEAMMATE_1")     --why does this have to be like this?
+	partner = CH("TEAMMATE_1") --why does this have to be like this?
 	Bidoof = CH("Bidoof")
 	AI:DisableCharacterAI(partner)
 	local hTalkKind = SV.Personality.HeroTalkKind
@@ -2010,7 +2026,7 @@ end
 function treasure_town.CH3AzumarillScene1()
 	Apple_Red = OBJ('Apple_Red')
 	player = CH("PLAYER")
-	partner = CH("TEAMMATE_1")     --why does this have to be like this?
+	partner = CH("TEAMMATE_1") --why does this have to be like this?
 	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
 	partner.CollisionDisabled = true
@@ -2284,7 +2300,7 @@ end
 function treasure_town.CH3AzumarillScene2()
 	local Drowzee = CH('Drowzee')
 	player = CH("PLAYER")
-	partner = CH("TEAMMATE_1")     --why does this have to be like this?
+	partner = CH("TEAMMATE_1") --why does this have to be like this?
 	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
 	partner.CollisionDisabled = true

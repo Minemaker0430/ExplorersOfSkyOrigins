@@ -234,4 +234,10 @@ function ExplorerEssentials.ResetDailyFlags()
 	SV.DailyFlags.DidMorningCheers = false
 	SV.DailyFlags.EndedDay = false
 	SV.DailyFlags.SereneForestUnlocked = false
+
+	ExplorerEssentials.RefreshShops()
+end
+
+function ExplorerEssentials.RefreshShops()
+	
 end

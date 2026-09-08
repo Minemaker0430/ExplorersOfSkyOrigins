@@ -73,7 +73,9 @@ SV.DailyFlags =
 {
 	DidMorningCheers = false,
 	EndedDay = false,
-	SereneForestUnlocked = false -- used for the special "Oddity Cave" like dungeon
+	SereneForestUnlocked = false, -- used for the special "Oddity Cave" like dungeon
+	ShopTable = {},
+	TMShopTable = {}
 }
 
 SV.MajorFlags =

@@ -94,535 +94,532 @@
   <data name="CH3_S1_PARTNER_6_2" xml:space="preserve">
     <value>It looks as if {0} isn't around today.</value>
   </data>
-  	<data name="CH3_S2_PARTNER_1_1" xml:space="preserve">
-		<value>That about covers it, I guess.</value>
-	</data>
-	<data name="CH3_S2_PARTNER_1_0" xml:space="preserve">
-		<value>And that should do it.</value>
-	</data>
-	<data name="CH3_S2_PARTNER_1_2" xml:space="preserve">
-		<value>I guess that about covers it.</value>
-	</data>
-	<data name="CH3_S2_Bidoof_1" xml:space="preserve">
-		<value>You sure know a lot, yes sirree! And that's good to know!</value>
-	</data>
-	<data name="CH3_S2_Bidoof_2" xml:space="preserve">
-		<value>All right, then. Come find me when you're all ready to go.</value>
-	</data>
-	<data name="CH3_S2_Bidoof_3" xml:space="preserve">
-		<value>I'll give you a helping hand with selecting the right outlaw for you.</value>
-	</data>
-	<data name="CH3_S2_PARTNER_2_1" xml:space="preserve">
-		<value>Thanks, {0}. You've been really nice about this.</value>
-	</data>
-	<data name="CH3_S2_PARTNER_2_0" xml:space="preserve">
-		<value>Thank you, {0}. You've been really nice.</value>
-	</data>
-	<data name="CH3_S2_PARTNER_2_2" xml:space="preserve">
-		<value>Thank you. How nice of you, {0}!</value>
-	</data>
-	<data name="CH3_S2_Bidoof_4" xml:space="preserve">
-		<value>G-golly, you're embarrassing me! Aw, shucks...</value>
-	</data>
-	<data name="CH3_S2_Bidoof_5" xml:space="preserve">
-		<value>I'll be waiting at the guild's upper underground floor for you.</value>
-	</data>
-	<data name="CH3_S2_PARTNER_3_1" xml:space="preserve">
-		<value>All right, let's go.</value>
-	</data>
-	<data name="CH3_S2_PARTNER_3_0" xml:space="preserve">
-		<value>OK, let's go.</value>
-	</data>
-	<data name="CH3_S2_PARTNER_3_2" xml:space="preserve">
-		<value>OK, let's go.</value>
-	</data>
-	<data name="CH3_S2_PARTNER_4" xml:space="preserve">
-		<value>I'd like to see what kinds of items are available!</value>
-	</data>
-	<data name="CH3_S2_PARTNER_5" xml:space="preserve">
-		<value>Let's go to the {0} Market!</value>
-	</data>
-	<data name="CH3_S2_PARTNER_6" xml:space="preserve">
-		<value>Before we head back, a visit to the {0} Market is a must!</value>
-	</data>
-		<data name="CH3_S3_PARTNER_1" xml:space="preserve">
-		<value>The {0} Market isn't over this way.</value>
-	</data>
-	<data name="CH3_S3_PARTNER_2" xml:space="preserve">
-		<value>The {0} Market is this way.</value>
-	</data>
-	<data name="CH3_S3_PARTNER_3" xml:space="preserve">
-		<value>Let's go, {0}!</value>
-	</data>
-		<data name="CH3_S4_PARTNER_1_1" xml:space="preserve">
-		<value>Hey! What's that about?</value>
-	</data>
-	<data name="CH3_S4_PARTNER_1_0" xml:space="preserve">
-		<value>Oh![pause=0] What's going on there?</value>
-	</data>
-	<data name="CH3_S4_PARTNER_1_2" xml:space="preserve">
-		<value>Say![pause=0] What are they up to?</value>
-	</data>
-	<data name="CH3_S4_UNK_ACTOR_NPC_RURIRI_1" xml:space="preserve">
-		<value>Yaaaay!</value>
-	</data>
-	<data name="CH3_S4_UNK_ACTOR_NPC_MARIRU_1" xml:space="preserve">
-		<value>Thank you!</value>
-	</data>
-	<data name="CH3_S4_UNK_ACTOR_NPC_SURIIPU_1" xml:space="preserve">
-		<value>Please! It's nothing.</value>
-	</data>
-	<data name="CH3_S4_PARTNER_2_1" xml:space="preserve">
-		<value>What's going on?</value>
-	</data>
-	<data name="CH3_S4_PARTNER_2_0" xml:space="preserve">
-		<value>What's going on?</value>
-	</data>
-	<data name="CH3_S4_PARTNER_2_2" xml:space="preserve">
-		<value>What's happening?</value>
-	</data>
-	<data name="CH3_S4_UNK_ACTOR_NPC_RURIRI_2" xml:space="preserve">
-		<value>Oh! Hi!</value>
-	</data>
-	<data name="CH3_S4_UNK_ACTOR_NPC_MARIRU_2" xml:space="preserve">
-		<value>Some time ago, we lost an item that's pretty important to us...</value>
-	</data>
-	<data name="CH3_S4_UNK_ACTOR_NPC_MARIRU_3" xml:space="preserve">
-		<value>We've been looking all over...[pause=0] But we haven't found it yet!</value>
-	</data>
-	<data name="CH3_S4_UNK_ACTOR_NPC_MARIRU_4" xml:space="preserve">
-		<value>Then Mr. {0} came along...</value>
-	</data>
-	<data name="CH3_S4_UNK_ACTOR_NPC_MARIRU_5" xml:space="preserve">
-		<value>And he says he may have seen our lost item somewhere!</value>
-	</data>
-	<data name="CH3_S4_UNK_ACTOR_NPC_MARIRU_6" xml:space="preserve">
-		<value>He even offered to help us look for it.</value>
-	</data>
-	<data name="CH3_S4_UNK_ACTOR_NPC_MARIRU_7" xml:space="preserve">
-		<value>We're so happy about this!</value>
-	</data>
-	<data name="CH3_S4_PARTNER_3_1" xml:space="preserve">
-		<value>Awesome! That's great for you!</value>
-	</data>
-	<data name="CH3_S4_PARTNER_3_0" xml:space="preserve">
-		<value>Yeah! That's great for you!</value>
-	</data>
-	<data name="CH3_S4_PARTNER_3_2" xml:space="preserve">
-		<value>Is that right? How nice for you!</value>
-	</data>
-	<data name="CH3_S4_UNK_ACTOR_NPC_RURIRI_3" xml:space="preserve">
-		<value>Thank you, Mr. {0}!</value>
-	</data>
-	<data name="CH3_S4_UNK_ACTOR_NPC_SURIIPU_2" xml:space="preserve">
-		<value>Oh, please...</value>
-	</data>
-	<data name="CH3_S4_UNK_ACTOR_NPC_SURIIPU_3" xml:space="preserve">
-		<value>I'd have to have a cold heart to ignore kids in need! I can't turn a blind eye!</value>
-	</data>
-	<data name="CH3_S4_UNK_ACTOR_NPC_SURIIPU_4" xml:space="preserve">
-		<value>Let us be on our way to begin our search!</value>
-	</data>
-	<data name="CH3_S4_UNK_ACTOR_NPC_MARIRU_8" xml:space="preserve">
-		<value>Yup!</value>
-	</data>
-	<data name="CH3_S4_UNK_ACTOR_NPC_RURIRI_4" xml:space="preserve">
-		<value>Yup!</value>
-	</data>
-	<data name="CH3_S4_UNK_ACTOR_NPC_SURIIPU_5" xml:space="preserve">
-		<value>Whoops![pause=0] Excuse me.</value>
-	</data>
-	<data name="CH3_S4_PLAYER_1" xml:space="preserve">
-		<value>(Urk...[pause=0] Wh-what is this...?)</value>
-	</data>
-	<data name="CH3_S4_PARTNER_4_1" xml:space="preserve">
-		<value>That {0} is sure a nice Pokémon.[pause=0] You've got to admire that.</value>
-	</data>
-	<data name="CH3_S4_PARTNER_4_0" xml:space="preserve">
-		<value>That {0} sure is a nice Pokémon, isn't he?[pause=0] I'm impressed.</value>
-	</data>
-	<data name="CH3_S4_PARTNER_4_2" xml:space="preserve">
-		<value>That {0} sure is nice.[pause=0] You've got to admire that!</value>
-	</data>
-	<data name="CH3_S4_PARTNER_5" xml:space="preserve">
-		<value>With more and more bad Pokémon around...[pause=0]it's hard to do good deeds.</value>
-	</data>
-	<data name="CH3_S4_PLAYER_2" xml:space="preserve">
-		<value>(It's happening again...)</value>
-	</data>
-	<data name="CH3_S4_PLAYER_3" xml:space="preserve">
-		<value>(Another dizzy spell...)</value>
-	</data>
-		<data name="CH3_S5_PLAYER_1" xml:space="preserve">
-		<value>(What was that?!)</value>
-	</data>
-	<data name="CH3_S5_PARTNER_1_1" xml:space="preserve">
-		<value>I sure hope those kids find their item soon.</value>
-	</data>
-	<data name="CH3_S5_PARTNER_1_0" xml:space="preserve">
-		<value>It would be nice if those little guys found their item soon.</value>
-	</data>
-	<data name="CH3_S5_PARTNER_1_2" xml:space="preserve">
-		<value>It would be nice if those cute little guys found their item soon.</value>
-	</data>
-	<data name="CH3_S5_PARTNER_2_1" xml:space="preserve">
-		<value>Huh? What's up, {0}?</value>
-	</data>
-	<data name="CH3_S5_PARTNER_2_0" xml:space="preserve">
-		<value>Huh? What's the matter, {0}?</value>
-	</data>
-	<data name="CH3_S5_PARTNER_2_2" xml:space="preserve">
-		<value>Huh? Is anything the matter, {0}?</value>
-	</data>
-	<data name="CH3_S5_PARTNER_3_1" xml:space="preserve">
-		<value>What's with that grim look?</value>
-	</data>
-	<data name="CH3_S5_PARTNER_3_0" xml:space="preserve">
-		<value>You're looking awfully grim...</value>
-	</data>
-	<data name="CH3_S5_PARTNER_3_2" xml:space="preserve">
-		<value>Why are you looking so grim?</value>
-	</data>
-	<data name="CH3_S5_PARTNER_4" xml:space="preserve">
-		<value>...Hmm?[pause=0] You want to tell me something?</value>
-	</data>
-	<data name="CH3_S5_PARTNER_5" xml:space="preserve">
-		<value>What? You had a dizzy spell?</value>
-	</data>
-	<data name="CH3_S5_PARTNER_6" xml:space="preserve">
-		<value>Then you saw {0} being threatened by {1}?!</value>
-	</data>
-	<data name="CH3_S5_PARTNER_7" xml:space="preserve">
-		<value>So you want to go rescue {0} right away?</value>
-	</data>
-	<data name="CH3_S5_PARTNER_8" xml:space="preserve">
-		<value>It's an...emergency?!</value>
-	</data>
-	<data name="CH3_S5_PARTNER_9" xml:space="preserve">
-		<value>Well, what you describe does sound like an emergency, but...</value>
-	</data>
-	<data name="CH3_S5_PARTNER_10" xml:space="preserve">
-		<value>Well, it's not like I don't trust you, {0}, but...</value>
-	</data>
-	<data name="CH3_S5_PARTNER_11" xml:space="preserve">
-		<value>I just can't believe it!</value>
-	</data>
-	<data name="CH3_S5_PARTNER_12_1" xml:space="preserve">
-		<value>I mean, {0} looked like an honestly nice Pokémon, didn't he?</value>
-	</data>
-	<data name="CH3_S5_PARTNER_12_0" xml:space="preserve">
-		<value>After all, {0} seemed to be a sincerely nice Pokémon, didn't he?</value>
-	</data>
-	<data name="CH3_S5_PARTNER_12_2" xml:space="preserve">
-		<value>After all, {0} seemed to be a sincerely nice Pokémon, didn't he?</value>
-	</data>
-	<data name="CH3_S5_PARTNER_13_1" xml:space="preserve">
-		<value>I watched the three of them go off earlier...</value>
-	</data>
-	<data name="CH3_S5_PARTNER_13_0" xml:space="preserve">
-		<value>I watched the three of them go off earlier...</value>
-	</data>
-	<data name="CH3_S5_PARTNER_13_2" xml:space="preserve">
-		<value>I saw the three of them go off together earlier...</value>
-	</data>
-	<data name="CH3_S5_PARTNER_14" xml:space="preserve">
-		<value>They looked like they were having a good time, didn't they?</value>
-	</data>
-	<data name="CH3_S5_PARTNER_15" xml:space="preserve">
-		<value>You're probably just tired, {0}.</value>
-	</data>
-	<data name="CH3_S5_PARTNER_16" xml:space="preserve">
-		<value>Maybe that's why you just had that bad daydream.</value>
-	</data>
-	<data name="CH3_S5_PLAYER_2" xml:space="preserve">
-		<value>(Was that it...?[pause=0] Just a bad daydream?)</value>
-	</data>
-	<data name="CH3_S5_PLAYER_3" xml:space="preserve">
-		<value>(But come to think of it...[pause=0] That {0} didn't seem like a bad Pokémon.)</value>
-	</data>
-	<data name="CH3_S5_PARTNER_17_1" xml:space="preserve">
-		<value>Anyway, we're only apprentices. We can't just go running off on our own.</value>
-	</data>
-	<data name="CH3_S5_PARTNER_17_0" xml:space="preserve">
-		<value>Anyway, we're only apprentices. We can't just go do whatever we want.</value>
-	</data>
-	<data name="CH3_S5_PARTNER_17_2" xml:space="preserve">
-		<value>Anyway, we're only apprentices. We can't just go off on our own.</value>
-	</data>
-	<data name="CH3_S5_PARTNER_18_1" xml:space="preserve">
-		<value>Sure, it's worrying, but...</value>
-	</data>
-	<data name="CH3_S5_PARTNER_18_0" xml:space="preserve">
-		<value>Sure, it's worrying, but...</value>
-	</data>
-	<data name="CH3_S5_PARTNER_18_2" xml:space="preserve">
-		<value>Sure, it's a little odd, but...</value>
-	</data>
-	<data name="CH3_S5_PARTNER_19_1" xml:space="preserve">
-		<value>We have to focus on our guild work for now.</value>
-	</data>
-	<data name="CH3_S5_PARTNER_19_0" xml:space="preserve">
-		<value>We have to concentrate on our guild work for now.</value>
-	</data>
-	<data name="CH3_S5_PARTNER_19_2" xml:space="preserve">
-		<value>We have to focus on our guild work for now.</value>
-	</data>
-	<data name="CH3_S5_PARTNER_20_1" xml:space="preserve">
-		<value>Let's get ready to explore, then meet up with {0}.</value>
-	</data>
-	<data name="CH3_S5_PARTNER_20_0" xml:space="preserve">
-		<value>Let's get ourselves ready to explore. Then we should find {0}.</value>
-	</data>
-	<data name="CH3_S5_PARTNER_20_2" xml:space="preserve">
-		<value>Let's get all set for exploring, then go meet up with {0}.</value>
-	</data>
-	<data name="CH3_S5_PARTNER_21_1" xml:space="preserve">
-		<value>{0} said he'd be waiting for us on the guild's upper underground floor.</value>
-	</data>
-	<data name="CH3_S5_PARTNER_21_0" xml:space="preserve">
-		<value>{0}'s supposed to be waiting for us on the guild's upper underground floor.</value>
-	</data>
-	<data name="CH3_S5_PARTNER_21_2" xml:space="preserve">
-		<value>{0} should be waiting for us on the guild's upper underground floor.</value>
-	</data>
-	<data name="CH3_S5_PARTNER_22_1" xml:space="preserve">
-		<value>Let's get to it, {0}!</value>
-	</data>
-	<data name="CH3_S5_PARTNER_22_0" xml:space="preserve">
-		<value>Let's go, {0}!</value>
-	</data>
-	<data name="CH3_S5_PARTNER_22_2" xml:space="preserve">
-		<value>Let's go, {0}!</value>
-	</data>
-		<data name="CH3_S6_UNK_ACTOR_NPC_SURIIPU_1" xml:space="preserve">
-		<value>Whoops![pause=0] Excuse me.</value>
-	</data>
-		<data name="CH3_S7_NARRATION_1_1" xml:space="preserve">
-		<value>This is [CS:K]Kecleon[CR] Market.[pause=0] You                     can buy and sell items here.</value>
-	</data>
-	<data name="CH3_S7_NARRATION_1_0" xml:space="preserve">
-		<value>Here we have [CS:K]Kecleon[CR] Market.                     You can buy and sell items here.</value>
-	</data>
-	<data name="CH3_S7_NARRATION_1_2" xml:space="preserve">
-		<value>This is [CS:K]Kecleon[CR] Market. You                     can buy and sell items here.</value>
-	</data>
-	<data name="CH3_S7_NARRATION_2" xml:space="preserve">
-		<value>And there's [CS:K]Kangaskhan[CR] Storage.                     Items stored here will never be lost.</value>
-	</data>
-	<data name="CH3_S7_NARRATION_3" xml:space="preserve">
-		<value>If you have precious items that                     you can't afford to lose, store them here                     before you go on an adventure.</value>
-	</data>
-	<data name="CH3_S7_NARRATION_4_1" xml:space="preserve">
-		<value>And those are the basics for                     exploration teams.</value>
-	</data>
-	<data name="CH3_S7_NARRATION_4_0" xml:space="preserve">
-		<value>And those are the basic places                     that exploration teams visit.</value>
-	</data>
-	<data name="CH3_S7_NARRATION_4_2" xml:space="preserve">
-		<value>And those are the basic places                     that exploration teams visit.</value>
-	</data>
-		<data name="CH3_S8_NARRATION_1" xml:space="preserve">
-		<value>Misters {0}!</value>
-	</data>
-	<data name="CH3_S8_UNK_ACTOR_NPC_KAKUREON1_1" xml:space="preserve">
-		<value>Ah! Little {0} and {1}![pause=0]             Welcome, my young friends! ♪</value>
-	</data>
-	<data name="CH3_S8_UNK_ACTOR_NPC_RURIRI_1" xml:space="preserve">
-		<value>Hello. May I buy an {0}?</value>
-	</data>
-	<data name="CH3_S8_UNK_ACTOR_NPC_KAKUREON1_2" xml:space="preserve">
-		<value>Oh, most certainly!</value>
-	</data>
-	<data name="CH3_S8_UNK_ACTOR_NPC_KAKUREON1_3" xml:space="preserve">
-		<value>{0} and {2} bought             an {1} at [CS:K]Kecleon[CR] Market.</value>
-	</data>
-	<data name="CH3_S8_UNK_ACTOR_NPC_MARIRU_1" xml:space="preserve">
-		<value>Thank you, Misters {0}!</value>
-	</data>
-	<data name="CH3_S8_UNK_ACTOR_NPC_KAKUREON1_4" xml:space="preserve">
-		<value>No, thank you, my young friends!             You are to be admired! ♪</value>
-	</data>
-	<data name="CH3_S8_UNK_ACTOR_NPC_KAKUREON1_5" xml:space="preserve">
-		<value>You see, those delightful             children are brothers.</value>
-	</data>
-	<data name="CH3_S8_UNK_ACTOR_NPC_KAKUREON1_6" xml:space="preserve">
-		<value>Lately, their poor mother has             fallen sick. So those youngsters come and             do the shopping for her.</value>
-	</data>
-	<data name="CH3_S8_UNK_ACTOR_NPC_KAKUREON1_7" xml:space="preserve">
-		<value>It's quite remarkable. Though             very young, they've stepped up and             taken charge. ♪</value>
-	</data>
-	<data name="CH3_S8_UNK_ACTOR_NPC_KAKUREON1_8" xml:space="preserve">
-		<value>Misters {0}!</value>
-	</data>
-	<data name="CH3_S8_UNK_ACTOR_NPC_KAKUREON1_9" xml:space="preserve">
-		<value>Oh? What's the hurry? What             makes you return in such a rush?</value>
-	</data>
-	<data name="CH3_S8_UNK_ACTOR_NPC_RURIRI_2" xml:space="preserve">
-		<value>There was an extra {0}!</value>
-	</data>
-	<data name="CH3_S8_UNK_ACTOR_NPC_MARIRU_2" xml:space="preserve">
-		<value>We didn't pay for this many.</value>
-	</data>
-	<data name="CH3_S8_UNK_ACTOR_NPC_KAKUREON1_10" xml:space="preserve">
-		<value>Oh, yes... That, young friends,             is a gift from me and my brother.</value>
-	</data>
-	<data name="CH3_S8_UNK_ACTOR_NPC_KAKUREON1_11" xml:space="preserve">
-		<value>Please, share it among             yourselves and do enjoy.</value>
-	</data>
-	<data name="CH3_S8_UNK_ACTOR_NPC_MARIRU_3" xml:space="preserve">
-		<value>Really?!</value>
-	</data>
-	<data name="CH3_S8_UNK_ACTOR_NPC_RURIRI_3" xml:space="preserve">
-		<value>Yay! Thank you, Mr. {0}             and Mr. {1}!</value>
-	</data>
-	<data name="CH3_S8_UNK_ACTOR_NPC_KAKUREON1_12" xml:space="preserve">
-		<value>Oh, not to worry, my friends.             Do take care on your way home. ♪</value>
-	</data>
-	<data name="CH3_S8_UNK_ACTOR_NPC_RURIRI_4" xml:space="preserve">
-		<value>Yowch!</value>
-	</data>
-	<data name="CH3_S8_UNK_ACTOR_NPC_RURIRI_5" xml:space="preserve">
-		<value>W-we're sorry to bother you.             Thank you so much.</value>
-	</data>
-	<data name="CH3_S8_UNK_ACTOR_NPC_RURIRI_6" xml:space="preserve">
-		<value>{0} gave the {2}             back to {1}.</value>
-	</data>
-	<data name="CH3_S8_UNK_ACTOR_NPC_RURIRI_7" xml:space="preserve">
-		<value>But then suddenly...</value>
-	</data>
-	<data name="CH3_S8_PLAYER_1" xml:space="preserve">
-		<value>(Huh? What was that?)</value>
-	</data>
-	<data name="CH3_S8_PLAYER_2" xml:space="preserve">
-		<value>(D-dizzy? Or am I...?)</value>
-	</data>
-		<data name="CH3_S9_UNK_ACTOR_NPC_RURIRI_1" xml:space="preserve">
-		<value>W-we're sorry to bother you.             Thank you so much.</value>
-	</data>
-		<data name="CH3_S10_NARRATION_1" xml:space="preserve">
-		<value>H-h-h...HELP!</value>
-	</data>
-		<data name="CH3_S11_PLAYER_1" xml:space="preserve">
-		<value>(What was that?)</value>
-	</data>
-	<data name="CH3_S11_PLAYER_2" xml:space="preserve">
-		<value>(I'm sure I heard a shout for help just now...)</value>
-	</data>
-	<data name="CH3_S11_PLAYER_3" xml:space="preserve">
-		<value>(Did that shout come from you?)</value>
-	</data>
-	<data name="CH3_S11_UNK_ACTOR_NPC_RURIRI_1" xml:space="preserve">
-		<value>Is something the matter?</value>
-	</data>
-	<data name="CH3_S11_UNK_ACTOR_NPC_RURIRI_2" xml:space="preserve">
-		<value>Hey, {0}![pause=0] What's going on?             Hurry home!</value>
-	</data>
-	<data name="CH3_S11_UNK_ACTOR_NPC_RURIRI_3" xml:space="preserve">
-		<value>Yup! I'm coming! Wait up!</value>
-	</data>
-	<data name="CH3_S11_UNK_ACTOR_NPC_MARIRU_1" xml:space="preserve">
-		<value>Are you all right?</value>
-	</data>
-	<data name="CH3_S11_UNK_ACTOR_NPC_RURIRI_4" xml:space="preserve">
-		<value>Yup!</value>
-	</data>
-	<data name="CH3_S11_UNK_ACTOR_NPC_MARIRU_2" xml:space="preserve">
-		<value>We're done with our shopping...             Now we gotta look for an item we've lost!</value>
-	</data>
-	<data name="CH3_S11_UNK_ACTOR_NPC_MARIRU_3" xml:space="preserve">
-		<value>Let's get going.</value>
-	</data>
-	<data name="CH3_S11_UNK_ACTOR_NPC_RURIRI_5" xml:space="preserve">
-		<value>Yup! I'm coming!</value>
-	</data>
-	<data name="CH3_S11_PARTNER_1" xml:space="preserve">
-		<value>Ha! Those little guys are cute.</value>
-	</data>
-	<data name="CH3_S11_PARTNER_2_1" xml:space="preserve">
-		<value>Huh?[pause=0] What's wrong,                     {0}?</value>
-	</data>
-	<data name="CH3_S11_PARTNER_2_0" xml:space="preserve">
-		<value>Oh?[pause=0] What's the matter,                     {0}?</value>
-	</data>
-	<data name="CH3_S11_PARTNER_2_2" xml:space="preserve">
-		<value>Huh?[pause=0] What's the matter,                     {0}?</value>
-	</data>
-	<data name="CH3_S11_PARTNER_3_1" xml:space="preserve">
-		<value>Huh? Did I hear a shout for help                     just then?</value>
-	</data>
-	<data name="CH3_S11_PARTNER_3_0" xml:space="preserve">
-		<value>Huh? Did I hear a shout for help                     just then?</value>
-	</data>
-	<data name="CH3_S11_PARTNER_3_2" xml:space="preserve">
-		<value>Pardon? Did I hear a shout for                     help just then?</value>
-	</data>
-	<data name="CH3_S11_PARTNER_4" xml:space="preserve">
-		<value>Uh, no... I didn't hear anything                     like that!</value>
-	</data>
-	<data name="CH3_S11_PARTNER_5_1" xml:space="preserve">
-		<value>Hey, {0} brothers.</value>
-	</data>
-	<data name="CH3_S11_PARTNER_5_0" xml:space="preserve">
-		<value>Hey, {0} brothers.</value>
-	</data>
-	<data name="CH3_S11_PARTNER_5_2" xml:space="preserve">
-		<value>Say, {0} brothers.</value>
-	</data>
-	<data name="CH3_S11_PARTNER_6" xml:space="preserve">
-		<value>Did you hear anything strange                     just a moment ago?</value>
-	</data>
-	<data name="CH3_S11_UNK_ACTOR_NPC_KAKUREON1_1" xml:space="preserve">
-		<value>No, nothing out of the ordinary.</value>
-	</data>
-	<data name="CH3_S11_UNK_ACTOR_NPC_KAKUREON2_1" xml:space="preserve">
-		<value>I didn't hear anything odd either.</value>
-	</data>
-	<data name="CH3_S11_PARTNER_7_1" xml:space="preserve">
-		<value>See? The {0} brothers                     didn't hear anything like that either.</value>
-	</data>
-	<data name="CH3_S11_PARTNER_7_0" xml:space="preserve">
-		<value>It sounds like the {0}                     brothers didn't hear anything odd either.</value>
-	</data>
-	<data name="CH3_S11_PARTNER_7_2" xml:space="preserve">
-		<value>The {0} brothers didn't hear                     anything strange either.</value>
-	</data>
-	<data name="CH3_S11_PARTNER_8_1" xml:space="preserve">
-		<value>You probably just imagined it,                     {0}.</value>
-	</data>
-	<data name="CH3_S11_PARTNER_8_0" xml:space="preserve">
-		<value>You must have imagined it,                     {0}.</value>
-	</data>
-	<data name="CH3_S11_PARTNER_8_2" xml:space="preserve">
-		<value>You must have just imagined it,                     {0}.</value>
-	</data>
-	<data name="CH3_S11_PLAYER_4" xml:space="preserve">
-		<value>(No, I'm positive that I didn't imagine it.)</value>
-	</data>
-	<data name="CH3_S11_PLAYER_5" xml:space="preserve">
-		<value>(I definitely heard it!)</value>
-	</data>
-	<data name="CH3_S11_PLAYER_6" xml:space="preserve">
-		<value>(That shout that I heard...)</value>
-	</data>
-	<data name="CH3_S11_NARRATION_1" xml:space="preserve">
-		<value>H-h-h...HELP!</value>
-	</data>
-	<data name="CH3_S11_PLAYER_7" xml:space="preserve">
-		<value>(There's no mistaking it...)</value>
-	</data>
-	<data name="CH3_S11_PLAYER_8" xml:space="preserve">
-		<value>(That was {0}'s scream!)</value>
-	</data>
-	<data name="CH3_S11_PARTNER_9" xml:space="preserve">
-		<value>Uh, are you daydreaming?</value>
-	</data>
-	<data name="CH3_S11_PARTNER_10_1" xml:space="preserve">
-		<value>Let's go already, {0}!</value>
-	</data>
-	<data name="CH3_S11_PARTNER_10_0" xml:space="preserve">
-		<value>Let's move it, {0}!</value>
-	</data>
-	<data name="CH3_S11_PARTNER_10_2" xml:space="preserve">
-		<value>Let's hustle, {0}!</value>
-	</data>
+  <data name="CH3_S2_PARTNER_1_1" xml:space="preserve">
+    <value>That about covers it, I guess.</value>
+  </data>
+  <data name="CH3_S2_PARTNER_1_0" xml:space="preserve">
+    <value>And that should do it.</value>
+  </data>
+  <data name="CH3_S2_PARTNER_1_2" xml:space="preserve">
+    <value>I guess that about covers it.</value>
+  </data>
+  <data name="CH3_S2_Bidoof_1" xml:space="preserve">
+    <value>You sure know a lot, yes sirree! And that's good to know!</value>
+  </data>
+  <data name="CH3_S2_Bidoof_2" xml:space="preserve">
+    <value>All right, then. Come find me when you're all ready to go.</value>
+  </data>
+  <data name="CH3_S2_Bidoof_3" xml:space="preserve">
+    <value>I'll give you a helping hand with selecting the right outlaw for you.</value>
+  </data>
+  <data name="CH3_S2_PARTNER_2_1" xml:space="preserve">
+    <value>Thanks, {0}. You've been really nice about this.</value>
+  </data>
+  <data name="CH3_S2_PARTNER_2_0" xml:space="preserve">
+    <value>Thank you, {0}. You've been really nice.</value>
+  </data>
+  <data name="CH3_S2_PARTNER_2_2" xml:space="preserve">
+    <value>Thank you. How nice of you, {0}!</value>
+  </data>
+  <data name="CH3_S2_Bidoof_4" xml:space="preserve">
+    <value>G-golly, you're embarrassing me! Aw, shucks...</value>
+  </data>
+  <data name="CH3_S2_Bidoof_5" xml:space="preserve">
+    <value>I'll be waiting at the guild's upper underground floor for you.</value>
+  </data>
+  <data name="CH3_S2_PARTNER_3_1" xml:space="preserve">
+    <value>All right, let's go.</value>
+  </data>
+  <data name="CH3_S2_PARTNER_3_0" xml:space="preserve">
+    <value>OK, let's go.</value>
+  </data>
+  <data name="CH3_S2_PARTNER_3_2" xml:space="preserve">
+    <value>OK, let's go.</value>
+  </data>
+  <data name="CH3_S2_PARTNER_4" xml:space="preserve">
+    <value>I'd like to see what kinds of items are available!</value>
+  </data>
+  <data name="CH3_S2_PARTNER_5" xml:space="preserve">
+    <value>Let's go to the {0} Market!</value>
+  </data>
+  <data name="CH3_S2_PARTNER_6" xml:space="preserve">
+    <value>Before we head back, a visit to the {0} Market is a must!</value>
+  </data>
+  <data name="CH3_S3_PARTNER_1" xml:space="preserve">
+    <value>The {0} Market isn't over this way.</value>
+  </data>
+  <data name="CH3_S3_PARTNER_2" xml:space="preserve">
+    <value>The {0} Market is this way.</value>
+  </data>
+  <data name="CH3_S3_PARTNER_3" xml:space="preserve">
+    <value>Let's go, {0}!</value>
+  </data>
+  <data name="CH3_S4_PARTNER_1_1" xml:space="preserve">
+    <value>Hey! What's that about?</value>
+  </data>
+  <data name="CH3_S4_PARTNER_1_0" xml:space="preserve">
+    <value>Oh![pause=0] What's going on there?</value>
+  </data>
+  <data name="CH3_S4_PARTNER_1_2" xml:space="preserve">
+    <value>Say![pause=0] What are they up to?</value>
+  </data>
+  <data name="CH3_S4_UNK_ACTOR_NPC_RURIRI_1" xml:space="preserve">
+    <value>Yaaaay!</value>
+  </data>
+  <data name="CH3_S4_UNK_ACTOR_NPC_MARIRU_1" xml:space="preserve">
+    <value>Thank you!</value>
+  </data>
+  <data name="CH3_S4_UNK_ACTOR_NPC_SURIIPU_1" xml:space="preserve">
+    <value>Please! It's nothing.</value>
+  </data>
+  <data name="CH3_S4_PARTNER_2_1" xml:space="preserve">
+    <value>What's going on?</value>
+  </data>
+  <data name="CH3_S4_PARTNER_2_0" xml:space="preserve">
+    <value>What's going on?</value>
+  </data>
+  <data name="CH3_S4_PARTNER_2_2" xml:space="preserve">
+    <value>What's happening?</value>
+  </data>
+  <data name="CH3_S4_UNK_ACTOR_NPC_RURIRI_2" xml:space="preserve">
+    <value>Oh! Hi!</value>
+  </data>
+  <data name="CH3_S4_UNK_ACTOR_NPC_MARIRU_2" xml:space="preserve">
+    <value>Some time ago, we lost an item that's pretty important to us...</value>
+  </data>
+  <data name="CH3_S4_UNK_ACTOR_NPC_MARIRU_3" xml:space="preserve">
+    <value>We've been looking all over...[pause=0] But we haven't found it yet!</value>
+  </data>
+  <data name="CH3_S4_UNK_ACTOR_NPC_MARIRU_4" xml:space="preserve">
+    <value>Then Mr. {0} came along...</value>
+  </data>
+  <data name="CH3_S4_UNK_ACTOR_NPC_MARIRU_5" xml:space="preserve">
+    <value>And he says he may have seen our lost item somewhere!</value>
+  </data>
+  <data name="CH3_S4_UNK_ACTOR_NPC_MARIRU_6" xml:space="preserve">
+    <value>He even offered to help us look for it.</value>
+  </data>
+  <data name="CH3_S4_UNK_ACTOR_NPC_MARIRU_7" xml:space="preserve">
+    <value>We're so happy about this!</value>
+  </data>
+  <data name="CH3_S4_PARTNER_3_1" xml:space="preserve">
+    <value>Awesome! That's great for you!</value>
+  </data>
+  <data name="CH3_S4_PARTNER_3_0" xml:space="preserve">
+    <value>Yeah! That's great for you!</value>
+  </data>
+  <data name="CH3_S4_PARTNER_3_2" xml:space="preserve">
+    <value>Is that right? How nice for you!</value>
+  </data>
+  <data name="CH3_S4_UNK_ACTOR_NPC_RURIRI_3" xml:space="preserve">
+    <value>Thank you, Mr. {0}!</value>
+  </data>
+  <data name="CH3_S4_UNK_ACTOR_NPC_SURIIPU_2" xml:space="preserve">
+    <value>Oh, please...</value>
+  </data>
+  <data name="CH3_S4_UNK_ACTOR_NPC_SURIIPU_3" xml:space="preserve">
+    <value>I'd have to have a cold heart to ignore kids in need! I can't turn a blind eye!</value>
+  </data>
+  <data name="CH3_S4_UNK_ACTOR_NPC_SURIIPU_4" xml:space="preserve">
+    <value>Let us be on our way to begin our search!</value>
+  </data>
+  <data name="CH3_S4_UNK_ACTOR_NPC_MARIRU_8" xml:space="preserve">
+    <value>Yup!</value>
+  </data>
+  <data name="CH3_S4_UNK_ACTOR_NPC_RURIRI_4" xml:space="preserve">
+    <value>Yup!</value>
+  </data>
+  <data name="CH3_S4_UNK_ACTOR_NPC_SURIIPU_5" xml:space="preserve">
+    <value>Whoops![pause=0] Excuse me.</value>
+  </data>
+  <data name="CH3_S4_PLAYER_1" xml:space="preserve">
+    <value>(Urk...[pause=0] Wh-what is this...?)</value>
+  </data>
+  <data name="CH3_S4_PARTNER_4_1" xml:space="preserve">
+    <value>That {0} is sure a nice Pokémon.[pause=0] You've got to admire that.</value>
+  </data>
+  <data name="CH3_S4_PARTNER_4_0" xml:space="preserve">
+    <value>That {0} sure is a nice Pokémon, isn't he?[pause=0] I'm impressed.</value>
+  </data>
+  <data name="CH3_S4_PARTNER_4_2" xml:space="preserve">
+    <value>That {0} sure is nice.[pause=0] You've got to admire that!</value>
+  </data>
+  <data name="CH3_S4_PARTNER_5" xml:space="preserve">
+    <value>With more and more bad Pokémon around...[pause=0]it's hard to do good deeds.</value>
+  </data>
+  <data name="CH3_S4_PLAYER_2" xml:space="preserve">
+    <value>(It's happening again...)</value>
+  </data>
+  <data name="CH3_S4_PLAYER_3" xml:space="preserve">
+    <value>(Another dizzy spell...)</value>
+  </data>
+  <data name="CH3_S5_PLAYER_1" xml:space="preserve">
+    <value>(What was that?!)</value>
+  </data>
+  <data name="CH3_S5_PARTNER_1_1" xml:space="preserve">
+    <value>I sure hope those kids find their item soon.</value>
+  </data>
+  <data name="CH3_S5_PARTNER_1_0" xml:space="preserve">
+    <value>It would be nice if those little guys found their item soon.</value>
+  </data>
+  <data name="CH3_S5_PARTNER_1_2" xml:space="preserve">
+    <value>It would be nice if those cute little guys found their item soon.</value>
+  </data>
+  <data name="CH3_S5_PARTNER_2_1" xml:space="preserve">
+    <value>Huh? What's up, {0}?</value>
+  </data>
+  <data name="CH3_S5_PARTNER_2_0" xml:space="preserve">
+    <value>Huh? What's the matter, {0}?</value>
+  </data>
+  <data name="CH3_S5_PARTNER_2_2" xml:space="preserve">
+    <value>Huh? Is anything the matter, {0}?</value>
+  </data>
+  <data name="CH3_S5_PARTNER_3_1" xml:space="preserve">
+    <value>What's with that grim look?</value>
+  </data>
+  <data name="CH3_S5_PARTNER_3_0" xml:space="preserve">
+    <value>You're looking awfully grim...</value>
+  </data>
+  <data name="CH3_S5_PARTNER_3_2" xml:space="preserve">
+    <value>Why are you looking so grim?</value>
+  </data>
+  <data name="CH3_S5_PARTNER_4" xml:space="preserve">
+    <value>...Hmm?[pause=0] You want to tell me something?</value>
+  </data>
+  <data name="CH3_S5_PARTNER_5" xml:space="preserve">
+    <value>What? You had a dizzy spell?</value>
+  </data>
+  <data name="CH3_S5_PARTNER_6" xml:space="preserve">
+    <value>Then you saw {0} being threatened by {1}?!</value>
+  </data>
+  <data name="CH3_S5_PARTNER_7" xml:space="preserve">
+    <value>So you want to go rescue {0} right away?</value>
+  </data>
+  <data name="CH3_S5_PARTNER_8" xml:space="preserve">
+    <value>It's an...emergency?!</value>
+  </data>
+  <data name="CH3_S5_PARTNER_9" xml:space="preserve">
+    <value>Well, what you describe does sound like an emergency, but...</value>
+  </data>
+  <data name="CH3_S5_PARTNER_10" xml:space="preserve">
+    <value>Well, it's not like I don't trust you, {0}, but...</value>
+  </data>
+  <data name="CH3_S5_PARTNER_11" xml:space="preserve">
+    <value>I just can't believe it!</value>
+  </data>
+  <data name="CH3_S5_PARTNER_12_1" xml:space="preserve">
+    <value>I mean, {0} looked like an honestly nice Pokémon, didn't he?</value>
+  </data>
+  <data name="CH3_S5_PARTNER_12_0" xml:space="preserve">
+    <value>After all, {0} seemed to be a sincerely nice Pokémon, didn't he?</value>
+  </data>
+  <data name="CH3_S5_PARTNER_12_2" xml:space="preserve">
+    <value>After all, {0} seemed to be a sincerely nice Pokémon, didn't he?</value>
+  </data>
+  <data name="CH3_S5_PARTNER_13_1" xml:space="preserve">
+    <value>I watched the three of them go off earlier...</value>
+  </data>
+  <data name="CH3_S5_PARTNER_13_0" xml:space="preserve">
+    <value>I watched the three of them go off earlier...</value>
+  </data>
+  <data name="CH3_S5_PARTNER_13_2" xml:space="preserve">
+    <value>I saw the three of them go off together earlier...</value>
+  </data>
+  <data name="CH3_S5_PARTNER_14" xml:space="preserve">
+    <value>They looked like they were having a good time, didn't they?</value>
+  </data>
+  <data name="CH3_S5_PARTNER_15" xml:space="preserve">
+    <value>You're probably just tired, {0}.</value>
+  </data>
+  <data name="CH3_S5_PARTNER_16" xml:space="preserve">
+    <value>Maybe that's why you just had that bad daydream.</value>
+  </data>
+  <data name="CH3_S5_PLAYER_2" xml:space="preserve">
+    <value>(Was that it...?[pause=0] Just a bad daydream?)</value>
+  </data>
+  <data name="CH3_S5_PLAYER_3" xml:space="preserve">
+    <value>(But come to think of it...[pause=0] That {0} didn't seem like a bad Pokémon.)</value>
+  </data>
+  <data name="CH3_S5_PARTNER_17_1" xml:space="preserve">
+    <value>Anyway, we're only apprentices. We can't just go running off on our own.</value>
+  </data>
+  <data name="CH3_S5_PARTNER_17_0" xml:space="preserve">
+    <value>Anyway, we're only apprentices. We can't just go do whatever we want.</value>
+  </data>
+  <data name="CH3_S5_PARTNER_17_2" xml:space="preserve">
+    <value>Anyway, we're only apprentices. We can't just go off on our own.</value>
+  </data>
+  <data name="CH3_S5_PARTNER_18_1" xml:space="preserve">
+    <value>Sure, it's worrying, but...</value>
+  </data>
+  <data name="CH3_S5_PARTNER_18_0" xml:space="preserve">
+    <value>Sure, it's worrying, but...</value>
+  </data>
+  <data name="CH3_S5_PARTNER_18_2" xml:space="preserve">
+    <value>Sure, it's a little odd, but...</value>
+  </data>
+  <data name="CH3_S5_PARTNER_19_1" xml:space="preserve">
+    <value>We have to focus on our guild work for now.</value>
+  </data>
+  <data name="CH3_S5_PARTNER_19_0" xml:space="preserve">
+    <value>We have to concentrate on our guild work for now.</value>
+  </data>
+  <data name="CH3_S5_PARTNER_19_2" xml:space="preserve">
+    <value>We have to focus on our guild work for now.</value>
+  </data>
+  <data name="CH3_S5_PARTNER_20_1" xml:space="preserve">
+    <value>Let's get ready to explore, then meet up with {0}.</value>
+  </data>
+  <data name="CH3_S5_PARTNER_20_0" xml:space="preserve">
+    <value>Let's get ourselves ready to explore. Then we should find {0}.</value>
+  </data>
+  <data name="CH3_S5_PARTNER_20_2" xml:space="preserve">
+    <value>Let's get all set for exploring, then go meet up with {0}.</value>
+  </data>
+  <data name="CH3_S5_PARTNER_21_1" xml:space="preserve">
+    <value>{0} said he'd be waiting for us on the guild's upper underground floor.</value>
+  </data>
+  <data name="CH3_S5_PARTNER_21_0" xml:space="preserve">
+    <value>{0}'s supposed to be waiting for us on the guild's upper underground floor.</value>
+  </data>
+  <data name="CH3_S5_PARTNER_21_2" xml:space="preserve">
+    <value>{0} should be waiting for us on the guild's upper underground floor.</value>
+  </data>
+  <data name="CH3_S5_PARTNER_22_1" xml:space="preserve">
+    <value>Let's get to it, {0}!</value>
+  </data>
+  <data name="CH3_S5_PARTNER_22_0" xml:space="preserve">
+    <value>Let's go, {0}!</value>
+  </data>
+  <data name="CH3_S5_PARTNER_22_2" xml:space="preserve">
+    <value>Let's go, {0}!</value>
+  </data>
+  <data name="CH3_S6_UNK_ACTOR_NPC_SURIIPU_1" xml:space="preserve">
+    <value>Whoops![pause=0] Excuse me.</value>
+  </data>
+  <data name="CH3_S7_PARTNER_1_1" xml:space="preserve">
+    <value>This is {0} Market.[pause=0] You can buy and sell items here.</value>
+  </data>
+  <data name="CH3_S7_PARTNER_1_0" xml:space="preserve">
+    <value>Here we have {0} Market. You can buy and sell items here.</value>
+  </data>
+  <data name="CH3_S7_PARTNER_1_2" xml:space="preserve">
+    <value>This is {0} Market. You can buy and sell items here.</value>
+  </data>
+  <data name="CH3_S7_PARTNER_2" xml:space="preserve">
+    <value>And there's {0} Storage. Items stored here will never be lost.</value>
+  </data>
+  <data name="CH3_S7_PARTNER_3" xml:space="preserve">
+    <value>If you have precious items that you can't afford to lose, store them here before you go on an adventure.</value>
+  </data>
+  <data name="CH3_S7_PARTNER_4_1" xml:space="preserve">
+    <value>And those are the basics for exploration teams.</value>
+  </data>
+  <data name="CH3_S7_PARTNER_4_0" xml:space="preserve">
+    <value>And those are the basic places that exploration teams visit.</value>
+  </data>
+  <data name="CH3_S7_PARTNER_4_2" xml:space="preserve">
+    <value>And those are the basic places that exploration teams visit.</value>
+  </data>
+  <data name="CH3_S8_NARRATION_1" xml:space="preserve">
+    <value>{0} gave the {2} back to {1}.</value>
+  </data>
+  <data name="CH3_S8_UNK_ACTOR_NPC_KAKUREON1_1" xml:space="preserve">
+    <value>Ah! Little {0} and {1}![pause=0] Welcome, my young friends! ♪</value>
+  </data>
+  <data name="CH3_S8_UNK_ACTOR_NPC_RURIRI_1" xml:space="preserve">
+    <value>Hello. May I buy an {0}?</value>
+  </data>
+  <data name="CH3_S8_UNK_ACTOR_NPC_KAKUREON1_2" xml:space="preserve">
+    <value>Oh, most certainly!</value>
+  </data>
+  <data name="CH3_S8_UNK_ACTOR_NPC_KAKUREON1_3" xml:space="preserve">
+    <value>{0} and {1} bought an {2} at {3} Market.</value>
+  </data>
+  <data name="CH3_S8_UNK_ACTOR_NPC_MARIRU_1" xml:space="preserve">
+    <value>Thank you, Misters {0}!</value>
+  </data>
+  <data name="CH3_S8_UNK_ACTOR_NPC_KAKUREON1_4" xml:space="preserve">
+    <value>No, thank you, my young friends! You are to be admired! ♪</value>
+  </data>
+  <data name="CH3_S8_UNK_ACTOR_NPC_KAKUREON1_5" xml:space="preserve">
+    <value>You see, those delightful children are brothers.</value>
+  </data>
+  <data name="CH3_S8_UNK_ACTOR_NPC_KAKUREON1_6" xml:space="preserve">
+    <value>Lately, their poor mother has fallen sick. So those youngsters come and             do the shopping for her.</value>
+  </data>
+  <data name="CH3_S8_UNK_ACTOR_NPC_KAKUREON1_7" xml:space="preserve">
+    <value>It's quite remarkable. Though very young, they've stepped up and taken charge. ♪</value>
+  </data>
+  <data name="CH3_S8_UNK_ACTOR_NPC_KAKUREON1_8" xml:space="preserve">
+    <value>Misters {0}!</value>
+  </data>
+  <data name="CH3_S8_UNK_ACTOR_NPC_KAKUREON1_9" xml:space="preserve">
+    <value>Oh? What's the hurry? What makes you return in such a rush?</value>
+  </data>
+  <data name="CH3_S8_UNK_ACTOR_NPC_RURIRI_2" xml:space="preserve">
+    <value>There was an extra {0}!</value>
+  </data>
+  <data name="CH3_S8_UNK_ACTOR_NPC_MARIRU_2" xml:space="preserve">
+    <value>We didn't pay for this many.</value>
+  </data>
+  <data name="CH3_S8_UNK_ACTOR_NPC_KAKUREON1_10" xml:space="preserve">
+    <value>Oh, yes... That, young friends, is a gift from me and my brother.</value>
+  </data>
+  <data name="CH3_S8_UNK_ACTOR_NPC_KAKUREON1_11" xml:space="preserve">
+    <value>Please, share it among yourselves and do enjoy.</value>
+  </data>
+  <data name="CH3_S8_UNK_ACTOR_NPC_MARIRU_3" xml:space="preserve">
+    <value>Really?!</value>
+  </data>
+  <data name="CH3_S8_UNK_ACTOR_NPC_RURIRI_3" xml:space="preserve">
+    <value>Yay! Thank you, Mr. {0} and Mr. {1}!</value>
+  </data>
+  <data name="CH3_S8_UNK_ACTOR_NPC_KAKUREON1_12" xml:space="preserve">
+    <value>Oh, not to worry, my friends. Do take care on your way home. ♪</value>
+  </data>
+  <data name="CH3_S8_UNK_ACTOR_NPC_RURIRI_4" xml:space="preserve">
+    <value>Yowch!</value>
+  </data>
+  <data name="CH3_S8_UNK_ACTOR_NPC_RURIRI_5" xml:space="preserve">
+    <value>W-we're sorry to bother you. Thank you so much.</value>
+  </data>
+  <data name="CH3_S8_NARRATION_2" xml:space="preserve">
+    <value>But then suddenly...</value>
+  </data>
+  <data name="CH3_S8_PLAYER_1" xml:space="preserve">
+    <value>(Huh? What was that?)</value>
+  </data>
+  <data name="CH3_S8_PLAYER_2" xml:space="preserve">
+    <value>(D-dizzy? Or am I...?)</value>
+  </data>
+  <data name="CH3_S9_UNK_ACTOR_NPC_RURIRI_1" xml:space="preserve">
+    <value>W-we're sorry to bother you. Thank you so much.</value>
+  </data>
+  <data name="CH3_S10_NARRATION_1" xml:space="preserve">
+    <value>H-h-h...HELP!</value>
+  </data>
+  <data name="CH3_S11_PLAYER_1" xml:space="preserve">
+    <value>(What was that?)</value>
+  </data>
+  <data name="CH3_S11_PLAYER_2" xml:space="preserve">
+    <value>(I'm sure I heard a shout for help just now...)</value>
+  </data>
+  <data name="CH3_S11_PLAYER_3" xml:space="preserve">
+    <value>(Did that shout come from you?)</value>
+  </data>
+  <data name="CH3_S11_UNK_ACTOR_NPC_RURIRI_1" xml:space="preserve">
+    <value>Is something the matter?</value>
+  </data>
+  <data name="CH3_S11_UNK_ACTOR_NPC_RURIRI_2" xml:space="preserve">
+    <value>Hey, {0}![pause=0] What's going on? Hurry home!</value>
+  </data>
+  <data name="CH3_S11_UNK_ACTOR_NPC_RURIRI_3" xml:space="preserve">
+    <value>Yup! I'm coming! Wait up!</value>
+  </data>
+  <data name="CH3_S11_UNK_ACTOR_NPC_MARIRU_1" xml:space="preserve">
+    <value>Are you all right?</value>
+  </data>
+  <data name="CH3_S11_UNK_ACTOR_NPC_RURIRI_4" xml:space="preserve">
+    <value>Yup!</value>
+  </data>
+  <data name="CH3_S11_UNK_ACTOR_NPC_MARIRU_2" xml:space="preserve">
+    <value>We're done with our shopping... Now we gotta look for an item we've lost!</value>
+  </data>
+  <data name="CH3_S11_UNK_ACTOR_NPC_MARIRU_3" xml:space="preserve">
+    <value>Let's get going.</value>
+  </data>
+  <data name="CH3_S11_UNK_ACTOR_NPC_RURIRI_5" xml:space="preserve">
+    <value>Yup! I'm coming!</value>
+  </data>
+  <data name="CH3_S11_PARTNER_1" xml:space="preserve">
+    <value>Ha! Those little guys are cute.</value>
+  </data>
+  <data name="CH3_S11_PARTNER_2_1" xml:space="preserve">
+    <value>Huh?[pause=0] What's wrong, {0}?</value>
+  </data>
+  <data name="CH3_S11_PARTNER_2_0" xml:space="preserve">
+    <value>Oh?[pause=0] What's the matter, {0}?</value>
+  </data>
+  <data name="CH3_S11_PARTNER_2_2" xml:space="preserve">
+    <value>Huh?[pause=0] What's the matter, {0}?</value>
+  </data>
+  <data name="CH3_S11_PARTNER_3_1" xml:space="preserve">
+    <value>Huh? Did I hear a shout for help just then?</value>
+  </data>
+  <data name="CH3_S11_PARTNER_3_0" xml:space="preserve">
+    <value>Huh? Did I hear a shout for help just then?</value>
+  </data>
+  <data name="CH3_S11_PARTNER_3_2" xml:space="preserve">
+    <value>Pardon? Did I hear a shout for help just then?</value>
+  </data>
+  <data name="CH3_S11_PARTNER_4" xml:space="preserve">
+    <value>Uh, no... I didn't hear anything like that!</value>
+  </data>
+  <data name="CH3_S11_PARTNER_5_1" xml:space="preserve">
+    <value>Hey, {0} brothers.</value>
+  </data>
+  <data name="CH3_S11_PARTNER_5_0" xml:space="preserve">
+    <value>Hey, {0} brothers.</value>
+  </data>
+  <data name="CH3_S11_PARTNER_5_2" xml:space="preserve">
+    <value>Say, {0} brothers.</value>
+  </data>
+  <data name="CH3_S11_PARTNER_6" xml:space="preserve">
+    <value>Did you hear anything strange just a moment ago?</value>
+  </data>
+  <data name="CH3_S11_UNK_ACTOR_NPC_KAKUREON1_1" xml:space="preserve">
+    <value>No, nothing out of the ordinary.</value>
+  </data>
+  <data name="CH3_S11_UNK_ACTOR_NPC_KAKUREON2_1" xml:space="preserve">
+    <value>I didn't hear anything odd either.</value>
+  </data>
+  <data name="CH3_S11_PARTNER_7_1" xml:space="preserve">
+    <value>See? The {0} brothers didn't hear anything like that either.</value>
+  </data>
+  <data name="CH3_S11_PARTNER_7_0" xml:space="preserve">
+    <value>It sounds like the {0} brothers didn't hear anything odd either.</value>
+  </data>
+  <data name="CH3_S11_PARTNER_7_2" xml:space="preserve">
+    <value>The {0} brothers didn't hear anything strange either.</value>
+  </data>
+  <data name="CH3_S11_PARTNER_8_1" xml:space="preserve">
+    <value>You probably just imagined it, {0}.</value>
+  </data>
+  <data name="CH3_S11_PARTNER_8_0" xml:space="preserve">
+    <value>You must have imagined it, {0}.</value>
+  </data>
+  <data name="CH3_S11_PARTNER_8_2" xml:space="preserve">
+    <value>You must have just imagined it, {0}.</value>
+  </data>
+  <data name="CH3_S11_PLAYER_4" xml:space="preserve">
+    <value>(No, I'm positive that I didn't imagine it.)</value>
+  </data>
+  <data name="CH3_S11_PLAYER_5" xml:space="preserve">
+    <value>(I definitely heard it!)</value>
+  </data>
+  <data name="CH3_S11_PLAYER_6" xml:space="preserve">
+    <value>(That shout that I heard...)</value>
+  </data>
+  <data name="CH3_S11_NARRATION_1" xml:space="preserve">
+    <value>H-h-h...HELP!</value>
+  </data>
+  <data name="CH3_S11_PLAYER_7" xml:space="preserve">
+    <value>(There's no mistaking it...)</value>
+  </data>
+  <data name="CH3_S11_PLAYER_8" xml:space="preserve">
+    <value>(That was {0}'s scream!)</value>
+  </data>
+  <data name="CH3_S11_PARTNER_9" xml:space="preserve">
+    <value>Uh, are you daydreaming?</value>
+  </data>
+  <data name="CH3_S11_PARTNER_10_1" xml:space="preserve">
+    <value>Let's go already, {0}!</value>
+  </data>
+  <data name="CH3_S11_PARTNER_10_0" xml:space="preserve">
+    <value>Let's move it, {0}!</value>
+  </data>
+  <data name="CH3_S11_PARTNER_10_2" xml:space="preserve">
+    <value>Let's hustle, {0}!</value>
+  </data>
 </root>
