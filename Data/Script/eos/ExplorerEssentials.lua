@@ -242,6 +242,7 @@ end
 function ExplorerEssentials.RefreshShops()
 	-- get shop progression
 	local shop = 1 -- PLACEHOLDER
+	local itemCount = 6 + (2 * shop)
 	
 	-- normal shop
 	
@@ -258,7 +259,7 @@ function ExplorerEssentials.RefreshShops()
 	end
 
 	-- get items from a random type
-	for _ = 1, 8, 1 do
+	for _ = 1, itemCount, 1 do
 		local index = typesTable[math.random(1, #typesTable)]
 		local items = index[shop]
 
@@ -291,7 +292,7 @@ function ExplorerEssentials.RefreshShops()
 	end
 
 	-- get items from a random type
-	for _ = 1, 8, 1 do
+	for _ = 1, itemCount, 1 do
 		local index = typesTable[math.random(1, #typesTable)]
 		local items = index[shop]
 

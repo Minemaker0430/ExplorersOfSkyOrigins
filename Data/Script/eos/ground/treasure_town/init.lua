@@ -326,225 +326,6 @@ function treasure_town.Shop_Action(obj, activator)
 	if SV.Progression.Chapter == 3 then treasure_town.CH3_MeetingMarillAndAzurill() end
 end -- green kecleon shop action
 
-function treasure_town.GenerateGreenKecleonStock(generate_random_item)
-	--generate random stock of items for green kec. Items generated are based on story progression (better items will crop up later in the story)
-	--Start with predefined list of weighted items, then generate a stock of several items from those lists
-	--Stocks are separated based on category (food, medicine, hold item, etc).
-	--Kec stock isn't totally random, it pulls a gauranteed number from each stock  (i.e. always 1 hold item a day, but which it is is random)
-
-	local stock = {}
-
-	--This parameter determines whether to generate a random item or to actually refresh the stock.
-	--The parameter should be true if we want to generate and return a single kec item (useful for red merchant)
-	--This is a bit of a lazy/poor way of doing it, but it should work fine for how often it's used.
-	if generate_random_item == nil then generate_random_item = false end
-
-	--TODO: Add more types of stock progressions later on
-	--Basic Stock, early game
-
-	--total weight = 100
-	local food_stock = {
-		{ "food_apple",    182 }, --Apple
-		{ "gummi_blue",    1 }, --Blue Gummi
-		{ "gummi_black",   1 }, --Black Gummi
-		{ "gummi_clear",   1 }, --Clear Gummi
-		{ "gummi_grass",   1 }, --Grass Gummi
-		{ "gummi_green",   1 }, --Green Gummi
-		{ "gummi_brown",   1 }, --Brown Gummi
-		{ "gummi_orange",  1 }, --Orange Gummi
-		{ "gummi_gold",    1 }, --Gold Gummi
-		{ "gummi_pink",    1 }, --Pink Gummi
-		{ "gummi_purple",  1 }, --Purple Gummi
-		{ "gummi_red",     1 }, --Red Gummi
-		{ "gummi_royal",   1 }, --Royal Gummi
-		{ "gummi_silver",  1 }, --Silver Gummi
-		{ "gummi_white",   1 }, --White Gummi
-		{ "gummi_yellow",  1 }, --Yellow Gummi
-		{ "gummi_sky",     1 }, --Sky Gummi
-		{ "gummi_gray",    1 }, --Gray Gummi
-		{ "gummi_magenta", 1 } --Magenta Gummi
-	}
-
-	--total weight = 120
-	local medicine_stock = {
-		{ "seed_reviver", 10 }, --Reviver seed
-		{ "seed_warp",    5 }, --Warp Seed
-		{ "seed_sleep",   5 }, --Sleep seed
-		{ "seed_vile",    2 }, --Vile seed
-		{ "seed_decoy",   6 }, --decoy seed
-		{ "seed_blast",   8 }, --Blast seed
-
-		{ "berry_leppa",  25 }, --Leppa berry
-
-
-		{ "berry_oran",   32 }, --Oran berry
-		{ "berry_lum",    2 }, --Lum berry
-		{ "berry_cheri",  6 }, -- Cheri berry
-		{ "berry_chesto", 4 }, -- Chesto berry
-		{ "berry_pecha",  8 }, -- Pecha berry
-		{ "berry_aspear", 3 }, -- Aspear berry
-		{ "berry_rawst",  4 }, -- Rawst berry
-		{ "berry_persim", 6 } -- Persim berry
-	}
-
-
-	local ammo_stock =
-	{
-		{ "ammo_geo_pebble", 50 }, --Geo pebble
-		{ "ammo_stick",      50 }, --stick
-		{ "ammo_iron_thorn", 50 } --iron thorn
-	}
-
-
-	local held_stock = {
-		{ "held_power_band",    10 }, -- power band
-		{ "held_special_band",  10 }, --special band
-		{ "held_defense_scarf", 10 }, --defense scarf
-		{ "held_zinc_band",     10 }, --Zinc band
-
-		{ "held_pecha_scarf",   10 }, --Pecha Scarf
-		{ "held_insomniascope", 10 }, --Insomnia scope
-		{ "held_persim_band",   10 }, --Persim Band
-
-	}
-
-	--replaces a medicine roll starting with chapter 4. Before then, isn't used.
-	local apricorn_stock = {
-		{ "apricorn_plain",  10 },
-		{ "apricorn_black",  5 },
-		{ "apricorn_blue",   5 },
-		{ "apricorn_brown",  5 },
-		{ "apricorn_green",  5 },
-		{ "apricorn_purple", 5 },
-		{ "apricorn_red",    5 },
-		{ "apricorn_white",  5 },
-		{ "apricorn_yellow", 5 }
-	}
-
-
-
-	--Apricorns become available once Chapter 4 starts
-	if SV.Progression.Chapter == 4 then
-		table.insert(stock, 0) --GeneralFunctions.WeightedRandom(held_stock))
-		table.insert(stock, 0) --GeneralFunctions.WeightedRandom(ammo_stock))
-		table.insert(stock, 0) --GeneralFunctions.WeightedRandom(apricorn_stock))
-		table.insert(stock, 0) --GeneralFunctions.WeightedRandom(food_stock))
-		table.insert(stock, 0) --GeneralFunctions.WeightedRandom(food_stock))
-		table.insert(stock, 0) --GeneralFunctions.WeightedRandom(medicine_stock))
-		table.insert(stock, 0) --GeneralFunctions.WeightedRandom(medicine_stock))
-		table.insert(stock, 0) --GeneralFunctions.WeightedRandom(medicine_stock))
-	else
-		table.insert(stock, 0) --GeneralFunctions.WeightedRandom(held_stock))
-		table.insert(stock, 0) --GeneralFunctions.WeightedRandom(ammo_stock))
-		table.insert(stock, 0) --GeneralFunctions.WeightedRandom(food_stock))
-		table.insert(stock, 0) --GeneralFunctions.WeightedRandom(food_stock))
-		table.insert(stock, 0) --GeneralFunctions.WeightedRandom(medicine_stock))
-		table.insert(stock, 0) --GeneralFunctions.WeightedRandom(medicine_stock))
-		table.insert(stock, 0) --GeneralFunctions.WeightedRandom(medicine_stock))
-		table.insert(stock, 0) --GeneralFunctions.WeightedRandom(medicine_stock))
-	end
-
-	if not generate_random_item then
-		--set stock to randomized assortment and flag that the stock was refreshed for the day
-		SV.DailyFlags.GreenKecleonStockedRefreshed = true
-		SV.DailyFlags.GreenKecleonStock = stock
-	else
-		return stock[math.random(1, #stock)]
-	end
-end -- generate items
-
-function treasure_town.Kecleon_Action(obj, activator)
-
-end --kecleon dialouge
-
-function treasure_town.GeneratePurpleKecleonStock(generate_random_item)
-	--generate random stock of items for green kec. Items generated are based on story progression (better items will crop up later in the story)
-	--Start with predefined list of weighted items, then generate a stock of several items from those lists
-	--Stocks are separated based on category (food, medicine, hold item, etc).
-	--Kec stock isn't totally random, it pulls a gauranteed number from each stock  (i.e. always 1 hold item a day, but which it is is random)
-
-	local stock = {}
-
-	--This parameter determines whether to generate a random item or to actually refresh the stock.
-	--The parameter should be true if we want to generate and return a single kec item (useful for red merchant)
-	--This is a bit of a lazy/poor way of doing it, but it should work fine for how often it's used.
-	if generate_random_item == nil then generate_random_item = false end
-
-
-	--TODO: Add more types of stock progressions later on
-	--Basic Stock, early game
-
-	--total weight =
-	--mostly meh TMs for early game
-	local tm_stock = {
-		{ "tm_secret_power", 10 }, --secret power
-		{ "tm_embargo",      10 }, --embargo
-		{ "tm_echoed_voice", 10 }, --echoed voice
-		{ "tm_protect",      5 }, --protect
-		{ "tm_roar",         10 }, --roar
-		{ "tm_swagger",      10 }, --swagger
-		{ "tm_facade",       10 }, --facade
-		{ "tm_payback",      10 }, --payback
-		{ "tm_dig",          2 }, --dig
-		{ "tm_safeguard",    10 }, --safeguard
-		{ "tm_venoshock",    5 }, --venoshock
-		{ "tm_work_up",      5 }, --workup
-		{ "tm_thunder_wave", 5 }, --thunder wave
-		{ "tm_return",       5 }, --return
-		{ "tm_pluck",        5 }, --pluck
-		{ "tm_frustration",  5 }, --frustration
-		{ "tm_thief",        10 }, --thief
-		{ "tm_water_pulse",  2 }, --water pulse
-		{ "tm_shock_wave",   2 }, --shock wave
-		{ "tm_incinerate",   2 }, --incinerate
-		{ "tm_rock_tomb",    4 }, --rock tomb
-		{ "tm_attract",      10 }, --attract
-		{ "tm_hidden_power", 8 }, --hidden power
-		{ "tm_taunt",        10 }, --taunt
-		{ "tm_grass_knot",   4 }, --grass knot
-		{ "tm_brick_break",  2 }, --brick break
-		{ "tm_rest",         5 }, --rest
-	}
-
-	local orb_stock =
-	{
-		{ "orb_escape",   50 }, --escape orb
-		{ "orb_cleanse",  10 }, --cleanse orb
-
-		{ "orb_petrify",  10 }, --petrify orb
-		{ "orb_slumber",  10 }, --slumber orb
-		{ "orb_totter",   10 }, --totter orb
-		{ "orb_scanner",  10 }, --scanner orb
-		{ "orb_luminous", 10 }, --luminous orb
-		{ "orb_spurn",    10 }, --spurn orb
-		{ "orb_foe_hold", 10 }, --foe hold orb
-		{ "orb_foe_seal", 10 }, --foe seal orb
-		{ "orb_rollcall", 15 }, --rollcall orb
-		{ "orb_trawl",    5 }, --trawl orb
-		{ "orb_all_aim",  10 }, --all aim orb
-		{ "orb_invert",   5 }, --invert orb
-		{ "orb_fill_in",  5 } --fill in orb
-	}
-
-
-	table.insert(stock, 0) --GeneralFunctions.WeightedRandom(tm_stock))
-	table.insert(stock, 0) --GeneralFunctions.WeightedRandom(orb_stock))
-	table.insert(stock, 0) --GeneralFunctions.WeightedRandom(orb_stock))
-	table.insert(stock, 0) --GeneralFunctions.WeightedRandom(orb_stock))
-	table.insert(stock, 0) --GeneralFunctions.WeightedRandom(orb_stock))
-	table.insert(stock, 0) --GeneralFunctions.WeightedRandom(orb_stock))
-
-
-
-	if not generate_random_item then
-		--set stock to randomized assortment and flag that the stock was refreshed for the day
-		SV.DailyFlags.PurpleKecleonStockedRefreshed = true
-		SV.DailyFlags.PurpleKecleonStock = stock
-	else
-		return stock[math.random(1, #stock)]
-	end
-end --purple kecleon generate shop
-
 function treasure_town.TMShop_Action(obj, activator)
 	if SV.DailyFlags.TMShopTable == (nil or {}) then ExplorerEssentials.RefreshShops() end
 
@@ -743,6 +524,8 @@ function treasure_town.TMShop_Action(obj, activator)
 			end
 		end
 	end
+
+	if SV.Progression.Chapter == 3 then treasure_town.CH3_MeetingMarillAndAzurill() end
 end --purple kecleon shop action
 
 function treasure_town.PurpleKecleon_Action(obj, activator)
@@ -782,7 +565,9 @@ end
 --Ground map transitions
 
 function treasure_town.HabitatSharpedoBluffDayEntrance_Touch(obj, activator)
-	GAME:EnterGroundMap("habitat_sharpedo_bluff_day", "TreasureTownEntranceMarker")
+	if SV.Progression.Chapter > 3 then -- you shouldn't be able to go here during ch3
+		GAME:EnterGroundMap("habitat_sharpedo_bluff_day", "TreasureTownEntranceMarker")
+	end
 end
 
 function treasure_town.MarowakDojoEntrance_Touch(obj, activator)
@@ -800,12 +585,8 @@ function treasure_town.CrossRoadsAssemblyEntrance_Touch(obj, activator)
 end
 
 --Cutscene markers
-function treasure_town.CH3AzrullSceneMarker_Touch(obj, activator)
-	if SV.Progression.Chapter == 3 then
-		if SV.Progression.SectionFlag == 8 then
-			treasure_town.CH3AzumarillScene2()
-		end
-	end
+function treasure_town.CH3_CutsceneMarker_Touch(obj, activator)
+	treasure_town.CH3_MeetingDrowzee()
 end
 
 -------------------------------

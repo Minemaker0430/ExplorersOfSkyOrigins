@@ -12,22 +12,28 @@ COMMON.SHOP_WEIGHTS = {
   [2] = {
     {Type = COMMON.THROWN_PIERCE, Weight = 1},
     {Type = COMMON.THROWN_ROCKS, Weight = 1},
+    {Type = COMMON.THROWN_WANDS, Weight = 1},
     {Type = COMMON.UTILITIES, Weight = 4},
     {Type = COMMON.FOOD, Weight = 3},
+    {Type = COMMON.APRICORNS, Weight = 2},
     {Type = COMMON.HELD, Weight = 1}
   },
   [3] = {
     {Type = COMMON.THROWN_PIERCE, Weight = 1},
     {Type = COMMON.THROWN_ROCKS, Weight = 1},
+    {Type = COMMON.THROWN_WANDS, Weight = 1},
     {Type = COMMON.UTILITIES, Weight = 4},
     {Type = COMMON.FOOD, Weight = 3},
+    {Type = COMMON.APRICORNS, Weight = 3},
     {Type = COMMON.HELD, Weight = 1}
   },
   [4] = {
     {Type = COMMON.THROWN_PIERCE, Weight = 1},
     {Type = COMMON.THROWN_ROCKS, Weight = 1},
+    {Type = COMMON.THROWN_WANDS, Weight = 1},
     {Type = COMMON.UTILITIES, Weight = 5},
     {Type = COMMON.FOOD, Weight = 5},
+    {Type = COMMON.APRICORNS, Weight = 5},
     {Type = COMMON.HELD, Weight = 1}
   }
 }
@@ -239,6 +245,30 @@ COMMON.THROWN_PIERCE = {
   [4] = {
     { Index = "ammo_iron_thorn", Amount = 5, Price = 20, Weight = 5},
     { Index = "ammo_silver_spike", Amount = 5, Price = 30, Weight = 1}
+  }
+}
+
+COMMON.THROWN_WANDS = {
+  [2] = {
+    { Index = "wand_warp", Amount = 9, Price = 80, Weight = 1},
+    { Index = "wand_slumber", Amount = 9, Price = 140, Weight = 1}
+  },
+  [3] = {
+    { Index = "wand_warp", Amount = 9, Price = 80, Weight = 1},
+    { Index = "wand_slumber", Amount = 9, Price = 150, Weight = 1},
+    { Index = "wand_blast", Amount = 9, Price = 120, Weight = 1},
+    { Index = "wand_whirlwind", Amount = 9, Price = 120, Weight = 1},
+    { Index = "wand_totter", Amount = 9, Price = 150, Weight = 1},
+    { Index = "wand_slow", Amount = 9, Price = 200, Weight = 1}
+  },
+  [4] = {
+    { Index = "wand_warp", Amount = 9, Price = 80, Weight = 3},
+    { Index = "wand_slumber", Amount = 9, Price = 150, Weight = 3},
+    { Index = "wand_blast", Amount = 9, Price = 120, Weight = 3},
+    { Index = "wand_whirlwind", Amount = 9, Price = 120, Weight = 3},
+    { Index = "wand_totter", Amount = 9, Price = 150, Weight = 3},
+    { Index = "wand_slow", Amount = 9, Price = 200, Weight = 3},
+    { Index = "wand_guiding", Amount = 9, Price = 300, Weight = 1}
   }
 }
 
@@ -618,5 +648,45 @@ COMMON.TMS = {
 COMMON.SPECIAL = {
   [4] = {
     { Index = "key", Amount = 0, Price = 8000, Weight = 1}
+  }
+}
+
+COMMON.APRICORNS = {
+  [2] = {
+    { Index = "apricorn_plain", Amount = 0, Price = 100, Weight = 8},
+    { Index = "apricorn_blue", Amount = 0, Price = 250, Weight = 1},
+    { Index = "apricorn_green", Amount = 0, Price = 250, Weight = 1},
+    { Index = "apricorn_brown", Amount = 0, Price = 250, Weight = 1},
+    { Index = "apricorn_purple", Amount = 0, Price = 250, Weight = 1},
+    { Index = "apricorn_red", Amount = 0, Price = 250, Weight = 1},
+    { Index = "apricorn_white", Amount = 0, Price = 250, Weight = 1},
+    { Index = "apricorn_yellow", Amount = 0, Price = 250, Weight = 1},
+    { Index = "apricorn_black", Amount = 0, Price = 250, Weight = 1}
+  },
+  [3] = {
+    { Index = "apricorn_plain", Amount = 0, Price = 100, Weight = 8},
+    { Index = "apricorn_blue", Amount = 0, Price = 250, Weight = 3},
+    { Index = "apricorn_green", Amount = 0, Price = 250, Weight = 3},
+    { Index = "apricorn_brown", Amount = 0, Price = 250, Weight = 3},
+    { Index = "apricorn_purple", Amount = 0, Price = 250, Weight = 3},
+    { Index = "apricorn_red", Amount = 0, Price = 250, Weight = 3},
+    { Index = "apricorn_white", Amount = 0, Price = 250, Weight = 3},
+    { Index = "apricorn_yellow", Amount = 0, Price = 250, Weight = 3},
+    { Index = "apricorn_black", Amount = 0, Price = 250, Weight = 3},
+    { Index = "apricorn_big", Amount = 0, Price = 400, Weight = 1}
+  },
+  [4] = {
+    { Index = "apricorn_plain", Amount = 0, Price = 100, Weight = 5},
+    { Index = "apricorn_blue", Amount = 0, Price = 250, Weight = 3},
+    { Index = "apricorn_green", Amount = 0, Price = 250, Weight = 3},
+    { Index = "apricorn_brown", Amount = 0, Price = 250, Weight = 3},
+    { Index = "apricorn_purple", Amount = 0, Price = 250, Weight = 3},
+    { Index = "apricorn_red", Amount = 0, Price = 250, Weight = 3},
+    { Index = "apricorn_white", Amount = 0, Price = 250, Weight = 3},
+    { Index = "apricorn_yellow", Amount = 0, Price = 250, Weight = 3},
+    { Index = "apricorn_black", Amount = 0, Price = 250, Weight = 3},
+    { Index = "apricorn_big", Amount = 0, Price = 400, Weight = 2},
+    { Index = "apricorn_glittery", Amount = 0, Price = 500, Weight = 2},
+    { Index = "apricorn_perfect", Amount = 0, Price = 5000, Weight = 1}
   }
 }
