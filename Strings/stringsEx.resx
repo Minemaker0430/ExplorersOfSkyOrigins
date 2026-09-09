@@ -669,7 +669,6 @@
   </data>
   <data name="STORAGE_INFO_1" xml:space="preserve">
     <value>If you faint in a dungeon, some of your items will be lost...</value>
-    <comment>False advertising (for now) since PMDO removes ALL items</comment>
   </data>
   <data name="STORAGE_INFO_2" xml:space="preserve">
     <value>But anything that you have put in storage will be safe.</value>
@@ -695,7 +694,6 @@
   </data>
   <data name="BANK_INFO_0" xml:space="preserve">
     <value>Did you know that if you fall in a dungeon, half of your money will be spirited away, never to be found again? Hee-hee...</value>
-    <comment>False Advertising (for now) again, PMDO takes ALL money</comment>
   </data>
   <data name="BANK_INFO_1" xml:space="preserve">
     <value>Avoid that fate...[pause=0]hee-hee...[pause=0] by leaving your money in {0} Bank.</value>
@@ -1057,5 +1055,11 @@ a {1)...</value>
   <data name="MSG_FLOOR_GUIDING" xml:space="preserve">
     <value>The location of the stairs was revealed!</value>
     <comment>Added by BobTheBobCatt</comment>
+  </data>
+  <data name="MENU_SHOP_BUY" xml:space="preserve">
+    <value>Buy</value>
+  </data>
+  <data name="MENU_SHOP_SELL" xml:space="preserve">
+    <value>Sell</value>
   </data>
 </root>

@@ -45,7 +45,8 @@ function ExplorerEssentials.GetFormattedMoney(value)
   	local ret = tostring(value):reverse():gsub("(%d%d%d)", "%1,")
 	ret = ret:reverse():gsub("^,", "")
 
-	return "[color=#00FF00]\u{E024} " .. ret .. "[color] \u{E023}"
+	return STRINGS:FormatKey("MONEY_AMOUNT", ret)
+	--return "[color=#00FF00]\u{E024} " .. ret .. "[color] \u{E023}"
 end
 
 --- Gets the plural form of an item
@@ -239,5 +240,73 @@ function ExplorerEssentials.ResetDailyFlags()
 end
 
 function ExplorerEssentials.RefreshShops()
+	-- get shop progression
+	local shop = 1 -- PLACEHOLDER
+	
+	-- normal shop
+	
+	local res = {}
+
+	local types = COMMON.SHOP_WEIGHTS[shop]
+
+	-- get types and weight them
+	local typesTable = {}
+	for i = 1, #types, 1 do
+		for j = 1, types[i].Weight, 1 do
+			table.insert(typesTable, math.random(1, #typesTable), types[i].Type)
+		end
+	end
+
+	-- get items from a random type
+	for _ = 1, 8, 1 do
+		local index = typesTable[math.random(1, #typesTable)]
+		local items = index[shop]
+
+		local itemsWeighted = {}
+		for i = 1, #items, 1 do
+			for j = 1, items[i].Weight, 1 do
+				table.insert(itemsWeighted, math.random(1, #itemsWeighted), items[i])
+			end
+		end
+
+		table.insert(res, itemsWeighted[math.random(1, #itemsWeighted)])
+	end
+
+	SV.DailyFlags.ShopTable = res
+
+	print("Shop Table:\n" .. res)
+
+	-- tm/orb shop
+	
+	local res = {}
+
+	local types = COMMON.TM_SHOP_WEIGHTS[shop]
+
+	-- get types and weight them
+	local typesTable = {}
+	for i = 1, #types, 1 do
+		for j = 1, types[i].Weight, 1 do
+			table.insert(typesTable, math.random(1, #typesTable), types[i].Type)
+		end
+	end
+
+	-- get items from a random type
+	for _ = 1, 8, 1 do
+		local index = typesTable[math.random(1, #typesTable)]
+		local items = index[shop]
+
+		local itemsWeighted = {}
+		for i = 1, #items, 1 do
+			for j = 1, items[i].Weight, 1 do
+				table.insert(itemsWeighted, math.random(1, #itemsWeighted), items[i])
+			end
+		end
+
+		table.insert(res, itemsWeighted[math.random(1, #itemsWeighted)])
+	end
+
+	SV.DailyFlags.TMShopTable = res
+
+	print("TM Shop Table:\n" .. res)
 	
 end

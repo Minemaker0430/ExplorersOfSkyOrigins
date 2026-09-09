@@ -124,14 +124,14 @@ end
 function treasure_town.Shop_Action(obj, activator)
 	DEBUG.EnableDbgCoro() --Enable debugging this coroutine
 
-	if SV.DailyFlags.ShopTable == nil then ExplorerEssentials.RefreshShops() end
+	if SV.DailyFlags.ShopTable == (nil or {}) then ExplorerEssentials.RefreshShops() end
 
 	local state = 0
 	local repeated = false
 	local cart = {}
 	local catalog = {}
-	for ii = 1, #SV.base_shop, 1 do
-		local base_data = SV.base_shop[ii]
+	for ii = 1, #SV.DailyFlags.ShopTable, 1 do
+		local base_data = SV.DailyFlags.ShopTable[ii]
 		local item_data = { Item = RogueEssence.Dungeon.InvItem(base_data.Index, false, base_data.Amount), Price =
 		base_data.Price }
 		table.insert(catalog, item_data)
@@ -141,12 +141,13 @@ function treasure_town.Shop_Action(obj, activator)
 
 	while state > -1 do
 		if state == 0 then
-			local msg = STRINGS:Format(STRINGS.MapStrings['Shop_Intro'])
+			local msg = STRINGS:Format(RogueEssence.StringKey("SHOP_INTRO_A"):ToLocal(), CH('Kecleon'):GetDisplayName())
 			if repeated == true then
-				msg = STRINGS:Format(STRINGS.MapStrings['Shop_Intro_Return'])
+				msg = STRINGS:Format(RogueEssence.StringKey("SHOP_CONTINUE_A"):ToLocal())
 			end
-			local shop_choices = { STRINGS:Format(STRINGS.MapStrings['Shop_Option_Buy']), STRINGS:Format(STRINGS
-			.MapStrings['Shop_Option_Sell']),
+			local shop_choices = { 
+				STRINGS:Format(RogueEssence.StringKey("MENU_SHOP_BUY"):ToLocal()), 
+				STRINGS:Format(RogueEssence.StringKey("MENU_SHOP_SELL"):ToLocal()),
 				STRINGS:FormatKey("MENU_INFO"),
 				STRINGS:FormatKey("MENU_EXIT") }
 			UI:BeginChoiceMenu(msg, shop_choices, 1, 4)
@@ -156,30 +157,34 @@ function treasure_town.Shop_Action(obj, activator)
 			if result == 1 then
 				if #catalog > 0 then
 					--TODO: use the enum instead of a hardcoded number
-					UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Buy'], STRINGS:LocalKeyString(26)))
+					UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_BUY_A"):ToLocal(), STRINGS:LocalKeyString(26)))
 					state = 1
 				else
-					UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Buy_Empty']))
+					UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_EMPTY_A_0"):ToLocal()))
+					UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_EMPTY_A_1"):ToLocal()))
 				end
 			elseif result == 2 then
 				local bag_count = GAME:GetPlayerBagCount() + GAME:GetPlayerEquippedCount()
 				if bag_count > 0 then
 					--TODO: use the enum instead of a hardcoded number
-					UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Sell'], STRINGS:LocalKeyString(26)))
+					UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_SELL_A"):ToLocal(), STRINGS:LocalKeyString(26)))
 					state = 3
 				else
 					UI:SetSpeakerEmotion("Angry")
-					UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Bag_Empty']))
+					UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_SELL_NOTHING_A"):ToLocal()))
 					UI:SetSpeakerEmotion("Normal")
 				end
 			elseif result == 3 then
-				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Info_001']))
-				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Info_002']))
-				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Info_003']))
-				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Info_004']))
-				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Info_005']))
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_INFO_A_0"):ToLocal(), CH('Kecleon'):GetDisplayName()))
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_INFO_A_1"):ToLocal()))
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_INFO_A_2"):ToLocal()))
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_INFO_A_3"):ToLocal()))
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_INFO_A_4"):ToLocal()))
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_INFO_A_5"):ToLocal()))
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_INFO_A_6"):ToLocal(), CH('Kecleon'):GetDisplayName()))
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_INFO_A_7"):ToLocal()))
 			else
-				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Goodbye']))
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_EXIT_A"):ToLocal()))
 				state = -1
 			end
 		elseif state == 1 then
@@ -191,13 +196,14 @@ function treasure_town.Shop_Action(obj, activator)
 				local bag_cap = GAME:GetPlayerBagLimit()
 				if bag_count == bag_cap then
 					UI:SetSpeakerEmotion("Angry")
-					UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Bag_Full']))
+					UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_BUY_NO_SPACE"):ToLocal()))
 					UI:SetSpeakerEmotion("Normal")
 				else
 					cart = result
 					state = 2
 				end
 			else
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_BUY_MORE_A"):ToLocal()))
 				state = 0
 			end
 		elseif state == 2 then
@@ -208,16 +214,20 @@ function treasure_town.Shop_Action(obj, activator)
 			local msg
 			if total > GAME:GetPlayerMoney() then
 				UI:SetSpeakerEmotion("Angry")
-				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Buy_No_Money']))
+				if #cart == 1 then
+					UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_NO_MONEY_A"):ToLocal()))
+				else
+					UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_NO_MONEY_A_ALT"):ToLocal()))
+				end
 				UI:SetSpeakerEmotion("Normal")
 				state = 1
 			else
 				if #cart == 1 then
 					local name = catalog[cart[1]].Item:GetDisplayName()
-					msg = STRINGS:Format(STRINGS.MapStrings['Shop_Buy_One'], STRINGS:FormatKey("MONEY_AMOUNT", total),
+					msg = STRINGS:Format(RogueEssence.StringKey("SHOP_BUY_ONE_A"):ToLocal(), STRINGS:FormatKey("MONEY_AMOUNT", total),
 						name)
 				else
-					msg = STRINGS:Format(STRINGS.MapStrings['Shop_Buy_Multi'], STRINGS:FormatKey("MONEY_AMOUNT", total))
+					msg = STRINGS:Format(RogueEssence.StringKey("SHOP_BUY_MANY_A"):ToLocal(), STRINGS:FormatKey("MONEY_AMOUNT", total))
 				end
 				UI:ChoiceMenuYesNo(msg, false)
 				UI:WaitForChoice()
@@ -231,16 +241,16 @@ function treasure_town.Shop_Action(obj, activator)
 					end
 					for ii = #cart, 1, -1 do
 						table.remove(catalog, cart[ii])
-						table.remove(SV.base_shop, cart[ii])
+						table.remove(SV.DailyFlags.ShopTable, cart[ii])
 					end
 
 					cart = {}
 					SOUND:PlayBattleSE("DUN_Money")
-					UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Buy_Complete']))
-					state = 0
-				else
-					state = 1
+					UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_BUY_CONFIRM_A"):ToLocal()))
+					UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_BUY_MORE_A"):ToLocal()))
 				end
+
+				state = 1
 			end
 		elseif state == 3 then
 			UI:SellMenu()
@@ -251,12 +261,19 @@ function treasure_town.Shop_Action(obj, activator)
 				cart = result
 				state = 4
 			else
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_SELL_CANCEL_A"):ToLocal()))
 				state = 0
 			end
 		elseif state == 4 then
+			local unsellable = false
 			local total = 0
 			for ii = 1, #cart, 1 do
 				local item
+				if cart[ii].CannotDrop then
+					unsellable = true
+					break
+				end
+
 				if cart[ii].IsEquipped then
 					item = GAME:GetPlayerEquippedItem(cart[ii].Slot)
 				else
@@ -264,38 +281,44 @@ function treasure_town.Shop_Action(obj, activator)
 				end
 				total = total + item:GetSellValue()
 			end
-			local msg
-			if #cart == 1 then
-				local item
-				if cart[1].IsEquipped then
-					item = GAME:GetPlayerEquippedItem(cart[1].Slot)
-				else
-					item = GAME:GetPlayerBagItem(cart[1].Slot)
-				end
-				msg = STRINGS:Format(STRINGS.MapStrings['Shop_Sell_One'], STRINGS:FormatKey("MONEY_AMOUNT", total),
-					item:GetDisplayName())
-			else
-				msg = STRINGS:Format(STRINGS.MapStrings['Shop_Sell_Multi'], STRINGS:FormatKey("MONEY_AMOUNT", total))
-			end
-			UI:ChoiceMenuYesNo(msg, false)
-			UI:WaitForChoice()
-			result = UI:ChoiceResult()
 
-			if result then
-				for ii = #cart, 1, -1 do
-					if cart[ii].IsEquipped then
-						GAME:TakePlayerEquippedItem(cart[ii].Slot, true)
-					else
-						GAME:TakePlayerBagItem(cart[ii].Slot, true)
-					end
-				end
-				SOUND:PlayBattleSE("DUN_Money")
-				GAME:AddToPlayerMoney(total)
-				cart = {}
-				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['Shop_Sell_Complete']))
-				state = 0
-			else
+			if unsellable then
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_UNSELLABLE_A"):ToLocal()))
 				state = 3
+			else
+				local msg
+				if #cart == 1 then
+					local item
+					if cart[1].IsEquipped then
+						item = GAME:GetPlayerEquippedItem(cart[1].Slot)
+					else
+						item = GAME:GetPlayerBagItem(cart[1].Slot)
+					end
+					msg = STRINGS:Format(RogueEssence.StringKey("SHOP_SELL_ONE_A"):ToLocal(), STRINGS:FormatKey("MONEY_AMOUNT", total),
+						item:GetDisplayName())
+				else
+					msg = STRINGS:Format(RogueEssence.StringKey("SHOP_SELL_MANY_A"):ToLocal(), STRINGS:FormatKey("MONEY_AMOUNT", total))
+				end
+				UI:ChoiceMenuYesNo(msg, false)
+				UI:WaitForChoice()
+				result = UI:ChoiceResult()
+
+				if result then
+					for ii = #cart, 1, -1 do
+						if cart[ii].IsEquipped then
+							GAME:TakePlayerEquippedItem(cart[ii].Slot, true)
+						else
+							GAME:TakePlayerBagItem(cart[ii].Slot, true)
+						end
+					end
+					SOUND:PlayBattleSE("DUN_Money")
+					GAME:AddToPlayerMoney(total)
+					cart = {}
+					UI:WaitShowDialogue(STRINGS:Format(UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_SELL_CONFIRM_A"):ToLocal()))))
+					state = 0
+				else
+					state = 3
+				end
 			end
 		end
 	end
@@ -522,90 +545,67 @@ function treasure_town.GeneratePurpleKecleonStock(generate_random_item)
 	end
 end --purple kecleon generate shop
 
-function treasure_town.TM_Action(obj, activator)
-	DEBUG.EnableDbgCoro() --Enable debugging this coroutine
+function treasure_town.TMShop_Action(obj, activator)
+	if SV.DailyFlags.TMShopTable == (nil or {}) then ExplorerEssentials.RefreshShops() end
 
 	local state = 0
 	local repeated = false
 	local cart = {}
 	local catalog = {}
-
-	--generate stock if it hasn't been for the day
-	if not SV.DailyFlags.PurpleKecleonStockedRefreshed then
-		treasure_town.GeneratePurpleKecleonStock()
-	end
-
-	--populate the catalog of items to buy using the generated stock. Item and hidden (amount of items in the stack typically) are grabbed from the item's predefined values in the item editor
-	for ii = 1, #SV.DailyFlags.PurpleKecleonStock, 1 do
-		local itemEntry = RogueEssence.Data.DataManager.Instance:GetItem(SV.DailyFlags.PurpleKecleonStock[ii])
-		local item = RogueEssence.Dungeon.InvItem(SV.DailyFlags.PurpleKecleonStock[ii], false,
-			math.min(4, itemEntry.MaxStack))
-
-		--item price is 5 times the sell value.
-		local item_data = { Item = item, Price = item:GetSellValue() * 5 }
+	for ii = 1, #SV.DailyFlags.TMShopTable, 1 do
+		local base_data = SV.DailyFlags.TMShopTable[ii]
+		local item_data = { Item = RogueEssence.Dungeon.InvItem(base_data.Index, false, base_data.Amount), Price =
+		base_data.Price }
 		table.insert(catalog, item_data)
 	end
 
-
-	local hero = CH('PLAYER')
-	local partner = CH('TEAMMATE_1')
-	local chara = CH('PurpleKecleon')
-	chara.IsInteracting = true
-	partner.IsInteracting = true
-	UI:SetSpeaker(chara)
-
-	GROUND:CharSetAnim(partner, 'None', true)
-	GROUND:CharSetAnim(hero, 'None', true)
-	--put kec in first frame of walk to simulate explorers behavior
-	GROUND:CharSetAction(chara,
-		RogueEssence.Ground.FrameGroundAction(chara.Position, chara.Direction,
-			RogueEssence.Content.GraphicsManager.GetAnimIndex("Walk"), 0))
-
-	GROUND:CharTurnToChar(hero, chara)
-	local coro1 = TASK:BranchCoroutine(function() GROUND:CharTurnToCharAnimated(partner, chara, 4) end)
-
+	UI:SetSpeaker(CH('Kecleon'))
 
 	while state > -1 do
 		if state == 0 then
-			local msg = STRINGS:Format(STRINGS.MapStrings['TM_Shop_Intro'])
-			if repeated then
-				msg = STRINGS:Format(STRINGS.MapStrings['TM_Shop_Intro_Return'])
+			local msg = STRINGS:Format(RogueEssence.StringKey("SHOP_INTRO_B"):ToLocal(), CH('Kecleon'):GetDisplayName())
+			if repeated == true then
+				msg = STRINGS:Format(RogueEssence.StringKey("SHOP_CONTINUE_B"):ToLocal())
 			end
-			local TM_Shop_choices = { STRINGS:Format(STRINGS.MapStrings['TM_Shop_Option_Buy']), STRINGS:Format(STRINGS
-				.MapStrings['TM_Shop_Option_Sell']),
+			local shop_choices = { 
+				STRINGS:Format(RogueEssence.StringKey("MENU_SHOP_BUY"):ToLocal()), 
+				STRINGS:Format(RogueEssence.StringKey("MENU_SHOP_SELL"):ToLocal()),
 				STRINGS:FormatKey("MENU_INFO"),
 				STRINGS:FormatKey("MENU_EXIT") }
-			UI:BeginChoiceMenu(msg, TM_Shop_choices, 1, 4)
+			UI:BeginChoiceMenu(msg, shop_choices, 1, 4)
 			UI:WaitForChoice()
 			local result = UI:ChoiceResult()
 			repeated = true
 			if result == 1 then
 				if #catalog > 0 then
 					--TODO: use the enum instead of a hardcoded number
-					UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['TM_Shop_Buy'], STRINGS:LocalKeyString(26)))
+					UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_BUY_B"):ToLocal(), STRINGS:LocalKeyString(26)))
 					state = 1
 				else
-					UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['TM_Shop_Buy_Empty']))
+					UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_EMPTY_B_0"):ToLocal()))
+					UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_EMPTY_B_1"):ToLocal()))
 				end
 			elseif result == 2 then
-				local bag_count = GAME:GetPlayerBagCount()
+				local bag_count = GAME:GetPlayerBagCount() + GAME:GetPlayerEquippedCount()
 				if bag_count > 0 then
 					--TODO: use the enum instead of a hardcoded number
-					UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['TM_Shop_Sell'], STRINGS:LocalKeyString(26)))
+					UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_SELL_B"):ToLocal(), STRINGS:LocalKeyString(26)))
 					state = 3
 				else
 					UI:SetSpeakerEmotion("Angry")
-					UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['TM_Shop_Bag_Empty']))
+					UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_SELL_NOTHING_B"):ToLocal()))
 					UI:SetSpeakerEmotion("Normal")
 				end
 			elseif result == 3 then
-				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['TM_Shop_Info_001']))
-				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['TM_Shop_Info_002']))
-				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['TM_Shop_Info_003']))
-				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['TM_Shop_Info_004']))
-				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['TM_Shop_Info_005']))
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_INFO_B_0"):ToLocal()))
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_INFO_B_1"):ToLocal()))
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_INFO_B_2"):ToLocal()))
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_INFO_B_3"):ToLocal()))
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_INFO_B_4"):ToLocal()))
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_INFO_B_5"):ToLocal()))
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_INFO_B_6"):ToLocal()))
 			else
-				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['TM_Shop_Goodbye']))
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_EXIT_B"):ToLocal()))
 				state = -1
 			end
 		elseif state == 1 then
@@ -617,13 +617,14 @@ function treasure_town.TM_Action(obj, activator)
 				local bag_cap = GAME:GetPlayerBagLimit()
 				if bag_count == bag_cap then
 					UI:SetSpeakerEmotion("Angry")
-					UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['TM_Shop_Bag_Full']))
+					UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_BUY_NO_SPACE"):ToLocal()))
 					UI:SetSpeakerEmotion("Normal")
 				else
 					cart = result
 					state = 2
 				end
 			else
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_BUY_MORE_B"):ToLocal()))
 				state = 0
 			end
 		elseif state == 2 then
@@ -634,15 +635,20 @@ function treasure_town.TM_Action(obj, activator)
 			local msg
 			if total > GAME:GetPlayerMoney() then
 				UI:SetSpeakerEmotion("Angry")
-				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['TM_Shop_Buy_No_Money']))
+				if #cart == 1 then
+					UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_NO_MONEY_B"):ToLocal()))
+				else
+					UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_NO_MONEY_B_ALT"):ToLocal()))
+				end
 				UI:SetSpeakerEmotion("Normal")
 				state = 1
 			else
 				if #cart == 1 then
 					local name = catalog[cart[1]].Item:GetDisplayName()
-					--msg = STRINGS:Format(STRINGS.MapStrings['TM_Shop_Buy_One'], total, name, GeneralFunctions.GetItemArticle(catalog[cart[1]].Item, true))
+					msg = STRINGS:Format(RogueEssence.StringKey("SHOP_BUY_ONE_B"):ToLocal(), STRINGS:FormatKey("MONEY_AMOUNT", total),
+						name)
 				else
-					msg = STRINGS:Format(STRINGS.MapStrings['TM_Shop_Buy_Multi'], total)
+					msg = STRINGS:Format(RogueEssence.StringKey("SHOP_BUY_MANY_B"):ToLocal(), STRINGS:FormatKey("MONEY_AMOUNT", total))
 				end
 				UI:ChoiceMenuYesNo(msg, false)
 				UI:WaitForChoice()
@@ -652,19 +658,20 @@ function treasure_town.TM_Action(obj, activator)
 					GAME:RemoveFromPlayerMoney(total)
 					for ii = 1, #cart, 1 do
 						local item = catalog[cart[ii]].Item
-						GAME:GivePlayerItem(item.ID, item.Amount)
+						GAME:GivePlayerItem(item.ID, item.Amount, false)
 					end
 					for ii = #cart, 1, -1 do
 						table.remove(catalog, cart[ii])
-						table.remove(SV.DailyFlags.PurpleKecleonStock, cart[ii])
+						table.remove(SV.DailyFlags.TMShopTable, cart[ii])
 					end
+
 					cart = {}
 					SOUND:PlayBattleSE("DUN_Money")
-					UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['TM_Shop_Buy_Complete']))
-					state = 0
-				else
-					state = 1
+					UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_BUY_CONFIRM_B"):ToLocal()))
+					UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_BUY_MORE_B"):ToLocal()))
 				end
+
+				state = 1
 			end
 		elseif state == 3 then
 			UI:SellMenu()
@@ -675,12 +682,19 @@ function treasure_town.TM_Action(obj, activator)
 				cart = result
 				state = 4
 			else
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_SELL_CANCEL_B"):ToLocal()))
 				state = 0
 			end
 		elseif state == 4 then
+			local unsellable = false
 			local total = 0
 			for ii = 1, #cart, 1 do
 				local item
+				if cart[ii].CannotDrop then
+					unsellable = true
+					break
+				end
+
 				if cart[ii].IsEquipped then
 					item = GAME:GetPlayerEquippedItem(cart[ii].Slot)
 				else
@@ -688,49 +702,47 @@ function treasure_town.TM_Action(obj, activator)
 				end
 				total = total + item:GetSellValue()
 			end
-			local msg
-			if #cart == 1 then
-				local item
-				if cart[1].IsEquipped then
-					item = GAME:GetPlayerEquippedItem(cart[1].Slot)
-				else
-					item = GAME:GetPlayerBagItem(cart[1].Slot)
-				end
-				msg = STRINGS:Format(STRINGS.MapStrings['TM_Shop_Sell_One'], total, item:GetDisplayName())
-			else
-				msg = STRINGS:Format(STRINGS.MapStrings['TM_Shop_Sell_Multi'], total)
-			end
-			UI:ChoiceMenuYesNo(msg, false)
-			UI:WaitForChoice()
-			result = UI:ChoiceResult()
 
-			if result then
-				for ii = #cart, 1, -1 do
-					if cart[ii].IsEquipped then
-						GAME:TakePlayerEquippedItem(cart[ii].Slot, true)
-					else
-						GAME:TakePlayerBagItem(cart[ii].Slot, true)
-					end
-				end
-				SOUND:PlayBattleSE("DUN_Money")
-				GAME:AddToPlayerMoney(total)
-				cart = {}
-				UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['TM_Shop_Sell_Complete']))
-				state = 0
-			else
+			if unsellable then
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_UNSELLABLE_B"):ToLocal()))
 				state = 3
+			else
+				local msg
+				if #cart == 1 then
+					local item
+					if cart[1].IsEquipped then
+						item = GAME:GetPlayerEquippedItem(cart[1].Slot)
+					else
+						item = GAME:GetPlayerBagItem(cart[1].Slot)
+					end
+					msg = STRINGS:Format(RogueEssence.StringKey("SHOP_SELL_ONE_B"):ToLocal(), STRINGS:FormatKey("MONEY_AMOUNT", total),
+						item:GetDisplayName())
+				else
+					msg = STRINGS:Format(RogueEssence.StringKey("SHOP_SELL_MANY_B"):ToLocal(), STRINGS:FormatKey("MONEY_AMOUNT", total))
+				end
+				UI:ChoiceMenuYesNo(msg, false)
+				UI:WaitForChoice()
+				result = UI:ChoiceResult()
+
+				if result then
+					for ii = #cart, 1, -1 do
+						if cart[ii].IsEquipped then
+							GAME:TakePlayerEquippedItem(cart[ii].Slot, true)
+						else
+							GAME:TakePlayerBagItem(cart[ii].Slot, true)
+						end
+					end
+					SOUND:PlayBattleSE("DUN_Money")
+					GAME:AddToPlayerMoney(total)
+					cart = {}
+					UI:WaitShowDialogue(STRINGS:Format(UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_SELL_CONFIRM_B"):ToLocal()))))
+					state = 0
+				else
+					state = 3
+				end
 			end
 		end
 	end
-
-	--reimplementing parts of endconversation
-	TASK:JoinCoroutines({ coro1 })
-	partner.IsInteracting = false
-	chara.IsInteracting = false
-
-	GROUND:CharEndAnim(partner)
-	GROUND:CharEndAnim(hero)
-	GROUND:CharEndAnim(chara)
 end --purple kecleon shop action
 
 function treasure_town.PurpleKecleon_Action(obj, activator)
