@@ -124818,16 +124818,16 @@
 "InteractOrder": 0,
 "triggerType": 0,
 "ObjectAnim": {
-"$type": "RogueEssence.Content.ItemAnimData, RogueEssence",
-"AnimIndex": "Apple_Red",
+"$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
+"AnimIndex": "AppleBounce",
 "FrameTime": 1,
-"StartFrame": -1,
-"EndFrame": -1,
+"StartFrame": 0,
+"EndFrame": 0,
 "AnimDir": -1,
 "Alpha": 255,
 "AnimFlip": 0
 },
-"Passable": false,
+"Passable": true,
 "CurrentAnim": {
 "$type": "RogueEssence.Content.ObjAnimData, RogueEssence",
 "AnimIndex": "",
@@ -124844,19 +124844,19 @@
 "Cycles": 0,
 "DrawOffset": {
 "X": 0,
-"Y": 0
+"Y": 13
 },
 "Collider": {
-"X": 579,
-"Y": -26,
+"X": 574,
+"Y": -25,
 "Width": 16,
 "Height": 16
 }
 },
 {
-"EntName": "CH3AzrullSceneMarker",
+"EntName": "CH3_CutsceneMarker",
 "Direction": 0,
-"EntEnabled": true,
+"EntEnabled": false,
 "EntOrder": 0,
 "InteractOrder": 0,
 "triggerType": 2,

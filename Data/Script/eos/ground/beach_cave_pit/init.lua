@@ -432,7 +432,7 @@ function beach_cave_pit.BossDefeated()
 
 	GROUND:MoveInDirection(partner, Direction.UpRight, 10, false, 1)
 	GROUND:Hide("RelicFragment")
-	SOUND:PlayBattleSE("_UNK_EVT_128") -- pickup sound
+	SOUND:PlayBattleSE("EVT_Item_Pickup") -- pickup sound
 	GAME:WaitFrames(10)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['S3_Partner_2_'..tostring(pTalkKind)]))
 	GROUND:CharAnimateTurnTo(partner, Direction.DownRight, 4)
