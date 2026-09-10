@@ -119,8 +119,6 @@ end
 -- Shop/Useful NPCs
 -----------------------
 
---Shamelessly borrowed from halycon, THANK YOU SO MUCH
-
 function treasure_town.Shop_Action(obj, activator)
 	DEBUG.EnableDbgCoro() --Enable debugging this coroutine
 
@@ -528,19 +526,15 @@ function treasure_town.TMShop_Action(obj, activator)
 	if SV.Progression.Chapter == 3 then treasure_town.CH3_MeetingMarillAndAzurill() end
 end --purple kecleon shop action
 
-function treasure_town.PurpleKecleon_Action(obj, activator)
-
-end --end purple kecleon dialouge
-
-function treasure_town.Electivire_Action(obj, activator)
+function treasure_town.Moves_Action(obj, activator)
 
 end
 
-function treasure_town.Kangaskhan_Action(obj, activator)
+function treasure_town.Storage_Action(obj, activator)
 
 end
 
-function treasure_town.Xatu_Action(obj, activator)
+function treasure_town.Appraisal_Action(obj, activator)
 
 end
 
@@ -565,7 +559,7 @@ end
 --Ground map transitions
 
 function treasure_town.HabitatSharpedoBluffDayEntrance_Touch(obj, activator)
-	if SV.Progression.Chapter > 3 then -- you shouldn't be able to go here during ch3
+	if SV.Progression.Chapter > 3 then -- you shouldn't be able to go here during ch3 (i don't think)
 		GAME:EnterGroundMap("habitat_sharpedo_bluff_day", "TreasureTownEntranceMarker")
 	end
 end
@@ -868,9 +862,9 @@ function treasure_town.CH3_MeetingDrowzee()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_Marill_1']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
 
-	UI:SetSpeaker(CH('UNK_ACTOR_NPC_SURIIPU'))
+	UI:SetSpeaker(CH('Drowzee'))
 	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_UNK_ACTOR_NPC_SURIIPU_1']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_Drowzee_1']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
 
 	ExplorerEssentials.MoveToPositionOffset(CH('PLAYER'), RIGHT_SIDE_OFFSET + 48, 0, false, 1)
@@ -893,7 +887,7 @@ function treasure_town.CH3_MeetingDrowzee()
 	GROUND:CharTurnToCharAnimated(CH('Azurill'), CH('PARTNER'), 2)
 	-- !! WaitExecuteLives(ACTOR_NPC_RURIRI)
 
-	GROUND:CharTurnToCharAnimated(CH('UNK_ACTOR_NPC_SURIIPU'), CH('PARTNER'), 2)
+	GROUND:CharTurnToCharAnimated(CH('Drowzee'), CH('PARTNER'), 2)
 	SOUND:PlayBattleSE("EVT_Emote_Exclaim_2")
 	GROUND:CharSetEmote(CH('Azurill'), "exclaim", 1)
 	GAME:WaitFrames(30)
@@ -912,10 +906,10 @@ function treasure_town.CH3_MeetingDrowzee()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_Marill_3']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
 
-	GROUND:CharTurnToCharAnimated(CH('Marill'), CH('UNK_ACTOR_NPC_SURIIPU'), 2)
+	GROUND:CharTurnToCharAnimated(CH('Marill'), CH('Drowzee'), 2)
 	-- !! WaitExecuteLives(ACTOR_NPC_MARIRU)
 
-	GROUND:CharTurnToCharAnimated(CH('Azurill'), CH('UNK_ACTOR_NPC_SURIIPU'), 2)
+	GROUND:CharTurnToCharAnimated(CH('Azurill'), CH('Drowzee'), 2)
 	-- !! WaitExecuteLives(ACTOR_NPC_RURIRI)
 
 	UI:SetSpeaker(CH('Marill'))
@@ -937,11 +931,11 @@ function treasure_town.CH3_MeetingDrowzee()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_PARTNER_3_' .. tostring(pTalkKind)]))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
 
-	GROUND:CharTurnToCharAnimated(CH('Azurill'), CH('UNK_ACTOR_NPC_SURIIPU'), 2)
+	GROUND:CharTurnToCharAnimated(CH('Azurill'), CH('Drowzee'), 2)
 	GAME:WaitFrames(10)
-	GROUND:CharTurnToCharAnimated(CH('Marill'), CH('UNK_ACTOR_NPC_SURIIPU'), 2)
+	GROUND:CharTurnToCharAnimated(CH('Marill'), CH('Drowzee'), 2)
 
-	GROUND:CharTurnToCharAnimated(CH('UNK_ACTOR_NPC_SURIIPU'), CH('Azurill'), 2)
+	GROUND:CharTurnToCharAnimated(CH('Drowzee'), CH('Azurill'), 2)
 	CharacterActions.HopOnce(CH('Azurill'), CH('Azurill').Direction)
 	-- !! WaitExecuteLives(ACTOR_NPC_RURIRI)
 
@@ -952,11 +946,11 @@ function treasure_town.CH3_MeetingDrowzee()
 		CH('Drowzee'):GetDisplayName())
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
 
-	UI:SetSpeaker(CH('UNK_ACTOR_NPC_SURIIPU'))
+	UI:SetSpeaker(CH('Drowzee'))
 	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_UNK_ACTOR_NPC_SURIIPU_2']))
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_UNK_ACTOR_NPC_SURIIPU_3']))
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_UNK_ACTOR_NPC_SURIIPU_4']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_Drowzee_2']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_Drowzee_3']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_Drowzee_4']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
 
 	UI:SetSpeaker(CH('Marill'))
@@ -978,56 +972,50 @@ function treasure_town.CH3_MeetingDrowzee()
 	GROUND:MoveToPosition(CH('Azurill'), RIGHT_SIDE_OFFSET + 532, 192, false, 1)
 	GAME:WaitFrames(10)
 	-- TODO: ResetHitAttribute<actor ACTOR_NPC_SURIIPU>(31)
-	GROUND:MoveToPosition(CH('UNK_ACTOR_NPC_SURIIPU'), RIGHT_SIDE_OFFSET + 396, 192, false, 1)
+	GROUND:MoveToPosition(CH('Drowzee'), RIGHT_SIDE_OFFSET + 396, 192, false, 1)
 	GAME:WaitFrames(45)
 	-- TODO: bgm_Stop()
-	SOUND:PlayBattleSE("UNK_6414")
+	SOUND:PlayBattleSE("EVT_CH03_Bump")
 	GROUND:CharSetEmote(CH('PLAYER'), "UNK_EFFECT_SHOCKED_MIRRORED", 1)
 	ExplorerEssentials.MoveToPositionOffset(CH('PLAYER'), 4, 0, false, 1)
 	ExplorerEssentials.MoveToPositionOffsetBackwards(CH('PLAYER'), Direction.Right, -4, 0, 1)
 	-- !! WaitExecuteLives(ACTOR_NPC_SURIIPU)
 
-	GROUND:CharTurnToCharAnimated(CH('UNK_ACTOR_NPC_SURIIPU'), CH('PLAYER'), 2)
+	GROUND:CharTurnToCharAnimated(CH('Drowzee'), CH('PLAYER'), 2)
 	-- !! WaitExecuteLives(ACTOR_NPC_SURIIPU)
 
-	UI:SetSpeaker(CH('UNK_ACTOR_NPC_SURIIPU'))
+	UI:SetSpeaker(CH('Drowzee'))
 	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_UNK_ACTOR_NPC_SURIIPU_5']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_Drowzee_5']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
 
-	GROUND:MoveToPosition(CH('UNK_ACTOR_NPC_SURIIPU'), RIGHT_SIDE_OFFSET + 516, 192, false, 1)
+	GROUND:MoveToPosition(CH('Drowzee'), RIGHT_SIDE_OFFSET + 516, 192, false, 1)
+
 	GAME:WaitFrames(30)
-	SOUND:PlayBattleSE("UNK_5133")
-	-- TODO: screen_FlushOut(1, 4, 4, 128, 96, 64)
-	-- TODO: screen_FlushIn(1, 8, 4, 128, 96, 64)
-	-- TODO: screen_FlushOut(1, 8, 4, 128, 96, 64)
-	-- TODO: screen_FlushIn(1, 12, 4, 128, 96, 64)
-	-- TODO: screen_FlushIn(1, 0, 1, 0, 0, 0)
+	SOUND:PlayBattleSE("EVT_Dimensional_Scream_Start")
+	CharacterActions.DizzyFade()
+	CharacterActions.DizzyFade()
 	GAME:WaitFrames(30)
+
 	ExplorerEssentials.SetSpeakerHero()
 	UI:SetSpeakerEmotion("Pain")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_PLAYER_1']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	UI:SetSpeaker(CH('PARTNER'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_PARTNER_4_' .. tostring(pTalkKind)]))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_PARTNER_5']))
-	SOUND:PlayBattleSE("UNK_5133")
-	-- TODO: screen_FlushOut(1, 4, 4, 128, 96, 64)
-	-- TODO: screen_FlushIn(1, 8, 4, 128, 96, 64)
-	-- TODO: screen_FlushOut(1, 8, 4, 128, 96, 64)
-	-- TODO: screen_FlushIn(1, 12, 4, 128, 96, 64)
-	-- TODO: screen_FlushIn(1, 0, 1, 0, 0, 0)
+	SOUND:PlayBattleSE("EVT_Dimensional_Scream_Start")
+	CharacterActions.DizzyFade()
+	CharacterActions.DizzyFade()
 	GAME:WaitFrames(30)
 	ExplorerEssentials.SetSpeakerHero()
 	UI:SetSpeakerEmotion("Pain")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_PLAYER_2']))
-	SOUND:PlayBattleSE("UNK_5133")
-	-- TODO: screen_FlushOut(1, 4, 4, 128, 96, 64)
-	-- TODO: screen_FlushIn(1, 8, 4, 128, 96, 64)
-	-- TODO: screen_FlushOut(1, 8, 4, 128, 96, 64)
-	-- TODO: screen_FlushIn(1, 12, 4, 128, 96, 64)
-	-- TODO: screen_FlushIn(1, 0, 1, 0, 0, 0)
+	SOUND:PlayBattleSE("EVT_Dimensional_Scream_Start")
+	CharacterActions.DizzyFade()
+	CharacterActions.DizzyFade()
 	GAME:WaitFrames(30)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_PLAYER_3']))
 	GAME:FadeOut(false, 5)
@@ -1149,7 +1137,7 @@ function treasure_town.CH3_DrowzeeBumpFlashback()
 
 	-- TODO: screen_FlushOut(1, 0, 8, 0, 0, 0)
 	GAME:WaitFrames(1)
-	GROUND:MoveToPosition(CH('UNK_ACTOR_NPC_SURIIPU'), RIGHT_SIDE_OFFSET + 396, 192, false, 1)
+	GROUND:MoveToPosition(CH('Drowzee'), RIGHT_SIDE_OFFSET + 396, 192, false, 1)
 	-- TODO CallCommon: CallCommon(CORO_FADE_OUT_ALL_BEFORE)
 	GAME:FadeIn(30)
 	GAME:WaitFrames(45)
@@ -1157,11 +1145,11 @@ function treasure_town.CH3_DrowzeeBumpFlashback()
 	ExplorerEssentials.MoveToPositionOffset(CH('PLAYER'), 4, 0, false, 1)
 	ExplorerEssentials.MoveToPositionOffsetBackwards(CH('PLAYER'), Direction.Right, -4, 0, 1)
 	-- !! WaitExecuteLives(ACTOR_NPC_SURIIPU)
-	GROUND:CharTurnToCharAnimated(CH('UNK_ACTOR_NPC_SURIIPU'), CH('PLAYER'), 2)
+	GROUND:CharTurnToCharAnimated(CH('Drowzee'), CH('PLAYER'), 2)
 	-- !! WaitExecuteLives(ACTOR_NPC_SURIIPU)
-	UI:SetSpeaker(CH('UNK_ACTOR_NPC_SURIIPU'))
+	UI:SetSpeaker(CH('Drowzee'))
 	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S6_UNK_ACTOR_NPC_SURIIPU_1']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S6_Drowzee_1']))
 	GAME:FadeOut(false, 30)
 	-- TODO CallCommon: CallCommon(CORO_FADE_OUT_ALL_AFTER)
 	-- TODO: screen_FlushIn(1, 0, 1, 0, 0, 0)

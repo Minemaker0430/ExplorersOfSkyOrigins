@@ -169,7 +169,7 @@
   <data name="CH3_S4_Marill_1" xml:space="preserve">
     <value>Thank you!</value>
   </data>
-  <data name="CH3_S4_UNK_ACTOR_NPC_SURIIPU_1" xml:space="preserve">
+  <data name="CH3_S4_Drowzee_1" xml:space="preserve">
     <value>Please! It's nothing.</value>
   </data>
   <data name="CH3_S4_PARTNER_2_1" xml:space="preserve">
@@ -214,13 +214,13 @@
   <data name="CH3_S4_Azurill_3" xml:space="preserve">
     <value>Thank you, Mr. {0}!</value>
   </data>
-  <data name="CH3_S4_UNK_ACTOR_NPC_SURIIPU_2" xml:space="preserve">
+  <data name="CH3_S4_Drowzee_2" xml:space="preserve">
     <value>Oh, please...</value>
   </data>
-  <data name="CH3_S4_UNK_ACTOR_NPC_SURIIPU_3" xml:space="preserve">
+  <data name="CH3_S4_Drowzee_3" xml:space="preserve">
     <value>I'd have to have a cold heart to ignore kids in need! I can't turn a blind eye!</value>
   </data>
-  <data name="CH3_S4_UNK_ACTOR_NPC_SURIIPU_4" xml:space="preserve">
+  <data name="CH3_S4_Drowzee_4" xml:space="preserve">
     <value>Let us be on our way to begin our search!</value>
   </data>
   <data name="CH3_S4_Marill_8" xml:space="preserve">
@@ -229,7 +229,7 @@
   <data name="CH3_S4_Azurill_4" xml:space="preserve">
     <value>Yup!</value>
   </data>
-  <data name="CH3_S4_UNK_ACTOR_NPC_SURIIPU_5" xml:space="preserve">
+  <data name="CH3_S4_Drowzee_5" xml:space="preserve">
     <value>Whoops![pause=0] Excuse me.</value>
   </data>
   <data name="CH3_S4_PLAYER_1" xml:space="preserve">
@@ -394,7 +394,7 @@
   <data name="CH3_S5_PARTNER_22_2" xml:space="preserve">
     <value>Let's go, {0}!</value>
   </data>
-  <data name="CH3_S6_UNK_ACTOR_NPC_SURIIPU_1" xml:space="preserve">
+  <data name="CH3_S6_Drowzee_1" xml:space="preserve">
     <value>Whoops![pause=0] Excuse me.</value>
   </data>
   <data name="CH3_S7_PARTNER_1_1" xml:space="preserve">
