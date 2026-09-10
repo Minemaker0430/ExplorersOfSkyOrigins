@@ -253,7 +253,7 @@ function ExplorerEssentials.RefreshShops()
 	-- get types and weight them
 	local typesTable = {}
 	for i = 1, #types, 1 do
-		for j = 1, types[i].Weight, 1 do
+		for _ = 1, types[i].Weight, 1 do
 			table.insert(typesTable, math.random(1, #typesTable), types[i].Type)
 		end
 	end
@@ -265,7 +265,7 @@ function ExplorerEssentials.RefreshShops()
 
 		local itemsWeighted = {}
 		for i = 1, #items, 1 do
-			for j = 1, items[i].Weight, 1 do
+			for _ = 1, items[i].Weight, 1 do
 				table.insert(itemsWeighted, math.random(1, #itemsWeighted), items[i])
 			end
 		end
@@ -286,19 +286,19 @@ function ExplorerEssentials.RefreshShops()
 	-- get types and weight them
 	local typesTable = {}
 	for i = 1, #types, 1 do
-		for j = 1, types[i].Weight, 1 do
+		for _ = 1, types[i].Weight, 1 do
 			table.insert(typesTable, math.random(1, #typesTable), types[i].Type)
 		end
 	end
 
 	-- get items from a random type
-	for _ = 1, itemCount, 1 do
+	for _ = 1, math.floor(itemCount / 2), 1 do
 		local index = typesTable[math.random(1, #typesTable)]
 		local items = index[shop]
 
 		local itemsWeighted = {}
 		for i = 1, #items, 1 do
-			for j = 1, items[i].Weight, 1 do
+			for _ = 1, items[i].Weight, 1 do
 				table.insert(itemsWeighted, math.random(1, #itemsWeighted), items[i])
 			end
 		end

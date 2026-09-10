@@ -63,9 +63,31 @@ SV.Progression =
 	Progression Mapping
 	-------------------
 	[chapter, section flag] = event
+	[1, 0]
 	[1, 1] = obtained relic fragment
+	[2, 0]
 	[2, 1] = signed up at the guild
 	[2, 2] = completed drenched bluff
+	[3, 0]
+	[3, 1] = met marill + azurill and saw first scream
+	[3, 2] = met drowzee and saw second scream
+	[4, 0]
+	[5, 0]
+	[6, 0]
+	[7, 0]
+	[8, 0]
+	[9, 0]
+	[10, 0]
+	[11, 0]
+	[12, 0]
+	[13, 0]
+	[14, 0]
+	[15, 0]
+	[16, 0]
+	[17, 0]
+	[18, 0]
+	[19, 0]
+	[20, 0]
 
 ]]
 

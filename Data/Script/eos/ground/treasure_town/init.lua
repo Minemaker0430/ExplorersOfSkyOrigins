@@ -68,6 +68,10 @@ end
 ---treasure_town.GameLoad(map)
 --Engine callback function
 function treasure_town.GameLoad(map)
+	if SV.Progression.Chapter == 3 and SV.Progression.SectionFlag == 1 then
+		GROUND:Unhide("CH3_CutsceneMarker")
+	end
+	
 	GAME:FadeIn(20)
 end
 
