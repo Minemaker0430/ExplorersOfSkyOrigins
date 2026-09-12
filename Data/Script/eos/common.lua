@@ -55,8 +55,8 @@ end
 ----------------------------------------
 COMMON = {}
 
-require 'origin.common_shop'
-require 'origin.common_vars'
+require 'eos.common_shop'
+require 'eos.common_vars'
 require 'origin.common_tutor'
 
 --Automatically load the appropriate localization for the specified package, or defaults to english!

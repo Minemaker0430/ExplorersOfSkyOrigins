@@ -416,10 +416,10 @@
     <value>Do you wish to buy anything else today?</value>
   </data>
   <data name="SHOP_BUY_ONE_A" xml:space="preserve">
-    <value>That {0}? That will be \uE024{1}\uE023. Is that to your liking?</value>
+    <value>That {0}? That will be {1}. Is that to your liking?</value>
   </data>
   <data name="SHOP_BUY_MANY_A" xml:space="preserve">
-    <value>Altogether, that comes to \uE024{0}\uE023. Is that OK?</value>
+    <value>Altogether, that comes to {0}. Is that OK?</value>
   </data>
   <data name="SHOP_BUY_CONFIRM_A" xml:space="preserve">
     <value>Thank you! All yours! ♪</value>
@@ -431,10 +431,10 @@
     <value>Do you wish to sell anything else? (You can use {0} to choose multiple items.)</value>
   </data>
   <data name="SHOP_SELL_ONE_A" xml:space="preserve">
-    <value>Your {0}? I can pay you \uE024{1}\uE023 for that. Will you sell it for that price?</value>
+    <value>Your {0}? I can pay you {1} for that. Will you sell it for that price?</value>
   </data>
   <data name="SHOP_SELL_MANY_A" xml:space="preserve">
-    <value>I can pay \uE024{0}\uE023 for everything. Is that acceptable?</value>
+    <value>I can pay {0} for everything. Is that acceptable?</value>
   </data>
   <data name="SHOP_SELL_CONFIRM_A" xml:space="preserve">
     <value>Done deal! Thank you! ♪</value>
@@ -521,10 +521,10 @@
     <value>Do you wish to purchase anything else?</value>
   </data>
   <data name="SHOP_BUY_ONE_B" xml:space="preserve">
-    <value>That {0}? That will be \uE024{1}\uE023. Is that acceptable?</value>
+    <value>That {0}? That will be {1}. Is that acceptable?</value>
   </data>
   <data name="SHOP_BUY_MANY_B" xml:space="preserve">
-    <value>Altogether, that comes to \uE024{0}\uE023. Is that OK?</value>
+    <value>Altogether, that comes to {0}. Is that OK?</value>
   </data>
   <data name="SHOP_BUY_CONFIRM_B" xml:space="preserve">
     <value>Thank you! Well chosen! ♪</value>
@@ -536,10 +536,10 @@
     <value>Is there anything else that you wish to sell? (You can use {0} to choose multiple items.)</value>
   </data>
   <data name="SHOP_SELL_ONE_B" xml:space="preserve">
-    <value>Your {0}? I can offer \uE024{1}\uE023. Will you sell it for that price?</value>
+    <value>Your {0}? I can offer {1}. Will you sell it for that price?</value>
   </data>
   <data name="SHOP_SELL_MANY_B" xml:space="preserve">
-    <value>I will pay \uE024{0}\uE023 for everything you're offering. Is that acceptable?</value>
+    <value>I will pay {0} for everything you're offering. Is that acceptable?</value>
   </data>
   <data name="SHOP_EXIT_B" xml:space="preserve">
     <value>Thanks! Please come again! ♪</value>
@@ -690,7 +690,7 @@
     <comment>Triggers when the player has no saved money</comment>
   </data>
   <data name="BANK_INTRO_1B" xml:space="preserve">
-    <value>Your bank balance is \uE024{0}\uE023. Now, how may I serve you? Hee-hee...</value>
+    <value>Your bank balance is {0}. Now, how may I serve you? Hee-hee...</value>
   </data>
   <data name="BANK_INFO_0" xml:space="preserve">
     <value>Did you know that if you fall in a dungeon, half of your money will be spirited away, never to be found again? Hee-hee...</value>
@@ -730,7 +730,7 @@
     <value>How much do you want to deposit?</value>
   </data>
   <data name="BANK_DEPOSIT_CONFIRM" xml:space="preserve">
-    <value>\uE024{0}\uE023! It will rest here in peace. Forever, if you wish. Hee-hee!</value>
+    <value>{0}! It will rest here in peace. Forever, if you wish. Hee-hee!</value>
   </data>
   <data name="BANK_MAX_PURSE" xml:space="preserve">
     <value>What?[pause=0] I'm sorry, but you can't carry any more money! [pause=0]There's not even a ghost of a chance! Hee-hee!</value>
@@ -743,7 +743,7 @@
     <value>How much will you withdraw?</value>
   </data>
   <data name="BANK_WITHDRAWL_CONFIRM" xml:space="preserve">
-    <value>\uE024{0}\uE023? OK, here it is!</value>
+    <value>{0}? OK, here it is!</value>
   </data>
   <data name="DAYCARE_NO_EGG_A_0" xml:space="preserve">
     <value>{0} Day Care welcomes
@@ -869,7 +869,7 @@ were my very own! ♪</value>
     <comment>unused..?</comment>
   </data>
   <data name="SWAP_INTRO" xml:space="preserve">
-    <value>Meh-heh-heh. Welcome to the {0} Swap Shop. Want to swap? It'll cost ya \uE024{1}\uE023.</value>
+    <value>Meh-heh-heh. Welcome to the {0} Swap Shop. Want to swap? It'll cost ya {1}.</value>
   </data>
   <data name="SWAP_CONTINUE" xml:space="preserve">
     <value>Meh-heh-heh. Anything else you wanna swap?</value>
@@ -878,7 +878,7 @@ were my very own! ♪</value>
     <value>Meh-heh-heh...[pause=0] Hey, hold it! No money, no swap. Got that?</value>
   </data>
   <data name="SWAP_CANT_AFFORD_0" xml:space="preserve">
-    <value>Didn't I tell ya? It's \uE024{0}\uE023 for every swap. Meh-heh-heh!</value>
+    <value>Didn't I tell ya? It's {0} for every swap. Meh-heh-heh!</value>
   </data>
   <data name="SWAP_CANT_AFFORD_1" xml:space="preserve">
     <value>That means you don't have the money to do it right now!</value>
@@ -1061,5 +1061,11 @@ a {1)...</value>
   </data>
   <data name="MENU_SHOP_SELL" xml:space="preserve">
     <value>Sell</value>
+  </data>
+  <data name="MENU_BANK_DEPOSIT" xml:space="preserve">
+    <value>Deposit</value>
+  </data>
+  <data name="MENU_BANK_WITHDRAWL" xml:space="preserve">
+    <value>Withdraw</value>
   </data>
 </root>

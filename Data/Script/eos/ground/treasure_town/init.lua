@@ -126,7 +126,7 @@ end
 function treasure_town.Shop_Action(obj, activator)
 	DEBUG.EnableDbgCoro() --Enable debugging this coroutine
 
-	if SV.DailyFlags.ShopTable == (nil or {}) then ExplorerEssentials.RefreshShops() end
+	if SV.DailyFlags.ShopTable == nil then ExplorerEssentials.RefreshShops() end
 
 	local state = 0
 	local repeated = false
@@ -205,7 +205,6 @@ function treasure_town.Shop_Action(obj, activator)
 					state = 2
 				end
 			else
-				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_BUY_MORE_A"):ToLocal()))
 				state = 0
 			end
 		elseif state == 2 then
@@ -226,8 +225,7 @@ function treasure_town.Shop_Action(obj, activator)
 			else
 				if #cart == 1 then
 					local name = catalog[cart[1]].Item:GetDisplayName()
-					msg = STRINGS:Format(RogueEssence.StringKey("SHOP_BUY_ONE_A"):ToLocal(), STRINGS:FormatKey("MONEY_AMOUNT", total),
-						name)
+					msg = STRINGS:Format(RogueEssence.StringKey("SHOP_BUY_ONE_A"):ToLocal(), name, STRINGS:FormatKey("MONEY_AMOUNT", total))
 				else
 					msg = STRINGS:Format(RogueEssence.StringKey("SHOP_BUY_MANY_A"):ToLocal(), STRINGS:FormatKey("MONEY_AMOUNT", total))
 				end
@@ -296,8 +294,7 @@ function treasure_town.Shop_Action(obj, activator)
 					else
 						item = GAME:GetPlayerBagItem(cart[1].Slot)
 					end
-					msg = STRINGS:Format(RogueEssence.StringKey("SHOP_SELL_ONE_A"):ToLocal(), STRINGS:FormatKey("MONEY_AMOUNT", total),
-						item:GetDisplayName())
+					msg = STRINGS:Format(RogueEssence.StringKey("SHOP_SELL_ONE_A"):ToLocal(), item:GetDisplayName(), STRINGS:FormatKey("MONEY_AMOUNT", total))
 				else
 					msg = STRINGS:Format(RogueEssence.StringKey("SHOP_SELL_MANY_A"):ToLocal(), STRINGS:FormatKey("MONEY_AMOUNT", total))
 				end
@@ -329,7 +326,7 @@ function treasure_town.Shop_Action(obj, activator)
 end -- green kecleon shop action
 
 function treasure_town.TMShop_Action(obj, activator)
-	if SV.DailyFlags.TMShopTable == (nil or {}) then ExplorerEssentials.RefreshShops() end
+	if SV.DailyFlags.TMShopTable == nil then ExplorerEssentials.RefreshShops() end
 
 	local state = 0
 	local repeated = false
@@ -407,7 +404,6 @@ function treasure_town.TMShop_Action(obj, activator)
 					state = 2
 				end
 			else
-				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_BUY_MORE_B"):ToLocal()))
 				state = 0
 			end
 		elseif state == 2 then
@@ -428,8 +424,7 @@ function treasure_town.TMShop_Action(obj, activator)
 			else
 				if #cart == 1 then
 					local name = catalog[cart[1]].Item:GetDisplayName()
-					msg = STRINGS:Format(RogueEssence.StringKey("SHOP_BUY_ONE_B"):ToLocal(), STRINGS:FormatKey("MONEY_AMOUNT", total),
-						name)
+					msg = STRINGS:Format(RogueEssence.StringKey("SHOP_BUY_ONE_B"):ToLocal(), name, STRINGS:FormatKey("MONEY_AMOUNT", total))
 				else
 					msg = STRINGS:Format(RogueEssence.StringKey("SHOP_BUY_MANY_B"):ToLocal(), STRINGS:FormatKey("MONEY_AMOUNT", total))
 				end
@@ -518,7 +513,7 @@ function treasure_town.TMShop_Action(obj, activator)
 					SOUND:PlayBattleSE("DUN_Money")
 					GAME:AddToPlayerMoney(total)
 					cart = {}
-					UI:WaitShowDialogue(STRINGS:Format(UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_SELL_CONFIRM_B"):ToLocal()))))
+					UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("SHOP_SELL_CONFIRM_B"):ToLocal()))
 					state = 0
 				else
 					state = 3
@@ -535,7 +530,197 @@ function treasure_town.Moves_Action(obj, activator)
 end
 
 function treasure_town.Storage_Action(obj, activator)
+	local state = 0
+	local repeated = false
 
+	local items = {}
+
+	UI:SetSpeaker(CH('Kangaskhan'))
+
+	while state > -1 do
+		if state == 0 then
+			local msg = STRINGS:Format(RogueEssence.StringKey("STORAGE_INTRO"):ToLocal(), _DATA:GetMonster("kangaskhan"):GetColoredName())
+			if repeated then
+				msg = STRINGS:Format(RogueEssence.StringKey("STORAGE_CONTINUE"):ToLocal())
+			end
+
+			local storage_choices = { 
+				STRINGS:FormatKey("MENU_STORAGE_STORE"), 
+				STRINGS:FormatKey("MENU_STORAGE_TAKE_ITEM"),
+				STRINGS:FormatKey("MENU_INFO"),
+				STRINGS:FormatKey("MENU_EXIT") }
+			UI:BeginChoiceMenu(msg, storage_choices, 1, 4)
+			UI:WaitForChoice()
+			local result = UI:ChoiceResult()
+
+			repeated = true
+
+			if result == 1 then
+				local bag_count = GAME:GetPlayerBagCount() + GAME:GetPlayerEquippedCount()
+				if bag_count > 0 then
+					UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("STORAGE_STORE"):ToLocal(), STRINGS:LocalKeyString(26), STRINGS:LocalKeyString(26), STRINGS:LocalKeyString(26)))
+					state = 1
+				else
+					UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("STORAGE_NO_ITEMS"):ToLocal()))
+				end
+			elseif result == 2 then
+				local bag_count = GAME:GetPlayerBagCount() + GAME:GetPlayerEquippedCount()
+				local bag_cap = GAME:GetPlayerBagLimit()
+				if bag_count ~= bag_cap then
+					UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("STORAGE_TAKE"):ToLocal(), STRINGS:LocalKeyString(26)))
+					state = 2
+				else
+					UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("STORAGE_FULL_ITEMS"):ToLocal()))
+				end
+			elseif result == 3 then
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("STORAGE_INFO_0"):ToLocal()))
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("STORAGE_INFO_1"):ToLocal()))
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("STORAGE_INFO_2"):ToLocal()))
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("STORAGE_INFO_3"):ToLocal()))
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("STORAGE_INFO_4"):ToLocal()))
+			else
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("STORAGE_EXIT"):ToLocal()))
+				state = -1
+			end
+
+		elseif state == 1 then -- store
+			UI:StorageMenu()
+			UI:WaitForChoice()
+
+			local diff = GAME:GetPlayerMoney() - purse
+
+			if diff < 0 then
+				SOUND:PlayBattleSE("DUN_Money")
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("BANK_DEPOSIT_CONFIRM"):ToLocal(), ExplorerEssentials.GetFormattedMoney(math.abs(diff))))
+			elseif diff > 0 then
+				SOUND:PlayBattleSE("DUN_Money")
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("BANK_WITHDRAWL_CONFIRM"):ToLocal(), ExplorerEssentials.GetFormattedMoney(diff)))
+			else
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("BANK_CANCEL"):ToLocal()))
+			end
+
+			purse = GAME:GetPlayerMoney()
+			bank = GAME:GetPlayerMoneyBank()
+
+			state = 0
+		elseif state == 2 then -- take
+
+			UI:WithdrawMenu()
+			UI:WaitForChoice()
+
+			local amount = GAME:GetPlayerMoneyBank()
+			_DATA.Save.ActiveTeam.Money = purse
+			_DATA.Save.ActiveTeam.Bank = bank
+
+			if GAME:GetPlayerMoneyBank() == 0 then
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("BANK_CANCEL"):ToLocal(), GAME:GetPlayerMoneyBank()))
+			else
+				
+			end
+
+			state = 0
+		end
+	end
+end
+
+function treasure_town.Bank_Action(obj, activator)
+	local state = 0
+	local purse = GAME:GetPlayerMoney()
+	local bank = GAME:GetPlayerMoneyBank()
+
+	UI:SetSpeaker(CH('Duskull'))
+	UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("BANK_INTRO_0"):ToLocal(), _DATA:GetMonster("duskull"):GetColoredName()))
+
+	while state > -1 do
+		if state == 0 then
+			local msg = STRINGS:Format(RogueEssence.StringKey("BANK_INTRO_1A"):ToLocal())
+			if GAME:GetPlayerMoneyBank() > 0 then
+				msg = STRINGS:Format(RogueEssence.StringKey("BANK_INTRO_1B"):ToLocal(), ExplorerEssentials.GetFormattedMoney(GAME:GetPlayerMoneyBank()))
+			end
+
+			local bank_choices = { 
+				STRINGS:Format(RogueEssence.StringKey("MENU_BANK_DEPOSIT"):ToLocal()), 
+				STRINGS:Format(RogueEssence.StringKey("MENU_BANK_WITHDRAWL"):ToLocal()),
+				STRINGS:FormatKey("MENU_INFO"),
+				STRINGS:FormatKey("MENU_EXIT") }
+			UI:BeginChoiceMenu(msg, bank_choices, 1, 4)
+			UI:WaitForChoice()
+			local result = UI:ChoiceResult()
+
+			if result == 1 then
+				if GAME:GetPlayerMoney() > 0 then
+					UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("BANK_DEPOSIT"):ToLocal()))
+					state = 1
+				else
+					UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("BANK_NO_MONEY"):ToLocal()))
+				end
+			elseif result == 2 then
+				if GAME:GetPlayerMoneyBank() > 0 then
+					UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("BANK_WITHDRAWL"):ToLocal()))
+					state = 1
+				else
+					UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("BANK_NO_BALANCE"):ToLocal()))
+				end
+			elseif result == 3 then
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("BANK_INFO_0"):ToLocal()))
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("BANK_INFO_1"):ToLocal(), _DATA:GetMonster("duskull"):GetColoredName()))
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("BANK_INFO_2"):ToLocal()))
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("BANK_INFO_3"):ToLocal()))
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("BANK_INFO_4"):ToLocal()))
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("BANK_INFO_5"):ToLocal()))
+			else
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("BANK_EXIT"):ToLocal()))
+				state = -1
+			end
+
+		elseif state == 1 then -- deposit/withdrawl
+			UI:BankMenu()
+			UI:WaitForChoice()
+
+			local diff = GAME:GetPlayerMoney() - purse
+
+			if diff < 0 then
+				SOUND:PlayBattleSE("DUN_Money")
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("BANK_DEPOSIT_CONFIRM"):ToLocal(), ExplorerEssentials.GetFormattedMoney(math.abs(diff))))
+			elseif diff > 0 then
+				SOUND:PlayBattleSE("DUN_Money")
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("BANK_WITHDRAWL_CONFIRM"):ToLocal(), ExplorerEssentials.GetFormattedMoney(diff)))
+			else
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("BANK_CANCEL"):ToLocal()))
+			end
+
+			purse = GAME:GetPlayerMoney()
+			bank = GAME:GetPlayerMoneyBank()
+
+			state = 0
+		elseif state == 2 then -- withdraw
+			_DATA.Save.ActiveTeam.Money = bank
+			_DATA.Save.ActiveTeam.Bank = 0
+
+			UI:BankMenu()
+			UI:WaitForChoice()
+
+			SOUND:PlayBattleSE("DUN_Money")
+
+			local amount = GAME:GetPlayerMoneyBank()
+			_DATA.Save.ActiveTeam.Money = purse
+			_DATA.Save.ActiveTeam.Bank = bank
+
+			if GAME:GetPlayerMoneyBank() == 0 then
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("BANK_CANCEL"):ToLocal(), GAME:GetPlayerMoneyBank()))
+			else
+				
+			end
+
+			GAME:RemoveFromPlayerMoneyBank(amount)
+			GAME:AddToPlayerMoney(amount)
+
+			purse = GAME:GetPlayerMoney()
+			bank = GAME:GetPlayerMoneyBank()
+
+			state = 0
+		end
+	end
 end
 
 function treasure_town.Appraisal_Action(obj, activator)
@@ -729,8 +914,7 @@ function treasure_town.CH3_EndTour()
 
 	UI:SetSpeaker(CH('PARTNER'))
 	UI:SetSpeakerEmotion("Happy")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_PARTNER_2_' .. tostring(pTalkKind)],
-		CH('Bidoof'):GetDisplayName()))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_PARTNER_2_' .. tostring(pTalkKind)], CH('Bidoof'):GetDisplayName()))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
 
 	SOUND:PlayBattleSE("EVT_Emote_Sweating")
@@ -980,7 +1164,7 @@ function treasure_town.CH3_MeetingDrowzee()
 	GAME:WaitFrames(45)
 	-- TODO: bgm_Stop()
 	SOUND:PlayBattleSE("EVT_CH03_Bump")
-	GROUND:CharSetEmote(CH('PLAYER'), "UNK_EFFECT_SHOCKED_MIRRORED", 1)
+	GROUND:CharSetEmote(CH('PLAYER'), "shock", 1)
 	ExplorerEssentials.MoveToPositionOffset(CH('PLAYER'), 4, 0, false, 1)
 	ExplorerEssentials.MoveToPositionOffsetBackwards(CH('PLAYER'), Direction.Right, -4, 0, 1)
 	-- !! WaitExecuteLives(ACTOR_NPC_SURIIPU)
@@ -1200,6 +1384,9 @@ function treasure_town.CH3_MeetingMarillAndAzurill()
 	-- ### supervision_Acting(1) [IRRELEVANT]
 
 	GAME:CutsceneMode(true)
+	AI:DisableCharacterAI(CH('PARTNER'))
+
+	GROUND:Hide("AppleObj")
 
 	ExplorerEssentials.SetupInitialPos(OBJ('AppleObj'), 51, 23.5, Direction.Down) -- apple - 51, 23.5
 	ExplorerEssentials.SetupInitialPos(CH('Marill'), 63.5, 23.5, Direction.Left)
@@ -1400,7 +1587,7 @@ function treasure_town.CH3_MeetingMarillAndAzurill()
 
 	UI:SetSpeaker(CH('Azurill'))
 	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S8_Azurill_2']), RogueEssence.Dungeon.InvItem("food_apple"):GetDisplayName())
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S8_Azurill_2'], RogueEssence.Dungeon.InvItem("food_apple"):GetDisplayName()))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
 
 	UI:SetSpeaker(CH('Marill'))
@@ -1439,11 +1626,18 @@ function treasure_town.CH3_MeetingMarillAndAzurill()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S8_Kecleon_10']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
 
-	GROUND:CharAnimateTurnTo(CH('PurpleKecleon'), Dir8.DownRight, 2)
-	GROUND:MoveToPosition(CH('Marill'), 484, 192, false, 1)
-	GROUND:CharAnimateTurnTo(CH('Azurill'), Dir8.Right, 2)
-	GAME:WaitFrames(30)
-	GROUND:MoveToPosition(CH('Azurill'), 412, 208, false, 1)
+	local coro1 = TASK:BranchCoroutine(function ()
+		GROUND:CharAnimateTurnTo(CH('PurpleKecleon'), Dir8.DownRight, 2)
+	end)
+	local coro2 = TASK:BranchCoroutine(function ()
+		GROUND:MoveToPosition(CH('Marill'), 496, 192, false, 1)
+	end)
+	local coro3 = TASK:BranchCoroutine(function ()
+		GROUND:CharAnimateTurnTo(CH('Azurill'), Dir8.Right, 2)
+		GAME:WaitFrames(30)
+		GROUND:MoveToPosition(CH('Azurill'), 412, 208, false, 1)
+	end)
+	TASK:JoinCoroutines({coro1, coro2, coro3})
 	-- !! WaitExecuteLives(ACTOR_NPC_RURIRI)
 
 	SOUND:FadeOutBGM(10)
@@ -1451,9 +1645,9 @@ function treasure_town.CH3_MeetingMarillAndAzurill()
 	GROUND:CharSetAction(CH('Azurill'), RogueEssence.Ground.PoseGroundAction(CH('Azurill').Position, CH('Azurill').Direction, RogueEssence.Content.GraphicsManager.GetAnimIndex("Special0")))
 	GAME:WaitFrames(30)
 
-	GROUND:CharSetEmote(CH('Kecleon'), "UNK_EFFECT_SHOCKED_MIRRORED", 1)
+	GROUND:CharSetEmote(CH('Kecleon'), "shock", 1)
 	GROUND:CharSetEmote(CH('PurpleKecleon'), "exclaim", 1)
-	GROUND:CharSetEmote(CH('PARTNER'), "UNK_EFFECT_SHOCKED_MIRRORED", 1)
+	GROUND:CharSetEmote(CH('PARTNER'), "shock", 1)
 	GROUND:CharSetEmote(CH('PLAYER'), "exclaim", 1)
 	
 	-- ### supervision_Acting(2) [IRRELEVANT]
@@ -1462,10 +1656,11 @@ function treasure_town.CH3_MeetingMarillAndAzurill()
 	-- TODO WaitAnimation: WaitAnimation<object OBJECT_P03P02A1_128>()
 
 	local apple = OBJ('AppleObj')
+	GROUND:Unhide("AppleObj")
 
 	local coro1 = TASK:BranchCoroutine(function ()
 		SOUND:PlayBattleSE("EVT_CH03_Apple_Bounce")
-		GROUND:MoveObjectToPosition(apple, (42 * 8), (24.5 * 8), 1)
+		GROUND:MoveObjectToPosition(apple, (41.5 * 8), (24 * 8), 1)
 
 		local coro1B = TASK:BranchCoroutine(function ()
 			GAME:WaitFrames(30)
@@ -1489,11 +1684,11 @@ function treasure_town.CH3_MeetingMarillAndAzurill()
 		-- pause frame 0
 
 		
-		GROUND:ObjectSetAnim(apple, 5, 15, 40, Direction.Down, 1)
+		GROUND:ObjectSetAnim(apple, 4, 15, 40, Direction.Down, 1)
 		GROUND:ObjectWaitAnimFrame(apple, 40)
-		GROUND:ObjectSetAnim(apple, 5, 83, -1, Direction.Down, 1)
+		GROUND:ObjectSetAnim(apple, 4, 83, -1, Direction.Down, 1)
 		GROUND:ObjectWaitAnimFrame(apple, 0)
-		GROUND:ObjectSetAnim(apple, 7, 0, 8, Direction.Down, 1)
+		GROUND:ObjectSetAnim(apple, 6, 0, 8, Direction.Down, 1)
 		GROUND:ObjectWaitAnimFrame(apple, 8)
 	end)
 	local coro3 = TASK:BranchCoroutine(function ()
@@ -1532,7 +1727,7 @@ function treasure_town.CH3_MeetingMarillAndAzurill()
 	UI:ResetSpeaker()
 	UI:SetCenter(true)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S8_NARRATION_2'],
-		CH('PLAYER'):GetDisplayName(), CH('Azurill'):GetDisplayName(), RogueEssence.Dungeon.InvItem("food_apple"):GetDisplayName()
+		CH('PLAYER'):GetDisplayName(), RogueEssence.Dungeon.InvItem("food_apple"):GetDisplayName(), CH('Azurill'):GetDisplayName()
 	))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S8_NARRATION_3']))
 	UI:SetCenter(false)
@@ -1560,6 +1755,11 @@ function treasure_town.CH3_MeetingMarillAndAzurill()
 	CharacterActions.DizzyFade()
 	GAME:FadeOut(false, 5)
 	-- TODO CallCommon: CallCommon(CORO_FADE_OUT_ALL_AFTER)
+
+	-- PLACEHOLDER END
+	GAME:FadeIn(1)
+	GAME:CutsceneMode(false)
+	ExplorerEssentials.EnablePartnerAI()
 end
 
 function treasure_town.CH3_UnkFlashback() -- i genuinely can't tell if this is supposed to be a flashback or a vision or whatever

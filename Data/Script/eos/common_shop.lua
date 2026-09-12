@@ -3,62 +3,7 @@
     Shop items
 ]]--
 
-COMMON.SHOP_WEIGHTS = {
-  [1] = {
-    {Type = COMMON.THROWN_ROCKS, Weight = 1},
-    {Type = COMMON.UTILITIES, Weight = 4},
-    {Type = COMMON.FOOD, Weight = 3}
-  },
-  [2] = {
-    {Type = COMMON.THROWN_PIERCE, Weight = 1},
-    {Type = COMMON.THROWN_ROCKS, Weight = 1},
-    {Type = COMMON.THROWN_WANDS, Weight = 1},
-    {Type = COMMON.UTILITIES, Weight = 4},
-    {Type = COMMON.FOOD, Weight = 3},
-    {Type = COMMON.APRICORNS, Weight = 2},
-    {Type = COMMON.HELD, Weight = 1}
-  },
-  [3] = {
-    {Type = COMMON.THROWN_PIERCE, Weight = 1},
-    {Type = COMMON.THROWN_ROCKS, Weight = 1},
-    {Type = COMMON.THROWN_WANDS, Weight = 1},
-    {Type = COMMON.UTILITIES, Weight = 4},
-    {Type = COMMON.FOOD, Weight = 3},
-    {Type = COMMON.APRICORNS, Weight = 3},
-    {Type = COMMON.HELD, Weight = 1}
-  },
-  [4] = {
-    {Type = COMMON.THROWN_PIERCE, Weight = 1},
-    {Type = COMMON.THROWN_ROCKS, Weight = 1},
-    {Type = COMMON.THROWN_WANDS, Weight = 1},
-    {Type = COMMON.UTILITIES, Weight = 5},
-    {Type = COMMON.FOOD, Weight = 5},
-    {Type = COMMON.APRICORNS, Weight = 5},
-    {Type = COMMON.HELD, Weight = 1}
-  }
-}
-
-COMMON.TM_SHOP_WEIGHTS = {
-  [1] = {
-    {Type = COMMON.TMS, Weight = 1},
-    {Type = COMMON.ORBS, Weight = 3}
-  },
-  [2] = {
-    {Type = COMMON.TMS, Weight = 1},
-    {Type = COMMON.ORBS, Weight = 3}
-  },
-  [3] = {
-    {Type = COMMON.TMS, Weight = 5},
-    {Type = COMMON.ORBS, Weight = 3}
-  },
-  [4] = {
-    {Type = COMMON.TMS, Weight = 2},
-    {Type = COMMON.SPECIAL, Weight = 1},
-    {Type = COMMON.ORBS, Weight = 2}
-  }
-}
-
-COMMON.FOOD = {
+local FOOD = {
   [1] = {
     { Index = "food_apple", Amount = 0, Price = 25, Weight = 8},
     { Index = "gummi_blue", Amount = 0, Price = 800, Weight = 1},
@@ -137,7 +82,7 @@ COMMON.FOOD = {
   }
 }
   
-COMMON.UTILITIES = {
+local UTILITIES = {
   [1] = {
     { Index = "berry_oran", Amount = 0, Price = 50, Weight = 3},
     { Index = "seed_reviver", Amount = 0, Price = 800, Weight = 4},
@@ -186,7 +131,7 @@ COMMON.UTILITIES = {
   }
 }
 
-COMMON.HELD = {
+local HELD = {
   [2] = {
     { Index = "held_heal_ribbon", Amount = 0, Price = 6500, Weight = 1},
     { Index = "held_persim_band", Amount = 0, Price = 4500, Weight = 1},
@@ -214,7 +159,7 @@ COMMON.HELD = {
   }
 }
   
-COMMON.THROWN_ROCKS = {
+local THROWN_ROCKS = {
   [1] = {
     { Index = "ammo_geo_pebble", Amount = 5, Price = 125, Weight = 4},
     { Index = "ammo_gravelerock", Amount = 5, Price = 250, Weight = 1}
@@ -233,7 +178,7 @@ COMMON.THROWN_ROCKS = {
   }
 }
 
-COMMON.THROWN_PIERCE = {
+local THROWN_PIERCE = {
   [2] = {
     { Index = "ammo_iron_thorn", Amount = 5, Price = 20, Weight = 5},
     { Index = "ammo_silver_spike", Amount = 5, Price = 30, Weight = 1}
@@ -248,7 +193,7 @@ COMMON.THROWN_PIERCE = {
   }
 }
 
-COMMON.THROWN_WANDS = {
+local THROWN_WANDS = {
   [2] = {
     { Index = "wand_warp", Amount = 9, Price = 80, Weight = 1},
     { Index = "wand_slumber", Amount = 9, Price = 140, Weight = 1}
@@ -272,7 +217,7 @@ COMMON.THROWN_WANDS = {
   }
 }
 
-COMMON.ORBS = {
+local ORBS = {
   [1] = {
     { Index = "orb_hail", Amount = 0, Price = 70, Weight = 3},
     { Index = "orb_sunny", Amount = 0, Price = 70, Weight = 5},
@@ -335,7 +280,7 @@ COMMON.ORBS = {
   }
 }
   
-COMMON.TMS = {
+local TMS = {
   [1] = {
     { Index = "tm_focus_punch", Amount = 0, Price = 6000, Weight = 8},
     { Index = "tm_water_pulse", Amount = 0, Price = 7500, Weight = 8},
@@ -645,13 +590,13 @@ COMMON.TMS = {
   }
 }
 
-COMMON.SPECIAL = {
+local SPECIAL = {
   [4] = {
     { Index = "key", Amount = 0, Price = 8000, Weight = 1}
   }
 }
 
-COMMON.APRICORNS = {
+local APRICORNS = {
   [2] = {
     { Index = "apricorn_plain", Amount = 0, Price = 100, Weight = 8},
     { Index = "apricorn_blue", Amount = 0, Price = 250, Weight = 1},
@@ -688,5 +633,60 @@ COMMON.APRICORNS = {
     { Index = "apricorn_big", Amount = 0, Price = 400, Weight = 2},
     { Index = "apricorn_glittery", Amount = 0, Price = 500, Weight = 2},
     { Index = "apricorn_perfect", Amount = 0, Price = 5000, Weight = 1}
+  }
+}
+
+COMMON.SHOP_WEIGHTS = {
+  [1] = {
+    {Type = THROWN_ROCKS, Weight = 1},
+    {Type = UTILITIES, Weight = 4},
+    {Type = FOOD, Weight = 3}
+  },
+  [2] = {
+    {Type = THROWN_PIERCE, Weight = 1},
+    {Type = THROWN_ROCKS, Weight = 1},
+    {Type = THROWN_WANDS, Weight = 1},
+    {Type = UTILITIES, Weight = 4},
+    {Type = FOOD, Weight = 3},
+    {Type = APRICORNS, Weight = 2},
+    {Type = HELD, Weight = 1}
+  },
+  [3] = {
+    {Type = THROWN_PIERCE, Weight = 1},
+    {Type = THROWN_ROCKS, Weight = 1},
+    {Type = THROWN_WANDS, Weight = 1},
+    {Type = UTILITIES, Weight = 4},
+    {Type = FOOD, Weight = 3},
+    {Type = APRICORNS, Weight = 3},
+    {Type = HELD, Weight = 1}
+  },
+  [4] = {
+    {Type = THROWN_PIERCE, Weight = 1},
+    {Type = THROWN_ROCKS, Weight = 1},
+    {Type = THROWN_WANDS, Weight = 1},
+    {Type = UTILITIES, Weight = 5},
+    {Type = FOOD, Weight = 5},
+    {Type = APRICORNS, Weight = 5},
+    {Type = HELD, Weight = 1}
+  }
+}
+
+COMMON.TM_SHOP_WEIGHTS = {
+  [1] = {
+    {Type = TMS, Weight = 1},
+    {Type = ORBS, Weight = 3}
+  },
+  [2] = {
+    {Type = TMS, Weight = 1},
+    {Type = ORBS, Weight = 3}
+  },
+  [3] = {
+    {Type = TMS, Weight = 5},
+    {Type = ORBS, Weight = 3}
+  },
+  [4] = {
+    {Type = TMS, Weight = 2},
+    {Type = SPECIAL, Weight = 1},
+    {Type = ORBS, Weight = 2}
   }
 }

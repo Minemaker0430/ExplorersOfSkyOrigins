@@ -1,4 +1,5 @@
 require 'eos.common'
+require 'eos.common_shop'
 ExplorerEssentials = {}
 
 -- hey hi mocha here
@@ -254,28 +255,29 @@ function ExplorerEssentials.RefreshShops()
 	local typesTable = {}
 	for i = 1, #types, 1 do
 		for _ = 1, types[i].Weight, 1 do
-			table.insert(typesTable, math.random(1, #typesTable), types[i].Type)
+			table.insert(typesTable, types[i].Type)
 		end
 	end
 
+	print("Shop Table:")
+
 	-- get items from a random type
 	for _ = 1, itemCount, 1 do
-		local index = typesTable[math.random(1, #typesTable)]
+		local index = typesTable[math.random(#typesTable)]
 		local items = index[shop]
 
 		local itemsWeighted = {}
 		for i = 1, #items, 1 do
 			for _ = 1, items[i].Weight, 1 do
-				table.insert(itemsWeighted, math.random(1, #itemsWeighted), items[i])
+				table.insert(itemsWeighted, items[i])
 			end
 		end
 
-		table.insert(res, itemsWeighted[math.random(1, #itemsWeighted)])
+		table.insert(res, itemsWeighted[math.random(#itemsWeighted)])
+		print(res[#res])
 	end
 
 	SV.DailyFlags.ShopTable = res
-
-	print("Shop Table:\n" .. res)
 
 	-- tm/orb shop
 	
@@ -287,27 +289,28 @@ function ExplorerEssentials.RefreshShops()
 	local typesTable = {}
 	for i = 1, #types, 1 do
 		for _ = 1, types[i].Weight, 1 do
-			table.insert(typesTable, math.random(1, #typesTable), types[i].Type)
+			table.insert(typesTable, types[i].Type)
 		end
 	end
 
+	print("TM Shop Table:")
+
 	-- get items from a random type
 	for _ = 1, math.floor(itemCount / 2), 1 do
-		local index = typesTable[math.random(1, #typesTable)]
+		local index = typesTable[math.random(#typesTable)]
 		local items = index[shop]
 
 		local itemsWeighted = {}
 		for i = 1, #items, 1 do
 			for _ = 1, items[i].Weight, 1 do
-				table.insert(itemsWeighted, math.random(1, #itemsWeighted), items[i])
+				table.insert(itemsWeighted, items[i])
 			end
 		end
 
-		table.insert(res, itemsWeighted[math.random(1, #itemsWeighted)])
+		table.insert(res, itemsWeighted[math.random(#itemsWeighted)])
+		print(res[#res])
 	end
 
 	SV.DailyFlags.TMShopTable = res
-
-	print("TM Shop Table:\n" .. res)
 	
 end
