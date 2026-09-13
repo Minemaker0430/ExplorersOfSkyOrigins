@@ -533,8 +533,6 @@ function treasure_town.Storage_Action(obj, activator)
 	local state = 0
 	local repeated = false
 
-	local items = {}
-
 	UI:SetSpeaker(CH('Kangaskhan'))
 
 	while state > -1 do
@@ -586,39 +584,34 @@ function treasure_town.Storage_Action(obj, activator)
 		elseif state == 1 then -- store
 			UI:StorageMenu()
 			UI:WaitForChoice()
+			local result = UI:ChoiceResult()
 
-			local diff = GAME:GetPlayerMoney() - purse
-
-			if diff < 0 then
-				SOUND:PlayBattleSE("DUN_Money")
-				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("BANK_DEPOSIT_CONFIRM"):ToLocal(), ExplorerEssentials.GetFormattedMoney(math.abs(diff))))
-			elseif diff > 0 then
-				SOUND:PlayBattleSE("DUN_Money")
-				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("BANK_WITHDRAWL_CONFIRM"):ToLocal(), ExplorerEssentials.GetFormattedMoney(diff)))
+			if #result > 1 then
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("STORAGE_STORE_MANY"):ToLocal()))
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("STORAGE_STORE_MORE"):ToLocal()))
+			elseif #result == 1 then
+				local item = GAME:GetPlayerBagItem(result[1].Slot)
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("STORAGE_STORE_ONE"):ToLocal(), item:GetDisplayName()))
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("STORAGE_STORE_MORE"):ToLocal()))
 			else
-				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("BANK_CANCEL"):ToLocal()))
+				state = 0
 			end
-
-			purse = GAME:GetPlayerMoney()
-			bank = GAME:GetPlayerMoneyBank()
-
-			state = 0
 		elseif state == 2 then -- take
 
 			UI:WithdrawMenu()
 			UI:WaitForChoice()
+			local result = UI:ChoiceResult()
 
-			local amount = GAME:GetPlayerMoneyBank()
-			_DATA.Save.ActiveTeam.Money = purse
-			_DATA.Save.ActiveTeam.Bank = bank
-
-			if GAME:GetPlayerMoneyBank() == 0 then
-				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("BANK_CANCEL"):ToLocal(), GAME:GetPlayerMoneyBank()))
+			if #result > 0 then
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("STORAGE_TAKE_MANY"):ToLocal(), item:GetDisplayName()))
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("STORAGE_TAKE_MORE"):ToLocal()))
 			else
-				
+				state = 0
 			end
+		elseif state == 3 then -- confirm store
+		
+		elseif state == 4 then -- confirm take
 
-			state = 0
 		end
 	end
 end
@@ -688,32 +681,6 @@ function treasure_town.Bank_Action(obj, activator)
 			else
 				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("BANK_CANCEL"):ToLocal()))
 			end
-
-			purse = GAME:GetPlayerMoney()
-			bank = GAME:GetPlayerMoneyBank()
-
-			state = 0
-		elseif state == 2 then -- withdraw
-			_DATA.Save.ActiveTeam.Money = bank
-			_DATA.Save.ActiveTeam.Bank = 0
-
-			UI:BankMenu()
-			UI:WaitForChoice()
-
-			SOUND:PlayBattleSE("DUN_Money")
-
-			local amount = GAME:GetPlayerMoneyBank()
-			_DATA.Save.ActiveTeam.Money = purse
-			_DATA.Save.ActiveTeam.Bank = bank
-
-			if GAME:GetPlayerMoneyBank() == 0 then
-				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("BANK_CANCEL"):ToLocal(), GAME:GetPlayerMoneyBank()))
-			else
-				
-			end
-
-			GAME:RemoveFromPlayerMoneyBank(amount)
-			GAME:AddToPlayerMoney(amount)
 
 			purse = GAME:GetPlayerMoney()
 			bank = GAME:GetPlayerMoneyBank()
