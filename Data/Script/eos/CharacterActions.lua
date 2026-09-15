@@ -177,6 +177,48 @@ function CharacterActions.DizzyFade()
 	GAME:WaitFrames(30) -- wait for as long as the effect lasts
 end
 
+-- Dimensional Scream Intro Effect, should be followed by GAME:FadeOut(true, 1) or GAME:FadeOutFront(true, 1)
+function CharacterActions.DimensionalScream_In()
+	local bg_anim = RogueEssence.Content.BGAnimData("DimensionalScreamIn", 2, -1, -1, 128, Dir8.None)
+	
+	local emitter = RogueEssence.Content.FiniteOverlayEmitter()
+	emitter.Anim = bg_anim
+	emitter.Layer = DrawLayer.Top
+	
+    emitter.TotalTime = 44
+	emitter.FadeIn = 0
+    emitter.FadeOut = 0
+	
+	emitter.RepeatX = true
+	emitter.RepeatY = true
+	
+	emitter.Color = Color.White
+	
+	GROUND:PlayVFX(emitter, GAME:GetCameraCenter().X, GAME:GetCameraCenter().Y)
+	GAME:WaitFrames(44) -- wait for as long as the effect lasts
+end
+
+-- Dimensional Scream Intro Effect, should be followed by GAME:FadeOut(true, 1) or GAME:FadeOutFront(true, 1)
+function CharacterActions.DimensionalScream_Out()
+	local bg_anim = RogueEssence.Content.BGAnimData("DimensionalScreamOut", 2, -1, -1, 128, Dir8.None)
+	
+	local emitter = RogueEssence.Content.FiniteOverlayEmitter()
+	emitter.Anim = bg_anim
+	emitter.Layer = DrawLayer.Top
+	
+    emitter.TotalTime = 28
+	emitter.FadeIn = 0
+    emitter.FadeOut = 0
+	
+	emitter.RepeatX = true
+	emitter.RepeatY = true
+	
+	emitter.Color = Color.White
+	
+	GROUND:PlayVFX(emitter, GAME:GetCameraCenter().X, GAME:GetCameraCenter().Y)
+	GAME:WaitFrames(28) -- wait for as long as the effect lasts
+end
+
 --- Used when a character (usually the Hero Pokemon) is "Explaining" something, equivalent to CORO_EXPLANATION_FUNC_SERIES in SkyTemple
 --- @param char any Character to be used
 function CharacterActions.Explain(char)

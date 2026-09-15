@@ -27,6 +27,13 @@ function ExplorerEssentials.SpawnPartner()
 	partner.InteractOrder = 1
 end
 
+--- Common function for restoring player controls after a cutscene
+function ExplorerEssentials.CutsceneEnd()
+	ExplorerEssentials.MoveCameraAtSpeed(0, 0, 1, true)
+	GAME:CutsceneMode(false)
+	ExplorerEssentials.EnablePartnerAI()
+end
+
 --- Resets the Partner Pokemon's AI to start following the Player where it is, instead of where it spawned.
 function ExplorerEssentials.EnablePartnerAI()
 	local partner = CH('PARTNER')

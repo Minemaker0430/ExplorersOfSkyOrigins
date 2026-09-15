@@ -1603,66 +1603,65 @@ function treasure_town.CH3_MeetingMarillAndAzurill()
 		GROUND:CharAnimateTurnTo(CH('Azurill'), Dir8.Right, 2)
 		GAME:WaitFrames(30)
 		GROUND:MoveToPosition(CH('Azurill'), 412, 208, false, 1)
-	end)
-	TASK:JoinCoroutines({coro1, coro2, coro3})
-	-- !! WaitExecuteLives(ACTOR_NPC_RURIRI)
+		-- !! WaitExecuteLives(ACTOR_NPC_RURIRI)
+		SOUND:FadeOutBGM(10)
+		SOUND:PlayBattleSE("EVT_CH03_Azurill_Trips")
+		GROUND:CharSetAction(CH('Azurill'), RogueEssence.Ground.PoseGroundAction(CH('Azurill').Position, CH('Azurill').Direction, RogueEssence.Content.GraphicsManager.GetAnimIndex("Special0")))
+		GAME:WaitFrames(30)
 
-	SOUND:FadeOutBGM(10)
-	SOUND:PlayBattleSE("EVT_CH03_Azurill_Trips")
-	GROUND:CharSetAction(CH('Azurill'), RogueEssence.Ground.PoseGroundAction(CH('Azurill').Position, CH('Azurill').Direction, RogueEssence.Content.GraphicsManager.GetAnimIndex("Special0")))
-	GAME:WaitFrames(30)
+		GROUND:CharSetEmote(CH('Kecleon'), "shock", 1)
+		GROUND:CharSetEmote(CH('PurpleKecleon'), "exclaim", 1)
+		GROUND:CharSetEmote(CH('PARTNER'), "shock", 1)
+		GROUND:CharSetEmote(CH('PLAYER'), "exclaim", 1)
 
-	GROUND:CharSetEmote(CH('Kecleon'), "shock", 1)
-	GROUND:CharSetEmote(CH('PurpleKecleon'), "exclaim", 1)
-	GROUND:CharSetEmote(CH('PARTNER'), "shock", 1)
-	GROUND:CharSetEmote(CH('PLAYER'), "exclaim", 1)
-	
-	-- ### supervision_Acting(2) [IRRELEVANT]
-	-- TODO: SlidePositionMark<object OBJECT_P03P02A1_128>(1, Position<'m11', 42, 24.5>)
-	-- TODO SetAnimation: SetAnimation<object OBJECT_P03P02A1_128>(18)
-	-- TODO WaitAnimation: WaitAnimation<object OBJECT_P03P02A1_128>()
+		-- ### supervision_Acting(2) [IRRELEVANT]
+		-- TODO: SlidePositionMark<object OBJECT_P03P02A1_128>(1, Position<'m11', 42, 24.5>)
+		-- TODO SetAnimation: SetAnimation<object OBJECT_P03P02A1_128>(18)
+		-- TODO WaitAnimation: WaitAnimation<object OBJECT_P03P02A1_128>()
 
-	local apple = OBJ('AppleObj')
-	GROUND:Unhide("AppleObj")
-
-	local coro1 = TASK:BranchCoroutine(function ()
-		SOUND:PlayBattleSE("EVT_CH03_Apple_Bounce")
-		GROUND:MoveObjectToPosition(apple, (41.5 * 8), (24 * 8), 1)
+		local apple = OBJ('AppleObj')
+		GROUND:Unhide("AppleObj")
 
 		local coro1B = TASK:BranchCoroutine(function ()
-			GAME:WaitFrames(30)
-			GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.UpRight, 2)
+			SOUND:PlayBattleSE("EVT_CH03_Apple_Bounce")
+			GROUND:MoveObjectToPosition(apple, (41.5 * 8), (24 * 8), 1)
+
+			local coro1C = TASK:BranchCoroutine(function ()
+				GAME:WaitFrames(30)
+				GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.UpRight, 2)
+			end)
+			local coro2C = TASK:BranchCoroutine(function ()
+				GAME:WaitFrames(30)
+				GROUND:CharAnimateTurnTo(CH('Kecleon'), Dir8.Down, 2)
+			end)
+			local coro3C = TASK:BranchCoroutine(function ()
+				GAME:WaitFrames(34)
+				GROUND:CharAnimateTurnTo(CH('PurpleKecleon'), Dir8.Down, 2)
+			end)
+			TASK:JoinCoroutines({coro1C, coro2C, coro3C})
 		end)
 		local coro2B = TASK:BranchCoroutine(function ()
-			GAME:WaitFrames(30)
-			GROUND:CharAnimateTurnTo(CH('Kecleon'), Dir8.Down, 2)
+			-- apple animation stuff
+			-- frames 15-39 (5 frame time)
+			-- frames 83-98 (5 frame time)
+			-- frames 0-7 (7 frame time)
+			-- pause frame 0
+
+			
+			GROUND:ObjectSetAnim(apple, 4, 15, 40, Direction.Down, 1)
+			GROUND:ObjectWaitAnimFrame(apple, 40)
+			GROUND:ObjectSetAnim(apple, 4, 83, -1, Direction.Down, 1)
+			GROUND:ObjectWaitAnimFrame(apple, 0)
+			GROUND:ObjectSetAnim(apple, 6, 0, 8, Direction.Down, 1)
+			GROUND:ObjectWaitAnimFrame(apple, 8)
 		end)
 		local coro3B = TASK:BranchCoroutine(function ()
-			GAME:WaitFrames(34)
-			GROUND:CharAnimateTurnTo(CH('PurpleKecleon'), Dir8.Down, 2)
+			UI:SetSpeaker(CH('Azurill'))
+			UI:SetSpeakerEmotion("Teary-Eyed")
+			-- TODO: message_FacePositionOffset(2, -3)
+			UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S8_Azurill_4']))
 		end)
 		TASK:JoinCoroutines({coro1B, coro2B, coro3B})
-	end)
-	local coro2 = TASK:BranchCoroutine(function ()
-		-- apple animation stuff
-		-- frames 15-39 (5 frame time)
-		-- frames 83-98 (5 frame time)
-		-- frames 0-7 (7 frame time)
-		-- pause frame 0
-
-		
-		GROUND:ObjectSetAnim(apple, 4, 15, 40, Direction.Down, 1)
-		GROUND:ObjectWaitAnimFrame(apple, 40)
-		GROUND:ObjectSetAnim(apple, 4, 83, -1, Direction.Down, 1)
-		GROUND:ObjectWaitAnimFrame(apple, 0)
-		GROUND:ObjectSetAnim(apple, 6, 0, 8, Direction.Down, 1)
-		GROUND:ObjectWaitAnimFrame(apple, 8)
-	end)
-	local coro3 = TASK:BranchCoroutine(function ()
-		UI:SetSpeaker(CH('Azurill'))
-		UI:SetSpeakerEmotion("Teary-Eyed")
-		-- TODO: message_FacePositionOffset(2, -3)
-		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S8_Azurill_4']))
 	end)
 	TASK:JoinCoroutines({coro1, coro2, coro3})
 	-- TODO: WaitExecuteObject(OBJECT_P03P02A1_128)
@@ -1723,10 +1722,11 @@ function treasure_town.CH3_MeetingMarillAndAzurill()
 	GAME:FadeOut(false, 5)
 	-- TODO CallCommon: CallCommon(CORO_FADE_OUT_ALL_AFTER)
 
-	-- PLACEHOLDER END
-	GAME:FadeIn(1)
-	GAME:CutsceneMode(false)
-	ExplorerEssentials.EnablePartnerAI()
+	SOUND:PlayBattleSE("EVT_Dimensional_Scream")
+	CharacterActions.DimensionalScream_In()
+	GAME:FadeOutFront(true, 1)
+
+	treasure_town.CH3_TheScream()
 end
 
 function treasure_town.CH3_UnkFlashback() -- i genuinely can't tell if this is supposed to be a flashback or a vision or whatever
@@ -1781,15 +1781,20 @@ function treasure_town.CH3_TheScream()
 	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
 	-- back_SetGround(LEVEL_S04P01A) (Should be the map you're currently on, or the map it sends you to next)
-	GAME:FadeIn(0)
+	
+	GAME:FadeInFront(1)
 	GAME:WaitFrames(30)
-	ExplorerEssentials.SetSpeakerUnknown(nil)
+	
 	UI:ResetSpeaker()
 	UI:SetCenter(true)
 	UI:WaitShowVoiceOver(STRINGS:Format(STRINGS.MapStrings['CH3_S10_NARRATION_1']), -1)
 	UI:SetCenter(false)
-	SOUND:PlayBattleSE("UNK_5139")
-	-- TODO: screen_WhiteOut(1, 5)
+
+	SOUND:PlayBattleSE("EVT_Dimensional_Scream_End")
+	GAME:FadeOutFront(true, 5)
+	CharacterActions.DimensionalScream_Out()
+
+	treasure_town.CH3_HeardSomething()
 end
 
 function treasure_town.CH3_HeardSomething()
@@ -1797,29 +1802,26 @@ function treasure_town.CH3_HeardSomething()
 	local pTalkKind = SV.Personality.PartnerTalkKind
 	-- TODO CallCommon: CallCommon(CORO_FADE_OUT_ALL_BEFORE)
 	-- back_SetGround(LEVEL_T01P02A) (Should be the map you're currently on, or the map it sends you to next)
-	-- ### supervision_StationCommon(0) [IRRELEVANT]
-	-- ### supervision_StationCommon(99) [IRRELEVANT]
-	-- ### supervision_Acting(0) [IRRELEVANT]
-	-- ### supervision_LoadStation(LEVEL_T01P02A, 'UM03') [IRRELEVANT]
-	-- ### supervision_Station(10) [IRRELEVANT]
-	-- TODO: SetPositionInitial<actor ACTOR_NPC_KAKUREON1>()
-	-- TODO: SetPositionInitial<actor ACTOR_NPC_KAKUREON2>()
+
 	GROUND:CharEndAnim(CH('Kecleon'))
 	GROUND:CharEndAnim(CH('PurpleKecleon'))
 	GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
+	
 	GAME:FadeIn(5)
 	GAME:WaitFrames(30)
+
 	SOUND:PlayBattleSE("EVT_Emote_Shock_2")
-	GROUND:CharSetEmote(CH('PLAYER'), "UNK_EFFECT_SHOCKED_MIRRORED", 1)
-	GROUND:CharSetAnim(CH('PLAYER'), "Walk", false)
-	-- TODO SlidePositionOffset: SlidePositionOffset<actor ACTOR_PLAYER>(0.7969, -8, 0)
+	GROUND:CharSetEmote(CH('PLAYER'), "shock", 1)
+
+	ExplorerEssentials.MoveToPositionOffsetBackwards(CH('PLAYER'), Direction.Right, -8, 0, 1)
 	-- !! WaitExecuteLives(ACTOR_PLAYER)
-	GROUND:CharEndAnim(CH('PLAYER'))
+	
 	ExplorerEssentials.SetSpeakerHero()
 	UI:SetSpeakerEmotion("Surprised")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_PLAYER_1']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_PLAYER_2']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	GROUND:CharAnimateTurnTo(CH('PLAYER'), UNK_4, 2)
 	GAME:WaitFrames(30)
 	GROUND:CharAnimateTurnTo(CH('PLAYER'), UNK_5, 2)
@@ -1827,29 +1829,37 @@ function treasure_town.CH3_HeardSomething()
 	GROUND:CharAnimateTurnTo(CH('PLAYER'), UNK_4, 2)
 	GAME:WaitFrames(60)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_PLAYER_3']))
-	SOUND:PlayBGM("UNK_BGM_HEARTWARMING.ogg", true)
+
+	SOUND:PlayBGM("BGM_Heartwarming.ogg", true)
+
 	SOUND:PlayBattleSE("EVT_Emote_Confused")
 	GROUND:CharSetEmote(CH('Azurill'), "question", 1)
 	GAME:WaitFrames(30)
 	-- !! WaitExecuteLives(ACTOR_NPC_RURIRI)
+
 	UI:SetSpeaker(CH('Azurill'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_Azurill_1']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	-- TODO message_SetActor: message_SetActor(ACTOR_NPC_MARIRU)
 	UI:WaitShowTimedDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_Azurill_2']),
 		CH('AZURILL'):GetDisplayName())
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	GROUND:CharTurnToCharAnimated(CH('Azurill'), CH('Marill'), 2)
 	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Right, 2)
 	-- !! WaitExecuteLives(ACTOR_NPC_RURIRI)
+
 	UI:SetSpeaker(CH('Azurill'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_Azurill_3']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	GROUND:CharTurnToCharAnimated(CH('Azurill'), CH('PLAYER'), 2)
 	GROUND:CharSetAnim(CH('Azurill'), "UNK_23", false)
 	-- TODO WaitAnimation: WaitAnimation<actor ACTOR_NPC_RURIRI>()
+
 	GROUND:CharEndAnim(CH('Azurill'))
 	GAME:WaitFrames(30)
 	GROUND:CharAnimateTurnTo(CH('Kecleon'), Dir8.Right, 4)
@@ -1858,44 +1868,55 @@ function treasure_town.CH3_HeardSomething()
 	GROUND:MoveToPosition(CH('Azurill'), 416, 192, false, 1)
 	GROUND:MoveToPosition(CH('Marill'), 444, 192, false, 1)
 	-- TODO: WaitExecutePerformer(0)
+
 	UI:SetSpeaker(CH('Marill'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_Marill_1']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	UI:SetSpeaker(CH('Azurill'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_Azurill_4']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	UI:SetSpeaker(CH('Marill'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_Marill_2']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_Marill_3']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	CharacterActions.HopOnce(CH('Azurill'), CH('Azurill').Direction)
 	-- !! WaitExecuteLives(ACTOR_NPC_RURIRI)
+
 	UI:SetSpeaker(CH('Azurill'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_Azurill_5']))
 	GROUND:MoveToPosition(CH('Marill'), 572, 192, false, 1)
 	GAME:WaitFrames(15)
 	-- TODO: ResetHitAttribute<actor ACTOR_NPC_RURIRI>(31)
+
 	GROUND:MoveToPosition(CH('Azurill'), 572, 192, false, 1)
 	-- !! WaitExecuteLives(ACTOR_NPC_MARIRU)
+
 	GROUND:Hide("Marill")
 	-- !! WaitExecuteLives(ACTOR_NPC_RURIRI)
+
 	GROUND:Hide("Azurill")
 	GAME:WaitFrames(30)
 	-- TODO: MovePositionLives<performer 0>(1, ACTOR_PLAYER)
 	-- TODO: WaitExecutePerformer(0)
+
 	GAME:WaitFrames(30)
 	UI:SetSpeaker(CH('PARTNER'))
 	UI:SetSpeakerEmotion("Happy")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_PARTNER_1']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	GAME:WaitFrames(30)
 	SOUND:FadeOutBGM(120)
 	GROUND:CharTurnToCharAnimated(CH('PARTNER'), CH('PLAYER'), 2)
 	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+
 	GAME:WaitFrames(20)
 	SOUND:PlayBattleSE("EVT_Emote_Exclaim_2")
 	GROUND:CharSetEmote(CH('PARTNER'), "exclaim", 1)
@@ -1907,20 +1928,25 @@ function treasure_town.CH3_HeardSomething()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_PARTNER_2_' .. tostring(pTalkKind)]))
 	GROUND:CharTurnToCharAnimated(CH('PLAYER'), CH('PARTNER'), 2)
 	-- !! WaitExecuteLives(ACTOR_PLAYER)
+
 	GAME:WaitFrames(30)
 	CharacterActions.Explain(CH('PLAYER'))
 	-- !! WaitExecuteLives(ACTOR_PLAYER)
+
 	SOUND:PlayBattleSE("EVT_Emote_Confused")
 	GROUND:CharSetEmote(CH('PARTNER'), "question", 1)
 	GAME:WaitFrames(30)
 	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+
 	UI:SetSpeaker(CH('PARTNER'))
-	UI:SetSpeakerEmotion("UNK_FACE_WORRIED")
+	UI:SetSpeakerEmotion("Worried")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_PARTNER_3_' .. tostring(pTalkKind)]))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_PARTNER_4']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	GROUND:CharTurnToCharAnimated(CH('PARTNER'), CH('Kecleon'), 2)
 	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+
 	UI:SetSpeaker(CH('PARTNER'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_PARTNER_5_' .. tostring(pTalkKind)]))
@@ -1931,23 +1957,29 @@ function treasure_town.CH3_HeardSomething()
 	GROUND:CharSetEmote(CH('PurpleKecleon'), "question", 1)
 	GAME:WaitFrames(30)
 	-- !! WaitExecuteLives(ACTOR_NPC_KAKUREON2)
+
 	UI:SetSpeaker(CH('Kecleon'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_Kecleon_1']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	UI:SetSpeaker(CH('PurpleKecleon'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_PurpleKecleon_1']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	GROUND:CharTurnToCharAnimated(CH('PARTNER'), CH('PLAYER'), 2)
 	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+
 	UI:SetSpeaker(CH('PARTNER'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_PARTNER_7_' .. tostring(pTalkKind)]))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_PARTNER_8_' .. tostring(pTalkKind)]))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.Left, 2)
 	-- !! WaitExecuteLives(ACTOR_PLAYER)
+
 	ExplorerEssentials.SetSpeakerHero()
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_PLAYER_4']))
@@ -1955,34 +1987,43 @@ function treasure_town.CH3_HeardSomething()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_PLAYER_6']))
 	GAME:FadeOut(false, 15)
 	-- TODO CallCommon: CallCommon(CORO_FADE_OUT_ALL_AFTER)
+
 	GAME:WaitFrames(15)
-	ExplorerEssentials.SetSpeakerUnknown(nil)
+
 	UI:ResetSpeaker()
 	UI:SetCenter(true)
 	UI:WaitShowVoiceOver(STRINGS:Format(STRINGS.MapStrings['CH3_S11_NARRATION_1']), -1)
 	UI:SetCenter(false)
 	-- TODO CallCommon: CallCommon(CORO_FADE_OUT_ALL_BEFORE)
+
 	GAME:FadeIn(15)
 	GAME:WaitFrames(15)
+
 	ExplorerEssentials.SetSpeakerHero()
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_PLAYER_7']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_PLAYER_8']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	GROUND:CharSetEmote(CH('PARTNER'), "happy", 1)
 	UI:SetSpeaker(CH('PARTNER'))
 	UI:SetSpeakerEmotion("Happy")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_PARTNER_9']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	GROUND:CharSetEmote(CH('PARTNER'), "none", 1)
 	GROUND:CharTurnToCharAnimated(CH('PLAYER'), CH('PARTNER'), 2)
 	-- !! WaitExecuteLives(ACTOR_PLAYER)
+
 	UI:SetSpeaker(CH('PARTNER'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_PARTNER_10_' .. tostring(pTalkKind)]))
 	GROUND:CharAnimateTurnTo(CH('PurpleKecleon'), Dir8.Down, 2)
 	-- !! WaitExecuteLives(ACTOR_NPC_KAKUREON2)
-	SOUND:PlayBGM("UNK_BGM_TREASURE_TOWN.ogg", true)
+
+	SOUND:PlayBGM("BGM_TreasureTown.ogg", true)
+
+	ExplorerEssentials.CutsceneEnd()
 end
 
 function treasure_town.CH3BidoofTutorialScene5()
