@@ -32,16 +32,20 @@ function treasure_town.Init(map)
 	-- Handle NPCs
 	if SV.Progression.Chapter == 3 then GROUND:Hide('Electivire') end
 	COMMON.CreateWalkArea('Corphish', 792, 257, 32, 32)
-	COMMON.CreateWalkArea('Vigoroth', 149, 192, 32, 32)
+	COMMON.CreateWalkArea('Vigoroth', 149, 200, 32, 32)
 end
 
 ---treasure_town.Enter(map)
 --Engine callback function
 function treasure_town.Enter(map)
 	if SV.Progression.Chapter == 3 then
-		treasure_town.CH3_EastTownTour()
-		treasure_town.CH3_WestTownTour()
-		treasure_town.CH3_EndTour()
+		if SV.Progression.SectionFlag == 1 then
+			treasure_town.CH3_SawTheFuture()
+		else
+			treasure_town.CH3_EastTownTour()
+			treasure_town.CH3_WestTownTour()
+			treasure_town.CH3_EndTour()
+		end
 	else
 		GAME:FadeIn(20)
 	end
@@ -727,7 +731,7 @@ function treasure_town.MarowakDojoEntrance_Touch(obj, activator)
 end
 
 function treasure_town.CrossRoadsAssemblyEntrance_Touch(obj, activator)
-	if SV.Progression.Chapter == 3 then
+	if SV.Progression.Chapter == 3 and SV.Progression.SectionFlag == 0 then
 		treasure_town.CH3_WrongWay()
 	else
 		GAME:EnterGroundMap("crossroads_assembly", "TreasureTownEntranceMarker")
@@ -978,6 +982,8 @@ function treasure_town.CH3_MeetingDrowzee()
 	-- TODO: $SCENARIO_MAIN = scn[4, 3]
 	-- ### supervision_Acting(0) [IRRELEVANT]
 
+	GROUND:Hide("CH3_CutsceneMarker")
+
 	ExplorerEssentials.SetupInitialPos(CH('Drowzee'), RIGHT_SIDE_OFFSET_UNITS + 42.5, 17.5, Direction.Right)
 	ExplorerEssentials.SetupInitialPos(CH('Marill'), RIGHT_SIDE_OFFSET_UNITS + 46.5, 19.5, Direction.Left)
 	ExplorerEssentials.SetupInitialPos(CH('Azurill'), RIGHT_SIDE_OFFSET_UNITS + 46.5, 16.5, Direction.Left)
@@ -996,8 +1002,6 @@ function treasure_town.CH3_MeetingDrowzee()
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_PARTNER_1_' .. tostring(pTalkKind)]))
 
-	-- TODO: SetPositionLives<performer 0>(0)
-	GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
 	ExplorerEssentials.MoveCameraAtSpeed(RIGHT_SIDE_OFFSET + 352, 176, 2, false)
 	-- TODO: WaitExecutePerformer(0)
 
@@ -1129,7 +1133,8 @@ function treasure_town.CH3_MeetingDrowzee()
 	-- TODO: ResetHitAttribute<actor ACTOR_NPC_SURIIPU>(31)
 	GROUND:MoveToPosition(CH('Drowzee'), RIGHT_SIDE_OFFSET + 396, 192, false, 1)
 	GAME:WaitFrames(45)
-	-- TODO: bgm_Stop()
+
+	SOUND:StopBGM()
 	SOUND:PlayBattleSE("EVT_CH03_Bump")
 	GROUND:CharSetEmote(CH('PLAYER'), "shock", 1)
 	ExplorerEssentials.MoveToPositionOffset(CH('PLAYER'), 4, 0, false, 1)
@@ -1275,7 +1280,7 @@ function treasure_town.CH3_SawTheFuture()
 	UI:SetSpeakerEmotion("Happy")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S5_PARTNER_22_' .. tostring(pTalkKind)]))
 
-	ExplorerEssentials.MoveCameraAtSpeed(0, 0, 1, true)
+	ExplorerEssentials.CutsceneEnd()
 	SOUND:PlayBGM("BGM_TreasureTown.ogg", true)
 end
 
@@ -1803,9 +1808,11 @@ function treasure_town.CH3_HeardSomething()
 	-- TODO CallCommon: CallCommon(CORO_FADE_OUT_ALL_BEFORE)
 	-- back_SetGround(LEVEL_T01P02A) (Should be the map you're currently on, or the map it sends you to next)
 
-	GROUND:CharEndAnim(CH('Kecleon'))
-	GROUND:CharEndAnim(CH('PurpleKecleon'))
-	GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
+	ExplorerEssentials.SetupCameraPos(41.5, 24)
+	ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 42.5, 23.5, Direction.Right)
+	ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 38.5, 25.5, Direction.UpRight)
+	ExplorerEssentials.SetupInitialPos(CH('Azurill'), 44.5, 23.5, Direction.Left)
+	ExplorerEssentials.SetupInitialPos(CH('Marill'), 60.5, 23.5, Direction.Left)
 	
 	GAME:FadeIn(5)
 	GAME:WaitFrames(30)
@@ -1822,11 +1829,11 @@ function treasure_town.CH3_HeardSomething()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_PLAYER_2']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
 
-	GROUND:CharAnimateTurnTo(CH('PLAYER'), UNK_4, 2)
+	GROUND:CharAnimateTurnTo(CH('PLAYER'), Direction.Up, 2)
 	GAME:WaitFrames(30)
-	GROUND:CharAnimateTurnTo(CH('PLAYER'), UNK_5, 2)
+	GROUND:CharAnimateTurnTo(CH('PLAYER'), Direction.Down, 2)
 	GAME:WaitFrames(30)
-	GROUND:CharAnimateTurnTo(CH('PLAYER'), UNK_4, 2)
+	GROUND:CharAnimateTurnTo(CH('PLAYER'), Direction.Right, 2)
 	GAME:WaitFrames(60)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_PLAYER_3']))
 
@@ -1842,31 +1849,45 @@ function treasure_town.CH3_HeardSomething()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_Azurill_1']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
 
-	-- TODO message_SetActor: message_SetActor(ACTOR_NPC_MARIRU)
-	UI:WaitShowTimedDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_Azurill_2']),
-		CH('AZURILL'):GetDisplayName())
+	UI:SetSpeaker(CH('Marill'):GetDisplayName())
+	UI:WaitShowTimedDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_UNKNOWN_1'], CH('Azurill'):GetDisplayName()))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
 
-	GROUND:CharTurnToCharAnimated(CH('Azurill'), CH('Marill'), 2)
-	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Right, 2)
+	local coro1 = TASK:BranchCoroutine(function ()
+		GROUND:CharTurnToCharAnimated(CH('Azurill'), CH('Marill'), 2)
+	end)
+	local coro2 = TASK:BranchCoroutine(function ()
+		GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Right, 2)
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
 	-- !! WaitExecuteLives(ACTOR_NPC_RURIRI)
 
 	UI:SetSpeaker(CH('Azurill'))
 	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_Azurill_3']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_Azurill_2']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
 
 	GROUND:CharTurnToCharAnimated(CH('Azurill'), CH('PLAYER'), 2)
-	GROUND:CharSetAnim(CH('Azurill'), "UNK_23", false)
+	GROUND:CharWaitAnim(CH('Azurill'), "Bow")
 	-- TODO WaitAnimation: WaitAnimation<actor ACTOR_NPC_RURIRI>()
 
-	GROUND:CharEndAnim(CH('Azurill'))
 	GAME:WaitFrames(30)
-	GROUND:CharAnimateTurnTo(CH('Kecleon'), Dir8.Right, 4)
-	GROUND:CharAnimateTurnTo(CH('PurpleKecleon'), Dir8.Right, 4)
-	ExplorerEssentials.MoveCameraAtSpeed(420, 192, 1, false)
-	GROUND:MoveToPosition(CH('Azurill'), 416, 192, false, 1)
-	GROUND:MoveToPosition(CH('Marill'), 444, 192, false, 1)
+	local coro1 = TASK:BranchCoroutine(function ()
+		GROUND:CharAnimateTurnTo(CH('Kecleon'), Dir8.Right, 4)
+	end)
+	local coro2 = TASK:BranchCoroutine(function ()
+		GROUND:CharAnimateTurnTo(CH('PurpleKecleon'), Dir8.Right, 4)
+	end)
+	local coro3 = TASK:BranchCoroutine(function ()
+		ExplorerEssentials.MoveCameraAtSpeed(420, 192, 1, false)
+	end)
+	local coro4 = TASK:BranchCoroutine(function ()
+		GROUND:MoveToPosition(CH('Azurill'), 416, 192, false, 1)
+	end)
+	local coro5 = TASK:BranchCoroutine(function ()
+		GROUND:MoveToPosition(CH('Marill'), 444, 192, false, 1)
+	end)
+	TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5})
 	-- TODO: WaitExecutePerformer(0)
 
 	UI:SetSpeaker(CH('Marill'))
@@ -1876,7 +1897,7 @@ function treasure_town.CH3_HeardSomething()
 
 	UI:SetSpeaker(CH('Azurill'))
 	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_Azurill_4']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_Azurill_3']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
 
 	UI:SetSpeaker(CH('Marill'))
@@ -1890,19 +1911,21 @@ function treasure_town.CH3_HeardSomething()
 
 	UI:SetSpeaker(CH('Azurill'))
 	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_Azurill_5']))
-	GROUND:MoveToPosition(CH('Marill'), 572, 192, false, 1)
-	GAME:WaitFrames(15)
-	-- TODO: ResetHitAttribute<actor ACTOR_NPC_RURIRI>(31)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_Azurill_4']))
 
-	GROUND:MoveToPosition(CH('Azurill'), 572, 192, false, 1)
-	-- !! WaitExecuteLives(ACTOR_NPC_MARIRU)
-
-	GROUND:Hide("Marill")
-	-- !! WaitExecuteLives(ACTOR_NPC_RURIRI)
-
-	GROUND:Hide("Azurill")
+	local coro1 = TASK:BranchCoroutine(function ()
+		GROUND:MoveToPosition(CH('Marill'), 572, 192, false, 1)
+		GROUND:Hide("Marill")
+	end)
+	local coro2 = TASK:BranchCoroutine(function ()
+		GAME:WaitFrames(15)
+		GROUND:MoveToPosition(CH('Azurill'), 572, 192, false, 1)
+		GROUND:Hide("Azurill")
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
 	GAME:WaitFrames(30)
+
+	ExplorerEssentials.MoveCameraAtSpeed(0, 0, 1, true)
 	-- TODO: MovePositionLives<performer 0>(1, ACTOR_PLAYER)
 	-- TODO: WaitExecutePerformer(0)
 
@@ -1921,12 +1944,23 @@ function treasure_town.CH3_HeardSomething()
 	SOUND:PlayBattleSE("EVT_Emote_Exclaim_2")
 	GROUND:CharSetEmote(CH('PARTNER'), "exclaim", 1)
 	GAME:WaitFrames(30)
-	GROUND:CharAnimateTurnTo(CH('Kecleon'), Dir8.Down, 2)
-	GROUND:CharAnimateTurnTo(CH('PurpleKecleon'), Dir8.DownLeft, 2)
-	UI:SetSpeaker(CH('PARTNER'))
-	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_PARTNER_2_' .. tostring(pTalkKind)]))
-	GROUND:CharTurnToCharAnimated(CH('PLAYER'), CH('PARTNER'), 2)
+
+	local coro1 = TASK:BranchCoroutine(function ()
+		GROUND:CharAnimateTurnTo(CH('Kecleon'), Dir8.Down, 2)
+	end)
+	local coro2 = TASK:BranchCoroutine(function ()
+		GROUND:CharAnimateTurnTo(CH('PurpleKecleon'), Dir8.DownLeft, 2)
+	end)
+	local coro3 = TASK:BranchCoroutine(function ()
+		UI:SetSpeaker(CH('PARTNER'))
+		UI:SetSpeakerEmotion("Normal")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_PARTNER_2_' .. tostring(pTalkKind)], CH('PLAYER'):GetDisplayName()))
+	end)
+	local coro4 = TASK:BranchCoroutine(function ()
+		GAME:WaitFrames(30)
+		GROUND:CharTurnToCharAnimated(CH('PLAYER'), CH('PARTNER'), 2)
+	end)
+	TASK:JoinCoroutines({coro1, coro2, coro3, coro4})
 	-- !! WaitExecuteLives(ACTOR_PLAYER)
 
 	GAME:WaitFrames(30)
@@ -1949,8 +1983,9 @@ function treasure_town.CH3_HeardSomething()
 
 	UI:SetSpeaker(CH('PARTNER'))
 	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_PARTNER_5_' .. tostring(pTalkKind)]))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_PARTNER_5_' .. tostring(pTalkKind)], _DATA:GetMonster("kecleon"):GetColoredName()))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_PARTNER_6']))
+
 	SOUND:PlayBattleSE("EVT_Emote_Confused_2")
 	GROUND:CharSetEmote(CH('Kecleon'), "question", 1)
 	GAME:WaitFrames(10)
@@ -1973,8 +2008,8 @@ function treasure_town.CH3_HeardSomething()
 
 	UI:SetSpeaker(CH('PARTNER'))
 	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_PARTNER_7_' .. tostring(pTalkKind)]))
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_PARTNER_8_' .. tostring(pTalkKind)]))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_PARTNER_7_' .. tostring(pTalkKind)], _DATA:GetMonster("kecleon"):GetColoredName()))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_PARTNER_8_' .. tostring(pTalkKind)], CH('PLAYER'):GetDisplayName()))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
 
 	GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.Left, 2)
@@ -1985,6 +2020,10 @@ function treasure_town.CH3_HeardSomething()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_PLAYER_4']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_PLAYER_5']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_PLAYER_6']))
+	
+	--[[
+	Trimming out unnecessary flashbacks if i can help it
+	
 	GAME:FadeOut(false, 15)
 	-- TODO CallCommon: CallCommon(CORO_FADE_OUT_ALL_AFTER)
 
@@ -2000,12 +2039,13 @@ function treasure_town.CH3_HeardSomething()
 	GAME:WaitFrames(15)
 
 	ExplorerEssentials.SetSpeakerHero()
-	UI:SetSpeakerEmotion("Normal")
+	UI:SetSpeakerEmotion("Normal")]]
+
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_PLAYER_7']))
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_PLAYER_8']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_PLAYER_8'], CH('Azurill'):GetDisplayName()))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
 
-	GROUND:CharSetEmote(CH('PARTNER'), "happy", 1)
+	GROUND:CharSetEmote(CH('PARTNER'), "happy", -1)
 	UI:SetSpeaker(CH('PARTNER'))
 	UI:SetSpeakerEmotion("Happy")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_PARTNER_9']))
@@ -2017,508 +2057,17 @@ function treasure_town.CH3_HeardSomething()
 
 	UI:SetSpeaker(CH('PARTNER'))
 	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_PARTNER_10_' .. tostring(pTalkKind)]))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S11_PARTNER_10_' .. tostring(pTalkKind)], CH('PLAYER'):GetDisplayName()))
+
 	GROUND:CharAnimateTurnTo(CH('PurpleKecleon'), Dir8.Down, 2)
 	-- !! WaitExecuteLives(ACTOR_NPC_KAKUREON2)
 
 	SOUND:PlayBGM("BGM_TreasureTown.ogg", true)
 
+	SV.Progression.SectionFlag = 1
+	GROUND:Unhide("CH3_CutsceneMarker")
+
 	ExplorerEssentials.CutsceneEnd()
-end
-
-function treasure_town.CH3BidoofTutorialScene5()
-	GAME:CutsceneMode(true)
-	player = CH("PLAYER")
-	partner = CH("TEAMMATE_1") --why does this have to be like this?
-	Bidoof = CH("Bidoof")
-	AI:DisableCharacterAI(partner)
-	local hTalkKind = SV.Personality.HeroTalkKind
-	local pTalkKind = SV.Personality.PartnerTalkKind
-	Bidoof.CollisionDisabled = true
-	partner.CollisionDisabled = true
-	player.CollisionDisabled = true
-
-	local marker = MRKR("CrossRoadsAssemblyEntranceMarker")
-	GROUND:TeleportTo(Bidoof, 1157, 196, Direction.Left)
-	GROUND:TeleportTo(player, 1157, 193, Direction.Left)
-	GROUND:TeleportTo(partner, 1157, 213, Direction.Left)
-	GAME:FadeIn(20)
-
-	local coro2 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(Bidoof, 794, 208, false, 1) end)
-	local coro3 = TASK:BranchCoroutine(function()
-		GAME:WaitFrames(30)
-		GROUND:MoveToPosition(player, 860, 193, false, 1)
-	end)
-	local coro4 = TASK:BranchCoroutine(function()
-		GAME:WaitFrames(30)
-		GROUND:MoveToPosition(partner, 860, 216, false, 1)
-	end)
-	TASK:JoinCoroutines({ coro2, coro3, coro4 })
-	GROUND:CharAnimateTurnTo(partner, Direction.Left, 2)
-	GROUND:CharAnimateTurnTo(player, Direction.Left, 2)
-	GROUND:CharAnimateTurnTo(Bidoof, Direction.Right, 2)
-	--UI:SetSpeaker(Bidoof)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Bidoof_']))
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Bidoof_']))
-	--UI:SetSpeaker(partner)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Partner_']))
-	GAME:MoveCamera(Duskull.Position.X, Duskull.Position.Y, 1, false)
-	GAME:WaitFrames(120)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Partner_']))
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Partner_']))
-	GAME:MoveCamera(Electivire.Position.X, Electivire.Position.Y, 1, false)
-	GAME:WaitFrames(120)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Partner_']))
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Partner_']))
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Partner_']))
-	GAME:FadeOut(false, 30)
-	GAME:MoveCamera(Kecleon.Position.X, Kecleon.Position.Y, 1, false)
-	GAME:FadeIn(30)
-	GAME:WaitFrames(120)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Partner_']))
-	GAME:MoveCamera(Kangaskhan.Position.X, Kangaskhan.Position.Y, 1, false)
-	GAME:WaitFrames(120)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Partner_']))
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Partner_']))
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Partner_']))
-	GAME:FadeOut(false, 60)
-	GAME:MoveCamera(0, 0, 1, true)
-	GAME:FadeIn(20)
-	GAME:WaitFrames(120)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Partner_']))
-	--UI:SetSpeaker(Bidoof)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Bidoof_']))
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Bidoof_']))
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Bidoof_']))
-	--UI:SetSpeaker(Partner)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Partner_']))
-	--UI:SetSpeaker(Bidoof)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Bidoof_']))
-
-	--coroutine begin
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Bidoof_']))
-	--UI:SetSpeakerEmotion("Happy")
-	GROUND:CharAnimateTurnTo(Bidoof, Direction.Down, 2)
-	GROUND:CharSetEmote(Bidoof, "sweating", 1)
-	--coroutine end
-
-	GROUND:CharAnimateTurnTo(Bidoof, Direction.Right, 2)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Bidoof_']))
-
-	--coroutine begin
-	GROUND:MoveToPosition(Bidoof, 832, 231, false, 1)
-	GROUND:CharAnimateTurnTo(player, Direction.Down, 2)
-	GROUND:CharAnimateTurnTo(partner, Direction.Down, 2)
-	--coroutine end
-
-	--coroutine begin
-	GROUND:MoveToPosition(Bidoof, marker.Position.X, marker.Position.Y, false, 1)
-	GROUND:CharAnimateTurnTo(player, Direction.Right, 2)
-	GROUND:CharAnimateTurnTo(partner, Direction.Right, 2)
-	--coroutine end
-
-	--coroutine begin
-	GROUND:CharAnimateTurnTo(player, Direction.Down, 2)
-	GROUND:CharAnimateTurnTo(partner, Direction.Up, 2)
-	--coroutine end
-	--UI:SetSpeaker(partner)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Partner_']))
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Partner_']))
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Partner_']))
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Partner_']))
-
-	SV.Progression.SectionFlag = 7
-	--putup inability to leave town until talking to kecleon here and return control to player
-	GAME:CutsceneMode(false)
-	AI:EnableCharacterAI(partner)
-end
-
-function treasure_town.CH3AzumarillScene1()
-	Apple_Red = OBJ('Apple_Red')
-	player = CH("PLAYER")
-	partner = CH("TEAMMATE_1") --why does this have to be like this?
-	local hTalkKind = SV.Personality.HeroTalkKind
-	local pTalkKind = SV.Personality.PartnerTalkKind
-	partner.CollisionDisabled = true
-	player.CollisionDisabled = true
-	Azurill.CollisionDisabled = true
-	Marill.CollisionDisabled = true
-	AI:DisableCharacterAI(partner)
-	GROUND:TeleportTo(Marill, 555, 213, Direction.Left)
-	GROUND:TeleportTo(Azurill, 555, 193, Direction.Left)
-
-	--coroutine begin
-	--UI:SetSpeaker('', false)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_PortraitlessMarill_']))
-	GROUND:CharAnimateTurnTo(Kecleon, Direction.DownRight, 2)
-	GROUND:CharAnimateTurnTo(PurpleKecleon, Direction.Right, 2)
-	GROUND:MoveToPosition(Marill, PurpleKecleon.Position.X, PurpleKecleon.Position.Y + 40, false, 1)
-	GROUND:MoveToPosition(Azurill, PurpleKecleon.Position.X + 10, PurpleKecleon.Position.Y + 52, false, 1)
-	GROUND:CharAnimateTurnTo(Marill, Direction.Up, 2)
-	GROUND:CharAnimateTurnTo(Azurill, Direction.Up, 2)
-	--coroutine end
-	--coroutine begin
-	GROUND:MoveToPosition(player, 310, 209, false, 1)
-	GROUND:MoveToPosition(partner, 310, 191, false, 1)
-	GROUND:CharAnimateTurnTo(player, Direction.Right, 2)
-	GROUND:CharAnimateTurnTo(partner, Direction.Right, 2)
-	--coroutine end
-	GROUND:CharAnimateTurnTo(Kecleon, Direction.DownRight, 2)
-	GROUND:CharAnimateTurnTo(Kecleon, Direction.Down, 2)
-	GROUND:CharSetEmote(Kecleon, "exclaim", 1)
-	GROUND:CharSetEmote(PurpleKecleon, "exclaim", 1)
-	--UI:SetSpeaker(Kecleon)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Kecleon_']))
-	--UI:SetSpeaker(Azurill)
-	CharacterActions.ScaredJump(Azurill, Direction.Up)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Azurill_']))
-	--UI:SetSpeaker(Kecleon)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Kecleon_']))
-	--UI:SetSpeaker('', false)
-	--portraitless bought item text
-	--UI:SetSpeaker(Marill)
-	--UI:SetSpeakerEmotion("Happy")
-	GROUND:CharSetEmote(Marill, "exclaim", 1)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Marill_']))	
-	--UI:SetSpeaker(Kecleon)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Kecleon_']))
-	--coroutine begin
-	GROUND:MoveToPosition(Marill, 555, 213, false, 1)
-	GROUND:MoveToPosition(Azurill, 555, 193, false, 1)
-	GROUND:CharAnimateTurnTo(Kecleon, Direction.Right, 2)
-	GROUND:CharAnimateTurnTo(PurpleKecleon, Direction.Right, 2)
-	--coroutine end
-	--coroutine begin
-	GROUND:CharAnimateTurnTo(Kecleon, Direction.Down, 2)
-	GROUND:CharAnimateTurnTo(PurpleKecleon, Direction.DownLeft, 2)
-	GROUND:CharAnimateTurnTo(player, Direction.Up, 2)
-	GROUND:CharAnimateTurnTo(partner, Direction.Up, 2)
-	--UI:SetSpeaker(Kecleon)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Kecleon_']))
-	--coroutine end
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Kecleon_']))
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Kecleon_']))
-	--coroutine begin
-	GROUND:CharSetEmote(Kecleon, "exclaim", 1)
-	GROUND:MoveToPosition(Marill, PurpleKecleon.Position.X, PurpleKecleon.Position.Y + 40, false, 1)
-	GROUND:MoveToPosition(Azurill, PurpleKecleon.Position.X - 10, PurpleKecleon.Position.Y + 52, false, 1)
-	GROUND:CharAnimateTurnTo(Marill, Direction.Up, 2)
-	GROUND:CharAnimateTurnTo(Azurill, Direction.Up, 2)
-	GROUND:CharAnimateTurnTo(Kecleon, Direction.DownRight, 2)
-	GROUND:CharAnimateTurnTo(PurpleKecleon, Direction.Down, 2)
-	GROUND:CharAnimateTurnTo(player, Direction.Right, 2)
-	GROUND:CharAnimateTurnTo(partner, Direction.Right, 2)
-	--coroutine end
-	GROUND:CharSetEmote(Kecleon, "question", 1)
-	--UI:SetSpeaker('', false)
-	--portraitless marill text
-	--UI:SetSpeaker(Kecleon)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Kecleon_']))
-	CharacterActions.ScaredJump(Azurill, Direction.Up)
-	--UI:SetSpeaker(Azurill)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Azurill_']))
-	--UI:SetSpeaker(Marill)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Marill_']))
-	--UI:SetSpeaker(Kecleon)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Kecleon_']))
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Kecleon_']))
-
-	--coroutine begin
-	--UI:SetSpeaker(Marill)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Marill_']))
-	GROUND:CharSetEmote(Marill, "exclaim", 1)
-	--coroutine end
-
-	--coroutine start
-	--UI:SetSpeaker(Azurill)
-	--UI:SetSpeakerEmotion("Happy")
-	GROUND:CharSetEmote(Azurill, "exclaim", 1)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Azurill_']))
-	--coroutine end
-	--UI:SetSpeaker(Kecleon)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Kecleon_']))
-
-	--coroutine start
-	GROUND:MoveToPosition(Marill, 555, 213, false, 1)
-	GROUND:MoveToPosition(Azurill, 410, 200, false, 1) -- trip goes here
-	GROUND:CharAnimateTurnTo(Kecleon, Direction.DownRight, 2)
-	GROUND:CharAnimateTurnTo(PurpleKecleon, Direction.DownRight, 2)
-	--UI:SetSpeaker(Azurill)
-	--UI:SetSpeakerEmotion("Worried")
-	--azurill trip emote
-	GROUND:CharSetEmote(player, "shock", 1)
-	GROUND:CharSetEmote(Kecleon, "shock", 1)
-	GROUND:TeleportTo(Apple_Red, 410, 200, Direction.Down)
-	GAME:WaitFrames(40)
-	GROUND:TeleportTo(Apple_Red, Apple_Red.Position.X - 30, Apple_Red.Position.Y - 16, Direction.Down)
-	GAME:WaitFrames(40)
-	GROUND:TeleportTo(Apple_Red, Apple_Red.Position.X - 50, Apple_Red.Position.Y, Direction.Down)
-	GAME:WaitFrames(40)
-	--playgrab apple animation
-	GROUND:MoveToPosition(player, Apple_Red.Position.X, Apple_Red.Position.Y, false, 1)
-	GROUND:CharAnimateTurnTo(partner, Direction.UpRight, 2)
-	GROUND:Hide("Apple_Red")
-	GROUND:MoveToPosition(Azurill, player.Position.X + 24, player.Position.Y, false, 1)
-	-- azurill bow
-	--UI:SetSpeakerEmotion("Normal")
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Azurill_']))
-	GROUND:MoveToPosition(player, player.Position.X + 8, player.Position.Y, false, 1)
-	--UI:SetSpeaker('', false)
-	--portraitless giving apple back text 1
-	--portraitless giving apple back text 2
-	--UI:SetSpeaker(player)
-	--UI:SetSpeakerEmotion("Worried")
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	--two red flashes here
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	--two red flashes here
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	--two red flashes here
-
-	GAME:FadeOut(false, 30)
-	GAME:WaitFrames(60)
-	--screen slash animation
-	GAME:WaitFrames(60)
-	GAME:FadeOut(true, 30)
-	GAME:WaitFrames(60)
-	GAME:FadeOut(false, 5)
-	GAME:WaitFrames(20)
-	GAME:FadeOut(true, 30)
-	GAME:WaitFrames(60)
-	GAME:FadeOut(false, 5)
-	GAME:WaitFrames(20)
-	--UI:SetSpeaker('', false)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	GAME:FadeOut(true, 30)
-	GAME:WaitFrames(60)
-	GAME:FadeOut(false, 5)
-	GAME:WaitFrames(60)
-	GAME:FadeOut(true, 30)
-	GAME:WaitFrames(60)
-	--screen unslash animation
-	GAME:WaitFrames(60)
-	GAME:FadeIn(1)
-
-
-	GROUND:CharSetEmote(player, "exclaim", 1)
-	GROUND:MoveToPosition(player, player.Position.X - 8, player.Position.Y, false, 1)
-	GROUND:CharAnimateTurnTo(player, Direction.Right, 2)
-	--UI:SetSpeaker(player)
-	--UI:SetSpeakerEmotion("Worried")
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	GROUND:CharAnimateTurnTo(player, Direction.Up, 2)
-	GROUND:CharAnimateTurnTo(player, Direction.Down, 2)
-	GROUND:CharAnimateTurnTo(player, Direction.Right, 2)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	GROUND:CharSetEmote(Azurill, "question", 1)
-	--UI:SetSpeaker(Azurill)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Azurill_']))
-	--UI:SetSpeaker('', false)
-	--portraitless marill text
-	GROUND:CharAnimateTurnTo(Azurill, Direction.Right, 2)
-	GROUND:CharAnimateTurnTo(partner, Direction.Right, 2)
-	--UI:SetSpeaker(Azurill)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Azurill_']))
-	GROUND:CharAnimateTurnTo(Azurill, Direction.Left, 2)
-	--azurill bow animation
-	GROUND:CharAnimateTurnTo(Kecleon, Direction.Right, 2)
-	GROUND:CharAnimateTurnTo(PurpleKecleon, Direction.Right, 2)
-	GROUND:MoveToPosition(Azurill, player.Position.X + 96, player.Position.Y, false, 1)
-	GROUND:MoveToPosition(Marill, Azurill.Position.X + 28, Azurill.Position.Y, false, 1)
-	GAME:MoveCamera(Marill.Position.X - 4, Marill.Position.Y, 1, false)
-	--UI:SetSpeaker(Marill)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Azurill_']))
-	--UI:SetSpeaker(Azurill)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Azurill_']))
-	--UI:SetSpeaker(Marill)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Azurill_']))
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Azurill_']))
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Azurill_']))
-	--azurill jump
-	--UI:SetSpeaker(Azurill)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Azurill_']))
-	GROUND:MoveToPosition(Azurill, Azurill.Position.X + 430, Azurill.Position.Y, false, 1)
-	GROUND:MoveToPosition(Marill, Marill.Position.X + 450, Marill.Position.Y, false, 1)
-	GROUND:TeleportTo(Drowzee, 818, 136, Direction.Right)
-	GROUND:TeleportTo(Azurill, 850, 136, Direction.Left)
-	GROUND:TeleportTo(Marill, 850, 155, Direction.Left)
-	GAME:MoveCamera(0, 0, 1, true)
-	--UI:SetSpeaker(partner)
-	--UI:SetSpeakerEmotion("Happy")
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	GROUND:CharAnimateTurnTo(partner, Direction.UpRight, 2)
-
-	GROUND:CharAnimateTurnTo(Kecleon, Direction.Down, 2)
-	GROUND:CharAnimateTurnTo(PurpleKecleon, Direction.DownLeft, 2)
-	GROUND:CharSetEmote(partner, "exclaim", 1)
-	--UI:SetSpeakerEmotion("Normal")
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	GROUND:CharAnimateTurnTo(player, Direction.DownLeft, 2)
-	--run in place player animation
-	GROUND:CharSetEmote(partner, "question", 1)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	GROUND:CharAnimateTurnTo(partner, Direction.Up, 2)
-	GROUND:CharSetEmote(Kecleon, "question", 1)
-	GROUND:CharSetEmote(PurpleKecleon, "question", 1)
-	--UI:SetSpeaker(Kecleon)
-	--UI:SetSpeakerEmotion("Normal")
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	--UI:SetSpeaker(PurpleKecleon)
-	--UI:SetSpeakerEmotion("Normal")
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	GROUND:CharAnimateTurnTo(partner, Direction.UpRight, 2)
-	--UI:SetSpeaker(partner)
-	--UI:SetSpeakerEmotion("Normal")
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	GROUND:CharAnimateTurnTo(player, Direction.Left, 2)
-	--UI:SetSpeaker(player)
-	--UI:SetSpeakerEmotion("Normal")
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-
-
-	GAME:FadeOut(false, 5)
-	GAME:WaitFrames(90)
-	--UI:SetSpeaker('', false)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	GAME:FadeIn(5)
-	--UI:SetSpeaker(player)
-	--UI:SetSpeakerEmotion("Normal")
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-
-	GROUND:CharSetEmote(partner, "exclaim", 1)
-	--UI:SetSpeaker(partner)
-	--UI:SetSpeakerEmotion("Happy")
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	GROUND:CharAnimateTurnTo(player, Direction.DownLeft, 2)
-	--UI:SetSpeakerEmotion("Normal")
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	GROUND:CharAnimateTurnTo(Kecleon, Direction.Down, 2)
-	GROUND:CharAnimateTurnTo(PurpleKecleon, Direction.Down, 2)
-
-
-	SV.Progression.SectionFlag = 8
-	AI:EnableCharacterAI(partner)
-	player.CollisionDisabled = false
-end
-
-function treasure_town.CH3AzumarillScene2()
-	local Drowzee = CH('Drowzee')
-	player = CH("PLAYER")
-	partner = CH("TEAMMATE_1") --why does this have to be like this?
-	local hTalkKind = SV.Personality.HeroTalkKind
-	local pTalkKind = SV.Personality.PartnerTalkKind
-	partner.CollisionDisabled = true
-	player.CollisionDisabled = true
-	Azurill.CollisionDisabled = true
-	Marill.CollisionDisabled = true
-	Drowzee.CollisionDisabled = true
-
-
-	GROUND:CharSetEmote(partner, "exclaim", 1)
-	GROUND:CharAnimateTurnTo(partner, Direction.UpRight, 2)
-	--UI:SetSpeaker(partner)
-	--UI:SetSpeakerEmotion("Normal")
-	GROUND:CharAnimateTurnTo(player, Direction.UpRight, 2)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	GAME:MoveCamera(Drowzee.Position.X, Drowzee.Position.Y - 10, 1, false)
-	--UI:SetSpeaker(Azurill)
-	--UI:SetSpeakerEmotion("Happy")
-	GROUND:CharSetEmote(Azurill, "exclaim", 1)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	--marill jump
-	--UI:SetSpeaker(Azurill)
-	--UI:SetSpeakerEmotion("Happy")
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	--UI:SetSpeaker(Drowzee)
-	--UI:SetSpeakerEmotion("Happy")
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	GROUND:MoveToPosition(player, 788, 200, false, 1)
-	GROUND:MoveToPosition(player, 818, 184, false, 1)
-	GROUND:MoveToPosition(player, Azurill.Position.X, Azurill.Position.Y + 30, false, 1)
-	AI:DisableCharacterAI(partner)
-	GROUND:MoveToPosition(partner, Drowzee.Position.X, Drowzee.Position.Y + 50, false, 1)
-	GROUND:CharAnimateTurnTo(player, Direction.Up, 2)
-	GROUND:CharAnimateTurnTo(partner, Direction.Up, 2)
-	--UI:SetSpeaker(partner)
-	--UI:SetSpeakerEmotion("Normal")
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	GROUND:CharAnimateTurnTo(Drowzee, Direction.Down, 2)
-	GROUND:CharAnimateTurnTo(Azurill, Direction.Down, 2)
-	GROUND:CharAnimateTurnTo(Marill, Direction.DownLeft, 2)
-	GROUND:CharSetEmote(Azurill, "exclaim", 1)
-	--azurill jump
-	--UI:SetSpeaker(Azurill)
-	--UI:SetSpeakerEmotion("Normal")
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	--UI:SetSpeaker(Marill)
-	--UI:SetSpeakerEmotion("Worried")
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	GROUND:CharAnimateTurnTo(Azurill, Direction.Left, 2)
-	GROUND:CharAnimateTurnTo(Marill, Direction.UpLeft, 2)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	GROUND:CharAnimateTurnTo(Azurill, Direction.Down, 2)
-	GROUND:CharAnimateTurnTo(Marill, Direction.DownLeft, 2)
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	--UI:SetSpeaker(partner)
-	--UI:SetSpeakerEmotion("Happy")
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	GROUND:CharAnimateTurnTo(Azurill, Direction.Left, 2)
-	GROUND:CharAnimateTurnTo(Marill, Direction.UpLeft, 2)
-	GROUND:CharAnimateTurnTo(Drowzee, Direction.Right, 2)
-	--azurill jump
-	--UI:SetSpeaker(Drowzee)
-	--UI:SetSpeakerEmotion("Normal")
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	--UI:SetSpeaker(Marill)
-	--UI:SetSpeakerEmotion("Happy")
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	--UI:SetSpeaker(Azurill)
-	--UI:SetSpeakerEmotion("Happy")
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	local marker = MRKR("CrossRoadsAssemblyEntranceMarker")
-	GROUND:MoveToPosition(Marill, 910, 192, false, 1)
-	GROUND:MoveToPosition(Azurill, 918, 216, false, 1)
-	GROUND:MoveToPosition(Marill, marker.Position.X, marker.Position.Y, false, 1)
-	GROUND:MoveToPosition(Azurill, marker.Position.X, marker.Position.Y, false, 1)
-	GROUND:MoveToPosition(Drowzee, player.Position.X, player.Position.Y, false, 1)
-	GROUND:CharSetEmote(player, "shock", 1)
-	GROUND:MoveToPosition(Drowzee, player.Position.X + 24, player.Position.Y + 10, false, 1)
-	GROUND:CharAnimateTurnTo(Drowzee, Direction.Left, 2)
-	--UI:SetSpeaker(Drowzee)
-	--UI:SetSpeakerEmotion("Normal")
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	GROUND:MoveToPosition(Drowzee, marker.Position.X, marker.Position.Y, false, 1)
-	--two red flashes
-	--UI:SetSpeaker(player)
-	--UI:SetSpeakerEmotion("Worried")
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	--UI:SetSpeaker(partner)
-	--UI:SetSpeakerEmotion("Normal")
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	--two red flashes
-	--UI:SetSpeaker(player)
-	--UI:SetSpeakerEmotion("Worried")
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	--two red flashes
-	--UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_Hero_']))
-	--fade to black
-	GAME:MoveCamera(0, 0, 1, true)
-	SV.Progression.SectionFlag = 9
-	AI:EnableCharacterAI(partner)
-	player.CollisionDisabled = false
-	--jump to mtbristle scene
 end
 
 return treasure_town

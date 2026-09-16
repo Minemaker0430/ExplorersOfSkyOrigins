@@ -514,16 +514,16 @@
   <data name="CH3_S11_Azurill_1" xml:space="preserve">
     <value>Is something the matter?</value>
   </data>
-  <data name="CH3_S11_Azurill_2" xml:space="preserve">
+  <data name="CH3_S11_UNKNOWN_1" xml:space="preserve">
     <value>Hey, {0}![pause=0] What's going on? Hurry home!</value>
   </data>
-  <data name="CH3_S11_Azurill_3" xml:space="preserve">
+  <data name="CH3_S11_Azurill_2" xml:space="preserve">
     <value>Yup! I'm coming! Wait up!</value>
   </data>
   <data name="CH3_S11_Marill_1" xml:space="preserve">
     <value>Are you all right?</value>
   </data>
-  <data name="CH3_S11_Azurill_4" xml:space="preserve">
+  <data name="CH3_S11_Azurill_3" xml:space="preserve">
     <value>Yup!</value>
   </data>
   <data name="CH3_S11_Marill_2" xml:space="preserve">
@@ -532,7 +532,7 @@
   <data name="CH3_S11_Marill_3" xml:space="preserve">
     <value>Let's get going.</value>
   </data>
-  <data name="CH3_S11_Azurill_5" xml:space="preserve">
+  <data name="CH3_S11_Azurill_4" xml:space="preserve">
     <value>Yup! I'm coming!</value>
   </data>
   <data name="CH3_S11_PARTNER_1" xml:space="preserve">
