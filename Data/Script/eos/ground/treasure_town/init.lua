@@ -38,14 +38,12 @@ end
 ---treasure_town.Enter(map)
 --Engine callback function
 function treasure_town.Enter(map)
-	if SV.Progression.Chapter == 3 then
-		if SV.Progression.SectionFlag == 1 then
-			treasure_town.CH3_SawTheFuture()
-		else
-			treasure_town.CH3_EastTownTour()
-			treasure_town.CH3_WestTownTour()
-			treasure_town.CH3_EndTour()
-		end
+	if SV.Progression.Chapter == 3 and SV.Progression.SectionFlag == 1 then
+		treasure_town.CH3_SawTheFuture()
+	elseif SV.Progression.Chapter == 3 and SV.Progression.SectionFlag == 0 then
+		treasure_town.CH3_EastTownTour()
+		treasure_town.CH3_WestTownTour()
+		treasure_town.CH3_EndTour()
 	else
 		GAME:FadeIn(20)
 	end
@@ -607,7 +605,7 @@ function treasure_town.Storage_Action(obj, activator)
 			local result = UI:ChoiceResult()
 
 			if #result > 0 then
-				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("STORAGE_TAKE_MANY"):ToLocal(), item:GetDisplayName()))
+				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("STORAGE_TAKE_MANY"):ToLocal()))
 				UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("STORAGE_TAKE_MORE"):ToLocal()))
 			else
 				state = 0
@@ -719,7 +717,9 @@ end
 --Ground map transitions
 
 function treasure_town.HabitatSharpedoBluffDayEntrance_Touch(obj, activator)
-	if SV.Progression.Chapter > 3 then -- you shouldn't be able to go here during ch3 (i don't think)
+	if SV.Progression.Chapter == 3 and SV.Progression.SectionFlag == 0 then
+		treasure_town.CH3_WrongWay()
+	else
 		GAME:EnterGroundMap("habitat_sharpedo_bluff_day", "TreasureTownEntranceMarker")
 	end
 end
@@ -964,7 +964,11 @@ function treasure_town.CH3_WrongWay()
 	TASK:JoinCoroutines({ coro1, coro2 })
 	-- !! WaitExecuteLives(ACTOR_PLAYER)
 
-	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Left, 2)
+	if CH('PARTNER').Position.X < RIGHT_SIDE_OFFSET then
+		GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Right, 2)
+	else
+		GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Left, 2)
+	end
 	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
 
 	UI:SetSpeaker(CH('PARTNER'))
@@ -1026,13 +1030,18 @@ function treasure_town.CH3_MeetingDrowzee()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_Drowzee_1']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
 
-	ExplorerEssentials.MoveToPositionOffset(CH('PLAYER'), RIGHT_SIDE_OFFSET + 48, 0, false, 1)
-	GAME:WaitFrames(10)
-	ExplorerEssentials.MoveToPositionOffset(CH('PARTNER'), RIGHT_SIDE_OFFSET + 48, 0, false, 1)
-	GROUND:MoveToPosition(CH('PLAYER'), RIGHT_SIDE_OFFSET + 372, 184, false, 1)
-	GROUND:MoveToPosition(CH('PARTNER'), RIGHT_SIDE_OFFSET + 340, 184, false, 1)
-	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Up, 2)
-	GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.Up, 2)
+	local coro1 = TASK:BranchCoroutine(function()
+		ExplorerEssentials.MoveToPositionOffset(CH('PLAYER'), RIGHT_SIDE_OFFSET + 48, 0, false, 1)
+		GROUND:MoveToPosition(CH('PLAYER'), RIGHT_SIDE_OFFSET + 372, 184, false, 1)
+		GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.Up, 2)
+	end)
+	local coro2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(10)
+		ExplorerEssentials.MoveToPositionOffset(CH('PARTNER'), RIGHT_SIDE_OFFSET + 48, 0, false, 1)
+		GROUND:MoveToPosition(CH('PARTNER'), RIGHT_SIDE_OFFSET + 340, 184, false, 1)
+		GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Up, 2)
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
 	-- !! WaitExecuteLives(ACTOR_PLAYER)
 
 	UI:SetSpeaker(CH('PARTNER'))
@@ -1046,11 +1055,16 @@ function treasure_town.CH3_MeetingDrowzee()
 	GROUND:CharTurnToCharAnimated(CH('Azurill'), CH('PARTNER'), 2)
 	-- !! WaitExecuteLives(ACTOR_NPC_RURIRI)
 
-	GROUND:CharTurnToCharAnimated(CH('Drowzee'), CH('PARTNER'), 2)
-	SOUND:PlayBattleSE("EVT_Emote_Exclaim_2")
-	GROUND:CharSetEmote(CH('Azurill'), "exclaim", 1)
-	GAME:WaitFrames(30)
-	CharacterActions.HopOnce(CH('Azurill'), CH('Azurill').Direction)
+	local coro1 = TASK:BranchCoroutine(function()
+		GROUND:CharTurnToCharAnimated(CH('Drowzee'), CH('PARTNER'), 2)
+	end)
+	local coro2 = TASK:BranchCoroutine(function()
+		SOUND:PlayBattleSE("EVT_Emote_Exclaim_2")
+		GROUND:CharSetEmote(CH('Azurill'), "exclaim", 1)
+		GAME:WaitFrames(30)
+		CharacterActions.HopOnce(CH('Azurill'), CH('Azurill').Direction)
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
 	-- !! WaitExecuteLives(ACTOR_NPC_RURIRI)
 
 	UI:SetSpeaker(CH('Azurill'))
@@ -1073,13 +1087,17 @@ function treasure_town.CH3_MeetingDrowzee()
 
 	UI:SetSpeaker(CH('Marill'))
 	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowTimedDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_Marill_4']),
-		CH('Drowzee'):GetDisplayName())
+	UI:WaitShowTimedDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_Marill_4'], CH('Drowzee'):GetDisplayName()))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_Marill_5']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
 
-	GROUND:CharTurnToCharAnimated(CH('Marill'), CH('PARTNER'), 2)
-	GROUND:CharTurnToCharAnimated(CH('Azurill'), CH('PARTNER'), 2)
+	local coro1 = TASK:BranchCoroutine(function()
+		GROUND:CharTurnToCharAnimated(CH('Marill'), CH('PARTNER'), 2)
+	end)
+	local coro2 = TASK:BranchCoroutine(function()
+		GROUND:CharTurnToCharAnimated(CH('Azurill'), CH('PARTNER'), 2)
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
 
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_Marill_6']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_Marill_7']))
@@ -1090,19 +1108,26 @@ function treasure_town.CH3_MeetingDrowzee()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_PARTNER_3_' .. tostring(pTalkKind)]))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
 
-	GROUND:CharTurnToCharAnimated(CH('Azurill'), CH('Drowzee'), 2)
-	GAME:WaitFrames(10)
-	GROUND:CharTurnToCharAnimated(CH('Marill'), CH('Drowzee'), 2)
-
-	GROUND:CharTurnToCharAnimated(CH('Drowzee'), CH('Azurill'), 2)
-	CharacterActions.HopOnce(CH('Azurill'), CH('Azurill').Direction)
+	local coro1 = TASK:BranchCoroutine(function()
+		GROUND:CharTurnToCharAnimated(CH('Azurill'), CH('Drowzee'), 2)
+		GAME:WaitFrames(10)
+		CharacterActions.HopOnce(CH('Azurill'), CH('Azurill').Direction)
+	end)
+	local coro2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(10)
+		GROUND:CharTurnToCharAnimated(CH('Marill'), CH('Drowzee'), 2)
+	end)
+	local coro3 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(10)
+		GROUND:CharTurnToCharAnimated(CH('Drowzee'), CH('Azurill'), 2)
+	end)
+	TASK:JoinCoroutines({coro1, coro2, coro3})
 	-- !! WaitExecuteLives(ACTOR_NPC_RURIRI)
 
 	UI:SetSpeaker(CH('Azurill'))
 	UI:SetSpeakerEmotion("Joyous")
 	-- TODO: message_FacePositionOffset(2, 0)
-	UI:WaitShowTimedDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_Azurill_3']),
-		CH('Drowzee'):GetDisplayName())
+	UI:WaitShowTimedDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_Azurill_3'], CH('Drowzee'):GetDisplayName()))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
 
 	UI:SetSpeaker(CH('Drowzee'))
@@ -1123,22 +1148,34 @@ function treasure_town.CH3_MeetingDrowzee()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_Azurill_4']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
 
-	GROUND:MoveToPosition(CH('Marill'), RIGHT_SIDE_OFFSET + 532, 216, false, 1)
-	GAME:WaitFrames(10)
-	GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.Right, 8)
-	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Right, 8)
-	-- TODO: ResetHitAttribute<actor ACTOR_NPC_RURIRI>(31)
-	GROUND:MoveToPosition(CH('Azurill'), RIGHT_SIDE_OFFSET + 532, 192, false, 1)
-	GAME:WaitFrames(10)
-	-- TODO: ResetHitAttribute<actor ACTOR_NPC_SURIIPU>(31)
-	GROUND:MoveToPosition(CH('Drowzee'), RIGHT_SIDE_OFFSET + 396, 192, false, 1)
-	GAME:WaitFrames(45)
-
-	SOUND:StopBGM()
-	SOUND:PlayBattleSE("EVT_CH03_Bump")
-	GROUND:CharSetEmote(CH('PLAYER'), "shock", 1)
-	ExplorerEssentials.MoveToPositionOffset(CH('PLAYER'), 4, 0, false, 1)
-	ExplorerEssentials.MoveToPositionOffsetBackwards(CH('PLAYER'), Direction.Right, -4, 0, 1)
+	local coro1 = TASK:BranchCoroutine(function()
+		GROUND:MoveToPosition(CH('Marill'), RIGHT_SIDE_OFFSET + 532, 216, false, 1)
+	end)
+	local coro2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(10)
+		GROUND:MoveToPosition(CH('Azurill'), RIGHT_SIDE_OFFSET + 532, 192, false, 1)
+	end)
+	local coro3 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(20)
+		GROUND:MoveToPosition(CH('Drowzee'), RIGHT_SIDE_OFFSET + 396, 192, false, 1)
+	end)
+	local coro4 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(10)
+		GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.Right, 8)
+	end)
+	local coro5 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(10)
+		GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Right, 8)
+	end)
+	local coro6 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(65)
+		SOUND:StopBGM()
+		SOUND:PlayBattleSE("EVT_CH03_Bump")
+		GROUND:CharSetEmote(CH('PLAYER'), "shock", 1)
+		ExplorerEssentials.MoveToPositionOffset(CH('PLAYER'), 4, 0, false, 1)
+		ExplorerEssentials.MoveToPositionOffsetBackwards(CH('PLAYER'), Direction.Right, -4, 0, 1)
+	end)
+	TASK:JoinCoroutines({coro1, coro2, coro3, coro4, coro5, coro6})
 	-- !! WaitExecuteLives(ACTOR_NPC_SURIIPU)
 
 	GROUND:CharTurnToCharAnimated(CH('Drowzee'), CH('PLAYER'), 2)
@@ -1149,37 +1186,52 @@ function treasure_town.CH3_MeetingDrowzee()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_Drowzee_5']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
 
-	GROUND:MoveToPosition(CH('Drowzee'), RIGHT_SIDE_OFFSET + 516, 192, false, 1)
+	local coro1 = TASK:BranchCoroutine(function()
+		GROUND:MoveToPosition(CH('Drowzee'), RIGHT_SIDE_OFFSET + 516, 192, false, 1)
+	end)
+	local coro2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(30)
+		SOUND:PlayBattleSE("EVT_Dimensional_Scream_Start")
+		CharacterActions.DizzyFade()
+		CharacterActions.DizzyFade()
+		GAME:WaitFrames(30)
 
-	GAME:WaitFrames(30)
-	SOUND:PlayBattleSE("EVT_Dimensional_Scream_Start")
-	CharacterActions.DizzyFade()
-	CharacterActions.DizzyFade()
-	GAME:WaitFrames(30)
-
-	ExplorerEssentials.SetSpeakerHero()
-	UI:SetSpeakerEmotion("Pain")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_PLAYER_1']))
-	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+		ExplorerEssentials.SetSpeakerHero()
+		UI:SetSpeakerEmotion("Pain")
+		UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_PLAYER_1']))
+		-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
 
 	UI:SetSpeaker(CH('PARTNER'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_PARTNER_4_' .. tostring(pTalkKind)]))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_PARTNER_5']))
+
 	SOUND:PlayBattleSE("EVT_Dimensional_Scream_Start")
 	CharacterActions.DizzyFade()
 	CharacterActions.DizzyFade()
 	GAME:WaitFrames(30)
+
 	ExplorerEssentials.SetSpeakerHero()
 	UI:SetSpeakerEmotion("Pain")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_PLAYER_2']))
+
 	SOUND:PlayBattleSE("EVT_Dimensional_Scream_Start")
 	CharacterActions.DizzyFade()
 	CharacterActions.DizzyFade()
 	GAME:WaitFrames(30)
+
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_PLAYER_3']))
+
 	GAME:FadeOut(false, 5)
 	-- TODO CallCommon: CallCommon(CORO_FADE_OUT_ALL_AFTER)
+
+	SOUND:PlayBattleSE("EVT_Dimensional_Scream")
+	CharacterActions.DimensionalScream_In()
+	GAME:FadeOutFront(true, 1)
+
+	GAME:EnterGroundMap("mt_bristle", "mt_bristle_peak", "Entrance", false)
 end
 
 function treasure_town.CH3_SawTheFuture()
@@ -1195,56 +1247,67 @@ function treasure_town.CH3_SawTheFuture()
 	GAME:FadeIn(5)
 	GAME:WaitFrames(15)
 	SOUND:PlayBattleSE("EVT_Emote_Shock_2")
-	GROUND:CharSetEmote(CH('PLAYER'), "UNK_EFFECT_SHOCKED_MIRRORED", 1)
+	GROUND:CharSetEmote(CH('PLAYER'), "shock", 1)
 	GAME:WaitFrames(30)
 	-- !! WaitExecuteLives(ACTOR_PLAYER)
-	-- TODO: WaitSe(8973)
+
 	SOUND:PlayBGM("BGM_Anxiety.ogg", true)
 	ExplorerEssentials.SetSpeakerHero()
 	UI:SetSpeakerEmotion("Surprised")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S5_PLAYER_1']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	UI:SetSpeaker(CH('PARTNER'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S5_PARTNER_1_' .. tostring(pTalkKind)]))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	GAME:WaitFrames(20)
 	SOUND:PlayBattleSE("EVT_Emote_Exclaim")
 	GROUND:CharSetEmote(CH('PARTNER'), "notice", 1)
 	GAME:WaitFrames(30)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S5_PARTNER_2_' .. tostring(pTalkKind)]))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	GROUND:CharTurnToCharAnimated(CH('PLAYER'), CH('PARTNER'), 2)
 	-- !! WaitExecuteLives(ACTOR_PLAYER)
+
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S5_PARTNER_3_' .. tostring(pTalkKind)]))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	CharacterActions.Explain(CH('PLAYER'))
 	-- !! WaitExecuteLives(ACTOR_PLAYER)
+
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S5_PARTNER_4']))
+
 	SOUND:FadeOutBGM(120)
 	GAME:FadeOut(false, 60)
-	-- TODO: SetPositionMark<performer 0>(Position<'m0', 65, 27.5>)
-	-- TODO: SetPositionMark<actor ACTOR_PLAYER>(Position<'m1', 67, 27.5>)
-	-- TODO: SetPositionMark<actor ACTOR_ATTENDANT1>(Position<'m2', 63, 27.5>)
-	-- TODO: SetDirection<actor ACTOR_PLAYER>(DIR_LEFT)
-	-- TODO: SetDirection<actor ACTOR_ATTENDANT1>(DIR_RIGHT)
+
+	ExplorerEssentials.SetupCameraPos(65, 27.5)
+	ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 67, 27.5, Direction.Left)
+	ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 63, 27.5, Direction.Right)
+
 	GAME:WaitFrames(60)
 	GAME:FadeIn(60)
 	GAME:WaitFrames(30)
+
 	SOUND:PlayBattleSE("EVT_Emote_Shock")
 	CharacterActions.ScaredJump(CH('PARTNER'), CH('PARTNER').Direction)
+
 	UI:SetSpeaker(CH('PARTNER'))
 	UI:SetSpeakerEmotion("Surprised")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S5_PARTNER_5']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S5_PARTNER_6']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S5_PARTNER_7']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	SOUND:PlayBattleSE("EVT_Emote_Sweating")
 	GROUND:CharSetEmote(CH('PARTNER'), "sweating", 1)
 	GAME:WaitFrames(30)
 	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S5_PARTNER_8']))
-	UI:SetSpeaker(CH('PARTNER'))
+
 	UI:SetSpeakerEmotion("Sad")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S5_PARTNER_9']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S5_PARTNER_10']))
@@ -1252,7 +1315,7 @@ function treasure_town.CH3_SawTheFuture()
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S5_PARTNER_12_' .. tostring(pTalkKind)]))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S5_PARTNER_13_' .. tostring(pTalkKind)]))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S5_PARTNER_14']))
-	UI:SetSpeaker(CH('PARTNER'))
+
 	UI:SetSpeakerEmotion("Happy")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S5_PARTNER_15']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S5_PARTNER_16']))
@@ -1282,6 +1345,8 @@ function treasure_town.CH3_SawTheFuture()
 
 	ExplorerEssentials.CutsceneEnd()
 	SOUND:PlayBGM("BGM_TreasureTown.ogg", true)
+
+	SV.Progression.SectionFlag = 2
 end
 
 function treasure_town.CH3_DrowzeeBumpFlashback()
@@ -1301,7 +1366,7 @@ function treasure_town.CH3_DrowzeeBumpFlashback()
 	-- TODO CallCommon: CallCommon(CORO_FADE_OUT_ALL_BEFORE)
 	GAME:FadeIn(30)
 	GAME:WaitFrames(45)
-	GROUND:CharSetEmote(CH('PLAYER'), "UNK_EFFECT_SHOCKED_MIRRORED", 1)
+	GROUND:CharSetEmote(CH('PLAYER'), "shock", 1)
 	ExplorerEssentials.MoveToPositionOffset(CH('PLAYER'), 4, 0, false, 1)
 	ExplorerEssentials.MoveToPositionOffsetBackwards(CH('PLAYER'), Direction.Right, -4, 0, 1)
 	-- !! WaitExecuteLives(ACTOR_NPC_SURIIPU)

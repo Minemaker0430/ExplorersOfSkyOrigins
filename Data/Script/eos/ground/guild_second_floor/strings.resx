@@ -607,7 +607,7 @@
   <data name="CH3_S1_Chatot_19" xml:space="preserve">
     <value>Hey! {0}![pause=0] {0}?!</value>
   </data>
-  <data name="CH3_S1_Chatot_20" xml:space="preserve">
+  <data name="CH3_S1_UNKNOWN_1" xml:space="preserve">
     <value>Yup yup!</value>
   </data>
   <data name="CH3_S1_Bidoof_1" xml:space="preserve">
@@ -652,307 +652,307 @@
   <data name="CH3_S1_Bidoof_7" xml:space="preserve">
     <value>Well, I'd best show you around. Come with me, please.</value>
   </data>
-  	<data name="CH3_S2_Bidoof_1" xml:space="preserve">
-		<value>Huh?[pause=0] Are you folks all set and ready for some exploring?</value>
-	</data>
-	<data name="CH3_S2_Bidoof_2A" xml:space="preserve">
-		<value>Not yet, huh?</value>
-	</data>
-	<data name="CH3_S2_Bidoof_3A" xml:space="preserve">
-		<value>Just give me a holler when you're all ready to go.</value>
-	</data>
-	<data name="CH3_S2_Bidoof_2B" xml:space="preserve">
-		<value>Then we'll all have a gander at the Outlaw Notice Board and pick out a suitable outlaw for you.</value>
-	</data>
-		<data name="CH3_S3_Bidoof_1" xml:space="preserve">
-		<value>Oh, yes sirree! Reckon you all are all ready!</value>
-	</data>
-	<data name="CH3_S3_Bidoof_2" xml:space="preserve">
-		<value>Then let's pick ourselves a lawbreaker for you to find.</value>
-	</data>
-	<data name="CH3_S3_Bidoof_3" xml:space="preserve">
-		<value>Well, you've got your pick of this sorry bunch of characters.</value>
-	</data>
-	<data name="CH3_S3_PARTNER_1" xml:space="preserve">
-		<value>Let's see. Which should we pick?</value>
-	</data>
-	<data name="CH3_S3_Bidoof_4" xml:space="preserve">
-		<value>Ahem.[pause=0] As your mentor, how about I do the choosing?</value>
-	</data>
-	<data name="CH3_S3_PARTNER_2_1" xml:space="preserve">
-		<value>Don't pick one that looks scary!</value>
-	</data>
-	<data name="CH3_S3_PARTNER_2_0" xml:space="preserve">
-		<value>Don't choose anyone too scary!</value>
-	</data>
-	<data name="CH3_S3_PARTNER_2_2" xml:space="preserve">
-		<value>Please don't pick anyone scary!</value>
-	</data>
-	<data name="CH3_S3_Bidoof_5" xml:space="preserve">
-		<value>Yes sirree, I hear you![pause=0] Let's see. Eenie, meenie...</value>
-	</data>
-	<data name="CH3_S3_UNKNOWN_1" xml:space="preserve">
-		<value>Stand clear! Updating listings!</value>
-	</data>
-	<data name="CH3_S3_UNKNOWN_2" xml:space="preserve">
-		<value>Stand clear! Updating listings!</value>
-	</data>
-	<data name="CH3_S3_PARTNER_3" xml:space="preserve">
-		<value>What's that? What's happening?</value>
-	</data>
-	<data name="CH3_S3_Bidoof_6" xml:space="preserve">
-		<value>Oh, the data's getting updated.</value>
-	</data>
-	<data name="CH3_S3_PARTNER_4" xml:space="preserve">
-		<value>It's being...updated?</value>
-	</data>
-	<data name="CH3_S3_PARTNER_5" xml:space="preserve">
-		<value>Yikes! Did you see that?! The panel flipped over!</value>
-	</data>
-	<data name="CH3_S3_PARTNER_6" xml:space="preserve">
-		<value>What's going on here?</value>
-	</data>
-	<data name="CH3_S3_Bidoof_7" xml:space="preserve">
-		<value>The Outlaw Notice Board and Job Bulletin Board are set up on revolving panels.</value>
-	</data>
-	<data name="CH3_S3_Bidoof_8" xml:space="preserve">
-		<value>While the panel is flipped over...</value>
-	</data>
-	<data name="CH3_S3_Bidoof_9" xml:space="preserve">
-		<value>A Pokémon named {0} swaps out the old jobs with new ones.</value>
-	</data>
-	<data name="CH3_S3_PARTNER_7" xml:space="preserve">
-		<value>{0}?</value>
-	</data>
-		<data name="CH3_S4_PARTNER_1" xml:space="preserve">
-		<value>Oh, is that so?</value>
-	</data>
-	<data name="CH3_S4_Dugtrio_1" xml:space="preserve">
-		<value>Update completed! Stand clear!</value>
-	</data>
-	<data name="CH3_S4_Dugtrio_2" xml:space="preserve">
-		<value>Update completed! Stand clear!</value>
-	</data>
-	<data name="CH3_S4_PARTNER_2" xml:space="preserve">
-		<value>Oh, looks like he's done.</value>
-	</data>
-	<data name="CH3_S4_Bidoof_1" xml:space="preserve">
-		<value>Yes sirree! The data is updated.</value>
-	</data>
-	<data name="CH3_S4_Bidoof_2" xml:space="preserve">
-		<value>The list of outlaws has been refreshed, so let's pick one.</value>
-	</data>
-	<data name="CH3_S4_PARTNER_3" xml:space="preserve">
-		<value>...</value>
-	</data>
-	<data name="CH3_S4_Bidoof_3" xml:space="preserve">
-		<value>Huh? What's ailing you?[pause=0] Why are you shivering all of a sudden?</value>
-	</data>
-	<data name="CH3_S4_Bidoof_4" xml:space="preserve">
-		<value>It's not cold here, after all.</value>
-	</data>
-	<data name="CH3_S4_PARTNER_4_1" xml:space="preserve">
-		<value>T-t-take a look at this, {0}!</value>
-	</data>
-	<data name="CH3_S4_PARTNER_4_0" xml:space="preserve">
-		<value>L-l-look at this, {0}!</value>
-	</data>
-	<data name="CH3_S4_PARTNER_4_2" xml:space="preserve">
-		<value>P-p-please look at this, {0}!</value>
-	</data>
-	<data name="CH3_S4_PARTNER_5_1" xml:space="preserve">
-		<value>Up top! On the left!</value>
-	</data>
-	<data name="CH3_S4_PARTNER_5_0" xml:space="preserve">
-		<value>At the top! On the left!</value>
-	</data>
-	<data name="CH3_S4_PARTNER_5_2" xml:space="preserve">
-		<value>At the top! On the left!</value>
-	</data>
-	<data name="CH3_S4_PARTNER_6" xml:space="preserve">
-		<value>It's {0}![pause=0] H-he's a wanted criminal!</value>
-	</data>
-	<data name="CH3_S4_PARTNER_7_1" xml:space="preserve">
-		<value>We have to get moving! {0} will be in serious trouble!</value>
-	</data>
-	<data name="CH3_S4_PARTNER_7_0" xml:space="preserve">
-		<value>We have to get moving! {0} will be in danger!</value>
-	</data>
-	<data name="CH3_S4_PARTNER_7_2" xml:space="preserve">
-		<value>We have to hurry! {0} will be in trouble!</value>
-	</data>
-	<data name="CH3_S4_Bidoof_5" xml:space="preserve">
-		<value>Now what's going on?</value>
-	</data>
-	<data name="CH3_S4_Bidoof_6" xml:space="preserve">
-		<value>Where are you all off to?</value>
-	</data>
-		<data name="CH3_S5_PARTNER_1_1" xml:space="preserve">
-		<value>Hmm. That didn't end well...</value>
-	</data>
-	<data name="CH3_S5_PARTNER_1_0" xml:space="preserve">
-		<value>Ugh. That didn't go well.</value>
-	</data>
-	<data name="CH3_S5_PARTNER_1_2" xml:space="preserve">
-		<value>Hmm. That didn't end well...</value>
-	</data>
-	<data name="CH3_S5_PARTNER_2_1" xml:space="preserve">
-		<value>Hmmm... This is pretty hard. Let's break for today.</value>
-	</data>
-	<data name="CH3_S5_PARTNER_2_0" xml:space="preserve">
-		<value>Hmmm... This won't be easy... Let's break for today.</value>
-	</data>
-	<data name="CH3_S5_PARTNER_2_2" xml:space="preserve">
-		<value>Hmmm... This is really tough... Let's call it off for today.</value>
-	</data>
-		<data name="CH3_S6_Chatot_1" xml:space="preserve">
-		<value>I've gotten the bounty from Officer {0} for the captured outlaw! ♪</value>
-	</data>
-	<data name="CH3_S6_Chatot_2" xml:space="preserve">
-		<value>Well done, you two! ♪</value>
-	</data>
-	<data name="CH3_S6_Chatot_3" xml:space="preserve">
-		<value>Here's your share for the job.[pause=0] It's yours to keep! ♪</value>
-	</data>
-	<data name="CH3_S6_Chatot_4" xml:space="preserve">
-		<value>{0}'s team received the [CS:G]3[MP]000[CR][M:S0] bounty that was on the head of the captured outlaw!</value>
-	</data>
-	<data name="CH3_S6_Chatot_5" xml:space="preserve">
-		<value>However...</value>
-	</data>
-	<data name="CH3_S6_Chatot_6" xml:space="preserve">
-		<value>Because [CS:G]2[MP]700[CR][M:S0] of that is the guild's share...</value>
-	</data>
-	<data name="CH3_S6_Chatot_7" xml:space="preserve">
-		<value>That portion was withheld...</value>
-	</data>
-	<data name="CH3_S6_Chatot_8" xml:space="preserve">
-		<value>As a result, {0}'s team...</value>
-	</data>
-	<data name="CH3_S6_Chatot_9" xml:space="preserve">
-		<value>Received only the remaining [CS:G]300[CR][M:S0]!</value>
-	</data>
-	<data name="CH3_S6_PARTNER_1_1" xml:space="preserve">
-		<value>Huh?! We get only this much?!</value>
-	</data>
-	<data name="CH3_S6_PARTNER_1_0" xml:space="preserve">
-		<value>What?! This is all we get?!</value>
-	</data>
-	<data name="CH3_S6_PARTNER_1_2" xml:space="preserve">
-		<value>No way! This is all we get?!</value>
-	</data>
-	<data name="CH3_S6_PARTNER_2_1" xml:space="preserve">
-		<value>After all that hard work...</value>
-	</data>
-	<data name="CH3_S6_PARTNER_2_0" xml:space="preserve">
-		<value>After all that hard work...</value>
-	</data>
-	<data name="CH3_S6_PARTNER_2_2" xml:space="preserve">
-		<value>After all our effort...</value>
-	</data>
-	<data name="CH3_S6_Chatot_10" xml:space="preserve">
-		<value>...[pause=0]But of course![pause=0] It's all part of the training!</value>
-	</data>
-	<data name="CH3_S6_Chatot_11" xml:space="preserve">
-		<value>And we expect just as much effort tomorrow![pause=0] Hee-heeee! ♪</value>
-	</data>
-	<data name="CH3_S6_PARTNER_3" xml:space="preserve">
-		<value>Urf...</value>
-	</data>
-	<data name="CH3_S6_PARTNER_4_1" xml:space="preserve">
-		<value>You know, it would make me happy if our share was just a little bigger.</value>
-	</data>
-	<data name="CH3_S6_PARTNER_4_0" xml:space="preserve">
-		<value>I'd be happy if our share of the reward was just a little bigger.</value>
-	</data>
-	<data name="CH3_S6_PARTNER_4_2" xml:space="preserve">
-		<value>It would be nice if they'd give us a slightly bigger share of the reward.</value>
-	</data>
-	<data name="CH3_S6_PARTNER_5_1" xml:space="preserve">
-		<value>But that's OK.[pause=0] We managed to rescue {0}.</value>
-	</data>
-	<data name="CH3_S6_PARTNER_5_0" xml:space="preserve">
-		<value>But that's all right.[pause=0] We managed to rescue {0}.</value>
-	</data>
-	<data name="CH3_S6_PARTNER_5_2" xml:space="preserve">
-		<value>But that's all right.[pause=0] We managed to rescue {0}.</value>
-	</data>
-	<data name="CH3_S6_PARTNER_6" xml:space="preserve">
-		<value>And it's all thanks to you, {0}!</value>
-	</data>
-	<data name="CH3_S6_PARTNER_7" xml:space="preserve">
-		<value>Because you had that dream, {0}...</value>
-	</data>
-	<data name="CH3_S6_PARTNER_8_1" xml:space="preserve">
-		<value>We knew about {0}'s trouble in advance.</value>
-	</data>
-	<data name="CH3_S6_PARTNER_8_0" xml:space="preserve">
-		<value>We learned about {0}'s trouble in advance.</value>
-	</data>
-	<data name="CH3_S6_PARTNER_8_2" xml:space="preserve">
-		<value>We learned about {0}'s trouble in advance.</value>
-	</data>
-	<data name="CH3_S6_PLAYER_1" xml:space="preserve">
-		<value>(It's true!)</value>
-	</data>
-	<data name="CH3_S6_PLAYER_2" xml:space="preserve">
-		<value>(I can't explain it, but...)</value>
-	</data>
-	<data name="CH3_S6_PLAYER_3" xml:space="preserve">
-		<value>(That first shout I heard from {0}...)</value>
-	</data>
-	<data name="CH3_S6_NARRATION_1" xml:space="preserve">
-		<value>H-h-h...HELP!</value>
-	</data>
-	<data name="CH3_S6_PLAYER_4" xml:space="preserve">
-		<value>(And that dream I had...)</value>
-	</data>
-		<data name="CH3_S7_PLAYER_1" xml:space="preserve">
-		<value>(Both of these events...)</value>
-	</data>
-	<data name="CH3_S7_PLAYER_2" xml:space="preserve">
-		<value>(They took place in the future!)</value>
-	</data>
-	<data name="CH3_S7_PLAYER_3" xml:space="preserve">
-		<value>(Why was I able to see something like that?)</value>
-	</data>
-	<data name="CH3_S7_PLAYER_4" xml:space="preserve">
-		<value>(What was that dream about?)</value>
-	</data>
-	<data name="CH3_S7_PARTNER_1_1" xml:space="preserve">
-		<value>Whoops! My stomach growled!</value>
-	</data>
-	<data name="CH3_S7_PARTNER_1_0" xml:space="preserve">
-		<value>Oh! My stomach growled!</value>
-	</data>
-	<data name="CH3_S7_PARTNER_1_2" xml:space="preserve">
-		<value>Uh-oh! My stomach growled!</value>
-	</data>
-	<data name="CH3_S7_PARTNER_2" xml:space="preserve">
-		<value>Ha ha ha! Your stomach growled too, {0}!</value>
-	</data>
-	<data name="CH3_S7_PARTNER_3_1" xml:space="preserve">
-		<value>I guess we must be starved!</value>
-	</data>
-	<data name="CH3_S7_PARTNER_3_0" xml:space="preserve">
-		<value>We must have worked up a big appetite!</value>
-	</data>
-	<data name="CH3_S7_PARTNER_3_2" xml:space="preserve">
-		<value>I guess we must be famished!</value>
-	</data>
-	<data name="CH3_S7_PARTNER_4" xml:space="preserve">
-		<value>We were so focused on rescuing {0} that I didn't notice at all!</value>
-	</data>
-	<data name="CH3_S7_PARTNER_5" xml:space="preserve">
-		<value>But now I'm even hungrier!</value>
-	</data>
-	<data name="CH3_S7_PARTNER_6_1" xml:space="preserve">
-		<value>Let's go get dinner, {0}!</value>
-	</data>
-	<data name="CH3_S7_PARTNER_6_0" xml:space="preserve">
-		<value>Come on, let's go get dinner, {0}!</value>
-	</data>
-	<data name="CH3_S7_PARTNER_6_2" xml:space="preserve">
-		<value>Come on, let's go get dinner, {0}!</value>
-	</data>
+  <data name="CH3_S2_Bidoof_1" xml:space="preserve">
+    <value>Huh?[pause=0] Are you folks all set and ready for some exploring?</value>
+  </data>
+  <data name="CH3_S2_Bidoof_2A" xml:space="preserve">
+    <value>Not yet, huh?</value>
+  </data>
+  <data name="CH3_S2_Bidoof_3A" xml:space="preserve">
+    <value>Just give me a holler when you're all ready to go.</value>
+  </data>
+  <data name="CH3_S2_Bidoof_2B" xml:space="preserve">
+    <value>Then we'll all have a gander at the Outlaw Notice Board and pick out a suitable outlaw for you.</value>
+  </data>
+  <data name="CH3_S3_Bidoof_1" xml:space="preserve">
+    <value>Oh, yes sirree! Reckon you all are all ready!</value>
+  </data>
+  <data name="CH3_S3_Bidoof_2" xml:space="preserve">
+    <value>Then let's pick ourselves a lawbreaker for you to find.</value>
+  </data>
+  <data name="CH3_S3_Bidoof_3" xml:space="preserve">
+    <value>Well, you've got your pick of this sorry bunch of characters.</value>
+  </data>
+  <data name="CH3_S3_PARTNER_1" xml:space="preserve">
+    <value>Let's see. Which should we pick?</value>
+  </data>
+  <data name="CH3_S3_Bidoof_4" xml:space="preserve">
+    <value>Ahem.[pause=0] As your mentor, how about I do the choosing?</value>
+  </data>
+  <data name="CH3_S3_PARTNER_2_1" xml:space="preserve">
+    <value>Don't pick one that looks scary!</value>
+  </data>
+  <data name="CH3_S3_PARTNER_2_0" xml:space="preserve">
+    <value>Don't choose anyone too scary!</value>
+  </data>
+  <data name="CH3_S3_PARTNER_2_2" xml:space="preserve">
+    <value>Please don't pick anyone scary!</value>
+  </data>
+  <data name="CH3_S3_Bidoof_5" xml:space="preserve">
+    <value>Yes sirree, I hear you![pause=0] Let's see. Eenie, meenie...</value>
+  </data>
+  <data name="CH3_S3_UNKNOWN_1" xml:space="preserve">
+    <value>Stand clear! Updating listings!</value>
+  </data>
+  <data name="CH3_S3_UNKNOWN_2" xml:space="preserve">
+    <value>Stand clear! Updating listings!</value>
+  </data>
+  <data name="CH3_S3_PARTNER_3" xml:space="preserve">
+    <value>What's that? What's happening?</value>
+  </data>
+  <data name="CH3_S3_Bidoof_6" xml:space="preserve">
+    <value>Oh, the data's getting updated.</value>
+  </data>
+  <data name="CH3_S3_PARTNER_4" xml:space="preserve">
+    <value>It's being...updated?</value>
+  </data>
+  <data name="CH3_S3_PARTNER_5" xml:space="preserve">
+    <value>Yikes! Did you see that?! The panel flipped over!</value>
+  </data>
+  <data name="CH3_S3_PARTNER_6" xml:space="preserve">
+    <value>What's going on here?</value>
+  </data>
+  <data name="CH3_S3_Bidoof_7" xml:space="preserve">
+    <value>The Outlaw Notice Board and Job Bulletin Board are set up on revolving panels.</value>
+  </data>
+  <data name="CH3_S3_Bidoof_8" xml:space="preserve">
+    <value>While the panel is flipped over...</value>
+  </data>
+  <data name="CH3_S3_Bidoof_9" xml:space="preserve">
+    <value>A Pokémon named {0} swaps out the old jobs with new ones.</value>
+  </data>
+  <data name="CH3_S3_PARTNER_7" xml:space="preserve">
+    <value>{0}?</value>
+  </data>
+  <data name="CH3_S4_PARTNER_1" xml:space="preserve">
+    <value>Oh, is that so?</value>
+  </data>
+  <data name="CH3_S4_Dugtrio_1" xml:space="preserve">
+    <value>Update completed! Stand clear!</value>
+  </data>
+  <data name="CH3_S4_Dugtrio_2" xml:space="preserve">
+    <value>Update completed! Stand clear!</value>
+  </data>
+  <data name="CH3_S4_PARTNER_2" xml:space="preserve">
+    <value>Oh, looks like he's done.</value>
+  </data>
+  <data name="CH3_S4_Bidoof_1" xml:space="preserve">
+    <value>Yes sirree! The data is updated.</value>
+  </data>
+  <data name="CH3_S4_Bidoof_2" xml:space="preserve">
+    <value>The list of outlaws has been refreshed, so let's pick one.</value>
+  </data>
+  <data name="CH3_S4_PARTNER_3" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="CH3_S4_Bidoof_3" xml:space="preserve">
+    <value>Huh? What's ailing you?[pause=0] Why are you shivering all of a sudden?</value>
+  </data>
+  <data name="CH3_S4_Bidoof_4" xml:space="preserve">
+    <value>It's not cold here, after all.</value>
+  </data>
+  <data name="CH3_S4_PARTNER_4_1" xml:space="preserve">
+    <value>T-t-take a look at this, {0}!</value>
+  </data>
+  <data name="CH3_S4_PARTNER_4_0" xml:space="preserve">
+    <value>L-l-look at this, {0}!</value>
+  </data>
+  <data name="CH3_S4_PARTNER_4_2" xml:space="preserve">
+    <value>P-p-please look at this, {0}!</value>
+  </data>
+  <data name="CH3_S4_PARTNER_5_1" xml:space="preserve">
+    <value>Up top! On the left!</value>
+  </data>
+  <data name="CH3_S4_PARTNER_5_0" xml:space="preserve">
+    <value>At the top! On the left!</value>
+  </data>
+  <data name="CH3_S4_PARTNER_5_2" xml:space="preserve">
+    <value>At the top! On the left!</value>
+  </data>
+  <data name="CH3_S4_PARTNER_6" xml:space="preserve">
+    <value>It's {0}![pause=0] H-he's a wanted criminal!</value>
+  </data>
+  <data name="CH3_S4_PARTNER_7_1" xml:space="preserve">
+    <value>We have to get moving! {0} will be in serious trouble!</value>
+  </data>
+  <data name="CH3_S4_PARTNER_7_0" xml:space="preserve">
+    <value>We have to get moving! {0} will be in danger!</value>
+  </data>
+  <data name="CH3_S4_PARTNER_7_2" xml:space="preserve">
+    <value>We have to hurry! {0} will be in trouble!</value>
+  </data>
+  <data name="CH3_S4_Bidoof_5" xml:space="preserve">
+    <value>Now what's going on?</value>
+  </data>
+  <data name="CH3_S4_Bidoof_6" xml:space="preserve">
+    <value>Where are you all off to?</value>
+  </data>
+  <data name="CH3_S5_PARTNER_1_1" xml:space="preserve">
+    <value>Hmm. That didn't end well...</value>
+  </data>
+  <data name="CH3_S5_PARTNER_1_0" xml:space="preserve">
+    <value>Ugh. That didn't go well.</value>
+  </data>
+  <data name="CH3_S5_PARTNER_1_2" xml:space="preserve">
+    <value>Hmm. That didn't end well...</value>
+  </data>
+  <data name="CH3_S5_PARTNER_2_1" xml:space="preserve">
+    <value>Hmmm... This is pretty hard. Let's break for today.</value>
+  </data>
+  <data name="CH3_S5_PARTNER_2_0" xml:space="preserve">
+    <value>Hmmm... This won't be easy... Let's break for today.</value>
+  </data>
+  <data name="CH3_S5_PARTNER_2_2" xml:space="preserve">
+    <value>Hmmm... This is really tough... Let's call it off for today.</value>
+  </data>
+  <data name="CH3_S6_Chatot_1" xml:space="preserve">
+    <value>I've gotten the bounty from Officer {0} for the captured outlaw! ♪</value>
+  </data>
+  <data name="CH3_S6_Chatot_2" xml:space="preserve">
+    <value>Well done, you two! ♪</value>
+  </data>
+  <data name="CH3_S6_Chatot_3" xml:space="preserve">
+    <value>Here's your share for the job.[pause=0] It's yours to keep! ♪</value>
+  </data>
+  <data name="CH3_S6_Chatot_4" xml:space="preserve">
+    <value>{0}'s team received the [CS:G]3[MP]000[CR][M:S0] bounty that was on the head of the captured outlaw!</value>
+  </data>
+  <data name="CH3_S6_Chatot_5" xml:space="preserve">
+    <value>However...</value>
+  </data>
+  <data name="CH3_S6_Chatot_6" xml:space="preserve">
+    <value>Because [CS:G]2[MP]700[CR][M:S0] of that is the guild's share...</value>
+  </data>
+  <data name="CH3_S6_Chatot_7" xml:space="preserve">
+    <value>That portion was withheld...</value>
+  </data>
+  <data name="CH3_S6_Chatot_8" xml:space="preserve">
+    <value>As a result, {0}'s team...</value>
+  </data>
+  <data name="CH3_S6_Chatot_9" xml:space="preserve">
+    <value>Received only the remaining [CS:G]300[CR][M:S0]!</value>
+  </data>
+  <data name="CH3_S6_PARTNER_1_1" xml:space="preserve">
+    <value>Huh?! We get only this much?!</value>
+  </data>
+  <data name="CH3_S6_PARTNER_1_0" xml:space="preserve">
+    <value>What?! This is all we get?!</value>
+  </data>
+  <data name="CH3_S6_PARTNER_1_2" xml:space="preserve">
+    <value>No way! This is all we get?!</value>
+  </data>
+  <data name="CH3_S6_PARTNER_2_1" xml:space="preserve">
+    <value>After all that hard work...</value>
+  </data>
+  <data name="CH3_S6_PARTNER_2_0" xml:space="preserve">
+    <value>After all that hard work...</value>
+  </data>
+  <data name="CH3_S6_PARTNER_2_2" xml:space="preserve">
+    <value>After all our effort...</value>
+  </data>
+  <data name="CH3_S6_Chatot_10" xml:space="preserve">
+    <value>...[pause=0]But of course![pause=0] It's all part of the training!</value>
+  </data>
+  <data name="CH3_S6_Chatot_11" xml:space="preserve">
+    <value>And we expect just as much effort tomorrow![pause=0] Hee-heeee! ♪</value>
+  </data>
+  <data name="CH3_S6_PARTNER_3" xml:space="preserve">
+    <value>Urf...</value>
+  </data>
+  <data name="CH3_S6_PARTNER_4_1" xml:space="preserve">
+    <value>You know, it would make me happy if our share was just a little bigger.</value>
+  </data>
+  <data name="CH3_S6_PARTNER_4_0" xml:space="preserve">
+    <value>I'd be happy if our share of the reward was just a little bigger.</value>
+  </data>
+  <data name="CH3_S6_PARTNER_4_2" xml:space="preserve">
+    <value>It would be nice if they'd give us a slightly bigger share of the reward.</value>
+  </data>
+  <data name="CH3_S6_PARTNER_5_1" xml:space="preserve">
+    <value>But that's OK.[pause=0] We managed to rescue {0}.</value>
+  </data>
+  <data name="CH3_S6_PARTNER_5_0" xml:space="preserve">
+    <value>But that's all right.[pause=0] We managed to rescue {0}.</value>
+  </data>
+  <data name="CH3_S6_PARTNER_5_2" xml:space="preserve">
+    <value>But that's all right.[pause=0] We managed to rescue {0}.</value>
+  </data>
+  <data name="CH3_S6_PARTNER_6" xml:space="preserve">
+    <value>And it's all thanks to you, {0}!</value>
+  </data>
+  <data name="CH3_S6_PARTNER_7" xml:space="preserve">
+    <value>Because you had that dream, {0}...</value>
+  </data>
+  <data name="CH3_S6_PARTNER_8_1" xml:space="preserve">
+    <value>We knew about {0}'s trouble in advance.</value>
+  </data>
+  <data name="CH3_S6_PARTNER_8_0" xml:space="preserve">
+    <value>We learned about {0}'s trouble in advance.</value>
+  </data>
+  <data name="CH3_S6_PARTNER_8_2" xml:space="preserve">
+    <value>We learned about {0}'s trouble in advance.</value>
+  </data>
+  <data name="CH3_S6_PLAYER_1" xml:space="preserve">
+    <value>(It's true!)</value>
+  </data>
+  <data name="CH3_S6_PLAYER_2" xml:space="preserve">
+    <value>(I can't explain it, but...)</value>
+  </data>
+  <data name="CH3_S6_PLAYER_3" xml:space="preserve">
+    <value>(That first shout I heard from {0}...)</value>
+  </data>
+  <data name="CH3_S6_NARRATION_1" xml:space="preserve">
+    <value>H-h-h...HELP!</value>
+  </data>
+  <data name="CH3_S6_PLAYER_4" xml:space="preserve">
+    <value>(And that dream I had...)</value>
+  </data>
+  <data name="CH3_S7_PLAYER_1" xml:space="preserve">
+    <value>(Both of these events...)</value>
+  </data>
+  <data name="CH3_S7_PLAYER_2" xml:space="preserve">
+    <value>(They took place in the future!)</value>
+  </data>
+  <data name="CH3_S7_PLAYER_3" xml:space="preserve">
+    <value>(Why was I able to see something like that?)</value>
+  </data>
+  <data name="CH3_S7_PLAYER_4" xml:space="preserve">
+    <value>(What was that dream about?)</value>
+  </data>
+  <data name="CH3_S7_PARTNER_1_1" xml:space="preserve">
+    <value>Whoops! My stomach growled!</value>
+  </data>
+  <data name="CH3_S7_PARTNER_1_0" xml:space="preserve">
+    <value>Oh! My stomach growled!</value>
+  </data>
+  <data name="CH3_S7_PARTNER_1_2" xml:space="preserve">
+    <value>Uh-oh! My stomach growled!</value>
+  </data>
+  <data name="CH3_S7_PARTNER_2" xml:space="preserve">
+    <value>Ha ha ha! Your stomach growled too, {0}!</value>
+  </data>
+  <data name="CH3_S7_PARTNER_3_1" xml:space="preserve">
+    <value>I guess we must be starved!</value>
+  </data>
+  <data name="CH3_S7_PARTNER_3_0" xml:space="preserve">
+    <value>We must have worked up a big appetite!</value>
+  </data>
+  <data name="CH3_S7_PARTNER_3_2" xml:space="preserve">
+    <value>I guess we must be famished!</value>
+  </data>
+  <data name="CH3_S7_PARTNER_4" xml:space="preserve">
+    <value>We were so focused on rescuing {0} that I didn't notice at all!</value>
+  </data>
+  <data name="CH3_S7_PARTNER_5" xml:space="preserve">
+    <value>But now I'm even hungrier!</value>
+  </data>
+  <data name="CH3_S7_PARTNER_6_1" xml:space="preserve">
+    <value>Let's go get dinner, {0}!</value>
+  </data>
+  <data name="CH3_S7_PARTNER_6_0" xml:space="preserve">
+    <value>Come on, let's go get dinner, {0}!</value>
+  </data>
+  <data name="CH3_S7_PARTNER_6_2" xml:space="preserve">
+    <value>Come on, let's go get dinner, {0}!</value>
+  </data>
 </root>

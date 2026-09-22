@@ -810,738 +810,6 @@ function guild_second_floor.CH2_MeetingChatot()
 end
 
 function guild_second_floor.CH2_JobIntro()
-    --[[
-def 0 {
-    back_SetGround(LEVEL_G01P03A);
-    supervision_Acting(0);
-    camera_SetMyself<performer 0>();
-    screen_FadeIn(1, 30);
-    bgm_PlayFadeIn(BGM_WIGGLYTUFFS_GUILD_REMIX, 0, 256);
-    supervision_Acting(1);
-    Wait(30);
-    MovePositionMark<actor ACTOR_NPC_PERAPPU>(1, Position<'m0', 34, 26.5>);
-    Wait(30);
-    supervision_Acting(2);
-    Wait(30);
-    MovePositionMark<actor ACTOR_ATTENDANT1>(1, Position<'m1', 29.5, 30.5>);
-    Wait(30);
-    supervision_Acting(3);
-    Wait(30);
-    MovePositionMark<actor ACTOR_PLAYER>(1, Position<'m2', 33.5, 30.5>);
-    MovePositionMark<performer 0>(1, Position<'m3', 31.5, 28.5>);
-    WaitExecuteLives(ACTOR_NPC_PERAPPU);
-    Turn2Direction<actor ACTOR_NPC_PERAPPU>(4, 10, DIR_DOWN);
-    WaitExecuteLives(ACTOR_ATTENDANT1);
-    Turn2Direction<actor ACTOR_ATTENDANT1>(4, 10, DIR_UP);
-    WaitExecuteLives(ACTOR_PLAYER);
-    Turn2Direction<actor ACTOR_PLAYER>(4, 10, DIR_UP);
-    WaitExecuteLives(ACTOR_NPC_PERAPPU);
-    WaitExecuteLives(ACTOR_ATTENDANT1);
-    WaitExecuteLives(ACTOR_PLAYER);
-    WaitExecutePerformer(0);
-    Wait(30);
-    message_SetFace(ACTOR_NPC_PERAPPU, FACE_NORMAL, FACE_POS_TOP_R_CENTER);
-    message_Talk({
-        english=" You're just beginners.",
-    });
-    message_Talk({
-        english="""
-             We'll have you start off with
-            this assignment. ♪
-        """,
-    });
-    message_Close();
-    Turn2Direction<actor ACTOR_NPC_PERAPPU>(4, 1, DIR_UP);
-    WaitExecuteLives(ACTOR_NPC_PERAPPU);
-    message_Talk({
-        english="""
-             This is the Job Bulletin Board.
-            Pokémon from various regions post job
-            requests here.
-        """,
-    });
-    message_Close();
-    Turn2Direction<actor ACTOR_NPC_PERAPPU>(4, 2, DIR_DOWN);
-    WaitExecuteLives(ACTOR_NPC_PERAPPU);
-    message_Talk({
-        english="""
-             You're aware that bad Pokémon
-            are cropping up in greater numbers, right?
-        """,
-    });
-    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-    message_SetFace(ACTOR_ATTENDANT1, FACE_NORMAL, FACE_POS_STANDARD);
-    message_SwitchTalk ($PARTNER_TALK_KIND) {
-        case 1:
-            {
-                english="""
-                     Yup.[K] Because the flow of time is
-                    getting messed up. It's wreaking havoc, right?
-                """,
-            }
-        case 2:
-            {
-                english="""
-                     Yup.[K] Because the flow of time is
-                    getting messed up. It's wreaking havoc, right?
-                """,
-            }
-        default:
-            {
-                english="""
-                     Yup.[K] Because the flow of time is
-                    getting messed up. It's wreaking havoc, right?
-                """,
-            }
-    }
-    message_SwitchTalk ($PARTNER_TALK_KIND) {
-        case 1:
-            {
-                english="""
-                     Which is why lots of bad
-                    Pokémon are appearing!
-                """,
-            }
-        case 2:
-            {
-                english="""
-                     Which is why lots of bad
-                    Pokémon are appearing!
-                """,
-            }
-        default:
-            {
-                english="""
-                     Which is why lots of bad
-                    Pokémon are appearing!
-                """,
-            }
-    }
-    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-    message_SetFace(ACTOR_PLAYER, FACE_WORRIED, FACE_POS_BOTTOM_R_FACEINW);
-    message_SwitchMonologue ($HERO_TALK_KIND) {
-        case 4:
-            {
-                english="(The flow of time is getting messed up?)",
-            }
-        default:
-            {
-                english="(The flow of time is getting messed up?)",
-            }
-    }
-    message_SwitchMonologue ($HERO_TALK_KIND) {
-        case 4:
-            {
-                english="""
-                    (Time? As in hours and minutes?[K] Do they mean
-                    something has gone wrong with time here?)
-                """,
-            }
-        default:
-            {
-                english="""
-                    (Time? As in hours and minutes?[K] Do they mean
-                    something has gone wrong with time here?)
-                """,
-            }
-    }
-    message_SwitchMonologue ($HERO_TALK_KIND) {
-        case 4:
-            {
-                english="""
-                    (And, because of that, more and more bad
-                    Pokémon are popping up?)
-                """,
-            }
-        default:
-            {
-                english="""
-                    (And, because of that, more and more bad
-                    Pokémon are popping up?)
-                """,
-            }
-    }
-    message_SwitchMonologue ($HERO_TALK_KIND) {
-        case 4:
-            {
-                english="(What's going on here?!)",
-            }
-        default:
-            {
-                english="(What's going on here?!)",
-            }
-    }
-    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-    message_SetFace(ACTOR_NPC_PERAPPU, FACE_NORMAL, FACE_POS_TOP_R_CENTER);
-    message_Talk({
-        english="""
-             Precisely.[K] Time getting out of
-            whack has caused an outbreak of bad Pokémon.
-            Perhaps because of all that...
-        """,
-    });
-    message_Talk({
-        english="""
-             We have noticed an increase
-            in the number of jobs.
-        """,
-    });
-    message_Talk({
-        english="""
-             In addition...and it's unknown if
-            this is because of time's influence...
-        """,
-    });
-    message_Talk({
-        english="""
-             There has also been a mass
-            outbreak of...[K]mystery dungeons.
-        """,
-    });
-    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-    message_SetFace(ACTOR_PLAYER, FACE_WORRIED, FACE_POS_BOTTOM_R_FACEINW);
-    message_SwitchMonologue ($HERO_TALK_KIND) {
-        case 4:
-            {
-                english="(Mystery dungeons?!)",
-            }
-        default:
-            {
-                english="(Mystery dungeons?!)",
-            }
-    }
-    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-    Turn2DirectionLives<actor ACTOR_ATTENDANT1>(4, 1, ACTOR_PLAYER);
-    WaitExecuteLives(ACTOR_ATTENDANT1);
-    message_SetFace(ACTOR_ATTENDANT1, FACE_NORMAL, FACE_POS_STANDARD);
-    message_SwitchTalk ($PARTNER_TALK_KIND) {
-        case 1:
-            {
-                english=" So, [hero]!",
-            }
-        case 2:
-            {
-                english=" So, [hero]!",
-            }
-        default:
-            {
-                english=" So, [hero]!",
-            }
-    }
-    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-    Turn2DirectionLives<actor ACTOR_PLAYER>(4, 2, ACTOR_ATTENDANT1);
-    WaitExecuteLives(ACTOR_PLAYER);
-    message_SwitchTalk ($PARTNER_TALK_KIND) {
-        case 1:
-            {
-                english="""
-                     You know how we got my Relic
-                    Fragment back yesterday?
-                """,
-            }
-        case 2:
-            {
-                english="""
-                     You know how we got my Relic
-                    Fragment back yesterday?
-                """,
-            }
-        default:
-            {
-                english="""
-                     You know how we got my Relic
-                    Fragment back yesterday?
-                """,
-            }
-    }
-    message_SwitchTalk ($PARTNER_TALK_KIND) {
-        case 1:
-            {
-                english="""
-                     The place where we found it
-                    was a mystery dungeon.
-                """,
-            }
-        case 2:
-            {
-                english="""
-                     The place where we found it
-                    was a mystery dungeon.
-                """,
-            }
-        default:
-            {
-                english="""
-                     The place where we found it
-                    was a mystery dungeon.
-                """,
-            }
-    }
-    message_SwitchTalk ($PARTNER_TALK_KIND) {
-        case 1:
-            {
-                english="""
-                     A mystery dungeon changes each
-                    time you go into it. There's a different layout
-                    and different items every time you enter!
-                """,
-            }
-        case 2:
-            {
-                english="""
-                     A mystery dungeon changes each
-                    time you go into it. There's a different layout
-                    and different items every time you enter!
-                """,
-            }
-        default:
-            {
-                english="""
-                     A mystery dungeon changes each
-                    time you go into it. There's a different layout
-                    and different items every time you enter!
-                """,
-            }
-    }
-    message_SwitchTalk ($PARTNER_TALK_KIND) {
-        case 1:
-            {
-                english="""
-                     If you faint in the middle of a
-                    dungeon, you lose half of your money...
-                """,
-            }
-        case 2:
-            {
-                english="""
-                     If you faint in the middle of a
-                    dungeon, you lose half of your money...
-                """,
-            }
-        default:
-            {
-                english="""
-                     If you faint in the middle of a
-                    dungeon, you lose half of your money...
-                """,
-            }
-    }
-    message_SwitchTalk ($PARTNER_TALK_KIND) {
-        case 1:
-            {
-                english="""
-                     You can even lose half your
-                    items or more...
-                """,
-            }
-        case 2:
-            {
-                english="""
-                     You can even lose half your
-                    items or more...
-                """,
-            }
-        default:
-            {
-                english="""
-                     You can even lose half your
-                    items or more...
-                """,
-            }
-    }
-    message_SwitchTalk ($PARTNER_TALK_KIND) {
-        case 1:
-            {
-                english="""
-                     Finally, you get kicked right out.
-                    They're very strange places.
-                """,
-            }
-        case 2:
-            {
-                english="""
-                     Finally, you get kicked right out.
-                    They're very strange places.
-                """,
-            }
-        default:
-            {
-                english="""
-                     Finally, you get kicked right out.
-                    They're very strange places.
-                """,
-            }
-    }
-    message_SetFace(ACTOR_ATTENDANT1, FACE_INSPIRED, FACE_POS_STANDARD);
-    message_SwitchTalk ($PARTNER_TALK_KIND) {
-        case 1:
-            {
-                english="""
-                     But every time you go inside
-                    one, there are always new things to discover!
-                """,
-            }
-        case 2:
-            {
-                english="""
-                     But every time you go inside
-                    one, there are always new things to discover!
-                """,
-            }
-        default:
-            {
-                english="""
-                     But every time you go inside
-                    one, there are always new things to discover!
-                """,
-            }
-    }
-    message_SwitchTalk ($PARTNER_TALK_KIND) {
-        case 1:
-            {
-                english="""
-                     They're really awesome places
-                    to explore!
-                """,
-            }
-        case 2:
-            {
-                english="""
-                     They really are fantastic places
-                    to go exploring!
-                """,
-            }
-        default:
-            {
-                english="""
-                     They really are fantastic places
-                    to go explore!
-                """,
-            }
-    }
-    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-    se_Play(5122);
-    SetAnimation<actor ACTOR_NPC_PERAPPU>(18);
-    WaitAnimation<actor ACTOR_NPC_PERAPPU>();
-    WaitExecuteLives(ACTOR_NPC_PERAPPU);
-    SetAnimation<actor ACTOR_NPC_PERAPPU>(2);
-    message_SetFace(ACTOR_NPC_PERAPPU, FACE_NORMAL, FACE_POS_TOP_R_CENTER);
-    message_Talk({
-        english="""
-             Well! You're quite informed,
-            aren't you! ♪
-        """,
-    });
-    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-    Turn2Direction<actor ACTOR_ATTENDANT1>(4, 10, DIR_UP);
-    WaitExecuteLives(ACTOR_ATTENDANT1);
-    Turn2Direction<actor ACTOR_PLAYER>(4, 10, DIR_UP);
-    WaitExecuteLives(ACTOR_PLAYER);
-    message_SetFace(ACTOR_NPC_PERAPPU, FACE_HAPPY, FACE_POS_TOP_R_CENTER);
-    message_Talk({
-        english="""
-             That makes things much easier
-            for me to explain! ♪
-        """,
-    });
-    message_Talk({
-        english="""
-             Jobs all take place in
-            mystery dungeons.
-        """,
-    });
-    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-    Turn2Direction<actor ACTOR_NPC_PERAPPU>(4, 1, DIR_UP);
-    WaitExecuteLives(ACTOR_NPC_PERAPPU);
-    message_SetFace(ACTOR_NPC_PERAPPU, FACE_NORMAL, FACE_POS_TOP_R_CENTER);
-    message_Talk({
-        english="""
-             So...[K]let's look for a job that you
-            should perform! ♪
-        """,
-    });
-    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-    Wait(30);
-    se_Play(8964);
-    SetEffect<actor ACTOR_NPC_PERAPPU>(EFFECT_EXCLAMATION_MARK, 3);
-    WaitEffect<actor ACTOR_NPC_PERAPPU>();
-    WaitExecuteLives(ACTOR_NPC_PERAPPU);
-    Turn2Direction<actor ACTOR_NPC_PERAPPU>(4, 2, DIR_DOWN);
-    WaitExecuteLives(ACTOR_NPC_PERAPPU);
-    message_Talk({
-        english=" Ah, yes. ♪ Maybe this will do?",
-    });
-    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-    if ( variation ) {
-    }
-    @label_0;
-    Move2PositionOffset<actor ACTOR_NPC_PERAPPU>(1, -16, 16);
-    Turn2Direction<actor ACTOR_ATTENDANT1>(4, 10, DIR_UPRIGHT);
-    Turn2Direction<actor ACTOR_PLAYER>(4, 10, DIR_UPLEFT);
-    WaitExecuteLives(ACTOR_NPC_PERAPPU);
-    se_Play(5124);
-    Wait(45);
-    SetAnimation<actor ACTOR_NPC_PERAPPU>(5);
-    SlidePositionOffset<actor ACTOR_NPC_PERAPPU>(1, 16, -16);
-    WaitExecuteLives(ACTOR_NPC_PERAPPU);
-    SetAnimation<actor ACTOR_NPC_PERAPPU>(2);
-    Turn2Direction<actor ACTOR_NPC_PERAPPU>(4, 10, DIR_DOWNLEFT);
-    Wait(20);
-    Turn2Direction<actor ACTOR_PLAYER>(4, 10, DIR_LEFT);
-    bgm_FadeOut(120);
-    message_SetFace(ACTOR_ATTENDANT1, FACE_NORMAL, FACE_POS_STANDARD);
-    message_SwitchTalk ($PARTNER_TALK_KIND) {
-        case 1:
-            {
-                english=" Oh, yeah? Let's read it!",
-            }
-        case 2:
-            {
-                english=" Oh, really? Let's read it!",
-            }
-        default:
-            {
-                english=" Oh, really? Let's read it!",
-            }
-    }
-    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-    message_Mail({
-        english="\"Hello! My name is [CS:N]Spoink[CR]!\"",
-    });
-    message_Mail({
-        english="""
-            "An outlaw has run off with my most prized
-            possession. My precious pearl!"
-        """,
-    });
-    message_Mail({
-        english="\"That pearl is life itself...to me!\"",
-    });
-    message_Mail({
-        english="""
-            "I just can't seem to settle down if that pearl
-            isn't in its proper place atop my head!"
-        """,
-    });
-    message_Mail({
-        english="\"But I've heard my pearl has been sighted!\"",
-    });
-    message_Mail({
-        english="""
-            "It's said to be on a rocky bluff. But this bluff
-            is reported to be extremely unsafe."
-        """,
-    });
-    message_Mail({
-        english="\"I could never go somewhere so frightening!\"",
-    });
-    message_Mail({
-        english="""
-            "Oh, friendly readers! Would you be so kind as
-            to go to the bluff and get my pearl?"
-        """,
-    });
-    message_Mail({
-        english="""
-            "I beg your help, exploration team members!"
-            
-                                                    From [CS:N]Spoink[CR]
-        """,
-    });
-    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-    message_SetFace(ACTOR_ATTENDANT1, FACE_NORMAL, FACE_POS_STANDARD);
-    message_SwitchTalk ($PARTNER_TALK_KIND) {
-        case 1:
-            {
-                english=" Hold on a second!",
-            }
-        case 2:
-            {
-                english=" Wait a second...",
-            }
-        default:
-            {
-                english=" Wait a second...",
-            }
-    }
-    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-    se_Play(8971);
-    ExecuteCommon<actor ACTOR_ATTENDANT1>(CORO_JUMP_ANGRY_FUNC_SERIES, 0);
-    WaitExecuteLives(ACTOR_ATTENDANT1);
-    SetEffect<actor ACTOR_ATTENDANT1>(EFFECT_ANGRY_MIRRORED, 3);
-    message_SetFace(ACTOR_ATTENDANT1, FACE_ANGRY, FACE_POS_STANDARD);
-    message_SwitchTalk ($PARTNER_TALK_KIND) {
-        case 1:
-            {
-                english="""
-                     We're only going to fetch an
-                    item that someone dropped?
-                """,
-            }
-        case 2:
-            {
-                english="""
-                     We're going to fetch an item
-                    that someone dropped?
-                """,
-            }
-        default:
-            {
-                english="""
-                     We're going to fetch an item
-                    that someone dropped?
-                """,
-            }
-    }
-    message_KeyWait();
-    SetEffect<actor ACTOR_ATTENDANT1>(EFFECT_NONE, 3);
-    message_SetFace(ACTOR_ATTENDANT1, FACE_NORMAL, FACE_POS_STANDARD);
-    message_SwitchTalk ($PARTNER_TALK_KIND) {
-        case 1:
-            {
-                english="""
-                     That's hardly an adventure
-                    at all!
-                """,
-            }
-        case 2:
-            {
-                english="""
-                     I would rather do something
-                    that's more of an adventure.
-                """,
-            }
-        default:
-            {
-                english="""
-                     I'd rather go on a bigger
-                    adventure than that.
-                """,
-            }
-    }
-    message_SetFace(ACTOR_ATTENDANT1, FACE_INSPIRED, FACE_POS_STANDARD);
-    message_SwitchTalk ($PARTNER_TALK_KIND) {
-        case 1:
-            {
-                english="""
-                     I'd rather look for treasure or
-                    explore unknown places. Things like that!
-                """,
-            }
-        case 2:
-            {
-                english="""
-                     I'd rather look for treasure or
-                    explore unknown places. Things like that!
-                """,
-            }
-        default:
-            {
-                english="""
-                     I'd rather look for treasure or
-                    explore unknown places. Things like that!
-                """,
-            }
-    }
-    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-    se_Play(5122);
-    SetAnimation<actor ACTOR_NPC_PERAPPU>(18);
-    WaitAnimation<actor ACTOR_NPC_PERAPPU>();
-    WaitExecuteLives(ACTOR_NPC_PERAPPU);
-    SetAnimation<actor ACTOR_NPC_PERAPPU>(2);
-    Turn2Direction<actor ACTOR_PLAYER>(1, 10, DIR_UP);
-    message_SetFace(ACTOR_NPC_PERAPPU, FACE_ANGRY, FACE_POS_TOP_R_CENTER);
-    message_Talk({
-        english=" Hush!",
-    });
-    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-    se_Play(8974);
-    ExecuteCommon<actor ACTOR_ATTENDANT1>(CORO_JUMP_SURPRISE_FUNC_SERIES, 0);
-    message_SetFace(ACTOR_ATTENDANT1, FACE_SURPRISED, FACE_POS_STANDARD);
-    message_SwitchTalk ($PARTNER_TALK_KIND) {
-        case 1:
-            {
-                english=" Yikes!",
-            }
-        case 2:
-            {
-                english=" Yikes!",
-            }
-        default:
-            {
-                english=" Yikes!",
-            }
-    }
-    WaitExecuteLives(ACTOR_ATTENDANT1);
-    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-    message_SetFace(ACTOR_NPC_PERAPPU, FACE_ANGRY, FACE_POS_TOP_R_CENTER);
-    message_Talk({
-        english="""
-             It's important that you rookies
-            pay your dues!
-        """,
-    });
-    message_Talk({
-        english="""
-             Now pay attention![K] I'll repeat
-            the warnings again to make sure they stick!
-        """,
-    });
-    message_Talk({
-        english="""
-             You'll be forced out of a dungeon
-            and sent back here if either of you faints.
-        """,
-    });
-    message_Talk({
-        english="""
-             You'll lose half your money![K]
-            And you could lose half your items or more.
-            You'd best be careful!
-        """,
-    });
-    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-    se_Play(5122);
-    SetAnimation<actor ACTOR_NPC_PERAPPU>(18);
-    WaitAnimation<actor ACTOR_NPC_PERAPPU>();
-    WaitExecuteLives(ACTOR_NPC_PERAPPU);
-    SetAnimation<actor ACTOR_NPC_PERAPPU>(2);
-    message_SetFace(ACTOR_NPC_PERAPPU, FACE_NORMAL, FACE_POS_TOP_R_CENTER);
-    message_Talk({
-        english="""
-             If you've understood all that,
-            I suggest you get on with the job! ♪
-        """,
-    });
-    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-    se_Play(8961);
-    SetEffect<actor ACTOR_ATTENDANT1>(EFFECT_SWEAT_DROP, 3);
-    WaitEffect<actor ACTOR_ATTENDANT1>();
-    message_SetFace(ACTOR_ATTENDANT1, FACE_PAIN, FACE_POS_STANDARD);
-    message_SwitchTalk ($PARTNER_TALK_KIND) {
-        case 1:
-            {
-                english=" Hmm...",
-            }
-        case 2:
-            {
-                english=" Hmm...",
-            }
-        default:
-            {
-                english=" Hmm...",
-            }
-    }
-    WaitExecuteLives(ACTOR_ATTENDANT1);
-    message_Close();
-    bgm_FadeOut(120);
-    screen_FadeOut(1, 60);
-    Wait(30);
-    dungeon_mode(3) = DMODE_OPEN;
-    end;
-}
-]]--
-
     GAME:CutsceneMode(true)
 	local pTalkKind = SV.Personality.PartnerTalkKind
 
@@ -1806,111 +1074,6 @@ def 0 {
 end
 
 function guild_second_floor.CH2_FailedDrenchedBluff()
-    --[[
-    
-def 0 {
-    sound_Stop();
-    if ( variation ) {
-        @label_0;
-        switch ( ProcessSpecial(53, -1, 0) ) { }
-        message_SetWaitMode(300, 300);
-        message_Explanation({
-            english="""
-                [CN]Thanks for playing!
-                [CN]We hope you enjoyed
-                [CN]the demo!
-            """,
-        });
-        message_KeyWait();
-        switch ( ProcessSpecial(PROCESS_SPECIAL_JUMP_TO_TITLE_SCREEN, 0, 0) ) { }
-        end;
-    } else {
-        back_SetGround(LEVEL_S04P01A);
-        screen_FadeIn(1, 0);
-        message_SetFace(ACTOR_ATTENDANT1, FACE_PAIN, FACE_POS_STANDARD);
-        message_SwitchTalk ($PARTNER_TALK_KIND) {
-            case 1:
-                {
-                    english=" Ugh... That didn't end well...",
-                }
-            case 2:
-                {
-                    english=" Ugh... That didn't go well, did it?",
-                }
-            default:
-                {
-                    english=" Ugh... That didn't work at all...",
-                }
-        }
-        message_KeyWait();
-        screen_FadeOutAll(1, 60);
-        message_CloseEnforce();
-        Wait(60);
-        CallCommon(CORO_FADE_OUT_ALL_AFTER);
-        if ( variation ) {
-            supervision_ExecuteActing(LEVEL_D02P11A, 'M02A0701', 0);
-            hold;
-        } else {
-            back_SetGround(LEVEL_G01P03A);
-            supervision_Acting(0);
-            camera_SetMyself<performer 0>();
-            screen_FadeIn(1, 30);
-            bgm_PlayFadeIn(BGM_WIGGLYTUFFS_GUILD, 0, 256);
-            Wait(30);
-            message_SetFace(ACTOR_NPC_PERAPPU, FACE_NORMAL, FACE_POS_TOP_R_CENTER);
-            message_Talk({
-                english="""
-                     Well...[K] It appears that your
-                    outing was less than a total success.
-                """,
-            });
-            CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-            se_Play(8961);
-            SetEffect<actor ACTOR_ATTENDANT1>(EFFECT_SWEAT_DROP, 3);
-            WaitEffect<actor ACTOR_ATTENDANT1>();
-            WaitExecuteLives(ACTOR_ATTENDANT1);
-            message_SetFace(ACTOR_ATTENDANT1, FACE_PAIN, FACE_POS_STANDARD);
-            message_SwitchTalk ($PARTNER_TALK_KIND) {
-                case 1:
-                    {
-                        english=" Ugh...",
-                    }
-                case 2:
-                    {
-                        english=" Ugh...",
-                    }
-                default:
-                    {
-                        english=" Ugh...",
-                    }
-            }
-            CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-            message_SetFace(ACTOR_NPC_PERAPPU, FACE_NORMAL, FACE_POS_TOP_R_CENTER);
-            message_Talk({
-                english="""
-                     Of course, you're just beginners
-                    at all this. No need to fret! ♪
-                """,
-            });
-            CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-            SetAnimation<actor ACTOR_NPC_PERAPPU>(44);
-            message_SetFace(ACTOR_NPC_PERAPPU, FACE_HAPPY, FACE_POS_TOP_R_CENTER);
-            message_Talk({
-                english="""
-                     These things happen! ♪[K] You can
-                    attempt another challenge tomorrow! ♪
-                """,
-            });
-            message_Close();
-            SetAnimation<actor ACTOR_NPC_PERAPPU>(2);
-            bgm_FadeOut(120);
-            screen_FadeOut(1, 60);
-            WaitBgm(BGM_WIGGLYTUFFS_GUILD);
-            end;
-        }
-    }
-}
-]]--
 
     GAME:CutsceneMode(true)
     AI:DisableCharacterAI(CH('PARTNER'))
@@ -1992,319 +1155,6 @@ def 0 {
 end
 
 function guild_second_floor.CH2_FirstJobComplete()
-    --[[
-def 0 {
-    sound_Stop();
-    back_SetGround(LEVEL_G01P03A);
-    supervision_Acting(0);
-    camera_SetMyself<performer 0>();
-    screen_FadeIn(1, 30);
-    bgm_PlayFadeIn(BGM_JOB_CLEAR, 0, 256);
-    Wait(30);
-    message_SetFace(ACTOR_NPC_BANEBUU, FACE_NORMAL, FACE_POS_TOP_C_FACEL);
-    message_Talk({
-        english=" Th-thank you!",
-    });
-    message_Talk({
-        english="""
-             That pearl must be propped on
-            my head, you see. I missed it so much!
-        """,
-    });
-    message_Talk({
-        english="""
-             I just couldn't settle down
-            without it up there!
-        """,
-    });
-    message_Talk({
-        english="""
-             So I was just boinging and
-            sproinging everywhere!
-        """,
-    });
-    message_Talk({
-        english="""
-             That's why I'm covered in dings
-            and bumps.
-        """,
-    });
-    message_Talk({
-        english="""
-             But thanks to you, that long
-            nightmare is over!
-        """,
-    });
-    message_Talk({
-        english=" You have my sincere thanks!",
-    });
-    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-    MovePositionOffset<actor ACTOR_NPC_BANEBUU>(0.7969, 16, 16);
-    Turn2Direction<actor ACTOR_ATTENDANT1>(4, 10, DIR_UPRIGHT);
-    Turn2Direction<actor ACTOR_NPC_BANEBUU>(4, 10, DIR_DOWN);
-    WaitExecuteLives(ACTOR_NPC_BANEBUU);
-    me_Play(4);
-    message_Mail({
-        english="""
-            [CN][hero]'s team was rewarded with
-            [CN]a [CS:I]Protein[CR]!
-        """,
-    });
-    WaitMe(4);
-    CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-
-        @label_0;
-        me_Play(4);
-        message_Mail({
-            english="[CN]You also received a [CS:I]Calcium[CR]!",
-        });
-        WaitMe(4);
-        CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-
-            @label_1;
-            me_Play(4);
-            message_Mail({
-                english="[CN]You also received an [CS:I]Iron[CR]!",
-            });
-            WaitMe(4);
-            CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-
-                @label_2;
-                me_Play(9);
-                message_Mail({
-                    english="""
-                        [CN]You were also given
-                        [CN][CS:G]2[MP]000[CR][M:S0]! Incredible!
-                    """,
-                });
-                WaitMe(9);
-                message_Close();
-                Wait(15);
-                se_Play(8974);
-                SetEffect<actor ACTOR_ATTENDANT1>(EFFECT_EXCLAMATION_MARK, 3);
-                WaitEffect<actor ACTOR_ATTENDANT1>();
-                WaitExecuteLives(ACTOR_ATTENDANT1);
-                message_SetFace(ACTOR_ATTENDANT1, FACE_SURPRISED, FACE_POS_STANDARD);
-                message_SwitchTalk ($PARTNER_TALK_KIND) {
-                    case 1:
-                        {
-                            english="""
-                                 Oh, wow! [CS:G]2[MP]000[CR][M:S0]?![K] All this
-                                money's for us?
-                            """,
-                        }
-                    case 2:
-                        {
-                            english="""
-                                 Oh, wow! [CS:G]2[MP]000[CR][M:S0]?![K] All this
-                                money is for us?
-                            """,
-                        }
-                    default:
-                        {
-                            english="""
-                                 Oh, wow! [CS:G]2[MP]000[CR][M:S0]?![K] We can
-                                have all this money?
-                            """,
-                        }
-                }
-                CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-                message_SetFace(ACTOR_NPC_BANEBUU, FACE_NORMAL, FACE_POS_TOP_R_CENTER);
-                message_FacePositionOffset(-4, 1);
-                message_Talk({
-                    english="""
-                         Of course! Of course! That's
-                        nothing compared to my pearl's value!
-                    """,
-                });
-                message_Talk({
-                    english=" Farewell!",
-                });
-                CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-                MovePositionOffset<actor ACTOR_NPC_BANEBUU>(0.7969, 40, 0);
-                MovePositionMark<actor ACTOR_NPC_BANEBUU>(0.7969, Position<'m0', 41.5, 25.5>);
-                Turn2Direction<actor ACTOR_PLAYER>(16, 10, DIR_UPRIGHT);
-                Turn2Direction<actor ACTOR_ATTENDANT1>(16, 10, DIR_UPRIGHT);
-                Turn2Direction<actor ACTOR_NPC_PERAPPU>(16, 10, DIR_RIGHT);
-                WaitExecuteLives(ACTOR_NPC_BANEBUU);
-                MovePositionMark<actor ACTOR_NPC_BANEBUU>(0.7969, Position<'m1', 41.5, 22.5>);
-                WaitExecuteLives(ACTOR_NPC_BANEBUU);
-                MovePositionOffset<actor ACTOR_NPC_BANEBUU>(0.7969, 0, -64);
-                WaitExecuteLives(ACTOR_NPC_BANEBUU);
-                Destroy<actor ACTOR_NPC_BANEBUU>();
-                Wait(60);
-                Turn2DirectionLives<actor ACTOR_ATTENDANT1>(4, 10, ACTOR_PLAYER);
-                WaitExecuteLives(ACTOR_ATTENDANT1);
-                Turn2DirectionLives<actor ACTOR_PLAYER>(4, 10, ACTOR_ATTENDANT1);
-                ExecuteCommon<actor ACTOR_ATTENDANT1>(CORO_JUMP_HAPPY_FUNC_SERIES, 0);
-                WaitExecuteLives(ACTOR_ATTENDANT1);
-                Turn2Direction<actor ACTOR_NPC_PERAPPU>(16, 10, DIR_DOWNRIGHT);
-                message_SetFace(ACTOR_ATTENDANT1, FACE_NORMAL, FACE_POS_STANDARD);
-                message_SwitchTalk ($PARTNER_TALK_KIND) {
-                    case 1:
-                        {
-                            english="""
-                                 We're rich, [hero]!
-                                Just like that, we're rich!
-                            """,
-                        }
-                    case 2:
-                        {
-                            english="""
-                                 We're rich, [hero]!
-                                We got rich just like that!
-                            """,
-                        }
-                    default:
-                        {
-                            english="""
-                                 We're rich, [hero]! All of
-                                a sudden, we're rich!
-                            """,
-                        }
-                }
-                CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-                message_SetFace(ACTOR_NPC_PERAPPU, FACE_NORMAL, FACE_POS_TOP_L_CENTER);
-                message_Talk({
-                    english=" Well done, team! ♪",
-                });
-                CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-                Turn2DirectionLives<actor ACTOR_ATTENDANT1>(4, 10, ACTOR_NPC_PERAPPU);
-                WaitExecuteLives(ACTOR_ATTENDANT1);
-                Turn2DirectionLives<actor ACTOR_PLAYER>(4, 10, ACTOR_NPC_PERAPPU);
-                MovePositionMark<actor ACTOR_NPC_PERAPPU>(1, Position<'m2', 33.5, 28.5>);
-                WaitExecuteLives(ACTOR_NPC_PERAPPU);
-                Turn2DirectionLives<actor ACTOR_NPC_PERAPPU>(4, 10, ACTOR_PLAYER);
-                Turn2DirectionLives<actor ACTOR_ATTENDANT1>(4, 10, ACTOR_NPC_PERAPPU);
-                Turn2DirectionLives<actor ACTOR_PLAYER>(4, 10, ACTOR_NPC_PERAPPU);
-                message_SetFace(ACTOR_NPC_PERAPPU, FACE_NORMAL, FACE_POS_BOTTOM_C_FACER);
-                message_FacePositionOffset(2, -1);
-                message_Talk({
-                    english="""
-                         Now hand that money over, if
-                        you please!
-                    """,
-                });
-                CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-                se_Play(8968);
-                bgm_Stop();
-                SetEffect<actor ACTOR_PLAYER>(EFFECT_SHOCKED, 3);
-                SetEffect<actor ACTOR_ATTENDANT1>(EFFECT_SHOCKED, 3);
-                WaitEffect<actor ACTOR_ATTENDANT1>();
-                message_SetFace(ACTOR_ATTENDANT1, FACE_SURPRISED, FACE_POS_STANDARD);
-                message_SwitchTalk ($PARTNER_TALK_KIND) {
-                    case 1:
-                        {
-                            english=" Huh?!",
-                        }
-                    case 2:
-                        {
-                            english=" Huh?!",
-                        }
-                    default:
-                        {
-                            english=" Excuse me?!",
-                        }
-                }
-                WaitExecuteLives(ACTOR_ATTENDANT1);
-                CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-                MovePositionOffset<actor ACTOR_NPC_PERAPPU>(1, 0, -16);
-                WaitExecuteLives(ACTOR_NPC_PERAPPU);
-                message_SetFace(ACTOR_NPC_PERAPPU, FACE_NORMAL, FACE_POS_TOP_C_FACEL);
-                message_FacePositionOffset(2, 2);
-                message_Talk({
-                    english="""
-                         Most of the money from jobs
-                        goes to the Guildmaster, you see! ♪
-                    """,
-                });
-                message_Talk({
-                    english="""
-                         And your team's share of the
-                        money comes out to this much...! ♪
-                    """,
-                });
-                CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-                MovePositionOffset<actor ACTOR_NPC_PERAPPU>(1, 0, 16);
-                WaitExecuteLives(ACTOR_NPC_PERAPPU);
-                se_Play(8713);
-                $CARRY_GOLD += 200;
-                WaitSe(8713);
-                Wait(10);
-                se_Play(8974);
-                SetEffect<actor ACTOR_PLAYER>(EFFECT_SHOCKED, 3);
-                ExecuteCommon<actor ACTOR_ATTENDANT1>(CORO_JUMP_SURPRISE_FUNC_SERIES, 0);
-                message_SetFace(ACTOR_ATTENDANT1, FACE_SURPRISED, FACE_POS_STANDARD);
-                message_SwitchTalk ($PARTNER_TALK_KIND) {
-                    case 1:
-                        {
-                            english=" Huh?![K] We keep only [CS:G]200[CR][M:S0]?",
-                        }
-                    case 2:
-                        {
-                            english=" Huh?![K] We keep only [CS:G]200[CR][M:S0]?",
-                        }
-                    default:
-                        {
-                            english=" Huh?![K] We keep only [CS:G]200[CR][M:S0]?",
-                        }
-                }
-                WaitExecuteLives(ACTOR_ATTENDANT1);
-                CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-                se_Play(8972);
-                SetEffect<actor ACTOR_ATTENDANT1>(EFFECT_SWEAT_DROPS_FROM_BOTH_SIDES_MEDIUM, 3);
-                WaitEffect<actor ACTOR_ATTENDANT1>();
-                WaitExecuteLives(ACTOR_ATTENDANT1);
-                message_SwitchTalk ($PARTNER_TALK_KIND) {
-                    case 1:
-                        {
-                            english=" That's terrible!",
-                        }
-                    case 2:
-                        {
-                            english=" That's awful!",
-                        }
-                    default:
-                        {
-                            english=" That's not fair!",
-                        }
-                }
-                CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-                Turn2Direction<actor ACTOR_NPC_PERAPPU>(4, 10, DIR_DOWNLEFT);
-                WaitExecuteLives(ACTOR_NPC_PERAPPU);
-                message_SetFace(ACTOR_NPC_PERAPPU, FACE_NORMAL, FACE_POS_BOTTOM_C_FACEL);
-                message_FacePositionOffset(2, -1);
-                message_Talk({
-                    english="""
-                         Well that's the guild's rule.[K]
-                        You simply have to accept it! ♪
-                    """,
-                });
-                CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC);
-                se_Play(8961);
-                SetEffect<actor ACTOR_ATTENDANT1>(EFFECT_SWEAT_DROP, 3);
-                WaitEffect<actor ACTOR_ATTENDANT1>();
-                WaitExecuteLives(ACTOR_ATTENDANT1);
-                message_SetFace(ACTOR_ATTENDANT1, FACE_SAD, FACE_POS_STANDARD);
-                message_SwitchTalk ($PARTNER_TALK_KIND) {
-                    case 1:
-                        {
-                            english=" Hmph...",
-                        }
-                    case 2:
-                        {
-                            english=" Hmph...",
-                        }
-                    default:
-                        {
-                            english=" Hmph...",
-                        }
-                }
-                message_Close();
-                screen_FadeOut(1, 60);
-                end;
-}
-]]--
 
     AI:DisableCharacterAI(CH('PARTNER'))
 
@@ -2518,81 +1368,128 @@ end
 function guild_second_floor.CH3_OutlawIntro()
 	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
+
 	-- back_SetGround(LEVEL_G01P03A) (Should be the map you're currently on, or the map it sends you to next)
 	-- ### supervision_Acting(0) [IRRELEVANT]
 	-- ### supervision_LoadStation(LEVEL_G01P03A, 'UM03') [IRRELEVANT]
 	-- ### supervision_Station(1) [IRRELEVANT]
-	GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
+
+    GAME:CutsceneMode(true)
+    AI:DisableCharacterAI(CH('PARTNER'))
+
+	ExplorerEssentials.SetupCameraPos(43.5, 28)
+    ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 45, 21.5, Direction.Down)
+    ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 45, 21.5, Direction.Down)
+    ExplorerEssentials.SetupInitialPos(CH('Chatot'), 45, 21.5, Direction.Down)
+    ExplorerEssentials.SetupInitialPos(CH('Bidoof'), 45, 21.5, Direction.Down)
+
+    GROUND:Hide('PLAYER')
+    GROUND:Hide('PARTNER')
+    GROUND:Hide('Chatot')
+    GROUND:Hide('Bidoof')
+
 	GAME:FadeIn(30)
 	SOUND:PlayBGM("011 - Wigglytuff's Guild Remix.ogg", true)
-	-- ### supervision_Acting(1) [IRRELEVANT]
-	GAME:WaitFrames(30)
-	GROUND:MoveToPosition(CH('Chatot'), 412, 208, false, 1)
-	GAME:WaitFrames(30)
-	-- ### supervision_Acting(2) [IRRELEVANT]
-	GAME:WaitFrames(30)
-	GROUND:MoveToPosition(CH('PLAYER'), 456, 240, false, 1)
-	-- !! WaitExecuteLives(ACTOR_NPC_PERAPPU)
-	GROUND:CharAnimateTurnTo(CH('Chatot'), Dir8.Down, 2)
-	GAME:WaitFrames(30)
-	-- ### supervision_Acting(3) [IRRELEVANT]
-	GAME:WaitFrames(30)
-	GROUND:MoveToPosition(CH('PARTNER'), 424, 240, false, 1)
-ExplorerEssentials.MoveCameraAtSpeed(440, 224, 1, false)
-	-- !! WaitExecuteLives(ACTOR_PLAYER)
-	GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.Up, 2)
-	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
-	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Up, 2)
-	-- !! WaitExecuteLives(ACTOR_NPC_PERAPPU)
-	-- !! WaitExecuteLives(ACTOR_PLAYER)
-	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
-	-- TODO: WaitExecutePerformer(0)
+	
+    local coro1 = TASK:BranchCoroutine(function ()
+        GROUND:Unhide('Chatot')
+
+	    GAME:WaitFrames(30)
+	    GROUND:MoveToPosition(CH('Chatot'), 412, 208, false, 1)
+        GROUND:CharAnimateTurnTo(CH('Chatot'), Dir8.Down, 2)
+    end)
+    local coro2 = TASK:BranchCoroutine(function ()
+        GAME:WaitFrames(60)
+        GROUND:Unhide('PLAYER')
+        GAME:WaitFrames(30)
+        GROUND:MoveToPosition(CH('PLAYER'), 456, 240, false, 1)
+        GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.Up, 2)
+    end)
+    local coro3 = TASK:BranchCoroutine(function ()
+        GAME:WaitFrames(120)
+        GROUND:Unhide('PARTNER')
+	    GAME:WaitFrames(30)
+	    GROUND:MoveToPosition(CH('PARTNER'), 424, 240, false, 1)
+        GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Up, 2)
+    end)
+    local coro4 = TASK:BranchCoroutine(function ()
+        GAME:WaitFrames(150)
+        ExplorerEssentials.MoveCameraAtSpeed(440, 224, 1, false)
+    end)
+    TASK:JoinCoroutines({coro1, coro2, coro3, coro4})
+
 	GAME:WaitFrames(30)
 	SOUND:PlayBattleSE("EVT_Emote_Confused")
 	GROUND:CharSetEmote(CH('PARTNER'), "question", 1)
 	GAME:WaitFrames(30)
+
 	UI:SetSpeaker(CH('PARTNER'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_1_'..tostring(pTalkKind)]))
 	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Left, 2)
 	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
-	GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.Left, 2)
-	UI:SetSpeaker(CH('PARTNER'))
-	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_2']))
-	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
-	UI:SetSpeaker(CH('Chatot'))
-	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_1']))
-	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Up, 2)
-	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
-	GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.Up, 2)
+
+    local coro1 = TASK:BranchCoroutine(function ()
+        GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.Left, 2)
+    end)
+    local coro2 = TASK:BranchCoroutine(function ()
+        UI:SetSpeaker(CH('PARTNER'))
+        UI:SetSpeakerEmotion("Normal")
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_2']))
+        -- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+    end)
+    TASK:JoinCoroutines({coro1, coro2})
+
+    local coro1 = TASK:BranchCoroutine(function ()
+        UI:SetSpeaker(CH('Chatot'))
+	    UI:SetSpeakerEmotion("Normal")
+	    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_1']))
+    end)
+    local coro2 = TASK:BranchCoroutine(function ()
+        GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Up, 2)
+        -- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+        GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.Up, 2)
+    end)
+    TASK:JoinCoroutines({coro1, coro2})
+	
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_2']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	SOUND:PlayBattleSE("EVT_Emote_Confused")
 	GROUND:CharSetEmote(CH('PARTNER'), "question", 1)
 	GAME:WaitFrames(30)
 	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
-	UI:SetSpeaker(CH('PARTNER'))
-	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_3']))
-	GROUND:CharAnimateTurnTo(CH('Chatot'), Dir8.UpRight, 2)
+
+    local coro1 = TASK:BranchCoroutine(function ()
+        UI:SetSpeaker(CH('PARTNER'))
+	    UI:SetSpeakerEmotion("Normal")
+	    UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_3']))
+    end)
+    local coro2 = TASK:BranchCoroutine(function ()
+        GROUND:CharAnimateTurnTo(CH('Chatot'), Dir8.UpRight, 2)
+    end)
+    TASK:JoinCoroutines({coro1, coro2})
 	-- !! WaitExecuteLives(ACTOR_NPC_PERAPPU)
+
 	UI:SetSpeaker(CH('Chatot'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_3']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
-	-- ### back2_SetMode(4) [IRRELEVANT]
+	
+    -- ### back2_SetMode(4) [IRRELEVANT]
 	-- ### back2_SetGround(LEVEL_V03P01A) [IRRELEVANT]
 	-- ### camera2_SetPositionMark(Position<'m4', 19.5, 16.5>) [IRRELEVANT]
 	-- ### screen2_FadeIn(1, 15) [IRRELEVANT]
-	GAME:WaitFrames(30)
+	
+    GAME:WaitFrames(30)
 	SOUND:PlayBattleSE("EVT_Emote_Exclaim")
 	GROUND:CharSetEmote(CH('PARTNER'), "exclaim", 1)
 	GAME:WaitFrames(30)
 	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+
 	UI:SetSpeaker(CH('PARTNER'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_4_'..tostring(pTalkKind)]))
@@ -2600,45 +1497,60 @@ ExplorerEssentials.MoveCameraAtSpeed(440, 224, 1, false)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_6_'..tostring(pTalkKind)]))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_7']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	GROUND:CharTurnToCharAnimated(CH('PLAYER'), CH('Chatot'), 2)
 	-- !! WaitExecuteLives(ACTOR_PLAYER)
+
 	UI:SetSpeaker(CH('Chatot'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_4']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_5']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	-- ### screen2_FadeOut(1, 15) [IRRELEVANT]
 	-- ### back2_SetMode(0) [IRRELEVANT]
-	SOUND:PlayBattleSE("EVT_Emote_Shock")
-	GROUND:CharSetEmote(CH('PLAYER'), "shock", 1)
-	CharacterActions.ScaredJump(CH('PARTNER'), CH('PARTNER').Direction)
-	UI:SetSpeaker(CH('PARTNER'))
-	UI:SetSpeakerEmotion("Surprised")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_8_'..tostring(pTalkKind)]))
+
+    local coro1 = TASK:BranchCoroutine(function ()
+        SOUND:PlayBattleSE("EVT_Emote_Shock")
+        GROUND:CharSetEmote(CH('PLAYER'), "shock", 1)
+        CharacterActions.ScaredJump(CH('PARTNER'), CH('PARTNER').Direction)
+    end)
+    local coro2 = TASK:BranchCoroutine(function ()
+        UI:SetSpeaker(CH('PARTNER'))
+        UI:SetSpeakerEmotion("Surprised")
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_8_'..tostring(pTalkKind)]))
+    end)
+    TASK:JoinCoroutines({coro1, coro2})
 	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+
 	GROUND:CharAnimateTurnTo(CH('Chatot'), Dir8.Down, 2)
 	-- !! WaitExecuteLives(ACTOR_NPC_PERAPPU)
+
 	UI:SetSpeaker(CH('Chatot'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_6']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_7']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_8']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	UI:SetSpeaker(CH('PARTNER'))
 	UI:SetSpeakerEmotion("Surprised")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_9_'..tostring(pTalkKind)]))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	SOUND:PlayBattleSE("EVT_Emote_Sweating")
 	GROUND:CharSetEmote(CH('PARTNER'), "sweating", 1)
 	UI:SetSpeaker(CH('PARTNER'))
-	UI:SetSpeakerEmotion("UNK_FACE_SHOUTING")
+	UI:SetSpeakerEmotion("Shouting")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_10_'..tostring(pTalkKind)]))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
-	GROUND:CharSetEmote(CH('Chatot'), "happy", 1)
+
+	GROUND:CharSetEmote(CH('Chatot'), "happy", -1)
 	UI:SetSpeaker(CH('Chatot'))
 	UI:SetSpeakerEmotion("Happy")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_9']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	GROUND:CharSetEmote(CH('Chatot'), "none", 1)
 	GAME:WaitFrames(15)
 	UI:SetSpeaker(CH('Chatot'))
@@ -2648,16 +1560,19 @@ ExplorerEssentials.MoveCameraAtSpeed(440, 224, 1, false)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_12']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_13']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
-	GROUND:CharSetEmote(CH('Chatot'), "happy", 1)
+
+	GROUND:CharSetEmote(CH('Chatot'), "happy", -1)
 	UI:SetSpeaker(CH('Chatot'))
 	UI:SetSpeakerEmotion("Happy")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_14']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	GROUND:CharSetEmote(CH('Chatot'), "none", 1)
 	UI:SetSpeaker(CH('Chatot'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_15']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	SOUND:PlayBattleSE("EVT_Emote_Sweatdrop")
 	GROUND:CharSetEmote(CH('PARTNER'), "sweatdrop", 1)
 	UI:SetSpeaker(CH('PARTNER'))
@@ -2666,111 +1581,154 @@ ExplorerEssentials.MoveCameraAtSpeed(440, 224, 1, false)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_12_'..tostring(pTalkKind)]))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_13_'..tostring(pTalkKind)]))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	UI:SetSpeaker(CH('Chatot'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_16']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_17']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_18']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	GROUND:CharAnimateTurnTo(CH('Chatot'), Dir8.UpLeft, 2)
 	-- !! WaitExecuteLives(ACTOR_NPC_PERAPPU)
+
 	GROUND:CharSetEmote(CH('Chatot'), "glowing", 1)
 	UI:SetSpeaker(CH('Chatot'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowTimedDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_19']), CH('Bidoof'):GetDisplayName())
-	GROUND:CharSetEmote(CH('Chatot'), "none", 1)
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.UpLeft, 2)
 	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
-	-- TODO message_SetActor: message_SetActor(ACTOR_NPC_BIPPA)
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_20']))
-	-- ### supervision_Acting(4) [IRRELEVANT]
-	-- TODO: SetOutputAttribute<actor ACTOR_NPC_BIPPA>(8)
+
+	UI:SetSpeaker(CH('Bidoof'):GetDisplayName())
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_UNKNOWN_1']))
+
+	GROUND:Unhide('Bidoof')
 	GAME:WaitFrames(20)
 	GROUND:MoveToPosition(CH('Bidoof'), 360, 208, false, 1)
 	GROUND:MoveToPosition(CH('Bidoof'), 380, 208, false, 1)
 	-- !! WaitExecuteLives(ACTOR_NPC_BIPPA)
-	GROUND:CharEndAnim(CH('Bidoof'))
+
 	GROUND:CharTurnToCharAnimated(CH('Bidoof'), CH('Chatot'), 2)
 	-- !! WaitExecuteLives(ACTOR_NPC_BIPPA)
+
 	GROUND:CharTurnToCharAnimated(CH('Chatot'), CH('Bidoof'), 2)
 	-- !! WaitExecuteLives(ACTOR_NPC_PERAPPU)
-	GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.UpLeft, 2)
-	GROUND:CharTurnToCharAnimated(CH('PARTNER'), CH('Bidoof'), 2)
-	GROUND:CharSetEmote(CH('Bidoof'), "sweating", 1)
+
+    GROUND:CharSetEmote(CH('Bidoof'), "sweating", 1)
+
+    local coro1 = TASK:BranchCoroutine(function ()
+        GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.UpLeft, 2)
+    end)
+    local coro2 = TASK:BranchCoroutine(function ()
+        GROUND:CharTurnToCharAnimated(CH('PARTNER'), CH('Bidoof'), 2)
+    end)
+    TASK:JoinCoroutines({coro1, coro2})
+
 	GAME:WaitFrames(30)
 	UI:SetSpeaker(CH('Bidoof'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Bidoof_1']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	UI:SetSpeaker(CH('Chatot'))
 	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowTimedDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_21']), CH('BIDOOF'):GetDisplayName())
+	UI:WaitShowTimedDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_21'], CH('Bidoof'):GetDisplayName()))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_22']))
+
 	GROUND:CharTurnToCharAnimated(CH('Bidoof'), CH('PARTNER'), 2)
+
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_23']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	CharacterActions.HopOnce(CH('Bidoof'), CH('Bidoof').Direction)
 	-- !! WaitExecuteLives(ACTOR_NPC_BIPPA)
+
 	UI:SetSpeaker(CH('Bidoof'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Bidoof_2']))
 	GROUND:CharAnimateTurnTo(CH('Chatot'), Dir8.Down, 2)
 	-- !! WaitExecuteLives(ACTOR_NPC_PERAPPU)
+
 	UI:SetSpeaker(CH('Chatot'))
 	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowTimedDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_24']), CH('BIDOOF'):GetDisplayName())
-	UI:WaitShowTimedDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_25']), CH('BIDOOF'):GetDisplayName())
+	UI:WaitShowTimedDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_24'], CH('Bidoof'):GetDisplayName()))
+	UI:WaitShowTimedDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_25'], CH('Bidoof'):GetDisplayName()))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_26']))
+
 	GROUND:CharAnimateTurnTo(CH('Bidoof'), Dir8.UpLeft, 16)
+
 	GROUND:MoveToPosition(CH('Chatot'), 388, 224, false, 1)
 	-- !! WaitExecuteLives(ACTOR_NPC_PERAPPU)
+
 	GROUND:MoveToPosition(CH('Chatot'), 360, 224, false, 1)
 	-- !! WaitExecuteLives(ACTOR_NPC_PERAPPU)
+
 	GROUND:MoveToPosition(CH('Chatot'), 360, 176, false, 1)
 	-- !! WaitExecuteLives(ACTOR_NPC_PERAPPU)
+
 	GROUND:Hide("Chatot")
 	GAME:WaitFrames(60)
+
 	SOUND:PlayBattleSE("EVT_Emote_Sweating")
 	GROUND:CharSetEmote(CH('Bidoof'), "sweating", 1)
 	GAME:WaitFrames(30)
+
 	UI:SetSpeaker(CH('Bidoof'))
-	UI:SetSpeakerEmotion("UNK_FACE_TEARY_EYED")
+	UI:SetSpeakerEmotion("Teary-Eyed")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Bidoof_3']))
 	-- !! WaitExecuteLives(ACTOR_NPC_BIPPA)
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	UI:SetSpeaker(CH('PARTNER'))
-	UI:SetSpeakerEmotion("UNK_FACE_WORRIED")
+	UI:SetSpeakerEmotion("Worried")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_PARTNER_14']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	GROUND:CharTurnToCharAnimated(CH('Bidoof'), CH('PARTNER'), 2)
 	-- !! WaitExecuteLives(ACTOR_NPC_BIPPA)
+
 	UI:SetSpeaker(CH('Bidoof'))
-	UI:SetSpeakerEmotion("UNK_FACE_TEARY_EYED")
+	UI:SetSpeakerEmotion("Teary-Eyed")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Bidoof_4']))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Bidoof_5']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
-	GROUND:CharSetAnim(CH('Bidoof'), "UNK_23", false)
-	-- TODO WaitAnimation: WaitAnimation<actor ACTOR_NPC_BIPPA>()
+
+	GROUND:CharWaitAnim(CH('Bidoof'), "Pain")
+
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Bidoof_6']))
-	GROUND:CharEndAnim(CH('Bidoof'))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	GROUND:CharTurnToCharAnimated(CH('Bidoof'), CH('PARTNER'), 2)
 	-- !! WaitExecuteLives(ACTOR_NPC_BIPPA)
+
 	UI:SetSpeaker(CH('Bidoof'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Bidoof_7']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
-	GROUND:MoveToPosition(CH('Bidoof'), 360, 208, false, 1)
-	GAME:WaitFrames(10)
-	ExplorerEssentials.MoveToPositionOffset(CH('PARTNER'), -32, 0, false, 1)
-	ExplorerEssentials.MoveToPositionOffset(CH('PLAYER'), -64, 0, false, 1)
-	GROUND:MoveToPosition(CH('Bidoof'), 360, 176, false, 1)
-	GROUND:MoveToPosition(CH('PARTNER'), 360, 208, false, 1)
-	GROUND:Hide("Bidoof")
-	GROUND:MoveToPosition(CH('PLAYER'), 360, 208, false, 1)
-	GROUND:MoveToPosition(CH('PARTNER'), 360, 176, false, 1)
+
+    local coro1 = TASK:BranchCoroutine(function ()
+        GROUND:MoveToPosition(CH('Bidoof'), 360, 208, false, 1)
+        GROUND:MoveToPosition(CH('Bidoof'), 360, 176, false, 1)
+        GROUND:Hide("Bidoof")
+    end)
+    local coro2 = TASK:BranchCoroutine(function ()
+        GAME:WaitFrames(10)
+	    ExplorerEssentials.MoveToPositionOffset(CH('PARTNER'), -32, 0, false, 1)
+        GROUND:MoveToPosition(CH('PARTNER'), 360, 208, false, 1)
+        GROUND:MoveToPosition(CH('PARTNER'), 360, 176, false, 1)
+    end)
+    local coro3 = TASK:BranchCoroutine(function ()
+        GAME:WaitFrames(10)
+	    ExplorerEssentials.MoveToPositionOffset(CH('PLAYER'), -64, 0, false, 1)
+        GROUND:MoveToPosition(CH('PLAYER'), 360, 208, false, 1)
+    end)
+    TASK:JoinCoroutines({coro1, coro2, coro3})
+
 	GAME:FadeOut(false, 30)
+
+    GROUND:EnterGroundMap("guild_basement", "Entrance", true)
 end
 
 function guild_second_floor.CH3_ReadyCheck()

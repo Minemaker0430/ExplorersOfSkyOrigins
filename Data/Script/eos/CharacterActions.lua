@@ -179,7 +179,7 @@ end
 
 -- Dimensional Scream Intro Effect, should be followed by GAME:FadeOut(true, 1) or GAME:FadeOutFront(true, 1)
 function CharacterActions.DimensionalScream_In()
-	local bg_anim = RogueEssence.Content.BGAnimData("DimensionalScreamIn", 2, -1, -1, 128, Dir8.None)
+	local bg_anim = RogueEssence.Content.BGAnimData("DimensionalScreamIn", 2, -1, -1, 255, Dir8.None)
 	
 	local emitter = RogueEssence.Content.FiniteOverlayEmitter()
 	emitter.Anim = bg_anim
@@ -200,7 +200,7 @@ end
 
 -- Dimensional Scream Intro Effect, should be followed by GAME:FadeOut(true, 1) or GAME:FadeOutFront(true, 1)
 function CharacterActions.DimensionalScream_Out()
-	local bg_anim = RogueEssence.Content.BGAnimData("DimensionalScreamOut", 2, -1, -1, 128, Dir8.None)
+	local bg_anim = RogueEssence.Content.BGAnimData("DimensionalScreamOut", 2, -1, -1, 255, Dir8.None)
 	
 	local emitter = RogueEssence.Content.FiniteOverlayEmitter()
 	emitter.Anim = bg_anim

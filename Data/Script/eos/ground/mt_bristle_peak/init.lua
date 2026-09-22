@@ -501,7 +501,7 @@ function mt_bristle_peak.CH3_DefeatedDrowzee()
 	-- TODO WaitAnimation: WaitAnimation<actor ACTOR_NPC_SURIIPU>()
 	GAME:WaitFrames(90)
 	SOUND:PlayBGM("UNK_BGM_IN_THE_DEPTHS_OF_THE_PIT.ogg", true)
-ExplorerEssentials.MoveCameraAtSpeed(344, 160, 1, false)
+	ExplorerEssentials.MoveCameraAtSpeed(344, 160, 1, false)
 	GROUND:MoveToPosition(CH('PLAYER'), 364, 176, false, 1)
 	GAME:WaitFrames(15)
 	GROUND:MoveToPosition(CH('PARTNER'), 324, 176, false, 1)
@@ -536,35 +536,38 @@ ExplorerEssentials.MoveCameraAtSpeed(344, 160, 1, false)
 end
 
 function mt_bristle_peak.CH3_DrowzeeVision()
-	local hTalkKind = SV.Personality.HeroTalkKind
-	local pTalkKind = SV.Personality.PartnerTalkKind
 	-- back_SetGround(LEVEL_D03P41A) (Should be the map you're currently on, or the map it sends you to next)
 	-- ### supervision_Acting(0) [IRRELEVANT]
-	GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
-	-- TODO: switch ( sector() ) {         case 0:         default:             @label_0
-	-- TODO: screen_FlushOut(1, 0, 8, 0, 0, 0)
-	GAME:FadeIn(15)
+	
+	ExplorerEssentials.SetupCameraPos(43, 33)
+	ExplorerEssentials.SetupInitialPos(CH('Drowzee'), 43, 32.5, Direction.Up)
+	ExplorerEssentials.SetupInitialPos(CH('Azurill'), 43, 29.5, Direction.Down)
+
+	GROUND:AddMapStatus("darkness")
+
+	GAME:FadeIn(1)
+	GAME:FadeInFront(15)
 	GAME:WaitFrames(30)
+
 	-- TODO: @label_2
 	UI:SetSpeaker(CH('Drowzee'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_Drowzee_1']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	GROUND:CharSetEmote(CH('Azurill'), "sweating", 1)
 	UI:SetSpeaker(CH('Azurill'))
-	UI:SetSpeakerEmotion("UNK_FACE_TEARY_EYED")
+	UI:SetSpeakerEmotion("Teary-Eyed")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S4_Azurill_1']))
-	-- TODO: switch ( sector() ) {                 case 0:                 default:                     screen_FadeOut(1, 15)
-	-- TODO: @label_5
-	-- TODO: screen_FlushIn(1, 0, 1, 0, 0, 0)
-	-- TODO case: case 1:                     se_Play(5139)
-	-- TODO: screen_WhiteOut(1, 5)
-	-- TODO: jump @label_5
 
--- TODO: break
-GAME:FadeIn(5)
-GAME:WaitFrames(30)
--- TODO: jump @label_2
+	SOUND:PlayBattleSE("EVT_Dimensional_Scream_End")
+	GAME:FadeOutFront(true, 5)
+	CharacterActions.DimensionalScream_Out()
+	GAME:FadeOut(false, 1)
+	GAME:FadeInFront(15)
+	GAME:WaitFrames(30)
+
+	GAME:EnterGroundMap("hub", "treasure_town", "Entrance", false)
 end
 
 return mt_bristle_peak

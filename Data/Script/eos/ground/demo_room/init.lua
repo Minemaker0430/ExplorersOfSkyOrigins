@@ -140,6 +140,7 @@ function demo_room.MenuLoop()
                         }
 
                     _DATA.Save.ActiveTeam.Money = 0
+                    _DATA.Save.ActiveTeam.Bank = 0
                     GAME:SetTeamName('????')
                     _DATA.Save.ActiveTeam:SetRank('none')
                     _DATA.Save.ActiveTeam.Fame = 0
@@ -176,6 +177,7 @@ function demo_room.MenuLoop()
                     SV.ItemTutorials.Ammo = false
 
                     _DATA.Save.ActiveTeam.Money = 0
+                    _DATA.Save.ActiveTeam.Bank = 0
                     
                     local inv_count = _DATA.Save.ActiveTeam:GetInvCount() - 1
 

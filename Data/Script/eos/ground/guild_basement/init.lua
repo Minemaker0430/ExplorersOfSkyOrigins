@@ -49,6 +49,16 @@ function guild_basement.Enter(map)
             print("basement tour")
             guild_basement.CH2_BasementTour()
         end
+    elseif SV.Progression.Chapter == 3 then
+        if SV.DailyFlags.DidMorningCheers ~= true then
+            guild_basement.COMMON_MorningCheer()
+
+            CH('Chatot').CollisionDisabled = true -- ABSOLUTELY NECCESSARY, OTHERWISE TRIGGERS WILL PUSH HIM
+
+            GROUND:Unhide("CutsceneWanderTrigger")
+            GROUND:Unhide("CutsceneWanderTrigger_1")
+            GROUND:Unhide("CutsceneWanderTrigger_2")
+        end
     elseif SV.DailyFlags.DidMorningCheers ~= true then
         guild_basement.COMMON_MorningCheer()
     else -- No Cutscenes
@@ -102,6 +112,8 @@ end
 function guild_basement.CutsceneWanderTrigger_Touch(obj, activator)
     if SV.Progression.Chapter == 2 then
         guild_basement.CH2_ChatotBeckons()
+    elseif SV.Progression.Chapter == 3 then
+        guild_basement.CH3_ChatotCalls()
     end
 end
 
@@ -3495,41 +3507,79 @@ def 0 {
 end
 
 function guild_basement.CH3_ChatotCalls()
-	local hTalkKind = SV.Personality.HeroTalkKind
-	local pTalkKind = SV.Personality.PartnerTalkKind
+    
+    GAME:CutsceneMode(true)
+    AI:DisableCharacterAI(CH('PARTNER'))
+
+    GROUND:Hide("CutsceneWanderTrigger")
+    GROUND:Hide("CutsceneWanderTrigger_1")
+    GROUND:Hide("CutsceneWanderTrigger_2")
+
 	-- TODO: $SCENARIO_MAIN = scn[4, 1]
 	SOUND:PlayBGM("008 - Wigglytuff's Guild.ogg", true)
-	GROUND:CharEndAnim(CH('PLAYER'))
-	GROUND:CharEndAnim(CH('PARTNER'))
-	GROUND:CharEndAnim(CH('Chatot'))
-	-- TODO: camera_SetMyPosition<actor ACTOR_PLAYER>()
+	
+    -- unlock camera
+    ExplorerEssentials.MoveCameraAtSpeedOffset(0, 0, 1, false)
 	-- !! WaitExecuteLives(ACTOR_PLAYER)
-	GROUND:CharTurnToCharAnimated(CH('Chatot'), CH('PLAYER'), 2)
-	GROUND:CharTurnToCharAnimated(CH('PLAYER'), CH('Chatot'), 2)
-	GROUND:CharTurnToCharAnimated(CH('PARTNER'), CH('Chatot'), 2)
-	GROUND:CharSetEmote(CH('Chatot'), "glowing", 1)
-	UI:SetSpeaker(CH('Chatot'))
-	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_1']))
+
+	local coro1 = TASK:BranchCoroutine(function ()
+        GROUND:CharTurnToCharAnimated(CH('Chatot'), CH('PLAYER'), 4)
+    end)
+    local coro2 = TASK:BranchCoroutine(function ()
+        GROUND:CharTurnToCharAnimated(CH('PLAYER'), CH('Chatot'), 4)
+    end)
+    local coro3 = TASK:BranchCoroutine(function ()
+        GROUND:CharTurnToCharAnimated(CH('PARTNER'), CH('Chatot'), 4)
+    end)
+    local coro4 = TASK:BranchCoroutine(function ()
+        GROUND:CharSetEmote(CH('Chatot'), "glowing", -1)
+        UI:SetSpeaker(CH('Chatot'))
+        UI:SetSpeakerEmotion("Normal")
+        UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_1']))
+    end)
+	TASK:JoinCoroutines({coro1, coro2, coro3, coro4})
+	
 	GROUND:CharSetEmote(CH('Chatot'), "none", 1)
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S1_Chatot_2']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
-	GROUND:MoveToPosition(CH('Chatot'), 316, 216, false, 1)
-	GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.UpLeft, 12)
-	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.UpLeft, 12)
+
+    local coro1 = TASK:BranchCoroutine(function ()
+        GROUND:MoveToPosition(CH('Chatot'), 316, 216, false, 1)
+    end)
+    local coro2 = TASK:BranchCoroutine(function ()
+        GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.UpLeft, 12)
+    end)
+    local coro3 = TASK:BranchCoroutine(function ()
+        GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.UpLeft, 12)
+    end)
+	TASK:JoinCoroutines({coro1, coro2, coro3})
 	-- !! WaitExecuteLives(ACTOR_NPC_PERAPPU)
-	GROUND:MoveToPosition(CH('Chatot'), 320, 168, false, 1)
-	ExplorerEssentials.MoveToPositionOffset(CH('Chatot'), 0, -100, false, 1)
-	GROUND:CharTurnToCharAnimated(CH('PLAYER'), CH('PARTNER'), 2)
-	GROUND:CharTurnToCharAnimated(CH('PARTNER'), CH('PLAYER'), 2)
-	GAME:WaitFrames(60)
-	GROUND:MoveToPosition(CH('PLAYER'), 316, 216, false, 1)
-	GAME:WaitFrames(10)
-	GROUND:MoveToPosition(CH('PARTNER'), 316, 216, false, 1)
-	GAME:WaitFrames(20)
-	SOUND:FadeOutBGM(60)
-	GAME:FadeOut(false, 30)
-	-- TODO: WaitBgm(BGM_WIGGLYTUFFS_GUILD)
+
+    local coro1 = TASK:BranchCoroutine(function ()
+        GROUND:MoveToPosition(CH('Chatot'), 320, 168, false, 1)
+	    ExplorerEssentials.MoveToPositionOffset(CH('Chatot'), 0, -100, false, 1)
+    end)
+    local coro2 = TASK:BranchCoroutine(function ()
+        GROUND:CharTurnToCharAnimated(CH('PLAYER'), CH('PARTNER'), 2)
+        GAME:WaitFrames(60)
+        GROUND:MoveToPosition(CH('PLAYER'), 316, 216, false, 1)
+
+    end)
+    local coro3 = TASK:BranchCoroutine(function ()
+        GROUND:CharTurnToCharAnimated(CH('PARTNER'), CH('PLAYER'), 2)
+        GAME:WaitFrames(70)
+        GROUND:MoveToPosition(CH('PARTNER'), 316, 216, false, 1)
+    end)
+    local coro4 = TASK:BranchCoroutine(function ()
+        GAME:WaitFrames(90)
+
+	    SOUND:FadeOutBGM(60)
+	    GAME:FadeOut(false, 30)
+        GAME:WaitFrames(30)
+    end)
+	TASK:JoinCoroutines({coro1, coro2, coro3, coro4})
+	
+    GAME:EnterGroundMap("guild_second_floor", "Entrance", true)
 end
 
 function guild_basement.CH3_BidoofTour()
