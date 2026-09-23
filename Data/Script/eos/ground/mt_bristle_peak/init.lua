@@ -567,6 +567,7 @@ function mt_bristle_peak.CH3_DrowzeeVision()
 	GAME:FadeInFront(15)
 	GAME:WaitFrames(30)
 
+	SV.Cutscene.ProgressFlag = 1
 	GAME:EnterGroundMap("hub", "treasure_town", "Entrance", false)
 end
 

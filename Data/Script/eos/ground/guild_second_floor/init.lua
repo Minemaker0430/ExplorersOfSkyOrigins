@@ -1389,7 +1389,7 @@ function guild_second_floor.CH3_OutlawIntro()
     GROUND:Hide('Bidoof')
 
 	GAME:FadeIn(30)
-	SOUND:PlayBGM("011 - Wigglytuff's Guild Remix.ogg", true)
+	SOUND:PlayBGM("BGM_GuildRemix.ogg", true)
 	
     local coro1 = TASK:BranchCoroutine(function ()
         GROUND:Unhide('Chatot')
@@ -1734,9 +1734,10 @@ end
 function guild_second_floor.CH3_ReadyCheck()
 	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
-	SOUND:PlayBGM("008 - Wigglytuff's Guild.ogg", true)
+	SOUND:PlayBGM("BGM_Guild.ogg", true)
 	GROUND:CharTurnToCharAnimated(CH('PARTNER'), CH('Bidoof'), 2)
 	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+
 	UI:SetSpeaker(CH('Bidoof'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_Bidoof_1']))
@@ -1758,7 +1759,7 @@ end
 function guild_second_floor.CH3_LookAtJobsA()
 	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
-	SOUND:PlayBGM("008 - Wigglytuff's Guild.ogg", true)
+	SOUND:PlayBGM("BGM_Guild.ogg", true)
 	-- TODO: $SCENARIO_MAIN = scn[4, 4]
 	-- ### supervision_Acting(0) [IRRELEVANT]
 	UI:SetSpeaker(CH('Bidoof'))
@@ -1900,7 +1901,7 @@ end
 function guild_second_floor.CH3_LookAtJobsB()
 	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
-	SOUND:PlayBGM("011 - Wigglytuff's Guild Remix.ogg", true)
+	SOUND:PlayBGM("BGM_GuildRemix.ogg", true)
 	-- ### back2_SetMode(4) [IRRELEVANT]
 	-- ### back2_SetGround(LEVEL_V03P02A) [IRRELEVANT]
 	-- back_SetGround(LEVEL_G01P03A) (Should be the map you're currently on, or the map it sends you to next)

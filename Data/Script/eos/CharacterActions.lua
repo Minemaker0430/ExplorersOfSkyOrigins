@@ -193,9 +193,16 @@ function CharacterActions.DimensionalScream_In()
 	emitter.RepeatY = true
 	
 	emitter.Color = Color.White
-	
-	GROUND:PlayVFX(emitter, GAME:GetCameraCenter().X, GAME:GetCameraCenter().Y)
-	GAME:WaitFrames(44) -- wait for as long as the effect lasts
+
+	local coro1 = TASK:BranchCoroutine(function ()
+		GAME:FadeIn(1)
+	end)
+	local coro2 = TASK:BranchCoroutine(function ()
+		GROUND:PlayVFX(emitter, GAME:GetCameraCenter().X - 160, GAME:GetCameraCenter().Y - 120)
+		GAME:WaitFrames(44) -- wait for as long as the effect lasts
+		GAME:FadeOut(true, 1)
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
 end
 
 -- Dimensional Scream Intro Effect, should be followed by GAME:FadeOut(true, 1) or GAME:FadeOutFront(true, 1)
@@ -215,8 +222,17 @@ function CharacterActions.DimensionalScream_Out()
 	
 	emitter.Color = Color.White
 	
-	GROUND:PlayVFX(emitter, GAME:GetCameraCenter().X, GAME:GetCameraCenter().Y)
-	GAME:WaitFrames(28) -- wait for as long as the effect lasts
+	GAME:WaitFrames(60)
+	local coro1 = TASK:BranchCoroutine(function ()
+		GAME:FadeIn(1)
+	end)
+	local coro2 = TASK:BranchCoroutine(function ()
+		GROUND:PlayVFX(emitter, GAME:GetCameraCenter().X - 160, GAME:GetCameraCenter().Y - 120)
+		GAME:WaitFrames(28) -- wait for as long as the effect lasts
+		GAME:FadeOut(false, 1)
+	end)
+	TASK:JoinCoroutines({coro1, coro2})
+	
 end
 
 --- Used when a character (usually the Hero Pokemon) is "Explaining" something, equivalent to CORO_EXPLANATION_FUNC_SERIES in SkyTemple

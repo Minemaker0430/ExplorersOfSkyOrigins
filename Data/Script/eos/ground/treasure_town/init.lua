@@ -39,6 +39,10 @@ end
 --Engine callback function
 function treasure_town.Enter(map)
 	if SV.Progression.Chapter == 3 and SV.Progression.SectionFlag == 1 then
+		GROUND:Unhide("CH3_CutsceneMarker")
+	end
+
+	if SV.Progression.Chapter == 3 and SV.Progression.SectionFlag == 1 and SV.Cutscene.ProgressFlag == 1 then
 		treasure_town.CH3_SawTheFuture()
 	elseif SV.Progression.Chapter == 3 and SV.Progression.SectionFlag == 0 then
 		treasure_town.CH3_EastTownTour()
@@ -324,7 +328,7 @@ function treasure_town.Shop_Action(obj, activator)
 		end
 	end
 
-	if SV.Progression.Chapter == 3 then treasure_town.CH3_MeetingMarillAndAzurill() end
+	if SV.Progression.Chapter == 3 and SV.Progression.SectionFlag == 0 then treasure_town.CH3_MeetingMarillAndAzurill() end
 end -- green kecleon shop action
 
 function treasure_town.TMShop_Action(obj, activator)
@@ -524,7 +528,7 @@ function treasure_town.TMShop_Action(obj, activator)
 		end
 	end
 
-	if SV.Progression.Chapter == 3 then treasure_town.CH3_MeetingMarillAndAzurill() end
+	if SV.Progression.Chapter == 3 and SV.Progression.SectionFlag == 0 then treasure_town.CH3_MeetingMarillAndAzurill() end
 end --purple kecleon shop action
 
 function treasure_town.Moves_Action(obj, activator)
@@ -1347,6 +1351,7 @@ function treasure_town.CH3_SawTheFuture()
 	SOUND:PlayBGM("BGM_TreasureTown.ogg", true)
 
 	SV.Progression.SectionFlag = 2
+	SV.Cutscene.ProgressFlag = 0
 end
 
 function treasure_town.CH3_DrowzeeBumpFlashback()
@@ -1512,7 +1517,7 @@ function treasure_town.CH3_MeetingMarillAndAzurill()
 		CH('Marill'):GetDisplayName(), 
 		CH('Azurill'):GetDisplayName(), 
 		RogueEssence.Dungeon.InvItem("food_apple"):GetDisplayName(),
-		CH('Kecleon'):GetDisplayName()
+		_DATA:GetMonster("kecleon"):GetColoredName()
 	))
 	UI:SetCenter(false)
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
@@ -1795,6 +1800,7 @@ function treasure_town.CH3_MeetingMarillAndAzurill()
 	SOUND:PlayBattleSE("EVT_Dimensional_Scream")
 	CharacterActions.DimensionalScream_In()
 	GAME:FadeOutFront(true, 1)
+	GAME:FadeOut(false, 1)
 
 	treasure_town.CH3_TheScream()
 end
@@ -1852,6 +1858,8 @@ function treasure_town.CH3_TheScream()
 	local pTalkKind = SV.Personality.PartnerTalkKind
 	-- back_SetGround(LEVEL_S04P01A) (Should be the map you're currently on, or the map it sends you to next)
 	
+	GAME:WaitFrames(60)
+
 	GAME:FadeInFront(1)
 	GAME:WaitFrames(30)
 	
@@ -1860,9 +1868,13 @@ function treasure_town.CH3_TheScream()
 	UI:WaitShowVoiceOver(STRINGS:Format(STRINGS.MapStrings['CH3_S10_NARRATION_1']), -1)
 	UI:SetCenter(false)
 
-	SOUND:PlayBattleSE("EVT_Dimensional_Scream_End")
 	GAME:FadeOutFront(true, 5)
+	GAME:FadeOut(true, 1)
+	GAME:FadeInFront(1)
+	SOUND:PlayBattleSE("EVT_Dimensional_Scream_End")
 	CharacterActions.DimensionalScream_Out()
+
+	GAME:WaitFrames(60)
 
 	treasure_town.CH3_HeardSomething()
 end
