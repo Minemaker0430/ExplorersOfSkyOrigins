@@ -82,26 +82,48 @@ end
 -------------------------------
 
 function guild_outside.CH3_LeaveGuild()
-	local hTalkKind = SV.Personality.HeroTalkKind
-	local pTalkKind = SV.Personality.PartnerTalkKind
-	SOUND:PlayBGM("011 - Wigglytuff's Guild Remix.ogg", true)
+
+	SOUND:PlayBGM("BGM_GuildRemix.ogg", true)
+
 	-- back_SetGround(LEVEL_G01P01A) (Should be the map you're currently on, or the map it sends you to next)
 	-- ### supervision_StationCommon(0) [IRRELEVANT]
 	-- ### supervision_Acting(0) [IRRELEVANT]
-	GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
+	
+	ExplorerEssentials.SetupCameraPos(29.5, 22)
+	ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 29.5, 17.5, Direction.Down)
+	ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 29.5, 17.5, Direction.Down)
+	ExplorerEssentials.SetupInitialPos(CH('Bidoof'), 29.5, 17.5, Direction.Down)
+
+	GROUND:Hide('Bidoof')
+	GROUND:Hide('PLAYER')
+	GROUND:Hide('PARTNER')
+
 	GAME:FadeIn(30)
 	GAME:WaitFrames(30)
-	-- ### supervision_Acting(1) [IRRELEVANT]
-	ExplorerEssentials.MoveToPositionOffset(CH('Bidoof'), 0, 140, false, 1)
-	GAME:WaitFrames(30)
-	-- ### supervision_Acting(2) [IRRELEVANT]
-	ExplorerEssentials.MoveToPositionOffset(CH('PLAYER'), 0, 140, false, 1)
-	GAME:WaitFrames(30)
-	-- ### supervision_Acting(3) [IRRELEVANT]
-	ExplorerEssentials.MoveToPositionOffset(CH('PARTNER'), 0, 140, false, 1)
-	GAME:WaitFrames(45)
-	SOUND:FadeOutBGM(60)
-	GAME:FadeOut(false, 30)
+
+	local coro1 = TASK:BranchCoroutine(function()
+		GROUND:Unhide('Bidoof')
+		ExplorerEssentials.MoveToPositionOffset(CH('Bidoof'), 0, 140, false, 1)
+	end)
+	local coro2 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(30)
+		GROUND:Unhide('PLAYER')
+		ExplorerEssentials.MoveToPositionOffset(CH('PLAYER'), 0, 140, false, 1)
+	end)
+	local coro3 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(60)
+		GROUND:Unhide('PARTNER')
+		ExplorerEssentials.MoveToPositionOffset(CH('PARTNER'), 0, 140, false, 1)
+	end)
+	local coro4 = TASK:BranchCoroutine(function()
+		GAME:WaitFrames(105)
+		SOUND:FadeOutBGM(60)
+		GAME:FadeOut(false, 30)
+		GAME:WaitFrames(30)
+	end)
+	TASK:JoinCoroutines({ coro1, coro2, coro3, coro4 })
+	
+	GROUND:EnterGroundMap("crossroads_assembly", "Entrance", true)
 end
 
 function guild_outside.CH2BidoofTutorialScene3()

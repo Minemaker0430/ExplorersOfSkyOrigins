@@ -1239,7 +1239,6 @@ function treasure_town.CH3_MeetingDrowzee()
 end
 
 function treasure_town.CH3_SawTheFuture()
-	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
 	-- TODO CallCommon: CallCommon(CORO_FADE_OUT_ALL_BEFORE)
 	-- back_SetGround(LEVEL_T01P01A) (Should be the map you're currently on, or the map it sends you to next)
