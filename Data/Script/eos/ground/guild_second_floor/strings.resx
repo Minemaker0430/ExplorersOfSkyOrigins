@@ -655,13 +655,13 @@
   <data name="CH3_S2_Bidoof_1" xml:space="preserve">
     <value>Huh?[pause=0] Are you folks all set and ready for some exploring?</value>
   </data>
-  <data name="CH3_S2_Bidoof_2A" xml:space="preserve">
+  <data name="CH3_S2_Bidoof_2" xml:space="preserve">
     <value>Not yet, huh?</value>
   </data>
-  <data name="CH3_S2_Bidoof_3A" xml:space="preserve">
+  <data name="CH3_S2_Bidoof_3" xml:space="preserve">
     <value>Just give me a holler when you're all ready to go.</value>
   </data>
-  <data name="CH3_S2_Bidoof_2B" xml:space="preserve">
+  <data name="CH3_S2_Bidoof_4" xml:space="preserve">
     <value>Then we'll all have a gander at the Outlaw Notice Board and pick out a suitable outlaw for you.</value>
   </data>
   <data name="CH3_S3_Bidoof_1" xml:space="preserve">
@@ -814,23 +814,26 @@
   <data name="CH3_S6_Chatot_3" xml:space="preserve">
     <value>Here's your share for the job.[pause=0] It's yours to keep! ♪</value>
   </data>
-  <data name="CH3_S6_Chatot_4" xml:space="preserve">
-    <value>{0}'s team received the [CS:G]3[MP]000[CR][M:S0] bounty that was on the head of the captured outlaw!</value>
+  <data name="CH3_S6_NARRATION_1" xml:space="preserve">
+    <value>{0}'s team received the {1} bounty that was on the head of the captured outlaw!</value>
+    <comment>{1} = 3000</comment>
   </data>
-  <data name="CH3_S6_Chatot_5" xml:space="preserve">
+  <data name="CH3_S6_NARRATION_2" xml:space="preserve">
     <value>However...</value>
   </data>
-  <data name="CH3_S6_Chatot_6" xml:space="preserve">
-    <value>Because [CS:G]2[MP]700[CR][M:S0] of that is the guild's share...</value>
+  <data name="CH3_S6_NARRATION_3" xml:space="preserve">
+    <value>Because {0} of that is the guild's share...</value>
+    <comment>{0} = 2700</comment>
   </data>
-  <data name="CH3_S6_Chatot_7" xml:space="preserve">
+  <data name="CH3_S6_NARRATION_4" xml:space="preserve">
     <value>That portion was withheld...</value>
   </data>
-  <data name="CH3_S6_Chatot_8" xml:space="preserve">
+  <data name="CH3_S6_NARRATION_5" xml:space="preserve">
     <value>As a result, {0}'s team...</value>
   </data>
-  <data name="CH3_S6_Chatot_9" xml:space="preserve">
-    <value>Received only the remaining [CS:G]300[CR][M:S0]!</value>
+  <data name="CH3_S6_NARRATION_6" xml:space="preserve">
+    <value>Received only the remaining {0}!</value>
+    <comment>{0} = 300</comment>
   </data>
   <data name="CH3_S6_PARTNER_1_1" xml:space="preserve">
     <value>Huh?! We get only this much?!</value>
@@ -901,7 +904,7 @@
   <data name="CH3_S6_PLAYER_3" xml:space="preserve">
     <value>(That first shout I heard from {0}...)</value>
   </data>
-  <data name="CH3_S6_NARRATION_1" xml:space="preserve">
+  <data name="CH3_S6_UNKNOWN_1" xml:space="preserve">
     <value>H-h-h...HELP!</value>
   </data>
   <data name="CH3_S6_PLAYER_4" xml:space="preserve">

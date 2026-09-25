@@ -71,6 +71,8 @@ SV.Progression =
 	[3, 0]
 	[3, 1] = met marill + azurill and saw first scream
 	[3, 2] = met drowzee and saw second scream
+	[3, 3] = drowzee discovered to be an outlaw
+	[3, 4] = drowzee defeated
 	[4, 0]
 	[5, 0]
 	[6, 0]

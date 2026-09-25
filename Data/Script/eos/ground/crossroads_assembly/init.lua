@@ -26,26 +26,21 @@ function crossroads_assembly.Init(map)
   --This will fill the localized strings table automatically based on the locale the game is 
   -- currently in. You can use the MapStrings table after this line!
   
-COMMON:RespawnAllies()
-SOUND:PlayBGM("BGM_TreasureTown.ogg", true)
-ExplorerEssentials.SpawnPartner()
+	SOUND:PlayBGM("BGM_TreasureTown.ogg", true)
+	ExplorerEssentials.SpawnPartner()
 
 end
 
 ---crossroads_assembly.Enter(map)
 --Engine callback function
 function crossroads_assembly.Enter(map)
-
-  GAME:FadeIn(20)
-
-  if SV.Progression.Chapter == 3 then
-        if SV.Progression.SectionFlag == 5 then
-        crossroads_assembly.CH2BidoofTutorialScene4()
-        end
-
-  end
-
-
+	if SV.Progression.Chapter == 3 and SV.Progression.SectionFlag == 3 then
+		crossroads_assembly.CH3_FoundMarill()
+	elseif SV.Progression.Chapter == 3 and SV.Progression.SectionFlag == 0 then
+		crossroads_assembly.CH3_BidoofTour()
+	else
+		GAME:FadeIn(20)
+	end
 end
 
 ---crossroads_assembly.Exit(map)
@@ -176,145 +171,138 @@ function crossroads_assembly.CH3_BidoofTour()
 end
 
 function crossroads_assembly.CH3_FoundMarill()
-	local hTalkKind = SV.Personality.HeroTalkKind
 	local pTalkKind = SV.Personality.PartnerTalkKind
+
 	SOUND:PlayBGM("BGM_OhNo.ogg", true)
 	-- back_SetGround(LEVEL_P01P01A) (Should be the map you're currently on, or the map it sends you to next)
 	-- ### supervision_Acting(0) [IRRELEVANT]
-	GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
-	GAME:WaitFrames(1)
-	GROUND:MoveToPosition(CH('PARTNER'), 212, 96, false, 1)
-	GROUND:MoveToPosition(CH('PLAYER'), 212, 72, false, 1)
-	GAME:FadeIn(15)
-	GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_MARIRU'), "sweating", 1)
+
+	ExplorerEssentials.SetupCameraPos(26.5, 16)
+	ExplorerEssentials.SetupInitialPos(CH('PLAYER'), 26.5, -0.5, Direction.Down)
+	ExplorerEssentials.SetupInitialPos(CH('PARTNER'), 26.5, 2.5, Direction.Down)
+	ExplorerEssentials.SetupInitialPos(CH('Marill'), 41.5, 23.5, Direction.Right)
+
+	local coro1 = TASK:BranchCoroutine(function ()
+        GROUND:MoveToPosition(CH('PARTNER'), 212, 96, false, 1)
+    end)
+    local coro2 = TASK:BranchCoroutine(function ()
+		GROUND:MoveToPosition(CH('PLAYER'), 212, 72, false, 1)
+    end)
+    local coro3 = TASK:BranchCoroutine(function ()
+		GAME:FadeIn(15)
+		GROUND:CharSetEmote(CH('Marill'), "sweating", 1)
+    end)
+    TASK:JoinCoroutines({coro1, coro2, coro3})
 	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
 	-- !! WaitExecuteLives(ACTOR_PLAYER)
-	GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_MARIRU'), "sweating", 1)
-	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.DownRight, 2)
-	GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.DownRight, 2)
-	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
+
+	GROUND:CharSetEmote(CH('Marill'), "sweating", 1)
+
+	local coro1 = TASK:BranchCoroutine(function ()
+        GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.DownRight, 2)
+    end)
+    local coro2 = TASK:BranchCoroutine(function ()
+		GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.DownRight, 2)
+    end)
+    TASK:JoinCoroutines({coro1, coro2})
+
 	GROUND:CharSetEmote(CH('PARTNER'), "exclaim", 1)
 	GAME:WaitFrames(30)
+
 	UI:SetSpeaker(CH('PARTNER'))
 	UI:SetSpeakerEmotion("Surprised")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_PARTNER_1_'..tostring(pTalkKind)]))
-ExplorerEssentials.MoveCameraAtSpeed(212, 184, 1, false)
-	GROUND:MoveToPosition(CH('PARTNER'), 212, 200, false, 1)
-	GROUND:MoveToPosition(CH('PLAYER'), 212, 176, false, 1)
-	GROUND:CharAnimateTurnTo(CH('UNK_ACTOR_NPC_MARIRU'), Dir8.Left, 1)
+
+	local coro1 = TASK:BranchCoroutine(function ()
+        ExplorerEssentials.MoveCameraAtSpeed(212, 184, 1, false)
+    end)
+    local coro2 = TASK:BranchCoroutine(function ()
+		GROUND:MoveToPosition(CH('PARTNER'), 212, 200, false, 1)
+		GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Right, 2)
+    end)
+    local coro3 = TASK:BranchCoroutine(function ()
+		GROUND:MoveToPosition(CH('PLAYER'), 212, 176, false, 1)
+		GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.Right, 2)
+    end)
+	local coro4 = TASK:BranchCoroutine(function ()
+		GROUND:CharAnimateTurnTo(CH('Marill'), Dir8.Left, 1)
+		GROUND:CharSetEmote(CH('Marill'), "exclaim", 1)
+		GAME:WaitFrames(30)
+		GROUND:MoveToPosition(CH('Marill'), 256, 192, false, 1)
+		GAME:WaitFrames(10)
+    end)
+    TASK:JoinCoroutines({coro1, coro2, coro3, coro4})
 	-- !! WaitExecuteLives(ACTOR_NPC_MARIRU)
-	GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_MARIRU'), "exclaim", 1)
-	GAME:WaitFrames(30)
-	GROUND:MoveToPosition(CH('UNK_ACTOR_NPC_MARIRU'), 256, 192, false, 1)
-	GAME:WaitFrames(10)
 	-- !! WaitExecuteLives(ACTOR_ATTENDANT1)
-	GROUND:CharAnimateTurnTo(CH('PARTNER'), Dir8.Right, 2)
 	-- !! WaitExecuteLives(ACTOR_PLAYER)
-	GROUND:CharAnimateTurnTo(CH('PLAYER'), Dir8.Right, 2)
 	-- TODO: WaitExecutePerformer(0)
+
 	UI:SetSpeaker(CH('PARTNER'))
 	UI:SetSpeakerEmotion("Normal")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_PARTNER_2_'..tostring(pTalkKind)]))
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_PARTNER_3']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
-	CharacterActions.HopOnce(CH('UNK_ACTOR_NPC_MARIRU'), CH('UNK_ACTOR_NPC_MARIRU').Direction)
+
+	CharacterActions.HopOnce(CH('Marill'), CH('Marill').Direction)
 	-- !! WaitExecuteLives(ACTOR_NPC_MARIRU)
-	GROUND:CharSetEmote(CH('UNK_ACTOR_NPC_MARIRU'), "sweating", 1)
-	UI:SetSpeaker(CH('UNK_ACTOR_NPC_MARIRU'))
+
+	GROUND:CharSetEmote(CH('Marill'), "sweating", 1)
+	UI:SetSpeaker(CH('Marill'))
 	UI:SetSpeakerEmotion("Sigh")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_UNK_ACTOR_NPC_MARIRU_1']))
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_UNK_ACTOR_NPC_MARIRU_2']))
-	UI:WaitShowTimedDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_UNK_ACTOR_NPC_MARIRU_3']), CH('DROWZEE'):GetDisplayName(), CH('AZURILL'):GetDisplayName())
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_UNK_ACTOR_NPC_MARIRU_4']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_Marill_1']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_Marill_2']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_Marill_3'], CH('Drowzee'):GetDisplayName(), CH('Azurill'):GetDisplayName()))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_Marill_4']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
+
 	UI:SetSpeaker(CH('PARTNER'))
 	UI:SetSpeakerEmotion("Surprised")
 	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_PARTNER_4']))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
-	UI:SetSpeaker(CH('UNK_ACTOR_NPC_MARIRU'))
+
+	UI:SetSpeaker(CH('Marill'))
 	UI:SetSpeakerEmotion("Sigh")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_UNK_ACTOR_NPC_MARIRU_5']))
-	ExplorerEssentials.MoveToPositionOffset(CH('UNK_ACTOR_NPC_MARIRU'), 120, 0, false, 2)
-	GAME:WaitFrames(10)
-	ExplorerEssentials.MoveToPositionOffset(CH('PLAYER'), 160, 0, false, 2)
-	GAME:WaitFrames(5)
-	ExplorerEssentials.MoveToPositionOffset(CH('PARTNER'), 160, 0, false, 2)
-	GAME:WaitFrames(45)
-	SOUND:FadeOutBGM(120)
-	GAME:FadeOut(false, 60)
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_Marill_5']))
+
+	local coro1 = TASK:BranchCoroutine(function ()
+        ExplorerEssentials.MoveToPositionOffset(CH('Marill'), 120, 0, false, 2)
+    end)
+    local coro2 = TASK:BranchCoroutine(function ()
+		GAME:WaitFrames(10)
+		ExplorerEssentials.MoveToPositionOffset(CH('PLAYER'), 160, 0, false, 2)
+    end)
+    local coro3 = TASK:BranchCoroutine(function ()
+		GAME:WaitFrames(15)
+		ExplorerEssentials.MoveToPositionOffset(CH('PARTNER'), 160, 0, false, 2)
+    end)
+	local coro4 = TASK:BranchCoroutine(function ()
+		GAME:WaitFrames(60)
+		SOUND:FadeOutBGM(120)
+		GAME:FadeOut(false, 60)
+		GAME:WaitFrames(60)
+    end)
+    TASK:JoinCoroutines({coro1, coro2, coro3, coro4})
+
 	-- TODO: WaitBgm(BGM_OH_NO)
 	-- TODO: dungeon_mode(4) = DMODE_OPEN
+
+	GAME:EnterZone('mt_bristle', -1, 0, 0)
 end
-
-function crossroads_assembly.CH2BidoofTutorialScene4()
-        player = CH("PLAYER")
-        partner = CH("TEAMMATE_1") --why does this have to be like this?
-        Bidoof = CH("Bidoof")
-	AI:DisableCharacterAI(partner)
-        GAME:MoveCamera(0, 0, 1, true)
-        local hTalkKind = SV.Personality.HeroTalkKind
-        local pTalkKind = SV.Personality.PartnerTalkKind
-        Bidoof.CollisionDisabled = true
-        partner.CollisionDisabled = true
-        player.CollisionDisabled = true
-        local marker = MRKR("GuildOutsideEntranceMarker")
-
-        GAME:FadeIn(20)
-        GROUND:TeleportTo(Bidoof, marker.Position.X, marker.Position.Y, Direction.Down)
-        GROUND:TeleportTo(player, marker.Position.X, marker.Position.Y, Direction.Down)
-        GROUND:TeleportTo(partner, marker.Position.X, marker.Position.Y, Direction.Down)
-
-        local coro2 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(Bidoof, 211, 153, false, 1) end)
-        local coro3 = TASK:BranchCoroutine(function() GAME:WaitFrames(30) GROUND:MoveToPosition(player, 211, 132, false, 1) end)
-        local coro4 = TASK:BranchCoroutine(function() GAME:WaitFrames(60) GROUND:MoveToPosition(partner, 211, 107, false, 1) end )
-        TASK:JoinCoroutines({coro2, coro3, coro4})
-	GROUND:CharAnimateTurnTo(partner, Direction.DownRight, 2)
-	GROUND:CharAnimateTurnTo(player, Direction.Right, 2)
-	GROUND:CharAnimateTurnTo(Bidoof, Direction.Right, 2)
-	GAME:MoveCamera(marker.Position.X + 80, marker.Position.Y, 1, true)
-	--bidoof talks 1
-	--bidoof talks 2
-	GROUND:MoveToPosition(partner, 239, 107, false, 1)
-	GROUND:CharAnimateTurnTo(partner, Direction.DownRight, 2)
-	--bidoof talks 3
-	--bidoof talks 4
-	--bidoof talks 5
-	GROUND:CharAnimateTurnTo(partner, Direction.Down, 2)
-	GROUND:CharAnimateTurnTo(player, Direction.Down, 2)
-	GROUND:CharAnimateTurnTo(Bidoof, Direction.Down, 2)
-        local marker1 = MRKR("TreasureTownEntranceMarker")
-        local coro5 = TASK:BranchCoroutine(function() GROUND:MoveToPosition(Bidoof, 215, 194, false, 1) GROUND:MoveToPosition(Bidoof, marker1.Position.X, marker1.Position.Y, false, 1) end)
-        local coro6 = TASK:BranchCoroutine(function() GAME:WaitFrames(30) GROUND:MoveToPosition(player, 215, 194, false, 1) GROUND:MoveToPosition(player, marker1.Position.X, marker1.Position.Y, false, 1)  end)
-        local coro7 = TASK:BranchCoroutine(function() GAME:WaitFrames(60) GROUND:MoveToPosition(partner, 211, 107, false, 1) GROUND:MoveToPosition(partner, 215, 194, false, 1) GROUND:MoveToPosition(partner, marker1.Position.X, marker1.Position.Y, false, 1) end)
-	local coro8 = TASK:BranchCoroutine(function() GAME:WaitFrames(180) GAME:FadeOut(false, 10) end)
-        TASK:JoinCoroutines({coro5, coro6, coro7, coro8})
-
-        SV.Progression.SectionFlag = 6
-        GAME:EnterGroundMap("treasure_town", "CrossRoadsAssemblyEntranceMarker")
-
-end
-
 
 -------------------------------
 -- Entities Callbacks
 -------------------------------
 
 function crossroads_assembly.GuildOutsideEntrance_Touch(obj, activator)
-SV.partner.Spawn = 'CrossRoadsEntranceMarker'
-GAME:EnterGroundMap("guild_outside", "CrossRoadsEntranceMarker")
-
+	GAME:EnterGroundMap("guild_outside", "CrossRoadsEntranceMarker")
 end
 
 function crossroads_assembly.CrossRoadsSouthEntrance_Touch(obj, activator)
-SV.partner.Spawn = 'CrossRoadsAssemblyEntranceMarker'
-GAME:EnterGroundMap("crossroads_south", "CrossRoadsAssemblyEntranceMarker")
-
+	GAME:EnterGroundMap("crossroads_south", "CrossRoadsAssemblyEntranceMarker")
 end
 
 function crossroads_assembly.TreasureTownEntrance_Touch(obj, activator)
-SV.partner.Spawn = 'CrossRoadsAssemblyEntranceMarker'
-GAME:EnterGroundMap("treasure_town", "CrossRoadsAssemblyEntranceMarker")
-
+	GAME:EnterGroundMap("treasure_town", "CrossRoadsAssemblyEntranceMarker")
 end
 
 return crossroads_assembly
