@@ -7,7 +7,7 @@
 "LocalTexts": {}
 },
 "Desc": {
-"DefaultText": "",
+"DefaultText": "An item that afflicts the enemy with a Decoy status condition. The target with a Decoy status is transformed into a decoy that also attracts the attacks of its own allies.",
 "LocalTexts": {}
 },
 "Released": false,
