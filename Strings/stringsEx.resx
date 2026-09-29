@@ -371,7 +371,7 @@
     <comment>0 = Geo Pebble</comment>
   </data>
   <data name="TUTORIAL_AMMO_2" xml:space="preserve">
-    <value>You can hold up to 99 {0} or {1} as one item in the Treasure Bag, so make sure to sort the Treasure Bag by opening it and pressing {2}!</value>
+    <value>You can hold up to 9 {0} or {1} as one item in the Treasure Bag, so make sure to sort the Treasure Bag by opening it and pressing {2}!</value>
     <comment>0 = Geo Pebble
 	1 = Stick
 	2 = Sort Btn (S)</comment>
@@ -980,14 +980,14 @@ were my very own! ♪</value>
   <data name="SWAP_ITEM_INFO_1" xml:space="preserve">
     <value>You'll need a set of items with the \uE10C mark to do the swap.</value>
   </data>
-  <data name="SWAP_ITEM_INFO_3" xml:space="preserve">
-    <value>You could swap them for a {0}. Get it?</value>
-    <comment>{0} = Flash Tag</comment>
-  </data>
   <data name="SWAP_ITEM_INFO_2" xml:space="preserve">
     <value>Let me give you an example.[pause=0] Let's say you have a {0} and
 a {1)...</value>
     <comment>{0} = Shinx Claw, {1} = Shinx Fang</comment>
+  </data>
+  <data name="SWAP_ITEM_INFO_3" xml:space="preserve">
+    <value>You could swap them for a {0}. Get it?</value>
+    <comment>{0} = Flash Tag</comment>
   </data>
   <data name="SWAP_ITEM_INFO_4" xml:space="preserve">
     <value>Also,[pause=0] you don't have to be limited to just your Treasure Bag...</value>
@@ -1067,5 +1067,12 @@ a {1)...</value>
   </data>
   <data name="MENU_BANK_WITHDRAWL" xml:space="preserve">
     <value>Withdraw</value>
+  </data>
+  <data name="TUTORIAL_WANDS_1" xml:space="preserve">
+    <value>Wands are powerful items that can affect the environment and Pokémon around you!</value>
+  </data>
+  <data name="TUTORIAL_WANDS_2" xml:space="preserve">
+    <value>You can hold up to 9 of each wand as one item, so make sure to sort the Treasure Bag by opening it and pressing {0}!</value>
+    <comment>{0} = Sort Btn (S)</comment>
   </data>
 </root>

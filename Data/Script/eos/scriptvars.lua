@@ -134,7 +134,8 @@ SV.ItemTutorials =
 	WeatherOrbAlt = false,
 	Ammo = false,
 	Lookalikes = false,
-	Money = false
+	Money = false,
+	Wands = false
 }
 
 --From Halycon

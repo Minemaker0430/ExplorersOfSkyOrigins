@@ -1,5 +1,5 @@
 ﻿{
-"Version": "0.8.11.0",
+"Version": "0.8.12.0",
 "Object": {
 "$type": "RogueEssence.Data.ZoneData, RogueEssence",
 "Name": {
@@ -5498,6 +5498,20 @@
 "Spawns": [
 {
 "Spawn": {
+"ID": "seed_decoy",
+"Cursed": false,
+"HiddenValue": "",
+"Amount": 0,
+"Price": 0
+},
+"Rate": 5,
+"Range": {
+"Min": 0,
+"Max": 9
+}
+},
+{
+"Spawn": {
 "ID": "seed_blinker",
 "Cursed": false,
 "HiddenValue": "",
@@ -5893,20 +5907,6 @@
 },
 {
 "Spawn": {
-"ID": "orb_switcher",
-"Cursed": false,
-"HiddenValue": "",
-"Amount": 0,
-"Price": 0
-},
-"Rate": 1,
-"Range": {
-"Min": 0,
-"Max": 9
-}
-},
-{
-"Spawn": {
 "ID": "orb_rollcall",
 "Cursed": false,
 "HiddenValue": "",
@@ -5991,20 +5991,6 @@
 },
 {
 "Spawn": {
-"ID": "orb_transfer",
-"Cursed": false,
-"HiddenValue": "",
-"Amount": 0,
-"Price": 0
-},
-"Rate": 2,
-"Range": {
-"Min": 0,
-"Max": 4
-}
-},
-{
-"Spawn": {
 "ID": "orb_decoy",
 "Cursed": false,
 "HiddenValue": "",
@@ -6016,13 +6002,56 @@
 "Min": 0,
 "Max": 4
 }
+}
+],
+"SpawnRates": {
+"nodes": [
+{
+"Item": 10,
+"Range": {
+"Min": 0,
+"Max": 9
+}
+}
+]
+}
+},
+"wands": {
+"Spawns": [
+{
+"Spawn": {
+"ID": "wand_switcher",
+"Cursed": false,
+"HiddenValue": "",
+"Amount": 1,
+"Price": 0
+},
+"Rate": 1,
+"Range": {
+"Min": 0,
+"Max": 9
+}
 },
 {
 "Spawn": {
-"ID": "orb_warp",
+"ID": "wand_transfer",
 "Cursed": false,
 "HiddenValue": "",
-"Amount": 0,
+"Amount": 1,
+"Price": 0
+},
+"Rate": 2,
+"Range": {
+"Min": 0,
+"Max": 4
+}
+},
+{
+"Spawn": {
+"ID": "wand_warp",
+"Cursed": false,
+"HiddenValue": "",
+"Amount": 1,
 "Price": 0
 },
 "Rate": 3,

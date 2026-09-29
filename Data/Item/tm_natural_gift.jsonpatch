@@ -1,0 +1,96 @@
+﻿{
+  "Version": [
+    "0.0",
+    "0.8.12.0"
+  ],
+  "Object": {
+    "Name": {
+      "LocalTexts": {
+        "fr": [
+          "CT Don Naturel",
+          0,
+          0
+        ],
+        "de": [
+          "TM Beerenkräfte",
+          0,
+          0
+        ],
+        "es": [
+          "MT Don Natural",
+          0,
+          0
+        ],
+        "pt": [
+          "MT Natural Gift",
+          0,
+          0
+        ],
+        "it": [
+          "MT Dononaturale",
+          0,
+          0
+        ],
+        "ko": [
+          "자연의은혜 기술머신 ",
+          0,
+          0
+        ],
+        "ja": [
+          "わざマシンしぜんのめぐみ",
+          0,
+          0
+        ],
+        "zh-hans": [
+          "TM 自然之恩",
+          0,
+          0
+        ],
+        "zh-hant": [
+          "TM 自然之恩",
+          0,
+          0
+        ]
+      }
+    },
+    "Desc": {
+      "LocalTexts": {
+        "fr": [
+          "Apprend la capacité Don Naturel à un Pokémon.",
+          0,
+          0
+        ],
+        "de": [
+          "Bringt einem Pokémon die Attacke Beerenkräfte bei.",
+          0,
+          0
+        ],
+        "es": [
+          "Enseña el movimiento Don Natural a un Pokémon",
+          0,
+          0
+        ],
+        "pt": [
+          "Ensina o golpe Natural Gift para um Pokémon.",
+          0,
+          0
+        ],
+        "it": [
+          "Insegna la mossa Dononaturale a un Pokémon.",
+          0,
+          0
+        ],
+        "ko": [
+          "포켓몬에게 자연의은혜[을/를] 가르친다.",
+          0,
+          0
+        ],
+        "zh-hans": [
+          "使宝可梦学会招式 自然之恩。",
+          0,
+          0
+        ]
+      }
+    }
+  }
+}

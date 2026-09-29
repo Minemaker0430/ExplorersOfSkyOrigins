@@ -30,7 +30,10 @@ Disclaimer: This project is in no way affiliated with Nintendo, Creatures Inc, T
 	- Heal Seed -> Lum Berry
 	- Max Elixir -> Leppa Berry (Max Elixir is buffed in Origins, Leppa Berry serves the same purpose as in EoS. Max Elixirs can still be obtained.)
 	- X-Eye Seed -> Decoy Seed
-	- Foe-Fear Orb -> TBA
+	- Foe-Fear Orb -> [TBA]
+	- Warp Orb -> Warp Wand
+	- Switcher Orb -> Switcher Wand
+	- Transfer Orb -> Transfer Wand
  - IQ is completely irrelevant so Spinda's Juice Bar is now used for Major Stat Buffs. (NYI)
  - Recruitment now uses Apricorns spawned in valid dungeons. (NYI)
  - Storage no longer has a limit. (NYI)

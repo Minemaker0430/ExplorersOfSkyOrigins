@@ -78614,10 +78614,307 @@
 {
 "Name": "New EntLayer",
 "Visible": true,
-"MapChars": [],
+"MapChars": [
+{
+"Direction": 0,
+"IsInteracting": false,
+"AIEnabled": true,
+"EntName": "Drowzee",
+"EntEnabled": true,
+"EntOrder": 0,
+"InteractOrder": 0,
+"serializationLoc": {
+"X": -25,
+"Y": 73
+},
+"serializationHeight": 0,
+"serializationDir": 0,
+"triggerType": 1,
+"<AI>k__BackingField": null,
+"Data": {
+"Nickname": "",
+"OriginalUUID": "",
+"OriginalTeam": "",
+"BaseForm": {
+"Species": "drowzee",
+"Form": 0,
+"Skin": "normal",
+"Gender": 0
+},
+"Level": 1,
+"EXP": 0,
+"MaxHPBonus": 0,
+"AtkBonus": 0,
+"DefBonus": 0,
+"MAtkBonus": 0,
+"MDefBonus": 0,
+"SpeedBonus": 0,
+"BaseSkills": [
+{
+"SkillNum": "",
+"Charges": 0,
+"CanForget": true
+},
+{
+"SkillNum": "",
+"Charges": 0,
+"CanForget": true
+},
+{
+"SkillNum": "",
+"Charges": 0,
+"CanForget": true
+},
+{
+"SkillNum": "",
+"Charges": 0,
+"CanForget": true
+}
+],
+"BaseIntrinsics": [
+""
+],
+"FormIntrinsicSlot": -1,
+"Relearnables": {},
+"Discriminator": 0,
+"MetAt": "",
+"MetLoc": {
+"ID": "",
+"StructID": {
+"Segment": -1,
+"ID": -1
+},
+"EntryPoint": -1
+},
+"DefeatAt": "",
+"DefeatLoc": {
+"ID": "",
+"StructID": {
+"Segment": -1,
+"ID": -1
+},
+"EntryPoint": -1
+},
+"IsFounder": false,
+"IsPartner": false,
+"NameLocked": false,
+"IsFavorite": false,
+"Unrecruitable": false,
+"ActionEvents": [],
+"ScriptVars": null
+},
+"CollisionDisabled": false,
+"Collider": {
+"X": 0,
+"Y": 0,
+"Width": 16,
+"Height": 16
+}
+},
+{
+"Direction": 0,
+"IsInteracting": false,
+"AIEnabled": true,
+"EntName": "Azurill",
+"EntEnabled": true,
+"EntOrder": 0,
+"InteractOrder": 0,
+"serializationLoc": {
+"X": -25,
+"Y": 93
+},
+"serializationHeight": 0,
+"serializationDir": 0,
+"triggerType": 1,
+"<AI>k__BackingField": null,
+"Data": {
+"Nickname": "",
+"OriginalUUID": "",
+"OriginalTeam": "",
+"BaseForm": {
+"Species": "azurill",
+"Form": 0,
+"Skin": "normal",
+"Gender": 0
+},
+"Level": 1,
+"EXP": 0,
+"MaxHPBonus": 0,
+"AtkBonus": 0,
+"DefBonus": 0,
+"MAtkBonus": 0,
+"MDefBonus": 0,
+"SpeedBonus": 0,
+"BaseSkills": [
+{
+"SkillNum": "",
+"Charges": 0,
+"CanForget": true
+},
+{
+"SkillNum": "",
+"Charges": 0,
+"CanForget": true
+},
+{
+"SkillNum": "",
+"Charges": 0,
+"CanForget": true
+},
+{
+"SkillNum": "",
+"Charges": 0,
+"CanForget": true
+}
+],
+"BaseIntrinsics": [
+""
+],
+"FormIntrinsicSlot": -1,
+"Relearnables": {},
+"Discriminator": 0,
+"MetAt": "",
+"MetLoc": {
+"ID": "",
+"StructID": {
+"Segment": -1,
+"ID": -1
+},
+"EntryPoint": -1
+},
+"DefeatAt": "",
+"DefeatLoc": {
+"ID": "",
+"StructID": {
+"Segment": -1,
+"ID": -1
+},
+"EntryPoint": -1
+},
+"IsFounder": false,
+"IsPartner": false,
+"NameLocked": false,
+"IsFavorite": false,
+"Unrecruitable": false,
+"ActionEvents": [],
+"ScriptVars": null
+},
+"CollisionDisabled": false,
+"Collider": {
+"X": 0,
+"Y": 0,
+"Width": 16,
+"Height": 16
+}
+}
+],
 "GroundObjects": [],
-"Spawners": [],
-"Markers": []
+"Spawners": [
+{
+"NPCName": "PARTNER",
+"NPCChar": {
+"Nickname": "",
+"OriginalUUID": "",
+"OriginalTeam": "",
+"BaseForm": {
+"Species": "missingno",
+"Form": 0,
+"Skin": "normal",
+"Gender": 0
+},
+"Level": 0,
+"EXP": 0,
+"MaxHPBonus": 0,
+"AtkBonus": 0,
+"DefBonus": 0,
+"MAtkBonus": 0,
+"MDefBonus": 0,
+"SpeedBonus": 0,
+"BaseSkills": [
+{
+"SkillNum": "",
+"Charges": 0,
+"CanForget": true
+},
+{
+"SkillNum": "",
+"Charges": 0,
+"CanForget": true
+},
+{
+"SkillNum": "",
+"Charges": 0,
+"CanForget": true
+},
+{
+"SkillNum": "",
+"Charges": 0,
+"CanForget": true
+}
+],
+"BaseIntrinsics": [
+""
+],
+"FormIntrinsicSlot": -1,
+"Relearnables": {},
+"Discriminator": 0,
+"MetAt": "",
+"MetLoc": {
+"ID": "",
+"StructID": {
+"Segment": -1,
+"ID": -1
+},
+"EntryPoint": -1
+},
+"DefeatAt": "",
+"DefeatLoc": {
+"ID": "",
+"StructID": {
+"Segment": -1,
+"ID": -1
+},
+"EntryPoint": -1
+},
+"IsFounder": false,
+"IsPartner": false,
+"NameLocked": false,
+"IsFavorite": false,
+"Unrecruitable": false,
+"ActionEvents": [],
+"ScriptVars": null
+},
+"EntName": "PARTNER_SPAWN",
+"Direction": 0,
+"EntEnabled": true,
+"EntOrder": 0,
+"InteractOrder": 0,
+"triggerType": 0,
+"EntityCallbacks": [],
+"Collider": {
+"X": -23,
+"Y": 4,
+"Width": 16,
+"Height": 16
+}
+}
+],
+"Markers": [
+{
+"EntName": "Entrance",
+"Direction": 4,
+"EntEnabled": true,
+"EntOrder": 0,
+"InteractOrder": 0,
+"triggerType": 0,
+"Collider": {
+"X": 2,
+"Y": 5,
+"Width": 16,
+"Height": 16
+}
+}
+]
 }
 ]
 }

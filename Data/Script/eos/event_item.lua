@@ -167,5 +167,12 @@ function ITEM_SCRIPT.ItemTutorials(owner, ownerChar, context, args)
         UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_MONEY"):ToLocal()))
         SV.ItemTutorials.Money = true
         GAME:WaitFrames(20)
+    elseif (item == "wand_warp" or item == "wand_transfer" or item == "wand_switcher") and not SV.ItemTutorials.Wands then
+        GAME:WaitFrames(20)
+        SOUND:PlayFanfare("Fanfare/Note")
+        UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_WANDS_1"):ToLocal()))
+        UI:WaitShowDialogue(STRINGS:Format(RogueEssence.StringKey("TUTORIAL_WANDS_2"):ToLocal(), STRINGS:LocalKeyString(25)))
+        SV.ItemTutorials.Wands = true
+        GAME:WaitFrames(20)
     end
 end
