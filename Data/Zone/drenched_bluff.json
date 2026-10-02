@@ -4482,7 +4482,7 @@
 },
 "SpecifiedSkills": [],
 "Intrinsic": "",
-"Tactic": "wander_normal",
+"Tactic": "wander_dumb",
 "SpawnConditions": [],
 "SpawnFeatures": []
 },
@@ -4509,7 +4509,7 @@
 },
 "SpecifiedSkills": [],
 "Intrinsic": "",
-"Tactic": "wander_normal",
+"Tactic": "wander_dumb",
 "SpawnConditions": [],
 "SpawnFeatures": []
 },
@@ -4536,7 +4536,7 @@
 },
 "SpecifiedSkills": [],
 "Intrinsic": "",
-"Tactic": "wander_normal",
+"Tactic": "wander_dumb",
 "SpawnConditions": [],
 "SpawnFeatures": []
 },
@@ -4563,7 +4563,7 @@
 },
 "SpecifiedSkills": [],
 "Intrinsic": "",
-"Tactic": "wander_normal",
+"Tactic": "wander_dumb",
 "SpawnConditions": [],
 "SpawnFeatures": []
 },
@@ -4590,7 +4590,7 @@
 },
 "SpecifiedSkills": [],
 "Intrinsic": "",
-"Tactic": "wander_normal",
+"Tactic": "wander_dumb",
 "SpawnConditions": [],
 "SpawnFeatures": []
 },
@@ -4617,7 +4617,7 @@
 },
 "SpecifiedSkills": [],
 "Intrinsic": "",
-"Tactic": "wander_normal",
+"Tactic": "wander_dumb",
 "SpawnConditions": [],
 "SpawnFeatures": []
 },
@@ -4644,7 +4644,7 @@
 },
 "SpecifiedSkills": [],
 "Intrinsic": "",
-"Tactic": "wander_normal",
+"Tactic": "wander_dumb",
 "SpawnConditions": [],
 "SpawnFeatures": []
 },
@@ -4671,7 +4671,7 @@
 },
 "SpecifiedSkills": [],
 "Intrinsic": "",
-"Tactic": "wander_normal",
+"Tactic": "wander_dumb",
 "SpawnConditions": [],
 "SpawnFeatures": []
 },

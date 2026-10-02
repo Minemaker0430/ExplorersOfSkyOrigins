@@ -211,7 +211,7 @@ function crossroads_assembly.CH3_FoundMarill()
 
 	UI:SetSpeaker(CH('PARTNER'))
 	UI:SetSpeakerEmotion("Surprised")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_PARTNER_1_'..tostring(pTalkKind)]))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_PARTNER_1_'..tostring(pTalkKind)], CH('Marill'):GetDisplayName()))
 
 	local coro1 = TASK:BranchCoroutine(function ()
         ExplorerEssentials.MoveCameraAtSpeed(212, 184, 1, false)
@@ -239,8 +239,8 @@ function crossroads_assembly.CH3_FoundMarill()
 
 	UI:SetSpeaker(CH('PARTNER'))
 	UI:SetSpeakerEmotion("Normal")
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_PARTNER_2_'..tostring(pTalkKind)]))
-	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_PARTNER_3']))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_PARTNER_2_'..tostring(pTalkKind)], CH('Marill'):GetDisplayName()))
+	UI:WaitShowDialogue(STRINGS:Format(STRINGS.MapStrings['CH3_S2_PARTNER_3'], CH('Azurill'):GetDisplayName(), CH('Drowzee'):GetDisplayName()))
 	-- !! CallCommon(CORO_MESSAGE_CLOSE_WAIT_FUNC)
 
 	CharacterActions.HopOnce(CH('Marill'), CH('Marill').Direction)

@@ -22,7 +22,14 @@ end
 --Engine callback function
 function mt_bristle_entrance.Enter(map)
 
-  GAME:FadeIn(20)
+	if SV.Progression.Chapter == 3 and SV.Progression.SectionFlag == 3 and ((not SV.mt_bristle.FailedDungeon) or (not SV.mt_bristle.FailedBoss)) then
+		mt_bristle_entrance.CH3_Entrance()
+	elseif SV.Progression.Chapter == 3 and SV.Progression.SectionFlag == 4 then
+		mt_bristle_entrance.CH3_DrowzeeArrested()
+	else
+		GAME:CutsceneMode(false)
+        GAME:EnterDungeon('mt_bristle', 0, 0, 0, RogueEssence.Data.GameProgress.DungeonStakes.Risk, true, false)
+	end
 
 end
 
@@ -70,7 +77,7 @@ function mt_bristle_entrance.CH3_Entrance()
 	-- ### supervision_Acting(0) [IRRELEVANT]
 	GAME:MoveCamera(MRKR('PERF_0').Position.X, MRKR('PERF_0').Position.Y, 1, false)
 	GAME:FadeIn(30)
-	SOUND:PlayBGM("UNK_BGM_MT_BRISTLE.ogg", true)
+	SOUND:PlayBGM("BGM_DUN_MtBristle.ogg", true)
 	GROUND:MoveToPosition(CH('Marill'), 272, 160, false, 1)
 	GROUND:MoveToPosition(CH('PLAYER'), 292, 184, false, 1)
 	GROUND:MoveToPosition(CH('PARTNER'), 252, 184, false, 1)
